@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload.FeatureValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.FeatureValue
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesPayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId", deprecated: false
 
@@ -38,13 +38,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.WriteFeatureValuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
   field :entity_id, 2, type: :string, json_name: "entityId", deprecated: false
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse.FeatureDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse.Header do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
 
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse.EntityView.Data do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse.EntityView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId"
 
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Google.Cloud.Aiplatform.V1.ReadFeatureValuesResponse.Header
 
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StreamingReadFeatureValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type, 1, type: :string, json_name: "entityType", deprecated: false
   field :entity_ids, 2, repeated: true, type: :string, json_name: "entityIds", deprecated: false
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureValue.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generate_time, 1, type: Google.Protobuf.Timestamp, json_name: "generateTime"
 end
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StructValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.StructFieldValue
 end
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StructFieldValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1.FeatureValue
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureValueList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.FeatureValue
 end
@@ -205,7 +205,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeaturestoreOnlineServingService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.FeaturestoreOnlineServingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ReadFeatureValues,
       Google.Cloud.Aiplatform.V1.ReadFeatureValuesRequest,

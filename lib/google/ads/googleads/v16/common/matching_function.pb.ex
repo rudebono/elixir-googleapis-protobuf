@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Common.MatchingFunction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :function_string, 5, proto3_optional: true, type: :string, json_name: "functionString"
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.Operand.ConstantOperand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :constant_operand_value, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.Operand.FeedAttributeOperand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :feed_id, 3, proto3_optional: true, type: :int64, json_name: "feedId"
   field :feed_attribute_id, 4, proto3_optional: true, type: :int64, json_name: "feedAttributeId"
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.Operand.FunctionOperand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :matching_function, 1,
     type: Google.Ads.Googleads.V16.Common.MatchingFunction,
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.Operand.RequestContextOperand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :context_type, 1,
     type:
@@ -67,7 +67,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.Operand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :function_argument_operand, 0
 

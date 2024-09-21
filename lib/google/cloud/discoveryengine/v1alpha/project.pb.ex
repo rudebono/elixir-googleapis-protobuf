@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.Project.ServiceTerms.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :TERMS_ACCEPTED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Project.ServiceTerms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :version, 2, type: :string
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Project.ServiceTermsMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Discoveryengine.V1alpha.Project.ServiceTerms
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Project do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Sensitiveaction.Logging.V1.SensitiveAction.SourceLogId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_container, 1, type: :string, json_name: "resourceContainer"
   field :log_time, 2, type: Google.Protobuf.Timestamp, json_name: "logTime"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Sensitiveaction.Logging.V1.SensitiveAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action_type, 1, type: :string, json_name: "actionType"
   field :action_time, 2, type: Google.Protobuf.Timestamp, json_name: "actionTime"

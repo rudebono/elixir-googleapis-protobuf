@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :CONFIG, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SPARK, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Service do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :DATAPROC, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.JobEvent.ExecutionTrigger do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EXECUTION_TRIGGER_UNSPECIFIED, 0
   field :TASK_CONFIG, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :START, 1
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail.Engine do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENGINE_UNSPECIFIED, 0
   field :SPARK_SQL, 1
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :RESOURCE_IAM_POLICY_UPDATE, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity.EntityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.ScanType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SCAN_TYPE_UNSPECIFIED, 0
   field :DATA_PROFILE, 1
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Trigger do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TRIGGER_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.Scope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SCOPE_UNSPECIFIED, 0
   field :FULL, 1
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.RuleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RULE_TYPE_UNSPECIFIED, 0
   field :NON_NULL_EXPECTATION, 1
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.EvaluationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVALUATION_TYPE_UNSPECIFIED, 0
   field :PER_ROW, 1
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.Result do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :PASSED, 1
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity, 1, type: :string
   field :type, 2, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType, enum: true
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partition, 1, type: :string
   field :entity, 2, type: :string
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: :string
 end
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.JobEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -306,7 +306,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent.QueryDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_id, 1, type: :string, json_name: "queryId"
   field :query_text, 2, type: :string, json_name: "queryText"
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SessionEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :detail, 0
 
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity, 1, type: :string, deprecated: false
 
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GovernanceEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message, 1, type: :string
 
@@ -364,7 +364,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :row_count, 1, type: :int64, json_name: "rowCount"
 end
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionPassedEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :bool
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.DimensionScoreEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult.ColumnScoreEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
@@ -399,7 +399,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :row_count, 1, type: :int64, json_name: "rowCount"
   field :passed, 2, type: :bool
@@ -428,7 +428,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataProfileAppliedConfigs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sampling_percent, 1, type: :float, json_name: "samplingPercent"
   field :row_filter_applied, 2, type: :bool, json_name: "rowFilterApplied"
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.DataQualityAppliedConfigs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sampling_percent, 1, type: :float, json_name: "samplingPercent"
   field :row_filter_applied, 2, type: :bool, json_name: "rowFilterApplied"
@@ -447,7 +447,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult.State,
@@ -459,7 +459,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bigquery_export_result, 1,
     type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult.BigQueryExportResult,
@@ -469,7 +469,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -515,7 +515,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :job_id, 1, type: :string, json_name: "jobId"
   field :data_source, 2, type: :string, json_name: "dataSource"

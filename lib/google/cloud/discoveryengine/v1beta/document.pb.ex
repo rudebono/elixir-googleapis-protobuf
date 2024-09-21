@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.Document.Content do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Document.IndexStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_time, 1, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :error_samples, 2, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 

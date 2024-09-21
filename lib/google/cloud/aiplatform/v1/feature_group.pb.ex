@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.FeatureGroup.BigQuery.TimeSeries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :timestamp_column, 1, type: :string, json_name: "timestampColumn", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureGroup.BigQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :big_query_source, 1,
     type: Google.Cloud.Aiplatform.V1.BigQuerySource,
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureGroup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Netapp.V1.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Backup.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MANUAL, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Backup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Netapp.V1.Backup.State, enum: true, deprecated: false
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Netapp.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Netapp.V1.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Netapp.V1.CreateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Netapp.V1.UpdateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.SuggestTravelAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :language_option, 2, type: :string, json_name: "languageOption", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SuggestTravelAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hotel_asset_suggestions, 1,
     repeated: true,
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.HotelAssetSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
   field :final_url, 2, type: :string, json_name: "finalUrl"
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.HotelTextAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.HotelImageAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -80,7 +80,7 @@ defmodule Google.Ads.Googleads.V16.Services.TravelAssetSuggestionService.Service
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.TravelAssetSuggestionService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :SuggestTravelAssets,
       Google.Ads.Googleads.V16.Services.SuggestTravelAssetsRequest,

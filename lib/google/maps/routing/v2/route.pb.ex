@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routing.V2.Route.RouteLocalizedValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distance, 1, type: Google.Type.LocalizedText
   field :duration, 2, type: Google.Type.LocalizedText
@@ -12,7 +12,7 @@ end
 defmodule Google.Maps.Routing.V2.Route do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :route_labels, 13,
     repeated: true,
@@ -48,7 +48,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :toll_info, 2, type: Google.Maps.Routing.V2.TollInfo, json_name: "tollInfo"
 
@@ -69,7 +69,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :toll_info, 1, type: Google.Maps.Routing.V2.TollInfo, json_name: "tollInfo"
 
@@ -82,7 +82,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStepTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :speed_reading_intervals, 1,
     repeated: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLeg.RouteLegLocalizedValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distance, 1, type: Google.Type.LocalizedText
   field :duration, 2, type: Google.Type.LocalizedText
@@ -103,7 +103,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLeg.StepsOverview.MultiModalSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :step_start_index, 1, proto3_optional: true, type: :int32, json_name: "stepStartIndex"
   field :step_end_index, 2, proto3_optional: true, type: :int32, json_name: "stepEndIndex"
@@ -121,7 +121,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLeg.StepsOverview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :multi_modal_segments, 1,
     repeated: true,
@@ -132,7 +132,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLeg do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -158,7 +158,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStep.RouteLegStepLocalizedValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distance, 1, type: Google.Type.LocalizedText
   field :static_duration, 3, type: Google.Type.LocalizedText, json_name: "staticDuration"
@@ -167,7 +167,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStep do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :static_duration, 2, type: Google.Protobuf.Duration, json_name: "staticDuration"
@@ -200,7 +200,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStepTransitDetails.TransitStopDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :arrival_stop, 1, type: Google.Maps.Routing.V2.TransitStop, json_name: "arrivalStop"
   field :arrival_time, 2, type: Google.Protobuf.Timestamp, json_name: "arrivalTime"
@@ -211,7 +211,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStepTransitDetails.TransitDetailsLocalizedValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :arrival_time, 1, type: Google.Maps.Routing.V2.LocalizedTime, json_name: "arrivalTime"
   field :departure_time, 2, type: Google.Maps.Routing.V2.LocalizedTime, json_name: "departureTime"
@@ -220,7 +220,7 @@ end
 defmodule Google.Maps.Routing.V2.RouteLegStepTransitDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stop_details, 1,
     type: Google.Maps.Routing.V2.RouteLegStepTransitDetails.TransitStopDetails,

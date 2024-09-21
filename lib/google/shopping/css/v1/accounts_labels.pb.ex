@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Css.V1.AccountLabel.LabelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LABEL_TYPE_UNSPECIFIED, 0
   field :MANUAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Css.V1.AccountLabel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :label_id, 2, type: :int64, json_name: "labelId", deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Shopping.Css.V1.ListAccountLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -39,7 +39,7 @@ end
 defmodule Google.Shopping.Css.V1.ListAccountLabelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :account_labels, 1,
     repeated: true,
@@ -52,7 +52,7 @@ end
 defmodule Google.Shopping.Css.V1.CreateAccountLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Shopping.Css.V1.UpdateAccountLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :account_label, 1,
     type: Google.Shopping.Css.V1.AccountLabel,
@@ -76,7 +76,7 @@ end
 defmodule Google.Shopping.Css.V1.DeleteAccountLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -86,7 +86,7 @@ defmodule Google.Shopping.Css.V1.AccountLabelsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.css.v1.AccountLabelsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListAccountLabels,
       Google.Shopping.Css.V1.ListAccountLabelsRequest,

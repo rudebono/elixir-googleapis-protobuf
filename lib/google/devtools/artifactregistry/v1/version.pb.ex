@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.VersionView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VERSION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Version do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 3, type: :string
@@ -29,7 +29,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -41,7 +41,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -50,7 +50,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :view, 2, type: Google.Devtools.Artifactregistry.V1.VersionView, enum: true
@@ -59,7 +59,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.DeleteVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :force, 2, type: :bool
@@ -68,7 +68,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string, deprecated: false
@@ -78,7 +78,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :failed_versions, 2, repeated: true, type: :string, json_name: "failedVersions"
 end

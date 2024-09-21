@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.ColumnSpec.CorrelatedColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_spec_id, 1, type: :string, json_name: "columnSpecId"
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.ColumnSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_type, 2, type: Google.Cloud.Automl.V1beta1.DataType, json_name: "dataType"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.Condition.QueryTerm do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :full_match, 2, type: :bool, json_name: "fullMatch"
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Condition.TimeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_terms, 2,
     repeated: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Control.BoostAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :boost, 1, type: :float, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Control.FilterAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :data_store, 2, type: :string, json_name: "dataStore", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Control.RedirectAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :redirect_uri, 1, type: :string, json_name: "redirectUri", deprecated: false
 end
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Control.SynonymsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :synonyms, 1, repeated: true, type: :string
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Control do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :action, 0
 

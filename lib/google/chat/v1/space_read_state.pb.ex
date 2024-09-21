@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.SpaceReadState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Chat.V1.GetSpaceReadStateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Chat.V1.UpdateSpaceReadStateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :space_read_state, 1,
     type: Google.Chat.V1.SpaceReadState,

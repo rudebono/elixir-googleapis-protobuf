@@ -1,7 +1,7 @@
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension.Component do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMPONENT_UNSPECIFIED, 0
   field :COMPONENT_PARSER, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.ParsedExpr do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :expr, 2, type: Google.Api.Expr.V1alpha1.Expr
   field :source_info, 3, type: Google.Api.Expr.V1alpha1.SourceInfo, json_name: "sourceInfo"
@@ -21,7 +21,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.Ident do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.Select do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operand, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :field, 2, type: :string
@@ -39,7 +39,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.Call do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target, 1, type: Google.Api.Expr.V1alpha1.Expr
   field :function, 2, type: :string
@@ -49,7 +49,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :elements, 1, repeated: true, type: Google.Api.Expr.V1alpha1.Expr
   field :optional_indices, 2, repeated: true, type: :int32, json_name: "optionalIndices"
@@ -58,7 +58,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :key_kind, 0
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.CreateStruct do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message_name, 1, type: :string, json_name: "messageName"
   field :entries, 2, repeated: true, type: Google.Api.Expr.V1alpha1.Expr.CreateStruct.Entry
@@ -81,7 +81,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr.Comprehension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :iter_var, 1, type: :string, json_name: "iterVar"
   field :iter_var2, 8, type: :string, json_name: "iterVar2"
@@ -96,7 +96,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Expr do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :expr_kind, 0
 
@@ -134,7 +134,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.Constant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :constant_kind, 0
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension.Version do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :major, 1, type: :int64
   field :minor, 2, type: :int64
@@ -176,7 +176,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.Extension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -192,7 +192,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.PositionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: :int32
@@ -201,7 +201,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourceInfo.MacroCallsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :int64
   field :value, 2, type: Google.Api.Expr.V1alpha1.Expr
@@ -210,7 +210,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :syntax_version, 1, type: :string, json_name: "syntaxVersion"
   field :location, 2, type: :string
@@ -233,7 +233,7 @@ end
 defmodule Google.Api.Expr.V1alpha1.SourcePosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :offset, 2, type: :int32

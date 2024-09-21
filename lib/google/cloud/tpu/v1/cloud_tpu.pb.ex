@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Tpu.V1.Node.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Node.Health do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HEALTH_UNSPECIFIED, 0
   field :HEALTHY, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Node.ApiVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :API_VERSION_UNSPECIFIED, 0
   field :V1_ALPHA1, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Symptom.SymptomType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SYMPTOM_TYPE_UNSPECIFIED, 0
   field :LOW_MEMORY, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Tpu.V1.SchedulingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :preemptible, 1, type: :bool
   field :reserved, 2, type: :bool
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Tpu.V1.NetworkEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Node.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Node do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 3, type: :string
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListNodesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Tpu.V1.Node
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Tpu.V1.GetNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Tpu.V1.CreateNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :node_id, 2, type: :string, json_name: "nodeId"
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Tpu.V1.DeleteNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ReimageNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :tensorflow_version, 2, type: :string, json_name: "tensorflowVersion"
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Tpu.V1.StopNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Tpu.V1.StartNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Tpu.V1.TensorFlowVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Tpu.V1.GetTensorFlowVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListTensorFlowVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tensorflow_versions, 1,
     repeated: true,
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Tpu.V1.AcceleratorType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Tpu.V1.GetAcceleratorTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Tpu.V1.ListAcceleratorTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :accelerator_types, 1,
     repeated: true,
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Tpu.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -304,7 +304,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Symptom do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
@@ -320,7 +320,7 @@ end
 defmodule Google.Cloud.Tpu.V1.Tpu.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.tpu.v1.Tpu", protoc_gen_elixir_version: "0.12.0"
+  use GRPC.Service, name: "google.cloud.tpu.v1.Tpu", protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListNodes, Google.Cloud.Tpu.V1.ListNodesRequest, Google.Cloud.Tpu.V1.ListNodesResponse
 

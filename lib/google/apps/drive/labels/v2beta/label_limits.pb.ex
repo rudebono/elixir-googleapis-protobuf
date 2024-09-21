@@ -1,7 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2beta.LabelLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :max_title_length, 2, type: :int32, json_name: "maxTitleLength"
@@ -18,7 +18,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.FieldLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :max_id_length, 1, type: :int32, json_name: "maxIdLength"
   field :max_display_name_length, 2, type: :int32, json_name: "maxDisplayNameLength"
@@ -44,7 +44,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.ListLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :max_entries, 1, type: :int32, json_name: "maxEntries"
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.TextLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_length, 1, type: :int32, json_name: "minLength"
   field :max_length, 2, type: :int32, json_name: "maxLength"
@@ -61,7 +61,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.LongTextLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_length, 1, type: :int32, json_name: "minLength"
   field :max_length, 2, type: :int32, json_name: "maxLength"
@@ -70,7 +70,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.IntegerLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_value, 1, type: :int64, json_name: "minValue"
   field :max_value, 2, type: :int64, json_name: "maxValue"
@@ -79,7 +79,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.DateLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_value, 1, type: Google.Type.Date, json_name: "minValue"
   field :max_value, 2, type: Google.Type.Date, json_name: "maxValue"
@@ -88,7 +88,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.SelectionLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :list_limits, 1, type: Google.Apps.Drive.Labels.V2beta.ListLimits, json_name: "listLimits"
   field :max_id_length, 2, type: :int32, json_name: "maxIdLength"
@@ -100,7 +100,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2beta.UserLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :list_limits, 1, type: Google.Apps.Drive.Labels.V2beta.ListLimits, json_name: "listLimits"
 end

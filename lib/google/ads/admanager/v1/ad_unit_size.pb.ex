@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.AdUnitSize do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :size, 1, type: Google.Ads.Admanager.V1.Size, deprecated: false
 

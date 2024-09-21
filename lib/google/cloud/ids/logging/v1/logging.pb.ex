@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Ids.Logging.V1.ThreatLog.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :LOW, 2
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Ids.Logging.V1.ThreatLog.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DIRECTION_UNDEFINED, 0
   field :CLIENT_TO_SERVER, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Ids.Logging.V1.ThreatLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :threat_id, 13, type: :string, json_name: "threatId"
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Ids.Logging.V1.TrafficLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :elapsed_time, 2, type: Google.Protobuf.Duration, json_name: "elapsedTime"

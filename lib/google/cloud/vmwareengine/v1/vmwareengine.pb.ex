@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateCloudsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateCloudsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_clouds, 1,
     repeated: true,
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetPrivateCloudRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreatePrivateCloudRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :private_cloud_id, 2, type: :string, json_name: "privateCloudId", deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdatePrivateCloudRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_cloud, 1,
     type: Google.Cloud.Vmwareengine.V1.PrivateCloud,
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeletePrivateCloudRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UndeletePrivateCloudRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Vmwareengine.V1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNodesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :nodes, 1, repeated: true, type: Google.Cloud.Vmwareengine.V1.Node
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListExternalAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListExternalAddressesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :external_addresses, 1,
     repeated: true,
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.FetchNetworkPolicyExternalAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_policy, 1, type: :string, json_name: "networkPolicy", deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.FetchNetworkPolicyExternalAddressesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :external_addresses, 1,
     repeated: true,
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetExternalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateExternalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateExternalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -279,7 +279,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteExternalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListSubnetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListSubnetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subnets, 1, repeated: true, type: Google.Cloud.Vmwareengine.V1.Subnet
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetSubnetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateSubnetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -329,7 +329,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListExternalAccessRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListExternalAccessRulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :external_access_rules, 1,
     repeated: true,
@@ -355,7 +355,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetExternalAccessRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateExternalAccessRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -383,7 +383,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateExternalAccessRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -401,7 +401,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteExternalAccessRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -410,7 +410,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListLoggingServersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -422,7 +422,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListLoggingServersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :logging_servers, 1,
     repeated: true,
@@ -436,7 +436,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetLoggingServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -444,7 +444,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateLoggingServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateLoggingServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -478,7 +478,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteLoggingServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -487,7 +487,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNodeTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -521,7 +521,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNodeTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :node_types, 1,
     repeated: true,
@@ -535,7 +535,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetNodeTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -543,7 +543,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ShowNsxCredentialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_cloud, 1, type: :string, json_name: "privateCloud", deprecated: false
 end
@@ -551,7 +551,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ShowVcenterCredentialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_cloud, 1, type: :string, json_name: "privateCloud", deprecated: false
   field :username, 2, type: :string, deprecated: false
@@ -560,7 +560,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ResetNsxCredentialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_cloud, 1, type: :string, json_name: "privateCloud", deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -569,7 +569,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ResetVcenterCredentialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_cloud, 1, type: :string, json_name: "privateCloud", deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -579,7 +579,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListHcxActivationKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hcx_activation_keys, 1,
     repeated: true,
@@ -593,7 +593,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListHcxActivationKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -603,7 +603,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetHcxActivationKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -611,7 +611,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateHcxActivationKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -631,7 +631,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetDnsForwardingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -639,7 +639,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateDnsForwardingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dns_forwarding, 1,
     type: Google.Cloud.Vmwareengine.V1.DnsForwarding,
@@ -657,7 +657,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateNetworkPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :network_peering_id, 2, type: :string, json_name: "networkPeeringId", deprecated: false
@@ -673,7 +673,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteNetworkPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -682,7 +682,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetNetworkPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -690,7 +690,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNetworkPeeringsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -702,7 +702,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateNetworkPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_peering, 1,
     type: Google.Cloud.Vmwareengine.V1.NetworkPeering,
@@ -720,7 +720,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNetworkPeeringsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_peerings, 1,
     repeated: true,
@@ -734,7 +734,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPeeringRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -745,7 +745,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPeeringRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :peering_routes, 1,
     repeated: true,
@@ -758,7 +758,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNetworkPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -770,7 +770,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListNetworkPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_policies, 1,
     repeated: true,
@@ -784,7 +784,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetNetworkPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -792,7 +792,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateNetworkPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_policy, 1,
     type: Google.Cloud.Vmwareengine.V1.NetworkPolicy,
@@ -810,7 +810,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateNetworkPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :network_policy_id, 2, type: :string, json_name: "networkPolicyId", deprecated: false
@@ -826,7 +826,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteNetworkPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -835,7 +835,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListManagementDnsZoneBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -847,7 +847,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListManagementDnsZoneBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :management_dns_zone_bindings, 1,
     repeated: true,
@@ -861,7 +861,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetManagementDnsZoneBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -869,7 +869,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateManagementDnsZoneBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -889,7 +889,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateManagementDnsZoneBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -907,7 +907,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteManagementDnsZoneBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -916,7 +916,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.RepairManagementDnsZoneBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -925,7 +925,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreateVmwareEngineNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -945,7 +945,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdateVmwareEngineNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vmware_engine_network, 1,
     type: Google.Cloud.Vmwareengine.V1.VmwareEngineNetwork,
@@ -963,7 +963,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeleteVmwareEngineNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -973,7 +973,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetVmwareEngineNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -981,7 +981,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListVmwareEngineNetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -993,7 +993,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListVmwareEngineNetworksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vmware_engine_networks, 1,
     repeated: true,
@@ -1007,7 +1007,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.CreatePrivateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1027,7 +1027,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetPrivateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1035,7 +1035,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1047,7 +1047,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_connections, 1,
     repeated: true,
@@ -1061,7 +1061,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.UpdatePrivateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :private_connection, 1,
     type: Google.Cloud.Vmwareengine.V1.PrivateConnection,
@@ -1079,7 +1079,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.DeletePrivateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1088,7 +1088,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1098,7 +1098,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.ListPrivateConnectionPeeringRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :peering_routes, 1,
     repeated: true,
@@ -1111,7 +1111,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GrantDnsBindPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :principal, 2, type: Google.Cloud.Vmwareengine.V1.Principal, deprecated: false
@@ -1121,7 +1121,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.RevokeDnsBindPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :principal, 2, type: Google.Cloud.Vmwareengine.V1.Principal, deprecated: false
@@ -1131,7 +1131,7 @@ end
 defmodule Google.Cloud.Vmwareengine.V1.GetDnsBindPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1141,7 +1141,7 @@ defmodule Google.Cloud.Vmwareengine.V1.VmwareEngine.Service do
 
   use GRPC.Service,
     name: "google.cloud.vmwareengine.v1.VmwareEngine",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListPrivateClouds,
       Google.Cloud.Vmwareengine.V1.ListPrivateCloudsRequest,

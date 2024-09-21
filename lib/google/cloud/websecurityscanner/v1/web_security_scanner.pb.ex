@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.DeleteScanConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.GetScanConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.UpdateScanConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :scan_config, 2,
     type: Google.Cloud.Websecurityscanner.V1.ScanConfig,
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :scan_configs, 1,
     repeated: true,
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.StartScanRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.GetScanRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListScanRunsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :scan_runs, 1,
     repeated: true,
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.StopScanRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListCrawledUrlsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :crawled_urls, 1,
     repeated: true,
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.GetFindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :findings, 1, repeated: true, type: Google.Cloud.Websecurityscanner.V1.Finding
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
 end
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.ListFindingTypeStatsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :finding_type_stats, 1,
     repeated: true,
@@ -183,7 +183,7 @@ defmodule Google.Cloud.Websecurityscanner.V1.WebSecurityScanner.Service do
 
   use GRPC.Service,
     name: "google.cloud.websecurityscanner.v1.WebSecurityScanner",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateScanConfig,
       Google.Cloud.Websecurityscanner.V1.CreateScanConfigRequest,

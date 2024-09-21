@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities.Capability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :SPEECH, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :capabilities, 1,
     repeated: true,

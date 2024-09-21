@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata.TargetColumnCorrelationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.CorrelationStats
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.TablesDatasetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :primary_table_spec_id, 1, type: :string, json_name: "primaryTableSpecId"
   field :target_column_spec_id, 2, type: :string, json_name: "targetColumnSpecId"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.TablesModelMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :additional_optimization_objective_config, 0
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.TablesAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :score, 1, type: :float
 
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.TablesModelColumnInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_spec_name, 1, type: :string, json_name: "columnSpecName"
   field :column_display_name, 2, type: :string, json_name: "columnDisplayName"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.FieldType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FIELD_TYPE_UNSPECIFIED, 0
   field :OBJECT, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.IndexableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :INDEXABLE_OPTION_UNSPECIFIED, 0
   field :INDEXABLE_ENABLED, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.DynamicFacetableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DYNAMIC_FACETABLE_OPTION_UNSPECIFIED, 0
   field :DYNAMIC_FACETABLE_ENABLED, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.SearchableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :SEARCHABLE_ENABLED, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.RetrievableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RETRIEVABLE_OPTION_UNSPECIFIED, 0
   field :RETRIEVABLE_ENABLED, 1
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.CompletableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMPLETABLE_OPTION_UNSPECIFIED, 0
   field :COMPLETABLE_ENABLED, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.FilterableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FILTERABLE_OPTION_UNSPECIFIED, 0
   field :FILTERABLE_ENABLED, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig.AdvancedSiteSearchDataSource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ADVANCED_SITE_SEARCH_DATA_SOURCE_UNSPECIFIED, 0
   field :METATAGS, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FieldConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_path, 1, type: :string, json_name: "fieldPath", deprecated: false
 

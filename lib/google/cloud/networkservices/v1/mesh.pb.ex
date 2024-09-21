@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.Mesh.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.Mesh do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 9, type: :string, json_name: "selfLink", deprecated: false
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListMeshesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListMeshesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :meshes, 1, repeated: true, type: Google.Cloud.Networkservices.V1.Mesh
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetMeshRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateMeshRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :mesh_id, 2, type: :string, json_name: "meshId", deprecated: false
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateMeshRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteMeshRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

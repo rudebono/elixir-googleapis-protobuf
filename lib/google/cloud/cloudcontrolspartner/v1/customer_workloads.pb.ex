@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1.Workload.Partner do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PARTNER_UNSPECIFIED, 0
   field :PARTNER_LOCAL_CONTROLS_BY_S3NS, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.WorkloadOnboardingStep.Step do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STEP_UNSPECIFIED, 0
   field :EKM_PROVISIONED, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.Workload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :folder_id, 2, type: :int64, json_name: "folderId", deprecated: false
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.ListWorkloadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.ListWorkloadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :workloads, 1, repeated: true, type: Google.Cloud.Cloudcontrolspartner.V1.Workload
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.GetWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.WorkloadOnboardingState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :onboarding_steps, 1,
     repeated: true,
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.WorkloadOnboardingStep do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :step, 1,
     type: Google.Cloud.Cloudcontrolspartner.V1.WorkloadOnboardingStep.Step,

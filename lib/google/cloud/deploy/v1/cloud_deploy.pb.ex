@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Deploy.V1.SkaffoldSupportState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SKAFFOLD_SUPPORT_STATE_UNSPECIFIED, 0
   field :SKAFFOLD_SUPPORT_STATE_SUPPORTED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Deploy.V1.BackoffMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BACKOFF_MODE_UNSPECIFIED, 0
   field :BACKOFF_MODE_LINEAR, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RepairState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REPAIR_STATE_UNSPECIFIED, 0
   field :REPAIR_STATE_SUCCEEDED, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig.ExecutionEnvironmentUsage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED, 0
   field :RENDER, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.RenderState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RENDER_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender.TargetRenderState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TARGET_RENDER_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout.ApprovalState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :APPROVAL_STATE_UNSPECIFIED, 0
   field :NEEDS_APPROVAL, 1
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Phase.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Job.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Deploy.V1.JobRun.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployJobRun.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Deploy.V1.VerifyJobRun.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PredeployJobRun.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PostdeployJobRun.FailureCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAILURE_CAUSE_UNSPECIFIED, 0
   field :CLOUD_BUILD_UNAVAILABLE, 1
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationRun.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :pipeline, 0
 
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage
 end
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Stage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_id, 1, type: :string, json_name: "targetId"
   field :profiles, 2, repeated: true, type: :string
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployParameters.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployParameters.MatchTargetLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -360,7 +360,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Strategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :deployment_strategy, 0
 
@@ -371,7 +371,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Predeploy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: :string, deprecated: false
 end
@@ -379,7 +379,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Postdeploy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: :string, deprecated: false
 end
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Standard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :verify, 1, type: :bool
   field :predeploy, 2, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
@@ -397,7 +397,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Canary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -420,7 +420,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CanaryDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :percentages, 1, repeated: true, type: :int32, deprecated: false
   field :verify, 2, type: :bool
@@ -431,7 +431,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment.PhaseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :phase_id, 1, type: :string, json_name: "phaseId", deprecated: false
   field :percentage, 2, type: :int32, deprecated: false
@@ -444,7 +444,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :phase_configs, 1,
     repeated: true,
@@ -456,7 +456,7 @@ end
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :http_route, 1, type: :string, json_name: "httpRoute", deprecated: false
   field :service, 2, type: :string, deprecated: false
@@ -478,7 +478,7 @@ end
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
   field :deployment, 2, type: :string, deprecated: false
@@ -494,7 +494,7 @@ end
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :service_definition, 0
 
@@ -512,7 +512,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CloudRunConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :automatic_traffic_control, 1, type: :bool, json_name: "automaticTrafficControl"
 
@@ -538,7 +538,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RuntimeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :runtime_config, 0
 
@@ -553,7 +553,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 3, type: :bool
   field :update_time, 4, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetsPresentCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: :bool
 
@@ -578,7 +578,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetsTypeCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: :bool
   field :error_details, 2, type: :string, json_name: "errorDetails"
@@ -587,7 +587,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PipelineCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pipeline_ready_condition, 1,
     type: Google.Cloud.Deploy.V1.PipelineReadyCondition,
@@ -605,7 +605,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -617,7 +617,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListDeliveryPipelinesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :delivery_pipelines, 1,
     repeated: true,
@@ -631,7 +631,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetDeliveryPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -639,7 +639,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateDeliveryPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -660,7 +660,7 @@ end
 defmodule Google.Cloud.Deploy.V1.UpdateDeliveryPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -680,7 +680,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeleteDeliveryPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -693,7 +693,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RollbackTargetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: Google.Cloud.Deploy.V1.Rollout, deprecated: false
   field :starting_phase_id, 2, type: :string, json_name: "startingPhaseId", deprecated: false
@@ -702,7 +702,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RollbackTargetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_id, 2, type: :string, json_name: "targetId", deprecated: false
@@ -721,7 +721,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RollbackTargetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollback_config, 1,
     type: Google.Cloud.Deploy.V1.RollbackTargetConfig,
@@ -731,7 +731,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Target.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -740,7 +740,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -749,7 +749,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Target.DeployParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -758,7 +758,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :deployment_target, 0
 
@@ -831,7 +831,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ExecutionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :execution_environment, 0
 
@@ -868,7 +868,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DefaultPool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
   field :artifact_storage, 2, type: :string, json_name: "artifactStorage", deprecated: false
@@ -877,7 +877,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PrivatePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :worker_pool, 1, type: :string, json_name: "workerPool", deprecated: false
   field :service_account, 2, type: :string, json_name: "serviceAccount", deprecated: false
@@ -887,7 +887,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GkeCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :internal_ip, 2, type: :bool, json_name: "internalIp", deprecated: false
@@ -897,7 +897,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AnthosCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :membership, 1, type: :string, deprecated: false
 end
@@ -905,7 +905,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CloudRunLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
 end
@@ -913,7 +913,7 @@ end
 defmodule Google.Cloud.Deploy.V1.MultiTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_ids, 1, repeated: true, type: :string, json_name: "targetIds", deprecated: false
 end
@@ -921,7 +921,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_target_type, 1, type: :string, json_name: "customTargetType", deprecated: false
 end
@@ -929,7 +929,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -941,7 +941,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListTargetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.Target
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -951,7 +951,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetTargetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -959,7 +959,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateTargetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :target_id, 2, type: :string, json_name: "targetId", deprecated: false
@@ -971,7 +971,7 @@ end
 defmodule Google.Cloud.Deploy.V1.UpdateTargetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -987,7 +987,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeleteTargetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -999,7 +999,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTargetType.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1008,7 +1008,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTargetType.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1017,7 +1017,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTargetType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :definition, 0
 
@@ -1064,7 +1064,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTargetSkaffoldActions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :render_action, 1, type: :string, json_name: "renderAction", deprecated: false
   field :deploy_action, 2, type: :string, json_name: "deployAction", deprecated: false
@@ -1079,7 +1079,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGitSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repo, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -1089,7 +1089,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -1098,7 +1098,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCBRepoSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -1108,7 +1108,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SkaffoldModules do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1129,7 +1129,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListCustomTargetTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1141,7 +1141,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListCustomTargetTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_target_types, 1,
     repeated: true,
@@ -1155,7 +1155,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetCustomTargetTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1163,7 +1163,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateCustomTargetTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1184,7 +1184,7 @@ end
 defmodule Google.Cloud.Deploy.V1.UpdateCustomTargetTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1204,7 +1204,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeleteCustomTargetTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1216,7 +1216,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetAttribute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1225,7 +1225,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -1238,7 +1238,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRender do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rendering_build, 1, type: :string, json_name: "renderingBuild", deprecated: false
 
@@ -1262,7 +1262,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.ReleaseReadyCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: :bool
 end
@@ -1270,7 +1270,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.SkaffoldSupportedCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: :bool
 
@@ -1291,7 +1291,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.ReleaseCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :release_ready_condition, 1,
     type: Google.Cloud.Deploy.V1.Release.ReleaseReadyCondition,
@@ -1305,7 +1305,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1314,7 +1314,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1323,7 +1323,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.TargetArtifactsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.TargetArtifact
@@ -1332,7 +1332,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.TargetRendersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.Release.TargetRender
@@ -1341,7 +1341,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release.DeployParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1350,7 +1350,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Release do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -1440,7 +1440,7 @@ end
 defmodule Google.Cloud.Deploy.V1.BuildArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image, 3, type: :string
   field :tag, 2, type: :string
@@ -1449,7 +1449,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :skaffold_config_path, 1,
     type: :string,
@@ -1463,7 +1463,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifactsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifact
@@ -1472,7 +1472,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TargetArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :uri, 0
 
@@ -1496,7 +1496,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :artifact_uri, 1, type: :string, json_name: "artifactUri", deprecated: false
 
@@ -1510,7 +1510,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CloudRunRenderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
 end
@@ -1518,7 +1518,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RenderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cloud_run, 1,
     type: Google.Cloud.Deploy.V1.CloudRunRenderMetadata,
@@ -1531,7 +1531,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListReleasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1543,7 +1543,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListReleasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :releases, 1, repeated: true, type: Google.Cloud.Deploy.V1.Release
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1553,7 +1553,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1561,7 +1561,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :release_id, 2, type: :string, json_name: "releaseId", deprecated: false
@@ -1573,7 +1573,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1582,7 +1582,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1591,7 +1591,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Rollout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -1663,7 +1663,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cloud_run, 1,
     type: Google.Cloud.Deploy.V1.CloudRunMetadata,
@@ -1677,7 +1677,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployJobRunMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cloud_run, 1,
     type: Google.Cloud.Deploy.V1.CloudRunMetadata,
@@ -1695,7 +1695,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CloudRunMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
 
@@ -1712,7 +1712,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomTargetDeployMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :skip_message, 1, type: :string, json_name: "skipMessage", deprecated: false
 end
@@ -1720,7 +1720,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationRolloutMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :promote_automation_run, 1,
     type: :string,
@@ -1743,7 +1743,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomMetadata.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1752,7 +1752,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CustomMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -1764,7 +1764,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Phase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :jobs, 0
 
@@ -1788,7 +1788,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeploymentJobs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :deploy_job, 1,
     type: Google.Cloud.Deploy.V1.Job,
@@ -1814,7 +1814,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ChildRolloutJobs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_rollout_jobs, 1,
     repeated: true,
@@ -1832,7 +1832,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :job_type, 0
 
@@ -1881,19 +1881,19 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.VerifyJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.PredeployJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: :string, deprecated: false
 end
@@ -1901,7 +1901,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PostdeployJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: :string, deprecated: false
 end
@@ -1909,19 +1909,19 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateChildRolloutJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.AdvanceChildRolloutJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.ListRolloutsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1933,7 +1933,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListRolloutsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollouts, 1, repeated: true, type: Google.Cloud.Deploy.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1943,7 +1943,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1951,7 +1951,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
@@ -1964,7 +1964,7 @@ end
 defmodule Google.Cloud.Deploy.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -1987,7 +1987,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :approved, 2, type: :bool, deprecated: false
@@ -1996,13 +1996,13 @@ end
 defmodule Google.Cloud.Deploy.V1.ApproveRolloutResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.AdvanceRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
@@ -2011,13 +2011,13 @@ end
 defmodule Google.Cloud.Deploy.V1.AdvanceRolloutResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.CancelRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2025,13 +2025,13 @@ end
 defmodule Google.Cloud.Deploy.V1.CancelRolloutResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.IgnoreJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
@@ -2041,13 +2041,13 @@ end
 defmodule Google.Cloud.Deploy.V1.IgnoreJobResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.RetryJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: :string, deprecated: false
   field :phase_id, 2, type: :string, json_name: "phaseId", deprecated: false
@@ -2057,13 +2057,13 @@ end
 defmodule Google.Cloud.Deploy.V1.RetryJobResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.AbandonReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2071,13 +2071,13 @@ end
 defmodule Google.Cloud.Deploy.V1.AbandonReleaseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.JobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :job_run, 0
 
@@ -2137,7 +2137,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :build, 1, type: :string, deprecated: false
 
@@ -2155,7 +2155,7 @@ end
 defmodule Google.Cloud.Deploy.V1.VerifyJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :build, 1, type: :string, deprecated: false
   field :artifact_uri, 2, type: :string, json_name: "artifactUri", deprecated: false
@@ -2173,7 +2173,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PredeployJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :build, 1, type: :string, deprecated: false
 
@@ -2189,7 +2189,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PostdeployJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :build, 1, type: :string, deprecated: false
 
@@ -2205,7 +2205,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateChildRolloutJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: :string, deprecated: false
   field :rollout_phase_id, 2, type: :string, json_name: "rolloutPhaseId", deprecated: false
@@ -2214,7 +2214,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AdvanceChildRolloutJobRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: :string, deprecated: false
   field :rollout_phase_id, 2, type: :string, json_name: "rolloutPhaseId", deprecated: false
@@ -2223,7 +2223,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListJobRunsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -2235,7 +2235,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListJobRunsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :job_runs, 1, repeated: true, type: Google.Cloud.Deploy.V1.JobRun, json_name: "jobRuns"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -2245,7 +2245,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetJobRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2253,7 +2253,7 @@ end
 defmodule Google.Cloud.Deploy.V1.TerminateJobRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2261,13 +2261,13 @@ end
 defmodule Google.Cloud.Deploy.V1.TerminateJobRunResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -2282,7 +2282,7 @@ end
 defmodule Google.Cloud.Deploy.V1.SkaffoldVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :version, 1, type: :string
 
@@ -2300,7 +2300,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2308,7 +2308,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Automation.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -2317,7 +2317,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Automation.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -2326,7 +2326,7 @@ end
 defmodule Google.Cloud.Deploy.V1.Automation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -2364,7 +2364,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationResourceSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.TargetAttribute
 end
@@ -2372,7 +2372,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :rule, 0
 
@@ -2398,7 +2398,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PromoteReleaseRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -2415,7 +2415,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AdvanceRolloutRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -2432,7 +2432,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RepairRolloutRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :jobs, 3, repeated: true, type: :string, deprecated: false
@@ -2442,7 +2442,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationRuleCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :targets_present_condition, 1,
     type: Google.Cloud.Deploy.V1.TargetsPresentCondition,
@@ -2453,7 +2453,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CreateAutomationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :automation_id, 2, type: :string, json_name: "automationId", deprecated: false
@@ -2465,7 +2465,7 @@ end
 defmodule Google.Cloud.Deploy.V1.UpdateAutomationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -2481,7 +2481,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeleteAutomationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -2493,7 +2493,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListAutomationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -2505,7 +2505,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListAutomationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :automations, 1, repeated: true, type: Google.Cloud.Deploy.V1.Automation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -2515,7 +2515,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetAutomationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2523,7 +2523,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AutomationRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -2586,7 +2586,7 @@ end
 defmodule Google.Cloud.Deploy.V1.PromoteReleaseOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_id, 1, type: :string, json_name: "targetId", deprecated: false
   field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -2597,7 +2597,7 @@ end
 defmodule Google.Cloud.Deploy.V1.AdvanceRolloutOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_phase, 5, type: :string, json_name: "sourcePhase", deprecated: false
   field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -2608,7 +2608,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RepairRolloutOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rollout, 1, type: :string, deprecated: false
 
@@ -2625,7 +2625,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RepairPhase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :repair_phase, 0
 
@@ -2636,7 +2636,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RetryPhase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :total_attempts, 1, type: :int64, json_name: "totalAttempts", deprecated: false
 
@@ -2652,7 +2652,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RetryAttempt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :attempt, 1, type: :int64, deprecated: false
   field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -2663,7 +2663,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RollbackAttempt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :destination_phase, 1, type: :string, json_name: "destinationPhase", deprecated: false
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
@@ -2674,7 +2674,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListAutomationRunsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -2686,7 +2686,7 @@ end
 defmodule Google.Cloud.Deploy.V1.ListAutomationRunsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :automation_runs, 1,
     repeated: true,
@@ -2700,7 +2700,7 @@ end
 defmodule Google.Cloud.Deploy.V1.GetAutomationRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2708,7 +2708,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CancelAutomationRunRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -2716,7 +2716,7 @@ end
 defmodule Google.Cloud.Deploy.V1.CancelAutomationRunResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
@@ -2724,7 +2724,7 @@ defmodule Google.Cloud.Deploy.V1.CloudDeploy.Service do
 
   use GRPC.Service,
     name: "google.cloud.deploy.v1.CloudDeploy",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListDeliveryPipelines,
       Google.Cloud.Deploy.V1.ListDeliveryPipelinesRequest,

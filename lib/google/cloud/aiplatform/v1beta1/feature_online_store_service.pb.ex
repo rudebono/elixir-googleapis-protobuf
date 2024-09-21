@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FEATURE_VIEW_DATA_FORMAT_UNSPECIFIED, 0
   field :KEY_VALUE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :KEY_VALUE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter.Operator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey.CompositeKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parts, 1, repeated: true, type: :string
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :key_oneof, 0
 
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :entity_id, 0
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse.FeatureNameValuePairList.FeatureNameValuePair do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse.FeatureNameValuePairList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :features, 1,
     repeated: true,
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :format, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingFetchFeatureValuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :data, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesResponse
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.Embedding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, repeated: true, type: :float, deprecated: false
 end
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.StringFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.NumericFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :Value, 0
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery.Parameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :approximate_neighbor_candidates, 1,
     type: :int32,
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :instance, 0
 
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
   field :query, 2, type: Google.Cloud.Aiplatform.V1beta1.NearestNeighborQuery, deprecated: false
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighbors.Neighbor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :distance, 2, type: :double
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighbors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :neighbors, 1,
     repeated: true,
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :nearest_neighbors, 1,
     type: Google.Cloud.Aiplatform.V1beta1.NearestNeighbors,
@@ -300,7 +300,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStoreService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.FeatureOnlineStoreService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :FetchFeatureValues,
       Google.Cloud.Aiplatform.V1beta1.FetchFeatureValuesRequest,

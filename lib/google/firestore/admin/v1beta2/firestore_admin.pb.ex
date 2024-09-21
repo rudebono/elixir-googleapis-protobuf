@@ -1,7 +1,7 @@
 defmodule Google.Firestore.Admin.V1beta2.CreateIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :index, 2, type: Google.Firestore.Admin.V1beta2.Index
@@ -10,7 +10,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ListIndexesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ListIndexesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :indexes, 1, repeated: true, type: Google.Firestore.Admin.V1beta2.Index
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -30,7 +30,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.GetIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -38,7 +38,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.DeleteIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.UpdateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field, 1, type: Google.Firestore.Admin.V1beta2.Field
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -55,7 +55,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.GetFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -63,7 +63,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ListFieldsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
@@ -74,7 +74,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ListFieldsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Firestore.Admin.V1beta2.Field
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -83,7 +83,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ExportDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
@@ -93,7 +93,7 @@ end
 defmodule Google.Firestore.Admin.V1beta2.ImportDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :collection_ids, 2, repeated: true, type: :string, json_name: "collectionIds"
@@ -105,7 +105,7 @@ defmodule Google.Firestore.Admin.V1beta2.FirestoreAdmin.Service do
 
   use GRPC.Service,
     name: "google.firestore.admin.v1beta2.FirestoreAdmin",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateIndex,
       Google.Firestore.Admin.V1beta2.CreateIndexRequest,

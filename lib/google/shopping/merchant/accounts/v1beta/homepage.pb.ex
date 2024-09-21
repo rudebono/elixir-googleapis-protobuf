@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Homepage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uri, 2, proto3_optional: true, type: :string, deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetHomepageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateHomepageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :homepage, 1, type: Google.Shopping.Merchant.Accounts.V1beta.Homepage, deprecated: false
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ClaimHomepageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UnclaimHomepageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -50,7 +50,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.HomepageService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.HomepageService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetHomepage,
       Google.Shopping.Merchant.Accounts.V1beta.GetHomepageRequest,

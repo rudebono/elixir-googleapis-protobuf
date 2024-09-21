@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecasting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation.AutoTransformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation.NumericTransformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation.CategoricalTransformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation.TimestampTransformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
   field :time_format, 2, type: :string, json_name: "timeFormat"
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation.TextTransformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_name, 1, type: :string, json_name: "columnName"
 end
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Transformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :transformation_detail, 0
 
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs.Granularity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :unit, 1, type: :string
   field :quantity, 2, type: :int64
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingInputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_column, 1, type: :string, json_name: "targetColumn"
   field :time_series_identifier_column, 2, type: :string, json_name: "timeSeriesIdentifierColumn"
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Schema.Trainingjob.Definition.AutoMlForecastingMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :train_cost_milli_node_hours, 1, type: :int64, json_name: "trainCostMilliNodeHours"
 end

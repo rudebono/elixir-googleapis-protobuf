@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery.Ranking do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :alpha, 1, proto3_optional: true, type: :float, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore.RagResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rag_corpus, 1, type: :string, json_name: "ragCorpus", deprecated: false
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest.VertexRagStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rag_corpora, 1, repeated: true, type: :string, json_name: "ragCorpora", deprecated: true
 
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts.Context do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_uri, 1, type: :string, json_name: "sourceUri"
   field :text, 2, type: :string
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.RagContexts.Context
 end
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveContextsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :contexts, 1, type: Google.Cloud.Aiplatform.V1beta1.RagContexts
 end
@@ -100,7 +100,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.VertexRagService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :RetrieveContexts,
       Google.Cloud.Aiplatform.V1beta1.RetrieveContextsRequest,

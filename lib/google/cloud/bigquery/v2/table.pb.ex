@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.TableReplicationInfo.ReplicationStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REPLICATION_STATUS_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetTableRequest.TableMetadataView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TABLE_METADATA_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableReplicationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_table, 1,
     type: Google.Cloud.Bigquery.V2.TableReference,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ViewDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ForeignViewDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :dialect, 7, type: :string, deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.MaterializedViewDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :last_refresh_time, 2, type: :int64, json_name: "lastRefreshTime", deprecated: false
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.MaterializedViewStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :refresh_watermark, 1,
     type: Google.Protobuf.Timestamp,
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.SnapshotDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :base_table_reference, 1,
     type: Google.Cloud.Bigquery.V2.TableReference,
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.CloneDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :base_table_reference, 1,
     type: Google.Cloud.Bigquery.V2.TableReference,
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Streamingbuffer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :estimated_bytes, 1, type: :uint64, json_name: "estimatedBytes", deprecated: false
   field :estimated_rows, 2, type: :uint64, json_name: "estimatedRows", deprecated: false
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Table.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Table.ResourceTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Table do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :etag, 2, type: :string, deprecated: false
@@ -386,7 +386,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -402,7 +402,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.InsertTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -412,7 +412,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -424,7 +424,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DeleteTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -434,7 +434,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListTablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -445,7 +445,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :use_legacy_sql, 1, type: Google.Protobuf.BoolValue, json_name: "useLegacySql"
 
@@ -457,7 +457,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatTable.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -466,7 +466,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :id, 2, type: :string
@@ -506,7 +506,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :etag, 2, type: :string
@@ -520,7 +520,7 @@ defmodule Google.Cloud.Bigquery.V2.TableService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.TableService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetTable, Google.Cloud.Bigquery.V2.GetTableRequest, Google.Cloud.Bigquery.V2.Table
 

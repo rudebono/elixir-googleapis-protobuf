@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest.TimeSeriesView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FULL, 0
   field :HEADERS, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Monitoring.V3.ListMonitoredResourceDescriptorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_descriptors, 1,
     repeated: true,
@@ -34,7 +34,7 @@ end
 defmodule Google.Monitoring.V3.GetMonitoredResourceDescriptorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
@@ -42,7 +42,7 @@ end
 defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -53,7 +53,7 @@ end
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metric_descriptors, 1,
     repeated: true,
@@ -66,7 +66,7 @@ end
 defmodule Google.Monitoring.V3.GetMetricDescriptorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
@@ -74,7 +74,7 @@ end
 defmodule Google.Monitoring.V3.CreateMetricDescriptorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -87,7 +87,7 @@ end
 defmodule Google.Monitoring.V3.DeleteMetricDescriptorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Monitoring.V3.ListTimeSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 10, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -120,7 +120,7 @@ end
 defmodule Google.Monitoring.V3.ListTimeSeriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_series, 1,
     repeated: true,
@@ -140,7 +140,7 @@ end
 defmodule Google.Monitoring.V3.CreateTimeSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
 
@@ -154,7 +154,7 @@ end
 defmodule Google.Monitoring.V3.CreateTimeSeriesError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_series, 1,
     type: Google.Monitoring.V3.TimeSeries,
@@ -167,7 +167,7 @@ end
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary.Error do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :point_count, 2, type: :int32, json_name: "pointCount"
@@ -176,7 +176,7 @@ end
 defmodule Google.Monitoring.V3.CreateTimeSeriesSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :total_point_count, 1, type: :int32, json_name: "totalPointCount"
   field :success_point_count, 2, type: :int32, json_name: "successPointCount"
@@ -186,7 +186,7 @@ end
 defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 7, type: :string, deprecated: false
@@ -197,7 +197,7 @@ end
 defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_series_descriptor, 8,
     type: Google.Monitoring.V3.TimeSeriesDescriptor,
@@ -215,7 +215,7 @@ end
 defmodule Google.Monitoring.V3.QueryErrorList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Monitoring.V3.QueryError
   field :error_summary, 2, type: :string, json_name: "errorSummary"
@@ -226,7 +226,7 @@ defmodule Google.Monitoring.V3.MetricService.Service do
 
   use GRPC.Service,
     name: "google.monitoring.v3.MetricService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListMonitoredResourceDescriptors,
       Google.Monitoring.V3.ListMonitoredResourceDescriptorsRequest,

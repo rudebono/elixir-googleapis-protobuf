@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.SdkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SDK_TYPE_UNSPECIFIED, 0
   field :CONSUMER, 1
@@ -12,7 +12,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader.Platform do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :ANDROID, 1
@@ -23,7 +23,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :region_code, 2, type: :string, json_name: "regionCode", deprecated: false

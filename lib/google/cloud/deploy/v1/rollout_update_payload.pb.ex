@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Deploy.V1.RolloutUpdateEvent.RolloutUpdateType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ROLLOUT_UPDATE_TYPE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Deploy.V1.RolloutUpdateEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message, 6, type: :string
   field :pipeline_uid, 1, type: :string, json_name: "pipelineUid"

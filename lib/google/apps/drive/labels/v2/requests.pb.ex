@@ -1,7 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.LabelView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LABEL_VIEW_BASIC, 0
   field :LABEL_VIEW_FULL, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.WriteControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :control, 0
 
@@ -20,7 +20,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.GetUserCapabilitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :customer, 2, type: :string, deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.CreateLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label, 1, type: Google.Apps.Drive.Labels.V2.Label, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -39,7 +39,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.GetLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -50,7 +50,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.Request do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -119,7 +119,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.UpdateLabelPropertiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :properties, 2, type: Google.Apps.Drive.Labels.V2.Label.Properties, deprecated: false
@@ -128,7 +128,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.DisableFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :id, 2, type: :string, deprecated: false
@@ -142,7 +142,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.EnableFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 end
@@ -150,7 +150,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.DeleteFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 end
@@ -158,7 +158,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.CreateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field, 1, type: Google.Apps.Drive.Labels.V2.Field, deprecated: false
 end
@@ -166,7 +166,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.UpdateFieldPropertiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :id, 2, type: :string, deprecated: false
@@ -176,7 +176,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.UpdateFieldTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type_options, 0
 
@@ -212,7 +212,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.CreateSelectionChoiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_id, 1, type: :string, json_name: "fieldId", deprecated: false
 
@@ -224,7 +224,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.UpdateSelectionChoicePropertiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :field_id, 2, type: :string, json_name: "fieldId", deprecated: false
@@ -238,7 +238,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.DeleteSelectionChoiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_id, 1, type: :string, json_name: "fieldId", deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -247,7 +247,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.DisableSelectionChoiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :field_id, 2, type: :string, json_name: "fieldId", deprecated: false
@@ -262,7 +262,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest.EnableSelectionChoiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_id, 1, type: :string, json_name: "fieldId", deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -271,7 +271,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -291,7 +291,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.Response do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -360,13 +360,13 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.UpdateLabelPropertiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.CreateFieldResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :priority, 2, type: :int32
@@ -375,7 +375,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.UpdateFieldPropertiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :priority, 1, type: :int32
 end
@@ -383,31 +383,31 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.UpdateFieldTypeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.EnableFieldResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.DisableFieldResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.DeleteFieldResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.CreateSelectionChoiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_id, 1, type: :string, json_name: "fieldId"
   field :id, 2, type: :string
@@ -416,7 +416,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.UpdateSelectionChoicePropertiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :priority, 1, type: :int32
 end
@@ -424,25 +424,25 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.EnableSelectionChoiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.DisableSelectionChoiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse.DeleteSelectionChoiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Labels.V2.DeltaUpdateLabelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -454,7 +454,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.UpdateLabelCopyModeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -472,7 +472,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.GetLabelLimitsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -480,7 +480,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :access, 0
 
@@ -503,7 +503,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: Google.Apps.Drive.Labels.V2.Label
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -512,7 +512,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.CreateLabelPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -527,7 +527,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -538,7 +538,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelPermissionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_permissions, 1,
     repeated: true,
@@ -551,7 +551,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.UpdateLabelPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -566,7 +566,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeleteLabelPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -575,7 +575,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.BatchUpdateLabelPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -590,7 +590,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.BatchUpdateLabelPermissionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :permissions, 1,
     repeated: true,
@@ -601,7 +601,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.BatchDeleteLabelPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :requests, 1,
     repeated: true,
@@ -615,7 +615,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DisableLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :name, 2, type: :string, deprecated: false
@@ -635,7 +635,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.PublishLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -650,7 +650,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.EnableLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -665,7 +665,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.DeleteLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
@@ -678,7 +678,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelLocksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -688,7 +688,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.ListLabelLocksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_locks, 1,
     repeated: true,

@@ -1,7 +1,7 @@
 defmodule Google.Firestore.V1beta1.UndeliverableFirstGenEvent.Reason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REASON_UNSPECIFIED, 0
   field :EXCEEDING_SIZE_LIMIT, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Firestore.V1beta1.UndeliverableFirstGenEvent.DocumentChangeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DOCUMENT_CHANGE_TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Firestore.V1beta1.UndeliverableFirstGenEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :reason, 2, type: Google.Firestore.V1beta1.UndeliverableFirstGenEvent.Reason, enum: true

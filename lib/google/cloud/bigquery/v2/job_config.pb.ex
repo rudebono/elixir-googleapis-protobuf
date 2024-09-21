@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ScriptOptions.KeyResultStatementKind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :KEY_RESULT_STATEMENT_KIND_UNSPECIFIED, 0
   field :LAST, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad.ColumnNameCharacterMap do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COLUMN_NAME_CHARACTER_MAP_UNSPECIFIED, 0
   field :STRICT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationTableCopy.OperationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :COPY, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DestinationTableProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DestinationTableProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :friendly_name, 1,
     type: Google.Protobuf.StringValue,
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ConnectionProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationQuery.ExternalTableDefinitionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.V2.ExternalDataConfiguration
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: :string
 
@@ -183,7 +183,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ScriptOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :statement_timeout_ms, 1,
     type: Google.Protobuf.Int64Value,
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
 
@@ -347,7 +347,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationTableCopy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_table, 1, type: Google.Cloud.Bigquery.V2.TableReference, json_name: "sourceTable"
 
@@ -382,7 +382,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationExtract.ModelExtractOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trial_id, 1, type: Google.Protobuf.Int64Value, json_name: "trialId"
 end
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationExtract do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -428,7 +428,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfiguration.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :job_type, 8, type: :string, json_name: "jobType"
   field :query, 1, type: Google.Cloud.Bigquery.V2.JobConfigurationQuery

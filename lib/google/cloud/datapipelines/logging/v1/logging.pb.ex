@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datapipelines.Logging.V1.RequestLogEntry.RequestType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REQUEST_TYPE_UNSPECIFIED, 0
   field :CREATE_PIPELINE, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Datapipelines.Logging.V1.RequestLogEntry.ErrorCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ERROR_CAUSE_UNSPECIFIED, 0
   field :INVALID_REQUEST, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Datapipelines.Logging.V1.RequestLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :request_type, 1,
     type: Google.Cloud.Datapipelines.Logging.V1.RequestLogEntry.RequestType,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.FieldSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.StorageDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location_uri, 1, type: :string, json_name: "locationUri", deprecated: false
   field :input_format, 2, type: :string, json_name: "inputFormat", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.SerDeInfo.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.SerDeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartition.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartitionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partitions, 1,
     repeated: true,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.ReadStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.StreamList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :streams, 1,
     repeated: true,
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartitionValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 end

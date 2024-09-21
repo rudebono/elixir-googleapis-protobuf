@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityType.Kind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :KIND_MAP, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityType.AutoExpansionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AUTO_EXPANSION_MODE_UNSPECIFIED, 0
   field :AUTO_EXPANSION_MODE_DEFAULT, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportEntityTypesRequest.DataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportEntityTypesRequest.MergeOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MERGE_OPTION_UNSPECIFIED, 0
   field :REPLACE, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityType.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
   field :synonyms, 2, repeated: true, type: :string, deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityType.ExcludedPhrase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportEntityTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportEntityTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :exported_entity_types, 0
 
@@ -141,13 +141,13 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportEntityTypesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportEntityTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :entity_types, 0
 
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportEntityTypesResponse.ConflictingResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type_display_names, 1,
     repeated: true,
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportEntityTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_types, 1,
     repeated: true,
@@ -200,13 +200,13 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportEntityTypesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListEntityTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListEntityTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_types, 1,
     repeated: true,
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetEntityTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateEntityTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateEntityTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.EntityType,
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteEntityTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -279,7 +279,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EntityTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.EntityTypes",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetEntityType,
       Google.Cloud.Dialogflow.Cx.V3beta1.GetEntityTypeRequest,

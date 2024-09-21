@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :namespace_id, 2, type: :string, json_name: "namespaceId", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListNamespacesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :namespaces, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Namespace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :namespace, 1, type: Google.Cloud.Servicedirectory.V1beta1.Namespace, deprecated: false
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteNamespaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_id, 2, type: :string, json_name: "serviceId", deprecated: false
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListServicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: Google.Cloud.Servicedirectory.V1beta1.Service, deprecated: false
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.CreateEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint_id, 2, type: :string, json_name: "endpointId", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.ListEndpointsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.GetEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.UpdateEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :endpoint, 1, type: Google.Cloud.Servicedirectory.V1beta1.Endpoint, deprecated: false
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Servicedirectory.V1beta1.DeleteEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -183,7 +183,7 @@ defmodule Google.Cloud.Servicedirectory.V1beta1.RegistrationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.servicedirectory.v1beta1.RegistrationService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateNamespace,
       Google.Cloud.Servicedirectory.V1beta1.CreateNamespaceRequest,

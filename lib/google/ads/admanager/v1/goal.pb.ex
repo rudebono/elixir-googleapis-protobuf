@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GoalTypeEnum.GoalType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GOAL_TYPE_UNSPECIFIED, 0
   field :NONE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Ads.Admanager.V1.UnitTypeEnum.UnitType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNIT_TYPE_UNSPECIFIED, 0
   field :IMPRESSIONS, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Ads.Admanager.V1.Goal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :goal_type, 1,
     type: Google.Ads.Admanager.V1.GoalTypeEnum.GoalType,
@@ -45,11 +45,11 @@ end
 defmodule Google.Ads.Admanager.V1.GoalTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.UnitTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end

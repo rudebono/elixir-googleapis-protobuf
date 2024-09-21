@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy.EndpointPolicyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENDPOINT_POLICY_TYPE_UNSPECIFIED, 0
   field :SIDECAR_PROXY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.EndpointPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.ListEndpointPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :endpoint_policies, 1,
     repeated: true,
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.GetEndpointPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.CreateEndpointPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :endpoint_policy_id, 2, type: :string, json_name: "endpointPolicyId", deprecated: false
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.UpdateEndpointPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Networkservices.V1beta1.DeleteEndpointPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

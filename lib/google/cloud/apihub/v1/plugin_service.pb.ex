@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apihub.V1.Plugin.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Apihub.V1.Plugin do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetPluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Apihub.V1.EnablePluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DisablePluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -49,7 +49,7 @@ defmodule Google.Cloud.Apihub.V1.ApiHubPlugin.Service do
 
   use GRPC.Service,
     name: "google.cloud.apihub.v1.ApiHubPlugin",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetPlugin, Google.Cloud.Apihub.V1.GetPluginRequest, Google.Cloud.Apihub.V1.Plugin
 

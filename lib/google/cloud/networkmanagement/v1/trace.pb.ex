@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOAD_BALANCER_TYPE_UNSPECIFIED, 0
   field :HTTPS_ADVANCED_LOAD_BALANCER, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :START_FROM_INSTANCE, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FIREWALL_RULE_TYPE_UNSPECIFIED, 0
   field :HIERARCHICAL_FIREWALL_POLICY_RULE, 1
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ROUTE_TYPE_UNSPECIFIED, 0
   field :SUBNET, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NEXT_HOP_TYPE_UNSPECIFIED, 0
   field :NEXT_HOP_IP, 1
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ROUTE_SCOPE_UNSPECIFIED, 0
   field :NETWORK, 1
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.GoogleServiceInfo.GoogleServiceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GOOGLE_SERVICE_TYPE_UNSPECIFIED, 0
   field :IAP, 1
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOAD_BALANCER_TYPE_UNSPECIFIED, 0
   field :INTERNAL_TCP_UDP, 1
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.BackendType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BACKEND_TYPE_UNSPECIFIED, 0
   field :BACKEND_SERVICE, 1
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend.HealthCheckFirewallState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HEALTH_CHECK_FIREWALL_STATE_UNSPECIFIED, 0
   field :CONFIGURED, 1
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.RoutingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ROUTING_TYPE_UNSPECIFIED, 0
   field :ROUTE_BASED, 1
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TARGET_UNSPECIFIED, 0
   field :INSTANCE, 1
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TARGET_UNSPECIFIED, 0
   field :PEERING_VPC, 1
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CAUSE_UNSPECIFIED, 0
   field :UNKNOWN_NETWORK, 1
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CAUSE_UNSPECIFIED, 0
   field :UNKNOWN_EXTERNAL_ADDRESS, 1
@@ -322,7 +322,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INTERNAL_TO_EXTERNAL, 1
@@ -334,7 +334,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo.HealthCheckFirewallsConfigState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HEALTH_CHECK_FIREWALLS_CONFIG_STATE_UNSPECIFIED, 0
   field :FIREWALLS_CONFIGURED, 1
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.Trace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :endpoint_info, 1,
     type: Google.Cloud.Networkmanagement.V1.EndpointInfo,
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :step_info, 0
 
@@ -456,7 +456,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -507,7 +507,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :route_type, 8,
     type: Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType,
@@ -542,7 +542,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.GoogleServiceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_ip, 1, type: :string, json_name: "sourceIp"
 
@@ -555,7 +555,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardingRuleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -569,7 +569,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :load_balancer_type, 1,
     type: Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType,
@@ -590,7 +590,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -614,7 +614,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.VpnGatewayInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -627,7 +627,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -647,7 +647,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.EndpointInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_ip, 1, type: :string, json_name: "sourceIp"
   field :destination_ip, 2, type: :string, json_name: "destinationIp"
@@ -662,7 +662,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1.DeliverInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
@@ -672,7 +672,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Networkmanagement.V1.ForwardInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
@@ -682,7 +682,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.AbortInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1.AbortInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
@@ -697,7 +697,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cause, 1, type: Google.Cloud.Networkmanagement.V1.DropInfo.Cause, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
@@ -709,7 +709,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.GKEMasterInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cluster_uri, 2, type: :string, json_name: "clusterUri"
   field :cluster_network_uri, 4, type: :string, json_name: "clusterNetworkUri"
@@ -720,7 +720,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -733,7 +733,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.CloudFunctionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -744,7 +744,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.CloudRunRevisionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -755,7 +755,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.AppEngineVersionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -766,7 +766,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.VpcConnectorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
@@ -776,7 +776,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Networkmanagement.V1.NatInfo.Type, enum: true
   field :protocol, 2, type: :string
@@ -796,7 +796,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.ProxyConnectionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :protocol, 1, type: :string
   field :old_source_ip, 2, type: :string, json_name: "oldSourceIp"
@@ -814,7 +814,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :instance_uri, 2, type: :string, json_name: "instanceUri"
@@ -837,7 +837,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.StorageBucketInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bucket, 1, type: :string
 end

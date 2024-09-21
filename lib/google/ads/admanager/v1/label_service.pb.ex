@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.Label do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -30,7 +30,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListLabelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: Google.Ads.Admanager.V1.Label
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -42,7 +42,7 @@ defmodule Google.Ads.Admanager.V1.LabelService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.LabelService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetLabel, Google.Ads.Admanager.V1.GetLabelRequest, Google.Ads.Admanager.V1.Label
 

@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :prompt, 2, type: Google.Ai.Generativelanguage.V1beta.TextPrompt, deprecated: false
@@ -34,7 +34,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :candidates, 1, repeated: true, type: Google.Ai.Generativelanguage.V1beta.TextCompletion
   field :filters, 3, repeated: true, type: Google.Ai.Generativelanguage.V1beta.ContentFilter
@@ -48,7 +48,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.TextPrompt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 end
@@ -56,7 +56,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.TextCompletion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :output, 1, type: :string, deprecated: false
 
@@ -75,7 +75,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.EmbedTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :text, 2, type: :string, deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.EmbedTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :embedding, 1,
     proto3_optional: true,
@@ -95,7 +95,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.BatchEmbedTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :texts, 2, repeated: true, type: :string, deprecated: false
@@ -109,7 +109,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.BatchEmbedTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :embeddings, 1,
     repeated: true,
@@ -120,7 +120,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.Embedding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, repeated: true, type: :float
 end
@@ -128,7 +128,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.CountTextTokensRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :prompt, 2, type: Google.Ai.Generativelanguage.V1beta.TextPrompt, deprecated: false
@@ -137,7 +137,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.CountTextTokensResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token_count, 1, type: :int32, json_name: "tokenCount"
 end
@@ -147,7 +147,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.TextService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1beta.TextService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GenerateText,
       Google.Ai.Generativelanguage.V1beta.GenerateTextRequest,

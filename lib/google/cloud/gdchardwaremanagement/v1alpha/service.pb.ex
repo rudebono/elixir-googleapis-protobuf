@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INFO_PENDING, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest.ActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :READ, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.StateSignal do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_SIGNAL_UNSPECIFIED, 0
   field :FACTORY_TURNUP_CHECKS_PASSED, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListOrdersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListOrdersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :orders, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Order
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :order_id, 2, type: :string, json_name: "orderId", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSitesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSitesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sites, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Site
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :site_id, 2, type: :string, json_name: "siteId", deprecated: false
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListHardwareGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListHardwareGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hardware_groups, 1,
     repeated: true,
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetHardwareGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateHardwareGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :hardware_group_id, 2, type: :string, json_name: "hardwareGroupId", deprecated: false
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateHardwareGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteHardwareGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListHardwareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListHardwareResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hardware, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetHardwareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateHardwareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :hardware_id, 2, type: :string, json_name: "hardwareId", deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateHardwareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteHardwareRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -306,7 +306,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListCommentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListCommentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :comments, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Comment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetCommentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateCommentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :comment_id, 2, type: :string, json_name: "commentId", deprecated: false
@@ -347,7 +347,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RecordActionOnCommentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListChangeLogEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListChangeLogEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :change_log_entries, 1,
     repeated: true,
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetChangeLogEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -395,7 +395,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSkusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -407,7 +407,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSkusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :skus, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Sku
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -417,7 +417,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetSkuRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListZonesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListZonesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :zones, 1, repeated: true, type: Google.Cloud.Gdchardwaremanagement.V1alpha.Zone
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -447,7 +447,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GetZoneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -455,7 +455,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CreateZoneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :zone_id, 2, type: :string, json_name: "zoneId", deprecated: false
@@ -466,7 +466,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateZoneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -480,7 +480,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteZoneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -489,7 +489,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -504,7 +504,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -529,7 +529,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
 
   use GRPC.Service,
     name: "google.cloud.gdchardwaremanagement.v1alpha.GDCHardwareManagement",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListOrders,
       Google.Cloud.Gdchardwaremanagement.V1alpha.ListOrdersRequest,

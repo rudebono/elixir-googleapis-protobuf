@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.V1.TripStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNKNOWN_TRIP_STATUS, 0
   field :NEW, 1
@@ -17,7 +17,7 @@ end
 defmodule Maps.Fleetengine.V1.BillingPlatformIdentifier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BILLING_PLATFORM_IDENTIFIER_UNSPECIFIED, 0
   field :SERVER, 1
@@ -30,7 +30,7 @@ end
 defmodule Maps.Fleetengine.V1.TripView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TRIP_VIEW_UNSPECIFIED, 0
   field :SDK, 1
@@ -40,7 +40,7 @@ end
 defmodule Maps.Fleetengine.V1.Trip do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :vehicle_id, 2, type: :string, json_name: "vehicleId"
@@ -184,7 +184,7 @@ end
 defmodule Maps.Fleetengine.V1.StopLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :point, 1, type: Google.Type.LatLng, deprecated: false
   field :timestamp, 2, type: Google.Protobuf.Timestamp

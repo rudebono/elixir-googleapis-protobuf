@@ -1,7 +1,7 @@
 defmodule Google.Maps.Playablelocations.V3.PlayerReport.BadLocationReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BAD_LOCATION_REASON_UNSPECIFIED, 0
   field :OTHER, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Maps.Playablelocations.V3.Impression.ImpressionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMPRESSION_TYPE_UNSPECIFIED, 0
   field :PRESENTED, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Maps.Playablelocations.V3.PlayerReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Maps.Playablelocations.V3.Impression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location_name, 1, type: :string, json_name: "locationName", deprecated: false
 

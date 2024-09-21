@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Notebooks.V2.DiskEncryption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DISK_ENCRYPTION_UNSPECIFIED, 0
   field :GMEK, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.DiskType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.NetworkInterface.NicType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NIC_TYPE_UNSPECIFIED, 0
   field :VIRTIO_NET, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.AcceleratorConfig.AcceleratorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_P100, 2
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.NetworkInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
   field :subnet, 2, type: :string, deprecated: false
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.VmImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ContainerImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.AcceleratorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Notebooks.V2.AcceleratorConfig.AcceleratorType,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ShieldedInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot", deprecated: false
   field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm", deprecated: false
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.GPUDriverConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enable_gpu_driver, 1, type: :bool, json_name: "enableGpuDriver", deprecated: false
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.DataDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disk_size_gb, 1, type: :int64, json_name: "diskSizeGb", deprecated: false
 
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.BootDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disk_size_gb, 1, type: :int64, json_name: "diskSizeGb", deprecated: false
 
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ServiceAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :email, 1, type: :string, deprecated: false
   field :scopes, 2, repeated: true, type: :string, deprecated: false
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.GceSetup.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.GceSetup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :image, 0
 

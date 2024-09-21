@@ -1,7 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360Request do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -19,7 +19,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360Response do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Searchads360.V0.Services.SearchAds360Row
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -59,7 +59,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360StreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -74,7 +74,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.SearchSearchAds360StreamResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Searchads360.V0.Services.SearchAds360Row
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask"
@@ -114,7 +114,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ad_group, 3, type: Google.Ads.Searchads360.V0.Resources.AdGroup, json_name: "adGroup"
 
@@ -312,7 +312,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.CustomColumnHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -322,7 +322,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.ConversionCustomMetricHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -331,7 +331,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.ConversionCustomDimensionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -340,7 +340,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.RawEventConversionMetricHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -349,7 +349,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.RawEventConversionDimensionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -360,7 +360,7 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Service.Service do
 
   use GRPC.Service,
     name: "google.ads.searchads360.v0.services.SearchAds360Service",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Search,
       Google.Ads.Searchads360.V0.Services.SearchSearchAds360Request,

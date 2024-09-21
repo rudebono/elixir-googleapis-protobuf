@@ -1,7 +1,7 @@
 defmodule Google.Iam.V1.AuditLogConfig.LogType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOG_TYPE_UNSPECIFIED, 0
   field :ADMIN_READ, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Iam.V1.BindingDelta.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :ADD, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Iam.V1.AuditConfigDelta.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :ADD, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Iam.V1.Policy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :version, 1, type: :int32
   field :bindings, 4, repeated: true, type: Google.Iam.V1.Binding
@@ -48,7 +48,7 @@ end
 defmodule Google.Iam.V1.Binding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :members, 2, repeated: true, type: :string
@@ -58,7 +58,7 @@ end
 defmodule Google.Iam.V1.AuditConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Iam.V1.AuditLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :log_type, 1, type: Google.Iam.V1.AuditLogConfig.LogType, json_name: "logType", enum: true
   field :exempted_members, 2, repeated: true, type: :string, json_name: "exemptedMembers"
@@ -80,7 +80,7 @@ end
 defmodule Google.Iam.V1.PolicyDelta do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :binding_deltas, 1,
     repeated: true,
@@ -96,7 +96,7 @@ end
 defmodule Google.Iam.V1.BindingDelta do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action, 1, type: Google.Iam.V1.BindingDelta.Action, enum: true
   field :role, 2, type: :string
@@ -107,7 +107,7 @@ end
 defmodule Google.Iam.V1.AuditConfigDelta do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action, 1, type: Google.Iam.V1.AuditConfigDelta.Action, enum: true
   field :service, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.AnnotationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :USER_MENTION, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Chat.V1.UserMentionMetadata.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Chat.V1.SlashCommandMetadata.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Chat.V1.RichLinkMetadata.RichLinkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RICH_LINK_TYPE_UNSPECIFIED, 0
   field :DRIVE_FILE, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Chat.V1.Annotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -69,7 +69,7 @@ end
 defmodule Google.Chat.V1.UserMentionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user, 1, type: Google.Chat.V1.User
   field :type, 2, type: Google.Chat.V1.UserMentionMetadata.Type, enum: true
@@ -78,7 +78,7 @@ end
 defmodule Google.Chat.V1.SlashCommandMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bot, 1, type: Google.Chat.V1.User
   field :type, 2, type: Google.Chat.V1.SlashCommandMetadata.Type, enum: true
@@ -90,7 +90,7 @@ end
 defmodule Google.Chat.V1.RichLinkMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -115,7 +115,7 @@ end
 defmodule Google.Chat.V1.DriveLinkData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :drive_data_ref, 1, type: Google.Chat.V1.DriveDataRef, json_name: "driveDataRef"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -124,7 +124,7 @@ end
 defmodule Google.Chat.V1.ChatSpaceLinkData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :space, 1, type: :string, deprecated: false
   field :thread, 2, type: :string, deprecated: false

@@ -1,7 +1,7 @@
 defmodule Grafeas.V1beta1.Deployment.Deployment.Platform do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PLATFORM_UNSPECIFIED, 0
   field :GKE, 1
@@ -12,7 +12,7 @@ end
 defmodule Grafeas.V1beta1.Deployment.Deployable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_uri, 1, repeated: true, type: :string, json_name: "resourceUri"
 end
@@ -20,7 +20,7 @@ end
 defmodule Grafeas.V1beta1.Deployment.Details do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :deployment, 1, type: Grafeas.V1beta1.Deployment.Deployment
 end
@@ -28,7 +28,7 @@ end
 defmodule Grafeas.V1beta1.Deployment.Deployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_email, 1, type: :string, json_name: "userEmail"
   field :deploy_time, 2, type: Google.Protobuf.Timestamp, json_name: "deployTime"

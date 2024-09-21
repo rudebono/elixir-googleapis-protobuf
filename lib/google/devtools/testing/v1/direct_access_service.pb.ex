@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Testing.V1.DeviceSession.SessionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SESSION_STATE_UNSPECIFIED, 0
   field :REQUESTED, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Devtools.Testing.V1.CreateDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Devtools.Testing.V1.ListDeviceSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Devtools.Testing.V1.ListDeviceSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :device_sessions, 1,
     repeated: true,
@@ -53,7 +53,7 @@ end
 defmodule Google.Devtools.Testing.V1.GetDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Devtools.Testing.V1.CancelDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -69,7 +69,7 @@ end
 defmodule Google.Devtools.Testing.V1.UpdateDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :device_session, 1,
     type: Google.Devtools.Testing.V1.DeviceSession,
@@ -85,7 +85,7 @@ end
 defmodule Google.Devtools.Testing.V1.DeviceSession.SessionStateEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :session_state, 1,
     type: Google.Devtools.Testing.V1.DeviceSession.SessionState,
@@ -100,7 +100,7 @@ end
 defmodule Google.Devtools.Testing.V1.DeviceSession do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -152,7 +152,7 @@ defmodule Google.Devtools.Testing.V1.DirectAccessService.Service do
 
   use GRPC.Service,
     name: "google.devtools.testing.v1.DirectAccessService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateDeviceSession,
       Google.Devtools.Testing.V1.CreateDeviceSessionRequest,

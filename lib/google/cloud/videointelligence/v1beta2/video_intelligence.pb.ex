@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Videointelligence.V1beta2.Feature do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FEATURE_UNSPECIFIED, 0
   field :LABEL_DETECTION, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.LabelDetectionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LABEL_DETECTION_MODE_UNSPECIFIED, 0
   field :SHOT_MODE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.Likelihood do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LIKELIHOOD_UNSPECIFIED, 0
   field :VERY_UNLIKELY, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.AnnotateVideoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :input_content, 6, type: :bytes, json_name: "inputContent"
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.VideoContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :segments, 1, repeated: true, type: Google.Cloud.Videointelligence.V1beta2.VideoSegment
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.LabelDetectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_detection_mode, 1,
     type: Google.Cloud.Videointelligence.V1beta2.LabelDetectionMode,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.ShotChangeDetectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.ExplicitContentDetectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string
 end
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.FaceDetectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string
   field :include_bounding_boxes, 2, type: :bool, json_name: "includeBoundingBoxes"
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.VideoSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time_offset, 1, type: Google.Protobuf.Duration, json_name: "startTimeOffset"
   field :end_time_offset, 2, type: Google.Protobuf.Duration, json_name: "endTimeOffset"
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.LabelSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :segment, 1, type: Google.Cloud.Videointelligence.V1beta2.VideoSegment
   field :confidence, 2, type: :float
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.LabelFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
   field :confidence, 2, type: :float
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :description, 2, type: :string
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.LabelAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity, 1, type: Google.Cloud.Videointelligence.V1beta2.Entity
 
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.ExplicitContentFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_offset, 1, type: Google.Protobuf.Duration, json_name: "timeOffset"
 
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.ExplicitContentAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :frames, 1,
     repeated: true,
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.NormalizedBoundingBox do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :left, 1, type: :float
   field :top, 2, type: :float
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.FaceSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :segment, 1, type: Google.Cloud.Videointelligence.V1beta2.VideoSegment
 end
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.FaceFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :normalized_bounding_boxes, 1,
     repeated: true,
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.FaceAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :thumbnail, 1, type: :bytes
   field :segments, 2, repeated: true, type: Google.Cloud.Videointelligence.V1beta2.FaceSegment
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.VideoAnnotationResults do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
 
@@ -279,7 +279,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.AnnotateVideoResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :annotation_results, 1,
     repeated: true,
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.VideoAnnotationProgress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri"
   field :progress_percent, 2, type: :int32, json_name: "progressPercent"
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Videointelligence.V1beta2.AnnotateVideoProgress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :annotation_progress, 1,
     repeated: true,
@@ -314,7 +314,7 @@ defmodule Google.Cloud.Videointelligence.V1beta2.VideoIntelligenceService.Servic
 
   use GRPC.Service,
     name: "google.cloud.videointelligence.v1beta2.VideoIntelligenceService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :AnnotateVideo,
       Google.Cloud.Videointelligence.V1beta2.AnnotateVideoRequest,

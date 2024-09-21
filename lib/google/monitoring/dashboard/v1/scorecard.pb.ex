@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.Scorecard.GaugeView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lower_bound, 1, type: :double, json_name: "lowerBound"
   field :upper_bound, 2, type: :double, json_name: "upperBound"
@@ -10,7 +10,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Scorecard.SparkChartView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :spark_chart_type, 1,
     type: Google.Monitoring.Dashboard.V1.SparkChartType,
@@ -24,7 +24,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Scorecard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_view, 0
 

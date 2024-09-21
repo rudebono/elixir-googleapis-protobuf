@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Cloudbuild.V2.InstallationState.Stage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STAGE_UNSPECIFIED, 0
   field :PENDING_CREATE_APP, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest.RefType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REF_TYPE_UNSPECIFIED, 0
   field :TAG, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.Connection.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -32,7 +32,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.Connection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :connection_config, 0
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.InstallationState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stage, 1,
     type: Google.Devtools.Cloudbuild.V2.InstallationState.Stage,
@@ -106,7 +106,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchLinkableRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -116,7 +116,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchLinkableRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Cloudbuild.V2.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -125,7 +125,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.GitHubConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :authorizer_credential, 1,
     type: Google.Devtools.Cloudbuild.V2.OAuthCredential,
@@ -137,7 +137,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.GitHubEnterpriseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :host_uri, 1, type: :string, json_name: "hostUri", deprecated: false
   field :api_key, 12, type: :string, json_name: "apiKey", deprecated: false
@@ -167,7 +167,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.GitLabConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :host_uri, 1, type: :string, json_name: "hostUri"
 
@@ -197,7 +197,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.BitbucketDataCenterConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :host_uri, 1, type: :string, json_name: "hostUri", deprecated: false
 
@@ -228,7 +228,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.BitbucketCloudConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
 
@@ -251,7 +251,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ServiceDirectoryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string, deprecated: false
 end
@@ -259,7 +259,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.Repository.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -268,7 +268,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.Repository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :remote_uri, 2, type: :string, json_name: "remoteUri", deprecated: false
@@ -295,7 +295,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.OAuthCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :oauth_token_secret_version, 1,
     type: :string,
@@ -308,7 +308,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.UserCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_token_secret_version, 1,
     type: :string,
@@ -321,7 +321,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.CreateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connection, 2, type: Google.Devtools.Cloudbuild.V2.Connection, deprecated: false
@@ -331,7 +331,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.GetConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -339,7 +339,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ListConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -349,7 +349,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ListConnectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connections, 1, repeated: true, type: Google.Devtools.Cloudbuild.V2.Connection
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -358,7 +358,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.UpdateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection, 1, type: Google.Devtools.Cloudbuild.V2.Connection, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -369,7 +369,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.DeleteConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -379,7 +379,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.CreateRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :repository, 2, type: Google.Devtools.Cloudbuild.V2.Repository, deprecated: false
@@ -389,7 +389,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.BatchCreateRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -402,7 +402,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.BatchCreateRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Cloudbuild.V2.Repository
 end
@@ -410,7 +410,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.GetRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -418,7 +418,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ListRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -429,7 +429,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ListRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Cloudbuild.V2.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -438,7 +438,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.DeleteRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -448,7 +448,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchReadWriteTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
 end
@@ -456,7 +456,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchReadTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
 end
@@ -464,7 +464,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchReadTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -473,7 +473,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchReadWriteTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -482,7 +482,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.ProcessWebhookRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :body, 2, type: Google.Api.HttpBody
@@ -492,7 +492,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: :string, deprecated: false
 
@@ -505,7 +505,7 @@ end
 defmodule Google.Devtools.Cloudbuild.V2.FetchGitRefsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ref_names, 1, repeated: true, type: :string, json_name: "refNames"
 end
@@ -515,7 +515,7 @@ defmodule Google.Devtools.Cloudbuild.V2.RepositoryManager.Service do
 
   use GRPC.Service,
     name: "google.devtools.cloudbuild.v2.RepositoryManager",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateConnection,
       Google.Devtools.Cloudbuild.V2.CreateConnectionRequest,

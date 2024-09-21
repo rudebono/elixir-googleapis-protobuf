@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Common.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :absolute_top_impression_percentage, 183,
     proto3_optional: true,
@@ -851,7 +851,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.SearchVolumeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min, 1, proto3_optional: true, type: :int64
   field :max, 2, proto3_optional: true, type: :int64

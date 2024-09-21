@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cached_content, 1,
     type: Google.Cloud.Aiplatform.V1beta1.CachedContent,
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListCachedContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListCachedContentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cached_contents, 1,
     repeated: true,
@@ -71,7 +71,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenAiCacheService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.GenAiCacheService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateCachedContent,
       Google.Cloud.Aiplatform.V1beta1.CreateCachedContentRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.ValuedResource.ResourceValue do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RESOURCE_VALUE_UNSPECIFIED, 0
   field :RESOURCE_VALUE_LOW, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ValuedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :resource, 2, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ResourceValueConfigMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end

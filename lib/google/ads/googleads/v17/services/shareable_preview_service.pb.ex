@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Services.GenerateShareablePreviewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -15,7 +15,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.ShareablePreview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset_group_identifier, 1,
     type: Google.Ads.Googleads.V17.Services.AssetGroupIdentifier,
@@ -26,7 +26,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.AssetGroupIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset_group_id, 1, type: :int64, json_name: "assetGroupId", deprecated: false
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.GenerateShareablePreviewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -44,7 +44,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.ShareablePreviewOrError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :generate_shareable_preview_response, 0
 
@@ -66,7 +66,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.ShareablePreviewResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :shareable_preview_url, 1, type: :string, json_name: "shareablePreviewUrl"
   field :expiration_date_time, 2, type: :string, json_name: "expirationDateTime"
@@ -77,7 +77,7 @@ defmodule Google.Ads.Googleads.V17.Services.ShareablePreviewService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v17.services.ShareablePreviewService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GenerateShareablePreviews,
       Google.Ads.Googleads.V17.Services.GenerateShareablePreviewsRequest,

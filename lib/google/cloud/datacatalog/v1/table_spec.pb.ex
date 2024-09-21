@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.TableSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TABLE_SOURCE_TYPE_UNSPECIFIED, 0
   field :BIGQUERY_VIEW, 2
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.BigQueryTableSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type_spec, 0
 
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ViewSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :view_query, 1, type: :string, json_name: "viewQuery", deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.TableSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :grouped_entry, 1, type: :string, json_name: "groupedEntry", deprecated: false
 end
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.BigQueryDateShardedSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :table_prefix, 2, type: :string, json_name: "tablePrefix", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Resources.CustomInterest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 8, proto3_optional: true, type: :int64, deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomInterestMember do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :member_type, 1,
     type: Google.Ads.Googleads.V16.Enums.CustomInterestMemberTypeEnum.CustomInterestMemberType,

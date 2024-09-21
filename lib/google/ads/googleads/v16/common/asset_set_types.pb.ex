@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Common.LocationSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.BusinessProfileLocationSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :http_authorization_token, 1,
     type: :string,
@@ -47,7 +47,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.ChainSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :relationship_type, 1,
     type: Google.Ads.Googleads.V16.Enums.ChainRelationshipTypeEnum.ChainRelationshipType,
@@ -64,7 +64,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.ChainFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :chain_id, 1, type: :int64, json_name: "chainId", deprecated: false
   field :location_attributes, 2, repeated: true, type: :string, json_name: "locationAttributes"
@@ -73,7 +73,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.MapsLocationSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :maps_locations, 1,
     repeated: true,
@@ -85,7 +85,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.MapsLocationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
 end
@@ -93,7 +93,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.BusinessProfileLocationGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dynamic_business_profile_location_group_filter, 1,
     type: Google.Ads.Googleads.V16.Common.DynamicBusinessProfileLocationGroupFilter,
@@ -103,7 +103,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.DynamicBusinessProfileLocationGroupFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_filters, 1, repeated: true, type: :string, json_name: "labelFilters"
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.BusinessProfileBusinessNameFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :business_name, 1, type: :string, json_name: "businessName"
 
@@ -131,7 +131,7 @@ end
 defmodule Google.Ads.Googleads.V16.Common.ChainLocationGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dynamic_chain_location_group_filters, 1,
     repeated: true,

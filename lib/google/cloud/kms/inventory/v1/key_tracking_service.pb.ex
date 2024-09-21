@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Kms.Inventory.V1.GetProtectedResourcesSummaryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResourcesSummary.ResourceTypesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResourcesSummary.CloudProductsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResourcesSummary.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResourcesSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string
   field :resource_count, 1, type: :int64, json_name: "resourceCount"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.SearchProtectedResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :scope, 2, type: :string, deprecated: false
   field :crypto_key, 1, type: :string, json_name: "cryptoKey", deprecated: false
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.SearchProtectedResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :protected_resources, 1,
     repeated: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResource.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ProtectedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project, 2, type: :string
@@ -135,7 +135,7 @@ defmodule Google.Cloud.Kms.Inventory.V1.KeyTrackingService.Service do
 
   use GRPC.Service,
     name: "google.cloud.kms.inventory.v1.KeyTrackingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetProtectedResourcesSummary,
       Google.Cloud.Kms.Inventory.V1.GetProtectedResourcesSummaryRequest,

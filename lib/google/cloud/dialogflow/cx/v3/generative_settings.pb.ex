@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings.FallbackSettings.PromptTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :prompt_text, 2, type: :string, json_name: "promptText"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings.FallbackSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :selected_prompt, 3, type: :string, json_name: "selectedPrompt"
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings.KnowledgeConnectorSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :business, 1, type: :string
   field :agent, 2, type: :string
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GenerativeSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string
 

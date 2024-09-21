@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Compute.V1small.Address.AddressType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_ADDRESS_TYPE, 0
   field :EXTERNAL, 35_607_499
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Address.IpVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_IP_VERSION, 0
   field :IPV4, 2_254_341
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Address.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_TIER, 0
   field :PREMIUM, 399_530_551
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Address.Purpose do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_PURPOSE, 0
   field :DNS_RESOLVER, 476_114_556
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Address.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :IN_USE, 17_393_485
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Operation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DONE, 2_104_194
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Warning.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_CODE, 0
   field :CLEANUP_FAILED, 150_308_440
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Warnings.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_CODE, 0
   field :CLEANUP_FAILED, 150_308_440
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Address do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :address, 462_920_692, proto3_optional: true, type: :string
   field :address_type, 264_307_877, proto3_optional: true, type: :string, json_name: "addressType"
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Compute.V1small.AddressAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1small.AddressesScopedList
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Compute.V1small.AddressAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Compute.V1small.AddressList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1small.Address
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Compute.V1small.AddressesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :addresses, 337_673_122, repeated: true, type: Google.Cloud.Compute.V1small.Address
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1small.Warning
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Compute.V1small.AggregatedListAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Data do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Compute.V1small.DeleteAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -260,7 +260,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Error do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :errors, 315_977_579, repeated: true, type: Google.Cloud.Compute.V1small.Errors
 end
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Errors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :location, 290_430_901, proto3_optional: true, type: :string
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Compute.V1small.GetRegionOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Compute.V1small.InsertAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :address_resource, 483_888_121,
     type: Google.Cloud.Compute.V1small.Address,
@@ -303,7 +303,7 @@ end
 defmodule Google.Cloud.Compute.V1small.ListAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Operation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :client_operation_id, 297_240_295,
     proto3_optional: true,
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Compute.V1small.WaitRegionOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Warning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1small.Data
@@ -400,7 +400,7 @@ end
 defmodule Google.Cloud.Compute.V1small.Warnings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1small.Data
@@ -412,7 +412,7 @@ defmodule Google.Cloud.Compute.V1small.Addresses.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1small.Addresses",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1small.AggregatedListAddressesRequest,
@@ -442,7 +442,7 @@ defmodule Google.Cloud.Compute.V1small.RegionOperations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1small.RegionOperations",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1small.GetRegionOperationRequest,

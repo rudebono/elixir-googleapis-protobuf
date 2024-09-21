@@ -3,7 +3,7 @@ defmodule Google.Cloud.Connectors.V1.Connectors.Service do
 
   use GRPC.Service,
     name: "google.cloud.connectors.v1.Connectors",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListConnections,
       Google.Cloud.Connectors.V1.ListConnectionsRequest,

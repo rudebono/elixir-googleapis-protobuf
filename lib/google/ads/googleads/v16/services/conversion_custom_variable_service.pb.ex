@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.MutateConversionCustomVariablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.ConversionCustomVariableOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -34,7 +34,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateConversionCustomVariablesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateConversionCustomVariableResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -60,7 +60,7 @@ defmodule Google.Ads.Googleads.V16.Services.ConversionCustomVariableService.Serv
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.ConversionCustomVariableService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :MutateConversionCustomVariables,
       Google.Ads.Googleads.V16.Services.MutateConversionCustomVariablesRequest,

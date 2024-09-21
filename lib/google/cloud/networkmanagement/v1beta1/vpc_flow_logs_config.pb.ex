@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.AggregationInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AGGREGATION_INTERVAL_UNSPECIFIED, 0
   field :INTERVAL_5_SEC, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.Metadata do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :METADATA_UNSPECIFIED, 0
   field :INCLUDE_ALL_METADATA, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :target_resource, 0
 

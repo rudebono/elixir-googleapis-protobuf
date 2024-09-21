@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Certificatemanager.V1.ListTrustConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.ListTrustConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trust_configs, 1,
     repeated: true,
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.GetTrustConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CreateTrustConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :trust_config_id, 2, type: :string, json_name: "trustConfigId", deprecated: false
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.UpdateTrustConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trust_config, 1,
     type: Google.Cloud.Certificatemanager.V1.TrustConfig,
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteTrustConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.TrustConfig.TrustAnchor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.TrustConfig.IntermediateCA do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.TrustConfig.TrustStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trust_anchors, 1,
     repeated: true,
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.TrustConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.TrustConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 

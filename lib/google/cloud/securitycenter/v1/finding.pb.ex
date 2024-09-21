@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.Finding.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.Mute do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MUTE_UNSPECIFIED, 0
   field :MUTED, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.FindingClass do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FINDING_CLASS_UNSPECIFIED, 0
   field :THREAT, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.MuteInfo.StaticMute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Securitycenter.V1.Finding.Mute, enum: true
   field :apply_time, 2, type: Google.Protobuf.Timestamp, json_name: "applyTime"
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.MuteInfo.DynamicMuteRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mute_config, 1, type: :string, json_name: "muteConfig"
   field :match_time, 2, type: Google.Protobuf.Timestamp, json_name: "matchTime"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.MuteInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :static_mute, 1,
     type: Google.Cloud.Securitycenter.V1.Finding.MuteInfo.StaticMute,
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.SourcePropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.ExternalSystemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.V1.ExternalSystem
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding.ContactsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.V1.ContactDetails
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Finding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 2, type: :string

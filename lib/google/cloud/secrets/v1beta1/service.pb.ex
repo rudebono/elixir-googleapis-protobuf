@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :secrets, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.Secret
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.CreateSecretRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :secret_id, 2, type: :string, json_name: "secretId", deprecated: false
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.AddSecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload, deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.ListSecretVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Cloud.Secrets.V1beta1.SecretVersion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.GetSecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.UpdateSecretRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :secret, 1, type: Google.Cloud.Secrets.V1beta1.Secret, deprecated: false
 
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.AccessSecretVersionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :payload, 2, type: Google.Cloud.Secrets.V1beta1.SecretPayload
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.DeleteSecretRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.DisableSecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.EnableSecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Secrets.V1beta1.DestroySecretVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -140,7 +140,7 @@ defmodule Google.Cloud.Secrets.V1beta1.SecretManagerService.Service do
 
   use GRPC.Service,
     name: "google.cloud.secrets.v1beta1.SecretManagerService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListSecrets,
       Google.Cloud.Secrets.V1beta1.ListSecretsRequest,

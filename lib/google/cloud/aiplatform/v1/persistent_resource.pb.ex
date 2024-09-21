@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.PersistentResource.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.PersistentResource.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.PersistentResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ResourcePool.AutoscalingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_replica_count, 1,
     proto3_optional: true,
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ResourcePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ResourceRuntimeSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_account_spec, 2,
     type: Google.Cloud.Aiplatform.V1.ServiceAccountSpec,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RaySpec.ResourcePoolImagesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RaySpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
 
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ResourceRuntime.AccessUrisEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ResourceRuntime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_uris, 1,
     repeated: true,
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ServiceAccountSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enable_custom_service_account, 1,
     type: :bool,
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RayMetricSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disabled, 1, type: :bool, deprecated: false
 end
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RayLogsSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disabled, 1, type: :bool, deprecated: false
 end

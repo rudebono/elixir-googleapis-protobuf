@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.DataScanType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_SCAN_TYPE_UNSPECIFIED, 0
   field :DATA_QUALITY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataScanRequest.DataScanView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_SCAN_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataScanJobRequest.DataScanJobView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_SCAN_JOB_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanJob.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateDataScanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateDataScanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_scan, 1,
     type: Google.Cloud.Dataplex.V1.DataScan,
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteDataScanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataScanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataScansRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataScansResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_scans, 1,
     repeated: true,
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.RunDataScanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.RunDataScanResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Dataplex.V1.DataScanJob
 end
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataScanJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataScanJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataScanJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_scan_jobs, 1,
     repeated: true,
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GenerateDataQualityRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -187,7 +187,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GenerateDataQualityRulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rule, 1, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRule
 end
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScan.ExecutionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :incremental, 0
 
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScan.ExecutionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :latest_job_start_time, 4,
     type: Google.Protobuf.Timestamp,
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScan.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScan do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :spec, 0
 
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataScanJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :spec, 0
 
@@ -345,7 +345,7 @@ defmodule Google.Cloud.Dataplex.V1.DataScanService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.DataScanService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateDataScan,
       Google.Cloud.Dataplex.V1.CreateDataScanRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Datastore.Admin.V1beta1.OperationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OPERATION_TYPE_UNSPECIFIED, 0
   field :EXPORT_ENTITIES, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.CommonMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.CommonMetadata.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.CommonMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -56,7 +56,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.Progress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :work_completed, 1, type: :int64, json_name: "workCompleted"
   field :work_estimated, 2, type: :int64, json_name: "workEstimated"
@@ -65,7 +65,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ExportEntitiesRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -74,7 +74,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ExportEntitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ImportEntitiesRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -102,7 +102,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ImportEntitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
 
@@ -121,7 +121,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ExportEntitiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :output_url, 1, type: :string, json_name: "outputUrl"
 end
@@ -129,7 +129,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ExportEntitiesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :common, 1, type: Google.Datastore.Admin.V1beta1.CommonMetadata
 
@@ -151,7 +151,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.ImportEntitiesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :common, 1, type: Google.Datastore.Admin.V1beta1.CommonMetadata
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Datastore.Admin.V1beta1.EntityFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kinds, 1, repeated: true, type: :string
   field :namespace_ids, 2, repeated: true, type: :string, json_name: "namespaceIds"
@@ -184,7 +184,7 @@ defmodule Google.Datastore.Admin.V1beta1.DatastoreAdmin.Service do
 
   use GRPC.Service,
     name: "google.datastore.admin.v1beta1.DatastoreAdmin",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ExportEntities,
       Google.Datastore.Admin.V1beta1.ExportEntitiesRequest,

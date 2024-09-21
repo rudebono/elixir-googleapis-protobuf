@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.Delivery.V1.CreateDeliveryVehicleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -16,7 +16,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.GetDeliveryVehicleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :name, 3, type: :string, deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -38,7 +38,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :delivery_vehicles, 1,
     repeated: true,
@@ -52,7 +52,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
 
@@ -70,7 +70,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.BatchCreateTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.BatchCreateTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Maps.Fleetengine.Delivery.V1.Task
 end
@@ -92,7 +92,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.CreateTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -103,7 +103,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.GetTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :name, 3, type: :string, deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.UpdateTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :task, 3, type: Maps.Fleetengine.Delivery.V1.Task, deprecated: false
@@ -126,7 +126,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.ListTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :parent, 3, type: :string, deprecated: false
@@ -138,7 +138,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.ListTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Maps.Fleetengine.Delivery.V1.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -148,7 +148,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.GetTaskTrackingInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
   field :name, 3, type: :string, deprecated: false
@@ -159,7 +159,7 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
 
   use GRPC.Service,
     name: "maps.fleetengine.delivery.v1.DeliveryService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateDeliveryVehicle,
       Maps.Fleetengine.Delivery.V1.CreateDeliveryVehicleRequest,

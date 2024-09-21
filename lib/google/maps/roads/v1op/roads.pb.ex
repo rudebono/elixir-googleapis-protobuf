@@ -1,7 +1,7 @@
 defmodule Google.Maps.Roads.V1op.TravelMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
   field :DRIVING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Maps.Roads.V1op.SnapToRoadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :interpolate, 2, type: :bool
@@ -27,7 +27,7 @@ end
 defmodule Google.Maps.Roads.V1op.SnappedPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng
   field :original_index, 2, type: Google.Protobuf.UInt32Value, json_name: "originalIndex"
@@ -37,7 +37,7 @@ end
 defmodule Google.Maps.Roads.V1op.SnapToRoadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapped_points, 1,
     repeated: true,
@@ -50,7 +50,7 @@ end
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :points, 1, type: :string
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Maps.Roads.V1op.ListNearestRoadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapped_points, 1,
     repeated: true,
@@ -76,7 +76,7 @@ defmodule Google.Maps.Roads.V1op.RoadsService.Service do
 
   use GRPC.Service,
     name: "google.maps.roads.v1op.RoadsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :SnapToRoads,
       Google.Maps.Roads.V1op.SnapToRoadsRequest,

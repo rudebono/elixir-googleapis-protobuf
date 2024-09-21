@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.OutputState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OUTPUT_STATE_UNSPECIFIED, 0
   field :OUTPUT_STATE_OK, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateExampleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :example, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Example, deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteExampleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :examples, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Example
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetExampleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdateExampleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :example, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Example, deprecated: false
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Example do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :preceding_conversation_summary, 1,
     type: :string,
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :execution_summary, 1, type: :string, json_name: "executionSummary", deprecated: false
 
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UserUtterance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 end
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AgentUtterance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolUse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tool, 1, type: :string, deprecated: false
   field :action, 2, type: :string, deprecated: false
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInvocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :playbook, 1, type: :string, deprecated: false
 
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowInvocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :flow, 1, type: :string, deprecated: false
 
@@ -269,7 +269,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Examples.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Examples",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateExample,
       Google.Cloud.Dialogflow.Cx.V3beta1.CreateExampleRequest,

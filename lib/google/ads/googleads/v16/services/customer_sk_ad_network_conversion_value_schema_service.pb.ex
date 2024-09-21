@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.CustomerSkAdNetworkConversionValueSchemaOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update, 1,
     type: Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :app_id, 2, type: :string, json_name: "appId"
@@ -33,7 +33,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaResult
@@ -46,7 +46,7 @@ defmodule Google.Ads.Googleads.V16.Services.CustomerSkAdNetworkConversionValueSc
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.CustomerSkAdNetworkConversionValueSchemaService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :MutateCustomerSkAdNetworkConversionValueSchema,
       Google.Ads.Googleads.V16.Services.MutateCustomerSkAdNetworkConversionValueSchemaRequest,

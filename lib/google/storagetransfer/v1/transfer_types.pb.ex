@@ -1,7 +1,7 @@
 defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.AuthMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AUTH_METHOD_UNSPECIFIED, 0
   field :AUTH_METHOD_AWS_SIGNATURE_V4, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.RequestModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REQUEST_MODEL_UNSPECIFIED, 0
   field :REQUEST_MODEL_VIRTUAL_HOSTED_STYLE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.NetworkProtocol do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NETWORK_PROTOCOL_UNSPECIFIED, 0
   field :NETWORK_PROTOCOL_HTTPS, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Storagetransfer.V1.S3CompatibleMetadata.ListApi do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LIST_API_UNSPECIFIED, 0
   field :LIST_OBJECTS_V2, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Storagetransfer.V1.AgentPool.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferOptions.OverwriteWhen do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OVERWRITE_WHEN_UNSPECIFIED, 0
   field :DIFFERENT, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.Symlink do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SYMLINK_UNSPECIFIED, 0
   field :SYMLINK_SKIP, 1
@@ -73,7 +73,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :MODE_SKIP, 1
@@ -83,7 +83,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.GID do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GID_UNSPECIFIED, 0
   field :GID_SKIP, 1
@@ -93,7 +93,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.UID do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UID_UNSPECIFIED, 0
   field :UID_SKIP, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.Acl do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACL_UNSPECIFIED, 0
   field :ACL_DESTINATION_BUCKET_DEFAULT, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.StorageClass do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STORAGE_CLASS_UNSPECIFIED, 0
   field :STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT, 1
@@ -127,7 +127,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.TemporaryHold do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TEMPORARY_HOLD_UNSPECIFIED, 0
   field :TEMPORARY_HOLD_SKIP, 1
@@ -137,7 +137,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.KmsKey do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :KMS_KEY_UNSPECIFIED, 0
   field :KMS_KEY_DESTINATION_BUCKET_DEFAULT, 1
@@ -147,7 +147,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions.TimeCreated do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TIME_CREATED_UNSPECIFIED, 0
   field :TIME_CREATED_SKIP, 1
@@ -157,7 +157,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferJob.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -168,7 +168,7 @@ end
 defmodule Google.Storagetransfer.V1.NotificationConfig.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :TRANSFER_OPERATION_SUCCESS, 1
@@ -179,7 +179,7 @@ end
 defmodule Google.Storagetransfer.V1.NotificationConfig.PayloadFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PAYLOAD_FORMAT_UNSPECIFIED, 0
   field :NONE, 1
@@ -189,7 +189,7 @@ end
 defmodule Google.Storagetransfer.V1.LoggingConfig.LoggableAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOGGABLE_ACTION_UNSPECIFIED, 0
   field :FIND, 1
@@ -200,7 +200,7 @@ end
 defmodule Google.Storagetransfer.V1.LoggingConfig.LoggableActionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOGGABLE_ACTION_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -210,7 +210,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferOperation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -225,7 +225,7 @@ end
 defmodule Google.Storagetransfer.V1.GoogleServiceAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :account_email, 1, type: :string, json_name: "accountEmail"
   field :subject_id, 2, type: :string, json_name: "subjectId"
@@ -234,7 +234,7 @@ end
 defmodule Google.Storagetransfer.V1.AwsAccessKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_key_id, 1, type: :string, json_name: "accessKeyId", deprecated: false
   field :secret_access_key, 2, type: :string, json_name: "secretAccessKey", deprecated: false
@@ -243,7 +243,7 @@ end
 defmodule Google.Storagetransfer.V1.AzureCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sas_token, 2, type: :string, json_name: "sasToken", deprecated: false
 end
@@ -251,7 +251,7 @@ end
 defmodule Google.Storagetransfer.V1.ObjectConditions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_time_elapsed_since_last_modification, 1,
     type: Google.Protobuf.Duration,
@@ -270,7 +270,7 @@ end
 defmodule Google.Storagetransfer.V1.GcsData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bucket_name, 1, type: :string, json_name: "bucketName", deprecated: false
   field :path, 3, type: :string
@@ -283,7 +283,7 @@ end
 defmodule Google.Storagetransfer.V1.AwsS3Data do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :private_network, 0
 
@@ -304,7 +304,7 @@ end
 defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :storage_account, 1, type: :string, json_name: "storageAccount", deprecated: false
 
@@ -321,7 +321,7 @@ end
 defmodule Google.Storagetransfer.V1.HttpData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :list_url, 1, type: :string, json_name: "listUrl", deprecated: false
 end
@@ -329,7 +329,7 @@ end
 defmodule Google.Storagetransfer.V1.PosixFilesystem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :root_directory, 1, type: :string, json_name: "rootDirectory"
 end
@@ -337,7 +337,7 @@ end
 defmodule Google.Storagetransfer.V1.HdfsData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :path, 1, type: :string
 end
@@ -345,7 +345,7 @@ end
 defmodule Google.Storagetransfer.V1.AwsS3CompatibleData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_provider, 0
 
@@ -363,7 +363,7 @@ end
 defmodule Google.Storagetransfer.V1.S3CompatibleMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :auth_method, 1,
     type: Google.Storagetransfer.V1.S3CompatibleMetadata.AuthMethod,
@@ -388,7 +388,7 @@ end
 defmodule Google.Storagetransfer.V1.AgentPool.BandwidthLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :limit_mbps, 1, type: :int64, json_name: "limitMbps"
 end
@@ -396,7 +396,7 @@ end
 defmodule Google.Storagetransfer.V1.AgentPool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 2, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
@@ -410,7 +410,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :overwrite_objects_already_existing_in_sink, 1,
     type: :bool,
@@ -435,7 +435,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_sink, 0
 
@@ -512,7 +512,7 @@ end
 defmodule Google.Storagetransfer.V1.MetadataOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :symlink, 1, type: Google.Storagetransfer.V1.MetadataOptions.Symlink, enum: true
   field :mode, 2, type: Google.Storagetransfer.V1.MetadataOptions.Mode, enum: true
@@ -544,7 +544,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferManifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string
 end
@@ -552,7 +552,7 @@ end
 defmodule Google.Storagetransfer.V1.Schedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :schedule_start_date, 1,
     type: Google.Type.Date,
@@ -568,7 +568,7 @@ end
 defmodule Google.Storagetransfer.V1.EventStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -584,7 +584,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -624,7 +624,7 @@ end
 defmodule Google.Storagetransfer.V1.ErrorLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
   field :error_details, 3, repeated: true, type: :string, json_name: "errorDetails"
@@ -633,7 +633,7 @@ end
 defmodule Google.Storagetransfer.V1.ErrorSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Rpc.Code,
@@ -652,7 +652,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferCounters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :objects_found_from_source, 1, type: :int64, json_name: "objectsFoundFromSource"
   field :bytes_found_from_source, 2, type: :int64, json_name: "bytesFoundFromSource"
@@ -706,7 +706,7 @@ end
 defmodule Google.Storagetransfer.V1.NotificationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic", deprecated: false
 
@@ -726,7 +726,7 @@ end
 defmodule Google.Storagetransfer.V1.LoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :log_actions, 1,
     repeated: true,
@@ -746,7 +746,7 @@ end
 defmodule Google.Storagetransfer.V1.TransferOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"

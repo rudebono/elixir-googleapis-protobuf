@@ -1,7 +1,7 @@
 defmodule Google.Firestore.V1beta1.TargetChange.TargetChangeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NO_CHANGE, 0
   field :ADD, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Firestore.V1beta1.GetDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :consistency_selector, 0
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Firestore.V1beta1.ListDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :consistency_selector, 0
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Firestore.V1beta1.ListDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Firestore.V1beta1.Document
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -53,7 +53,7 @@ end
 defmodule Google.Firestore.V1beta1.CreateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :collection_id, 2, type: :string, json_name: "collectionId", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Firestore.V1beta1.UpdateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Firestore.V1beta1.Document, deprecated: false
   field :update_mask, 2, type: Google.Firestore.V1beta1.DocumentMask, json_name: "updateMask"
@@ -79,7 +79,7 @@ end
 defmodule Google.Firestore.V1beta1.DeleteDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -91,7 +91,7 @@ end
 defmodule Google.Firestore.V1beta1.BatchGetDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :consistency_selector, 0
 
@@ -111,7 +111,7 @@ end
 defmodule Google.Firestore.V1beta1.BatchGetDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Firestore.V1beta1.BeginTransactionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :options, 2, type: Google.Firestore.V1beta1.TransactionOptions
@@ -133,7 +133,7 @@ end
 defmodule Google.Firestore.V1beta1.BeginTransactionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :transaction, 1, type: :bytes
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Firestore.V1beta1.CommitRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :writes, 2, repeated: true, type: Google.Firestore.V1beta1.Write
@@ -151,7 +151,7 @@ end
 defmodule Google.Firestore.V1beta1.CommitResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :write_results, 1,
     repeated: true,
@@ -164,7 +164,7 @@ end
 defmodule Google.Firestore.V1beta1.RollbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :transaction, 2, type: :bytes, deprecated: false
@@ -173,7 +173,7 @@ end
 defmodule Google.Firestore.V1beta1.RunQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :query_type, 0
 
@@ -199,7 +199,7 @@ end
 defmodule Google.Firestore.V1beta1.RunQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :transaction, 2, type: :bytes
   field :document, 1, type: Google.Firestore.V1beta1.Document
@@ -210,7 +210,7 @@ end
 defmodule Google.Firestore.V1beta1.PartitionQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :query_type, 0
 
@@ -229,7 +229,7 @@ end
 defmodule Google.Firestore.V1beta1.PartitionQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partitions, 1, repeated: true, type: Google.Firestore.V1beta1.Cursor
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -238,7 +238,7 @@ end
 defmodule Google.Firestore.V1beta1.WriteRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -247,7 +247,7 @@ end
 defmodule Google.Firestore.V1beta1.WriteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId"
@@ -263,7 +263,7 @@ end
 defmodule Google.Firestore.V1beta1.WriteResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId"
   field :stream_token, 2, type: :bytes, json_name: "streamToken"
@@ -279,7 +279,7 @@ end
 defmodule Google.Firestore.V1beta1.ListenRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -288,7 +288,7 @@ end
 defmodule Google.Firestore.V1beta1.ListenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :target_change, 0
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Firestore.V1beta1.ListenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :response_type, 0
 
@@ -335,7 +335,7 @@ end
 defmodule Google.Firestore.V1beta1.Target.DocumentsTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :documents, 2, repeated: true, type: :string
 end
@@ -343,7 +343,7 @@ end
 defmodule Google.Firestore.V1beta1.Target.QueryTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :query_type, 0
 
@@ -358,7 +358,7 @@ end
 defmodule Google.Firestore.V1beta1.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :target_type, 0
 
@@ -375,7 +375,7 @@ end
 defmodule Google.Firestore.V1beta1.TargetChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_change_type, 1,
     type: Google.Firestore.V1beta1.TargetChange.TargetChangeType,
@@ -391,7 +391,7 @@ end
 defmodule Google.Firestore.V1beta1.ListCollectionIdsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -401,7 +401,7 @@ end
 defmodule Google.Firestore.V1beta1.ListCollectionIdsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :collection_ids, 1, repeated: true, type: :string, json_name: "collectionIds"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -410,7 +410,7 @@ end
 defmodule Google.Firestore.V1beta1.BatchWriteRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -419,7 +419,7 @@ end
 defmodule Google.Firestore.V1beta1.BatchWriteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :writes, 2, repeated: true, type: Google.Firestore.V1beta1.Write
@@ -433,7 +433,7 @@ end
 defmodule Google.Firestore.V1beta1.BatchWriteResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :write_results, 1,
     repeated: true,
@@ -448,7 +448,7 @@ defmodule Google.Firestore.V1beta1.Firestore.Service do
 
   use GRPC.Service,
     name: "google.firestore.v1beta1.Firestore",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetDocument, Google.Firestore.V1beta1.GetDocumentRequest, Google.Firestore.V1beta1.Document
 

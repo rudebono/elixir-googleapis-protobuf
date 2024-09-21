@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Servicehealth.Logging.V1.EventLog.EventCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_CATEGORY_UNSPECIFIED, 0
   field :INCIDENT, 2
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Servicehealth.Logging.V1.EventLog.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Servicehealth.Logging.V1.EventLog.DetailedState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DETAILED_STATE_UNSPECIFIED, 0
   field :EMERGING, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Servicehealth.Logging.V1.EventLog.Relevance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RELEVANCE_UNSPECIFIED, 0
   field :UNKNOWN, 2
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Servicehealth.Logging.V1.EventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :description, 2, type: :string

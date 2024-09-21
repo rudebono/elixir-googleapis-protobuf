@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipSpec.ControlPlaneManagement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONTROL_PLANE_MANAGEMENT_UNSPECIFIED, 0
   field :AUTOMATIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipSpec.Management do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MANAGEMENT_UNSPECIFIED, 0
   field :MANAGEMENT_AUTOMATIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.LifecycleState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.ControlPlaneManagement.Implementation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMPLEMENTATION_UNSPECIFIED, 0
   field :ISTIOD, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.Condition.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :MESH_IAM_PERMISSION_DENIED, 100
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.Condition.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :control_plane, 1,
     type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipSpec.ControlPlaneManagement,
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.ControlPlaneManagement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :details, 2, repeated: true, type: Google.Cloud.Gkehub.Servicemesh.V1beta.StatusDetails
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.DataPlaneManagement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.LifecycleState,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.Condition.Code,
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :control_plane_management, 2,
     type: Google.Cloud.Gkehub.Servicemesh.V1beta.MembershipState.ControlPlaneManagement,
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Gkehub.Servicemesh.V1beta.StatusDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1, type: :string
   field :details, 2, type: :string

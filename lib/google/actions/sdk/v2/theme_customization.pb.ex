@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.ThemeCustomization.ImageCornerStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMAGE_CORNER_STYLE_UNSPECIFIED, 0
   field :CURVED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Actions.Sdk.V2.ThemeCustomization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :background_color, 1, type: :string, json_name: "backgroundColor"
   field :primary_color, 2, type: :string, json_name: "primaryColor"

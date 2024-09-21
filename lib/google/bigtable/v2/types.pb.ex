@@ -1,13 +1,13 @@
 defmodule Google.Bigtable.V2.Type.Bytes.Encoding.Raw do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Bytes.Encoding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :encoding, 0
 
@@ -17,7 +17,7 @@ end
 defmodule Google.Bigtable.V2.Type.Bytes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Bigtable.V2.Type.Bytes.Encoding
 end
@@ -25,19 +25,19 @@ end
 defmodule Google.Bigtable.V2.Type.String.Encoding.Utf8Raw do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.String.Encoding.Utf8Bytes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.String.Encoding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :encoding, 0
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Bigtable.V2.Type.String do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Bigtable.V2.Type.String.Encoding
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Bigtable.V2.Type.Int64.Encoding.BigEndianBytes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bytes_type, 1, type: Google.Bigtable.V2.Type.Bytes, json_name: "bytesType"
 end
@@ -72,7 +72,7 @@ end
 defmodule Google.Bigtable.V2.Type.Int64.Encoding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :encoding, 0
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Bigtable.V2.Type.Int64 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Bigtable.V2.Type.Int64.Encoding
 end
@@ -93,37 +93,37 @@ end
 defmodule Google.Bigtable.V2.Type.Bool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Float32 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Float64 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Timestamp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Date do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Struct.Field do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName"
   field :type, 2, type: Google.Bigtable.V2.Type
@@ -132,7 +132,7 @@ end
 defmodule Google.Bigtable.V2.Type.Struct do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Bigtable.V2.Type.Struct.Field
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Bigtable.V2.Type.Array do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :element_type, 1, type: Google.Bigtable.V2.Type, json_name: "elementType"
 end
@@ -148,7 +148,7 @@ end
 defmodule Google.Bigtable.V2.Type.Map do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key_type, 1, type: Google.Bigtable.V2.Type, json_name: "keyType"
   field :value_type, 2, type: Google.Bigtable.V2.Type, json_name: "valueType"
@@ -157,31 +157,31 @@ end
 defmodule Google.Bigtable.V2.Type.Aggregate.Sum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Aggregate.Max do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Aggregate.Min do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Aggregate.HyperLogLogPlusPlusUniqueCount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.Type.Aggregate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :aggregator, 0
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Bigtable.V2.Type do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 

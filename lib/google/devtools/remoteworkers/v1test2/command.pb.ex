@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs.EnvironmentVariable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :arguments, 1, repeated: true, type: :string
   field :files, 2, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.Digest
@@ -31,7 +31,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Outputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :files, 1, repeated: true, type: :string
   field :directories, 2, repeated: true, type: :string
@@ -42,7 +42,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask.Timeouts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :execution, 1, type: Google.Protobuf.Duration
   field :idle, 2, type: Google.Protobuf.Duration
@@ -52,7 +52,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandTask do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :inputs, 1, type: Google.Devtools.Remoteworkers.V1test2.CommandTask.Inputs
 
@@ -66,7 +66,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOutputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :exit_code, 1, type: :int32, json_name: "exitCode"
   field :outputs, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
@@ -75,7 +75,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandOverhead do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :duration, 1, type: Google.Protobuf.Duration
   field :overhead, 2, type: Google.Protobuf.Duration
@@ -84,7 +84,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.CommandResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
   field :exit_code, 2, type: :int32, json_name: "exitCode"
@@ -97,7 +97,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.FileMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
@@ -108,7 +108,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.DirectoryMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :digest, 2, type: Google.Devtools.Remoteworkers.V1test2.Digest
@@ -117,7 +117,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.Digest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hash, 1, type: :string
   field :size_bytes, 2, type: :int64, json_name: "sizeBytes"
@@ -126,7 +126,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.Blob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :digest, 1, type: Google.Devtools.Remoteworkers.V1test2.Digest
   field :contents, 2, type: :bytes
@@ -135,7 +135,7 @@ end
 defmodule Google.Devtools.Remoteworkers.V1test2.Directory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :files, 1, repeated: true, type: Google.Devtools.Remoteworkers.V1test2.FileMetadata
 

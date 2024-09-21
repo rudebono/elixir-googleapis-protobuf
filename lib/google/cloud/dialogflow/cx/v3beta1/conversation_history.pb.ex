@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :AUDIO, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListConversationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListConversationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :conversations, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Conversation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Metrics.QueryInputCount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text_count, 1, type: :int32, json_name: "textCount"
   field :intent_count, 2, type: :int32, json_name: "intentCount"
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Metrics.MatchTypeCount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :unspecified_count, 1, type: :int32, json_name: "unspecifiedCount"
   field :intent_count, 2, type: :int32, json_name: "intentCount"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :interaction_count, 1, type: :int32, json_name: "interactionCount"
   field :input_audio_duration, 2, type: Google.Protobuf.Duration, json_name: "inputAudioDuration"
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction.MissingTransition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :intent_display_name, 1, type: :string, json_name: "intentDisplayName"
   field :score, 2, type: :float
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :request, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest
   field :response, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.FlowVersionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Type, enum: true
@@ -170,7 +170,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ConversationHistory.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.ConversationHistory",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListConversations,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListConversationsRequest,

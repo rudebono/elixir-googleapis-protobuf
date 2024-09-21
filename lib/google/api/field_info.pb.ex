@@ -1,7 +1,7 @@
 defmodule Google.Api.FieldInfo.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :UUID4, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Api.FieldInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :format, 1, type: Google.Api.FieldInfo.Format, enum: true
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Api.TypeReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type_name, 1, type: :string, json_name: "typeName"
 end

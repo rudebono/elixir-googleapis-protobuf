@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Admin.V1beta.AccessStringFilter.MatchType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessNumericFilter.Operation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :EQUAL, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessOrderBy.DimensionOrderBy.OrderType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ORDER_TYPE_UNSPECIFIED, 0
   field :ALPHANUMERIC, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 end
@@ -47,7 +47,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessMetric do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessDateRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
@@ -64,7 +64,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessFilterExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :one_expression, 0
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessFilterExpressionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :expressions, 1,
     repeated: true,
@@ -102,7 +102,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -132,7 +132,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessStringFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Admin.V1beta.AccessStringFilter.MatchType,
@@ -146,7 +146,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessInListFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
   field :case_sensitive, 2, type: :bool, json_name: "caseSensitive"
@@ -155,7 +155,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessNumericFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 1,
     type: Google.Analytics.Admin.V1beta.AccessNumericFilter.Operation,
@@ -167,7 +167,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessBetweenFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :from_value, 1, type: Google.Analytics.Admin.V1beta.NumericValue, json_name: "fromValue"
   field :to_value, 2, type: Google.Analytics.Admin.V1beta.NumericValue, json_name: "toValue"
@@ -176,7 +176,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.NumericValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -187,7 +187,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessOrderBy.MetricOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 end
@@ -195,7 +195,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessOrderBy.DimensionOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 
@@ -208,7 +208,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :one_order_by, 0
 
@@ -224,7 +224,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessDimensionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 end
@@ -232,7 +232,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessMetricHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 end
@@ -240,7 +240,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessRow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -256,7 +256,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessDimensionValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
@@ -264,7 +264,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessMetricValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
@@ -272,7 +272,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessQuota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tokens_per_day, 1,
     type: Google.Analytics.Admin.V1beta.AccessQuotaStatus,
@@ -298,7 +298,7 @@ end
 defmodule Google.Analytics.Admin.V1beta.AccessQuotaStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :consumed, 1, type: :int32
   field :remaining, 2, type: :int32

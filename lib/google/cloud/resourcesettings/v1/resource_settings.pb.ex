@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Resourcesettings.V1.SettingView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SETTING_VIEW_UNSPECIFIED, 0
   field :SETTING_VIEW_BASIC, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata.DataType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :BOOLEAN, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.Setting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :metadata, 7, type: Google.Cloud.Resourcesettings.V1.SettingMetadata, deprecated: false
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.SettingMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.Value.StringSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.Value.EnumValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.ListSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.ListSettingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :settings, 1, repeated: true, type: Google.Cloud.Resourcesettings.V1.Setting
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.GetSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Resourcesettings.V1.SettingView, enum: true
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Resourcesettings.V1.UpdateSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :setting, 1, type: Google.Cloud.Resourcesettings.V1.Setting, deprecated: false
 end
@@ -134,7 +134,7 @@ defmodule Google.Cloud.Resourcesettings.V1.ResourceSettingsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.resourcesettings.v1.ResourceSettingsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListSettings,
       Google.Cloud.Resourcesettings.V1.ListSettingsRequest,

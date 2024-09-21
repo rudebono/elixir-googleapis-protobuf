@@ -1,7 +1,7 @@
 defmodule Google.Dataflow.V1beta3.SnapshotState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNKNOWN_SNAPSHOT_STATE, 0
   field :PENDING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Dataflow.V1beta3.PubsubSnapshotMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :topic_name, 1, type: :string, json_name: "topicName"
   field :snapshot_name, 2, type: :string, json_name: "snapshotName"
@@ -24,7 +24,7 @@ end
 defmodule Google.Dataflow.V1beta3.Snapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -46,7 +46,7 @@ end
 defmodule Google.Dataflow.V1beta3.GetSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
@@ -56,7 +56,7 @@ end
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :snapshot_id, 2, type: :string, json_name: "snapshotId"
@@ -66,13 +66,13 @@ end
 defmodule Google.Dataflow.V1beta3.DeleteSnapshotResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Dataflow.V1beta3.ListSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 3, type: :string, json_name: "jobId"
@@ -82,7 +82,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListSnapshotsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapshots, 1, repeated: true, type: Google.Dataflow.V1beta3.Snapshot
 end
@@ -92,7 +92,7 @@ defmodule Google.Dataflow.V1beta3.SnapshotsV1Beta3.Service do
 
   use GRPC.Service,
     name: "google.dataflow.v1beta3.SnapshotsV1Beta3",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetSnapshot, Google.Dataflow.V1beta3.GetSnapshotRequest, Google.Dataflow.V1beta3.Snapshot
 

@@ -1,7 +1,7 @@
 defmodule Google.Appengine.V1beta.Application.ServingStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :SERVING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Appengine.V1beta.Application.DatabaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :CLOUD_DATASTORE, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Appengine.V1beta.Application.IdentityAwareProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :oauth2_client_id, 2, type: :string, json_name: "oauth2ClientId"
@@ -34,7 +34,7 @@ end
 defmodule Google.Appengine.V1beta.Application.FeatureSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :split_health_checks, 1, type: :bool, json_name: "splitHealthChecks"
   field :use_container_optimized_os, 2, type: :bool, json_name: "useContainerOptimizedOs"
@@ -43,7 +43,7 @@ end
 defmodule Google.Appengine.V1beta.Application do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -84,7 +84,7 @@ end
 defmodule Google.Appengine.V1beta.UrlDispatchRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :domain, 1, type: :string
   field :path, 2, type: :string

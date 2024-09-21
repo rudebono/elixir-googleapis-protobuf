@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.UpdateServingConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :serving_config, 1,
     type: Google.Cloud.Discoveryengine.V1beta.ServingConfig,
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.GetServingConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.ListServingConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.ListServingConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :serving_configs, 1,
     repeated: true,
@@ -47,7 +47,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ServingConfigService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1beta.ServingConfigService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :UpdateServingConfig,
       Google.Cloud.Discoveryengine.V1beta.UpdateServingConfigRequest,

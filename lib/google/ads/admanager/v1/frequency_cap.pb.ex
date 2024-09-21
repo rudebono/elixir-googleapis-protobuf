@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.TimeUnitEnum.TimeUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TIME_UNIT_UNSPECIFIED, 0
   field :MINUTE, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Admanager.V1.FrequencyCap do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :max_impressions, 1, proto3_optional: true, type: :int64, json_name: "maxImpressions"
   field :time_amount, 2, proto3_optional: true, type: :int64, json_name: "timeAmount"
@@ -32,5 +32,5 @@ end
 defmodule Google.Ads.Admanager.V1.TimeUnitEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end

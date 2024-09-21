@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.GetStudyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateStudyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :study, 2, type: Google.Cloud.Aiplatform.V1.Study, deprecated: false
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListStudiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :studies, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Study
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteStudyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.LookupStudyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :suggestion_count, 2, type: :int32, json_name: "suggestionCount", deprecated: false
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SuggestTrialsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateTrialRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :trial, 2, type: Google.Cloud.Aiplatform.V1.Trial, deprecated: false
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetTrialRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListTrialsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trials, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.Trial
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AddTrialMeasurementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trial_name, 1, type: :string, json_name: "trialName", deprecated: false
   field :measurement, 3, type: Google.Cloud.Aiplatform.V1.Measurement, deprecated: false
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CompleteTrialRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteTrialRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :trial_name, 1, type: :string, json_name: "trialName", deprecated: false
 end
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :should_stop, 1, type: :bool, json_name: "shouldStop"
 end
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CheckTrialEarlyStoppingStateMetatdata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StopTrialRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListOptimalTrialsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :optimal_trials, 1,
     repeated: true,
@@ -224,7 +224,7 @@ defmodule Google.Cloud.Aiplatform.V1.VizierService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.VizierService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateStudy,
       Google.Cloud.Aiplatform.V1.CreateStudyRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Css.V1.CssProductInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :final_name, 2, type: :string, json_name: "finalName", deprecated: false
@@ -20,7 +20,7 @@ end
 defmodule Google.Shopping.Css.V1.InsertCssProductInputRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Shopping.Css.V1.DeleteCssProductInputRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -50,7 +50,7 @@ defmodule Google.Shopping.Css.V1.CssProductInputsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.css.v1.CssProductInputsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :InsertCssProductInput,
       Google.Shopping.Css.V1.InsertCssProductInputRequest,

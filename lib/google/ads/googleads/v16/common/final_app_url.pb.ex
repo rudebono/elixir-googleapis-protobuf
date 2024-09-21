@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Common.FinalAppUrl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :os_type, 1,
     type: Google.Ads.Googleads.V16.Enums.AppUrlOperatingSystemTypeEnum.AppUrlOperatingSystemType,

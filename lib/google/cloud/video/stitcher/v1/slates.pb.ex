@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.Slate.GamSlate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_code, 1, type: :string, json_name: "networkCode", deprecated: false
   field :gam_slate_id, 2, type: :int64, json_name: "gamSlateId", deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.Slate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uri, 2, type: :string
