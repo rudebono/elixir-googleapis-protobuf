@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.Order.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :DRAFT, 2
@@ -16,7 +16,7 @@ end
 defmodule Google.Ads.Admanager.V1.Order do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :order_id, 4, type: :int64, json_name: "orderId", deprecated: false
@@ -107,7 +107,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListOrdersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -128,7 +128,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListOrdersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :orders, 1, repeated: true, type: Google.Ads.Admanager.V1.Order
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -140,7 +140,7 @@ defmodule Google.Ads.Admanager.V1.OrderService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.OrderService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetOrder, Google.Ads.Admanager.V1.GetOrderRequest, Google.Ads.Admanager.V1.Order
 

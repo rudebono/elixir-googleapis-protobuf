@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.Membership.MembershipState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MEMBERSHIP_STATE_UNSPECIFIED, 0
   field :JOINED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Chat.V1.Membership.MembershipRole do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MEMBERSHIP_ROLE_UNSPECIFIED, 0
   field :ROLE_MEMBER, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Chat.V1.Membership do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :memberType, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Chat.V1.CreateMembershipRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :membership, 2, type: Google.Chat.V1.Membership, deprecated: false
@@ -56,7 +56,7 @@ end
 defmodule Google.Chat.V1.UpdateMembershipRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :membership, 1, type: Google.Chat.V1.Membership, deprecated: false
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Chat.V1.ListMembershipsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -85,7 +85,7 @@ end
 defmodule Google.Chat.V1.ListMembershipsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :memberships, 1, repeated: true, type: Google.Chat.V1.Membership, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -94,7 +94,7 @@ end
 defmodule Google.Chat.V1.GetMembershipRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess"
@@ -103,7 +103,7 @@ end
 defmodule Google.Chat.V1.DeleteMembershipRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"

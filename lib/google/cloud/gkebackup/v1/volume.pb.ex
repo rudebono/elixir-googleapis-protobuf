@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.VolumeBackupFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VOLUME_BACKUP_FORMAT_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.VolumeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VOLUME_TYPE_UNSPECIFIED, 0
   field :GCE_PERSISTENT_DISK, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

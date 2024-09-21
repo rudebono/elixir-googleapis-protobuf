@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securityposture.V1.CustomConstraint.MethodType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :METHOD_TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConstraint.ActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PolicyRule.StringValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
   field :denied_values, 2, repeated: true, type: :string, json_name: "deniedValues"
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PolicyRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACCEPTED, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :requests, 1,
     repeated: true,
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Documentai.V1beta1.InputConfig,
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.ProcessDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Documentai.V1beta1.InputConfig,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.OcrParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :language_hints, 1, repeated: true, type: :string, json_name: "languageHints"
 end
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.TableExtractionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.TableBoundHint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :page_number, 1, type: :int32, json_name: "pageNumber", deprecated: false
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.FormExtractionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.KeyValuePairHint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value_types, 2, repeated: true, type: :string, json_name: "valueTypes"
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.EntityExtractionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :model_version, 2, type: :string, json_name: "modelVersion"
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.InputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.OutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.GcsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Documentai.V1beta1.OperationMetadata.State, enum: true
   field :state_message, 2, type: :string, json_name: "stateMessage"
@@ -218,7 +218,7 @@ defmodule Google.Cloud.Documentai.V1beta1.DocumentUnderstandingService.Service d
 
   use GRPC.Service,
     name: "google.cloud.documentai.v1beta1.DocumentUnderstandingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :BatchProcessDocuments,
       Google.Cloud.Documentai.V1beta1.BatchProcessDocumentsRequest,

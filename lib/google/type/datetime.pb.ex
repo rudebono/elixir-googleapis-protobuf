@@ -1,7 +1,7 @@
 defmodule Google.Type.DateTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :time_offset, 0
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Type.TimeZone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :version, 2, type: :string

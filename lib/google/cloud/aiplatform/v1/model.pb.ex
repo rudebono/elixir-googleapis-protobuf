@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.Model.DeploymentResourcesType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DEPLOYMENT_RESOURCES_TYPE_UNSPECIFIED, 0
   field :DEDICATED_RESOURCES, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat.ExportableContent do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EXPORTABLE_CONTENT_UNSPECIFIED, 0
   field :ARTIFACT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODEL_SOURCE_TYPE_UNSPECIFIED, 0
   field :AUTOML, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.ExportFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.DataStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :training_data_items_count, 1, type: :int64, json_name: "trainingDataItemsCount"
   field :validation_data_items_count, 2, type: :int64, json_name: "validationDataItemsCount"
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.OriginalModelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.BaseModelSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Model do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version_id, 28, type: :string, json_name: "versionId", deprecated: false
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.LargeModelReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ModelGardenSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :public_model_name, 1, type: :string, json_name: "publicModelName", deprecated: false
 end
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenieSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :base_model_uri, 1, type: :string, json_name: "baseModelUri", deprecated: false
 end
@@ -238,7 +238,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.PredictSchemata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_schema_uri, 1, type: :string, json_name: "instanceSchemaUri", deprecated: false
 
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ModelContainerSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
   field :command, 2, repeated: true, type: :string, deprecated: false
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Port do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :container_port, 3, type: :int32, json_name: "containerPort"
 end
@@ -304,7 +304,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ModelSourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source_type, 1,
     type: Google.Cloud.Aiplatform.V1.ModelSourceInfo.ModelSourceType,
@@ -317,7 +317,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Probe.ExecAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :command, 1, repeated: true, type: :string
 end
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Probe do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :probe_type, 0
 

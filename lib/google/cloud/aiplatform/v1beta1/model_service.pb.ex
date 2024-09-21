@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :parent_model, 4, type: :string, json_name: "parentModel", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_version_id, 2, type: :string, json_name: "modelVersionId", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: Google.Cloud.Aiplatform.V1beta1.Model, deprecated: false
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExplanationDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :examples, 2, type: Google.Cloud.Aiplatform.V1beta1.Examples
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExplanationDatasetOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MergeVersionAliasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelRequest.OutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :export_format_id, 1, type: :string, json_name: "exportFormatId"
 
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelOperationMetadata.OutputInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :artifact_output_uri, 2, type: :string, json_name: "artifactOutputUri", deprecated: false
   field :image_output_uri, 3, type: :string, json_name: "imageOutputUri", deprecated: false
@@ -183,7 +183,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -198,19 +198,19 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExplanationDatasetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ExportModelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination_model, 0
 
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CopyModelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_version_id, 2, type: :string, json_name: "modelVersionId", deprecated: false
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportModelEvaluationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchImportModelEvaluationSlicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchImportModelEvaluationSlicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :imported_model_evaluation_slices, 1,
     repeated: true,
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchImportEvaluatedAnnotationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchImportEvaluatedAnnotationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :imported_evaluated_annotations_count, 1,
     type: :int32,
@@ -310,7 +310,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelEvaluationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -330,7 +330,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model_evaluations, 1,
     repeated: true,
@@ -343,7 +343,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelEvaluationSliceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -351,7 +351,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationSlicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationSlicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :model_evaluation_slices, 1,
     repeated: true,
@@ -378,7 +378,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ModelService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :UploadModel,
       Google.Cloud.Aiplatform.V1beta1.UploadModelRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NOTEBOOK_RUNTIME_TYPE_UNSPECIFIED, 0
   field :USER_DEFINED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime.HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HEALTH_STATE_UNSPECIFIED, 0
   field :HEALTHY, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime.RuntimeState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RUNTIME_STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :runtime_user, 2, type: :string, json_name: "runtimeUser", deprecated: false

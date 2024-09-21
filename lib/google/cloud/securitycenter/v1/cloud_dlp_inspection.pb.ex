@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.CloudDlpInspection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :inspect_job, 1, type: :string, json_name: "inspectJob", deprecated: false
   field :info_type, 2, type: :string, json_name: "infoType"

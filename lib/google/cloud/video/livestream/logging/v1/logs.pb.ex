@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Livestream.Logging.V1.ChannelActivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :activity_type, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.StreamingStateChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :new_state, 1,
     type: Google.Cloud.Video.Livestream.V1.Channel.StreamingState,
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.StreamingError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error, 1, type: Google.Rpc.Status
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.InputAccept do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId"
   field :input_attachment, 2, type: :string, json_name: "inputAttachment"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.InputError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId"
   field :input_attachment, 2, type: :string, json_name: "inputAttachment"
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.InputStreamProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :video_streams, 1,
     repeated: true,
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.VideoStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.VideoFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :width_pixels, 2, type: :int32, json_name: "widthPixels"
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.AudioStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: :int32
 
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.AudioFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :codec, 1, type: :string
   field :channel_count, 2, type: :int32, json_name: "channelCount"
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.InputDisconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stream_id, 1, type: :string, json_name: "streamId"
   field :input_attachment, 2, type: :string, json_name: "inputAttachment"
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.EventStateChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :event_id, 1, type: :string, json_name: "eventId"
 
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.SpliceTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_specified_flag, 1, type: :bool, json_name: "timeSpecifiedFlag"
   field :pts_time, 2, type: :int64, json_name: "ptsTime"
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.BreakDuration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :auto_return, 1, type: :bool, json_name: "autoReturn"
   field :duration, 2, type: :int64
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.Component do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :component_tag, 1, type: :int32, json_name: "componentTag"
 
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.SpliceInsert do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :splice_event_id, 1, type: :int32, json_name: "spliceEventId"
   field :splice_event_cancel_indicator, 2, type: :bool, json_name: "spliceEventCancelIndicator"
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.SpliceInfoSection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pts_adjustment, 1, type: :int64, json_name: "ptsAdjustment"
 
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Video.Livestream.Logging.V1.Scte35Command do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :splice_info_section, 1,
     type: Google.Cloud.Video.Livestream.Logging.V1.Scte35Command.SpliceInfoSection,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TRANSFER_TYPE_UNSPECIFIED, 0
   field :BATCH, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TRANSFER_STATE_UNSPECIFIED, 0
   field :PENDING, 2
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage.MessageSeverity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MESSAGE_SEVERITY_UNSPECIFIED, 0
   field :INFO, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.EmailPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enable_failure_email, 1, type: :bool, json_name: "enableFailureEmail"
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disable_auto_scheduling, 3, type: :bool, json_name: "disableAutoScheduling"
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.UserInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :email, 1, proto3_optional: true, type: :string
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.EncryptionConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kms_key_name, 1, type: Google.Protobuf.StringValue, json_name: "kmsKeyName"
 end
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message_time, 1, type: Google.Protobuf.Timestamp, json_name: "messageTime"
 

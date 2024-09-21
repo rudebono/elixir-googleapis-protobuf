@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Phishingprotection.V1beta1.ReportPhishingResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Beta1.Service do
@@ -18,7 +18,7 @@ defmodule Google.Cloud.Phishingprotection.V1beta1.PhishingProtectionServiceV1Bet
 
   use GRPC.Service,
     name: "google.cloud.phishingprotection.v1beta1.PhishingProtectionServiceV1Beta1",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ReportPhishing,
       Google.Cloud.Phishingprotection.V1beta1.ReportPhishingRequest,

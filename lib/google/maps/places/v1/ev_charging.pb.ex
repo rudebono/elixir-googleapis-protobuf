@@ -1,7 +1,7 @@
 defmodule Google.Maps.Places.V1.EVConnectorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EV_CONNECTOR_TYPE_UNSPECIFIED, 0
   field :EV_CONNECTOR_TYPE_OTHER, 1
@@ -18,7 +18,7 @@ end
 defmodule Google.Maps.Places.V1.EVChargeOptions.ConnectorAggregation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Maps.Places.V1.EVConnectorType, enum: true
   field :max_charge_rate_kw, 2, type: :double, json_name: "maxChargeRateKw"
@@ -38,7 +38,7 @@ end
 defmodule Google.Maps.Places.V1.EVChargeOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connector_count, 1, type: :int32, json_name: "connectorCount"
 

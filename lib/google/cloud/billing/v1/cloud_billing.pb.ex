@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Billing.V1.BillingAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :open, 2, type: :bool, deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Billing.V1.GetBillingAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListBillingAccountsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :billing_accounts, 1,
     repeated: true,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Billing.V1.CreateBillingAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :billing_account, 1,
     type: Google.Cloud.Billing.V1.BillingAccount,
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Billing.V1.UpdateBillingAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account, 2, type: Google.Cloud.Billing.V1.BillingAccount, deprecated: false
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListProjectBillingInfoResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_billing_info, 1,
     repeated: true,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Billing.V1.GetProjectBillingInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Billing.V1.UpdateProjectBillingInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Billing.V1.MoveBillingAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_parent, 2, type: :string, json_name: "destinationParent", deprecated: false
@@ -133,7 +133,7 @@ defmodule Google.Cloud.Billing.V1.CloudBilling.Service do
 
   use GRPC.Service,
     name: "google.cloud.billing.v1.CloudBilling",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetBillingAccount,
       Google.Cloud.Billing.V1.GetBillingAccountRequest,

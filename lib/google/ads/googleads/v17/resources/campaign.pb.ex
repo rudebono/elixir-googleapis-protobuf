@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.PerformanceMaxUpgrade do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :performance_max_campaign, 1,
     type: :string,
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.NetworkSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_google_search, 5,
     proto3_optional: true,
@@ -56,7 +56,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.HotelSettingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :hotel_center_id, 2,
     proto3_optional: true,
@@ -68,7 +68,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.DynamicSearchAdsSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :domain_name, 6, type: :string, json_name: "domainName", deprecated: false
   field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.ShoppingSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :merchant_id, 5, proto3_optional: true, type: :int64, json_name: "merchantId"
   field :feed_label, 10, type: :string, json_name: "feedLabel"
@@ -111,7 +111,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.TrackingSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tracking_url, 2,
     proto3_optional: true,
@@ -123,7 +123,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.GeoTargetTypeSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :positive_geo_target_type, 1,
     type: Google.Ads.Googleads.V17.Enums.PositiveGeoTargetTypeEnum.PositiveGeoTargetType,
@@ -139,7 +139,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.LocalCampaignSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location_source_type, 1,
     type: Google.Ads.Googleads.V17.Enums.LocationSourceTypeEnum.LocationSourceType,
@@ -150,7 +150,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.AppCampaignSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bidding_strategy_goal_type, 1,
     type:
@@ -170,7 +170,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.VanityPharma do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vanity_pharma_display_url_mode, 1,
     type:
@@ -187,7 +187,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.SelectiveOptimization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :conversion_actions, 2,
     repeated: true,
@@ -199,7 +199,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.OptimizationGoalSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :optimization_goal_types, 1,
     repeated: true,
@@ -211,7 +211,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.AudienceSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :use_audience_grouped, 1,
     proto3_optional: true,
@@ -223,7 +223,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.LocalServicesCampaignSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :category_bids, 1,
     repeated: true,
@@ -234,7 +234,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.CategoryBid do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :category_id, 1, proto3_optional: true, type: :string, json_name: "categoryId"
 
@@ -247,7 +247,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.TravelCampaignSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :travel_account_id, 1,
     proto3_optional: true,
@@ -259,7 +259,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.DemandGenCampaignSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :upgraded_targeting, 1,
     proto3_optional: true,
@@ -271,7 +271,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings.VideoAdInventoryControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allow_in_stream, 1, proto3_optional: true, type: :bool, json_name: "allowInStream"
   field :allow_in_feed, 2, proto3_optional: true, type: :bool, json_name: "allowInFeed"
@@ -281,7 +281,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.VideoCampaignSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :video_ad_inventory_control, 1,
     type:
@@ -292,7 +292,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign.AssetAutomationSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset_automation_type, 1,
     proto3_optional: true,
@@ -310,7 +310,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Campaign do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :campaign_bidding_strategy, 0
 

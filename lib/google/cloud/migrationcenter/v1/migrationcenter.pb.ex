@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Migrationcenter.V1.AssetView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ASSET_VIEW_UNSPECIFIED, 0
   field :ASSET_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.OperatingSystemFamily do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OS_FAMILY_UNKNOWN, 0
   field :OS_FAMILY_WINDOWS, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportJobFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMPORT_JOB_FORMAT_UNSPECIFIED, 0
   field :IMPORT_JOB_FORMAT_RVTOOLS_XLSX, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportJobView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMPORT_JOB_VIEW_UNSPECIFIED, 0
   field :IMPORT_JOB_VIEW_BASIC, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ErrorFrameView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ERROR_FRAME_VIEW_UNSPECIFIED, 0
   field :ERROR_FRAME_VIEW_BASIC, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.PersistentDiskType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PERSISTENT_DISK_TYPE_UNSPECIFIED, 0
   field :PERSISTENT_DISK_TYPE_STANDARD, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.LicenseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LICENSE_TYPE_UNSPECIFIED, 0
   field :LICENSE_TYPE_DEFAULT, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.SizingOptimizationStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SIZING_OPTIMIZATION_STRATEGY_UNSPECIFIED, 0
   field :SIZING_OPTIMIZATION_STRATEGY_SAME_AS_SOURCE, 1
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CommitmentPlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :COMMITMENT_PLAN_NONE, 1
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ComputeMigrationTargetProduct do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMPUTE_MIGRATION_TARGET_PRODUCT_UNSPECIFIED, 0
   field :COMPUTE_MIGRATION_TARGET_PRODUCT_COMPUTE_ENGINE, 1
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REPORT_VIEW_UNSPECIFIED, 0
   field :REPORT_VIEW_BASIC, 1
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportJob.ImportJobState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMPORT_JOB_STATE_UNSPECIFIED, 0
   field :IMPORT_JOB_STATE_PENDING, 1
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportDataFile.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Source.SourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SOURCE_TYPE_UNKNOWN, 0
   field :SOURCE_TYPE_UPLOAD, 1
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Source.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Report.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TOTAL_COST_OF_OWNERSHIP, 1
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Report.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineDetails.PowerState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :POWER_STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineArchitectureDetails.FirmwareType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FIRMWARE_TYPE_UNSPECIFIED, 0
   field :BIOS, 1
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineArchitectureDetails.CpuHyperThreading do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CPU_HYPER_THREADING_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkAddress.AddressAssignment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ADDRESS_ASSIGNMENT_UNSPECIFIED, 0
   field :ADDRESS_ASSIGNMENT_STATIC, 1
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskEntry.InterfaceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :INTERFACE_TYPE_UNSPECIFIED, 0
   field :IDE, 1
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareDiskConfig.BackingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BACKING_TYPE_UNSPECIFIED, 0
   field :BACKING_TYPE_FLAT_V1, 1
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareDiskConfig.VmdkMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VMDK_MODE_UNSPECIFIED, 0
   field :DEPENDENT, 1
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareDiskConfig.RdmCompatibility do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RDM_COMPATIBILITY_UNSPECIFIED, 0
   field :PHYSICAL_COMPATIBILITY, 1
@@ -284,7 +284,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestConfigDetails.SeLinuxMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SE_LINUX_MODE_UNSPECIFIED, 0
   field :SE_LINUX_MODE_DISABLED, 1
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningService.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -306,7 +306,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningService.StartMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :START_MODE_UNSPECIFIED, 0
   field :BOOT, 1
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkConnection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :OPENING, 1
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FitDescriptor.FitLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FIT_LEVEL_UNSPECIFIED, 0
   field :FIT, 1
@@ -343,7 +343,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportError.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences.CommitmentPlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -367,7 +367,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.HostMaintenancePolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HOST_MAINTENANCE_POLICY_UNSPECIFIED, 0
   field :HOST_MAINTENANCE_POLICY_DEFAULT, 1
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences.CommitmentPlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMMITMENT_PLAN_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -389,7 +389,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Asset.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Asset.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -407,7 +407,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :AssetDetails, 0
 
@@ -461,7 +461,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.PreferenceSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -486,7 +486,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -495,7 +495,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :report, 0
 
@@ -545,7 +545,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportDataFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :file_info, 0
 
@@ -576,7 +576,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Group.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -585,7 +585,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Group do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -611,7 +611,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ErrorFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -634,7 +634,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Source do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -665,7 +665,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportConfig.GroupPreferenceSetAssignment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
   field :preference_set, 2, type: :string, json_name: "preferenceSet", deprecated: false
@@ -674,7 +674,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -701,7 +701,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Report do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -725,7 +725,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -748,7 +748,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -761,7 +761,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :assets, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.Asset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -771,7 +771,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Migrationcenter.V1.AssetView, enum: true
@@ -780,7 +780,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdateAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -794,7 +794,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.BatchUpdateAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -807,7 +807,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.BatchUpdateAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :assets, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.Asset
 end
@@ -815,7 +815,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -824,7 +824,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.BatchDeleteAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :names, 2, repeated: true, type: :string, deprecated: false
@@ -834,7 +834,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportAssetFramesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :frames, 2, type: Google.Cloud.Migrationcenter.V1.Frames
@@ -844,13 +844,13 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportAssetFramesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.AggregateAssetsValuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :aggregations, 2, repeated: true, type: Google.Cloud.Migrationcenter.V1.Aggregation
@@ -860,7 +860,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregateAssetsValuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.AggregationResult
 end
@@ -868,7 +868,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :import_job_id, 2, type: :string, json_name: "importJobId", deprecated: false
@@ -884,7 +884,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListImportJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -901,7 +901,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListImportJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :import_jobs, 1,
     repeated: true,
@@ -915,7 +915,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -928,7 +928,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -938,7 +938,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdateImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -956,7 +956,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ValidateImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -965,7 +965,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -974,7 +974,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetImportDataFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -982,7 +982,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListImportDataFilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -994,7 +994,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListImportDataFilesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :import_data_files, 1,
     repeated: true,
@@ -1008,7 +1008,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateImportDataFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :import_data_file_id, 2, type: :string, json_name: "importDataFileId", deprecated: false
@@ -1024,7 +1024,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteImportDataFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1033,7 +1033,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1045,7 +1045,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :groups, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.Group
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1055,7 +1055,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1063,7 +1063,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :group_id, 2, type: :string, json_name: "groupId", deprecated: false
@@ -1074,7 +1074,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdateGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1088,7 +1088,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1097,7 +1097,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AddAssetsToGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1108,7 +1108,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RemoveAssetsFromGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1119,7 +1119,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListErrorFramesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1134,7 +1134,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListErrorFramesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error_frames, 1,
     repeated: true,
@@ -1148,7 +1148,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetErrorFrameRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1161,7 +1161,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListSourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1173,7 +1173,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListSourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sources, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.Source
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1183,7 +1183,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1191,7 +1191,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :source_id, 2, type: :string, json_name: "sourceId", deprecated: false
@@ -1202,7 +1202,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdateSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1216,7 +1216,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1225,7 +1225,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListPreferenceSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1236,7 +1236,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListPreferenceSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :preference_sets, 1,
     repeated: true,
@@ -1250,7 +1250,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetPreferenceSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1258,7 +1258,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreatePreferenceSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :preference_set_id, 2, type: :string, json_name: "preferenceSetId", deprecated: false
@@ -1274,7 +1274,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdatePreferenceSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1292,7 +1292,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeletePreferenceSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1301,7 +1301,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1309,7 +1309,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UpdateSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1323,7 +1323,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :report_config_id, 2, type: :string, json_name: "reportConfigId", deprecated: false
@@ -1339,7 +1339,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1349,7 +1349,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 6, type: Google.Cloud.Migrationcenter.V1.ReportView, enum: true
@@ -1358,7 +1358,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListReportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1371,7 +1371,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListReportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.Report
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1381,7 +1381,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DeleteReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -1390,7 +1390,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GetReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1398,7 +1398,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListReportConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1410,7 +1410,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ListReportConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :report_configs, 1,
     repeated: true,
@@ -1424,7 +1424,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CreateReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :report_id, 2, type: :string, json_name: "reportId", deprecated: false
@@ -1435,7 +1435,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Frames do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :frames_data, 1,
     repeated: true,
@@ -1446,7 +1446,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AssetFrame.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1455,7 +1455,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AssetFrame.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1464,7 +1464,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AssetFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :FrameData, 0
 
@@ -1496,7 +1496,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uuid, 1, type: :string
   field :machine_name, 2, type: :string, json_name: "machineName"
@@ -1519,7 +1519,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineArchitectureDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cpu_architecture, 1, type: :string, json_name: "cpuArchitecture"
   field :cpu_name, 2, type: :string, json_name: "cpuName"
@@ -1541,7 +1541,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.BiosDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bios_name, 1, type: :string, json_name: "biosName", deprecated: true
   field :id, 2, type: :string
@@ -1554,7 +1554,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineNetworkDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :primary_ip_address, 1, type: :string, json_name: "primaryIpAddress"
   field :public_ip_address, 2, type: :string, json_name: "publicIpAddress"
@@ -1565,7 +1565,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkAdapterList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.NetworkAdapterDetails
 end
@@ -1573,7 +1573,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkAdapterDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :adapter_type, 1, type: :string, json_name: "adapterType"
   field :mac_address, 2, type: :string, json_name: "macAddress"
@@ -1583,7 +1583,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkAddressList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.NetworkAddress
 end
@@ -1591,7 +1591,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkAddress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :subnet_mask, 2, type: :string, json_name: "subnetMask"
@@ -1606,7 +1606,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineDiskDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :total_capacity_bytes, 1, type: :int64, json_name: "totalCapacityBytes"
   field :total_free_bytes, 2, type: :int64, json_name: "totalFreeBytes"
@@ -1616,7 +1616,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskEntryList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.DiskEntry
 end
@@ -1624,7 +1624,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :platform_specific, 0
 
@@ -1646,7 +1646,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskPartitionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.DiskPartition
 end
@@ -1654,7 +1654,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :file_system, 2, type: :string, json_name: "fileSystem"
@@ -1671,7 +1671,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareDiskConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :backing_type, 1,
     type: Google.Cloud.Migrationcenter.V1.VmwareDiskConfig.BackingType,
@@ -1694,7 +1694,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestOsDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :os_name, 1, type: :string, json_name: "osName"
   field :family, 2, type: Google.Cloud.Migrationcenter.V1.OperatingSystemFamily, enum: true
@@ -1706,7 +1706,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestConfigDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :issue, 1, type: :string
   field :fstab, 2, type: Google.Cloud.Migrationcenter.V1.FstabEntryList
@@ -1725,7 +1725,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FstabEntryList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.FstabEntry
 end
@@ -1733,7 +1733,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FstabEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :spec, 1, type: :string
   field :file, 2, type: :string
@@ -1746,7 +1746,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.HostsEntryList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.HostsEntry
 end
@@ -1754,7 +1754,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.HostsEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ip, 1, type: :string
   field :host_names, 2, repeated: true, type: :string, json_name: "hostNames"
@@ -1763,7 +1763,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NfsExportList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.NfsExport
 end
@@ -1771,7 +1771,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NfsExport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :export_directory, 1, type: :string, json_name: "exportDirectory"
   field :hosts, 2, repeated: true, type: :string
@@ -1780,7 +1780,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestRuntimeDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :services, 1, type: Google.Cloud.Migrationcenter.V1.RunningServiceList
   field :processes, 2, type: Google.Cloud.Migrationcenter.V1.RunningProcessList
@@ -1801,7 +1801,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningServiceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.RunningService
 end
@@ -1809,7 +1809,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :state, 2, type: Google.Cloud.Migrationcenter.V1.RunningService.State, enum: true
@@ -1827,7 +1827,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningProcessList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.RunningProcess
 end
@@ -1835,7 +1835,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningProcess.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1844,7 +1844,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RunningProcess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pid, 1, type: :int64
   field :exe_path, 2, type: :string, json_name: "exePath"
@@ -1860,7 +1860,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RuntimeNetworkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :scan_time, 1, type: Google.Protobuf.Timestamp, json_name: "scanTime"
   field :connections, 2, type: Google.Cloud.Migrationcenter.V1.NetworkConnectionList
@@ -1869,7 +1869,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkConnectionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.NetworkConnection
 end
@@ -1877,7 +1877,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :protocol, 1, type: :string
   field :local_ip_address, 2, type: :string, json_name: "localIpAddress"
@@ -1892,7 +1892,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestInstalledApplicationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -1902,7 +1902,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GuestInstalledApplication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :application_name, 1, type: :string, json_name: "applicationName"
   field :vendor, 2, type: :string
@@ -1914,7 +1914,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.OpenFileList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Migrationcenter.V1.OpenFileDetails
 end
@@ -1922,7 +1922,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.OpenFileDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :command, 1, type: :string
   field :user, 2, type: :string
@@ -1933,7 +1933,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.PlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :vendor_details, 0
 
@@ -1966,7 +1966,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwarePlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vcenter_version, 1, type: :string, json_name: "vcenterVersion"
   field :esx_version, 2, type: :string, json_name: "esxVersion"
@@ -1979,7 +1979,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AwsEc2PlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :machine_type_label, 1, type: :string, json_name: "machineTypeLabel"
   field :location, 2, type: :string
@@ -1988,7 +1988,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AzureVmPlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :machine_type_label, 1, type: :string, json_name: "machineTypeLabel"
   field :location, 2, type: :string
@@ -1998,7 +1998,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GenericPlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string
 end
@@ -2006,7 +2006,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.PhysicalPlatformDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string
 end
@@ -2014,7 +2014,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MemoryUsageSample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :utilized_percentage, 1, type: :float, json_name: "utilizedPercentage"
 end
@@ -2022,7 +2022,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.CpuUsageSample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :utilized_percentage, 1, type: :float, json_name: "utilizedPercentage"
 end
@@ -2030,7 +2030,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.NetworkUsageSample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :average_ingress_bps, 1, type: :float, json_name: "averageIngressBps"
   field :average_egress_bps, 2, type: :float, json_name: "averageEgressBps"
@@ -2039,7 +2039,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DiskUsageSample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :average_iops, 1, type: :float, json_name: "averageIops"
 end
@@ -2047,7 +2047,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.PerformanceSample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sample_time, 1, type: Google.Protobuf.Timestamp, json_name: "sampleTime"
   field :memory, 2, type: Google.Cloud.Migrationcenter.V1.MemoryUsageSample
@@ -2059,7 +2059,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AssetPerformanceData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :daily_resource_usage_aggregations, 1,
     repeated: true,
@@ -2070,7 +2070,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Stats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :average, 1, type: :float
   field :median, 2, type: :float
@@ -2081,7 +2081,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.CPU do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :utilization_percentage, 1,
     type: Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Stats,
@@ -2091,7 +2091,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Memory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :utilization_percentage, 1,
     type: Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Stats,
@@ -2101,7 +2101,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Network do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ingress_bps, 1,
     type: Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Stats,
@@ -2115,7 +2115,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Disk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :iops, 1, type: Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.Stats
 end
@@ -2123,7 +2123,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :cpu, 2, type: Google.Cloud.Migrationcenter.V1.DailyResourceUsageAggregation.CPU
@@ -2135,7 +2135,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.InsightList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :insights, 1,
     repeated: true,
@@ -2151,7 +2151,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Insight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :insight, 0
 
@@ -2171,7 +2171,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.GenericInsight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message_id, 1, type: :int64, json_name: "messageId", deprecated: false
   field :default_message, 2, type: :string, json_name: "defaultMessage", deprecated: false
@@ -2186,7 +2186,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MigrationInsight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :migration_target, 0
 
@@ -2202,7 +2202,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ComputeEngineMigrationTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :shape, 1, type: Google.Cloud.Migrationcenter.V1.ComputeEngineShapeDescriptor
 end
@@ -2210,7 +2210,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ComputeEngineShapeDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :memory_mb, 1, type: :int32, json_name: "memoryMb"
   field :physical_core_count, 2, type: :int32, json_name: "physicalCoreCount"
@@ -2226,7 +2226,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ComputeStorageDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Migrationcenter.V1.PersistentDiskType, enum: true
   field :size_gb, 2, type: :int32, json_name: "sizeGb"
@@ -2235,7 +2235,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FitDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fit_level, 1,
     type: Google.Cloud.Migrationcenter.V1.FitDescriptor.FitLevel,
@@ -2246,19 +2246,19 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation.Count do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation.Sum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation.Histogram do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lower_bounds, 1, repeated: true, type: :double, json_name: "lowerBounds"
 end
@@ -2266,13 +2266,13 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation.Frequency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Migrationcenter.V1.Aggregation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :aggregation_function, 0
 
@@ -2286,7 +2286,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Count do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :int64
 end
@@ -2294,7 +2294,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Sum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :double
 end
@@ -2302,7 +2302,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Histogram.Bucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lower_bound, 1, type: :double, json_name: "lowerBound"
   field :upper_bound, 2, type: :double, json_name: "upperBound"
@@ -2312,7 +2312,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Histogram do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :buckets, 1,
     repeated: true,
@@ -2322,7 +2322,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Frequency.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -2331,7 +2331,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult.Frequency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -2342,7 +2342,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AggregationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -2356,7 +2356,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FileValidationReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :file_name, 1, type: :string, json_name: "fileName"
 
@@ -2376,7 +2376,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ValidationReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :file_validations, 1,
     repeated: true,
@@ -2392,7 +2392,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ExecutionReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :frames_reported, 1, type: :int32, json_name: "framesReported"
 
@@ -2406,7 +2406,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error_details, 1, type: :string, json_name: "errorDetails"
   field :severity, 2, type: Google.Cloud.Migrationcenter.V1.ImportError.Severity, enum: true
@@ -2415,7 +2415,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ImportRowError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :row_number, 1, type: :int32, json_name: "rowNumber", deprecated: true
   field :vm_name, 2, type: :string, json_name: "vmName"
@@ -2426,7 +2426,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UploadFileInfo.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -2435,7 +2435,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.UploadFileInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :signed_uri, 1, type: :string, json_name: "signedUri", deprecated: false
 
@@ -2454,7 +2454,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.AssetList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset_ids, 1, repeated: true, type: :string, json_name: "assetIds", deprecated: false
 end
@@ -2462,7 +2462,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.FrameViolationEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field, 1, type: :string
   field :violation, 2, type: :string
@@ -2471,7 +2471,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VirtualMachinePreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :target_product, 2,
     type: Google.Cloud.Migrationcenter.V1.ComputeMigrationTargetProduct,
@@ -2508,7 +2508,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ComputeEnginePreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :machine_preferences, 2,
     type: Google.Cloud.Migrationcenter.V1.MachinePreferences,
@@ -2523,7 +2523,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachinePreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allowed_machine_series, 1,
     repeated: true,
@@ -2534,7 +2534,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.MachineSeries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1, type: :string
 end
@@ -2542,7 +2542,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.VmwareEnginePreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cpu_overcommit_ratio, 1, type: :double, json_name: "cpuOvercommitRatio"
   field :memory_overcommit_ratio, 2, type: :double, json_name: "memoryOvercommitRatio"
@@ -2560,7 +2560,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.SoleTenancyPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cpu_overcommit_ratio, 1, type: :double, json_name: "cpuOvercommitRatio"
 
@@ -2583,7 +2583,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.SoleTenantNodeType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :node_name, 1, type: :string, json_name: "nodeName"
 end
@@ -2591,7 +2591,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.RegionPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :preferred_regions, 1, repeated: true, type: :string, json_name: "preferredRegions"
 end
@@ -2599,7 +2599,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.Settings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :preference_set, 2, type: :string, json_name: "preferenceSet", deprecated: false
@@ -2608,7 +2608,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.ChartData.DataPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :value, 2, type: :double
@@ -2617,7 +2617,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.ChartData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_points, 1,
     repeated: true,
@@ -2628,7 +2628,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.UtilizationChartData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :used, 1, type: :int64
   field :free, 2, type: :int64
@@ -2637,7 +2637,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.HistogramChartData.Bucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lower_bound, 1, type: :int64, json_name: "lowerBound"
   field :upper_bound, 2, type: :int64, json_name: "upperBound"
@@ -2647,7 +2647,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.HistogramChartData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :buckets, 1,
     repeated: true,
@@ -2657,7 +2657,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.AssetAggregateStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :total_memory_bytes, 1, type: :int64, json_name: "totalMemoryBytes"
   field :total_storage_bytes, 2, type: :int64, json_name: "totalStorageBytes"
@@ -2692,7 +2692,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.MachineSeriesAllocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :machine_series, 1,
     type: Google.Cloud.Migrationcenter.V1.MachineSeries,
@@ -2704,7 +2704,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.ComputeEngineFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allocated_regions, 1, repeated: true, type: :string, json_name: "allocatedRegions"
   field :allocated_asset_count, 2, type: :int64, json_name: "allocatedAssetCount"
@@ -2724,7 +2724,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareEngineFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allocated_regions, 1, repeated: true, type: :string, json_name: "allocatedRegions"
   field :allocated_asset_count, 2, type: :int64, json_name: "allocatedAssetCount"
@@ -2738,7 +2738,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNodeAllocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vmware_node, 1,
     type: Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNode,
@@ -2751,7 +2751,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.VmwareNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1, type: :string
 end
@@ -2759,7 +2759,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allocated_regions, 1, repeated: true, type: :string, json_name: "allocatedRegions"
   field :allocated_asset_count, 2, type: :int64, json_name: "allocatedAssetCount"
@@ -2773,7 +2773,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.SoleTenantNodeAllocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :node, 1, type: Google.Cloud.Migrationcenter.V1.SoleTenantNodeType
   field :node_count, 2, type: :int64, json_name: "nodeCount"
@@ -2783,7 +2783,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupPreferenceSetFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
@@ -2819,7 +2819,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary.GroupFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string
@@ -2842,7 +2842,7 @@ end
 defmodule Google.Cloud.Migrationcenter.V1.ReportSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :all_assets_stats, 1,
     type: Google.Cloud.Migrationcenter.V1.ReportSummary.AssetAggregateStats,
@@ -2859,7 +2859,7 @@ defmodule Google.Cloud.Migrationcenter.V1.MigrationCenter.Service do
 
   use GRPC.Service,
     name: "google.cloud.migrationcenter.v1.MigrationCenter",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListAssets,
       Google.Cloud.Migrationcenter.V1.ListAssetsRequest,

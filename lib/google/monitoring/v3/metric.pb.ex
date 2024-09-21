@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.V3.Point do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :interval, 1, type: Google.Monitoring.V3.TimeInterval
   field :value, 2, type: Google.Monitoring.V3.TypedValue
@@ -10,7 +10,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metric, 1, type: Google.Api.Metric
   field :resource, 2, type: Google.Api.MonitoredResource
@@ -33,7 +33,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_descriptors, 1,
     repeated: true,
@@ -69,7 +69,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeriesData.PointData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Monitoring.V3.TypedValue
   field :time_interval, 2, type: Google.Monitoring.V3.TimeInterval, json_name: "timeInterval"
@@ -78,7 +78,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeriesData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :label_values, 1,
     repeated: true,
@@ -94,7 +94,7 @@ end
 defmodule Google.Monitoring.V3.LabelValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Monitoring.V3.QueryError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :locator, 1, type: Google.Monitoring.V3.TextLocator
   field :message, 2, type: :string
@@ -115,7 +115,7 @@ end
 defmodule Google.Monitoring.V3.TextLocator.Position do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :line, 1, type: :int32
   field :column, 2, type: :int32
@@ -124,7 +124,7 @@ end
 defmodule Google.Monitoring.V3.TextLocator do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :source, 1, type: :string
 

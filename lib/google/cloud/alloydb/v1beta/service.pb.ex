@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstanceStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING_CREATE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.InjectFaultRequest.FaultType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FAULT_TYPE_UNSPECIFIED, 0
   field :STOP_VM, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Alloydb.V1beta.ClusterView, enum: true, deprecated: false
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateSecondaryClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.PromoteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.RestoreClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Alloydb.V1beta.InstanceView, enum: true
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateSecondaryInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateInstanceRequests do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_instance_requests, 1,
     repeated: true,
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :requests, 2, type: Google.Cloud.Alloydb.V1beta.CreateInstanceRequests, deprecated: false
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.Instance
 end
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstancesMetadata.InstanceStatusesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Alloydb.V1beta.BatchCreateInstanceStatus
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstancesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_targets, 1, repeated: true, type: :string, json_name: "instanceTargets"
 
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.BatchCreateInstanceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Alloydb.V1beta.BatchCreateInstanceStatus.State, enum: true
   field :error_msg, 2, type: :string, json_name: "errorMsg"
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.FailoverInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.InjectFaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fault_type, 1,
     type: Google.Cloud.Alloydb.V1beta.InjectFaultRequest.FaultType,
@@ -314,7 +314,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.RestartInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -324,7 +324,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.UpdateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -382,7 +382,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -393,7 +393,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListSupportedDatabaseFlagsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -403,7 +403,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListSupportedDatabaseFlagsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :supported_database_flags, 1,
     repeated: true,
@@ -416,7 +416,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GenerateClientCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GenerateClientCertificateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pem_certificate, 1, type: :string, json_name: "pemCertificate", deprecated: true
 
@@ -454,7 +454,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GetConnectionInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -463,7 +463,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :request_specific, 0
 
@@ -494,7 +494,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListUsersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -506,7 +506,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListUsersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :users, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.User
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -516,7 +516,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.GetUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -524,7 +524,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.CreateUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :user_id, 2, type: :string, json_name: "userId", deprecated: false
@@ -536,7 +536,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.UpdateUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -552,7 +552,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.DeleteUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListDatabasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -573,7 +573,7 @@ end
 defmodule Google.Cloud.Alloydb.V1beta.ListDatabasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :databases, 1, repeated: true, type: Google.Cloud.Alloydb.V1beta.Database
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -584,7 +584,7 @@ defmodule Google.Cloud.Alloydb.V1beta.AlloyDBAdmin.Service do
 
   use GRPC.Service,
     name: "google.cloud.alloydb.v1beta.AlloyDBAdmin",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListClusters,
       Google.Cloud.Alloydb.V1beta.ListClustersRequest,

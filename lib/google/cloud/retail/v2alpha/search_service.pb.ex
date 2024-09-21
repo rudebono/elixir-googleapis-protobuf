@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.RelevanceThreshold do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
   field :HIGH, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SearchMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEARCH_MODE_UNSPECIFIED, 0
   field :PRODUCT_SEARCH_ONLY, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONDITION_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.PersonalizationSpec.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :AUTO, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :SUGGESTION_ONLY, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :intervals, 2, repeated: true, type: Google.Cloud.Retail.V2alpha.Interval
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :facet_key, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey,
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.DynamicFacetSpec.Mode,
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.BoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :condition_boost_specs, 1,
     repeated: true,
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :condition, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.QueryExpansionSpec.Condition,
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.PersonalizationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.PersonalizationSpec.Mode,
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec.Mode,
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :placement, 1, type: :string, deprecated: false
   field :branch, 2, type: :string, deprecated: false
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.FieldMask
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.VariantRollupValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :product, 2, type: Google.Cloud.Retail.V2alpha.Product
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet.FacetValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :facet_value, 0
 
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.Facet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :expanded_query, 1, type: :bool, json_name: "expandedQuery"
   field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
@@ -314,7 +314,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult
   field :facets, 2, repeated: true, type: Google.Cloud.Retail.V2alpha.SearchResponse.Facet
@@ -344,7 +344,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ExperimentInfo.ServingConfigExperiment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :original_serving_config, 1,
     type: :string,
@@ -360,7 +360,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ExperimentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :experiment_metadata, 0
 
@@ -377,7 +377,7 @@ defmodule Google.Cloud.Retail.V2alpha.SearchService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.SearchService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Search,
       Google.Cloud.Retail.V2alpha.SearchRequest,

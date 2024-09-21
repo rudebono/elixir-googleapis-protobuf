@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routes.V1.ComputeRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Maps.Routes.V1.Route
   field :fallback_info, 2, type: Google.Maps.Routes.V1.FallbackInfo, json_name: "fallbackInfo"

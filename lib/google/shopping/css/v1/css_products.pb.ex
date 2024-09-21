@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Css.V1.GetCssProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Shopping.Css.V1.CssProduct do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :raw_provided_id, 2, type: :string, json_name: "rawProvidedId", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Css.V1.ListCssProductsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -42,7 +42,7 @@ end
 defmodule Google.Shopping.Css.V1.ListCssProductsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :css_products, 1,
     repeated: true,
@@ -57,7 +57,7 @@ defmodule Google.Shopping.Css.V1.CssProductsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.css.v1.CssProductsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetCssProduct,
       Google.Shopping.Css.V1.GetCssProductRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding.SourcePropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1p1beta1.Finding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :parent, 2, type: :string

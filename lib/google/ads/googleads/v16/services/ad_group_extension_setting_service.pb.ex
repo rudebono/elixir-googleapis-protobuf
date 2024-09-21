@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.MutateAdGroupExtensionSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.AdGroupExtensionSettingOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateAdGroupExtensionSettingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateAdGroupExtensionSettingResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -62,7 +62,7 @@ defmodule Google.Ads.Googleads.V16.Services.AdGroupExtensionSettingService.Servi
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.AdGroupExtensionSettingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :MutateAdGroupExtensionSettings,
       Google.Ads.Googleads.V16.Services.MutateAdGroupExtensionSettingsRequest,

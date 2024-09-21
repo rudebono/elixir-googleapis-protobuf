@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.PredictRequest.ParamsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PredictRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :placement, 1, type: :string, deprecated: false
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse.PredictionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -85,7 +85,7 @@ defmodule Google.Cloud.Retail.V2alpha.PredictionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.PredictionService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Predict,
       Google.Cloud.Retail.V2alpha.PredictRequest,

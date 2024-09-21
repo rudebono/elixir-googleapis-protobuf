@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.MutateCampaignAssetSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.CampaignAssetSetOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -33,7 +33,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateCampaignAssetSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateCampaignAssetSetResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -59,7 +59,7 @@ defmodule Google.Ads.Googleads.V16.Services.CampaignAssetSetService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.CampaignAssetSetService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :MutateCampaignAssetSets,
       Google.Ads.Googleads.V16.Services.MutateCampaignAssetSetsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Language.V2.EncodingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NONE, 0
   field :UTF8, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Language.V2.Document.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PLAIN_TEXT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Language.V2.Entity.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PERSON, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Language.V2.EntityMention.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNKNOWN, 0
   field :PROPER, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Language.V2.ModerateTextRequest.ModelVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODEL_VERSION_UNSPECIFIED, 0
   field :MODEL_VERSION_1, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Language.V2.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Language.V2.Sentence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: Google.Cloud.Language.V2.TextSpan
   field :sentiment, 2, type: Google.Cloud.Language.V2.Sentiment
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Language.V2.Entity.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Language.V2.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Cloud.Language.V2.Entity.Type, enum: true
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Language.V2.Sentiment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :magnitude, 1, type: :float
   field :score, 2, type: :float
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Language.V2.EntityMention do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: Google.Cloud.Language.V2.TextSpan
   field :type, 2, type: Google.Cloud.Language.V2.EntityMention.Type, enum: true
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Language.V2.TextSpan do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :begin_offset, 2, type: :int32, json_name: "beginOffset"
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Language.V2.ClassificationCategory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :confidence, 2, type: :float
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Language.V2.AnalyzeSentimentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
 
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Language.V2.AnalyzeSentimentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document_sentiment, 1,
     type: Google.Cloud.Language.V2.Sentiment,
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Language.V2.AnalyzeEntitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
 
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Language.V2.AnalyzeEntitiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entities, 1, repeated: true, type: Google.Cloud.Language.V2.Entity
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Language.V2.ClassifyTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
 end
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Language.V2.ClassifyTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :categories, 1, repeated: true, type: Google.Cloud.Language.V2.ClassificationCategory
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Language.V2.ModerateTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
 
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Language.V2.ModerateTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :moderation_categories, 1,
     repeated: true,
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Language.V2.AnnotateTextRequest.Features do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :extract_entities, 1, type: :bool, json_name: "extractEntities", deprecated: false
 
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Language.V2.AnnotateTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Language.V2.Document, deprecated: false
 
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Language.V2.AnnotateTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sentences, 1, repeated: true, type: Google.Cloud.Language.V2.Sentence
   field :entities, 2, repeated: true, type: Google.Cloud.Language.V2.Entity
@@ -303,7 +303,7 @@ defmodule Google.Cloud.Language.V2.LanguageService.Service do
 
   use GRPC.Service,
     name: "google.cloud.language.v2.LanguageService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :AnalyzeSentiment,
       Google.Cloud.Language.V2.AnalyzeSentimentRequest,

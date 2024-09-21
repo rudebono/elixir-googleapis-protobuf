@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.PackageSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pickle_object_gcs_uri, 1,
     type: :string,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :package_spec, 2,
     type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.PackageSpec,
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securityposture.V1.Posture.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DEPRECATED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PostureDeployment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PostureTemplate.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.Posture.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.Posture do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PolicySet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :policy_set_id, 1, type: :string, json_name: "policySetId", deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.Policy.ComplianceStandard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :standard, 1, type: :string, deprecated: false
   field :control, 2, type: :string, deprecated: false
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.Policy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :policy_id, 1, type: :string, json_name: "policyId", deprecated: false
 
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.Constraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :implementation, 0
 
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPosturesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPosturesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :postures, 1, repeated: true, type: Google.Cloud.Securityposture.V1.Posture
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :revisions, 1, repeated: true, type: Google.Cloud.Securityposture.V1.Posture
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.GetPostureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 3, type: :string, json_name: "revisionId", deprecated: false
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CreatePostureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :posture_id, 2, type: :string, json_name: "postureId", deprecated: false
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.UpdatePostureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.DeletePostureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ExtractPostureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :posture_id, 2, type: :string, json_name: "postureId", deprecated: false
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PostureDeployment.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PostureDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_resource, 13, type: :string, json_name: "targetResource", deprecated: false
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -342,7 +342,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :posture_deployments, 1,
     repeated: true,
@@ -356,7 +356,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.GetPostureDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -364,7 +364,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CreatePostureDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -382,7 +382,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.UpdatePostureDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.DeletePostureDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -407,7 +407,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.PostureTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -428,7 +428,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -439,7 +439,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.ListPostureTemplatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :posture_templates, 1,
     repeated: true,
@@ -452,7 +452,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.GetPostureTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -463,7 +463,7 @@ defmodule Google.Cloud.Securityposture.V1.SecurityPosture.Service do
 
   use GRPC.Service,
     name: "google.cloud.securityposture.v1.SecurityPosture",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListPostures,
       Google.Cloud.Securityposture.V1.ListPosturesRequest,

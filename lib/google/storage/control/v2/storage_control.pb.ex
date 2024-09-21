@@ -1,7 +1,7 @@
 defmodule Google.Storage.Control.V2.PendingRenameInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Storage.Control.V2.Folder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :metageneration, 3, type: :int64, deprecated: false
@@ -33,7 +33,7 @@ end
 defmodule Google.Storage.Control.V2.GetFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Storage.Control.V2.CreateFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :folder, 2, type: Google.Storage.Control.V2.Folder, deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Storage.Control.V2.DeleteFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Storage.Control.V2.ListFoldersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -100,7 +100,7 @@ end
 defmodule Google.Storage.Control.V2.ListFoldersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :folders, 1, repeated: true, type: Google.Storage.Control.V2.Folder
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -109,7 +109,7 @@ end
 defmodule Google.Storage.Control.V2.RenameFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 7, type: :string, deprecated: false
 
@@ -134,7 +134,7 @@ end
 defmodule Google.Storage.Control.V2.CommonLongRunningOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -161,7 +161,7 @@ end
 defmodule Google.Storage.Control.V2.RenameFolderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Storage.Control.V2.CommonLongRunningOperationMetadata,
@@ -174,7 +174,7 @@ end
 defmodule Google.Storage.Control.V2.StorageLayout.CustomPlacementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_locations, 1, repeated: true, type: :string, json_name: "dataLocations"
 end
@@ -182,7 +182,7 @@ end
 defmodule Google.Storage.Control.V2.StorageLayout.HierarchicalNamespace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -190,7 +190,7 @@ end
 defmodule Google.Storage.Control.V2.StorageLayout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -210,7 +210,7 @@ end
 defmodule Google.Storage.Control.V2.GetStorageLayoutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :prefix, 2, type: :string
@@ -220,7 +220,7 @@ end
 defmodule Google.Storage.Control.V2.ManagedFolder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :metageneration, 3, type: :int64, deprecated: false
@@ -239,7 +239,7 @@ end
 defmodule Google.Storage.Control.V2.GetManagedFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 6, type: :string, deprecated: false
 
@@ -259,7 +259,7 @@ end
 defmodule Google.Storage.Control.V2.CreateManagedFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -275,7 +275,7 @@ end
 defmodule Google.Storage.Control.V2.DeleteManagedFolderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 7, type: :string, deprecated: false
 
@@ -296,7 +296,7 @@ end
 defmodule Google.Storage.Control.V2.ListManagedFoldersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -308,7 +308,7 @@ end
 defmodule Google.Storage.Control.V2.ListManagedFoldersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :managed_folders, 1,
     repeated: true,
@@ -323,7 +323,7 @@ defmodule Google.Storage.Control.V2.StorageControl.Service do
 
   use GRPC.Service,
     name: "google.storage.control.v2.StorageControl",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateFolder,
       Google.Storage.Control.V2.CreateFolderRequest,

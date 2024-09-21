@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.UserEvent.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Discoveryengine.V1beta.CustomAttribute
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.UserEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
   field :user_pseudo_id, 2, type: :string, json_name: "userPseudoId", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.PageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pageview_id, 1, type: :string, json_name: "pageviewId"
   field :page_category, 2, type: :string, json_name: "pageCategory"
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_query, 1, type: :string, json_name: "searchQuery"
   field :order_by, 2, type: :string, json_name: "orderBy"
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.CompletionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :selected_suggestion, 1, type: :string, json_name: "selectedSuggestion"
   field :selected_position, 2, type: :int32, json_name: "selectedPosition"
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.TransactionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :float, deprecated: false
   field :currency, 2, type: :string, deprecated: false
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.DocumentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :document_descriptor, 0
 
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.PanelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :panel_id, 2, type: :string, json_name: "panelId", deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.MediaInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :media_progress_duration, 1,
     type: Google.Protobuf.Duration,

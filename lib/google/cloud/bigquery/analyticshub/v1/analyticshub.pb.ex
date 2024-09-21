@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DISCOVERY_TYPE_UNSPECIFIED, 0
   field :DISCOVERY_TYPE_PRIVATE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.Category do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :CATEGORY_OTHERS, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_ACTIVE, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -84,13 +84,13 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DefaultExchangeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DcrExchangeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :single_selected_resource_sharing_restriction, 1,
     proto3_optional: true,
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :environment, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataProvider do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :primary_contact, 2, type: :string, json_name: "primaryContact", deprecated: false
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Publisher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :primary_contact, 2, type: :string, json_name: "primaryContact", deprecated: false
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDatasetReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: false
   field :project_id, 2, type: :string, json_name: "projectId", deprecated: false
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dataset_reference, 1,
     type: Google.Cloud.Bigquery.Analyticshub.V1.DestinationDatasetReference,
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.SelectedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.RestrictedExportPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: Google.Protobuf.BoolValue, deprecated: false
 
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 3, type: :bool, deprecated: false
 
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :reference, 0
 
@@ -317,7 +317,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedDatasetMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :resource_name, 0
 
@@ -369,7 +369,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListDataExchangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -379,7 +379,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListDataExchangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_exchanges, 1,
     repeated: true,
@@ -392,7 +392,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListOrgDataExchangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :organization, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -402,7 +402,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListOrgDataExchangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_exchanges, 1,
     repeated: true,
@@ -415,7 +415,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.GetDataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -423,7 +423,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.CreateDataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_exchange_id, 2, type: :string, json_name: "dataExchangeId", deprecated: false
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.UpdateDataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -453,7 +453,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteDataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -461,7 +461,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListListingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListListingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listings, 1, repeated: true, type: Google.Cloud.Bigquery.Analyticshub.V1.Listing
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -480,7 +480,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.GetListingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -488,7 +488,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.CreateListingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :listing_id, 2, type: :string, json_name: "listingId", deprecated: false
@@ -498,7 +498,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.UpdateListingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -511,7 +511,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteListingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -519,7 +519,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -535,7 +535,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
 end
@@ -543,7 +543,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination, 2, type: :string, deprecated: false
@@ -554,7 +554,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
 end
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RefreshSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -570,7 +570,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RefreshSubscriptionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subscription, 1, type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription
 end
@@ -578,7 +578,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.GetSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -586,7 +586,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -597,7 +597,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subscriptions, 1,
     repeated: true,
@@ -609,7 +609,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource, 1, type: :string, deprecated: false
   field :include_deleted_subscriptions, 2, type: :bool, json_name: "includeDeletedSubscriptions"
@@ -620,7 +620,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListSharedResourceSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :shared_resource_subscriptions, 1,
     repeated: true,
@@ -633,7 +633,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -641,13 +641,13 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -655,7 +655,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -680,7 +680,7 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.AnalyticsHubService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.analyticshub.v1.AnalyticsHubService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListDataExchanges,
       Google.Cloud.Bigquery.Analyticshub.V1.ListDataExchangesRequest,

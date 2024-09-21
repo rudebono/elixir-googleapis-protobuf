@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Netapp.V1.Protocols do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PROTOCOLS_UNSPECIFIED, 0
   field :NFSV3, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Netapp.V1.AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACCESS_TYPE_UNSPECIFIED, 0
   field :READ_ONLY, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Netapp.V1.SMBSettings do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SMB_SETTINGS_UNSPECIFIED, 0
   field :ENCRYPT_DATA, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Netapp.V1.SecurityStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SECURITY_STYLE_UNSPECIFIED, 0
   field :NTFS, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Netapp.V1.RestrictedAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RESTRICTED_ACTION_UNSPECIFIED, 0
   field :DELETE, 1
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Volume.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Netapp.V1.TieringPolicy.TierAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TIER_ACTION_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListVolumesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListVolumesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :volumes, 1, repeated: true, type: Google.Cloud.Netapp.V1.Volume
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Netapp.V1.GetVolumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Netapp.V1.CreateVolumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :volume_id, 2, type: :string, json_name: "volumeId", deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Netapp.V1.UpdateVolumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DeleteVolumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Netapp.V1.RevertVolumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :snapshot_id, 2, type: :string, json_name: "snapshotId", deprecated: false
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Volume.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Volume do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Netapp.V1.Volume.State, enum: true, deprecated: false
@@ -284,7 +284,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Netapp.V1.SimpleExportPolicyRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allowed_clients, 1, proto3_optional: true, type: :string, json_name: "allowedClients"
   field :has_root_access, 2, proto3_optional: true, type: :string, json_name: "hasRootAccess"
@@ -343,7 +343,7 @@ end
 defmodule Google.Cloud.Netapp.V1.SnapshotPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, proto3_optional: true, type: :bool
 
@@ -371,7 +371,7 @@ end
 defmodule Google.Cloud.Netapp.V1.HourlySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapshots_to_keep, 1, proto3_optional: true, type: :double, json_name: "snapshotsToKeep"
   field :minute, 2, proto3_optional: true, type: :double
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DailySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapshots_to_keep, 1, proto3_optional: true, type: :double, json_name: "snapshotsToKeep"
   field :minute, 2, proto3_optional: true, type: :double
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Netapp.V1.WeeklySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapshots_to_keep, 1, proto3_optional: true, type: :double, json_name: "snapshotsToKeep"
   field :minute, 2, proto3_optional: true, type: :double
@@ -401,7 +401,7 @@ end
 defmodule Google.Cloud.Netapp.V1.MonthlySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :snapshots_to_keep, 1, proto3_optional: true, type: :double, json_name: "snapshotsToKeep"
   field :minute, 2, proto3_optional: true, type: :double
@@ -412,7 +412,7 @@ end
 defmodule Google.Cloud.Netapp.V1.MountOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :export, 1, type: :string
   field :export_full, 2, type: :string, json_name: "exportFull"
@@ -423,7 +423,7 @@ end
 defmodule Google.Cloud.Netapp.V1.RestoreParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -434,7 +434,7 @@ end
 defmodule Google.Cloud.Netapp.V1.BackupConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :backup_policies, 1,
     repeated: true,
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Netapp.V1.TieringPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tier_action, 1,
     proto3_optional: true,

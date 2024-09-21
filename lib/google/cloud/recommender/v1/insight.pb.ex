@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Recommender.V1.Insight.Category do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :COST, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Recommender.V1.Insight.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :LOW, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Recommender.V1.Insight.RecommendationReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :recommendation, 1, type: :string
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Recommender.V1.Insight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo.StateMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Recommender.V1.InsightStateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Recommender.V1.InsightStateInfo.State, enum: true
 

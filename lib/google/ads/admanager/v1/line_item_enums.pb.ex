@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.LineItemCostTypeEnum.LineItemCostType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LINE_ITEM_COST_TYPE_UNSPECIFIED, 0
   field :CPA, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Ads.Admanager.V1.CreativeRotationTypeEnum.CreativeRotationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CREATIVE_ROTATION_TYPE_UNSPECIFIED, 0
   field :EVENLY, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Ads.Admanager.V1.DeliveryRateTypeEnum.DeliveryRateType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DELIVERY_RATE_TYPE_UNSPECIFIED, 0
   field :EVENLY, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Admanager.V1.LineItemDiscountTypeEnum.LineItemDiscountType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LINE_ITEM_DISCOUNT_TYPE_UNSPECIFIED, 0
   field :ABSOLUTE_VALUE, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Ads.Admanager.V1.LineItemTypeEnum.LineItemType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LINE_ITEM_TYPE_UNSPECIFIED, 0
   field :SPONSORSHIP, 12
@@ -70,7 +70,7 @@ end
 defmodule Google.Ads.Admanager.V1.ReservationStatusEnum.ReservationStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RESERVATION_STATUS_UNSPECIFIED, 0
   field :RESERVED, 1
@@ -80,35 +80,35 @@ end
 defmodule Google.Ads.Admanager.V1.LineItemCostTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.CreativeRotationTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.DeliveryRateTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.LineItemDiscountTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.LineItemTypeEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.ReservationStatusEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end

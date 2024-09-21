@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileInput.FileInputType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FILE_INPUT_TYPE_UNSPECIFIED, 0
   field :UPLOAD, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileInput.FetchSettings.Frequency do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FREQUENCY_UNSPECIFIED, 0
   field :FREQUENCY_DAILY, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileInput.FetchSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool, deprecated: false
   field :day_of_month, 2, type: :int32, json_name: "dayOfMonth", deprecated: false
@@ -50,7 +50,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fetch_settings, 1,
     type: Google.Shopping.Merchant.Datasources.V1beta.FileInput.FetchSettings,

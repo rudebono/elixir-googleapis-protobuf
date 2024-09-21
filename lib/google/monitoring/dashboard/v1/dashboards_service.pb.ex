@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.CreateDashboardRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dashboard, 2, type: Google.Monitoring.Dashboard.V1.Dashboard, deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -21,7 +21,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.ListDashboardsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dashboards, 1, repeated: true, type: Google.Monitoring.Dashboard.V1.Dashboard
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -30,7 +30,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.GetDashboardRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -38,7 +38,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.DeleteDashboardRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.UpdateDashboardRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dashboard, 1, type: Google.Monitoring.Dashboard.V1.Dashboard, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -57,7 +57,7 @@ defmodule Google.Monitoring.Dashboard.V1.DashboardsService.Service do
 
   use GRPC.Service,
     name: "google.monitoring.dashboard.v1.DashboardsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateDashboard,
       Google.Monitoring.Dashboard.V1.CreateDashboardRequest,

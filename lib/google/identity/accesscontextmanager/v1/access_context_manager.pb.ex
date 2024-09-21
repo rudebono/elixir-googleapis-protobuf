@@ -1,7 +1,7 @@
 defmodule Google.Identity.Accesscontextmanager.V1.LevelFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LEVEL_FORMAT_UNSPECIFIED, 0
   field :AS_DEFINED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -21,7 +21,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_policies, 1,
     repeated: true,
@@ -34,7 +34,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -42,7 +42,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :policy, 1, type: Google.Identity.Accesscontextmanager.V1.AccessPolicy, deprecated: false
 
@@ -55,7 +55,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -63,7 +63,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -78,7 +78,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListAccessLevelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_levels, 1,
     repeated: true,
@@ -91,7 +91,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.GetAccessLevelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -104,7 +104,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CreateAccessLevelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateAccessLevelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_level, 1,
     type: Google.Identity.Accesscontextmanager.V1.AccessLevel,
@@ -133,7 +133,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteAccessLevelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceAccessLevelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :access_levels, 1,
     repeated: true,
@@ -168,7 +168,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -178,7 +178,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListServicePerimetersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_perimeters, 1,
     repeated: true,
@@ -191,7 +191,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.GetServicePerimeterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -199,7 +199,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CreateServicePerimeterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -212,7 +212,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateServicePerimeterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_perimeter, 1,
     type: Google.Identity.Accesscontextmanager.V1.ServicePerimeter,
@@ -228,7 +228,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteServicePerimeterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -236,7 +236,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -252,7 +252,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ReplaceServicePerimetersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_perimeters, 1,
     repeated: true,
@@ -263,7 +263,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :etag, 2, type: :string
@@ -272,7 +272,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CommitServicePerimetersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_perimeters, 1,
     repeated: true,
@@ -283,7 +283,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -293,7 +293,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.ListGcpUserAccessBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :gcp_user_access_bindings, 1,
     repeated: true,
@@ -306,7 +306,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.GetGcpUserAccessBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -314,7 +314,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CreateGcpUserAccessBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -327,7 +327,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.UpdateGcpUserAccessBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :gcp_user_access_binding, 1,
     type: Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding,
@@ -343,7 +343,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.DeleteGcpUserAccessBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -351,13 +351,13 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBindingOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManagerOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Service do
@@ -365,7 +365,7 @@ defmodule Google.Identity.Accesscontextmanager.V1.AccessContextManager.Service d
 
   use GRPC.Service,
     name: "google.identity.accesscontextmanager.v1.AccessContextManager",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListAccessPolicies,
       Google.Identity.Accesscontextmanager.V1.ListAccessPoliciesRequest,

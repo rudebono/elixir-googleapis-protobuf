@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.SectionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :subtitle, 1, type: :string
   field :divider_below, 2, type: :bool, json_name: "dividerBelow"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Talent.V4.LocationFilter.TelecommutePreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TELECOMMUTE_PREFERENCE_UNSPECIFIED, 0
   field :TELECOMMUTE_EXCLUDED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Talent.V4.CompensationFilter.FilterType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FILTER_TYPE_UNSPECIFIED, 0
   field :UNIT_ONLY, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Talent.V4.CommuteFilter.RoadTraffic do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ROAD_TRAFFIC_UNSPECIFIED, 0
   field :TRAFFIC_FREE, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Talent.V4.JobQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :query_language_code, 14, type: :string, json_name: "queryLanguageCode"
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Talent.V4.LocationFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :address, 1, type: :string
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Talent.V4.CompensationFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Talent.V4.CompensationFilter.FilterType,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Talent.V4.CommuteFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :traffic_option, 0
 

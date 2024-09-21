@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :api_key, 1, type: :string, json_name: "apiKey"
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegistrationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ListPredictionApiKeyRegistrationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :prediction_api_key_registrations, 1,
     repeated: true,
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.DeletePredictionApiKeyRegistrationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -55,7 +55,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionApiKeyRegistry.Ser
 
   use GRPC.Service,
     name: "google.cloud.recommendationengine.v1beta1.PredictionApiKeyRegistry",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreatePredictionApiKeyRegistration,
       Google.Cloud.Recommendationengine.V1beta1.CreatePredictionApiKeyRegistrationRequest,

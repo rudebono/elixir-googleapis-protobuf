@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Connectors.V1.DataType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :DATA_TYPE_INT, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ConnectionView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONNECTION_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ConnectionSchemaMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REFRESHING, 1
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ConnectionStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Connectors.V1.Connection.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Connectors.V1.Connection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Connectors.V1.NodeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount"
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount"
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ConnectionSchemaMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entities, 1, repeated: true, type: :string, deprecated: false
   field :actions, 2, repeated: true, type: :string, deprecated: false
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RuntimeEntitySchema.Field do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field, 1, type: :string
   field :description, 2, type: :string
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RuntimeEntitySchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :entity, 1, type: :string, deprecated: false
 
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RuntimeActionSchema.InputParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parameter, 1, type: :string
   field :description, 2, type: :string
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RuntimeActionSchema.ResultMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field, 1, type: :string
   field :description, 2, type: :string
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RuntimeActionSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action, 1, type: :string, deprecated: false
 
@@ -286,7 +286,7 @@ end
 defmodule Google.Cloud.Connectors.V1.LockConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :locked, 1, type: :bool
   field :reason, 2, type: :string
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListConnectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connections, 1, repeated: true, type: Google.Cloud.Connectors.V1.Connection
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Connectors.V1.GetConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Connectors.V1.ConnectionView, enum: true
@@ -327,7 +327,7 @@ end
 defmodule Google.Cloud.Connectors.V1.CreateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connection_id, 2, type: :string, json_name: "connectionId", deprecated: false
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Connectors.V1.UpdateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection, 1, type: Google.Cloud.Connectors.V1.Connection, deprecated: false
 
@@ -350,7 +350,7 @@ end
 defmodule Google.Cloud.Connectors.V1.DeleteConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Connectors.V1.GetConnectionSchemaMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Connectors.V1.RefreshConnectionSchemaMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -374,7 +374,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListRuntimeEntitySchemasRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListRuntimeEntitySchemasResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :runtime_entity_schemas, 1,
     repeated: true,
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListRuntimeActionSchemasRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -409,7 +409,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListRuntimeActionSchemasResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :runtime_action_schemas, 1,
     repeated: true,
@@ -422,7 +422,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ConnectionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Connectors.V1.ConnectionStatus.State, enum: true
   field :description, 2, type: :string

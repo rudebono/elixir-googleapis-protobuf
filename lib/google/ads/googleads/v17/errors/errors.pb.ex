@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Errors.QuotaErrorDetails.QuotaRateScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.GoogleAdsFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Ads.Googleads.V17.Errors.GoogleAdsError
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -21,7 +21,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.GoogleAdsError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error_code, 1, type: Google.Ads.Googleads.V17.Errors.ErrorCode, json_name: "errorCode"
   field :message, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.ErrorCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :error_code, 0
 
@@ -1000,7 +1000,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.ErrorLocation.FieldPathElement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName"
   field :index, 3, proto3_optional: true, type: :int32
@@ -1009,7 +1009,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.ErrorLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_path_elements, 2,
     repeated: true,
@@ -1020,7 +1020,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.ErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :unpublished_error_code, 1, type: :string, json_name: "unpublishedErrorCode"
 
@@ -1044,7 +1044,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.PolicyViolationDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :external_policy_description, 2, type: :string, json_name: "externalPolicyDescription"
   field :key, 4, type: Google.Ads.Googleads.V17.Common.PolicyViolationKey
@@ -1055,7 +1055,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.PolicyFindingDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :policy_topic_entries, 1,
     repeated: true,
@@ -1066,7 +1066,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.QuotaErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rate_scope, 1,
     type: Google.Ads.Googleads.V17.Errors.QuotaErrorDetails.QuotaRateScope,
@@ -1080,7 +1080,7 @@ end
 defmodule Google.Ads.Googleads.V17.Errors.ResourceCountDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enclosing_id, 1, type: :string, json_name: "enclosingId"
   field :enclosing_resource, 5, type: :string, json_name: "enclosingResource"

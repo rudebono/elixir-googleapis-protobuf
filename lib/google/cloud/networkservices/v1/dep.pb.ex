@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :REQUEST_HEADERS, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.LoadBalancingScheme do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :LOAD_BALANCING_SCHEME_UNSPECIFIED, 0
   field :INTERNAL_MANAGED, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ExtensionChain.MatchCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cel_expression, 1, type: :string, json_name: "celExpression", deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ExtensionChain.Extension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :authority, 2, type: :string, deprecated: false
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ExtensionChain do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.LbTrafficExtension.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.LbTrafficExtension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListLbTrafficExtensionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListLbTrafficExtensionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lb_traffic_extensions, 1,
     repeated: true,
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetLbTrafficExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateLbTrafficExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateLbTrafficExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteLbTrafficExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.LbRouteExtension.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.LbRouteExtension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListLbRouteExtensionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListLbRouteExtensionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :lb_route_extensions, 1,
     repeated: true,
@@ -294,7 +294,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetLbRouteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateLbRouteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -322,7 +322,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateLbRouteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -340,7 +340,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteLbRouteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -351,7 +351,7 @@ defmodule Google.Cloud.Networkservices.V1.DepService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkservices.v1.DepService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListLbTrafficExtensions,
       Google.Cloud.Networkservices.V1.ListLbTrafficExtensionsRequest,

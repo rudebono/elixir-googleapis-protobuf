@@ -1,7 +1,7 @@
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MY_DRIVE_ROOT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MY_DRIVE_ROOT, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :object, 0
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.TargetReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :object, 0
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.FileComment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :legacy_comment_id, 1, type: :string, json_name: "legacyCommentId"
   field :legacy_discussion_id, 2, type: :string, json_name: "legacyDiscussionId"
@@ -79,13 +79,13 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.File do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.Folder do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.Folder.Type, enum: true
 end
@@ -93,13 +93,13 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 6, type: Google.Apps.Drive.Activity.V2.DriveItem.DriveFolder.Type, enum: true
 end
@@ -107,7 +107,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :item_type, 0
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.Owner do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :owner, 0
 
@@ -151,7 +151,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.TeamDrive do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -161,7 +161,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.Drive do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -171,7 +171,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveItemReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :item_type, 0
 
@@ -194,7 +194,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.TeamDriveReference do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string
@@ -203,7 +203,7 @@ end
 defmodule Google.Apps.Drive.Activity.V2.DriveReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :title, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.EkmConnection.ConnectionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONNECTION_STATE_UNSPECIFIED, 0
   field :AVAILABLE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.EkmConnections do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.GetEkmConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.EkmConnection.ConnectionError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :error_domain, 1, type: :string, json_name: "errorDomain"
   field :error_message, 2, type: :string, json_name: "errorMessage"
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.EkmConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection_name, 1, type: :string, json_name: "connectionName"
 

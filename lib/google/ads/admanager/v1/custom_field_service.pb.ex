@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.CustomField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :custom_field_id, 2, type: :int64, json_name: "customFieldId", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Admanager.V1.CustomFieldOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_field_option_id, 1,
     type: :int64,
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetCustomFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListCustomFieldsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListCustomFieldsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_fields, 1,
     repeated: true,
@@ -89,7 +89,7 @@ defmodule Google.Ads.Admanager.V1.CustomFieldService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.CustomFieldService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetCustomField,
       Google.Ads.Admanager.V1.GetCustomFieldRequest,

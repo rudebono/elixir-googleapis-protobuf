@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseEngine do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATABASE_ENGINE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseProvider do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
   field :CLOUDSQL, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :MAINTENANCE, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Phase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PHASE_UNSPECIFIED, 0
   field :FULL_DUMP, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ONE_TIME, 1
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.ConnectivityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONNECTIVITY_TYPE_UNSPECIFIED, 0
   field :STATIC_IP, 1
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V5_5, 1
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V9_6, 1
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile.ConnectivityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONNECTIVITY_TYPE_UNSPECIFIED, 0
   field :STATIC_SERVICE_IP, 1
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.DatabaseType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :provider, 1, type: Google.Cloud.Clouddms.Logging.V1.DatabaseProvider, enum: true
   field :engine, 2, type: Google.Cloud.Clouddms.Logging.V1.DatabaseEngine, enum: true
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedMigrationJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :version, 1,
     type: Google.Cloud.Clouddms.Logging.V1.MySqlConnectionProfile.Version,
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :version, 1,
     type: Google.Cloud.Clouddms.Logging.V1.PostgreSqlConnectionProfile.Version,
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.CloudSqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId"
 end
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connectivity_type, 1,
     type: Google.Cloud.Clouddms.Logging.V1.OracleConnectionProfile.ConnectivityType,
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :connection_profile, 0
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.MigrationJobEventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :original_cause, 0
 
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.ConnectionProfileEventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :original_cause, 0
 
@@ -347,7 +347,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -356,7 +356,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.LoggedPrivateConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.VpcPeeringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vpc_name, 1, type: :string, json_name: "vpcName"
   field :subnet, 2, type: :string
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Clouddms.Logging.V1.PrivateConnectionEventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :original_cause, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Identity.Accesscontextmanager.V1.GcpUserAccessBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :group_key, 2, type: :string, json_name: "groupKey", deprecated: false

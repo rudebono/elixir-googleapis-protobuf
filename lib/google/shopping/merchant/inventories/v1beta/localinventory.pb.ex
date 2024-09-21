@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Inventories.V1beta.LocalInventory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account, 2, type: :int64, deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Inventories.V1beta.ListLocalInventoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -42,7 +42,7 @@ end
 defmodule Google.Shopping.Merchant.Inventories.V1beta.ListLocalInventoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :local_inventories, 1,
     repeated: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Shopping.Merchant.Inventories.V1beta.InsertLocalInventoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Shopping.Merchant.Inventories.V1beta.DeleteLocalInventoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -78,7 +78,7 @@ defmodule Google.Shopping.Merchant.Inventories.V1beta.LocalInventoryService.Serv
 
   use GRPC.Service,
     name: "google.shopping.merchant.inventories.v1beta.LocalInventoryService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListLocalInventories,
       Google.Shopping.Merchant.Inventories.V1beta.ListLocalInventoriesRequest,

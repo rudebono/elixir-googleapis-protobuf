@@ -3,7 +3,7 @@ defmodule Google.Cloud.Assuredworkloads.V1beta1.AssuredWorkloadsService.Service 
 
   use GRPC.Service,
     name: "google.cloud.assuredworkloads.v1beta1.AssuredWorkloadsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateWorkload,
       Google.Cloud.Assuredworkloads.V1beta1.CreateWorkloadRequest,

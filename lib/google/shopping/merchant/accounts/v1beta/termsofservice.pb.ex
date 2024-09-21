@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.TermsOfService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -13,7 +13,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetTermsOfServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.RetrieveLatestTermsOfServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :region_code, 1, type: :string, json_name: "regionCode"
   field :kind, 2, type: Google.Shopping.Merchant.Accounts.V1beta.TermsOfServiceKind, enum: true
@@ -30,7 +30,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AcceptTermsOfServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account, 2, type: :string, deprecated: false
@@ -42,7 +42,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.TermsOfServiceService.Service
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.TermsOfServiceService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetTermsOfService,
       Google.Shopping.Merchant.Accounts.V1beta.GetTermsOfServiceRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Promotions.V1beta.ProductApplicability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PRODUCT_APPLICABILITY_UNSPECIFIED, 0
   field :ALL_PRODUCTS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.StoreApplicability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STORE_APPLICABILITY_UNSPECIFIED, 0
   field :ALL_STORES, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.OfferType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OFFER_TYPE_UNSPECIFIED, 0
   field :NO_CODE, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.RedemptionChannel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REDEMPTION_CHANNEL_UNSPECIFIED, 0
   field :IN_STORE, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.CouponValueType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COUPON_VALUE_TYPE_UNSPECIFIED, 0
   field :MONEY_OFF, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionStatus.DestinationStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_REVIEW, 1
@@ -75,7 +75,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionStatus.ItemLevelIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOT_IMPACTED, 1
@@ -86,7 +86,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.Attributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product_applicability, 1,
     type: Google.Shopping.Merchant.Promotions.V1beta.ProductApplicability,
@@ -243,7 +243,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionStatus.DestinationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :reporting_context, 1,
     type: Google.Shopping.Type.ReportingContext.ReportingContextEnum,
@@ -260,7 +260,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionStatus.ItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1, type: :string, deprecated: false
 
@@ -292,7 +292,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :destination_statuses, 1,
     repeated: true,

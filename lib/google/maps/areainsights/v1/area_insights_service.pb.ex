@@ -1,7 +1,7 @@
 defmodule Google.Maps.Areainsights.V1.Insight do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :INSIGHT_UNSPECIFIED, 0
   field :INSIGHT_COUNT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Areainsights.V1.OperatingStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OPERATING_STATUS_UNSPECIFIED, 0
   field :OPERATING_STATUS_OPERATIONAL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Maps.Areainsights.V1.PriceLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PRICE_LEVEL_UNSPECIFIED, 0
   field :PRICE_LEVEL_FREE, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Maps.Areainsights.V1.ComputeInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :insights, 4,
     repeated: true,
@@ -49,7 +49,7 @@ end
 defmodule Google.Maps.Areainsights.V1.ComputeInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :count, 1, proto3_optional: true, type: :int64
 
@@ -62,7 +62,7 @@ end
 defmodule Google.Maps.Areainsights.V1.PlaceInsight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :place, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Maps.Areainsights.V1.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location_filter, 1,
     type: Google.Maps.Areainsights.V1.LocationFilter,
@@ -105,7 +105,7 @@ end
 defmodule Google.Maps.Areainsights.V1.LocationFilter.Circle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :center, 0
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Maps.Areainsights.V1.LocationFilter.Region do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :region, 0
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Maps.Areainsights.V1.LocationFilter.CustomArea.Polygon do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :coordinates, 1, repeated: true, type: Google.Type.LatLng, deprecated: false
 end
@@ -135,7 +135,7 @@ end
 defmodule Google.Maps.Areainsights.V1.LocationFilter.CustomArea do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :polygon, 1,
     type: Google.Maps.Areainsights.V1.LocationFilter.CustomArea.Polygon,
@@ -145,7 +145,7 @@ end
 defmodule Google.Maps.Areainsights.V1.LocationFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :area, 0
 
@@ -161,7 +161,7 @@ end
 defmodule Google.Maps.Areainsights.V1.TypeFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :included_types, 1,
     repeated: true,
@@ -191,7 +191,7 @@ end
 defmodule Google.Maps.Areainsights.V1.RatingFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min_rating, 5,
     proto3_optional: true,
@@ -211,7 +211,7 @@ defmodule Google.Maps.Areainsights.V1.AreaInsights.Service do
 
   use GRPC.Service,
     name: "google.maps.areainsights.v1.AreaInsights",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ComputeInsights,
       Google.Maps.Areainsights.V1.ComputeInsightsRequest,

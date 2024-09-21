@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.AttributeConfigLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ATTRIBUTE_CONFIG_LEVEL_UNSPECIFIED, 0
   field :PRODUCT_LEVEL_ATTRIBUTE_CONFIG, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SolutionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SOLUTION_TYPE_UNSPECIFIED, 0
   field :SOLUTION_TYPE_RECOMMENDATION, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.RecommendationsFilteringOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RECOMMENDATIONS_FILTERING_OPTION_UNSPECIFIED, 0
   field :RECOMMENDATIONS_FILTERING_DISABLED, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SearchSolutionUseCase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SEARCH_SOLUTION_USE_CASE_UNSPECIFIED, 0
   field :SEARCH_SOLUTION_USE_CASE_SEARCH, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Condition.QueryTerm do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :full_match, 2, type: :bool, json_name: "fullMatch"
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Condition.TimeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_terms, 1,
     repeated: true,
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.BoostAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :boost, 1, type: :float
   field :products_filter, 2, type: :string, json_name: "productsFilter"
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.FilterAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :filter, 1, type: :string
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.RedirectAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :redirect_uri, 1, type: :string, json_name: "redirectUri"
 end
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.TwowaySynonymsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :synonyms, 1, repeated: true, type: :string
 end
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.OnewaySynonymsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_terms, 3, repeated: true, type: :string, json_name: "queryTerms"
   field :synonyms, 4, repeated: true, type: :string
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.DoNotAssociateAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_terms, 2, repeated: true, type: :string, json_name: "queryTerms"
 
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.ReplacementAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query_terms, 2, repeated: true, type: :string, json_name: "queryTerms"
   field :replacement_term, 3, type: :string, json_name: "replacementTerm"
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.IgnoreAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ignore_terms, 1, repeated: true, type: :string, json_name: "ignoreTerms"
 end
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.ForceReturnFacetAction.FacetPositionAdjustment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :attribute_name, 1, type: :string, json_name: "attributeName"
   field :position, 2, type: :int32
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.ForceReturnFacetAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :facet_position_adjustments, 1,
     repeated: true,
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule.RemoveFacetAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :attribute_names, 1, repeated: true, type: :string, json_name: "attributeNames"
 end
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Audience do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :genders, 1, repeated: true, type: :string
   field :age_groups, 2, repeated: true, type: :string, json_name: "ageGroups"
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ColorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :color_families, 1, repeated: true, type: :string, json_name: "colorFamilies"
   field :colors, 2, repeated: true, type: :string
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.CustomAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string
   field :numbers, 2, repeated: true, type: :double
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.FulfillmentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :place_ids, 2, repeated: true, type: :string, json_name: "placeIds"
@@ -279,7 +279,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :height, 2, type: :int32
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Interval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :min, 0
 
@@ -304,7 +304,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PriceInfo.PriceRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :price, 1, type: Google.Cloud.Retail.V2alpha.Interval
   field :original_price, 2, type: Google.Cloud.Retail.V2alpha.Interval, json_name: "originalPrice"
@@ -313,7 +313,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.PriceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :currency_code, 1, type: :string, json_name: "currencyCode"
   field :price, 2, type: :float
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Rating do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rating_count, 1, type: :int32, json_name: "ratingCount"
   field :average_rating, 2, type: :float, json_name: "averageRating"
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UserInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
   field :ip_address, 2, type: :string, json_name: "ipAddress"
@@ -352,7 +352,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.LocalInventory.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2alpha.CustomAttribute
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.LocalInventory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
   field :price_info, 2, type: Google.Cloud.Retail.V2alpha.PriceInfo, json_name: "priceInfo"

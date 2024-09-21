@@ -1,7 +1,7 @@
 defmodule Google.Maps.Places.V1.SearchNearbyRequest.RankPreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RANK_PREFERENCE_UNSPECIFIED, 0
   field :DISTANCE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest.RankPreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RANK_PREFERENCE_UNSPECIFIED, 0
   field :DISTANCE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Maps.Places.V1.RoutingParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :origin, 1, type: Google.Type.LatLng, deprecated: false
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Maps.Places.V1.SearchNearbyRequest.LocationRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Maps.Places.V1.SearchNearbyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :region_code, 2, type: :string, json_name: "regionCode"
@@ -94,7 +94,7 @@ end
 defmodule Google.Maps.Places.V1.SearchNearbyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :places, 1, repeated: true, type: Google.Maps.Places.V1.Place
 
@@ -107,7 +107,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest.LocationBias do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest.LocationRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -128,7 +128,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest.EVOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :minimum_charging_rate_kw, 1,
     type: :double,
@@ -146,7 +146,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest.SearchAlongRouteParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :polyline, 1, type: Google.Maps.Places.V1.Polyline, deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text_query, 1, type: :string, json_name: "textQuery", deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -205,7 +205,7 @@ end
 defmodule Google.Maps.Places.V1.SearchTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :places, 1, repeated: true, type: Google.Maps.Places.V1.Place
 
@@ -223,7 +223,7 @@ end
 defmodule Google.Maps.Places.V1.GetPhotoMediaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :max_width_px, 2, type: :int32, json_name: "maxWidthPx", deprecated: false
@@ -234,7 +234,7 @@ end
 defmodule Google.Maps.Places.V1.PhotoMedia do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :photo_uri, 2, type: :string, json_name: "photoUri"
@@ -243,7 +243,7 @@ end
 defmodule Google.Maps.Places.V1.GetPlaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -254,7 +254,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesRequest.LocationBias do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -265,7 +265,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesRequest.LocationRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -276,7 +276,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input, 1, type: :string, deprecated: false
 
@@ -318,7 +318,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StringRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_offset, 1, type: :int32, json_name: "startOffset"
   field :end_offset, 2, type: :int32, json_name: "endOffset"
@@ -327,7 +327,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StructuredFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :main_text, 1,
     type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText,
@@ -353,7 +353,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.PlacePrediction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :place, 1, type: :string, deprecated: false
   field :place_id, 2, type: :string, json_name: "placeId"
@@ -372,7 +372,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.QueryPrediction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1,
     type: Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.FormattableText
@@ -385,7 +385,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -403,7 +403,7 @@ end
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -413,7 +413,7 @@ end
 defmodule Google.Maps.Places.V1.Places.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.maps.places.v1.Places", protoc_gen_elixir_version: "0.12.0"
+  use GRPC.Service, name: "google.maps.places.v1.Places", protoc_gen_elixir_version: "0.13.0"
 
   rpc :SearchNearby,
       Google.Maps.Places.V1.SearchNearbyRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Notebooks.V2.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Notebooks.V2.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance, 1, type: Google.Cloud.Notebooks.V2.Instance, deprecated: false
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.StartInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.StopInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.ResetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.CheckInstanceUpgradabilityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :notebook_instance, 1, type: :string, json_name: "notebookInstance", deprecated: false
 end
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.CheckInstanceUpgradabilityResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :upgradeable, 1, type: :bool
   field :upgrade_version, 2, type: :string, json_name: "upgradeVersion"
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.UpgradeInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.RollbackInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_snapshot, 2, type: :string, json_name: "targetSnapshot", deprecated: false
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.DiagnoseInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -159,7 +159,7 @@ defmodule Google.Cloud.Notebooks.V2.NotebookService.Service do
 
   use GRPC.Service,
     name: "google.cloud.notebooks.v2.NotebookService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListInstances,
       Google.Cloud.Notebooks.V2.ListInstancesRequest,

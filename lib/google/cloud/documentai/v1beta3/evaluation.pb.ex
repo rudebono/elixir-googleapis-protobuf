@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.MultiConfidenceMetrics.MetricsType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :METRICS_TYPE_UNSPECIFIED, 0
   field :AGGREGATE, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.EvaluationReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 1, type: :string
   field :evaluation, 2, type: :string, deprecated: false
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.Counters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :input_documents_count, 1, type: :int32, json_name: "inputDocumentsCount"
   field :invalid_documents_count, 2, type: :int32, json_name: "invalidDocumentsCount"
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :precision, 1, type: :float
   field :recall, 2, type: :float
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.ConfidenceLevelMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :confidence_level, 1, type: :float, json_name: "confidenceLevel"
   field :metrics, 2, type: Google.Cloud.Documentai.V1beta3.Evaluation.Metrics
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.MultiConfidenceMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :confidence_level_metrics, 1,
     repeated: true,
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation.EntityMetricsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Documentai.V1beta3.Evaluation.MultiConfidenceMetrics
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Evaluation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.Network do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -28,7 +28,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -38,7 +38,7 @@ defmodule Google.Ads.Admanager.V1.NetworkService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.NetworkService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetNetwork, Google.Ads.Admanager.V1.GetNetworkRequest, Google.Ads.Admanager.V1.Network
 end

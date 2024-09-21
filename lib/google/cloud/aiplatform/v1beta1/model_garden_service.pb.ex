@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModelView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PUBLISHER_MODEL_VIEW_UNSPECIFIED, 0
   field :PUBLISHER_MODEL_VIEW_BASIC, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :publisher_models, 1,
     repeated: true,
@@ -63,7 +63,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ModelGardenService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetPublisherModel,
       Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest,

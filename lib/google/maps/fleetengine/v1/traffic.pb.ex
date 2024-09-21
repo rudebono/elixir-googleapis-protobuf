@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.V1.SpeedReadingInterval.Speed do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SPEED_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -12,7 +12,7 @@ end
 defmodule Maps.Fleetengine.V1.SpeedReadingInterval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_polyline_point_index, 1, type: :int32, json_name: "startPolylinePointIndex"
   field :end_polyline_point_index, 2, type: :int32, json_name: "endPolylinePointIndex"
@@ -22,7 +22,7 @@ end
 defmodule Maps.Fleetengine.V1.ConsumableTrafficPolyline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :speed_reading_interval, 1,
     repeated: true,

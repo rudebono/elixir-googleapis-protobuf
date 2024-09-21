@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2.CreateMigrationWorkflowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.GetMigrationWorkflowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ListMigrationWorkflowsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ListMigrationWorkflowsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :migration_workflows, 1,
     repeated: true,
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.DeleteMigrationWorkflowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.StartMigrationWorkflowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.GetMigrationSubtaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ListMigrationSubtasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask", deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ListMigrationSubtasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :migration_subtasks, 1,
     repeated: true,
@@ -99,7 +99,7 @@ defmodule Google.Cloud.Bigquery.Migration.V2.MigrationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.migration.v2.MigrationService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateMigrationWorkflow,
       Google.Cloud.Bigquery.Migration.V2.CreateMigrationWorkflowRequest,

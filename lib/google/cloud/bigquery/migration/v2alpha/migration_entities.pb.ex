@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow.TasksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationWorkflow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 6, type: :string, json_name: "displayName"
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTask do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :task_details, 0
 
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationSubtask do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :task_id, 2, type: :string, json_name: "taskId"
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.MigrationTaskOrchestrationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :details, 0
 

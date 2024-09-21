@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Workstations.Logging.V1.WorkstationEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :event_type, 0
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Workstations.Logging.V1.VmAssignmentEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :vm, 1, type: :string
 end
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Workstations.Logging.V1.DiskAssignmentEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :disk, 1, type: :string
 end

@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.V3.ServiceLevelObjective.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :FULL, 2
@@ -11,13 +11,13 @@ end
 defmodule Google.Monitoring.V3.Service.Custom do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Monitoring.V3.Service.AppEngine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :module_id, 1, type: :string, json_name: "moduleId"
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Monitoring.V3.Service.CloudEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service, 1, type: :string
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Monitoring.V3.Service.ClusterIstio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :cluster_name, 2, type: :string, json_name: "clusterName"
@@ -44,7 +44,7 @@ end
 defmodule Google.Monitoring.V3.Service.MeshIstio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mesh_uid, 1, type: :string, json_name: "meshUid"
   field :service_namespace, 3, type: :string, json_name: "serviceNamespace"
@@ -54,7 +54,7 @@ end
 defmodule Google.Monitoring.V3.Service.IstioCanonicalService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mesh_uid, 1, type: :string, json_name: "meshUid"
   field :canonical_service_namespace, 3, type: :string, json_name: "canonicalServiceNamespace"
@@ -64,7 +64,7 @@ end
 defmodule Google.Monitoring.V3.Service.CloudRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName"
   field :location, 2, type: :string
@@ -73,7 +73,7 @@ end
 defmodule Google.Monitoring.V3.Service.GkeNamespace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :location, 2, type: :string
@@ -84,7 +84,7 @@ end
 defmodule Google.Monitoring.V3.Service.GkeWorkload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :location, 2, type: :string
@@ -97,7 +97,7 @@ end
 defmodule Google.Monitoring.V3.Service.GkeService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :location, 2, type: :string
@@ -109,7 +109,7 @@ end
 defmodule Google.Monitoring.V3.Service.BasicService.ServiceLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -118,7 +118,7 @@ end
 defmodule Google.Monitoring.V3.Service.BasicService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :service_type, 1, type: :string, json_name: "serviceType"
 
@@ -132,7 +132,7 @@ end
 defmodule Google.Monitoring.V3.Service.Telemetry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Monitoring.V3.Service.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -149,7 +149,7 @@ end
 defmodule Google.Monitoring.V3.Service do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :identifier, 0
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Monitoring.V3.ServiceLevelObjective.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -227,7 +227,7 @@ end
 defmodule Google.Monitoring.V3.ServiceLevelObjective do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :period, 0
 
@@ -257,7 +257,7 @@ end
 defmodule Google.Monitoring.V3.ServiceLevelIndicator do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -277,13 +277,13 @@ end
 defmodule Google.Monitoring.V3.BasicSli.AvailabilityCriteria do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Monitoring.V3.BasicSli.LatencyCriteria do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :threshold, 3, type: Google.Protobuf.Duration
 end
@@ -291,7 +291,7 @@ end
 defmodule Google.Monitoring.V3.BasicSli do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :sli_criteria, 0
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Monitoring.V3.Range do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :min, 1, type: :double
   field :max, 2, type: :double
@@ -314,7 +314,7 @@ end
 defmodule Google.Monitoring.V3.RequestBasedSli do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :method, 0
 
@@ -332,7 +332,7 @@ end
 defmodule Google.Monitoring.V3.TimeSeriesRatio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :good_service_filter, 4, type: :string, json_name: "goodServiceFilter"
   field :bad_service_filter, 5, type: :string, json_name: "badServiceFilter"
@@ -342,7 +342,7 @@ end
 defmodule Google.Monitoring.V3.DistributionCut do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :distribution_filter, 4, type: :string, json_name: "distributionFilter"
   field :range, 5, type: Google.Monitoring.V3.Range
@@ -351,7 +351,7 @@ end
 defmodule Google.Monitoring.V3.WindowsBasedSli.PerformanceThreshold do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -368,7 +368,7 @@ end
 defmodule Google.Monitoring.V3.WindowsBasedSli.MetricRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_series, 1, type: :string, json_name: "timeSeries"
   field :range, 4, type: Google.Monitoring.V3.Range
@@ -377,7 +377,7 @@ end
 defmodule Google.Monitoring.V3.WindowsBasedSli do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :window_criterion, 0
 

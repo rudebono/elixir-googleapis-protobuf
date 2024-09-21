@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1beta.HarmCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HARM_CATEGORY_UNSPECIFIED, 0
   field :HARM_CATEGORY_DEROGATORY, 1
@@ -14,12 +14,13 @@ defmodule Google.Ai.Generativelanguage.V1beta.HarmCategory do
   field :HARM_CATEGORY_HATE_SPEECH, 8
   field :HARM_CATEGORY_SEXUALLY_EXPLICIT, 9
   field :HARM_CATEGORY_DANGEROUS_CONTENT, 10
+  field :HARM_CATEGORY_CIVIC_INTEGRITY, 11
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.ContentFilter.BlockedReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BLOCKED_REASON_UNSPECIFIED, 0
   field :SAFETY, 1
@@ -29,7 +30,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.SafetyRating.HarmProbability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HARM_PROBABILITY_UNSPECIFIED, 0
   field :NEGLIGIBLE, 1
@@ -41,19 +42,20 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.SafetySetting.HarmBlockThreshold do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HARM_BLOCK_THRESHOLD_UNSPECIFIED, 0
   field :BLOCK_LOW_AND_ABOVE, 1
   field :BLOCK_MEDIUM_AND_ABOVE, 2
   field :BLOCK_ONLY_HIGH, 3
   field :BLOCK_NONE, 4
+  field :OFF, 5
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.ContentFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :reason, 1,
     type: Google.Ai.Generativelanguage.V1beta.ContentFilter.BlockedReason,
@@ -65,7 +67,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.SafetyFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rating, 1, type: Google.Ai.Generativelanguage.V1beta.SafetyRating
   field :setting, 2, type: Google.Ai.Generativelanguage.V1beta.SafetySetting
@@ -74,7 +76,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.SafetyRating do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :category, 3,
     type: Google.Ai.Generativelanguage.V1beta.HarmCategory,
@@ -92,7 +94,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.SafetySetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :category, 3,
     type: Google.Ai.Generativelanguage.V1beta.HarmCategory,

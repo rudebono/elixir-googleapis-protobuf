@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Asset.V1p5beta1.ContentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :RESOURCE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :read_time, 2, type: Google.Protobuf.Timestamp, json_name: "readTime"
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Asset.V1p5beta1.ListAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :read_time, 1, type: Google.Protobuf.Timestamp, json_name: "readTime"
   field :assets, 2, repeated: true, type: Google.Cloud.Asset.V1p5beta1.Asset
@@ -43,7 +43,7 @@ defmodule Google.Cloud.Asset.V1p5beta1.AssetService.Service do
 
   use GRPC.Service,
     name: "google.cloud.asset.v1p5beta1.AssetService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListAssets,
       Google.Cloud.Asset.V1p5beta1.ListAssetsRequest,

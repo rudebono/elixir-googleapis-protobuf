@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.CreateProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :product, 2, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.GetProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.UpdateProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.DeleteProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.ListProductsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.ListProductsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Retail.V2beta.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.SetInventoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :inventory, 1, type: Google.Cloud.Retail.V2beta.Product, deprecated: false
   field :set_mask, 2, type: Google.Protobuf.FieldMask, json_name: "setMask"
@@ -69,19 +69,19 @@ end
 defmodule Google.Cloud.Retail.V2beta.SetInventoryMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.SetInventoryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -93,19 +93,19 @@ end
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.AddFulfillmentPlacesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
 
@@ -123,19 +123,19 @@ end
 defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.AddLocalInventoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :place_ids, 2, repeated: true, type: :string, json_name: "placeIds", deprecated: false
@@ -146,19 +146,19 @@ end
 defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.RemoveLocalInventoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -170,13 +170,13 @@ end
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.RemoveFulfillmentPlacesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
@@ -184,7 +184,7 @@ defmodule Google.Cloud.Retail.V2beta.ProductService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2beta.ProductService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateProduct,
       Google.Cloud.Retail.V2beta.CreateProductRequest,

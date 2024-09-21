@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Orchestration.Airflow.Service.V1.OperationMetadata.State,

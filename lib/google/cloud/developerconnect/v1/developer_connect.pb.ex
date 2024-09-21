@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Developerconnect.V1.InstallationState.Stage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STAGE_UNSPECIFIED, 0
   field :PENDING_CREATE_APP, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GitHubConfig.GitHubApp do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GIT_HUB_APP_UNSPECIFIED, 0
   field :DEVELOPER_CONNECT, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitRefsRequest.RefType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REF_TYPE_UNSPECIFIED, 0
   field :TAG, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.Connection.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.Connection.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.Connection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :connection_config, 0
 
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.InstallationState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :stage, 1,
     type: Google.Cloud.Developerconnect.V1.InstallationState.Stage,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GitHubConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :github_app, 1,
     type: Google.Cloud.Developerconnect.V1.GitHubConfig.GitHubApp,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.OAuthCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :oauth_token_secret_version, 1,
     type: :string,
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListConnectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connections, 1, repeated: true, type: Google.Cloud.Developerconnect.V1.Connection
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GetConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.CreateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connection_id, 2, type: :string, json_name: "connectionId", deprecated: false
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.UpdateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.DeleteConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GitRepositoryLink.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GitRepositoryLink.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GitRepositoryLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :clone_uri, 2, type: :string, json_name: "cloneUri", deprecated: false
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.CreateGitRepositoryLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.DeleteGitRepositoryLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -334,7 +334,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListGitRepositoryLinksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListGitRepositoryLinksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :git_repository_links, 1,
     repeated: true,
@@ -360,7 +360,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GetGitRepositoryLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -368,7 +368,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchReadWriteTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :git_repository_link, 1, type: :string, json_name: "gitRepositoryLink", deprecated: false
 end
@@ -376,7 +376,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchReadTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :git_repository_link, 1, type: :string, json_name: "gitRepositoryLink", deprecated: false
 end
@@ -384,7 +384,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchReadTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -394,7 +394,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchReadWriteTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -404,7 +404,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchLinkableGitRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchLinkableGitRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :linkable_git_repositories, 1,
     repeated: true,
@@ -427,7 +427,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.LinkableGitRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :clone_uri, 1, type: :string, json_name: "cloneUri"
 end
@@ -435,7 +435,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitHubInstallationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connection, 1, type: :string, deprecated: false
 end
@@ -443,7 +443,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitHubInstallationsResponse.Installation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :name, 2, type: :string
@@ -453,7 +453,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitHubInstallationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :installations, 1,
     repeated: true,
@@ -463,7 +463,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitRefsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :git_repository_link, 1, type: :string, json_name: "gitRepositoryLink", deprecated: false
 
@@ -480,7 +480,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.FetchGitRefsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ref_names, 1, repeated: true, type: :string, json_name: "refNames"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -491,7 +491,7 @@ defmodule Google.Cloud.Developerconnect.V1.DeveloperConnect.Service do
 
   use GRPC.Service,
     name: "google.cloud.developerconnect.v1.DeveloperConnect",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListConnections,
       Google.Cloud.Developerconnect.V1.ListConnectionsRequest,

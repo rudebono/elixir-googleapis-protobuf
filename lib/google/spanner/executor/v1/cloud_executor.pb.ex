@@ -1,7 +1,7 @@
 defmodule Google.Spanner.Executor.V1.KeyRange.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CLOSED_CLOSED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Spanner.Executor.V1.FinishTransactionAction.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :COMMIT, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Spanner.Executor.V1.SpannerAsyncActionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :action, 2, type: Google.Spanner.Executor.V1.SpannerAction
@@ -32,7 +32,7 @@ end
 defmodule Google.Spanner.Executor.V1.SpannerAsyncActionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :outcome, 2, type: Google.Spanner.Executor.V1.SpannerActionOutcome
@@ -41,7 +41,7 @@ end
 defmodule Google.Spanner.Executor.V1.SpannerAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -111,7 +111,7 @@ end
 defmodule Google.Spanner.Executor.V1.ReadAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :index, 2, proto3_optional: true, type: :string
@@ -123,7 +123,7 @@ end
 defmodule Google.Spanner.Executor.V1.QueryAction.Parameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Spanner.V1.Type
@@ -133,7 +133,7 @@ end
 defmodule Google.Spanner.Executor.V1.QueryAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :sql, 1, type: :string
   field :params, 2, repeated: true, type: Google.Spanner.Executor.V1.QueryAction.Parameter
@@ -142,7 +142,7 @@ end
 defmodule Google.Spanner.Executor.V1.DmlAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update, 1, type: Google.Spanner.Executor.V1.QueryAction
 
@@ -155,7 +155,7 @@ end
 defmodule Google.Spanner.Executor.V1.BatchDmlAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :updates, 1, repeated: true, type: Google.Spanner.Executor.V1.QueryAction
 end
@@ -163,7 +163,7 @@ end
 defmodule Google.Spanner.Executor.V1.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Spanner.Executor.V1.KeyRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start, 1, type: Google.Spanner.Executor.V1.ValueList
   field :limit, 2, type: Google.Spanner.Executor.V1.ValueList
@@ -215,7 +215,7 @@ end
 defmodule Google.Spanner.Executor.V1.KeySet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :point, 1, repeated: true, type: Google.Spanner.Executor.V1.ValueList
   field :range, 2, repeated: true, type: Google.Spanner.Executor.V1.KeyRange
@@ -225,7 +225,7 @@ end
 defmodule Google.Spanner.Executor.V1.ValueList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, repeated: true, type: Google.Spanner.Executor.V1.Value
 end
@@ -233,7 +233,7 @@ end
 defmodule Google.Spanner.Executor.V1.MutationAction.InsertArgs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column, 1, repeated: true, type: :string
   field :type, 2, repeated: true, type: Google.Spanner.V1.Type
@@ -243,7 +243,7 @@ end
 defmodule Google.Spanner.Executor.V1.MutationAction.UpdateArgs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column, 1, repeated: true, type: :string
   field :type, 2, repeated: true, type: Google.Spanner.V1.Type
@@ -253,7 +253,7 @@ end
 defmodule Google.Spanner.Executor.V1.MutationAction.Mod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :insert, 2, type: Google.Spanner.Executor.V1.MutationAction.InsertArgs
@@ -270,7 +270,7 @@ end
 defmodule Google.Spanner.Executor.V1.MutationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mod, 1, repeated: true, type: Google.Spanner.Executor.V1.MutationAction.Mod
 end
@@ -278,7 +278,7 @@ end
 defmodule Google.Spanner.Executor.V1.WriteMutationsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mutation, 1, type: Google.Spanner.Executor.V1.MutationAction
 end
@@ -286,7 +286,7 @@ end
 defmodule Google.Spanner.Executor.V1.PartitionedUpdateAction.ExecutePartitionedUpdateOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rpc_priority, 1,
     proto3_optional: true,
@@ -300,7 +300,7 @@ end
 defmodule Google.Spanner.Executor.V1.PartitionedUpdateAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :options, 1,
     proto3_optional: true,
@@ -312,7 +312,7 @@ end
 defmodule Google.Spanner.Executor.V1.StartTransactionAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :concurrency, 1, proto3_optional: true, type: Google.Spanner.Executor.V1.Concurrency
   field :table, 2, repeated: true, type: Google.Spanner.Executor.V1.TableMetadata
@@ -327,7 +327,7 @@ end
 defmodule Google.Spanner.Executor.V1.Concurrency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :concurrency_mode, 0
 
@@ -345,7 +345,7 @@ end
 defmodule Google.Spanner.Executor.V1.TableMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :column, 2, repeated: true, type: Google.Spanner.Executor.V1.ColumnMetadata
@@ -359,7 +359,7 @@ end
 defmodule Google.Spanner.Executor.V1.ColumnMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Spanner.V1.Type
@@ -368,7 +368,7 @@ end
 defmodule Google.Spanner.Executor.V1.TransactionExecutionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :optimistic, 1, type: :bool
 end
@@ -376,7 +376,7 @@ end
 defmodule Google.Spanner.Executor.V1.FinishTransactionAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mode, 1, type: Google.Spanner.Executor.V1.FinishTransactionAction.Mode, enum: true
 end
@@ -384,7 +384,7 @@ end
 defmodule Google.Spanner.Executor.V1.AdminAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -532,7 +532,7 @@ end
 defmodule Google.Spanner.Executor.V1.CreateUserInstanceConfigAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_config_id, 1, type: :string, json_name: "userConfigId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -543,7 +543,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateUserInstanceConfigAction.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -552,7 +552,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateUserInstanceConfigAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_config_id, 1, type: :string, json_name: "userConfigId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -567,7 +567,7 @@ end
 defmodule Google.Spanner.Executor.V1.GetCloudInstanceConfigAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_config_id, 1, type: :string, json_name: "instanceConfigId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -576,7 +576,7 @@ end
 defmodule Google.Spanner.Executor.V1.DeleteUserInstanceConfigAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :user_config_id, 1, type: :string, json_name: "userConfigId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -585,7 +585,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudInstanceConfigsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :page_size, 2, proto3_optional: true, type: :int32, json_name: "pageSize"
@@ -595,7 +595,7 @@ end
 defmodule Google.Spanner.Executor.V1.CreateCloudInstanceAction.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -604,7 +604,7 @@ end
 defmodule Google.Spanner.Executor.V1.CreateCloudInstanceAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -626,7 +626,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateCloudInstanceAction.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -635,7 +635,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateCloudInstanceAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -657,7 +657,7 @@ end
 defmodule Google.Spanner.Executor.V1.DeleteCloudInstanceAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -666,7 +666,7 @@ end
 defmodule Google.Spanner.Executor.V1.CreateCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -684,7 +684,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateCloudDatabaseDdlAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -697,7 +697,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -708,7 +708,7 @@ end
 defmodule Google.Spanner.Executor.V1.DropCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -718,7 +718,7 @@ end
 defmodule Google.Spanner.Executor.V1.ChangeQuorumCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :database_uri, 1, proto3_optional: true, type: :string, json_name: "databaseUri"
   field :serving_locations, 2, repeated: true, type: :string, json_name: "servingLocations"
@@ -727,7 +727,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudDatabasesAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -738,7 +738,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudInstancesAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :filter, 2, proto3_optional: true, type: :string
@@ -749,7 +749,7 @@ end
 defmodule Google.Spanner.Executor.V1.GetCloudInstanceAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -758,7 +758,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudDatabaseOperationsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -770,7 +770,7 @@ end
 defmodule Google.Spanner.Executor.V1.RestoreCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :backup_instance_id, 2, type: :string, json_name: "backupInstanceId"
@@ -786,7 +786,7 @@ end
 defmodule Google.Spanner.Executor.V1.GetCloudDatabaseAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -796,7 +796,7 @@ end
 defmodule Google.Spanner.Executor.V1.CreateCloudBackupAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -821,7 +821,7 @@ end
 defmodule Google.Spanner.Executor.V1.CopyCloudBackupAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -837,7 +837,7 @@ end
 defmodule Google.Spanner.Executor.V1.GetCloudBackupAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -847,7 +847,7 @@ end
 defmodule Google.Spanner.Executor.V1.UpdateCloudBackupAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -862,7 +862,7 @@ end
 defmodule Google.Spanner.Executor.V1.DeleteCloudBackupAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -872,7 +872,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudBackupsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -884,7 +884,7 @@ end
 defmodule Google.Spanner.Executor.V1.ListCloudBackupOperationsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -896,7 +896,7 @@ end
 defmodule Google.Spanner.Executor.V1.GetOperationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 1, type: :string
 end
@@ -904,7 +904,7 @@ end
 defmodule Google.Spanner.Executor.V1.QueryCancellationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :long_running_sql, 1, type: :string, json_name: "longRunningSql"
   field :cancel_query, 2, type: :string, json_name: "cancelQuery"
@@ -913,7 +913,7 @@ end
 defmodule Google.Spanner.Executor.V1.CancelOperationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation, 1, type: :string
 end
@@ -921,7 +921,7 @@ end
 defmodule Google.Spanner.Executor.V1.StartBatchTransactionAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :param, 0
 
@@ -933,7 +933,7 @@ end
 defmodule Google.Spanner.Executor.V1.CloseBatchTransactionAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cleanup, 1, type: :bool
 end
@@ -941,7 +941,7 @@ end
 defmodule Google.Spanner.Executor.V1.GenerateDbPartitionsForReadAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :read, 1, type: Google.Spanner.Executor.V1.ReadAction
   field :table, 2, repeated: true, type: Google.Spanner.Executor.V1.TableMetadata
@@ -960,7 +960,7 @@ end
 defmodule Google.Spanner.Executor.V1.GenerateDbPartitionsForQueryAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :query, 1, type: Google.Spanner.Executor.V1.QueryAction
 
@@ -973,7 +973,7 @@ end
 defmodule Google.Spanner.Executor.V1.BatchPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partition, 1, type: :bytes
   field :partition_token, 2, type: :bytes, json_name: "partitionToken"
@@ -984,7 +984,7 @@ end
 defmodule Google.Spanner.Executor.V1.ExecutePartitionAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partition, 1, type: Google.Spanner.Executor.V1.BatchPartition
 end
@@ -992,7 +992,7 @@ end
 defmodule Google.Spanner.Executor.V1.ExecuteChangeStreamQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -1016,7 +1016,7 @@ end
 defmodule Google.Spanner.Executor.V1.SpannerActionOutcome do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 1, proto3_optional: true, type: Google.Rpc.Status
 
@@ -1063,7 +1063,7 @@ end
 defmodule Google.Spanner.Executor.V1.AdminResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :backup_response, 1,
     type: Google.Spanner.Executor.V1.CloudBackupResponse,
@@ -1089,7 +1089,7 @@ end
 defmodule Google.Spanner.Executor.V1.CloudBackupResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listed_backups, 1,
     repeated: true,
@@ -1108,7 +1108,7 @@ end
 defmodule Google.Spanner.Executor.V1.OperationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listed_operations, 1,
     repeated: true,
@@ -1122,7 +1122,7 @@ end
 defmodule Google.Spanner.Executor.V1.CloudInstanceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listed_instances, 1,
     repeated: true,
@@ -1136,7 +1136,7 @@ end
 defmodule Google.Spanner.Executor.V1.CloudInstanceConfigResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listed_instance_configs, 1,
     repeated: true,
@@ -1153,7 +1153,7 @@ end
 defmodule Google.Spanner.Executor.V1.CloudDatabaseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :listed_databases, 1,
     repeated: true,
@@ -1172,7 +1172,7 @@ end
 defmodule Google.Spanner.Executor.V1.ReadResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :index, 2, proto3_optional: true, type: :string
@@ -1188,7 +1188,7 @@ end
 defmodule Google.Spanner.Executor.V1.QueryResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :row, 1, repeated: true, type: Google.Spanner.Executor.V1.ValueList
 
@@ -1201,7 +1201,7 @@ end
 defmodule Google.Spanner.Executor.V1.ChangeStreamRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :record, 0
 
@@ -1221,7 +1221,7 @@ end
 defmodule Google.Spanner.Executor.V1.DataChangeRecord.ColumnType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -1232,7 +1232,7 @@ end
 defmodule Google.Spanner.Executor.V1.DataChangeRecord.Mod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :keys, 1, type: :string
   field :new_values, 2, type: :string, json_name: "newValues"
@@ -1242,7 +1242,7 @@ end
 defmodule Google.Spanner.Executor.V1.DataChangeRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :commit_time, 1, type: Google.Protobuf.Timestamp, json_name: "commitTime"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -1267,7 +1267,7 @@ end
 defmodule Google.Spanner.Executor.V1.ChildPartitionsRecord.ChildPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :token, 1, type: :string
 
@@ -1280,7 +1280,7 @@ end
 defmodule Google.Spanner.Executor.V1.ChildPartitionsRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -1294,7 +1294,7 @@ end
 defmodule Google.Spanner.Executor.V1.HeartbeatRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :heartbeat_time, 1, type: Google.Protobuf.Timestamp, json_name: "heartbeatTime"
 end
@@ -1302,7 +1302,7 @@ end
 defmodule Google.Spanner.Executor.V1.SpannerOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :session_pool_options, 1,
     type: Google.Spanner.Executor.V1.SessionPoolOptions,
@@ -1312,7 +1312,7 @@ end
 defmodule Google.Spanner.Executor.V1.SessionPoolOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :use_multiplexed, 1, type: :bool, json_name: "useMultiplexed"
 end
@@ -1322,7 +1322,7 @@ defmodule Google.Spanner.Executor.V1.SpannerExecutorProxy.Service do
 
   use GRPC.Service,
     name: "google.spanner.executor.v1.SpannerExecutorProxy",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ExecuteActionAsync,
       stream(Google.Spanner.Executor.V1.SpannerAsyncActionRequest),

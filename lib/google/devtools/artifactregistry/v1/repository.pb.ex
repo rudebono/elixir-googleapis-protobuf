@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.CleanupPolicyCondition.TagState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TAG_STATE_UNSPECIFIED, 0
   field :TAGGED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CleanupPolicy.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :DELETE, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PUBLIC_REPOSITORY_UNSPECIFIED, 0
   field :DOCKER_HUB, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PUBLIC_REPOSITORY_UNSPECIFIED, 0
   field :MAVEN_CENTRAL, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PUBLIC_REPOSITORY_UNSPECIFIED, 0
   field :NPMJS, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PUBLIC_REPOSITORY_UNSPECIFIED, 0
   field :PYPI, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository.PublicRepository.RepositoryBase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REPOSITORY_BASE_UNSPECIFIED, 0
   field :DEBIAN, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.PublicRepository.RepositoryBase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :REPOSITORY_BASE_UNSPECIFIED, 0
   field :CENTOS, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :DOCKER, 1
@@ -98,7 +98,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :STANDARD_REPOSITORY, 1
@@ -109,7 +109,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.MavenRepositoryConfig.VersionPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VERSION_POLICY_UNSPECIFIED, 0
   field :RELEASE, 1
@@ -119,7 +119,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.UpstreamPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :repository, 2, type: :string, deprecated: false
@@ -129,7 +129,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CleanupPolicyCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tag_state, 2,
     proto3_optional: true,
@@ -155,7 +155,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CleanupPolicyMostRecentVersions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :package_name_prefixes, 1, repeated: true, type: :string, json_name: "packageNamePrefixes"
   field :keep_count, 2, proto3_optional: true, type: :int32, json_name: "keepCount"
@@ -164,7 +164,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CleanupPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :condition_type, 0
 
@@ -182,7 +182,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.VirtualRepositoryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :upstream_policies, 1,
     repeated: true,
@@ -193,7 +193,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.UpstreamCredentials.UsernamePasswordCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :username, 1, type: :string
 
@@ -206,7 +206,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.UpstreamCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :credentials, 0
 
@@ -220,7 +220,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -235,7 +235,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -250,7 +250,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -265,7 +265,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -280,7 +280,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository_base, 1,
     type:
@@ -294,7 +294,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -308,7 +308,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.PublicRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository_base, 1,
     type:
@@ -322,7 +322,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :upstream, 0
 
@@ -336,7 +336,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :remote_source, 0
 
@@ -381,7 +381,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.MavenRepositoryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :allow_snapshot_overwrites, 1, type: :bool, json_name: "allowSnapshotOverwrites"
 
@@ -394,7 +394,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.DockerRepositoryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :immutable_tags, 1, type: :bool, json_name: "immutableTags"
 end
@@ -402,7 +402,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -411,7 +411,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository.CleanupPoliciesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Artifactregistry.V1.CleanupPolicy
@@ -420,7 +420,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Repository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :format_config, 0
 
@@ -496,7 +496,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -506,7 +506,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repositories, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -515,7 +515,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -523,7 +523,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CreateRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :repository_id, 2, type: :string, json_name: "repositoryId", deprecated: false
@@ -533,7 +533,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.UpdateRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :repository, 1, type: Google.Devtools.Artifactregistry.V1.Repository
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -542,7 +542,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.DeleteRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

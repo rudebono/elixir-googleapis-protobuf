@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Baremetalsolution.V2.ProvisioningConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ProvisioningQuota.AssetType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ASSET_TYPE_UNSPECIFIED, 0
   field :ASSET_TYPE_SERVER, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.InstanceConfig.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NETWORKCONFIG_UNSPECIFIED, 0
   field :SINGLE_VLAN, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :FLASH, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig.Protocol do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PROTOCOL_UNSPECIFIED, 0
   field :PROTOCOL_FC, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig.NfsExport.Permissions do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PERMISSIONS_UNSPECIFIED, 0
   field :READ_ONLY, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CLIENT, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig.Bandwidth do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BANDWIDTH_UNSPECIFIED, 0
   field :BW_1_GBPS, 1
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig.ServiceCidr do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SERVICE_CIDR_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ProvisioningConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Cloud.Baremetalsolution.V2.InstanceConfig
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.SubmitProvisioningConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.SubmitProvisioningConfigResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :provisioning_config, 1,
     type: Google.Cloud.Baremetalsolution.V2.ProvisioningConfig,
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ProvisioningQuota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :quota, 0
 
@@ -187,7 +187,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListProvisioningQuotasRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListProvisioningQuotasResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :provisioning_quotas, 1,
     repeated: true,
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.InstanceConfig.NetworkAddress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_id, 1, type: :string, json_name: "networkId"
   field :address, 2, type: :string
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.InstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig.LunRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :quantity, 1, type: :int32
   field :size_gb, 2, type: :int32, json_name: "sizeGb"
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig.NfsExport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :client, 0
 
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
@@ -321,7 +321,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig.IntakeVlanAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :pairing_key, 2, type: :string, json_name: "pairingKey"
@@ -330,7 +330,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.InstanceQuota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :instance_type, 2, type: :string, json_name: "instanceType", deprecated: true
@@ -370,7 +370,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.GetProvisioningConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.CreateProvisioningConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -393,7 +393,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.UpdateProvisioningConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :provisioning_config, 1,
     type: Google.Cloud.Baremetalsolution.V2.ProvisioningConfig,

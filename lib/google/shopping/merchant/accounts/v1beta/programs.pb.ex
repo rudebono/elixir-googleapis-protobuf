@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Program.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NOT_ELIGIBLE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Program.Requirement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :documentation_uri, 2, type: :string, json_name: "documentationUri", deprecated: false
@@ -27,7 +27,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Program do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :documentation_uri, 2, type: :string, json_name: "documentationUri", deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetProgramRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListProgramsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -71,7 +71,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListProgramsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :programs, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1beta.Program
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -80,7 +80,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.EnableProgramRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -88,7 +88,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DisableProgramRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -98,7 +98,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.ProgramsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.ProgramsService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetProgram,
       Google.Shopping.Merchant.Accounts.V1beta.GetProgramRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Batch.V1alpha.CreateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.GetJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.DeleteJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :reason, 2, type: :string, deprecated: false
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.CancelJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
@@ -39,13 +39,13 @@ end
 defmodule Google.Cloud.Batch.V1alpha.CancelJobResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Batch.V1alpha.UpdateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :job, 1, type: Google.Cloud.Batch.V1alpha.Job, deprecated: false
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Batch.V1alpha.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Batch.V1alpha.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.GetTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.CreateResourceAllowanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :resource_allowance_id, 2, type: :string, json_name: "resourceAllowanceId"
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.GetResourceAllowanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.DeleteResourceAllowanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListResourceAllowancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ListResourceAllowancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_allowances, 1,
     repeated: true,
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UpdateResourceAllowanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_allowance, 1,
     type: Google.Cloud.Batch.V1alpha.ResourceAllowance,
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -213,7 +213,7 @@ defmodule Google.Cloud.Batch.V1alpha.BatchService.Service do
 
   use GRPC.Service,
     name: "google.cloud.batch.v1alpha.BatchService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateJob, Google.Cloud.Batch.V1alpha.CreateJobRequest, Google.Cloud.Batch.V1alpha.Job
 

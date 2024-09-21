@@ -1,7 +1,7 @@
 defmodule Google.Appengine.V1beta.LocationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :standard_environment_available, 2, type: :bool, json_name: "standardEnvironmentAvailable"
   field :flexible_environment_available, 4, type: :bool, json_name: "flexibleEnvironmentAvailable"

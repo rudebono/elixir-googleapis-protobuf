@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.PromptSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :initial_prompt, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.EventHandler,
@@ -35,7 +35,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.CommitBehavior do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :write_session_param, 1, type: :string, json_name: "writeSessionParam"
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot.DefaultValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :session_param, 1, type: :string, json_name: "sessionParam", deprecated: false
   field :constant, 2, type: Google.Protobuf.Value, deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Slot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

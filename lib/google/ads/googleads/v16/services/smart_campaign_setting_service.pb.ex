@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.GetSmartCampaignStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignNotEligibleDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :not_eligible_reason, 1,
     proto3_optional: true,
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignEligibleDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :last_impression_date_time, 1,
     proto3_optional: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignPausedDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :paused_date_time, 1, proto3_optional: true, type: :string, json_name: "pausedDateTime"
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignRemovedDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :removed_date_time, 1, proto3_optional: true, type: :string, json_name: "removedDateTime"
 end
@@ -51,7 +51,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignEndedDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :end_date_time, 1, proto3_optional: true, type: :string, json_name: "endDateTime"
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.GetSmartCampaignStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :smart_campaign_status_details, 0
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateSmartCampaignSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SmartCampaignSettingOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :update, 1, type: Google.Ads.Googleads.V16.Resources.SmartCampaignSetting
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -127,7 +127,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateSmartCampaignSettingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateSmartCampaignSettingResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -153,7 +153,7 @@ defmodule Google.Ads.Googleads.V16.Services.SmartCampaignSettingService.Service 
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.SmartCampaignSettingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetSmartCampaignStatus,
       Google.Ads.Googleads.V16.Services.GetSmartCampaignStatusRequest,

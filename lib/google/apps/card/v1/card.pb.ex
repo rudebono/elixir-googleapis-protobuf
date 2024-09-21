@@ -1,7 +1,7 @@
 defmodule Google.Apps.Card.V1.Card.DividerStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DIVIDER_STYLE_UNSPECIFIED, 0
   field :SOLID_DIVIDER, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Apps.Card.V1.Card.DisplayStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DISPLAY_STYLE_UNSPECIFIED, 0
   field :PEEK, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Apps.Card.V1.Widget.ImageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SQUARE, 0
   field :CIRCLE, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Apps.Card.V1.Widget.HorizontalAlignment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HORIZONTAL_ALIGNMENT_UNSPECIFIED, 0
   field :START, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Apps.Card.V1.DecoratedText.SwitchControl.ControlType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SWITCH, 0
   field :CHECKBOX, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Apps.Card.V1.TextInput.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SINGLE_LINE, 0
   field :MULTIPLE_LINE, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Apps.Card.V1.SelectionInput.SelectionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CHECK_BOX, 0
   field :RADIO_BUTTON, 1
@@ -72,7 +72,7 @@ end
 defmodule Google.Apps.Card.V1.SelectionInput.PlatformDataSource.CommonDataSource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :USER, 1
@@ -81,7 +81,7 @@ end
 defmodule Google.Apps.Card.V1.DateTimePicker.DateTimePickerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATE_AND_TIME, 0
   field :DATE_ONLY, 1
@@ -91,7 +91,7 @@ end
 defmodule Google.Apps.Card.V1.ImageCropStyle.ImageCropType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :IMAGE_CROP_TYPE_UNSPECIFIED, 0
   field :SQUARE, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Apps.Card.V1.BorderStyle.BorderType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :BORDER_TYPE_UNSPECIFIED, 0
   field :NO_BORDER, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Apps.Card.V1.Grid.GridItem.GridItemLayout do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GRID_ITEM_LAYOUT_UNSPECIFIED, 0
   field :TEXT_BELOW, 1
@@ -123,7 +123,7 @@ end
 defmodule Google.Apps.Card.V1.Columns.Column.HorizontalSizeStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :HORIZONTAL_SIZE_STYLE_UNSPECIFIED, 0
   field :FILL_AVAILABLE_SPACE, 1
@@ -133,7 +133,7 @@ end
 defmodule Google.Apps.Card.V1.Columns.Column.VerticalAlignment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :VERTICAL_ALIGNMENT_UNSPECIFIED, 0
   field :CENTER, 1
@@ -144,7 +144,7 @@ end
 defmodule Google.Apps.Card.V1.OpenLink.OpenAs do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FULL_SIZE, 0
   field :OVERLAY, 1
@@ -153,7 +153,7 @@ end
 defmodule Google.Apps.Card.V1.OpenLink.OnClose do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NOTHING, 0
   field :RELOAD, 1
@@ -162,7 +162,7 @@ end
 defmodule Google.Apps.Card.V1.Action.LoadIndicator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SPINNER, 0
   field :NONE, 1
@@ -171,7 +171,7 @@ end
 defmodule Google.Apps.Card.V1.Action.Interaction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :INTERACTION_UNSPECIFIED, 0
   field :OPEN_DIALOG, 1
@@ -180,7 +180,7 @@ end
 defmodule Google.Apps.Card.V1.Card.CardHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string
@@ -197,7 +197,7 @@ end
 defmodule Google.Apps.Card.V1.Card.Section do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: :string
   field :widgets, 2, repeated: true, type: Google.Apps.Card.V1.Widget
@@ -208,7 +208,7 @@ end
 defmodule Google.Apps.Card.V1.Card.CardAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :action_label, 1, type: :string, json_name: "actionLabel"
   field :on_click, 2, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
@@ -217,7 +217,7 @@ end
 defmodule Google.Apps.Card.V1.Card.CardFixedFooter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :primary_button, 1, type: Google.Apps.Card.V1.Button, json_name: "primaryButton"
   field :secondary_button, 2, type: Google.Apps.Card.V1.Button, json_name: "secondaryButton"
@@ -226,7 +226,7 @@ end
 defmodule Google.Apps.Card.V1.Card do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :header, 1, type: Google.Apps.Card.V1.Card.CardHeader
   field :sections, 2, repeated: true, type: Google.Apps.Card.V1.Card.Section
@@ -257,7 +257,7 @@ end
 defmodule Google.Apps.Card.V1.Widget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -299,7 +299,7 @@ end
 defmodule Google.Apps.Card.V1.TextParagraph do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
@@ -307,7 +307,7 @@ end
 defmodule Google.Apps.Card.V1.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_url, 1, type: :string, json_name: "imageUrl"
   field :on_click, 2, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
@@ -317,13 +317,13 @@ end
 defmodule Google.Apps.Card.V1.Divider do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Card.V1.DecoratedText.SwitchControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -339,7 +339,7 @@ end
 defmodule Google.Apps.Card.V1.DecoratedText do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :control, 0
 
@@ -363,7 +363,7 @@ end
 defmodule Google.Apps.Card.V1.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :label, 2, type: :string
@@ -386,7 +386,7 @@ end
 defmodule Google.Apps.Card.V1.Suggestions.SuggestionItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -396,7 +396,7 @@ end
 defmodule Google.Apps.Card.V1.Suggestions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :items, 1, repeated: true, type: Google.Apps.Card.V1.Suggestions.SuggestionItem
 end
@@ -404,7 +404,7 @@ end
 defmodule Google.Apps.Card.V1.ButtonList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :buttons, 1, repeated: true, type: Google.Apps.Card.V1.Button
 end
@@ -412,7 +412,7 @@ end
 defmodule Google.Apps.Card.V1.SelectionInput.SelectionItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :value, 2, type: :string
@@ -424,7 +424,7 @@ end
 defmodule Google.Apps.Card.V1.SelectionInput.PlatformDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -438,7 +438,7 @@ end
 defmodule Google.Apps.Card.V1.SelectionInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :multi_select_data_source, 0
 
@@ -468,7 +468,7 @@ end
 defmodule Google.Apps.Card.V1.DateTimePicker do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :label, 2, type: :string
@@ -481,7 +481,7 @@ end
 defmodule Google.Apps.Card.V1.Button do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :icon, 2, type: Google.Apps.Card.V1.Icon
@@ -494,7 +494,7 @@ end
 defmodule Google.Apps.Card.V1.Icon do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :icons, 0
 
@@ -517,7 +517,7 @@ end
 defmodule Google.Apps.Card.V1.MaterialIcon do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fill, 2, type: :bool
@@ -528,7 +528,7 @@ end
 defmodule Google.Apps.Card.V1.ImageCropStyle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Apps.Card.V1.ImageCropStyle.ImageCropType, enum: true
   field :aspect_ratio, 2, type: :double, json_name: "aspectRatio"
@@ -537,7 +537,7 @@ end
 defmodule Google.Apps.Card.V1.BorderStyle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Apps.Card.V1.BorderStyle.BorderType, enum: true
   field :stroke_color, 2, type: Google.Type.Color, json_name: "strokeColor"
@@ -547,7 +547,7 @@ end
 defmodule Google.Apps.Card.V1.ImageComponent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
   field :alt_text, 2, type: :string, json_name: "altText"
@@ -558,7 +558,7 @@ end
 defmodule Google.Apps.Card.V1.Grid.GridItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :image, 2, type: Google.Apps.Card.V1.ImageComponent
@@ -570,7 +570,7 @@ end
 defmodule Google.Apps.Card.V1.Grid do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :items, 2, repeated: true, type: Google.Apps.Card.V1.Grid.GridItem
@@ -582,7 +582,7 @@ end
 defmodule Google.Apps.Card.V1.Columns.Column.Widgets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -615,7 +615,7 @@ end
 defmodule Google.Apps.Card.V1.Columns.Column do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :horizontal_size_style, 1,
     type: Google.Apps.Card.V1.Columns.Column.HorizontalSizeStyle,
@@ -638,7 +638,7 @@ end
 defmodule Google.Apps.Card.V1.Columns do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :column_items, 2,
     repeated: true,
@@ -649,7 +649,7 @@ end
 defmodule Google.Apps.Card.V1.OnClick do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -667,7 +667,7 @@ end
 defmodule Google.Apps.Card.V1.OpenLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :open_as, 2, type: Google.Apps.Card.V1.OpenLink.OpenAs, json_name: "openAs", enum: true
@@ -677,7 +677,7 @@ end
 defmodule Google.Apps.Card.V1.Action.ActionParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -686,7 +686,7 @@ end
 defmodule Google.Apps.Card.V1.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :function, 1, type: :string
   field :parameters, 2, repeated: true, type: Google.Apps.Card.V1.Action.ActionParameter

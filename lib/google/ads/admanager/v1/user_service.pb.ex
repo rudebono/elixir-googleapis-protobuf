@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.User do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :user_id, 10, type: :int64, json_name: "userId", deprecated: false
@@ -21,7 +21,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListUsersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListUsersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :users, 1, repeated: true, type: Google.Ads.Admanager.V1.User
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -54,7 +54,7 @@ defmodule Google.Ads.Admanager.V1.UserService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.UserService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetUser, Google.Ads.Admanager.V1.GetUserRequest, Google.Ads.Admanager.V1.User
 

@@ -1,7 +1,7 @@
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :SCREEN_MODE_UNSPECIFIED, 0
   field :OFF, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :HTML, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut.MicrophoneMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :MICROPHONE_MODE_UNSPECIFIED, 0
   field :CLOSE_MICROPHONE, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :event_type, 1,
     type: Google.Assistant.Embedded.V1alpha2.AssistResponse.EventType,
@@ -100,7 +100,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DebugInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :aog_agent_to_assistant_json, 1, type: :string, json_name: "aogAgentToAssistantJson"
 end
@@ -108,7 +108,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AssistConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -143,7 +143,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioInConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioInConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
@@ -152,7 +152,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOutConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :encoding, 1, type: Google.Assistant.Embedded.V1alpha2.AudioOutConfig.Encoding, enum: true
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
@@ -162,7 +162,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOutConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :screen_mode, 1,
     type: Google.Assistant.Embedded.V1alpha2.ScreenOutConfig.ScreenMode,
@@ -173,7 +173,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateIn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :conversation_state, 1, type: :bytes, json_name: "conversationState"
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -188,7 +188,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :device_id, 1, type: :string, json_name: "deviceId"
   field :device_model_id, 3, type: :string, json_name: "deviceModelId"
@@ -197,7 +197,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.AudioOut do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :audio_data, 1, type: :bytes, json_name: "audioData"
 end
@@ -205,7 +205,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.ScreenOut do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :format, 1, type: Google.Assistant.Embedded.V1alpha2.ScreenOut.Format, enum: true
   field :data, 2, type: :bytes
@@ -214,7 +214,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :device_request_json, 1, type: :string, json_name: "deviceRequestJson"
 end
@@ -222,7 +222,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.SpeechRecognitionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :transcript, 1, type: :string
   field :stability, 2, type: :float
@@ -231,7 +231,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DialogStateOut do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :supplemental_display_text, 1, type: :string, json_name: "supplementalDisplayText"
   field :conversation_state, 2, type: :bytes, json_name: "conversationState"
@@ -247,7 +247,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DebugConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :return_debug_info, 6, type: :bool, json_name: "returnDebugInfo"
 end
@@ -255,7 +255,7 @@ end
 defmodule Google.Assistant.Embedded.V1alpha2.DeviceLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -267,7 +267,7 @@ defmodule Google.Assistant.Embedded.V1alpha2.EmbeddedAssistant.Service do
 
   use GRPC.Service,
     name: "google.assistant.embedded.v1alpha2.EmbeddedAssistant",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Assist,
       stream(Google.Assistant.Embedded.V1alpha2.AssistRequest),

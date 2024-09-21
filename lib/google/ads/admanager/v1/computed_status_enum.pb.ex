@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.ComputedStatusEnum.ComputedStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMPUTED_STATUS_UNSPECIFIED, 0
   field :DELIVERY_EXTENDED, 1
@@ -20,5 +20,5 @@ end
 defmodule Google.Ads.Admanager.V1.ComputedStatusEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end

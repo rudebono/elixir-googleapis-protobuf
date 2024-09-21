@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Visionai.V1.FacetBucketType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FACET_BUCKET_TYPE_UNSPECIFIED, 0
   field :FACET_BUCKET_TYPE_VALUE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeAssetMetadata.AnalysisStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexingStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchCapability.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EMBEDDING_SEARCH, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CollectionItem.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ASSET, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Index.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Corpus.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STREAM_VIDEO, 1
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.DataType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :INTEGER, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.Granularity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GRANULARITY_UNSPECIFIED, 0
   field :GRANULARITY_ASSET_LEVEL, 1
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.SearchStrategyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NO_SEARCH, 0
   field :EXACT_SEARCH, 1
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexEndpoint.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec.Granularity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :GRANULARITY_UNSPECIFIED, 0
   field :YEAR, 1
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType.ContainerFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CONTAINER_FORMAT_UNSPECIFIED, 0
   field :CONTAINER_FORMAT_MP4, 1
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option.AggregateMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AGGREGATE_METHOD_UNSPECIFIED, 0
   field :AGGREGATE_METHOD_LARGEST, 1
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :asset, 2, type: Google.Cloud.Visionai.V1.Asset, deprecated: false
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :assets, 1, repeated: true, type: Google.Cloud.Visionai.V1.Asset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset, 1, type: Google.Cloud.Visionai.V1.Asset, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AssetSource.AssetGcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
 end
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AssetSource.AssetContentData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset_content_data, 1, type: :bytes, json_name: "assetContentData"
 end
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AssetSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source_form, 0
 
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UploadAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :asset_source, 2, type: Google.Cloud.Visionai.V1.AssetSource, json_name: "assetSource"
@@ -257,13 +257,13 @@ end
 defmodule Google.Cloud.Visionai.V1.UploadAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.UploadAssetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -272,7 +272,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GenerateRetrievalUrlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GenerateRetrievalUrlResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :signed_uri, 1, type: :string, json_name: "signedUri"
 end
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ttl, 2, type: Google.Protobuf.Duration
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -310,7 +310,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeAssetMetadata.AnalysisStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 2,
     type: Google.Cloud.Visionai.V1.AnalyzeAssetMetadata.AnalysisStatus.State,
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeAssetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :analysis_status, 1,
     repeated: true,
@@ -340,13 +340,13 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.IndexingStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 2,
     type: Google.Cloud.Visionai.V1.IndexingStatus.State,
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :index, 2, type: :string, deprecated: false
@@ -368,7 +368,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexAssetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :status, 4, type: Google.Cloud.Visionai.V1.IndexingStatus
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -378,13 +378,13 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.RemoveIndexAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :index, 2, type: :string, deprecated: false
@@ -393,7 +393,7 @@ end
 defmodule Google.Cloud.Visionai.V1.RemoveIndexAssetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :indexing_status, 1,
     type: Google.Cloud.Visionai.V1.IndexingStatus,
@@ -406,13 +406,13 @@ end
 defmodule Google.Cloud.Visionai.V1.RemoveIndexAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.IndexedAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: :string, deprecated: false
   field :asset, 2, type: :string, deprecated: false
@@ -431,7 +431,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ViewIndexedAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -442,7 +442,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ViewIndexedAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :indexed_assets, 1,
     repeated: true,
@@ -455,7 +455,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :corpus, 2, type: Google.Cloud.Visionai.V1.Corpus, deprecated: false
@@ -464,7 +464,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateCorpusMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 3, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -473,7 +473,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchCapability do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Visionai.V1.SearchCapability.Type, enum: true
 end
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchCapabilitySetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_capabilities, 1,
     repeated: true,
@@ -492,7 +492,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateCollectionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -502,7 +502,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateCollectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :collection, 2, type: Google.Cloud.Visionai.V1.Collection, deprecated: false
@@ -517,7 +517,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteCollectionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -527,7 +527,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteCollectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -535,7 +535,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetCollectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -543,7 +543,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateCollectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :collection, 1, type: Google.Cloud.Visionai.V1.Collection, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -552,7 +552,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListCollectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListCollectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :collections, 1, repeated: true, type: Google.Cloud.Visionai.V1.Collection
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -571,7 +571,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AddCollectionItemRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :item, 1, type: Google.Cloud.Visionai.V1.CollectionItem, deprecated: false
 end
@@ -579,7 +579,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AddCollectionItemResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :item, 1, type: Google.Cloud.Visionai.V1.CollectionItem
 end
@@ -587,7 +587,7 @@ end
 defmodule Google.Cloud.Visionai.V1.RemoveCollectionItemRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :item, 1, type: Google.Cloud.Visionai.V1.CollectionItem, deprecated: false
 end
@@ -595,7 +595,7 @@ end
 defmodule Google.Cloud.Visionai.V1.RemoveCollectionItemResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :item, 1, type: Google.Cloud.Visionai.V1.CollectionItem
 end
@@ -603,7 +603,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ViewCollectionItemsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :collection, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -613,7 +613,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ViewCollectionItemsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :items, 1, repeated: true, type: Google.Cloud.Visionai.V1.CollectionItem
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -622,7 +622,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Collection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -632,7 +632,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CollectionItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :collection, 1, type: :string, deprecated: false
 
@@ -647,7 +647,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :index_id, 2, type: :string, json_name: "indexId", deprecated: false
@@ -657,7 +657,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateIndexMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -667,7 +667,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: Google.Cloud.Visionai.V1.Index, deprecated: false
 
@@ -680,7 +680,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateIndexMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -690,7 +690,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -698,7 +698,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListIndexesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -708,7 +708,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListIndexesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :indexes, 1, repeated: true, type: Google.Cloud.Visionai.V1.Index
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -717,7 +717,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -725,13 +725,13 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteIndexMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.Index do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :asset_filter, 0
 
@@ -773,7 +773,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeployedIndexReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 end
@@ -781,7 +781,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Corpus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -814,7 +814,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -822,7 +822,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :corpus, 1, type: Google.Cloud.Visionai.V1.Corpus, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -831,7 +831,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListCorporaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -842,7 +842,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListCorporaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :corpora, 1, repeated: true, type: Google.Cloud.Visionai.V1.Corpus
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -851,7 +851,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -859,7 +859,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -867,7 +867,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeCorpusMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Cloud.Visionai.V1.OperationMetadata
 end
@@ -875,13 +875,13 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzeCorpusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.CreateDataSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -894,7 +894,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :key, 2, type: :string, deprecated: false
@@ -907,7 +907,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.ProtoAnyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type_uri, 1, type: :string, json_name: "typeUri"
 end
@@ -915,7 +915,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.ListConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value_schema, 1,
     type: Google.Cloud.Visionai.V1.DataSchemaDetails,
@@ -925,7 +925,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig.FieldSchemasEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Visionai.V1.DataSchemaDetails
@@ -934,7 +934,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.CustomizedStructConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_schemas, 1,
     repeated: true,
@@ -946,7 +946,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy.ConfidenceScoreIndexConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :field_path, 1, type: :string, json_name: "fieldPath", deprecated: false
   field :threshold, 2, type: :float, deprecated: false
@@ -955,7 +955,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails.SearchStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_strategy_type, 1,
     proto3_optional: true,
@@ -972,7 +972,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DataSchemaDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1,
     proto3_optional: true,
@@ -1004,7 +1004,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateDataSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_schema, 1,
     type: Google.Cloud.Visionai.V1.DataSchema,
@@ -1017,7 +1017,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetDataSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1025,7 +1025,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteDataSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1033,7 +1033,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListDataSchemasRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1043,7 +1043,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListDataSchemasResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_schemas, 1,
     repeated: true,
@@ -1056,7 +1056,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :annotation, 2, type: Google.Cloud.Visionai.V1.Annotation, deprecated: false
@@ -1071,7 +1071,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Annotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -1083,7 +1083,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UserSpecifiedAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: Google.Cloud.Visionai.V1.AnnotationValue
@@ -1093,7 +1093,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GeoCoordinate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :latitude, 1, type: :double
   field :longitude, 2, type: :double
@@ -1102,7 +1102,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnnotationValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -1138,7 +1138,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnnotationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Visionai.V1.AnnotationValue
 end
@@ -1146,7 +1146,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnnotationCustomizedStruct.ElementsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Visionai.V1.AnnotationValue
@@ -1155,7 +1155,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnnotationCustomizedStruct do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :elements, 2,
     repeated: true,
@@ -1166,7 +1166,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAnnotationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1177,7 +1177,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAnnotationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :annotations, 1, repeated: true, type: Google.Cloud.Visionai.V1.Annotation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1186,7 +1186,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1194,7 +1194,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :annotation, 1, type: Google.Cloud.Visionai.V1.Annotation, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -1203,7 +1203,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1211,7 +1211,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ImportAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1222,7 +1222,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ImportAssetsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Cloud.Visionai.V1.OperationMetadata
   field :status, 2, type: Google.Cloud.Visionai.V1.BatchOperationStatus
@@ -1231,7 +1231,7 @@ end
 defmodule Google.Cloud.Visionai.V1.BatchOperationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :success_count, 1, type: :int32, json_name: "successCount"
   field :failure_count, 2, type: :int32, json_name: "failureCount"
@@ -1240,13 +1240,13 @@ end
 defmodule Google.Cloud.Visionai.V1.ImportAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.CreateSearchConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1261,7 +1261,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateSearchConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_config, 1,
     type: Google.Cloud.Visionai.V1.SearchConfig,
@@ -1274,7 +1274,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetSearchConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1282,7 +1282,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteSearchConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1290,7 +1290,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSearchConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1300,7 +1300,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSearchConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_configs, 1,
     repeated: true,
@@ -1313,7 +1313,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -1329,7 +1329,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexEndpoint.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1338,7 +1338,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IndexEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -1386,7 +1386,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :index_endpoint_id, 2, type: :string, json_name: "indexEndpointId", deprecated: false
@@ -1400,7 +1400,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateIndexEndpointMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -1410,7 +1410,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1418,7 +1418,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListIndexEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1429,7 +1429,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListIndexEndpointsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_endpoints, 1,
     repeated: true,
@@ -1442,7 +1442,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_endpoint, 1,
     type: Google.Cloud.Visionai.V1.IndexEndpoint,
@@ -1458,7 +1458,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateIndexEndpointMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -1468,7 +1468,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1476,7 +1476,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteIndexEndpointMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -1486,7 +1486,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeployIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 
@@ -1499,13 +1499,13 @@ end
 defmodule Google.Cloud.Visionai.V1.DeployIndexResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.DeployIndexMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -1517,7 +1517,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UndeployIndexMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Visionai.V1.OperationMetadata,
@@ -1529,7 +1529,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UndeployIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 end
@@ -1537,13 +1537,13 @@ end
 defmodule Google.Cloud.Visionai.V1.UndeployIndexResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.DeployedIndex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :index, 1, type: :string, deprecated: false
 end
@@ -1551,7 +1551,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetProperty.FixedRangeBucketSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bucket_start, 1, type: Google.Cloud.Visionai.V1.FacetValue, json_name: "bucketStart"
 
@@ -1565,7 +1565,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetProperty.CustomRangeBucketSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: Google.Cloud.Visionai.V1.FacetValue
 end
@@ -1573,7 +1573,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :granularity, 1,
     type: Google.Cloud.Visionai.V1.FacetProperty.DateTimeBucketSpec.Granularity,
@@ -1583,7 +1583,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :range_facet_config, 0
 
@@ -1615,7 +1615,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchHypernym do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :hypernym, 2, type: :string, deprecated: false
@@ -1625,7 +1625,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateSearchHypernymRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1644,7 +1644,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateSearchHypernymRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_hypernym, 1,
     type: Google.Cloud.Visionai.V1.SearchHypernym,
@@ -1657,7 +1657,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetSearchHypernymRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1665,7 +1665,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteSearchHypernymRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1673,7 +1673,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSearchHypernymsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1683,7 +1683,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSearchHypernymsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_hypernyms, 1,
     repeated: true,
@@ -1696,7 +1696,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchCriteriaProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :mapped_fields, 1, repeated: true, type: :string, json_name: "mappedFields"
 end
@@ -1704,7 +1704,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -1716,7 +1716,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetBucket.Range do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start, 1, type: Google.Cloud.Visionai.V1.FacetValue
   field :end, 2, type: Google.Cloud.Visionai.V1.FacetValue
@@ -1725,7 +1725,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :bucket_value, 0
 
@@ -1737,7 +1737,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FacetGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :facet_id, 1, type: :string, json_name: "facetId"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1754,7 +1754,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :container_format, 1,
     type: Google.Cloud.Visionai.V1.IngestAssetRequest.Config.VideoType.ContainerFormat,
@@ -1765,7 +1765,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :data_type, 0
 
@@ -1780,7 +1780,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetRequest.TimeIndexedData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 
@@ -1792,7 +1792,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :streaming_request, 0
 
@@ -1807,7 +1807,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IngestAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :successfully_ingested_partition, 1,
     type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
@@ -1817,7 +1817,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ClipAssetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1830,7 +1830,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ClipAssetResponse.TimeIndexedUri do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :temporal_partition, 1,
     type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
@@ -1842,7 +1842,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ClipAssetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_indexed_uris, 1,
     repeated: true,
@@ -1853,7 +1853,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GenerateHlsUriRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1868,7 +1868,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GenerateHlsUriResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -1881,7 +1881,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :sort_spec, 0
 
@@ -1916,7 +1916,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -1941,7 +1941,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ImageQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -1952,7 +1952,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy.Option do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_schema_key, 1, type: :string, json_name: "dataSchemaKey"
   field :sort_decreasing, 2, type: :bool, json_name: "sortDecreasing"
@@ -1967,7 +1967,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SchemaKeySortingStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :options, 1,
     repeated: true,
@@ -1977,13 +1977,13 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteAssetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.AnnotationMatchingResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :criteria, 1, type: Google.Cloud.Visionai.V1.Criteria
 
@@ -1998,7 +1998,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchResultItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :asset, 1, type: :string
 
@@ -2024,7 +2024,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_result_items, 1,
     repeated: true,
@@ -2042,7 +2042,7 @@ end
 defmodule Google.Cloud.Visionai.V1.SearchIndexEndpointResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :search_result_items, 1,
     repeated: true,
@@ -2055,7 +2055,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IntRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start, 1, proto3_optional: true, type: :int64
   field :end, 2, proto3_optional: true, type: :int64
@@ -2064,7 +2064,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FloatRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start, 1, proto3_optional: true, type: :float
   field :end, 2, proto3_optional: true, type: :float
@@ -2073,7 +2073,7 @@ end
 defmodule Google.Cloud.Visionai.V1.StringArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :txt_values, 1, repeated: true, type: :string, json_name: "txtValues"
 end
@@ -2081,7 +2081,7 @@ end
 defmodule Google.Cloud.Visionai.V1.IntRangeArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :int_ranges, 1,
     repeated: true,
@@ -2092,7 +2092,7 @@ end
 defmodule Google.Cloud.Visionai.V1.FloatRangeArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :float_ranges, 1,
     repeated: true,
@@ -2103,7 +2103,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DateTimeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start, 1, type: Google.Type.DateTime
   field :end, 2, type: Google.Type.DateTime
@@ -2112,7 +2112,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DateTimeRangeArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :date_time_ranges, 1,
     repeated: true,
@@ -2123,7 +2123,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CircleArea do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :latitude, 1, type: :double
   field :longitude, 2, type: :double
@@ -2133,7 +2133,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GeoLocationArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :circle_areas, 1,
     repeated: true,
@@ -2144,7 +2144,7 @@ end
 defmodule Google.Cloud.Visionai.V1.BoolValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :value, 1, type: :bool
 end
@@ -2152,7 +2152,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Criteria do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -2189,7 +2189,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Partition.TemporalPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -2198,7 +2198,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Partition.SpatialPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :x_min, 1, proto3_optional: true, type: :int64, json_name: "xMin"
   field :y_min, 2, proto3_optional: true, type: :int64, json_name: "yMin"
@@ -2209,7 +2209,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Partition.RelativeTemporalPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
@@ -2218,7 +2218,7 @@ end
 defmodule Google.Cloud.Visionai.V1.Partition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :temporal_partition, 1,
     type: Google.Cloud.Visionai.V1.Partition.TemporalPartition,
@@ -2238,7 +2238,7 @@ defmodule Google.Cloud.Visionai.V1.Warehouse.Service do
 
   use GRPC.Service,
     name: "google.cloud.visionai.v1.Warehouse",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :CreateAsset, Google.Cloud.Visionai.V1.CreateAssetRequest, Google.Cloud.Visionai.V1.Asset
 

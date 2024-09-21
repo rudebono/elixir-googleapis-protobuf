@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.AdTracking do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AD_TRACKING_UNSPECIFIED, 0
   field :CLIENT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveConfig.StitchingPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :STITCHING_POLICY_UNSPECIFIED, 0
   field :CUT_CURRENT, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.LiveConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_uri, 2, type: :string, json_name: "sourceUri", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.PrefetchConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool, deprecated: false
 
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GamLiveConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :network_code, 1, type: :string, json_name: "networkCode", deprecated: false
   field :asset_key, 2, type: :string, json_name: "assetKey", deprecated: false

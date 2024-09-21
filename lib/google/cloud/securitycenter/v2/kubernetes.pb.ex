@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Role.Kind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :ROLE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Subject.AuthType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :AUTH_TYPE_UNSPECIFIED, 0
   field :USER, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Pod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ns, 1, type: :string
   field :name, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Node do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.NodePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :nodes, 2, repeated: true, type: Google.Cloud.Securitycenter.V2.Kubernetes.Node
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Role do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kind, 1, type: Google.Cloud.Securitycenter.V2.Kubernetes.Role.Kind, enum: true
   field :ns, 2, type: :string
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Binding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ns, 1, type: :string
   field :name, 2, type: :string
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Subject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kind, 1, type: Google.Cloud.Securitycenter.V2.Kubernetes.Subject.AuthType, enum: true
   field :ns, 2, type: :string
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.AccessReview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :group, 1, type: :string
   field :ns, 2, type: :string
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes.Object do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :group, 1, type: :string
   field :kind, 2, type: :string
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.Kubernetes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :pods, 1, repeated: true, type: Google.Cloud.Securitycenter.V2.Kubernetes.Pod
   field :nodes, 2, repeated: true, type: Google.Cloud.Securitycenter.V2.Kubernetes.Node

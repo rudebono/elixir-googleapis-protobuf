@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :verification_info, 0
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :auxiliary_auth_info, 0
 
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :sign_in_info, 0
 
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaSignInResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :response_info, 0
 
@@ -74,7 +74,7 @@ defmodule Google.Cloud.Identitytoolkit.V2.AuthenticationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.identitytoolkit.v2.AuthenticationService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :FinalizeMfaSignIn,
       Google.Cloud.Identitytoolkit.V2.FinalizeMfaSignInRequest,

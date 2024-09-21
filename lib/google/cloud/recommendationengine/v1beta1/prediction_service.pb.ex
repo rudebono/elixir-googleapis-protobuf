@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest.ParamsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult.ItemMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.PredictionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.PredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -110,7 +110,7 @@ defmodule Google.Cloud.Recommendationengine.V1beta1.PredictionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.recommendationengine.v1beta1.PredictionService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :Predict,
       Google.Cloud.Recommendationengine.V1beta1.PredictRequest,

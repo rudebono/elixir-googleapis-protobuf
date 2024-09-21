@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.OtherRoutes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :OTHER_ROUTES_UNSPECIFIED, 0
   field :DEFAULT_ROUTING, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Filter.ProtocolVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PROTOCOL_VERSION_UNSPECIFIED, 0
   field :IPV4, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Warnings.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :WARNING_UNSPECIFIED, 0
   field :RESOURCE_NOT_ACTIVE, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.VirtualMachine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :tags, 1, repeated: true, type: :string, deprecated: false
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.InterconnectAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :region, 1, type: :string, deprecated: false
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ip_protocol, 1, type: :string, json_name: "ipProtocol", deprecated: false
   field :src_range, 2, type: :string, json_name: "srcRange", deprecated: false
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Warnings.DataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Warnings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.Warnings.Code,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListPolicyBasedRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListPolicyBasedRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :policy_based_routes, 1,
     repeated: true,
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetPolicyBasedRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.CreatePolicyBasedRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeletePolicyBasedRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -232,7 +232,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.PolicyBasedRoutingService.Service 
 
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1.PolicyBasedRoutingService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListPolicyBasedRoutes,
       Google.Cloud.Networkconnectivity.V1.ListPolicyBasedRoutesRequest,

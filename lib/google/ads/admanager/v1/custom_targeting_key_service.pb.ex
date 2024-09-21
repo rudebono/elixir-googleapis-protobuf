@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.CustomTargetingKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -34,7 +34,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetCustomTargetingKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -42,7 +42,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListCustomTargetingKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListCustomTargetingKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_targeting_keys, 1,
     repeated: true,
@@ -71,7 +71,7 @@ defmodule Google.Ads.Admanager.V1.CustomTargetingKeyService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.CustomTargetingKeyService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :GetCustomTargetingKey,
       Google.Ads.Admanager.V1.GetCustomTargetingKeyRequest,

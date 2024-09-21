@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.NetworkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :NETWORK_TYPE_UNSPECIFIED, 0
   field :GCP_NETWORK, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.ForwardingRuleTarget do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :FORWARDING_RULE_TARGET_UNSPECIFIED, 0
   field :INSTANCE, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :RESULT_UNSPECIFIED, 0
   field :REACHABLE, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PROBING_RESULT_UNSPECIFIED, 0
   field :REACHABLE, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingAbortCause do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :PROBING_ABORT_CAUSE_UNSPECIFIED, 0
   field :PERMISSION_DENIED, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ConnectivityTest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudFunctionEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.AppEngineVersionEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint.CloudRunRevisionEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ip_address, 1, type: :string, json_name: "ipAddress"
   field :port, 2, type: :int32
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.ReachabilityDetails.Result,
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyPercentile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :percent, 1, type: :int32
   field :latency_micros, 2, type: :int64, json_name: "latencyMicros"
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.LatencyDistribution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :latency_percentiles, 1,
     repeated: true,
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.EdgeLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :metropolitan_area, 1, type: :string, json_name: "metropolitanArea"
 end
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ProbingDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :result, 1,
     type: Google.Cloud.Networkmanagement.V1beta1.ProbingDetails.ProbingResult,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2.ResourceErrorDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_info, 1,
     type: Google.Rpc.ResourceInfo,
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ErrorDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :location, 1, type: Google.Cloud.Bigquery.Migration.V2.ErrorLocation, deprecated: false
   field :error_info, 2, type: Google.Rpc.ErrorInfo, json_name: "errorInfo", deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ErrorLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :line, 1, type: :int32, deprecated: false
   field :column, 2, type: :int32, deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Chromeos.Uidetection.V1.UiDetectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_png, 1, type: :bytes, json_name: "imagePng", deprecated: false
   field :request, 2, type: Google.Chromeos.Uidetection.V1.DetectionRequest, deprecated: false
@@ -24,7 +24,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.DetectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :detection_request_type, 0
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.TestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :test_id, 1, type: :string, json_name: "testId"
   field :board, 2, type: :string
@@ -58,7 +58,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.WordDetectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :word, 1, type: :string, deprecated: false
   field :regex_mode, 2, type: :bool, json_name: "regexMode"
@@ -69,7 +69,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.TextBlockDetectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :words, 1, repeated: true, type: :string, deprecated: false
   field :regex_mode, 2, type: :bool, json_name: "regexMode"
@@ -81,7 +81,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.CustomIconDetectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :icon_png, 1, type: :bytes, json_name: "iconPng", deprecated: false
   field :match_count, 2, type: :int32, json_name: "matchCount"
@@ -91,7 +91,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.UiDetectionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bounding_boxes, 1,
     repeated: true,
@@ -105,7 +105,7 @@ end
 defmodule Google.Chromeos.Uidetection.V1.BoundingBox do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :top, 2, type: :int32
@@ -119,7 +119,7 @@ defmodule Google.Chromeos.Uidetection.V1.UiDetectionService.Service do
 
   use GRPC.Service,
     name: "google.chromeos.uidetection.v1.UiDetectionService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ExecuteDetection,
       Google.Chromeos.Uidetection.V1.UiDetectionRequest,

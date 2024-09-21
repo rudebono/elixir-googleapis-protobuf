@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :pipeline, 0
 
@@ -37,7 +37,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.PipelineService.Service do
 
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.PipelineService",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :RunPipeline,
       Google.Cloud.Contentwarehouse.V1.RunPipelineRequest,

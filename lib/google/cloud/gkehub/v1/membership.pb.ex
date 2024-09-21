@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkehub.V1.MembershipState.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.Membership.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.Membership do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.MembershipEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :gke_cluster, 1,
     type: Google.Cloud.Gkehub.V1.GkeCluster,
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.KubernetesResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :membership_cr_manifest, 1,
     type: :string,
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.ResourceOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :connect_version, 1, type: :string, json_name: "connectVersion", deprecated: false
   field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd", deprecated: false
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.ResourceManifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :manifest, 1, type: :string
   field :cluster_scoped, 2, type: :bool, json_name: "clusterScoped"
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.GkeCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :resource_link, 1, type: :string, json_name: "resourceLink", deprecated: false
   field :cluster_missing, 2, type: :bool, json_name: "clusterMissing", deprecated: false
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.KubernetesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :kubernetes_api_server_version, 1,
     type: :string,
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.MonitoringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.MembershipState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Gkehub.V1.MembershipState.Code, enum: true, deprecated: false
 end
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Gkehub.V1.Authority do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :issuer, 1, type: :string, deprecated: false
 

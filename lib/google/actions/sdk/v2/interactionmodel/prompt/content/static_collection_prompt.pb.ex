@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt.CollectionItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :title, 2, type: :string, deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticCollectionPrompt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :subtitle, 2, type: :string, deprecated: false

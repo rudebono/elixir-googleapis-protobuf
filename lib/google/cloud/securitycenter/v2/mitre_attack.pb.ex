@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.MitreAttack.Tactic do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TACTIC_UNSPECIFIED, 0
   field :RECONNAISSANCE, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.MitreAttack.Technique do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :TECHNIQUE_UNSPECIFIED, 0
   field :MASQUERADING, 49
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.MitreAttack do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :primary_tactic, 1,
     type: Google.Cloud.Securitycenter.V2.MitreAttack.Tactic,

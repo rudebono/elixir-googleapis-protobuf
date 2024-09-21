@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback.CorrectnessLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :CORRECTNESS_LEVEL_UNSPECIFIED, 0
   field :NOT_CORRECT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.AnswerRelevance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :ANSWER_RELEVANCE_UNSPECIFIED, 0
   field :IRRELEVANT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentCorrectness do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DOCUMENT_CORRECTNESS_UNSPECIFIED, 0
   field :INCORRECT, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.DocumentEfficiency do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :DOCUMENT_EFFICIENCY_UNSPECIFIED, 0
   field :INEFFICIENT, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AnswerRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :record, 0
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: true
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :answer_records, 1,
     repeated: true,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.UpdateAnswerRecordRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :answer_record, 1,
     type: Google.Cloud.Dialogflow.V2.AnswerRecord,
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AnswerFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :detail_feedback, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.SummarizationFeedback.TextSectionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.SummarizationFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.KnowledgeSearchFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :answer_copied, 1, type: :bool, json_name: "answerCopied"
   field :clicked_uris, 2, repeated: true, type: :string, json_name: "clickedUris"
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.KnowledgeAssistFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :answer_copied, 1, type: :bool, json_name: "answerCopied"
   field :clicked_uris, 2, repeated: true, type: :string, json_name: "clickedUris"
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :answer_relevance, 1,
     type: Google.Cloud.Dialogflow.V2.AgentAssistantFeedback.AnswerRelevance,
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AgentAssistantRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :answer, 0
 
@@ -238,7 +238,7 @@ defmodule Google.Cloud.Dialogflow.V2.AnswerRecords.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.AnswerRecords",
-    protoc_gen_elixir_version: "0.12.0"
+    protoc_gen_elixir_version: "0.13.0"
 
   rpc :ListAnswerRecords,
       Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest,

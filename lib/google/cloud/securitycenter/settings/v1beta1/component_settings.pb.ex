@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :COMPONENT_ENABLEMENT_STATE_UNSPECIFIED, 0
   field :DISABLE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.DetectorSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState,
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings.DetectorSettingsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :specific_settings, 0
 
@@ -85,25 +85,25 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.WebSecurityScanner do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.ContainerThreatDetectionSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.EventThreatDetectionSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.NonOrgIamMemberSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :approved_identities, 1, repeated: true, type: :string, json_name: "approvedIdentities"
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings.AdminServiceAccountSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :approved_identities, 1, repeated: true, type: :string, json_name: "approvedIdentities"
 end
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.SecurityHealthAnalyticsSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.12.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :non_org_iam_member_settings, 1,
     type:
