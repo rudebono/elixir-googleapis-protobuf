@@ -848,6 +848,8 @@ defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Transition do
     type: Google.Maps.Routeoptimization.V1.ShipmentRoute.EncodedPolyline,
     json_name: "routePolyline"
 
+  field :route_token, 12, type: :string, json_name: "routeToken", deprecated: false
+
   field :vehicle_loads, 11,
     repeated: true,
     type: Google.Maps.Routeoptimization.V1.ShipmentRoute.Transition.VehicleLoadsEntry,
