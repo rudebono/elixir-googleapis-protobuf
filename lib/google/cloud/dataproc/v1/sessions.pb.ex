@@ -122,6 +122,12 @@ defmodule Google.Cloud.Dataproc.V1.Session do
     oneof: 0,
     deprecated: false
 
+  field :spark_connect_session, 17,
+    type: Google.Cloud.Dataproc.V1.SparkConnectConfig,
+    json_name: "sparkConnectSession",
+    oneof: 0,
+    deprecated: false
+
   field :runtime_info, 6,
     type: Google.Cloud.Dataproc.V1.RuntimeInfo,
     json_name: "runtimeInfo",
@@ -170,6 +176,12 @@ defmodule Google.Cloud.Dataproc.V1.JupyterConfig do
     deprecated: false
 
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+end
+
+defmodule Google.Cloud.Dataproc.V1.SparkConnectConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataproc.V1.SessionController.Service do

@@ -11,6 +11,32 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis.State do
   field :CONSUMER_NOT_FOUND, 5
 end
 
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :CLOUD_STORAGE_PERMISSION_DENIED, 2
+  field :PUBLISH_PERMISSION_DENIED, 3
+  field :BUCKET_NOT_FOUND, 4
+  field :TOO_MANY_OBJECTS, 5
+end
+
+defmodule Google.Pubsub.V1.PlatformLogsSettings.Severity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SEVERITY_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :DEBUG, 2
+  field :INFO, 3
+  field :WARNING, 4
+  field :ERROR, 5
+end
+
 defmodule Google.Pubsub.V1.Topic.State do
   @moduledoc false
 
@@ -98,6 +124,66 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis do
   field :gcp_service_account, 5, type: :string, json_name: "gcpServiceAccount", deprecated: false
 end
 
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.TextFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :delimiter, 1, proto3_optional: true, type: :string, deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.AvroFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.PubSubAvroFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :input_format, 0
+
+  field :state, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.State,
+    enum: true,
+    deprecated: false
+
+  field :bucket, 2, type: :string, deprecated: false
+
+  field :text_format, 3,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.TextFormat,
+    json_name: "textFormat",
+    oneof: 0,
+    deprecated: false
+
+  field :avro_format, 4,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.AvroFormat,
+    json_name: "avroFormat",
+    oneof: 0,
+    deprecated: false
+
+  field :pubsub_avro_format, 5,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.PubSubAvroFormat,
+    json_name: "pubsubAvroFormat",
+    oneof: 0,
+    deprecated: false
+
+  field :minimum_object_create_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "minimumObjectCreateTime",
+    deprecated: false
+
+  field :match_glob, 9, type: :string, json_name: "matchGlob", deprecated: false
+end
+
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
   @moduledoc false
 
@@ -109,6 +195,28 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
     type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis,
     json_name: "awsKinesis",
     oneof: 0,
+    deprecated: false
+
+  field :cloud_storage, 2,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage,
+    json_name: "cloudStorage",
+    oneof: 0,
+    deprecated: false
+
+  field :platform_logs_settings, 4,
+    type: Google.Pubsub.V1.PlatformLogsSettings,
+    json_name: "platformLogsSettings",
+    deprecated: false
+end
+
+defmodule Google.Pubsub.V1.PlatformLogsSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :severity, 1,
+    type: Google.Pubsub.V1.PlatformLogsSettings.Severity,
+    enum: true,
     deprecated: false
 end
 
