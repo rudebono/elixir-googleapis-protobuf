@@ -93,6 +93,12 @@ defmodule Google.Cloud.Dataproc.V1.SessionTemplate do
     oneof: 0,
     deprecated: false
 
+  field :spark_connect_session, 11,
+    type: Google.Cloud.Dataproc.V1.SparkConnectConfig,
+    json_name: "sparkConnectSession",
+    oneof: 0,
+    deprecated: false
+
   field :creator, 5, type: :string, deprecated: false
 
   field :labels, 6,
