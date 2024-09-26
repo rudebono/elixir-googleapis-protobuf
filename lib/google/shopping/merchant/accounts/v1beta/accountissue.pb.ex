@@ -67,7 +67,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountIssuesRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
   field :language_code, 4, type: :string, json_name: "languageCode", deprecated: false
-  field :time_zone, 5, type: Google.Type.TimeZone, json_name: "timeZone", deprecated: false
+  field :time_zone, 5, type: :string, json_name: "timeZone", deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountIssuesResponse do

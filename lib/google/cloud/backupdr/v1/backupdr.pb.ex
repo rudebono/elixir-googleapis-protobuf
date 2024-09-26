@@ -293,6 +293,114 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
   rpc :DeleteManagementServer,
       Google.Cloud.Backupdr.V1.DeleteManagementServerRequest,
       Google.Longrunning.Operation
+
+  rpc :CreateBackupVault,
+      Google.Cloud.Backupdr.V1.CreateBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListBackupVaults,
+      Google.Cloud.Backupdr.V1.ListBackupVaultsRequest,
+      Google.Cloud.Backupdr.V1.ListBackupVaultsResponse
+
+  rpc :FetchUsableBackupVaults,
+      Google.Cloud.Backupdr.V1.FetchUsableBackupVaultsRequest,
+      Google.Cloud.Backupdr.V1.FetchUsableBackupVaultsResponse
+
+  rpc :GetBackupVault,
+      Google.Cloud.Backupdr.V1.GetBackupVaultRequest,
+      Google.Cloud.Backupdr.V1.BackupVault
+
+  rpc :UpdateBackupVault,
+      Google.Cloud.Backupdr.V1.UpdateBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteBackupVault,
+      Google.Cloud.Backupdr.V1.DeleteBackupVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :ListDataSources,
+      Google.Cloud.Backupdr.V1.ListDataSourcesRequest,
+      Google.Cloud.Backupdr.V1.ListDataSourcesResponse
+
+  rpc :GetDataSource,
+      Google.Cloud.Backupdr.V1.GetDataSourceRequest,
+      Google.Cloud.Backupdr.V1.DataSource
+
+  rpc :UpdateDataSource,
+      Google.Cloud.Backupdr.V1.UpdateDataSourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :RemoveDataSource,
+      Google.Cloud.Backupdr.V1.RemoveDataSourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :SetInternalStatus,
+      Google.Cloud.Backupdr.V1.SetInternalStatusRequest,
+      Google.Longrunning.Operation
+
+  rpc :InitiateBackup,
+      Google.Cloud.Backupdr.V1.InitiateBackupRequest,
+      Google.Cloud.Backupdr.V1.InitiateBackupResponse
+
+  rpc :AbandonBackup, Google.Cloud.Backupdr.V1.AbandonBackupRequest, Google.Longrunning.Operation
+
+  rpc :FinalizeBackup,
+      Google.Cloud.Backupdr.V1.FinalizeBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchAccessToken,
+      Google.Cloud.Backupdr.V1.FetchAccessTokenRequest,
+      Google.Cloud.Backupdr.V1.FetchAccessTokenResponse
+
+  rpc :ListBackups,
+      Google.Cloud.Backupdr.V1.ListBackupsRequest,
+      Google.Cloud.Backupdr.V1.ListBackupsResponse
+
+  rpc :GetBackup, Google.Cloud.Backupdr.V1.GetBackupRequest, Google.Cloud.Backupdr.V1.Backup
+
+  rpc :UpdateBackup, Google.Cloud.Backupdr.V1.UpdateBackupRequest, Google.Longrunning.Operation
+
+  rpc :DeleteBackup, Google.Cloud.Backupdr.V1.DeleteBackupRequest, Google.Longrunning.Operation
+
+  rpc :RestoreBackup, Google.Cloud.Backupdr.V1.RestoreBackupRequest, Google.Longrunning.Operation
+
+  rpc :CreateBackupPlan,
+      Google.Cloud.Backupdr.V1.CreateBackupPlanRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetBackupPlan,
+      Google.Cloud.Backupdr.V1.GetBackupPlanRequest,
+      Google.Cloud.Backupdr.V1.BackupPlan
+
+  rpc :ListBackupPlans,
+      Google.Cloud.Backupdr.V1.ListBackupPlansRequest,
+      Google.Cloud.Backupdr.V1.ListBackupPlansResponse
+
+  rpc :DeleteBackupPlan,
+      Google.Cloud.Backupdr.V1.DeleteBackupPlanRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateBackupPlanAssociation,
+      Google.Cloud.Backupdr.V1.CreateBackupPlanAssociationRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetBackupPlanAssociation,
+      Google.Cloud.Backupdr.V1.GetBackupPlanAssociationRequest,
+      Google.Cloud.Backupdr.V1.BackupPlanAssociation
+
+  rpc :ListBackupPlanAssociations,
+      Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsRequest,
+      Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsResponse
+
+  rpc :DeleteBackupPlanAssociation,
+      Google.Cloud.Backupdr.V1.DeleteBackupPlanAssociationRequest,
+      Google.Longrunning.Operation
+
+  rpc :TriggerBackup, Google.Cloud.Backupdr.V1.TriggerBackupRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupDR.Stub do

@@ -36,8 +36,8 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateAndConfigureAccountRequ
 
   oneof :service_type, 0
 
-  field :account_aggregation, 2,
-    type: Google.Protobuf.Empty,
+  field :account_aggregation, 103,
+    type: Google.Shopping.Merchant.Accounts.V1beta.AccountAggregation,
     json_name: "accountAggregation",
     oneof: 0
 

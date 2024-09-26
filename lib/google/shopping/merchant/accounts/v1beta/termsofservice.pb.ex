@@ -23,8 +23,12 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.RetrieveLatestTermsOfServiceR
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :region_code, 1, type: :string, json_name: "regionCode"
-  field :kind, 2, type: Google.Shopping.Merchant.Accounts.V1beta.TermsOfServiceKind, enum: true
+  field :region_code, 1, type: :string, json_name: "regionCode", deprecated: false
+
+  field :kind, 2,
+    type: Google.Shopping.Merchant.Accounts.V1beta.TermsOfServiceKind,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AcceptTermsOfServiceRequest do

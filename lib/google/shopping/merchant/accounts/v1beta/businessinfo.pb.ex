@@ -19,6 +19,12 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessInfo do
     type: Google.Shopping.Merchant.Accounts.V1beta.CustomerService,
     json_name: "customerService",
     deprecated: false
+
+  field :korean_business_registration_number, 6,
+    proto3_optional: true,
+    type: :string,
+    json_name: "koreanBusinessRegistrationNumber",
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetBusinessInfoRequest do
