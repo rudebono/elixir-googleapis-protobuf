@@ -44,6 +44,18 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationDataset do
     deprecated: false
 
   field :conversation_count, 7, type: :int64, json_name: "conversationCount", deprecated: false
+
+  field :satisfies_pzi, 8,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
+
+  field :satisfies_pzs, 9,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.CreateConversationDatasetRequest do

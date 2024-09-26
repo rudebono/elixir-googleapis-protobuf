@@ -40,6 +40,7 @@ defmodule Google.Cloud.Parallelstore.V1beta.Instance.State do
   field :ACTIVE, 2
   field :DELETING, 3
   field :FAILED, 4
+  field :UPGRADING, 5
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.LabelsEntry do
