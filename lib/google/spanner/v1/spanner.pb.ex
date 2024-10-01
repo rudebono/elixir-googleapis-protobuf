@@ -27,6 +27,8 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest.QueryMode do
   field :NORMAL, 0
   field :PLAN, 1
   field :PROFILE, 2
+  field :WITH_STATS, 3
+  field :WITH_PLAN_AND_STATS, 4
 end
 
 defmodule Google.Spanner.V1.ReadRequest.OrderBy do

@@ -76,6 +76,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteAccountRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateAccountRequest do
