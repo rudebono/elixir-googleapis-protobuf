@@ -146,6 +146,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob do
   field :service_account, 17, type: :string, json_name: "serviceAccount"
   field :network, 18, type: :string, deprecated: false
   field :reserved_ip_ranges, 25, repeated: true, type: :string, json_name: "reservedIpRanges"
+
+  field :psc_interface_config, 31,
+    type: Google.Cloud.Aiplatform.V1beta1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
   field :template_uri, 19, type: :string, json_name: "templateUri"
 
   field :template_metadata, 20,

@@ -18,6 +18,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PrivateServiceConnectConfig do
     deprecated: false
 
   field :project_allowlist, 2, repeated: true, type: :string, json_name: "projectAllowlist"
+
+  field :enable_secure_private_service_connect, 4,
+    type: :bool,
+    json_name: "enableSecurePrivateServiceConnect",
+    deprecated: false
+
   field :service_attachment, 5, type: :string, json_name: "serviceAttachment", deprecated: false
 end
 
