@@ -50,6 +50,53 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions do
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptionsV2 do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :schedule, 0
+
+  field :time_based_schedule, 1,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.TimeBasedSchedule,
+    json_name: "timeBasedSchedule",
+    oneof: 0
+
+  field :manual_schedule, 2,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.ManualSchedule,
+    json_name: "manualSchedule",
+    oneof: 0
+
+  field :event_driven_schedule, 3,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.EventDrivenSchedule,
+    json_name: "eventDrivenSchedule",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.TimeBasedSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :schedule, 1, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.ManualSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Bigquery.Datatransfer.V1.EventDrivenSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :pubsub_subscription, 1, type: :string, json_name: "pubsubSubscription"
+end
+
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.UserInfo do
   @moduledoc false
 
@@ -75,6 +122,10 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
   field :schedule_options, 24,
     type: Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptions,
     json_name: "scheduleOptions"
+
+  field :schedule_options_v2, 31,
+    type: Google.Cloud.Bigquery.Datatransfer.V1.ScheduleOptionsV2,
+    json_name: "scheduleOptionsV2"
 
   field :data_refresh_window_days, 12, type: :int32, json_name: "dataRefreshWindowDays"
   field :disabled, 13, type: :bool
@@ -111,6 +162,8 @@ defmodule Google.Cloud.Bigquery.Datatransfer.V1.TransferConfig do
   field :encryption_configuration, 28,
     type: Google.Cloud.Bigquery.Datatransfer.V1.EncryptionConfiguration,
     json_name: "encryptionConfiguration"
+
+  field :error, 32, type: Google.Rpc.Status, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Datatransfer.V1.EncryptionConfiguration do

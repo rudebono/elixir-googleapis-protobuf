@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1.PSCAutomationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :network, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig do
   @moduledoc false
 
