@@ -142,7 +142,10 @@ defmodule Google.Cloud.Run.V2.Service do
   field :template, 18, type: Google.Cloud.Run.V2.RevisionTemplate, deprecated: false
   field :traffic, 19, repeated: true, type: Google.Cloud.Run.V2.TrafficTarget, deprecated: false
   field :scaling, 20, type: Google.Cloud.Run.V2.ServiceScaling, deprecated: false
+  field :invoker_iam_disabled, 21, type: :bool, json_name: "invokerIamDisabled", deprecated: false
   field :default_uri_disabled, 22, type: :bool, json_name: "defaultUriDisabled", deprecated: false
+  field :urls, 24, repeated: true, type: :string, deprecated: false
+  field :custom_audiences, 37, repeated: true, type: :string, json_name: "customAudiences"
   field :observed_generation, 30, type: :int64, json_name: "observedGeneration", deprecated: false
 
   field :terminal_condition, 31,
@@ -169,7 +172,6 @@ defmodule Google.Cloud.Run.V2.Service do
     deprecated: false
 
   field :uri, 36, type: :string, deprecated: false
-  field :custom_audiences, 37, repeated: true, type: :string, json_name: "customAudiences"
   field :satisfies_pzs, 38, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :reconciling, 98, type: :bool, deprecated: false
   field :etag, 99, type: :string, deprecated: false

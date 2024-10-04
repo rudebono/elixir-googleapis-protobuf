@@ -9,7 +9,6 @@ defmodule Google.Ads.Admanager.V1.CompanyTypeEnum.CompanyType do
   field :AGENCY, 3
   field :HOUSE_AGENCY, 4
   field :AD_NETWORK, 5
-  field :VIEWABILITY_PROVIDER, 6
 end
 
 defmodule Google.Ads.Admanager.V1.CompanyTypeEnum do

@@ -29,6 +29,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureView.SyncConfig do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :cron, 1, type: :string
+  field :continuous, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.IndexConfig.BruteForceConfig do
