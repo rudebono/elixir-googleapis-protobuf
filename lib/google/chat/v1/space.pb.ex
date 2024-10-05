@@ -30,6 +30,16 @@ defmodule Google.Chat.V1.Space.SpaceThreadingState do
   field :UNTHREADED_MESSAGES, 4
 end
 
+defmodule Google.Chat.V1.Space.PredefinedPermissionSettings do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :PREDEFINED_PERMISSION_SETTINGS_UNSPECIFIED, 0
+  field :COLLABORATION_SPACE, 1
+  field :ANNOUNCEMENT_SPACE, 2
+end
+
 defmodule Google.Chat.V1.Space.AccessSettings.AccessState do
   @moduledoc false
 
@@ -72,10 +82,68 @@ defmodule Google.Chat.V1.Space.AccessSettings do
   field :audience, 3, type: :string, deprecated: false
 end
 
+defmodule Google.Chat.V1.Space.PermissionSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :manage_members_and_groups, 1,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "manageMembersAndGroups"
+
+  field :modify_space_details, 2,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "modifySpaceDetails"
+
+  field :toggle_history, 3,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "toggleHistory"
+
+  field :use_at_mention_all, 4,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "useAtMentionAll"
+
+  field :manage_apps, 5,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "manageApps"
+
+  field :manage_webhooks, 6,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "manageWebhooks"
+
+  field :post_messages, 7,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "postMessages",
+    deprecated: false
+
+  field :reply_messages, 8,
+    proto3_optional: true,
+    type: Google.Chat.V1.Space.PermissionSetting,
+    json_name: "replyMessages"
+end
+
+defmodule Google.Chat.V1.Space.PermissionSetting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :managers_allowed, 1, type: :bool, json_name: "managersAllowed"
+  field :members_allowed, 2, type: :bool, json_name: "membersAllowed"
+end
+
 defmodule Google.Chat.V1.Space do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :space_permission_settings, 0
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Chat.V1.Space.Type, enum: true, deprecated: true
@@ -127,6 +195,19 @@ defmodule Google.Chat.V1.Space do
     deprecated: false
 
   field :space_uri, 25, type: :string, json_name: "spaceUri", deprecated: false
+
+  field :predefined_permission_settings, 26,
+    type: Google.Chat.V1.Space.PredefinedPermissionSettings,
+    json_name: "predefinedPermissionSettings",
+    enum: true,
+    oneof: 0,
+    deprecated: false
+
+  field :permission_settings, 27,
+    type: Google.Chat.V1.Space.PermissionSettings,
+    json_name: "permissionSettings",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.CreateSpaceRequest do
