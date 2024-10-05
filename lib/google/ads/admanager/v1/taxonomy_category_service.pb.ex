@@ -1,4 +1,4 @@
-defmodule Google.Ads.Admanager.V1.AdPartner do
+defmodule Google.Ads.Admanager.V1.GetTaxonomyCategoryRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -6,15 +6,7 @@ defmodule Google.Ads.Admanager.V1.AdPartner do
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Ads.Admanager.V1.GetAdPartnerRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Ads.Admanager.V1.ListAdPartnersRequest do
+defmodule Google.Ads.Admanager.V1.ListTaxonomyCategoriesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -27,38 +19,38 @@ defmodule Google.Ads.Admanager.V1.ListAdPartnersRequest do
   field :skip, 6, type: :int32, deprecated: false
 end
 
-defmodule Google.Ads.Admanager.V1.ListAdPartnersResponse do
+defmodule Google.Ads.Admanager.V1.ListTaxonomyCategoriesResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :ad_partners, 1,
+  field :taxonomy_categories, 1,
     repeated: true,
-    type: Google.Ads.Admanager.V1.AdPartner,
-    json_name: "adPartners"
+    type: Google.Ads.Admanager.V1.TaxonomyCategory,
+    json_name: "taxonomyCategories"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :total_size, 3, type: :int32, json_name: "totalSize"
 end
 
-defmodule Google.Ads.Admanager.V1.AdPartnerService.Service do
+defmodule Google.Ads.Admanager.V1.TaxonomyCategoryService.Service do
   @moduledoc false
 
   use GRPC.Service,
-    name: "google.ads.admanager.v1.AdPartnerService",
+    name: "google.ads.admanager.v1.TaxonomyCategoryService",
     protoc_gen_elixir_version: "0.13.0"
 
-  rpc :GetAdPartner,
-      Google.Ads.Admanager.V1.GetAdPartnerRequest,
-      Google.Ads.Admanager.V1.AdPartner
+  rpc :GetTaxonomyCategory,
+      Google.Ads.Admanager.V1.GetTaxonomyCategoryRequest,
+      Google.Ads.Admanager.V1.TaxonomyCategory
 
-  rpc :ListAdPartners,
-      Google.Ads.Admanager.V1.ListAdPartnersRequest,
-      Google.Ads.Admanager.V1.ListAdPartnersResponse
+  rpc :ListTaxonomyCategories,
+      Google.Ads.Admanager.V1.ListTaxonomyCategoriesRequest,
+      Google.Ads.Admanager.V1.ListTaxonomyCategoriesResponse
 end
 
-defmodule Google.Ads.Admanager.V1.AdPartnerService.Stub do
+defmodule Google.Ads.Admanager.V1.TaxonomyCategoryService.Stub do
   @moduledoc false
 
-  use GRPC.Stub, service: Google.Ads.Admanager.V1.AdPartnerService.Service
+  use GRPC.Stub, service: Google.Ads.Admanager.V1.TaxonomyCategoryService.Service
 end

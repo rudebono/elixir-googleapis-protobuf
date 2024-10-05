@@ -15,6 +15,7 @@ defmodule Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistRequest do
 
   field :parent, 1, type: :string, deprecated: false
   field :domain, 2, type: :string, deprecated: false
+  field :primary_admin_email, 4, type: :string, json_name: "primaryAdminEmail", deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.CloudIdentityCustomerAccount do
@@ -26,6 +27,15 @@ defmodule Google.Cloud.Channel.V1.CloudIdentityCustomerAccount do
   field :owned, 2, type: :bool
   field :customer_name, 3, type: :string, json_name: "customerName"
   field :customer_cloud_identity_id, 4, type: :string, json_name: "customerCloudIdentityId"
+
+  field :customer_type, 5,
+    type: Google.Cloud.Channel.V1.CloudIdentityInfo.CustomerType,
+    json_name: "customerType",
+    enum: true
+
+  field :channel_partner_cloud_identity_id, 6,
+    type: :string,
+    json_name: "channelPartnerCloudIdentityId"
 end
 
 defmodule Google.Cloud.Channel.V1.CheckCloudIdentityAccountsExistResponse do
@@ -105,6 +115,12 @@ defmodule Google.Cloud.Channel.V1.ImportCustomerRequest do
   field :cloud_identity_id, 3,
     type: :string,
     json_name: "cloudIdentityId",
+    oneof: 0,
+    deprecated: false
+
+  field :primary_admin_email, 8,
+    type: :string,
+    json_name: "primaryAdminEmail",
     oneof: 0,
     deprecated: false
 

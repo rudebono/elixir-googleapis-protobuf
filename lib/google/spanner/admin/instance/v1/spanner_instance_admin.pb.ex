@@ -118,6 +118,22 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
     deprecated: false
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.ReplicaComputeCapacity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :compute_capacity, 0
+
+  field :replica_selection, 1,
+    type: Google.Spanner.Admin.Instance.V1.ReplicaSelection,
+    json_name: "replicaSelection",
+    deprecated: false
+
+  field :node_count, 2, type: :int32, json_name: "nodeCount", oneof: 0
+  field :processing_units, 3, type: :int32, json_name: "processingUnits", oneof: 0
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingLimits do
   @moduledoc false
 
@@ -149,6 +165,38 @@ defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingTargets 
     deprecated: false
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AsymmetricAutoscalingOption.AutoscalingConfigOverrides do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :autoscaling_limits, 1,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingLimits,
+    json_name: "autoscalingLimits",
+    deprecated: false
+
+  field :autoscaling_target_high_priority_cpu_utilization_percent, 2,
+    type: :int32,
+    json_name: "autoscalingTargetHighPriorityCpuUtilizationPercent",
+    deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AsymmetricAutoscalingOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :replica_selection, 1,
+    type: Google.Spanner.Admin.Instance.V1.ReplicaSelection,
+    json_name: "replicaSelection",
+    deprecated: false
+
+  field :overrides, 2,
+    type:
+      Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AsymmetricAutoscalingOption.AutoscalingConfigOverrides,
+    deprecated: false
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig do
   @moduledoc false
 
@@ -162,6 +210,12 @@ defmodule Google.Spanner.Admin.Instance.V1.AutoscalingConfig do
   field :autoscaling_targets, 2,
     type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AutoscalingTargets,
     json_name: "autoscalingTargets",
+    deprecated: false
+
+  field :asymmetric_autoscaling_options, 3,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig.AsymmetricAutoscalingOption,
+    json_name: "asymmetricAutoscalingOptions",
     deprecated: false
 end
 
@@ -184,6 +238,12 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
   field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
   field :node_count, 5, type: :int32, json_name: "nodeCount"
   field :processing_units, 9, type: :int32, json_name: "processingUnits"
+
+  field :replica_compute_capacity, 19,
+    repeated: true,
+    type: Google.Spanner.Admin.Instance.V1.ReplicaComputeCapacity,
+    json_name: "replicaComputeCapacity",
+    deprecated: false
 
   field :autoscaling_config, 17,
     type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig,

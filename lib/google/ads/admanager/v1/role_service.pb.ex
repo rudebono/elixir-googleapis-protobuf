@@ -1,11 +1,3 @@
-defmodule Google.Ads.Admanager.V1.Role do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-end
-
 defmodule Google.Ads.Admanager.V1.GetRoleRequest do
   @moduledoc false
 

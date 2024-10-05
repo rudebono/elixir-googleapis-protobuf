@@ -503,6 +503,12 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
     type: Google.Cloud.Aiplatform.V1.GroundingSupport,
     json_name: "groundingSupports",
     deprecated: false
+
+  field :retrieval_metadata, 7,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.RetrievalMetadata,
+    json_name: "retrievalMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SearchEntryPoint do
@@ -512,4 +518,15 @@ defmodule Google.Cloud.Aiplatform.V1.SearchEntryPoint do
 
   field :rendered_content, 1, type: :string, json_name: "renderedContent", deprecated: false
   field :sdk_blob, 2, type: :bytes, json_name: "sdkBlob", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RetrievalMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :google_search_dynamic_retrieval_score, 2,
+    type: :float,
+    json_name: "googleSearchDynamicRetrievalScore",
+    deprecated: false
 end

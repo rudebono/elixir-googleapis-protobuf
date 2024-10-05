@@ -36,6 +36,13 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroup do
     json_name: "targetingSetting"
 
   field :labels, 49, repeated: true, type: :string, deprecated: false
+
+  field :effective_labels, 66,
+    repeated: true,
+    type: :string,
+    json_name: "effectiveLabels",
+    deprecated: false
+
   field :engine_id, 50, type: :string, json_name: "engineId", deprecated: false
   field :start_date, 51, type: :string, json_name: "startDate", deprecated: false
   field :end_date, 52, type: :string, json_name: "endDate", deprecated: false

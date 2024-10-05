@@ -189,6 +189,12 @@ defmodule Google.Ads.Searchads360.V0.Resources.Campaign do
     type: Google.Ads.Searchads360.V0.Resources.Campaign.GeoTargetTypeSetting,
     json_name: "geoTargetTypeSetting"
 
+  field :effective_labels, 95,
+    repeated: true,
+    type: :string,
+    json_name: "effectiveLabels",
+    deprecated: false
+
   field :labels, 61, repeated: true, type: :string, deprecated: false
 
   field :campaign_budget, 62,
