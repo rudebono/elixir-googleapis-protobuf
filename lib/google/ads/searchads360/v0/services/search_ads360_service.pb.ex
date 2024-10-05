@@ -150,6 +150,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterionLabel,
     json_name: "adGroupCriterionLabel"
 
+  field :ad_group_effective_label, 231,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupEffectiveLabel,
+    json_name: "adGroupEffectiveLabel"
+
   field :ad_group_label, 115,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupLabel,
     json_name: "adGroupLabel"
@@ -213,6 +217,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   field :campaign_criterion, 20,
     type: Google.Ads.Searchads360.V0.Resources.CampaignCriterion,
     json_name: "campaignCriterion"
+
+  field :campaign_effective_label, 229,
+    type: Google.Ads.Searchads360.V0.Resources.CampaignEffectiveLabel,
+    json_name: "campaignEffectiveLabel"
 
   field :campaign_label, 108,
     type: Google.Ads.Searchads360.V0.Resources.CampaignLabel,

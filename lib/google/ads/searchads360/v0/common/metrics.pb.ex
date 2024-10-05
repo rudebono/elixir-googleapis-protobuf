@@ -155,10 +155,20 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     type: :double,
     json_name: "crossDeviceConversions"
 
+  field :cross_device_conversions_by_conversion_date, 372,
+    proto3_optional: true,
+    type: :double,
+    json_name: "crossDeviceConversionsByConversionDate"
+
   field :cross_device_conversions_value, 253,
     proto3_optional: true,
     type: :double,
     json_name: "crossDeviceConversionsValue"
+
+  field :cross_device_conversions_value_by_conversion_date, 373,
+    proto3_optional: true,
+    type: :double,
+    json_name: "crossDeviceConversionsValueByConversionDate"
 
   field :ctr, 174, proto3_optional: true, type: :double
   field :conversions, 251, proto3_optional: true, type: :double
@@ -209,6 +219,16 @@ defmodule Google.Ads.Searchads360.V0.Common.Metrics do
     json_name: "invalidClickRate"
 
   field :invalid_clicks, 225, proto3_optional: true, type: :int64, json_name: "invalidClicks"
+
+  field :general_invalid_click_rate, 370,
+    proto3_optional: true,
+    type: :double,
+    json_name: "generalInvalidClickRate"
+
+  field :general_invalid_clicks, 371,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "generalInvalidClicks"
 
   field :mobile_friendly_clicks_percentage, 229,
     proto3_optional: true,
