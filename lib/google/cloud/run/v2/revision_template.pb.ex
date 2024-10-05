@@ -60,10 +60,20 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
     json_name: "maxInstanceRequestConcurrency",
     deprecated: false
 
+  field :service_mesh, 16,
+    type: Google.Cloud.Run.V2.ServiceMesh,
+    json_name: "serviceMesh",
+    deprecated: false
+
   field :session_affinity, 19, type: :bool, json_name: "sessionAffinity", deprecated: false
 
   field :health_check_disabled, 20,
     type: :bool,
     json_name: "healthCheckDisabled",
+    deprecated: false
+
+  field :node_selector, 21,
+    type: Google.Cloud.Run.V2.NodeSelector,
+    json_name: "nodeSelector",
     deprecated: false
 end

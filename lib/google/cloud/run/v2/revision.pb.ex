@@ -115,6 +115,7 @@ defmodule Google.Cloud.Run.V2.Revision do
     enum: true
 
   field :encryption_key, 21, type: :string, json_name: "encryptionKey", deprecated: false
+  field :service_mesh, 22, type: Google.Cloud.Run.V2.ServiceMesh, json_name: "serviceMesh"
 
   field :encryption_key_revocation_action, 23,
     type: Google.Cloud.Run.V2.EncryptionKeyRevocationAction,
@@ -137,6 +138,7 @@ defmodule Google.Cloud.Run.V2.Revision do
     json_name: "scalingStatus",
     deprecated: false
 
+  field :node_selector, 40, type: Google.Cloud.Run.V2.NodeSelector, json_name: "nodeSelector"
   field :etag, 99, type: :string, deprecated: false
 end
 

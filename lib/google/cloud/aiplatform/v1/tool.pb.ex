@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :MODE_DYNAMIC, 1
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FunctionCallingConfig.Mode do
   @moduledoc false
 
@@ -83,6 +92,24 @@ defmodule Google.Cloud.Aiplatform.V1.GoogleSearchRetrieval do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :dynamic_retrieval_config, 2,
+    type: Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig,
+    json_name: "dynamicRetrievalConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :mode, 1, type: Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig.Mode, enum: true
+
+  field :dynamic_threshold, 2,
+    proto3_optional: true,
+    type: :float,
+    json_name: "dynamicThreshold",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ToolConfig do
