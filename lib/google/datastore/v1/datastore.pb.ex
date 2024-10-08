@@ -8,6 +8,25 @@ defmodule Google.Datastore.V1.CommitRequest.Mode do
   field :NON_TRANSACTIONAL, 2
 end
 
+defmodule Google.Datastore.V1.Mutation.ConflictResolutionStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STRATEGY_UNSPECIFIED, 0
+  field :SERVER_VALUE, 1
+  field :FAIL, 3
+end
+
+defmodule Google.Datastore.V1.PropertyTransform.ServerValue do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SERVER_VALUE_UNSPECIFIED, 0
+  field :REQUEST_TIME, 1
+end
+
 defmodule Google.Datastore.V1.ReadOptions.ReadConsistency do
   @moduledoc false
 
@@ -230,7 +249,49 @@ defmodule Google.Datastore.V1.Mutation do
   field :delete, 7, type: Google.Datastore.V1.Key, oneof: 0
   field :base_version, 8, type: :int64, json_name: "baseVersion", oneof: 1
   field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime", oneof: 1
+
+  field :conflict_resolution_strategy, 10,
+    type: Google.Datastore.V1.Mutation.ConflictResolutionStrategy,
+    json_name: "conflictResolutionStrategy",
+    enum: true
+
   field :property_mask, 9, type: Google.Datastore.V1.PropertyMask, json_name: "propertyMask"
+
+  field :property_transforms, 12,
+    repeated: true,
+    type: Google.Datastore.V1.PropertyTransform,
+    json_name: "propertyTransforms",
+    deprecated: false
+end
+
+defmodule Google.Datastore.V1.PropertyTransform do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :transform_type, 0
+
+  field :property, 1, type: :string, deprecated: false
+
+  field :set_to_server_value, 2,
+    type: Google.Datastore.V1.PropertyTransform.ServerValue,
+    json_name: "setToServerValue",
+    enum: true,
+    oneof: 0
+
+  field :increment, 3, type: Google.Datastore.V1.Value, oneof: 0
+  field :maximum, 4, type: Google.Datastore.V1.Value, oneof: 0
+  field :minimum, 5, type: Google.Datastore.V1.Value, oneof: 0
+
+  field :append_missing_elements, 6,
+    type: Google.Datastore.V1.ArrayValue,
+    json_name: "appendMissingElements",
+    oneof: 0
+
+  field :remove_all_from_array, 7,
+    type: Google.Datastore.V1.ArrayValue,
+    json_name: "removeAllFromArray",
+    oneof: 0
 end
 
 defmodule Google.Datastore.V1.MutationResult do
@@ -243,6 +304,11 @@ defmodule Google.Datastore.V1.MutationResult do
   field :create_time, 7, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 6, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :conflict_detected, 5, type: :bool, json_name: "conflictDetected"
+
+  field :transform_results, 8,
+    repeated: true,
+    type: Google.Datastore.V1.Value,
+    json_name: "transformResults"
 end
 
 defmodule Google.Datastore.V1.PropertyMask do
