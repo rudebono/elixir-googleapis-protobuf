@@ -225,6 +225,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ListConversationsRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string
+  field :order_by, 7, type: :string, json_name: "orderBy", deprecated: false
   field :view, 5, type: Google.Cloud.Contactcenterinsights.V1.ConversationView, enum: true
 end
 
@@ -283,6 +284,18 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.GcsSo
     json_name: "bucketObjectType",
     enum: true,
     deprecated: false
+
+  field :metadata_bucket_uri, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "metadataBucketUri",
+    deprecated: false
+
+  field :custom_metadata_keys, 12,
+    repeated: true,
+    type: :string,
+    json_name: "customMetadataKeys",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.TranscriptObjectConfig do
@@ -301,7 +314,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest.Conve
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :agent_id, 1, type: :string, json_name: "agentId"
+  field :agent_id, 1, type: :string, json_name: "agentId", deprecated: false
   field :agent_channel, 2, type: :int32, json_name: "agentChannel", deprecated: false
   field :customer_channel, 3, type: :int32, json_name: "customerChannel", deprecated: false
 end
@@ -339,6 +352,12 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IngestConversationsRequest do
   field :speech_config, 6,
     type: Google.Cloud.Contactcenterinsights.V1.SpeechConfig,
     json_name: "speechConfig",
+    deprecated: false
+
+  field :sample_size, 7,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "sampleSize",
     deprecated: false
 end
 
@@ -713,6 +732,85 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelMetadata do
   field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.ExportIssueModelRequest.GcsDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :object_uri, 1, type: :string, json_name: "objectUri", deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ExportIssueModelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :Destination, 0
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.ExportIssueModelRequest.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ExportIssueModelResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ExportIssueModelMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.ExportIssueModelRequest
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ImportIssueModelRequest.GcsSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :object_uri, 1, type: :string, json_name: "objectUri", deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ImportIssueModelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :Source, 0
+
+  field :gcs_source, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.ImportIssueModelRequest.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :create_new_model, 3, type: :bool, json_name: "createNewModel", deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ImportIssueModelResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ImportIssueModelMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :request, 3, type: Google.Cloud.Contactcenterinsights.V1.ImportIssueModelRequest
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.GetIssueRequest do
   @moduledoc false
 
@@ -859,6 +957,50 @@ defmodule Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.GetEncryptionSpecRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.InitializeEncryptionSpecRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :encryption_spec, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.InitializeEncryptionSpecResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.InitializeEncryptionSpecMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+
+  field :request, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.InitializeEncryptionSpecRequest,
+    deprecated: false
+
+  field :partial_errors, 4, repeated: true, type: Google.Rpc.Status, json_name: "partialErrors"
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.CreateViewRequest do
   @moduledoc false
 
@@ -1003,6 +1145,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
       Google.Cloud.Contactcenterinsights.V1.UndeployIssueModelRequest,
       Google.Longrunning.Operation
 
+  rpc :ExportIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.ExportIssueModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportIssueModel,
+      Google.Cloud.Contactcenterinsights.V1.ImportIssueModelRequest,
+      Google.Longrunning.Operation
+
   rpc :GetIssue,
       Google.Cloud.Contactcenterinsights.V1.GetIssueRequest,
       Google.Cloud.Contactcenterinsights.V1.Issue
@@ -1054,6 +1204,14 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ContactCenterInsights.Service do
   rpc :UpdateSettings,
       Google.Cloud.Contactcenterinsights.V1.UpdateSettingsRequest,
       Google.Cloud.Contactcenterinsights.V1.Settings
+
+  rpc :GetEncryptionSpec,
+      Google.Cloud.Contactcenterinsights.V1.GetEncryptionSpecRequest,
+      Google.Cloud.Contactcenterinsights.V1.EncryptionSpec
+
+  rpc :InitializeEncryptionSpec,
+      Google.Cloud.Contactcenterinsights.V1.InitializeEncryptionSpecRequest,
+      Google.Longrunning.Operation
 
   rpc :CreateView,
       Google.Cloud.Contactcenterinsights.V1.CreateViewRequest,

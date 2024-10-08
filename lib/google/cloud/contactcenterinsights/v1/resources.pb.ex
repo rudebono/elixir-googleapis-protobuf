@@ -81,6 +81,16 @@ defmodule Google.Cloud.Contactcenterinsights.V1.PhraseMatchRuleGroup.PhraseMatch
   field :ANY_OF, 2
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation.UserInput.QuerySource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :QUERY_SOURCE_UNSPECIFIED, 0
+  field :AGENT_QUERY, 1
+  field :SUGGESTED_QUERY, 2
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback.CorrectnessLevel do
   @moduledoc false
 
@@ -111,6 +121,7 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationC
 
   field :SUMMARIZATION_MODEL_UNSPECIFIED, 0
   field :BASELINE_MODEL, 1
+  field :BASELINE_MODEL_V2_0, 2
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
@@ -269,6 +280,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation do
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata,
     json_name: "qualityMetadata"
 
+  field :metadata_json, 25, type: :string, json_name: "metadataJson", deprecated: false
+
   field :transcript, 8,
     type: Google.Cloud.Contactcenterinsights.V1.Conversation.Transcript,
     deprecated: false
@@ -419,6 +432,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetad
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment
 
+  field :silence, 11, type: Google.Cloud.Contactcenterinsights.V1.ConversationLevelSilence
+
   field :intents, 6,
     repeated: true,
     type: Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetadata.IntentsEntry,
@@ -470,6 +485,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment do
   field :sentiment_data, 2,
     type: Google.Cloud.Contactcenterinsights.V1.SentimentData,
     json_name: "sentimentData"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSilence do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :silence_duration, 1, type: Google.Protobuf.Duration, json_name: "silenceDuration"
+  field :silence_percentage, 2, type: :float, json_name: "silencePercentage"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueAssignment do
@@ -745,6 +769,8 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Issue do
     type: :string,
     json_name: "sampleUtterances",
     deprecated: false
+
+  field :display_description, 14, type: :string, json_name: "displayDescription"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelLabelStats.IssueStats do
@@ -942,6 +968,15 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
     deprecated: false
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.EncryptionSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.RedactionConfig do
   @moduledoc false
 
@@ -957,6 +992,20 @@ defmodule Google.Cloud.Contactcenterinsights.V1.SpeechConfig do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :speech_recognizer, 1, type: :string, json_name: "speechRecognizer", deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation.UserInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :query, 1, type: :string
+  field :generator_name, 2, type: :string, json_name: "generatorName"
+
+  field :query_source, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation.UserInput.QuerySource,
+    json_name: "querySource",
+    enum: true
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
@@ -1010,6 +1059,10 @@ defmodule Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation do
   field :answer_feedback, 5,
     type: Google.Cloud.Contactcenterinsights.V1.AnswerFeedback,
     json_name: "answerFeedback"
+
+  field :user_input, 16,
+    type: Google.Cloud.Contactcenterinsights.V1.RuntimeAnnotation.UserInput,
+    json_name: "userInput"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.AnswerFeedback do

@@ -318,10 +318,6 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
       Google.Cloud.Backupdr.V1.DeleteBackupVaultRequest,
       Google.Longrunning.Operation
 
-  rpc :TestIamPermissions,
-      Google.Iam.V1.TestIamPermissionsRequest,
-      Google.Iam.V1.TestIamPermissionsResponse
-
   rpc :ListDataSources,
       Google.Cloud.Backupdr.V1.ListDataSourcesRequest,
       Google.Cloud.Backupdr.V1.ListDataSourcesResponse
@@ -333,28 +329,6 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
   rpc :UpdateDataSource,
       Google.Cloud.Backupdr.V1.UpdateDataSourceRequest,
       Google.Longrunning.Operation
-
-  rpc :RemoveDataSource,
-      Google.Cloud.Backupdr.V1.RemoveDataSourceRequest,
-      Google.Longrunning.Operation
-
-  rpc :SetInternalStatus,
-      Google.Cloud.Backupdr.V1.SetInternalStatusRequest,
-      Google.Longrunning.Operation
-
-  rpc :InitiateBackup,
-      Google.Cloud.Backupdr.V1.InitiateBackupRequest,
-      Google.Cloud.Backupdr.V1.InitiateBackupResponse
-
-  rpc :AbandonBackup, Google.Cloud.Backupdr.V1.AbandonBackupRequest, Google.Longrunning.Operation
-
-  rpc :FinalizeBackup,
-      Google.Cloud.Backupdr.V1.FinalizeBackupRequest,
-      Google.Longrunning.Operation
-
-  rpc :FetchAccessToken,
-      Google.Cloud.Backupdr.V1.FetchAccessTokenRequest,
-      Google.Cloud.Backupdr.V1.FetchAccessTokenResponse
 
   rpc :ListBackups,
       Google.Cloud.Backupdr.V1.ListBackupsRequest,
