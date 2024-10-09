@@ -40,6 +40,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
     json_name: "distillationSpec",
     oneof: 1
 
+  field :partner_model_tuning_spec, 21,
+    type: Google.Cloud.Aiplatform.V1beta1.PartnerModelTuningSpec,
+    json_name: "partnerModelTuningSpec",
+    oneof: 1
+
   field :name, 1, type: :string, deprecated: false
 
   field :tuned_model_display_name, 2,
@@ -390,6 +395,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DistillationHyperParameters do
     json_name: "adapterSize",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PartnerModelTuningSpec.HyperParametersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Protobuf.Value
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PartnerModelTuningSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :training_dataset_uri, 1,
+    type: :string,
+    json_name: "trainingDatasetUri",
+    deprecated: false
+
+  field :validation_dataset_uri, 2,
+    type: :string,
+    json_name: "validationDatasetUri",
+    deprecated: false
+
+  field :hyper_parameters, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PartnerModelTuningSpec.HyperParametersEntry,
+    json_name: "hyperParameters",
+    map: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModelRef do

@@ -164,6 +164,11 @@ defmodule Google.Devtools.Testing.V1.AndroidModel do
   field :supported_abis, 11, repeated: true, type: :string, json_name: "supportedAbis"
   field :tags, 8, repeated: true, type: :string
   field :thumbnail_url, 19, type: :string, json_name: "thumbnailUrl"
+
+  field :lab_info, 26,
+    type: Google.Devtools.Testing.V1.LabInfo,
+    json_name: "labInfo",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidVersion do
@@ -222,6 +227,14 @@ defmodule Google.Devtools.Testing.V1.Distribution do
 
   field :measurement_time, 1, type: Google.Protobuf.Timestamp, json_name: "measurementTime"
   field :market_share, 2, type: :double, json_name: "marketShare"
+end
+
+defmodule Google.Devtools.Testing.V1.LabInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string
 end
 
 defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
