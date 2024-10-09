@@ -87,6 +87,11 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskConfig do
     json_name: "synchronousCallFailurePolicy",
     deprecated: false
 
+  field :conditional_failure_policies, 18,
+    type: Google.Cloud.Integrations.V1alpha.ConditionalFailurePolicies,
+    json_name: "conditionalFailurePolicies",
+    deprecated: false
+
   field :next_tasks, 6,
     repeated: true,
     type: Google.Cloud.Integrations.V1alpha.NextTask,
@@ -154,6 +159,7 @@ defmodule Google.Cloud.Integrations.V1alpha.FailurePolicy do
 
   field :max_retries, 2, type: :int32, json_name: "maxRetries"
   field :interval_time, 3, type: Google.Protobuf.Timestamp, json_name: "intervalTime"
+  field :condition, 4, type: :string
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.NextTask do
@@ -166,4 +172,19 @@ defmodule Google.Cloud.Integrations.V1alpha.NextTask do
   field :condition, 3, type: :string
   field :display_name, 4, type: :string, json_name: "displayName"
   field :description, 5, type: :string
+end
+
+defmodule Google.Cloud.Integrations.V1alpha.ConditionalFailurePolicies do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :failure_policies, 1,
+    repeated: true,
+    type: Google.Cloud.Integrations.V1alpha.FailurePolicy,
+    json_name: "failurePolicies"
+
+  field :default_failure_policy, 2,
+    type: Google.Cloud.Integrations.V1alpha.FailurePolicy,
+    json_name: "defaultFailurePolicy"
 end

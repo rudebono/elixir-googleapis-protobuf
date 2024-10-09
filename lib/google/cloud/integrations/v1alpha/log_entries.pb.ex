@@ -54,6 +54,21 @@ defmodule Google.Cloud.Integrations.V1alpha.TaskExecutionDetails.TaskExecutionSt
   field :SUSPENDED, 12
 end
 
+defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ReplayInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :original_execution_info_id, 1, type: :string, json_name: "originalExecutionInfoId"
+
+  field :replayed_execution_info_ids, 2,
+    repeated: true,
+    type: :string,
+    json_name: "replayedExecutionInfoIds"
+
+  field :replay_reason, 3, type: :string, json_name: "replayReason"
+end
+
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.RequestParamsEntry do
   @moduledoc false
 
@@ -130,6 +145,10 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo do
     enum: true
 
   field :integration_snapshot_number, 22, type: :int64, json_name: "integrationSnapshotNumber"
+
+  field :replay_info, 23,
+    type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.ReplayInfo,
+    json_name: "replayInfo"
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails do
@@ -155,6 +174,7 @@ defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails do
 
   field :next_execution_time, 4, type: Google.Protobuf.Timestamp, json_name: "nextExecutionTime"
   field :execution_retries_count, 5, type: :int32, json_name: "executionRetriesCount"
+  field :cancel_reason, 6, type: :string, json_name: "cancelReason"
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionSnapshot.IntegrationExecutionSnapshotMetadata do
