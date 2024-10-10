@@ -215,6 +215,10 @@ defmodule Google.Cloud.Retail.V2alpha.ProductService.Service do
       Google.Cloud.Retail.V2alpha.ImportProductsRequest,
       Google.Longrunning.Operation
 
+  rpc :ExportProducts,
+      Google.Cloud.Retail.V2alpha.ExportProductsRequest,
+      Google.Longrunning.Operation
+
   rpc :SetInventory, Google.Cloud.Retail.V2alpha.SetInventoryRequest, Google.Longrunning.Operation
 
   rpc :AddFulfillmentPlaces,

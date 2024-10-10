@@ -6,6 +6,11 @@ defmodule Google.Spanner.V1.ResultSet do
   field :metadata, 1, type: Google.Spanner.V1.ResultSetMetadata
   field :rows, 2, repeated: true, type: Google.Protobuf.ListValue
   field :stats, 3, type: Google.Spanner.V1.ResultSetStats
+
+  field :precommit_token, 5,
+    type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
+    json_name: "precommitToken",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.PartialResultSet do
@@ -18,6 +23,11 @@ defmodule Google.Spanner.V1.PartialResultSet do
   field :chunked_value, 3, type: :bool, json_name: "chunkedValue"
   field :resume_token, 4, type: :bytes, json_name: "resumeToken"
   field :stats, 5, type: Google.Spanner.V1.ResultSetStats
+
+  field :precommit_token, 8,
+    type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
+    json_name: "precommitToken",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.ResultSetMetadata do

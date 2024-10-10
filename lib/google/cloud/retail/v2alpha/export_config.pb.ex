@@ -44,6 +44,36 @@ defmodule Google.Cloud.Retail.V2alpha.ExportErrorsConfig do
   field :gcs_prefix, 1, type: :string, json_name: "gcsPrefix", oneof: 0
 end
 
+defmodule Google.Cloud.Retail.V2alpha.ExportProductsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :output_config, 2,
+    type: Google.Cloud.Retail.V2alpha.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+
+  field :filter, 3, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2alpha.ExportUserEventsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :output_config, 2,
+    type: Google.Cloud.Retail.V2alpha.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+
+  field :filter, 3, type: :string
+end
+
 defmodule Google.Cloud.Retail.V2alpha.ExportAnalyticsMetricsRequest do
   @moduledoc false
 

@@ -220,6 +220,59 @@ defmodule Google.Pubsub.V1.PlatformLogsSettings do
     deprecated: false
 end
 
+defmodule Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent.AvroFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :reason, 0
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :object_name, 2, type: :string, json_name: "objectName", deprecated: false
+  field :object_generation, 3, type: :int64, json_name: "objectGeneration", deprecated: false
+
+  field :avro_failure_reason, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.AvroFailureReason,
+    json_name: "avroFailureReason",
+    oneof: 0,
+    deprecated: false
+
+  field :api_violation_reason, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
+    json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :failure, 0
+
+  field :topic, 1, type: :string, deprecated: false
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
+
+  field :cloud_storage_failure, 3,
+    type: Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure,
+    json_name: "cloudStorageFailure",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   @moduledoc false
 

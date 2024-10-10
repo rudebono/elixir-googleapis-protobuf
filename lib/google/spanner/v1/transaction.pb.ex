@@ -17,6 +17,11 @@ defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
     type: Google.Spanner.V1.TransactionOptions.ReadWrite.ReadLockMode,
     json_name: "readLockMode",
     enum: true
+
+  field :multiplexed_session_previous_transaction_id, 2,
+    type: :bytes,
+    json_name: "multiplexedSessionPreviousTransactionId",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
@@ -77,6 +82,10 @@ defmodule Google.Spanner.V1.Transaction do
 
   field :id, 1, type: :bytes
   field :read_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "readTimestamp"
+
+  field :precommit_token, 3,
+    type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
+    json_name: "precommitToken"
 end
 
 defmodule Google.Spanner.V1.TransactionSelector do
@@ -93,4 +102,13 @@ defmodule Google.Spanner.V1.TransactionSelector do
 
   field :id, 2, type: :bytes, oneof: 0
   field :begin, 3, type: Google.Spanner.V1.TransactionOptions, oneof: 0
+end
+
+defmodule Google.Spanner.V1.MultiplexedSessionPrecommitToken do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :precommit_token, 1, type: :bytes, json_name: "precommitToken"
+  field :seq_num, 2, type: :int32, json_name: "seqNum"
 end

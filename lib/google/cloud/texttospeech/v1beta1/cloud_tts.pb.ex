@@ -32,6 +32,16 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointTyp
   field :SSML_MARK, 1
 end
 
+defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams.PhoneticEncoding do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :PHONETIC_ENCODING_UNSPECIFIED, 0
+  field :PHONETIC_ENCODING_IPA, 1
+  field :PHONETIC_ENCODING_X_SAMPA, 2
+end
+
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
   @moduledoc false
 
@@ -74,6 +84,17 @@ defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
   field :natural_sample_rate_hertz, 4, type: :int32, json_name: "naturalSampleRateHertz"
 end
 
+defmodule Google.Cloud.Texttospeech.V1beta1.AdvancedVoiceOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :low_latency_journey_synthesis, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "lowLatencyJourneySynthesis"
+end
+
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
   @moduledoc false
 
@@ -92,6 +113,37 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
     type: Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType,
     json_name: "enableTimePointing",
     enum: true
+
+  field :advanced_voice_options, 8,
+    proto3_optional: true,
+    type: Google.Cloud.Texttospeech.V1beta1.AdvancedVoiceOptions,
+    json_name: "advancedVoiceOptions"
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :phrase, 1, proto3_optional: true, type: :string
+
+  field :phonetic_encoding, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams.PhoneticEncoding,
+    json_name: "phoneticEncoding",
+    enum: true
+
+  field :pronunciation, 3, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciations do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :pronunciations, 1,
+    repeated: true,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
@@ -103,6 +155,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
 
   field :text, 1, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
+
+  field :custom_pronunciations, 3,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciations,
+    json_name: "customPronunciations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do

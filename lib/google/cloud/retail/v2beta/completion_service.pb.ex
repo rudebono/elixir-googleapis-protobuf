@@ -44,6 +44,23 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult do
   field :recent_search, 1, type: :string, json_name: "recentSearch"
 end
 
+defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.AttributeResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :suggestions, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse.AttributeResultsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.AttributeResult
+end
+
 defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
   @moduledoc false
 
@@ -61,6 +78,12 @@ defmodule Google.Cloud.Retail.V2beta.CompleteQueryResponse do
     type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.RecentSearchResult,
     json_name: "recentSearchResults",
     deprecated: true
+
+  field :attribute_results, 4,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.CompleteQueryResponse.AttributeResultsEntry,
+    json_name: "attributeResults",
+    map: true
 end
 
 defmodule Google.Cloud.Retail.V2beta.CompletionService.Service do
