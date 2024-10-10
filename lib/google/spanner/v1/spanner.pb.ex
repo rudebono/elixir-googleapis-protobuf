@@ -315,6 +315,11 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlResponse do
     json_name: "resultSets"
 
   field :status, 2, type: Google.Rpc.Status
+
+  field :precommit_token, 3,
+    type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
+    json_name: "precommitToken",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.PartitionOptions do
@@ -433,6 +438,11 @@ defmodule Google.Spanner.V1.BeginTransactionRequest do
   field :session, 1, type: :string, deprecated: false
   field :options, 2, type: Google.Spanner.V1.TransactionOptions, deprecated: false
   field :request_options, 3, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  field :mutation_key, 4,
+    type: Google.Spanner.V1.Mutation,
+    json_name: "mutationKey",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.CommitRequest do
@@ -459,6 +469,11 @@ defmodule Google.Spanner.V1.CommitRequest do
     deprecated: false
 
   field :request_options, 6, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+
+  field :precommit_token, 9,
+    type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
+    json_name: "precommitToken",
+    deprecated: false
 end
 
 defmodule Google.Spanner.V1.RollbackRequest do

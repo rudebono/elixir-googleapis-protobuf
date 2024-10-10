@@ -89,6 +89,16 @@ defmodule Google.Container.V1.WindowsNodeConfig.OSVersion do
   field :OS_VERSION_LTSC2022, 2
 end
 
+defmodule Google.Container.V1.NodeConfig.EffectiveCgroupMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :EFFECTIVE_CGROUP_MODE_UNSPECIFIED, 0
+  field :EFFECTIVE_CGROUP_MODE_V1, 1
+  field :EFFECTIVE_CGROUP_MODE_V2, 2
+end
+
 defmodule Google.Container.V1.NodeNetworkConfig.NetworkPerformanceConfig.Tier do
   @moduledoc false
 
@@ -180,6 +190,16 @@ defmodule Google.Container.V1.Cluster.Status do
   field :STOPPING, 4
   field :ERROR, 5
   field :DEGRADED, 6
+end
+
+defmodule Google.Container.V1.CompliancePostureConfig.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
 end
 
 defmodule Google.Container.V1.SecurityPostureConfig.Mode do
@@ -488,6 +508,8 @@ defmodule Google.Container.V1.LoggingComponentConfig.Component do
   field :APISERVER, 3
   field :SCHEDULER, 4
   field :CONTROLLER_MANAGER, 5
+  field :KCP_SSHD, 7
+  field :KCP_CONNECTION, 8
 end
 
 defmodule Google.Container.V1.AdvancedDatapathObservabilityConfig.RelayMode do
@@ -764,10 +786,18 @@ defmodule Google.Container.V1.NodeConfig do
     type: Google.Container.V1.SecondaryBootDisk,
     json_name: "secondaryBootDisks"
 
+  field :storage_pools, 49, repeated: true, type: :string, json_name: "storagePools"
+
   field :secondary_boot_disk_update_strategy, 50,
     proto3_optional: true,
     type: Google.Container.V1.SecondaryBootDiskUpdateStrategy,
     json_name: "secondaryBootDiskUpdateStrategy"
+
+  field :effective_cgroup_mode, 55,
+    type: Google.Container.V1.NodeConfig.EffectiveCgroupMode,
+    json_name: "effectiveCgroupMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Container.V1.AdvancedMachineFeatures do
@@ -1112,6 +1142,10 @@ defmodule Google.Container.V1.AddonsConfig do
     json_name: "statefulHaConfig",
     deprecated: false
 
+  field :parallelstore_csi_driver_config, 19,
+    type: Google.Container.V1.ParallelstoreCsiDriverConfig,
+    json_name: "parallelstoreCsiDriverConfig"
+
   field :ray_operator_config, 21,
     type: Google.Container.V1.RayOperatorConfig,
     json_name: "rayOperatorConfig",
@@ -1171,18 +1205,27 @@ defmodule Google.Container.V1.PrivateClusterConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :enable_private_nodes, 1, type: :bool, json_name: "enablePrivateNodes"
-  field :enable_private_endpoint, 2, type: :bool, json_name: "enablePrivateEndpoint"
+  field :enable_private_nodes, 1, type: :bool, json_name: "enablePrivateNodes", deprecated: true
+
+  field :enable_private_endpoint, 2,
+    type: :bool,
+    json_name: "enablePrivateEndpoint",
+    deprecated: true
+
   field :master_ipv4_cidr_block, 3, type: :string, json_name: "masterIpv4CidrBlock"
-  field :private_endpoint, 4, type: :string, json_name: "privateEndpoint", deprecated: false
-  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint", deprecated: false
+  field :private_endpoint, 4, type: :string, json_name: "privateEndpoint", deprecated: true
+  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint", deprecated: true
   field :peering_name, 7, type: :string, json_name: "peeringName", deprecated: false
 
   field :master_global_access_config, 8,
     type: Google.Container.V1.PrivateClusterMasterGlobalAccessConfig,
-    json_name: "masterGlobalAccessConfig"
+    json_name: "masterGlobalAccessConfig",
+    deprecated: true
 
-  field :private_endpoint_subnetwork, 10, type: :string, json_name: "privateEndpointSubnetwork"
+  field :private_endpoint_subnetwork, 10,
+    type: :string,
+    json_name: "privateEndpointSubnetwork",
+    deprecated: true
 end
 
 defmodule Google.Container.V1.AuthenticatorGroupsConfig do
@@ -1232,6 +1275,14 @@ defmodule Google.Container.V1.GcpFilestoreCsiDriverConfig do
 end
 
 defmodule Google.Container.V1.GcsFuseCsiDriverConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool
+end
+
+defmodule Google.Container.V1.ParallelstoreCsiDriverConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -1298,6 +1349,11 @@ defmodule Google.Container.V1.MasterAuthorizedNetworksConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "gcpPublicCidrsAccessEnabled"
+
+  field :private_endpoint_enforcement_enabled, 5,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "privateEndpointEnforcementEnabled"
 end
 
 defmodule Google.Container.V1.LegacyAbac do
@@ -1443,7 +1499,8 @@ defmodule Google.Container.V1.Cluster do
 
   field :master_authorized_networks_config, 22,
     type: Google.Container.V1.MasterAuthorizedNetworksConfig,
-    json_name: "masterAuthorizedNetworksConfig"
+    json_name: "masterAuthorizedNetworksConfig",
+    deprecated: true
 
   field :maintenance_policy, 23,
     type: Google.Container.V1.MaintenancePolicy,
@@ -1568,6 +1625,10 @@ defmodule Google.Container.V1.Cluster do
     type: Google.Container.V1.SecurityPostureConfig,
     json_name: "securityPostureConfig"
 
+  field :control_plane_endpoints_config, 146,
+    type: Google.Container.V1.ControlPlaneEndpointsConfig,
+    json_name: "controlPlaneEndpointsConfig"
+
   field :enable_k8s_beta_apis, 143,
     type: Google.Container.V1.K8sBetaAPIConfig,
     json_name: "enableK8sBetaApis"
@@ -1575,6 +1636,14 @@ defmodule Google.Container.V1.Cluster do
   field :enterprise_config, 149,
     type: Google.Container.V1.EnterpriseConfig,
     json_name: "enterpriseConfig"
+
+  field :secret_manager_config, 150,
+    type: Google.Container.V1.SecretManagerConfig,
+    json_name: "secretManagerConfig"
+
+  field :compliance_posture_config, 151,
+    type: Google.Container.V1.CompliancePostureConfig,
+    json_name: "compliancePostureConfig"
 
   field :satisfies_pzs, 152,
     proto3_optional: true,
@@ -1587,6 +1656,90 @@ defmodule Google.Container.V1.Cluster do
     type: :bool,
     json_name: "satisfiesPzi",
     deprecated: false
+
+  field :user_managed_keys_config, 154,
+    proto3_optional: true,
+    type: Google.Container.V1.UserManagedKeysConfig,
+    json_name: "userManagedKeysConfig"
+
+  field :rbac_binding_config, 156,
+    proto3_optional: true,
+    type: Google.Container.V1.RBACBindingConfig,
+    json_name: "rbacBindingConfig"
+end
+
+defmodule Google.Container.V1.RBACBindingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enable_insecure_binding_system_unauthenticated, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableInsecureBindingSystemUnauthenticated"
+
+  field :enable_insecure_binding_system_authenticated, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableInsecureBindingSystemAuthenticated"
+end
+
+defmodule Google.Container.V1.UserManagedKeysConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :cluster_ca, 10, type: :string, json_name: "clusterCa", deprecated: false
+  field :etcd_api_ca, 11, type: :string, json_name: "etcdApiCa", deprecated: false
+  field :etcd_peer_ca, 12, type: :string, json_name: "etcdPeerCa", deprecated: false
+
+  field :service_account_signing_keys, 13,
+    repeated: true,
+    type: :string,
+    json_name: "serviceAccountSigningKeys",
+    deprecated: false
+
+  field :service_account_verification_keys, 14,
+    repeated: true,
+    type: :string,
+    json_name: "serviceAccountVerificationKeys",
+    deprecated: false
+
+  field :aggregation_ca, 15, type: :string, json_name: "aggregationCa", deprecated: false
+
+  field :control_plane_disk_encryption_key, 16,
+    type: :string,
+    json_name: "controlPlaneDiskEncryptionKey",
+    deprecated: false
+
+  field :gkeops_etcd_backup_encryption_key, 17,
+    type: :string,
+    json_name: "gkeopsEtcdBackupEncryptionKey",
+    deprecated: false
+end
+
+defmodule Google.Container.V1.CompliancePostureConfig.ComplianceStandard do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :standard, 1, proto3_optional: true, type: :string
+end
+
+defmodule Google.Container.V1.CompliancePostureConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :mode, 1,
+    proto3_optional: true,
+    type: Google.Container.V1.CompliancePostureConfig.Mode,
+    enum: true
+
+  field :compliance_standards, 2,
+    repeated: true,
+    type: Google.Container.V1.CompliancePostureConfig.ComplianceStandard,
+    json_name: "complianceStandards"
 end
 
 defmodule Google.Container.V1.K8sBetaAPIConfig do
@@ -1707,7 +1860,8 @@ defmodule Google.Container.V1.ClusterUpdate do
 
   field :desired_master_authorized_networks_config, 12,
     type: Google.Container.V1.MasterAuthorizedNetworksConfig,
-    json_name: "desiredMasterAuthorizedNetworksConfig"
+    json_name: "desiredMasterAuthorizedNetworksConfig",
+    deprecated: true
 
   field :desired_cluster_autoscaling, 15,
     type: Google.Container.V1.ClusterAutoscaling,
@@ -1729,7 +1883,8 @@ defmodule Google.Container.V1.ClusterUpdate do
 
   field :desired_private_cluster_config, 25,
     type: Google.Container.V1.PrivateClusterConfig,
-    json_name: "desiredPrivateClusterConfig"
+    json_name: "desiredPrivateClusterConfig",
+    deprecated: true
 
   field :desired_intra_node_visibility_config, 26,
     type: Google.Container.V1.IntraNodeVisibilityConfig,
@@ -1784,7 +1939,17 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_enable_private_endpoint, 71,
     proto3_optional: true,
     type: :bool,
-    json_name: "desiredEnablePrivateEndpoint"
+    json_name: "desiredEnablePrivateEndpoint",
+    deprecated: true
+
+  field :desired_default_enable_private_nodes, 72,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "desiredDefaultEnablePrivateNodes"
+
+  field :desired_control_plane_endpoints_config, 73,
+    type: Google.Container.V1.ControlPlaneEndpointsConfig,
+    json_name: "desiredControlPlaneEndpointsConfig"
 
   field :desired_master_version, 100, type: :string, json_name: "desiredMasterVersion"
 
@@ -1870,6 +2035,16 @@ defmodule Google.Container.V1.ClusterUpdate do
     type: :bool,
     json_name: "desiredEnableCiliumClusterwideNetworkPolicy"
 
+  field :desired_secret_manager_config, 139,
+    proto3_optional: true,
+    type: Google.Container.V1.SecretManagerConfig,
+    json_name: "desiredSecretManagerConfig"
+
+  field :desired_compliance_posture_config, 140,
+    proto3_optional: true,
+    type: Google.Container.V1.CompliancePostureConfig,
+    json_name: "desiredCompliancePostureConfig"
+
   field :desired_node_kubelet_config, 141,
     type: Google.Container.V1.NodeKubeletConfig,
     json_name: "desiredNodeKubeletConfig"
@@ -1877,6 +2052,15 @@ defmodule Google.Container.V1.ClusterUpdate do
   field :desired_node_pool_auto_config_kubelet_config, 142,
     type: Google.Container.V1.NodeKubeletConfig,
     json_name: "desiredNodePoolAutoConfigKubeletConfig"
+
+  field :user_managed_keys_config, 143,
+    type: Google.Container.V1.UserManagedKeysConfig,
+    json_name: "userManagedKeysConfig"
+
+  field :desired_rbac_binding_config, 144,
+    proto3_optional: true,
+    type: Google.Container.V1.RBACBindingConfig,
+    json_name: "desiredRbacBindingConfig"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -2075,6 +2259,8 @@ defmodule Google.Container.V1.UpdateNodePoolRequest do
   field :queued_provisioning, 42,
     type: Google.Container.V1.NodePool.QueuedProvisioning,
     json_name: "queuedProvisioning"
+
+  field :storage_pools, 43, repeated: true, type: :string, json_name: "storagePools"
 end
 
 defmodule Google.Container.V1.SetNodePoolAutoscalingRequest do
@@ -2262,6 +2448,7 @@ defmodule Google.Container.V1.ServerConfig.ReleaseChannelConfig do
   field :channel, 1, type: Google.Container.V1.ReleaseChannel.Channel, enum: true
   field :default_version, 2, type: :string, json_name: "defaultVersion"
   field :valid_versions, 4, repeated: true, type: :string, json_name: "validVersions"
+  field :upgrade_target_version, 5, type: :string, json_name: "upgradeTargetVersion"
 end
 
 defmodule Google.Container.V1.ServerConfig do
@@ -2980,6 +3167,11 @@ defmodule Google.Container.V1.NetworkConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "enableCiliumClusterwideNetworkPolicy"
+
+  field :default_enable_private_nodes, 22,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "defaultEnablePrivateNodes"
 end
 
 defmodule Google.Container.V1.GatewayAPIConfig do
@@ -3576,6 +3768,56 @@ defmodule Google.Container.V1.Fleet do
   field :pre_registered, 3, type: :bool, json_name: "preRegistered", deprecated: false
 end
 
+defmodule Google.Container.V1.ControlPlaneEndpointsConfig.DNSEndpointConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :endpoint, 2, type: :string, deprecated: false
+
+  field :allow_external_traffic, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "allowExternalTraffic"
+end
+
+defmodule Google.Container.V1.ControlPlaneEndpointsConfig.IPEndpointsConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
+
+  field :enable_public_endpoint, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enablePublicEndpoint"
+
+  field :global_access, 3, proto3_optional: true, type: :bool, json_name: "globalAccess"
+
+  field :authorized_networks_config, 4,
+    type: Google.Container.V1.MasterAuthorizedNetworksConfig,
+    json_name: "authorizedNetworksConfig"
+
+  field :public_endpoint, 5, type: :string, json_name: "publicEndpoint", deprecated: false
+  field :private_endpoint, 6, type: :string, json_name: "privateEndpoint", deprecated: false
+  field :private_endpoint_subnetwork, 7, type: :string, json_name: "privateEndpointSubnetwork"
+end
+
+defmodule Google.Container.V1.ControlPlaneEndpointsConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :dns_endpoint_config, 1,
+    type: Google.Container.V1.ControlPlaneEndpointsConfig.DNSEndpointConfig,
+    json_name: "dnsEndpointConfig"
+
+  field :ip_endpoints_config, 3,
+    type: Google.Container.V1.ControlPlaneEndpointsConfig.IPEndpointsConfig,
+    json_name: "ipEndpointsConfig"
+end
+
 defmodule Google.Container.V1.LocalNvmeSsdBlockConfig do
   @moduledoc false
 
@@ -3622,6 +3864,14 @@ defmodule Google.Container.V1.EnterpriseConfig do
     json_name: "clusterTier",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Container.V1.SecretManagerConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Container.V1.SecondaryBootDisk do

@@ -135,6 +135,17 @@ defmodule Google.Cloud.Retail.V2alpha.Model.FrequentlyBoughtTogetherFeaturesConf
     deprecated: false
 end
 
+defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig.LlmEmbeddingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :llm_embedding_version, 1,
+    type: :string,
+    json_name: "llmEmbeddingVersion",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig do
   @moduledoc false
 
@@ -146,6 +157,11 @@ defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig do
     type: Google.Cloud.Retail.V2alpha.Model.FrequentlyBoughtTogetherFeaturesConfig,
     json_name: "frequentlyBoughtTogetherConfig",
     oneof: 0
+
+  field :llm_embedding_config, 2,
+    type: Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig.LlmEmbeddingConfig,
+    json_name: "llmEmbeddingConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.Model do

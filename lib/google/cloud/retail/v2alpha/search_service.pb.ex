@@ -60,6 +60,44 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec.Mode do
   field :AUTO, 2
 end
 
+defmodule Google.Cloud.Retail.V2alpha.ProductAttributeValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2alpha.ProductAttributeInterval do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :interval, 2, type: Google.Cloud.Retail.V2alpha.Interval
+end
+
+defmodule Google.Cloud.Retail.V2alpha.Tile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :product_attribute, 0
+
+  field :product_attribute_value, 1,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeValue,
+    json_name: "productAttributeValue",
+    oneof: 0
+
+  field :product_attribute_interval, 2,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeInterval,
+    json_name: "productAttributeInterval",
+    oneof: 0
+
+  field :representative_product_id, 3, type: :string, json_name: "representativeProductId"
+end
+
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.FacetSpec.FacetKey do
   @moduledoc false
 
@@ -158,6 +196,67 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest.SpellCorrectionSpec do
     enum: true
 end
 
+defmodule Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec.UserAnswer.SelectedAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :product_attribute_values, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeValue,
+    json_name: "productAttributeValues",
+    deprecated: true
+
+  field :product_attribute_value, 2,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeValue,
+    json_name: "productAttributeValue"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec.UserAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :type, 0
+
+  field :text_answer, 1, type: :string, json_name: "textAnswer", oneof: 0
+
+  field :selected_answer, 2,
+    type:
+      Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec.UserAnswer.SelectedAnswer,
+    json_name: "selectedAnswer",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :followup_conversation_requested, 1,
+    type: :bool,
+    json_name: "followupConversationRequested"
+
+  field :conversation_id, 2, type: :string, json_name: "conversationId"
+
+  field :user_answer, 3,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec.UserAnswer,
+    json_name: "userAnswer"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchRequest.TileNavigationSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tile_navigation_requested, 1, type: :bool, json_name: "tileNavigationRequested"
+
+  field :applied_tiles, 2,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.Tile,
+    json_name: "appliedTiles"
+end
+
 defmodule Google.Cloud.Retail.V2alpha.SearchRequest.LabelsEntry do
   @moduledoc false
 
@@ -230,6 +329,16 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
     json_name: "spellCorrectionSpec"
 
   field :entity, 38, type: :string
+
+  field :conversational_search_spec, 40,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.ConversationalSearchSpec,
+    json_name: "conversationalSearchSpec",
+    deprecated: false
+
+  field :tile_navigation_spec, 41,
+    type: Google.Cloud.Retail.V2alpha.SearchRequest.TileNavigationSpec,
+    json_name: "tileNavigationSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
@@ -311,6 +420,60 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse.QueryExpansionInfo do
   field :pinned_result_count, 2, type: :int64, json_name: "pinnedResultCount"
 end
 
+defmodule Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult.SuggestedAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :product_attribute_value, 1,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeValue,
+    json_name: "productAttributeValue"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult.AdditionalFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :product_attribute_value, 1,
+    type: Google.Cloud.Retail.V2alpha.ProductAttributeValue,
+    json_name: "productAttributeValue"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :conversation_id, 1, type: :string, json_name: "conversationId"
+  field :refined_query, 2, type: :string, json_name: "refinedQuery"
+
+  field :additional_filters, 3,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult.AdditionalFilter,
+    json_name: "additionalFilters",
+    deprecated: true
+
+  field :followup_question, 4, type: :string, json_name: "followupQuestion"
+
+  field :suggested_answers, 5,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult.SuggestedAnswer,
+    json_name: "suggestedAnswers"
+
+  field :additional_filter, 6,
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult.AdditionalFilter,
+    json_name: "additionalFilter"
+end
+
+defmodule Google.Cloud.Retail.V2alpha.SearchResponse.TileNavigationResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tiles, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.Tile
+end
+
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
   @moduledoc false
 
@@ -339,6 +502,14 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
     repeated: true,
     type: Google.Cloud.Retail.V2alpha.ExperimentInfo,
     json_name: "experimentInfo"
+
+  field :conversational_search_result, 18,
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.ConversationalSearchResult,
+    json_name: "conversationalSearchResult"
+
+  field :tile_navigation_result, 19,
+    type: Google.Cloud.Retail.V2alpha.SearchResponse.TileNavigationResult,
+    json_name: "tileNavigationResult"
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ExperimentInfo.ServingConfigExperiment do

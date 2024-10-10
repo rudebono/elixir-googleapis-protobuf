@@ -86,6 +86,10 @@ defmodule Google.Cloud.Retail.V2alpha.UserEventService.Service do
       Google.Cloud.Retail.V2alpha.ImportUserEventsRequest,
       Google.Longrunning.Operation
 
+  rpc :ExportUserEvents,
+      Google.Cloud.Retail.V2alpha.ExportUserEventsRequest,
+      Google.Longrunning.Operation
+
   rpc :RejoinUserEvents,
       Google.Cloud.Retail.V2alpha.RejoinUserEventsRequest,
       Google.Longrunning.Operation
