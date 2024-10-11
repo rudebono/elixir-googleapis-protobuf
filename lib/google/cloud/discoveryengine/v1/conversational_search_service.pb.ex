@@ -7,6 +7,7 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
+  field :NON_ANSWER_SEEKING_QUERY_V2, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.ConverseConversationRequest.UserLabelsEntry do
@@ -169,6 +170,11 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.AnswerGenerationSpe
     proto3_optional: true,
     type: :bool,
     json_name: "ignoreLowRelevantContent"
+
+  field :ignore_jail_breaking_query, 8,
+    type: :bool,
+    json_name: "ignoreJailBreakingQuery",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchParams do
@@ -248,7 +254,17 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchRe
     repeated: true,
     type:
       Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.ExtractiveAnswer,
-    json_name: "extractiveAnswers"
+    json_name: "extractiveAnswers",
+    deprecated: true
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo.DocumentMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :title, 2, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo do
@@ -258,6 +274,11 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchRe
 
   field :chunk, 1, type: :string, deprecated: false
   field :content, 2, type: :string
+
+  field :document_metadata, 4,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo.DocumentMetadata,
+    json_name: "documentMetadata"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult do
@@ -385,7 +406,7 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest do
     type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec,
     json_name: "queryUnderstandingSpec"
 
-  field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode"
+  field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode", deprecated: true
   field :user_pseudo_id, 12, type: :string, json_name: "userPseudoId"
 
   field :user_labels, 13,

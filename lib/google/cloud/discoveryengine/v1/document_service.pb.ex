@@ -72,6 +72,18 @@ defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.UrisM
   field :uris, 1, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.FhirMatcher do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :fhir_resources, 1,
+    repeated: true,
+    type: :string,
+    json_name: "fhirResources",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.Matcher do
   @moduledoc false
 
@@ -82,6 +94,11 @@ defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.Match
   field :uris_matcher, 1,
     type: Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.UrisMatcher,
     json_name: "urisMatcher",
+    oneof: 0
+
+  field :fhir_matcher, 2,
+    type: Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.FhirMatcher,
+    json_name: "fhirMatcher",
     oneof: 0
 end
 
@@ -105,6 +122,7 @@ defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse.Docu
   oneof :matcher_value, 0
 
   field :uri, 1, type: :string, oneof: 0
+  field :fhir_resource, 2, type: :string, json_name: "fhirResource", oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse.DocumentMetadata do
