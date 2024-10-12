@@ -108,4 +108,6 @@ defmodule Google.Cloud.Discoveryengine.V1.Engine do
   field :common_config, 15,
     type: Google.Cloud.Discoveryengine.V1.Engine.CommonConfig,
     json_name: "commonConfig"
+
+  field :disable_analytics, 26, type: :bool, json_name: "disableAnalytics", deprecated: false
 end

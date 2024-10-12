@@ -22,6 +22,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.AnswerSkippedReason do
   field :NO_RELEVANT_CONTENT, 5
   field :JAIL_BREAKING_QUERY_IGNORED, 6
   field :CUSTOMER_POLICY_VIOLATION, 7
+  field :NON_ANSWER_SEEKING_QUERY_IGNORED_V2, 8
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.State do
@@ -44,6 +45,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.QueryUnderstandingInfo.QueryCla
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
+  field :NON_ANSWER_SEEKING_QUERY_V2, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Citation do

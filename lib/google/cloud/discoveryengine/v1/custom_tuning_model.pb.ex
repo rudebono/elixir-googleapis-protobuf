@@ -47,4 +47,6 @@ defmodule Google.Cloud.Discoveryengine.V1.CustomTuningModel do
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.CustomTuningModel.MetricsEntry,
     map: true
+
+  field :error_message, 8, type: :string, json_name: "errorMessage"
 end

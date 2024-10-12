@@ -193,6 +193,7 @@ defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisRequest do
 
   field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
   field :uris, 2, repeated: true, type: :string, deprecated: false
+  field :site_credential, 5, type: :string, json_name: "siteCredential", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisResponse.FailureInfo.FailureReason do

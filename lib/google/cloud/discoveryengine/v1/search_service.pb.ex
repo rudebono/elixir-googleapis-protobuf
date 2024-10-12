@@ -1,3 +1,22 @@
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
+  field :NUMERICAL, 1
+  field :FRESHNESS, 2
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :INTERPOLATION_TYPE_UNSPECIFIED, 0
+  field :LINEAR, 1
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.QueryExpansionSpec.Condition do
   @moduledoc false
 
@@ -52,6 +71,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummarySkippedR
   field :NO_RELEVANT_CONTENT, 6
   field :JAIL_BREAKING_QUERY_IGNORED, 7
   field :CUSTOMER_POLICY_VIOLATION, 8
+  field :NON_SUMMARY_SEEKING_QUERY_IGNORED_V2, 9
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ImageQuery do
@@ -70,6 +90,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.FacetSpec.FacetKey do
@@ -101,6 +122,41 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.FacetSpec do
   field :enable_dynamic_position, 4, type: :bool, json_name: "enableDynamicPosition"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :attribute_value, 1, type: :string, json_name: "attributeValue"
+  field :boost_amount, 2, type: :float, json_name: "boostAmount"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName"
+
+  field :attribute_type, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType,
+    json_name: "attributeType",
+    enum: true
+
+  field :interpolation_type, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType,
+    json_name: "interpolationType",
+    enum: true
+
+  field :control_points, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint,
+    json_name: "controlPoints"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
@@ -108,6 +164,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoost
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
+
+  field :boost_control_spec, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec,
+    json_name: "boostControlSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec do
@@ -183,6 +244,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ContentSearchSpec.Summar
     json_name: "ignoreNonSummarySeekingQuery"
 
   field :ignore_low_relevant_content, 9, type: :bool, json_name: "ignoreLowRelevantContent"
+
+  field :ignore_jail_breaking_query, 10,
+    type: :bool,
+    json_name: "ignoreJailBreakingQuery",
+    deprecated: false
 
   field :model_prompt_spec, 5,
     type:
@@ -307,6 +373,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest do
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
+  field :one_box_page_size, 47, type: :int32, json_name: "oneBoxPageSize"
 
   field :data_store_specs, 32,
     repeated: true,
