@@ -170,6 +170,18 @@ defmodule Google.Cloud.Bigquery.Storage.V1.CreateWriteStreamRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ArrowData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :writer_schema, 1,
+    type: Google.Cloud.Bigquery.Storage.V1.ArrowSchema,
+    json_name: "writerSchema"
+
+  field :rows, 2, type: Google.Cloud.Bigquery.Storage.V1.ArrowRecordBatch
+end
+
 defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ProtoData do
   @moduledoc false
 
@@ -207,6 +219,11 @@ defmodule Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest do
   field :proto_rows, 4,
     type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ProtoData,
     json_name: "protoRows",
+    oneof: 0
+
+  field :arrow_rows, 5,
+    type: Google.Cloud.Bigquery.Storage.V1.AppendRowsRequest.ArrowData,
+    json_name: "arrowRows",
     oneof: 0
 
   field :trace_id, 6, type: :string, json_name: "traceId"

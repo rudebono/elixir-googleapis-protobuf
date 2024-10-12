@@ -46,6 +46,17 @@ defmodule Google.Datastore.V1.PropertyFilter.Operator do
   field :NOT_IN, 13
 end
 
+defmodule Google.Datastore.V1.FindNearest.DistanceMeasure do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DISTANCE_MEASURE_UNSPECIFIED, 0
+  field :EUCLIDEAN, 1
+  field :COSINE, 2
+  field :DOT_PRODUCT, 3
+end
+
 defmodule Google.Datastore.V1.QueryResultBatch.MoreResultsType do
   @moduledoc false
 
@@ -89,6 +100,11 @@ defmodule Google.Datastore.V1.Query do
   field :end_cursor, 8, type: :bytes, json_name: "endCursor"
   field :offset, 10, type: :int32
   field :limit, 12, type: Google.Protobuf.Int32Value
+
+  field :find_nearest, 13,
+    type: Google.Datastore.V1.FindNearest,
+    json_name: "findNearest",
+    deprecated: false
 end
 
 defmodule Google.Datastore.V1.AggregationQuery.Aggregation.Count do
@@ -211,6 +227,40 @@ defmodule Google.Datastore.V1.PropertyFilter do
   field :property, 1, type: Google.Datastore.V1.PropertyReference
   field :op, 2, type: Google.Datastore.V1.PropertyFilter.Operator, enum: true
   field :value, 3, type: Google.Datastore.V1.Value
+end
+
+defmodule Google.Datastore.V1.FindNearest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :vector_property, 1,
+    type: Google.Datastore.V1.PropertyReference,
+    json_name: "vectorProperty",
+    deprecated: false
+
+  field :query_vector, 2,
+    type: Google.Datastore.V1.Value,
+    json_name: "queryVector",
+    deprecated: false
+
+  field :distance_measure, 3,
+    type: Google.Datastore.V1.FindNearest.DistanceMeasure,
+    json_name: "distanceMeasure",
+    enum: true,
+    deprecated: false
+
+  field :limit, 4, type: Google.Protobuf.Int32Value, deprecated: false
+
+  field :distance_result_property, 5,
+    type: :string,
+    json_name: "distanceResultProperty",
+    deprecated: false
+
+  field :distance_threshold, 6,
+    type: Google.Protobuf.DoubleValue,
+    json_name: "distanceThreshold",
+    deprecated: false
 end
 
 defmodule Google.Datastore.V1.GqlQuery.NamedBindingsEntry do
