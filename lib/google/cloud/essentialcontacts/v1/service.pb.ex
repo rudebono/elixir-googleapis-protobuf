@@ -18,7 +18,8 @@ defmodule Google.Cloud.Essentialcontacts.V1.Contact do
   field :validation_state, 8,
     type: Google.Cloud.Essentialcontacts.V1.ValidationState,
     json_name: "validationState",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :validate_time, 9, type: Google.Protobuf.Timestamp, json_name: "validateTime"
 end
