@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.PersistentResourceRuntimeDetail.TaskResourceUnavailableTimeoutBehavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :TASK_RESOURCE_UNAVAILABLE_TIMEOUT_BEHAVIOR_UNSPECIFIED, 0
+  field :FAIL, 1
+  field :FALL_BACK_TO_ON_DEMAND, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineTaskDetail.State do
   @moduledoc false
 
@@ -23,6 +33,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.InputArtifac
   oneof :kind, 0
 
   field :artifact_id, 1, type: :string, json_name: "artifactId", oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.PersistentResourceRuntimeDetail do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :persistent_resource_name, 1, type: :string, json_name: "persistentResourceName"
+
+  field :task_resource_unavailable_wait_time_ms, 2,
+    type: :int64,
+    json_name: "taskResourceUnavailableWaitTimeMs"
+
+  field :task_resource_unavailable_timeout_behavior, 3,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.PersistentResourceRuntimeDetail.TaskResourceUnavailableTimeoutBehavior,
+    json_name: "taskResourceUnavailableTimeoutBehavior",
+    enum: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.DefaultRuntime do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :runtime_detail, 0
+
+  field :persistent_resource_runtime_detail, 1,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.PersistentResourceRuntimeDetail,
+    json_name: "persistentResourceRuntimeDetail",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.ParametersEntry do
@@ -84,6 +126,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig do
     type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.InputArtifactsEntry,
     json_name: "inputArtifacts",
     map: true
+
+  field :default_runtime, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.PipelineJob.RuntimeConfig.DefaultRuntime,
+    json_name: "defaultRuntime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PipelineJob.LabelsEntry do

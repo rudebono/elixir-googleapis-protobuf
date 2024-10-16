@@ -241,6 +241,7 @@ defmodule Google.Storage.V2.RestoreObjectRequest do
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
+  field :restore_token, 11, type: :string, json_name: "restoreToken", deprecated: false
 
   field :if_generation_match, 4,
     proto3_optional: true,
@@ -362,6 +363,8 @@ defmodule Google.Storage.V2.GetObjectRequest do
     proto3_optional: true,
     type: Google.Protobuf.FieldMask,
     json_name: "readMask"
+
+  field :restore_token, 12, type: :string, json_name: "restoreToken", deprecated: false
 end
 
 defmodule Google.Storage.V2.ReadObjectResponse do
@@ -1188,6 +1191,13 @@ defmodule Google.Storage.V2.Object do
   field :bucket, 2, type: :string, deprecated: false
   field :etag, 27, type: :string
   field :generation, 3, type: :int64, deprecated: false
+
+  field :restore_token, 35,
+    proto3_optional: true,
+    type: :string,
+    json_name: "restoreToken",
+    deprecated: false
+
   field :metageneration, 4, type: :int64, deprecated: false
   field :storage_class, 5, type: :string, json_name: "storageClass"
   field :size, 6, type: :int64, deprecated: false

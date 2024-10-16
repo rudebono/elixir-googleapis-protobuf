@@ -509,6 +509,24 @@ defmodule Google.Cloud.Dataproc.V1.ManagedGroupConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.ProvisioningModelMix do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :standard_capacity_base, 1,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "standardCapacityBase",
+    deprecated: false
+
+  field :standard_capacity_percent_above_base, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "standardCapacityPercentAboveBase",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelection do
   @moduledoc false
 
@@ -542,6 +560,11 @@ defmodule Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
+  field :provisioning_model_mix, 1,
+    type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.ProvisioningModelMix,
+    json_name: "provisioningModelMix",
+    deprecated: false
+
   field :instance_selection_list, 2,
     repeated: true,
     type: Google.Cloud.Dataproc.V1.InstanceFlexibilityPolicy.InstanceSelection,
@@ -573,6 +596,18 @@ defmodule Google.Cloud.Dataproc.V1.DiskConfig do
   field :boot_disk_size_gb, 1, type: :int32, json_name: "bootDiskSizeGb", deprecated: false
   field :num_local_ssds, 2, type: :int32, json_name: "numLocalSsds", deprecated: false
   field :local_ssd_interface, 4, type: :string, json_name: "localSsdInterface", deprecated: false
+
+  field :boot_disk_provisioned_iops, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "bootDiskProvisionedIops",
+    deprecated: false
+
+  field :boot_disk_provisioned_throughput, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "bootDiskProvisionedThroughput",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataproc.V1.AuxiliaryNodeGroup do
