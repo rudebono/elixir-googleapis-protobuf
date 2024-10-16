@@ -28,11 +28,14 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :START_FROM_PRIVATE_NETWORK, 3
   field :START_FROM_GKE_MASTER, 21
   field :START_FROM_CLOUD_SQL_INSTANCE, 22
+  field :START_FROM_REDIS_INSTANCE, 32
+  field :START_FROM_REDIS_CLUSTER, 33
   field :START_FROM_CLOUD_FUNCTION, 23
   field :START_FROM_APP_ENGINE_VERSION, 25
   field :START_FROM_CLOUD_RUN_REVISION, 26
   field :START_FROM_STORAGE_BUCKET, 29
   field :START_FROM_PSC_PUBLISHED_SERVICE, 30
+  field :START_FROM_SERVERLESS_NEG, 31
   field :APPLY_INGRESS_FIREWALL_RULE, 4
   field :APPLY_EGRESS_FIREWALL_RULE, 5
   field :APPLY_ROUTE, 6
@@ -83,6 +86,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
   field :PEERING_STATIC, 5
   field :PEERING_DYNAMIC, 6
   field :POLICY_BASED, 7
+  field :ADVERTISED, 101
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
@@ -194,6 +198,9 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   field :CLOUD_FUNCTION, 12
   field :APP_ENGINE_VERSION, 13
   field :CLOUD_RUN_REVISION, 14
+  field :GOOGLE_MANAGED_SERVICE, 15
+  field :REDIS_INSTANCE, 16
+  field :REDIS_CLUSTER, 17
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
@@ -228,10 +235,12 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :DESTINATION_ENDPOINT_NOT_FOUND, 13
   field :MISMATCHED_DESTINATION_NETWORK, 14
   field :UNKNOWN_IP, 2
+  field :GOOGLE_MANAGED_SERVICE_UNKNOWN_IP, 32
   field :SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK, 23
   field :PERMISSION_DENIED, 4
   field :PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS, 28
   field :PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS, 29
+  field :PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS, 36
   field :NO_SOURCE_LOCATION, 5
   field :INVALID_ARGUMENT, 6
   field :TRACE_TOO_LONG, 9
@@ -246,6 +255,8 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :ROUTE_CONFIG_NOT_FOUND, 27
   field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT, 19
   field :SOURCE_PSC_CLOUD_SQL_UNSUPPORTED, 20
+  field :SOURCE_REDIS_CLUSTER_UNSUPPORTED, 34
+  field :SOURCE_REDIS_INSTANCE_UNSUPPORTED, 35
   field :SOURCE_FORWARDING_RULE_UNSUPPORTED, 21
   field :NON_ROUTABLE_IP_ADDRESS, 22
   field :UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT, 30
@@ -285,6 +296,8 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :INSTANCE_NOT_RUNNING, 14
   field :GKE_CLUSTER_NOT_RUNNING, 27
   field :CLOUD_SQL_INSTANCE_NOT_RUNNING, 28
+  field :REDIS_INSTANCE_NOT_RUNNING, 68
+  field :REDIS_CLUSTER_NOT_RUNNING, 69
   field :TRAFFIC_TYPE_BLOCKED, 15
   field :GKE_MASTER_UNAUTHORIZED_ACCESS, 16
   field :CLOUD_SQL_INSTANCE_UNAUTHORIZED_ACCESS, 17
@@ -300,9 +313,12 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :CLOUD_SQL_INSTANCE_NOT_CONFIGURED_FOR_EXTERNAL_TRAFFIC, 33
   field :PUBLIC_CLOUD_SQL_INSTANCE_TO_PRIVATE_DESTINATION, 34
   field :CLOUD_SQL_INSTANCE_NO_ROUTE, 35
+  field :CLOUD_SQL_CONNECTOR_REQUIRED, 63
   field :CLOUD_FUNCTION_NOT_ACTIVE, 22
   field :VPC_CONNECTOR_NOT_SET, 23
   field :VPC_CONNECTOR_NOT_RUNNING, 24
+  field :VPC_CONNECTOR_SERVERLESS_TRAFFIC_BLOCKED, 60
+  field :VPC_CONNECTOR_HEALTH_CHECK_TRAFFIC_BLOCKED, 61
   field :FORWARDING_RULE_REGION_MISMATCH, 25
   field :PSC_CONNECTION_NOT_ACCEPTED, 26
   field :PSC_ENDPOINT_ACCESSED_FROM_PEERED_NETWORK, 41
@@ -310,6 +326,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :PSC_NEG_PRODUCER_FORWARDING_RULE_MULTIPLE_PORTS, 54
   field :CLOUD_SQL_PSC_NEG_UNSUPPORTED, 58
   field :NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT, 57
+  field :PSC_TRANSITIVITY_NOT_PROPAGATED, 64
   field :HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED, 55
   field :HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED, 56
   field :CLOUD_RUN_REVISION_NOT_READY, 29
@@ -317,6 +334,23 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :LOAD_BALANCER_HAS_NO_PROXY_SUBNET, 39
   field :CLOUD_NAT_NO_ADDRESSES, 40
   field :ROUTING_LOOP, 59
+  field :DROPPED_INSIDE_GOOGLE_MANAGED_SERVICE, 62
+  field :LOAD_BALANCER_BACKEND_INVALID_NETWORK, 65
+  field :BACKEND_SERVICE_NAMED_PORT_NOT_DEFINED, 66
+  field :DESTINATION_IS_PRIVATE_NAT_IP_RANGE, 67
+  field :DROPPED_INSIDE_REDIS_INSTANCE_SERVICE, 70
+  field :REDIS_INSTANCE_UNSUPPORTED_PORT, 71
+  field :REDIS_INSTANCE_CONNECTING_FROM_PUPI_ADDRESS, 72
+  field :REDIS_INSTANCE_NO_ROUTE_TO_DESTINATION_NETWORK, 73
+  field :REDIS_INSTANCE_NO_EXTERNAL_IP, 74
+  field :REDIS_INSTANCE_UNSUPPORTED_PROTOCOL, 78
+  field :DROPPED_INSIDE_REDIS_CLUSTER_SERVICE, 75
+  field :REDIS_CLUSTER_UNSUPPORTED_PORT, 76
+  field :REDIS_CLUSTER_NO_EXTERNAL_IP, 77
+  field :REDIS_CLUSTER_UNSUPPORTED_PROTOCOL, 79
+  field :NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION, 80
+  field :NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION, 81
+  field :NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION, 82
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
@@ -420,6 +454,16 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
     json_name: "cloudSqlInstance",
     oneof: 0
 
+  field :redis_instance, 30,
+    type: Google.Cloud.Networkmanagement.V1.RedisInstanceInfo,
+    json_name: "redisInstance",
+    oneof: 0
+
+  field :redis_cluster, 31,
+    type: Google.Cloud.Networkmanagement.V1.RedisClusterInfo,
+    json_name: "redisCluster",
+    oneof: 0
+
   field :cloud_function, 20,
     type: Google.Cloud.Networkmanagement.V1.CloudFunctionInfo,
     json_name: "cloudFunction",
@@ -451,6 +495,11 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
     type: Google.Cloud.Networkmanagement.V1.StorageBucketInfo,
     json_name: "storageBucket",
     oneof: 0
+
+  field :serverless_neg, 29,
+    type: Google.Cloud.Networkmanagement.V1.ServerlessNegInfo,
+    json_name: "serverlessNeg",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
@@ -466,6 +515,7 @@ defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :network_tags, 7, repeated: true, type: :string, json_name: "networkTags"
   field :service_account, 8, type: :string, json_name: "serviceAccount", deprecated: true
+  field :psc_network_attachment_uri, 9, type: :string, json_name: "pscNetworkAttachmentUri"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
@@ -475,7 +525,9 @@ defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
+  field :matched_subnet_uri, 5, type: :string, json_name: "matchedSubnetUri"
   field :matched_ip_range, 4, type: :string, json_name: "matchedIpRange"
+  field :region, 6, type: :string
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
@@ -497,6 +549,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
     json_name: "targetServiceAccounts"
 
   field :policy, 9, type: :string
+  field :policy_uri, 11, type: :string, json_name: "policyUri"
 
   field :firewall_rule_type, 10,
     type: Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType,
@@ -526,6 +579,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
+  field :region, 19, type: :string
   field :dest_ip_range, 3, type: :string, json_name: "destIpRange"
   field :next_hop, 4, type: :string, json_name: "nextHop"
   field :network_uri, 5, type: :string, json_name: "networkUri"
@@ -537,6 +591,16 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
   field :protocols, 13, repeated: true, type: :string
   field :ncc_hub_uri, 15, proto3_optional: true, type: :string, json_name: "nccHubUri"
   field :ncc_spoke_uri, 16, proto3_optional: true, type: :string, json_name: "nccSpokeUri"
+
+  field :advertised_route_source_router_uri, 17,
+    proto3_optional: true,
+    type: :string,
+    json_name: "advertisedRouteSourceRouterUri"
+
+  field :advertised_route_next_hop_uri, 18,
+    proto3_optional: true,
+    type: :string,
+    json_name: "advertisedRouteNextHopUri"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.GoogleServiceInfo do
@@ -564,6 +628,10 @@ defmodule Google.Cloud.Networkmanagement.V1.ForwardingRuleInfo do
   field :vip, 4, type: :string
   field :target, 5, type: :string
   field :network_uri, 7, type: :string, json_name: "networkUri"
+  field :region, 8, type: :string
+  field :load_balancer_name, 9, type: :string, json_name: "loadBalancerName"
+  field :psc_service_attachment_uri, 10, type: :string, json_name: "pscServiceAttachmentUri"
+  field :psc_google_api_target, 11, type: :string, json_name: "pscGoogleApiTarget"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo do
@@ -667,6 +735,8 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo do
   field :target, 1, type: Google.Cloud.Networkmanagement.V1.DeliverInfo.Target, enum: true
   field :resource_uri, 2, type: :string, json_name: "resourceUri"
   field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
+  field :storage_bucket, 4, type: :string, json_name: "storageBucket"
+  field :psc_google_api_target, 5, type: :string, json_name: "pscGoogleApiTarget"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo do
@@ -728,6 +798,41 @@ defmodule Google.Cloud.Networkmanagement.V1.CloudSQLInstanceInfo do
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
   field :region, 7, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.RedisInstanceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :network_uri, 3, type: :string, json_name: "networkUri"
+  field :primary_endpoint_ip, 4, type: :string, json_name: "primaryEndpointIp"
+  field :read_endpoint_ip, 5, type: :string, json_name: "readEndpointIp"
+  field :region, 6, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.RedisClusterInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :network_uri, 3, type: :string, json_name: "networkUri"
+
+  field :discovery_endpoint_ip_address, 4,
+    type: :string,
+    json_name: "discoveryEndpointIpAddress",
+    deprecated: false
+
+  field :secondary_endpoint_ip_address, 5,
+    type: :string,
+    json_name: "secondaryEndpointIpAddress",
+    deprecated: false
+
+  field :location, 6, type: :string
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.CloudFunctionInfo do
@@ -840,4 +945,12 @@ defmodule Google.Cloud.Networkmanagement.V1.StorageBucketInfo do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :bucket, 1, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ServerlessNegInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :neg_uri, 1, type: :string, json_name: "negUri"
 end
