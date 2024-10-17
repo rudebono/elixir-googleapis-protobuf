@@ -71,6 +71,7 @@ defmodule Google.Privacy.Dlp.V2.BigQueryTableType do
   field :BIG_QUERY_TABLE_TYPE_UNSPECIFIED, 0
   field :BIG_QUERY_TABLE_TYPE_TABLE, 1
   field :BIG_QUERY_TABLE_TYPE_EXTERNAL_BIG_LAKE, 2
+  field :BIG_QUERY_TABLE_TYPE_SNAPSHOT, 3
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileUpdateFrequency do

@@ -239,6 +239,7 @@ defmodule Google.Cloud.Securesourcemanager.V1.ListRepositoriesRequest do
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :filter, 4, type: :string, deprecated: false
+  field :instance, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Securesourcemanager.V1.ListRepositoriesResponse do

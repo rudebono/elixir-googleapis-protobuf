@@ -164,3 +164,22 @@ defmodule Google.Cloud.Backupdr.Logging.V1.MountedImage do
   field :resource_size_in_gib, 23, type: :double, json_name: "resourceSizeInGib"
   field :image_expiration_date, 24, type: :string, json_name: "imageExpirationDate"
 end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.ConnectorVersionReportLog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :appliance_name, 1, type: :string, json_name: "applianceName"
+  field :appliance_id, 2, type: :string, json_name: "applianceId"
+  field :host_name, 3, type: :string, json_name: "hostName"
+  field :host_id, 4, type: :string, json_name: "hostId"
+  field :host_os_type, 5, type: :string, json_name: "hostOsType"
+  field :host_ip_address, 6, type: :string, json_name: "hostIpAddress"
+  field :db_authentication, 7, type: :string, json_name: "dbAuthentication"
+  field :installed_version, 8, type: :string, json_name: "installedVersion"
+  field :available_version, 9, type: :string, json_name: "availableVersion"
+  field :version_check, 10, type: :string, json_name: "versionCheck"
+  field :disk_preference, 11, type: :string, json_name: "diskPreference"
+  field :transport, 12, type: :string
+end
