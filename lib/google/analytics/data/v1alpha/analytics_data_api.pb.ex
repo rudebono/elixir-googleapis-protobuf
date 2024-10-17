@@ -472,6 +472,13 @@ defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportDefinition do
     deprecated: false
 
   field :keep_empty_rows, 13, type: :bool, json_name: "keepEmptyRows", deprecated: false
+
+  field :sampling_level, 14,
+    proto3_optional: true,
+    type: Google.Analytics.Data.V1alpha.SamplingLevel,
+    json_name: "samplingLevel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata do

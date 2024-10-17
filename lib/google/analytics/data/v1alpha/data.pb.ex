@@ -99,6 +99,17 @@ defmodule Google.Analytics.Data.V1alpha.RestrictedMetricType do
   field :REVENUE_DATA, 2
 end
 
+defmodule Google.Analytics.Data.V1alpha.SamplingLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SAMPLING_LEVEL_UNSPECIFIED, 0
+  field :LOW, 1
+  field :MEDIUM, 2
+  field :UNSAMPLED, 3
+end
+
 defmodule Google.Analytics.Data.V1alpha.StringFilter.MatchType do
   @moduledoc false
 
