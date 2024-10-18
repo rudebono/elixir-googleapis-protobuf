@@ -178,6 +178,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
   field :custom_voice, 4,
     type: Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams,
     json_name: "customVoice"
+
+  field :voice_clone, 5,
+    type: Google.Cloud.Texttospeech.V1beta1.VoiceCloneParams,
+    json_name: "voiceClone",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
@@ -215,6 +220,14 @@ defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams do
     json_name: "reportedUsage",
     enum: true,
     deprecated: true
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.VoiceCloneParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :voice_cloning_key, 1, type: :string, json_name: "voiceCloningKey", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
