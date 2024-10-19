@@ -135,6 +135,9 @@ defmodule Google.Cloud.Documentai.V1beta3.DatasetSchema do
     type: Google.Cloud.Documentai.V1beta3.DocumentSchema,
     json_name: "documentSchema",
     deprecated: false
+
+  field :satisfies_pzs, 4, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 5, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchDatasetDocuments.IndividualDocumentIds do
