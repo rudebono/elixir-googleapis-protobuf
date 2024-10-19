@@ -268,6 +268,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig,
     json_name: "routingConfig",
     deprecated: false
+
+  field :audio_timestamp, 20,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "audioTimestamp",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting do
