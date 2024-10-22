@@ -49,6 +49,12 @@ defmodule Google.Cloud.Securesourcemanager.V1.Instance.PrivateConfig do
     type: :string,
     json_name: "sshServiceAttachment",
     deprecated: false
+
+  field :psc_allowed_projects, 6,
+    repeated: true,
+    type: :string,
+    json_name: "pscAllowedProjects",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Securesourcemanager.V1.Instance.LabelsEntry do
@@ -154,6 +160,81 @@ defmodule Google.Cloud.Securesourcemanager.V1.Repository do
   field :initial_config, 10,
     type: Google.Cloud.Securesourcemanager.V1.Repository.InitialConfig,
     json_name: "initialConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.BranchRule.Check do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :context, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.BranchRule.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.BranchRule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :annotations, 5,
+    repeated: true,
+    type: Google.Cloud.Securesourcemanager.V1.BranchRule.AnnotationsEntry,
+    map: true,
+    deprecated: false
+
+  field :etag, 6, type: :string, deprecated: false
+  field :include_pattern, 7, type: :string, json_name: "includePattern", deprecated: false
+  field :disabled, 8, type: :bool, deprecated: false
+  field :require_pull_request, 9, type: :bool, json_name: "requirePullRequest", deprecated: false
+
+  field :minimum_reviews_count, 10,
+    type: :int32,
+    json_name: "minimumReviewsCount",
+    deprecated: false
+
+  field :minimum_approvals_count, 11,
+    type: :int32,
+    json_name: "minimumApprovalsCount",
+    deprecated: false
+
+  field :require_comments_resolved, 12,
+    type: :bool,
+    json_name: "requireCommentsResolved",
+    deprecated: false
+
+  field :allow_stale_reviews, 15, type: :bool, json_name: "allowStaleReviews", deprecated: false
+
+  field :require_linear_history, 13,
+    type: :bool,
+    json_name: "requireLinearHistory",
+    deprecated: false
+
+  field :required_status_checks, 14,
+    repeated: true,
+    type: Google.Cloud.Securesourcemanager.V1.BranchRule.Check,
+    json_name: "requiredStatusChecks",
     deprecated: false
 end
 
@@ -278,6 +359,79 @@ defmodule Google.Cloud.Securesourcemanager.V1.DeleteRepositoryRequest do
   field :allow_missing, 2, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
+defmodule Google.Cloud.Securesourcemanager.V1.GetBranchRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.CreateBranchRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :branch_rule, 2,
+    type: Google.Cloud.Securesourcemanager.V1.BranchRule,
+    json_name: "branchRule",
+    deprecated: false
+
+  field :branch_rule_id, 3, type: :string, json_name: "branchRuleId", deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.ListBranchRulesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.DeleteBranchRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :allow_missing, 2, type: :bool, json_name: "allowMissing", deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.UpdateBranchRuleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :branch_rule, 1,
+    type: Google.Cloud.Securesourcemanager.V1.BranchRule,
+    json_name: "branchRule",
+    deprecated: false
+
+  field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
+
+  field :update_mask, 3,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securesourcemanager.V1.ListBranchRulesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :branch_rules, 1,
+    repeated: true,
+    type: Google.Cloud.Securesourcemanager.V1.BranchRule,
+    json_name: "branchRules"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Securesourcemanager.V1.SecureSourceManager.Service do
   @moduledoc false
 
@@ -324,6 +478,26 @@ defmodule Google.Cloud.Securesourcemanager.V1.SecureSourceManager.Service do
   rpc :TestIamPermissionsRepo,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :CreateBranchRule,
+      Google.Cloud.Securesourcemanager.V1.CreateBranchRuleRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListBranchRules,
+      Google.Cloud.Securesourcemanager.V1.ListBranchRulesRequest,
+      Google.Cloud.Securesourcemanager.V1.ListBranchRulesResponse
+
+  rpc :GetBranchRule,
+      Google.Cloud.Securesourcemanager.V1.GetBranchRuleRequest,
+      Google.Cloud.Securesourcemanager.V1.BranchRule
+
+  rpc :UpdateBranchRule,
+      Google.Cloud.Securesourcemanager.V1.UpdateBranchRuleRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteBranchRule,
+      Google.Cloud.Securesourcemanager.V1.DeleteBranchRuleRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Securesourcemanager.V1.SecureSourceManager.Stub do
