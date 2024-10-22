@@ -444,6 +444,7 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext do
 
   field :uri, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
+  field :text, 3, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
