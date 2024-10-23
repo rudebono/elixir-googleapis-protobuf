@@ -21,6 +21,17 @@ defmodule Google.Cloud.Alloydb.V1.InjectFaultRequest.FaultType do
   field :STOP_VM, 1
 end
 
+defmodule Google.Cloud.Alloydb.V1.ExecuteSqlMetadata.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATUS_UNSPECIFIED, 0
+  field :OK, 1
+  field :PARTIAL, 2
+  field :ERROR, 3
+end
+
 defmodule Google.Cloud.Alloydb.V1.ListClustersRequest do
   @moduledoc false
 
@@ -102,6 +113,16 @@ defmodule Google.Cloud.Alloydb.V1.DeleteClusterRequest do
   field :etag, 3, type: :string, deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
   field :force, 5, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.SwitchoverClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.PromoteClusterRequest do
@@ -319,6 +340,49 @@ defmodule Google.Cloud.Alloydb.V1.RestartInstanceRequest do
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
+  field :node_ids, 4, repeated: true, type: :string, json_name: "nodeIds", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExecuteSqlRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :user_credential, 0
+
+  field :password, 5, type: :string, oneof: 0, deprecated: false
+  field :instance, 1, type: :string, deprecated: false
+  field :database, 2, type: :string, deprecated: false
+  field :user, 3, type: :string, deprecated: false
+  field :sql_statement, 4, type: :string, json_name: "sqlStatement", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExecuteSqlResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :sql_results, 1,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.SqlResult,
+    json_name: "sqlResults"
+
+  field :metadata, 3, type: Google.Cloud.Alloydb.V1.ExecuteSqlMetadata
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExecuteSqlMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :message, 1, type: :string
+  field :partial_result, 2, type: :bool, json_name: "partialResult"
+
+  field :sql_statement_execution_duration, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "sqlStatementExecutionDuration"
+
+  field :status, 4, type: Google.Cloud.Alloydb.V1.ExecuteSqlMetadata.Status, enum: true
 end
 
 defmodule Google.Cloud.Alloydb.V1.ListBackupsRequest do
@@ -556,6 +620,26 @@ defmodule Google.Cloud.Alloydb.V1.DeleteUserRequest do
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.ListDatabasesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ListDatabasesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :databases, 1, repeated: true, type: Google.Cloud.Alloydb.V1.Database
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   @moduledoc false
 
@@ -576,6 +660,10 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :DeleteCluster, Google.Cloud.Alloydb.V1.DeleteClusterRequest, Google.Longrunning.Operation
 
   rpc :PromoteCluster, Google.Cloud.Alloydb.V1.PromoteClusterRequest, Google.Longrunning.Operation
+
+  rpc :SwitchoverCluster,
+      Google.Cloud.Alloydb.V1.SwitchoverClusterRequest,
+      Google.Longrunning.Operation
 
   rpc :RestoreCluster, Google.Cloud.Alloydb.V1.RestoreClusterRequest, Google.Longrunning.Operation
 
@@ -613,6 +701,10 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
       Google.Cloud.Alloydb.V1.RestartInstanceRequest,
       Google.Longrunning.Operation
 
+  rpc :ExecuteSql,
+      Google.Cloud.Alloydb.V1.ExecuteSqlRequest,
+      Google.Cloud.Alloydb.V1.ExecuteSqlResponse
+
   rpc :ListBackups,
       Google.Cloud.Alloydb.V1.ListBackupsRequest,
       Google.Cloud.Alloydb.V1.ListBackupsResponse
@@ -648,6 +740,10 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :UpdateUser, Google.Cloud.Alloydb.V1.UpdateUserRequest, Google.Cloud.Alloydb.V1.User
 
   rpc :DeleteUser, Google.Cloud.Alloydb.V1.DeleteUserRequest, Google.Protobuf.Empty
+
+  rpc :ListDatabases,
+      Google.Cloud.Alloydb.V1.ListDatabasesRequest,
+      Google.Cloud.Alloydb.V1.ListDatabasesResponse
 end
 
 defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Stub do

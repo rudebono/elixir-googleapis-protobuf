@@ -1,3 +1,13 @@
+defmodule Google.Shopping.Css.V1.SubscriptionPeriod do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SUBSCRIPTION_PERIOD_UNSPECIFIED, 0
+  field :MONTH, 1
+  field :YEAR, 2
+end
+
 defmodule Google.Shopping.Css.V1.Attributes do
   @moduledoc false
 
@@ -106,6 +116,14 @@ defmodule Google.Shopping.Css.V1.Attributes do
   field :custom_label_2, 48, proto3_optional: true, type: :string, json_name: "customLabel2"
   field :custom_label_3, 49, proto3_optional: true, type: :string, json_name: "customLabel3"
   field :custom_label_4, 50, proto3_optional: true, type: :string, json_name: "customLabel4"
+
+  field :headline_offer_installment, 51,
+    type: Google.Shopping.Css.V1.HeadlineOfferInstallment,
+    json_name: "headlineOfferInstallment"
+
+  field :headline_offer_subscription_cost, 52,
+    type: Google.Shopping.Css.V1.HeadlineOfferSubscriptionCost,
+    json_name: "headlineOfferSubscriptionCost"
 end
 
 defmodule Google.Shopping.Css.V1.Certification do
@@ -198,4 +216,24 @@ defmodule Google.Shopping.Css.V1.CssProductStatus do
   field :google_expiration_date, 7,
     type: Google.Protobuf.Timestamp,
     json_name: "googleExpirationDate"
+end
+
+defmodule Google.Shopping.Css.V1.HeadlineOfferSubscriptionCost do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :period, 1, type: Google.Shopping.Css.V1.SubscriptionPeriod, enum: true
+  field :period_length, 2, type: :int64, json_name: "periodLength"
+  field :amount, 3, type: Google.Shopping.Type.Price
+end
+
+defmodule Google.Shopping.Css.V1.HeadlineOfferInstallment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :months, 1, type: :int64
+  field :amount, 2, type: Google.Shopping.Type.Price
+  field :downpayment, 3, type: Google.Shopping.Type.Price
 end
