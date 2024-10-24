@@ -88,7 +88,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :dataset_info, 1,
     type: Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo,

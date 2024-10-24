@@ -50,6 +50,16 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.Edition do
   field :ENTERPRISE_PLUS, 3
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.Instance.DefaultBackupScheduleType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DEFAULT_BACKUP_SCHEDULE_TYPE_UNSPECIFIED, 0
+  field :NONE, 1
+  field :AUTOMATIC, 2
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.InstancePartition.State do
   @moduledoc false
 
@@ -274,6 +284,12 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
 
   field :edition, 20,
     type: Google.Spanner.Admin.Instance.V1.Instance.Edition,
+    enum: true,
+    deprecated: false
+
+  field :default_backup_schedule_type, 23,
+    type: Google.Spanner.Admin.Instance.V1.Instance.DefaultBackupScheduleType,
+    json_name: "defaultBackupScheduleType",
     enum: true,
     deprecated: false
 end
