@@ -30,6 +30,10 @@ defmodule Google.Api.CommonLanguageSettings do
 
   field :reference_docs_uri, 1, type: :string, json_name: "referenceDocsUri", deprecated: true
   field :destinations, 2, repeated: true, type: Google.Api.ClientLibraryDestination, enum: true
+
+  field :selective_gapic_generation, 3,
+    type: Google.Api.SelectiveGapicGeneration,
+    json_name: "selectiveGapicGeneration"
 end
 
 defmodule Google.Api.ClientLibrarySettings do
@@ -241,4 +245,12 @@ defmodule Google.Api.MethodSettings do
   field :selector, 1, type: :string
   field :long_running, 2, type: Google.Api.MethodSettings.LongRunning, json_name: "longRunning"
   field :auto_populated_fields, 3, repeated: true, type: :string, json_name: "autoPopulatedFields"
+end
+
+defmodule Google.Api.SelectiveGapicGeneration do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :methods, 1, repeated: true, type: :string
 end

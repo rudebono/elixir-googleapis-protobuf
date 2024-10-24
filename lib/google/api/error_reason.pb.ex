@@ -34,4 +34,6 @@ defmodule Google.Api.ErrorReason do
   field :SERVICE_NOT_VISIBLE, 29
   field :GCP_SUSPENDED, 30
   field :LOCATION_POLICY_VIOLATED, 31
+  field :MISSING_ORIGIN, 33
+  field :OVERLOADED_CREDENTIALS, 34
 end

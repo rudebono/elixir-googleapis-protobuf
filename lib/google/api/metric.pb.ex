@@ -23,6 +23,17 @@ defmodule Google.Api.MetricDescriptor.ValueType do
   field :MONEY, 6
 end
 
+defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata.TimeSeriesResourceHierarchyLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :TIME_SERIES_RESOURCE_HIERARCHY_LEVEL_UNSPECIFIED, 0
+  field :PROJECT, 1
+  field :ORGANIZATION, 2
+  field :FOLDER, 3
+end
+
 defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata do
   @moduledoc false
 
@@ -36,6 +47,12 @@ defmodule Google.Api.MetricDescriptor.MetricDescriptorMetadata do
 
   field :sample_period, 2, type: Google.Protobuf.Duration, json_name: "samplePeriod"
   field :ingest_delay, 3, type: Google.Protobuf.Duration, json_name: "ingestDelay"
+
+  field :time_series_resource_hierarchy_level, 4,
+    repeated: true,
+    type: Google.Api.MetricDescriptor.MetricDescriptorMetadata.TimeSeriesResourceHierarchyLevel,
+    json_name: "timeSeriesResourceHierarchyLevel",
+    enum: true
 end
 
 defmodule Google.Api.MetricDescriptor do

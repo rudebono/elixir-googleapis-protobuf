@@ -23,8 +23,15 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :ID_E_TOLL, 16
   field :IN_FASTAG, 78
   field :IN_LOCAL_HP_PLATE_EXEMPT, 79
+  field :JP_ETC, 98
+  field :JP_ETC2, 99
+  field :MX_IAVE, 90
+  field :MX_PASE, 91
+  field :MX_QUICKPASS, 93
+  field :MX_SISTEMA_TELEPEAJE_CHIHUAHUA, 89
   field :MX_TAG_IAVE, 12
   field :MX_TAG_TELEVIA, 13
+  field :MX_TELEVIA, 92
   field :MX_VIAPASS, 14
   field :US_AL_FREEDOM_PASS, 21
   field :US_AK_ANTON_ANDERSON_TUNNEL_BOOK_OF_10_TICKETS, 22
@@ -54,8 +61,10 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :US_MD_EZPASSMD, 34
   field :US_ME_EZPASSME, 35
   field :US_MI_AMBASSADOR_BRIDGE_PREMIER_COMMUTER_CARD, 36
+  field :US_MI_BCPASS, 94
   field :US_MI_GROSSE_ILE_TOLL_BRIDGE_PASS_TAG, 37
   field :US_MI_IQ_PROX_CARD, 38
+  field :US_MI_IQ_TAG, 95
   field :US_MI_MACKINAC_BRIDGE_MAC_PASS, 39
   field :US_MI_NEXPRESS_TOLL, 40
   field :US_MN_EZPASSMN, 41
@@ -71,6 +80,7 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :US_PA_EZPASSPA, 45
   field :US_RI_EZPASSRI, 46
   field :US_SC_PALPASS, 47
+  field :US_TX_AVI_TAG, 97
   field :US_TX_BANCPASS, 48
   field :US_TX_DEL_RIO_PASS, 49
   field :US_TX_EFAST_PASS, 50
@@ -78,6 +88,7 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :US_TX_EPTOLL, 52
   field :US_TX_EZ_CROSS, 53
   field :US_TX_EZTAG, 54
+  field :US_TX_FUEGO_TAG, 96
   field :US_TX_LAREDO_TRADE_TAG, 55
   field :US_TX_PLUSPASS, 56
   field :US_TX_TOLLTAG, 57
@@ -89,5 +100,6 @@ defmodule Google.Maps.Routes.V1.TollPass do
   field :US_WA_GOOD_TO_GO, 1
   field :US_WV_EZPASSWV, 62
   field :US_WV_MEMORIAL_BRIDGE_TICKETS, 63
+  field :US_WV_MOV_PASS, 100
   field :US_WV_NEWELL_TOLL_BRIDGE_TICKET, 64
 end
