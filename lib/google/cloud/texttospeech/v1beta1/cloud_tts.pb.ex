@@ -146,6 +146,26 @@ defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciations do
     type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams
 end
 
+defmodule Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup.Turn do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :speaker, 1, type: :string, deprecated: false
+  field :text, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :turns, 1,
+    repeated: true,
+    type: Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup.Turn,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
   @moduledoc false
 
@@ -155,6 +175,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
 
   field :text, 1, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
+
+  field :multi_speaker_markup, 4,
+    type: Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup,
+    json_name: "multiSpeakerMarkup",
+    oneof: 0
 
   field :custom_pronunciations, 3,
     type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciations,

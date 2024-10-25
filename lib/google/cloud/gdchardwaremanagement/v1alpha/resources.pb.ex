@@ -78,6 +78,17 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress.AddressType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ADDRESS_TYPE_UNSPECIFIED, 0
+  field :NIC, 1
+  field :BMC, 2
+  field :VIRTUAL, 3
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku.Type do
   @moduledoc false
 
@@ -347,6 +358,54 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup do
     deprecated: false
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :address, 1, type: :string, deprecated: false
+
+  field :type, 2,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress.AddressType,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.DiskInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :manufacturer, 1, type: :string, deprecated: false
+  field :slot, 2, type: :int32, deprecated: false
+  field :serial_number, 3, type: :string, json_name: "serialNumber", deprecated: false
+  field :psid, 4, type: :string, deprecated: false
+  field :part_number, 5, type: :string, json_name: "partNumber", deprecated: false
+  field :model_number, 6, type: :string, json_name: "modelNumber", deprecated: false
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MachineInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :service_tag, 1, type: :string, json_name: "serviceTag", deprecated: false
+
+  field :mac_addresses, 2,
+    repeated: true,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress,
+    json_name: "macAddresses",
+    deprecated: false
+
+  field :name, 3, type: :string, deprecated: false
+
+  field :disk_infos, 4,
+    repeated: true,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.DiskInfo,
+    json_name: "diskInfos",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.LabelsEntry do
   @moduledoc false
 
@@ -420,6 +479,12 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware do
   field :actual_installation_date, 17,
     type: Google.Type.Date,
     json_name: "actualInstallationDate",
+    deprecated: false
+
+  field :machine_infos, 20,
+    repeated: true,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MachineInfo,
+    json_name: "machineInfos",
     deprecated: false
 end
 

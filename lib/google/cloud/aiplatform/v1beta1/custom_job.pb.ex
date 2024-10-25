@@ -105,6 +105,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CustomJobSpec do
     json_name: "reservedIpRanges",
     deprecated: false
 
+  field :psc_interface_config, 21,
+    type: Google.Cloud.Aiplatform.V1beta1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
   field :base_output_directory, 6,
     type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
     json_name: "baseOutputDirectory"
