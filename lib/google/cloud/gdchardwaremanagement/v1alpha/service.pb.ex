@@ -163,6 +163,15 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateSiteRequest do
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteSiteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListHardwareGroupsRequest do
   @moduledoc false
 
@@ -569,6 +578,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
 
   rpc :UpdateSite,
       Google.Cloud.Gdchardwaremanagement.V1alpha.UpdateSiteRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteSite,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.DeleteSiteRequest,
       Google.Longrunning.Operation
 
   rpc :ListHardwareGroups,
