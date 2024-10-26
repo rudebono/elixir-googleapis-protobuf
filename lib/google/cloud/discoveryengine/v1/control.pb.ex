@@ -30,6 +30,8 @@ defmodule Google.Cloud.Discoveryengine.V1.Condition do
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.Condition.TimeRange,
     json_name: "activeTimeRange"
+
+  field :query_regex, 4, type: :string, json_name: "queryRegex", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction do

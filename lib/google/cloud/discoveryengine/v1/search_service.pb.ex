@@ -625,6 +625,10 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchService.Service do
   rpc :Search,
       Google.Cloud.Discoveryengine.V1.SearchRequest,
       Google.Cloud.Discoveryengine.V1.SearchResponse
+
+  rpc :SearchLite,
+      Google.Cloud.Discoveryengine.V1.SearchRequest,
+      Google.Cloud.Discoveryengine.V1.SearchResponse
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchService.Stub do
