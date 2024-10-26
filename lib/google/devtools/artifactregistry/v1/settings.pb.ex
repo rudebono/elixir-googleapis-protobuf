@@ -7,6 +7,8 @@ defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState d
   field :REDIRECTION_FROM_GCR_IO_DISABLED, 1
   field :REDIRECTION_FROM_GCR_IO_ENABLED, 2
   field :REDIRECTION_FROM_GCR_IO_FINALIZED, 3
+  field :REDIRECTION_FROM_GCR_IO_ENABLED_AND_COPYING, 5
+  field :REDIRECTION_FROM_GCR_IO_PARTIAL_AND_COPYING, 6
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
@@ -20,6 +22,8 @@ defmodule Google.Devtools.Artifactregistry.V1.ProjectSettings do
     type: Google.Devtools.Artifactregistry.V1.ProjectSettings.RedirectionState,
     json_name: "legacyRedirectionState",
     enum: true
+
+  field :pull_percent, 3, type: :int32, json_name: "pullPercent"
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.GetProjectSettingsRequest do

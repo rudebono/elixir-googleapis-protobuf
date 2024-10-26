@@ -63,6 +63,7 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptReposito
   field :REPOSITORY_BASE_UNSPECIFIED, 0
   field :DEBIAN, 1
   field :UBUNTU, 2
+  field :DEBIAN_SNAPSHOT, 3
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.PublicRepository.RepositoryBase do
@@ -93,6 +94,7 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.Format do
   field :PYTHON, 8
   field :KFP, 9
   field :GO, 10
+  field :GENERIC, 11
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.Repository.Mode do
@@ -114,6 +116,27 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.MavenRepositoryConfig.V
   field :VERSION_POLICY_UNSPECIFIED, 0
   field :RELEASE, 1
   field :SNAPSHOT, 2
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig.EnablementConfig do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ENABLEMENT_CONFIG_UNSPECIFIED, 0
+  field :INHERITED, 1
+  field :DISABLED, 2
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig.EnablementState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ENABLEMENT_STATE_UNSPECIFIED, 0
+  field :SCANNING_UNSUPPORTED, 1
+  field :SCANNING_DISABLED, 2
+  field :SCANNING_ACTIVE, 3
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.UpstreamPolicy do
@@ -217,6 +240,14 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.UpstreamCre
     oneof: 0
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepository do
   @moduledoc false
 
@@ -230,6 +261,20 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepos
     json_name: "publicRepository",
     enum: true,
     oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.DockerRepository.CustomRepository,
+    json_name: "customRepository",
+    oneof: 0
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenRepository do
@@ -245,6 +290,20 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenReposi
     json_name: "publicRepository",
     enum: true,
     oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.MavenRepository.CustomRepository,
+    json_name: "customRepository",
+    oneof: 0
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmRepository do
@@ -260,6 +319,20 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmReposito
     json_name: "publicRepository",
     enum: true,
     oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.NpmRepository.CustomRepository,
+    json_name: "customRepository",
+    oneof: 0
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository do
@@ -274,6 +347,12 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepos
       Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository.PublicRepository,
     json_name: "publicRepository",
     enum: true,
+    oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.PythonRepository.CustomRepository,
+    json_name: "customRepository",
     oneof: 0
 end
 
@@ -291,6 +370,14 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptReposito
   field :repository_path, 2, type: :string, json_name: "repositoryPath"
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository do
   @moduledoc false
 
@@ -302,6 +389,12 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptReposito
     type:
       Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository.PublicRepository,
     json_name: "publicRepository",
+    oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.AptRepository.CustomRepository,
+    json_name: "customRepository",
     oneof: 0
 end
 
@@ -319,6 +412,14 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumReposito
   field :repository_path, 2, type: :string, json_name: "repositoryPath"
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.CustomRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository do
   @moduledoc false
 
@@ -331,6 +432,20 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumReposito
       Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.PublicRepository,
     json_name: "publicRepository",
     oneof: 0
+
+  field :custom_repository, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.YumRepository.CustomRepository,
+    json_name: "customRepository",
+    oneof: 0
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.CommonRemoteRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig do
@@ -370,11 +485,21 @@ defmodule Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig do
     json_name: "yumRepository",
     oneof: 0
 
+  field :common_repository, 14,
+    type: Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.CommonRemoteRepository,
+    json_name: "commonRepository",
+    oneof: 0
+
   field :description, 1, type: :string
 
   field :upstream_credentials, 9,
     type: Google.Devtools.Artifactregistry.V1.RemoteRepositoryConfig.UpstreamCredentials,
     json_name: "upstreamCredentials",
+    deprecated: false
+
+  field :disable_upstream_validation, 12,
+    type: :bool,
+    json_name: "disableUpstreamValidation",
     deprecated: false
 end
 
@@ -397,6 +522,36 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository.DockerRepositoryConfig 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :immutable_tags, 1, type: :bool, json_name: "immutableTags"
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enablement_config, 1,
+    type:
+      Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig.EnablementConfig,
+    json_name: "enablementConfig",
+    enum: true,
+    deprecated: false
+
+  field :last_enable_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastEnableTime",
+    deprecated: false
+
+  field :enablement_state, 3,
+    type:
+      Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig.EnablementState,
+    json_name: "enablementState",
+    enum: true,
+    deprecated: false
+
+  field :enablement_state_reason, 4,
+    type: :string,
+    json_name: "enablementStateReason",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.Repository.LabelsEntry do
@@ -491,6 +646,18 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository do
     type: :bool,
     json_name: "cleanupPolicyDryRun",
     deprecated: false
+
+  field :vulnerability_scanning_config, 19,
+    type: Google.Devtools.Artifactregistry.V1.Repository.VulnerabilityScanningConfig,
+    json_name: "vulnerabilityScanningConfig",
+    deprecated: false
+
+  field :disallow_unspecified_mode, 21,
+    type: :bool,
+    json_name: "disallowUnspecifiedMode",
+    deprecated: false
+
+  field :satisfies_pzi, 22, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
@@ -501,6 +668,8 @@ defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesResponse do

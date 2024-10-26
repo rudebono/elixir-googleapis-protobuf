@@ -23,6 +23,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.AnswerSkippedReason do
   field :JAIL_BREAKING_QUERY_IGNORED, 6
   field :CUSTOMER_POLICY_VIOLATION, 7
   field :NON_ANSWER_SEEKING_QUERY_IGNORED_V2, 8
+  field :LOW_GROUNDED_ANSWER, 9
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.State do

@@ -8,6 +8,15 @@ defmodule Google.Devtools.Artifactregistry.V1.VersionView do
   field :FULL, 2
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.Version.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.Version do
   @moduledoc false
 
@@ -24,6 +33,12 @@ defmodule Google.Devtools.Artifactregistry.V1.Version do
     json_name: "relatedTags"
 
   field :metadata, 8, type: Google.Protobuf.Struct, deprecated: false
+
+  field :annotations, 9,
+    repeated: true,
+    type: Google.Devtools.Artifactregistry.V1.Version.AnnotationsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListVersionsRequest do
@@ -36,6 +51,7 @@ defmodule Google.Devtools.Artifactregistry.V1.ListVersionsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :view, 4, type: Google.Devtools.Artifactregistry.V1.VersionView, enum: true
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 6, type: :string, deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListVersionsResponse do
@@ -81,4 +97,13 @@ defmodule Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsMetadata do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :failed_versions, 2, repeated: true, type: :string, json_name: "failedVersions"
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.UpdateVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :version, 1, type: Google.Devtools.Artifactregistry.V1.Version, deprecated: false
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end

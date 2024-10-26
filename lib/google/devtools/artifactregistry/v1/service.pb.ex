@@ -99,12 +99,24 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
       Google.Devtools.Artifactregistry.V1.BatchDeleteVersionsRequest,
       Google.Longrunning.Operation
 
+  rpc :UpdateVersion,
+      Google.Devtools.Artifactregistry.V1.UpdateVersionRequest,
+      Google.Devtools.Artifactregistry.V1.Version
+
   rpc :ListFiles,
       Google.Devtools.Artifactregistry.V1.ListFilesRequest,
       Google.Devtools.Artifactregistry.V1.ListFilesResponse
 
   rpc :GetFile,
       Google.Devtools.Artifactregistry.V1.GetFileRequest,
+      Google.Devtools.Artifactregistry.V1.File
+
+  rpc :DeleteFile,
+      Google.Devtools.Artifactregistry.V1.DeleteFileRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateFile,
+      Google.Devtools.Artifactregistry.V1.UpdateFileRequest,
       Google.Devtools.Artifactregistry.V1.File
 
   rpc :ListTags,
@@ -124,6 +136,24 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
       Google.Devtools.Artifactregistry.V1.Tag
 
   rpc :DeleteTag, Google.Devtools.Artifactregistry.V1.DeleteTagRequest, Google.Protobuf.Empty
+
+  rpc :CreateRule,
+      Google.Devtools.Artifactregistry.V1.CreateRuleRequest,
+      Google.Devtools.Artifactregistry.V1.Rule
+
+  rpc :ListRules,
+      Google.Devtools.Artifactregistry.V1.ListRulesRequest,
+      Google.Devtools.Artifactregistry.V1.ListRulesResponse
+
+  rpc :GetRule,
+      Google.Devtools.Artifactregistry.V1.GetRuleRequest,
+      Google.Devtools.Artifactregistry.V1.Rule
+
+  rpc :UpdateRule,
+      Google.Devtools.Artifactregistry.V1.UpdateRuleRequest,
+      Google.Devtools.Artifactregistry.V1.Rule
+
+  rpc :DeleteRule, Google.Devtools.Artifactregistry.V1.DeleteRuleRequest, Google.Protobuf.Empty
 
   rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 
@@ -148,6 +178,26 @@ defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Service do
   rpc :UpdateVPCSCConfig,
       Google.Devtools.Artifactregistry.V1.UpdateVPCSCConfigRequest,
       Google.Devtools.Artifactregistry.V1.VPCSCConfig
+
+  rpc :UpdatePackage,
+      Google.Devtools.Artifactregistry.V1.UpdatePackageRequest,
+      Google.Devtools.Artifactregistry.V1.Package
+
+  rpc :ListAttachments,
+      Google.Devtools.Artifactregistry.V1.ListAttachmentsRequest,
+      Google.Devtools.Artifactregistry.V1.ListAttachmentsResponse
+
+  rpc :GetAttachment,
+      Google.Devtools.Artifactregistry.V1.GetAttachmentRequest,
+      Google.Devtools.Artifactregistry.V1.Attachment
+
+  rpc :CreateAttachment,
+      Google.Devtools.Artifactregistry.V1.CreateAttachmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAttachment,
+      Google.Devtools.Artifactregistry.V1.DeleteAttachmentRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ArtifactRegistry.Stub do

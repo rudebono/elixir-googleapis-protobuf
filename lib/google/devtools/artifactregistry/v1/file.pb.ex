@@ -17,6 +17,15 @@ defmodule Google.Devtools.Artifactregistry.V1.Hash do
   field :value, 2, type: :bytes
 end
 
+defmodule Google.Devtools.Artifactregistry.V1.File.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Devtools.Artifactregistry.V1.File do
   @moduledoc false
 
@@ -38,6 +47,12 @@ defmodule Google.Devtools.Artifactregistry.V1.File do
 
   field :owner, 7, type: :string
   field :fetch_time, 8, type: Google.Protobuf.Timestamp, json_name: "fetchTime", deprecated: false
+
+  field :annotations, 9,
+    repeated: true,
+    type: Google.Devtools.Artifactregistry.V1.File.AnnotationsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListFilesRequest do
@@ -67,4 +82,25 @@ defmodule Google.Devtools.Artifactregistry.V1.GetFileRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.DeleteFileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Devtools.Artifactregistry.V1.UpdateFileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :file, 1, type: Google.Devtools.Artifactregistry.V1.File, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
