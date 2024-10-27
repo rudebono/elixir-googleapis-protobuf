@@ -1397,6 +1397,21 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
     deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.PrivateServiceConnect do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :network_attachment, 1, type: :string, json_name: "networkAttachment", deprecated: false
+
+  field :public_ip_address_disabled, 2,
+    type: :bool,
+    json_name: "publicIpAddressDisabled",
+    deprecated: false
+
+  field :route_all_traffic, 3, type: :bool, json_name: "routeAllTraffic", deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
   @moduledoc false
 
@@ -1409,6 +1424,11 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config do
   field :network_config, 2,
     type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig,
     json_name: "networkConfig"
+
+  field :private_service_connect, 5,
+    type: Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.PrivateServiceConnect,
+    json_name: "privateServiceConnect",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.CreateWorkerPoolRequest do
