@@ -229,6 +229,322 @@ defmodule Google.Cloud.Eventarc.V1.GetGoogleChannelConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Eventarc.V1.GetMessageBusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListMessageBusesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListMessageBusesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :message_buses, 1,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.MessageBus,
+    json_name: "messageBuses"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListMessageBusEnrollmentsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListMessageBusEnrollmentsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enrollments, 1, repeated: true, type: :string
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Eventarc.V1.CreateMessageBusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :message_bus, 2,
+    type: Google.Cloud.Eventarc.V1.MessageBus,
+    json_name: "messageBus",
+    deprecated: false
+
+  field :message_bus_id, 3, type: :string, json_name: "messageBusId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.UpdateMessageBusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :message_bus, 1,
+    type: Google.Cloud.Eventarc.V1.MessageBus,
+    json_name: "messageBus",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.DeleteMessageBusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.GetEnrollmentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListEnrollmentsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListEnrollmentsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enrollments, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Enrollment
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Eventarc.V1.CreateEnrollmentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :enrollment, 2, type: Google.Cloud.Eventarc.V1.Enrollment, deprecated: false
+  field :enrollment_id, 3, type: :string, json_name: "enrollmentId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.UpdateEnrollmentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enrollment, 1, type: Google.Cloud.Eventarc.V1.Enrollment, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.DeleteEnrollmentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.GetPipelineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListPipelinesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListPipelinesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :pipelines, 1, repeated: true, type: Google.Cloud.Eventarc.V1.Pipeline
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Eventarc.V1.CreatePipelineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :pipeline, 2, type: Google.Cloud.Eventarc.V1.Pipeline, deprecated: false
+  field :pipeline_id, 3, type: :string, json_name: "pipelineId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.UpdatePipelineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :pipeline, 1, type: Google.Cloud.Eventarc.V1.Pipeline, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.DeletePipelineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.GetGoogleApiSourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListGoogleApiSourcesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.ListGoogleApiSourcesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :google_api_sources, 1,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.GoogleApiSource,
+    json_name: "googleApiSources"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Eventarc.V1.CreateGoogleApiSourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :google_api_source, 2,
+    type: Google.Cloud.Eventarc.V1.GoogleApiSource,
+    json_name: "googleApiSource",
+    deprecated: false
+
+  field :google_api_source_id, 3, type: :string, json_name: "googleApiSourceId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.UpdateGoogleApiSourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :google_api_source, 1,
+    type: Google.Cloud.Eventarc.V1.GoogleApiSource,
+    json_name: "googleApiSource",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.DeleteGoogleApiSourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+  field :allow_missing, 3, type: :bool, json_name: "allowMissing", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
 defmodule Google.Cloud.Eventarc.V1.OperationMetadata do
   @moduledoc false
 
@@ -310,6 +626,88 @@ defmodule Google.Cloud.Eventarc.V1.Eventarc.Service do
   rpc :UpdateGoogleChannelConfig,
       Google.Cloud.Eventarc.V1.UpdateGoogleChannelConfigRequest,
       Google.Cloud.Eventarc.V1.GoogleChannelConfig
+
+  rpc :GetMessageBus,
+      Google.Cloud.Eventarc.V1.GetMessageBusRequest,
+      Google.Cloud.Eventarc.V1.MessageBus
+
+  rpc :ListMessageBuses,
+      Google.Cloud.Eventarc.V1.ListMessageBusesRequest,
+      Google.Cloud.Eventarc.V1.ListMessageBusesResponse
+
+  rpc :ListMessageBusEnrollments,
+      Google.Cloud.Eventarc.V1.ListMessageBusEnrollmentsRequest,
+      Google.Cloud.Eventarc.V1.ListMessageBusEnrollmentsResponse
+
+  rpc :CreateMessageBus,
+      Google.Cloud.Eventarc.V1.CreateMessageBusRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateMessageBus,
+      Google.Cloud.Eventarc.V1.UpdateMessageBusRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteMessageBus,
+      Google.Cloud.Eventarc.V1.DeleteMessageBusRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetEnrollment,
+      Google.Cloud.Eventarc.V1.GetEnrollmentRequest,
+      Google.Cloud.Eventarc.V1.Enrollment
+
+  rpc :ListEnrollments,
+      Google.Cloud.Eventarc.V1.ListEnrollmentsRequest,
+      Google.Cloud.Eventarc.V1.ListEnrollmentsResponse
+
+  rpc :CreateEnrollment,
+      Google.Cloud.Eventarc.V1.CreateEnrollmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateEnrollment,
+      Google.Cloud.Eventarc.V1.UpdateEnrollmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteEnrollment,
+      Google.Cloud.Eventarc.V1.DeleteEnrollmentRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetPipeline, Google.Cloud.Eventarc.V1.GetPipelineRequest, Google.Cloud.Eventarc.V1.Pipeline
+
+  rpc :ListPipelines,
+      Google.Cloud.Eventarc.V1.ListPipelinesRequest,
+      Google.Cloud.Eventarc.V1.ListPipelinesResponse
+
+  rpc :CreatePipeline,
+      Google.Cloud.Eventarc.V1.CreatePipelineRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdatePipeline,
+      Google.Cloud.Eventarc.V1.UpdatePipelineRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeletePipeline,
+      Google.Cloud.Eventarc.V1.DeletePipelineRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetGoogleApiSource,
+      Google.Cloud.Eventarc.V1.GetGoogleApiSourceRequest,
+      Google.Cloud.Eventarc.V1.GoogleApiSource
+
+  rpc :ListGoogleApiSources,
+      Google.Cloud.Eventarc.V1.ListGoogleApiSourcesRequest,
+      Google.Cloud.Eventarc.V1.ListGoogleApiSourcesResponse
+
+  rpc :CreateGoogleApiSource,
+      Google.Cloud.Eventarc.V1.CreateGoogleApiSourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateGoogleApiSource,
+      Google.Cloud.Eventarc.V1.UpdateGoogleApiSourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteGoogleApiSource,
+      Google.Cloud.Eventarc.V1.DeleteGoogleApiSourceRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Eventarc.V1.Eventarc.Stub do

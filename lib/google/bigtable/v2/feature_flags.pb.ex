@@ -10,4 +10,6 @@ defmodule Google.Bigtable.V2.FeatureFlags do
   field :routing_cookie, 6, type: :bool, json_name: "routingCookie"
   field :retry_info, 7, type: :bool, json_name: "retryInfo"
   field :client_side_metrics_enabled, 8, type: :bool, json_name: "clientSideMetricsEnabled"
+  field :traffic_director_enabled, 9, type: :bool, json_name: "trafficDirectorEnabled"
+  field :direct_access_requested, 10, type: :bool, json_name: "directAccessRequested"
 end

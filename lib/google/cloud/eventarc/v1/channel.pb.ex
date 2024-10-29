@@ -34,4 +34,5 @@ defmodule Google.Cloud.Eventarc.V1.Channel do
   field :state, 9, type: Google.Cloud.Eventarc.V1.Channel.State, enum: true, deprecated: false
   field :activation_token, 10, type: :string, json_name: "activationToken", deprecated: false
   field :crypto_key_name, 11, type: :string, json_name: "cryptoKeyName", deprecated: false
+  field :satisfies_pzs, 12, type: :bool, json_name: "satisfiesPzs", deprecated: false
 end

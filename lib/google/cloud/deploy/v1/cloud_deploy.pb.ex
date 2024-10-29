@@ -479,6 +479,20 @@ defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment do
     deprecated: false
 end
 
+defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh.RouteDestinations do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :destination_ids, 1,
+    repeated: true,
+    type: :string,
+    json_name: "destinationIds",
+    deprecated: false
+
+  field :propagate_service, 2, type: :bool, json_name: "propagateService", deprecated: false
+end
+
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
   @moduledoc false
 
@@ -499,6 +513,11 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh do
     deprecated: false
 
   field :pod_selector_label, 6, type: :string, json_name: "podSelectorLabel", deprecated: false
+
+  field :route_destinations, 8,
+    type: Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh.RouteDestinations,
+    json_name: "routeDestinations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking do
@@ -778,6 +797,15 @@ defmodule Google.Cloud.Deploy.V1.Target.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Deploy.V1.Target.AssociatedEntitiesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Deploy.V1.AssociatedEntities
+end
+
 defmodule Google.Cloud.Deploy.V1.Target.DeployParametersEntry do
   @moduledoc false
 
@@ -843,6 +871,13 @@ defmodule Google.Cloud.Deploy.V1.Target do
     type: Google.Cloud.Deploy.V1.CustomTarget,
     json_name: "customTarget",
     oneof: 0,
+    deprecated: false
+
+  field :associated_entities, 23,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.Target.AssociatedEntitiesEntry,
+    json_name: "associatedEntities",
+    map: true,
     deprecated: false
 
   field :etag, 12, type: :string, deprecated: false
@@ -956,6 +991,24 @@ defmodule Google.Cloud.Deploy.V1.CustomTarget do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :custom_target_type, 1, type: :string, json_name: "customTargetType", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.AssociatedEntities do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :gke_clusters, 2,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.GkeCluster,
+    json_name: "gkeClusters",
+    deprecated: false
+
+  field :anthos_clusters, 3,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.AnthosCluster,
+    json_name: "anthosClusters",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ListTargetsRequest do
@@ -1978,6 +2031,11 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
     type: :string,
     json_name: "rolledBackByRollouts",
     deprecated: false
+
+  field :active_repair_automation_run, 28,
+    type: :string,
+    json_name: "activeRepairAutomationRun",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Metadata do
@@ -2798,8 +2856,54 @@ defmodule Google.Cloud.Deploy.V1.RepairRolloutRule do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
+  field :phases, 7, repeated: true, type: :string, deprecated: false
   field :jobs, 3, repeated: true, type: :string, deprecated: false
   field :condition, 6, type: Google.Cloud.Deploy.V1.AutomationRuleCondition, deprecated: false
+
+  field :repair_phases, 8,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.RepairPhaseConfig,
+    json_name: "repairPhases",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.RepairPhaseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :repair_phase, 0
+
+  field :retry, 1, type: Google.Cloud.Deploy.V1.Retry, oneof: 0, deprecated: false
+  field :rollback, 2, type: Google.Cloud.Deploy.V1.Rollback, oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Retry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :attempts, 1, type: :int64, deprecated: false
+  field :wait, 2, type: Google.Protobuf.Duration, deprecated: false
+
+  field :backoff_mode, 3,
+    type: Google.Cloud.Deploy.V1.BackoffMode,
+    json_name: "backoffMode",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.Rollback do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :destination_phase, 1, type: :string, json_name: "destinationPhase", deprecated: false
+
+  field :disable_rollback_if_rollout_pending, 2,
+    type: :bool,
+    json_name: "disableRollbackIfRolloutPending",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AutomationRuleCondition do
@@ -2980,6 +3084,11 @@ defmodule Google.Cloud.Deploy.V1.RepairRolloutOperation do
 
   field :rollout, 1, type: :string, deprecated: false
 
+  field :current_repair_phase_index, 6,
+    type: :int64,
+    json_name: "currentRepairPhaseIndex",
+    deprecated: false
+
   field :repair_phases, 3,
     repeated: true,
     type: Google.Cloud.Deploy.V1.RepairPhase,
@@ -3037,6 +3146,11 @@ defmodule Google.Cloud.Deploy.V1.RollbackAttempt do
   field :rollout_id, 2, type: :string, json_name: "rolloutId", deprecated: false
   field :state, 3, type: Google.Cloud.Deploy.V1.RepairState, enum: true, deprecated: false
   field :state_desc, 4, type: :string, json_name: "stateDesc", deprecated: false
+
+  field :disable_rollback_if_rollout_pending, 5,
+    type: :bool,
+    json_name: "disableRollbackIfRolloutPending",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ListAutomationRunsRequest do

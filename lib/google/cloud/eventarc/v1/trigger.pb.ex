@@ -58,6 +58,12 @@ defmodule Google.Cloud.Eventarc.V1.Trigger do
     map: true,
     deprecated: false
 
+  field :event_data_content_type, 16,
+    type: :string,
+    json_name: "eventDataContentType",
+    deprecated: false
+
+  field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 
@@ -91,6 +97,16 @@ defmodule Google.Cloud.Eventarc.V1.Destination do
   field :cloud_function, 2, type: :string, json_name: "cloudFunction", oneof: 0, deprecated: false
   field :gke, 3, type: Google.Cloud.Eventarc.V1.GKE, oneof: 0
   field :workflow, 4, type: :string, oneof: 0, deprecated: false
+
+  field :http_endpoint, 5,
+    type: Google.Cloud.Eventarc.V1.HttpEndpoint,
+    json_name: "httpEndpoint",
+    oneof: 0
+
+  field :network_config, 6,
+    type: Google.Cloud.Eventarc.V1.NetworkConfig,
+    json_name: "networkConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Eventarc.V1.Transport do
@@ -132,4 +148,12 @@ defmodule Google.Cloud.Eventarc.V1.Pubsub do
 
   field :topic, 1, type: :string, deprecated: false
   field :subscription, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Eventarc.V1.HttpEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
 end

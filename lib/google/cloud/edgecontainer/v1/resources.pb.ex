@@ -8,6 +8,16 @@ defmodule Google.Cloud.Edgecontainer.V1.KmsKeyState do
   field :KMS_KEY_STATE_KEY_UNAVAILABLE, 2
 end
 
+defmodule Google.Cloud.Edgecontainer.V1.ResourceState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :RESOURCE_STATE_UNSPECIFIED, 0
+  field :RESOURCE_STATE_LOCK_DOWN, 1
+  field :RESOURCE_STATE_LOCK_DOWN_PENDING, 2
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.Cluster.Status do
   @moduledoc false
 
@@ -71,6 +81,17 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.MaintenanceEvent.State do
   field :FAILED, 3
 end
 
+defmodule Google.Cloud.Edgecontainer.V1.Cluster.ConnectionState.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :DISCONNECTED, 1
+  field :CONNECTED, 2
+  field :CONNECTED_AND_SYNCING, 3
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.VpnConnection.BgpRoutingMode do
   @moduledoc false
 
@@ -121,6 +142,11 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.ControlPlane.Local do
     type: Google.Cloud.Edgecontainer.V1.Cluster.ControlPlane.SharedDeploymentPolicy,
     json_name: "sharedDeploymentPolicy",
     enum: true
+
+  field :control_plane_node_storage_schema, 5,
+    type: :string,
+    json_name: "controlPlaneNodeStorageSchema",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Cluster.ControlPlane do
@@ -143,6 +169,14 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig.Ingress do
   field :ipv4_vip, 2, type: :string, json_name: "ipv4Vip", deprecated: false
 end
 
+defmodule Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig.VMServiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :vmm_enabled, 1, type: :bool, json_name: "vmmEnabled", deprecated: false
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig do
   @moduledoc false
 
@@ -150,6 +184,11 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig do
 
   field :ingress, 1,
     type: Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig.Ingress,
+    deprecated: false
+
+  field :vm_service_config, 4,
+    type: Google.Cloud.Edgecontainer.V1.Cluster.SystemAddonsConfig.VMServiceConfig,
+    json_name: "vmServiceConfig",
     deprecated: false
 end
 
@@ -172,6 +211,12 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.ControlPlaneEncryption do
     deprecated: false
 
   field :kms_status, 4, type: Google.Rpc.Status, json_name: "kmsStatus", deprecated: false
+
+  field :resource_state, 5,
+    type: Google.Cloud.Edgecontainer.V1.ResourceState,
+    json_name: "resourceState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Cluster.MaintenanceEvent do
@@ -220,6 +265,22 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster.SurvivabilityConfig do
   field :offline_reboot_ttl, 1,
     type: Google.Protobuf.Duration,
     json_name: "offlineRebootTtl",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Edgecontainer.V1.Cluster.ConnectionState do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Edgecontainer.V1.Cluster.ConnectionState.State,
+    enum: true,
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
     deprecated: false
 end
 
@@ -333,6 +394,11 @@ defmodule Google.Cloud.Edgecontainer.V1.Cluster do
     type: :string,
     json_name: "externalLoadBalancerIpv6AddressPools",
     deprecated: false
+
+  field :connection_state, 27,
+    type: Google.Cloud.Edgecontainer.V1.Cluster.ConnectionState,
+    json_name: "connectionState",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.ClusterNetworking do
@@ -400,6 +466,12 @@ defmodule Google.Cloud.Edgecontainer.V1.NodePool.LocalDiskEncryption do
     deprecated: false
 
   field :kms_status, 4, type: Google.Rpc.Status, json_name: "kmsStatus", deprecated: false
+
+  field :resource_state, 5,
+    type: Google.Cloud.Edgecontainer.V1.ResourceState,
+    json_name: "resourceState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.NodePool.NodeConfig.LabelsEntry do
@@ -421,6 +493,8 @@ defmodule Google.Cloud.Edgecontainer.V1.NodePool.NodeConfig do
     type: Google.Cloud.Edgecontainer.V1.NodePool.NodeConfig.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :node_storage_schema, 2, type: :string, json_name: "nodeStorageSchema", deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.NodePool.LabelsEntry do
@@ -645,6 +719,24 @@ defmodule Google.Cloud.Edgecontainer.V1.ZoneMetadata do
     type: Google.Cloud.Edgecontainer.V1.ZoneMetadata.RackTypesEntry,
     json_name: "rackTypes",
     map: true
+
+  field :config_data, 3, type: Google.Cloud.Edgecontainer.V1.ConfigData, json_name: "configData"
+end
+
+defmodule Google.Cloud.Edgecontainer.V1.ConfigData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :available_external_lb_pools_ipv4, 1,
+    repeated: true,
+    type: :string,
+    json_name: "availableExternalLbPoolsIpv4"
+
+  field :available_external_lb_pools_ipv6, 2,
+    repeated: true,
+    type: :string,
+    json_name: "availableExternalLbPoolsIpv6"
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.Quota do
@@ -663,6 +755,12 @@ defmodule Google.Cloud.Edgecontainer.V1.MaintenancePolicy do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Edgecontainer.V1.MaintenanceWindow
+
+  field :maintenance_exclusions, 2,
+    repeated: true,
+    type: Google.Cloud.Edgecontainer.V1.MaintenanceExclusionWindow,
+    json_name: "maintenanceExclusions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.MaintenanceWindow do
@@ -682,6 +780,15 @@ defmodule Google.Cloud.Edgecontainer.V1.RecurringTimeWindow do
 
   field :window, 1, type: Google.Cloud.Edgecontainer.V1.TimeWindow
   field :recurrence, 2, type: :string
+end
+
+defmodule Google.Cloud.Edgecontainer.V1.MaintenanceExclusionWindow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :window, 1, type: Google.Cloud.Edgecontainer.V1.TimeWindow, deprecated: false
+  field :id, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.TimeWindow do
