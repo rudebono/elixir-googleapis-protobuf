@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Edgecontainer.V1.OperationMetadata.StatusReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATUS_REASON_UNSPECIFIED, 0
+  field :UPGRADE_PAUSED, 1
+end
+
 defmodule Google.Cloud.Edgecontainer.V1.UpgradeClusterRequest.Schedule do
   @moduledoc false
 
@@ -20,6 +29,11 @@ defmodule Google.Cloud.Edgecontainer.V1.OperationMetadata do
   field :requested_cancellation, 6, type: :bool, json_name: "requestedCancellation"
   field :api_version, 7, type: :string, json_name: "apiVersion"
   field :warnings, 8, repeated: true, type: :string
+
+  field :status_reason, 9,
+    type: Google.Cloud.Edgecontainer.V1.OperationMetadata.StatusReason,
+    json_name: "statusReason",
+    enum: true
 end
 
 defmodule Google.Cloud.Edgecontainer.V1.ListClustersRequest do
