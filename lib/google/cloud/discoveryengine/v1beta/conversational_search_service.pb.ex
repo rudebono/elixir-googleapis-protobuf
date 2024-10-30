@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.GroundingSpec.FilteringLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :FILTERING_LEVEL_UNSPECIFIED, 0
+  field :FILTERING_LEVEL_LOW, 1
+  field :FILTERING_LEVEL_HIGH, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.QueryUnderstandingSpec.QueryClassificationSpec.Type do
   @moduledoc false
 
@@ -7,6 +17,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.QueryUnderstand
   field :ADVERSARIAL_QUERY, 1
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
+  field :NON_ANSWER_SEEKING_QUERY_V2, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ConverseConversationRequest.UserLabelsEntry do
@@ -138,6 +149,23 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.RelatedQuestion
   field :enable, 1, type: :bool
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.GroundingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :include_grounding_supports, 2,
+    type: :bool,
+    json_name: "includeGroundingSupports",
+    deprecated: false
+
+  field :filtering_level, 3,
+    type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.GroundingSpec.FilteringLevel,
+    json_name: "filteringLevel",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.AnswerGenerationSpec.ModelSpec do
   @moduledoc false
 
@@ -176,6 +204,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.AnswerGeneratio
     proto3_optional: true,
     type: :bool,
     json_name: "ignoreLowRelevantContent"
+
+  field :ignore_jail_breaking_query, 8,
+    type: :bool,
+    json_name: "ignoreJailBreakingQuery",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchParams do
@@ -201,6 +234,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.Sear
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.DataStoreSpec,
     json_name: "dataStoreSpecs"
+
+  field :natural_language_query_understanding_spec, 8,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.NaturalLanguageQueryUnderstandingSpec,
+    json_name: "naturalLanguageQueryUnderstandingSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.DocumentContext do
@@ -255,7 +293,17 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.Sear
     repeated: true,
     type:
       Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.ExtractiveAnswer,
-    json_name: "extractiveAnswers"
+    json_name: "extractiveAnswers",
+    deprecated: true
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo.DocumentMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :title, 2, type: :string
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo do
@@ -265,6 +313,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.Sear
 
   field :chunk, 1, type: :string, deprecated: false
   field :content, 2, type: :string
+
+  field :document_metadata, 4,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo.DocumentMetadata,
+    json_name: "documentMetadata"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult do
@@ -380,6 +433,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest do
     type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.RelatedQuestionsSpec,
     json_name: "relatedQuestionsSpec"
 
+  field :grounding_spec, 6,
+    type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.GroundingSpec,
+    json_name: "groundingSpec",
+    deprecated: false
+
   field :answer_generation_spec, 7,
     type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.AnswerGenerationSpec,
     json_name: "answerGenerationSpec"
@@ -392,7 +450,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest do
     type: Google.Cloud.Discoveryengine.V1beta.AnswerQueryRequest.QueryUnderstandingSpec,
     json_name: "queryUnderstandingSpec"
 
-  field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode"
+  field :asynchronous_mode, 10, type: :bool, json_name: "asynchronousMode", deprecated: true
   field :user_pseudo_id, 12, type: :string, json_name: "userPseudoId"
 
   field :user_labels, 13,

@@ -199,6 +199,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.WafSettings.WafService do
   field :CA, 1
   field :FASTLY, 3
   field :CLOUDFLARE, 4
+  field :AKAMAI, 5
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1.IpOverrideData.OverrideType do
@@ -1328,6 +1329,48 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideResponse do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.RemoveIpOverrideRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :ip_override_data, 2,
+    type: Google.Cloud.Recaptchaenterprise.V1.IpOverrideData,
+    json_name: "ipOverrideData",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.RemoveIpOverrideResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListIpOverridesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Recaptchaenterprise.V1.ListIpOverridesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ip_overrides, 1,
+    repeated: true,
+    type: Google.Cloud.Recaptchaenterprise.V1.IpOverrideData,
+    json_name: "ipOverrides"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.RelatedAccountGroupMembership do
   @moduledoc false
 
@@ -1431,6 +1474,14 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RecaptchaEnterpriseService.Service
   rpc :AddIpOverride,
       Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideRequest,
       Google.Cloud.Recaptchaenterprise.V1.AddIpOverrideResponse
+
+  rpc :RemoveIpOverride,
+      Google.Cloud.Recaptchaenterprise.V1.RemoveIpOverrideRequest,
+      Google.Cloud.Recaptchaenterprise.V1.RemoveIpOverrideResponse
+
+  rpc :ListIpOverrides,
+      Google.Cloud.Recaptchaenterprise.V1.ListIpOverridesRequest,
+      Google.Cloud.Recaptchaenterprise.V1.ListIpOverridesResponse
 
   rpc :GetMetrics,
       Google.Cloud.Recaptchaenterprise.V1.GetMetricsRequest,

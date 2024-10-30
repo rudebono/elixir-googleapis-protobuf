@@ -49,6 +49,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.UserEvent do
   field :media_info, 18,
     type: Google.Cloud.Discoveryengine.V1beta.MediaInfo,
     json_name: "mediaInfo"
+
+  field :panels, 22,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.PanelInfo,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.PageInfo do
@@ -118,6 +123,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.PanelInfo do
   field :display_name, 3, type: :string, json_name: "displayName"
   field :panel_position, 4, proto3_optional: true, type: :int32, json_name: "panelPosition"
   field :total_panels, 5, proto3_optional: true, type: :int32, json_name: "totalPanels"
+
+  field :documents, 6,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1beta.DocumentInfo,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.MediaInfo do

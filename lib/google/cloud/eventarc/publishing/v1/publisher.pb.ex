@@ -30,6 +30,30 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Eventarc.Publishing.V1.PublishRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :format, 0
+
+  field :message_bus, 1, type: :string, json_name: "messageBus", deprecated: false
+
+  field :proto_message, 2,
+    type: Google.Cloud.Eventarc.Publishing.V1.CloudEvent,
+    json_name: "protoMessage",
+    oneof: 0
+
+  field :json_message, 3, type: :string, json_name: "jsonMessage", oneof: 0
+  field :avro_message, 4, type: :bytes, json_name: "avroMessage", oneof: 0
+end
+
+defmodule Google.Cloud.Eventarc.Publishing.V1.PublishResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Service do
   @moduledoc false
 
@@ -44,6 +68,10 @@ defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Service do
   rpc :PublishEvents,
       Google.Cloud.Eventarc.Publishing.V1.PublishEventsRequest,
       Google.Cloud.Eventarc.Publishing.V1.PublishEventsResponse
+
+  rpc :Publish,
+      Google.Cloud.Eventarc.Publishing.V1.PublishRequest,
+      Google.Cloud.Eventarc.Publishing.V1.PublishResponse
 end
 
 defmodule Google.Cloud.Eventarc.Publishing.V1.Publisher.Stub do

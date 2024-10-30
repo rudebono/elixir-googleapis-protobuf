@@ -116,3 +116,19 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SiteVerificationInfo do
 
   field :verify_time, 2, type: Google.Protobuf.Timestamp, json_name: "verifyTime"
 end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.Sitemap do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :feed, 0
+
+  field :uri, 2, type: :string, oneof: 0
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+end
