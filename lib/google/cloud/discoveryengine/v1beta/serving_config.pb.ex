@@ -16,6 +16,12 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ServingConfig.MediaConfig do
     oneof: 0
 
   field :demotion_event_type, 1, type: :string, json_name: "demotionEventType"
+
+  field :demote_content_watched_past_days, 37,
+    type: :int32,
+    json_name: "demoteContentWatchedPastDays",
+    deprecated: false
+
   field :content_freshness_cutoff_days, 4, type: :int32, json_name: "contentFreshnessCutoffDays"
 end
 
@@ -95,4 +101,8 @@ defmodule Google.Cloud.Discoveryengine.V1beta.ServingConfig do
     json_name: "replacementControlIds"
 
   field :ignore_control_ids, 19, repeated: true, type: :string, json_name: "ignoreControlIds"
+
+  field :personalization_spec, 25,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.PersonalizationSpec,
+    json_name: "personalizationSpec"
 end

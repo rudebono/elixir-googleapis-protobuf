@@ -79,6 +79,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SearchAsYouTypeSpec.
   field :ENABLED, 2
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.PersonalizationSpec.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :MODE_UNSPECIFIED, 0
+  field :AUTO, 1
+  field :DISABLED, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkippedReason do
   @moduledoc false
 
@@ -93,6 +103,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Summary.SummarySkip
   field :NO_RELEVANT_CONTENT, 6
   field :JAIL_BREAKING_QUERY_IGNORED, 7
   field :CUSTOMER_POLICY_VIOLATION, 8
+  field :NON_SUMMARY_SEEKING_QUERY_IGNORED_V2, 9
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.NaturalLanguageQueryUnderstandingInfo.StructuredExtractedFilter.NumberConstraint.Comparison do
@@ -117,6 +128,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.OneBoxResult.OneBox
   field :PEOPLE, 1
   field :ORGANIZATION, 2
   field :SLACK, 3
+  field :KNOWLEDGE_GRAPH, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ImageQuery do
@@ -135,6 +147,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.DataStoreSpec do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.FacetSpec.FacetKey do
@@ -289,6 +302,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.Su
 
   field :ignore_low_relevant_content, 9, type: :bool, json_name: "ignoreLowRelevantContent"
 
+  field :ignore_jail_breaking_query, 10,
+    type: :bool,
+    json_name: "ignoreJailBreakingQuery",
+    deprecated: false
+
   field :model_prompt_spec, 5,
     type:
       Google.Cloud.Discoveryengine.V1beta.SearchRequest.ContentSearchSpec.SummarySpec.ModelPromptSpec,
@@ -417,6 +435,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.SessionSpec do
     json_name: "searchResultPersistenceCount"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.PersonalizationSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :mode, 1,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.PersonalizationSpec.Mode,
+    enum: true
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.ParamsEntry do
   @moduledoc false
 
@@ -451,6 +479,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
   field :page_size, 4, type: :int32, json_name: "pageSize"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :offset, 6, type: :int32
+  field :one_box_page_size, 47, type: :int32, json_name: "oneBoxPageSize"
 
   field :data_store_specs, 32,
     repeated: true,
@@ -523,6 +552,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
     type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.RelevanceThreshold,
     json_name: "relevanceThreshold",
     enum: true
+
+  field :personalization_spec, 46,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.PersonalizationSpec,
+    json_name: "personalizationSpec"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelScoresEntry do
@@ -921,6 +954,10 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchService.Service do
     protoc_gen_elixir_version: "0.13.0"
 
   rpc :Search,
+      Google.Cloud.Discoveryengine.V1beta.SearchRequest,
+      Google.Cloud.Discoveryengine.V1beta.SearchResponse
+
+  rpc :SearchLite,
       Google.Cloud.Discoveryengine.V1beta.SearchRequest,
       Google.Cloud.Discoveryengine.V1beta.SearchResponse
 end
