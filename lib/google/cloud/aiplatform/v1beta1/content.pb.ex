@@ -130,6 +130,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Part do
     oneof: 0,
     deprecated: false
 
+  field :executable_code, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.ExecutableCode,
+    json_name: "executableCode",
+    oneof: 0,
+    deprecated: false
+
+  field :code_execution_result, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.CodeExecutionResult,
+    json_name: "codeExecutionResult",
+    oneof: 0,
+    deprecated: false
+
   field :video_metadata, 4,
     type: Google.Cloud.Aiplatform.V1beta1.VideoMetadata,
     json_name: "videoMetadata",

@@ -220,6 +220,30 @@ defmodule Google.Cloud.Aiplatform.V1.StartNotebookRuntimeResponse do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CreateNotebookExecutionJobRequest do
   @moduledoc false
 
@@ -350,6 +374,10 @@ defmodule Google.Cloud.Aiplatform.V1.NotebookService.Service do
 
   rpc :StartNotebookRuntime,
       Google.Cloud.Aiplatform.V1.StartNotebookRuntimeRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopNotebookRuntime,
+      Google.Cloud.Aiplatform.V1.StopNotebookRuntimeRequest,
       Google.Longrunning.Operation
 
   rpc :CreateNotebookExecutionJob,
