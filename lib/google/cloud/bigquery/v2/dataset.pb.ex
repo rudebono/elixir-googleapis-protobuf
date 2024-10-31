@@ -67,6 +67,7 @@ defmodule Google.Cloud.Bigquery.V2.Access do
   field :view, 6, type: Google.Cloud.Bigquery.V2.TableReference
   field :routine, 8, type: Google.Cloud.Bigquery.V2.RoutineReference
   field :dataset, 9, type: Google.Cloud.Bigquery.V2.DatasetAccessEntry
+  field :condition, 10, type: Google.Type.Expr, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.Dataset.LabelsEntry do
@@ -243,6 +244,11 @@ defmodule Google.Cloud.Bigquery.V2.GetDatasetRequest do
     json_name: "datasetView",
     enum: true,
     deprecated: false
+
+  field :access_policy_version, 4,
+    type: :int32,
+    json_name: "accessPolicyVersion",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.InsertDatasetRequest do
@@ -252,6 +258,11 @@ defmodule Google.Cloud.Bigquery.V2.InsertDatasetRequest do
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset, 2, type: Google.Cloud.Bigquery.V2.Dataset, deprecated: false
+
+  field :access_policy_version, 4,
+    type: :int32,
+    json_name: "accessPolicyVersion",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest do
@@ -262,6 +273,11 @@ defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :dataset, 3, type: Google.Cloud.Bigquery.V2.Dataset, deprecated: false
+
+  field :access_policy_version, 5,
+    type: :int32,
+    json_name: "accessPolicyVersion",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.DeleteDatasetRequest do

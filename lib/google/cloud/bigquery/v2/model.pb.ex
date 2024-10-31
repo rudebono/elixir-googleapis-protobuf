@@ -40,6 +40,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelType do
   field :TENSORFLOW_LITE, 26
   field :ONNX, 28
   field :TRANSFORM_ONLY, 29
+  field :CONTRIBUTION_ANALYSIS, 37
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.LossType do
@@ -1012,6 +1013,24 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
     repeated: true,
     type: :string,
     json_name: "vertexAiModelVersionAliases"
+
+  field :dimension_id_columns, 104,
+    repeated: true,
+    type: :string,
+    json_name: "dimensionIdColumns",
+    deprecated: false
+
+  field :contribution_metric, 105,
+    proto3_optional: true,
+    type: :string,
+    json_name: "contributionMetric"
+
+  field :is_test_column, 106, proto3_optional: true, type: :string, json_name: "isTestColumn"
+
+  field :min_apriori_support, 107,
+    proto3_optional: true,
+    type: :double,
+    json_name: "minAprioriSupport"
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo do
