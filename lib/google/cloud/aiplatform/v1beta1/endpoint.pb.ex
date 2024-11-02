@@ -94,6 +94,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   @moduledoc false
 
@@ -144,6 +153,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   field :faster_deployment_config, 23,
     type: Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig,
     json_name: "fasterDeploymentConfig"
+
+  field :system_labels, 28,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry,
+    json_name: "systemLabels",
+    map: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
