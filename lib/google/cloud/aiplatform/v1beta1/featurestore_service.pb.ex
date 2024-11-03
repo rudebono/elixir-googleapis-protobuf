@@ -382,6 +382,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetFeatureRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :feature_stats_and_anomaly_spec, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureStatsAndAnomalySpec,
+    json_name: "featureStatsAndAnomalySpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListFeaturesRequest do

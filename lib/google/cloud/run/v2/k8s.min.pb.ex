@@ -183,6 +183,7 @@ defmodule Google.Cloud.Run.V2.GCSVolumeSource do
 
   field :bucket, 1, type: :string
   field :read_only, 2, type: :bool, json_name: "readOnly"
+  field :mount_options, 3, repeated: true, type: :string, json_name: "mountOptions"
 end
 
 defmodule Google.Cloud.Run.V2.Probe do
