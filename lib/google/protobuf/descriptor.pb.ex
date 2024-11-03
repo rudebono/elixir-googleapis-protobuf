@@ -205,6 +205,8 @@ defmodule Google.Protobuf.FileDescriptorSet do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto2
 
   field :file, 1, repeated: true, type: Google.Protobuf.FileDescriptorProto
+
+  extensions [{536_000_000, 536_000_001}]
 end
 
 defmodule Google.Protobuf.FileDescriptorProto do
@@ -677,6 +679,8 @@ defmodule Google.Protobuf.SourceCodeInfo do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto2
 
   field :location, 1, repeated: true, type: Google.Protobuf.SourceCodeInfo.Location
+
+  extensions [{536_000_000, 536_000_001}]
 end
 
 defmodule Google.Protobuf.GeneratedCodeInfo.Annotation do

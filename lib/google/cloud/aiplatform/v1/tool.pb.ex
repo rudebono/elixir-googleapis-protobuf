@@ -45,6 +45,7 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionDeclaration do
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :parameters, 3, type: Google.Cloud.Aiplatform.V1.Schema, deprecated: false
+  field :response, 4, type: Google.Cloud.Aiplatform.V1.Schema, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FunctionCall do

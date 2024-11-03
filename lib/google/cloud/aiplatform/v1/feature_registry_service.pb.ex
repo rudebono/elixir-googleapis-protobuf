@@ -139,6 +139,10 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureRegistryService.Service do
       Google.Cloud.Aiplatform.V1.CreateFeatureRequest,
       Google.Longrunning.Operation
 
+  rpc :BatchCreateFeatures,
+      Google.Cloud.Aiplatform.V1.BatchCreateFeaturesRequest,
+      Google.Longrunning.Operation
+
   rpc :GetFeature,
       Google.Cloud.Aiplatform.V1.GetFeatureRequest,
       Google.Cloud.Aiplatform.V1.Feature
