@@ -102,6 +102,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Feature do
     json_name: "monitoringStatsAnomalies",
     deprecated: false
 
+  field :feature_stats_and_anomaly, 13,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureStatsAndAnomaly,
+    json_name: "featureStatsAndAnomaly",
+    deprecated: false
+
   field :version_column_name, 106, type: :string, json_name: "versionColumnName"
   field :point_of_contact, 107, type: :string, json_name: "pointOfContact"
 end
