@@ -914,6 +914,11 @@ defmodule Google.Cloud.Translation.V3.TranslateTextGlossaryConfig do
 
   field :glossary, 1, type: :string, deprecated: false
   field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
+
+  field :contextual_translation_enabled, 4,
+    type: :bool,
+    json_name: "contextualTranslationEnabled",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Translation.V3.TranslationService.Service do

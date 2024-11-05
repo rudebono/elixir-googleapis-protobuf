@@ -91,14 +91,28 @@ defmodule Google.Cloud.Compute.V1.Address.Status do
   field :RESERVING, 514_587_225
 end
 
+defmodule Google.Cloud.Compute.V1.AdvancedMachineFeatures.PerformanceMonitoringUnit do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_PERFORMANCE_MONITORING_UNIT, 0
+  field :ARCHITECTURAL, 155_113_693
+  field :ENHANCED, 476_873_590
+  field :PERFORMANCE_MONITORING_UNIT_UNSPECIFIED, 429_210_692
+  field :STANDARD, 484_642_493
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationAggregateReservation.VmFamily do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :UNDEFINED_VM_FAMILY, 0
+  field :VM_FAMILY_CLOUD_TPU_DEVICE_CT3, 42_845_948
   field :VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L, 108_020_067
   field :VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP, 18_705_267
+  field :VM_FAMILY_CLOUD_TPU_POD_SLICE_CT3P, 517_384_376
   field :VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P, 517_384_407
 end
 
@@ -206,19 +220,6 @@ defmodule Google.Cloud.Compute.V1.AuditLogConfig.LogType do
   field :DATA_READ, 305_224_971
   field :DATA_WRITE, 340_181_738
   field :LOG_TYPE_UNSPECIFIED, 154_527_053
-end
-
-defmodule Google.Cloud.Compute.V1.AuthorizationLoggingOptions.PermissionType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_PERMISSION_TYPE, 0
-  field :ADMIN_READ, 128_951_462
-  field :ADMIN_WRITE, 244_412_079
-  field :DATA_READ, 305_224_971
-  field :DATA_WRITE, 340_181_738
-  field :PERMISSION_TYPE_UNSPECIFIED, 440_313_346
 end
 
 defmodule Google.Cloud.Compute.V1.Autoscaler.Status do
@@ -348,6 +349,18 @@ defmodule Google.Cloud.Compute.V1.BackendService.CompressionMode do
   field :DISABLED, 516_696_700
 end
 
+defmodule Google.Cloud.Compute.V1.BackendService.IpAddressSelectionPolicy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_IP_ADDRESS_SELECTION_POLICY, 0
+  field :IPV4_ONLY, 22_373_798
+  field :IPV6_ONLY, 79_632_100
+  field :IP_ADDRESS_SELECTION_POLICY_UNSPECIFIED, 36_210_144
+  field :PREFER_IPV6, 408_601_302
+end
+
 defmodule Google.Cloud.Compute.V1.BackendService.LoadBalancingScheme do
   @moduledoc false
 
@@ -408,6 +421,7 @@ defmodule Google.Cloud.Compute.V1.BackendService.SessionAffinity do
   field :HEADER_FIELD, 200_737_960
   field :HTTP_COOKIE, 494_981_627
   field :NONE, 2_402_104
+  field :STRONG_COOKIE_AFFINITY, 438_628_091
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceCdnPolicy.CacheMode do
@@ -606,6 +620,7 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :COMPUTE_OPTIMIZED_C3D, 383_246_484
   field :COMPUTE_OPTIMIZED_H3, 428_004_939
   field :GENERAL_PURPOSE, 299_793_543
+  field :GENERAL_PURPOSE_C4, 301_911_817
   field :GENERAL_PURPOSE_E2, 301_911_877
   field :GENERAL_PURPOSE_N2, 301_912_156
   field :GENERAL_PURPOSE_N2D, 232_471_400
@@ -618,45 +633,16 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :TYPE_UNSPECIFIED, 437_714_322
 end
 
-defmodule Google.Cloud.Compute.V1.Condition.Iam do
+defmodule Google.Cloud.Compute.V1.ConfidentialInstanceConfig.ConfidentialInstanceType do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :UNDEFINED_IAM, 0
-  field :APPROVER, 357_258_949
-  field :ATTRIBUTION, 232_465_503
-  field :AUTHORITY, 504_108_835
-  field :CREDENTIALS_TYPE, 348_222_141
-  field :CREDS_ASSERTION, 332_343_272
-  field :JUSTIFICATION_TYPE, 206_147_719
-  field :SECURITY_REALM, 526_269_616
-end
-
-defmodule Google.Cloud.Compute.V1.Condition.Op do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_OP, 0
-  field :DISCHARGED, 266_338_274
-  field :EQUALS, 442_201_023
-  field :IN, 2341
-  field :NOT_EQUALS, 19_718_859
-  field :NOT_IN, 161_144_369
-  field :NO_OP, 74_481_951
-end
-
-defmodule Google.Cloud.Compute.V1.Condition.Sys do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_SYS, 0
-  field :IP, 2343
-  field :NAME, 2_388_619
-  field :REGION, 266_017_524
-  field :SERVICE, 17_781_397
+  field :UNDEFINED_CONFIDENTIAL_INSTANCE_TYPE, 0
+  field :CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED, 115_021_829
+  field :SEV, 81988
+  field :SEV_SNP, 21_753_562
+  field :TDX, 82920
 end
 
 defmodule Google.Cloud.Compute.V1.DeprecationStatus.State do
@@ -669,6 +655,17 @@ defmodule Google.Cloud.Compute.V1.DeprecationStatus.State do
   field :DELETED, 120_962_041
   field :DEPRECATED, 463_360_435
   field :OBSOLETE, 66_532_761
+end
+
+defmodule Google.Cloud.Compute.V1.Disk.AccessMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ACCESS_MODE, 0
+  field :READ_ONLY_MANY, 63_460_265
+  field :READ_WRITE_MANY, 488_743_208
+  field :READ_WRITE_SINGLE, 99_323_089
 end
 
 defmodule Google.Cloud.Compute.V1.Disk.Architecture do
@@ -902,6 +899,7 @@ defmodule Google.Cloud.Compute.V1.GuestOsFeature.Type do
   field :SEV_LIVE_MIGRATABLE, 392_039_820
   field :SEV_LIVE_MIGRATABLE_V2, 168_551_983
   field :SEV_SNP_CAPABLE, 426_919
+  field :TDX_CAPABLE, 240_446_133
   field :UEFI_COMPATIBLE, 195_865_408
   field :VIRTIO_SCSI_MULTIQUEUE, 201_597_069
   field :WINDOWS, 456_863_331
@@ -1005,6 +1003,14 @@ defmodule Google.Cloud.Compute.V1.HealthStatus.HealthState do
   field :UNHEALTHY, 462_118_084
 end
 
+defmodule Google.Cloud.Compute.V1.HealthStatus.Ipv6HealthState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_IPV6_HEALTH_STATE, 0
+end
+
 defmodule Google.Cloud.Compute.V1.HealthStatus.WeightError do
   @moduledoc false
 
@@ -1027,6 +1033,14 @@ defmodule Google.Cloud.Compute.V1.HealthStatusForNetworkEndpoint.HealthState do
   field :HEALTHY, 439_801_213
   field :UNHEALTHY, 462_118_084
   field :UNKNOWN, 433_141_802
+end
+
+defmodule Google.Cloud.Compute.V1.HealthStatusForNetworkEndpoint.Ipv6HealthState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_IPV6_HEALTH_STATE, 0
 end
 
 defmodule Google.Cloud.Compute.V1.HttpRedirectAction.RedirectResponseCode do
@@ -1297,6 +1311,8 @@ defmodule Google.Cloud.Compute.V1.InstancesGetEffectiveFirewallsResponseEffectiv
   field :HIERARCHY, 69_902_869
   field :NETWORK, 413_984_270
   field :NETWORK_REGIONAL, 190_804_272
+  field :SYSTEM_GLOBAL, 60_099_507
+  field :SYSTEM_REGIONAL, 161_777_199
   field :UNSPECIFIED, 526_786_327
 end
 
@@ -1724,27 +1740,6 @@ defmodule Google.Cloud.Compute.V1.LocationPolicyLocation.Preference do
   field :PREFERENCE_UNSPECIFIED, 496_219_571
 end
 
-defmodule Google.Cloud.Compute.V1.LogConfigCloudAuditOptions.LogName do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_LOG_NAME, 0
-  field :ADMIN_ACTIVITY, 427_503_135
-  field :DATA_ACCESS, 238_070_681
-  field :UNSPECIFIED_LOG_NAME, 410_515_182
-end
-
-defmodule Google.Cloud.Compute.V1.LogConfigDataAccessOptions.LogMode do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_LOG_MODE, 0
-  field :LOG_FAIL_CLOSED, 360_469_778
-  field :LOG_MODE_UNSPECIFIED, 88_160_822
-end
-
 defmodule Google.Cloud.Compute.V1.MachineImage.Status do
   @moduledoc false
 
@@ -1756,6 +1751,17 @@ defmodule Google.Cloud.Compute.V1.MachineImage.Status do
   field :INVALID, 530_283_991
   field :READY, 77_848_963
   field :UPLOADING, 267_603_489
+end
+
+defmodule Google.Cloud.Compute.V1.MachineType.Architecture do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ARCHITECTURE, 0
+  field :ARCHITECTURE_UNSPECIFIED, 394_750_507
+  field :ARM64, 62_547_450
+  field :X86_64, 425_300_551
 end
 
 defmodule Google.Cloud.Compute.V1.ManagedInstance.CurrentAction do
@@ -1882,6 +1888,7 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointGroup.NetworkEndpointType do
   field :UNDEFINED_NETWORK_ENDPOINT_TYPE, 0
   field :GCE_VM_IP, 401_880_793
   field :GCE_VM_IP_PORT, 501_838_375
+  field :GCE_VM_IP_PORTMAP, 22_819_253
   field :INTERNET_FQDN_PORT, 404_154_477
   field :INTERNET_IP_PORT, 477_719_963
   field :NON_GCP_PRIVATE_IP_PORT, 336_447_968
@@ -1931,6 +1938,7 @@ defmodule Google.Cloud.Compute.V1.NetworkInterface.NicType do
 
   field :UNDEFINED_NIC_TYPE, 0
   field :GVNIC, 68_209_305
+  field :IDPF, 2_242_641
   field :UNSPECIFIED_NIC_TYPE, 67_411_801
   field :VIRTIO_NET, 452_123_481
 end
@@ -1943,6 +1951,7 @@ defmodule Google.Cloud.Compute.V1.NetworkInterface.StackType do
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
   field :IPV4_ONLY, 22_373_798
+  field :IPV6_ONLY, 79_632_100
   field :UNSPECIFIED_STACK_TYPE, 298_084_569
 end
 
@@ -1994,6 +2003,7 @@ defmodule Google.Cloud.Compute.V1.NetworksGetEffectiveFirewallsResponseEffective
   field :UNDEFINED_TYPE, 0
   field :HIERARCHY, 69_902_869
   field :NETWORK, 413_984_270
+  field :SYSTEM, 313_484_847
   field :UNSPECIFIED, 526_786_327
 end
 
@@ -2937,20 +2947,6 @@ defmodule Google.Cloud.Compute.V1.RouterStatusBgpPeerStatus.StatusReason do
   field :STATUS_REASON_UNSPECIFIED, 394_331_913
 end
 
-defmodule Google.Cloud.Compute.V1.Rule.Action do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :UNDEFINED_ACTION, 0
-  field :ALLOW, 62_368_553
-  field :ALLOW_WITH_LOG, 76_034_177
-  field :DENY, 2_094_604
-  field :DENY_WITH_LOG, 351_433_982
-  field :LOG, 75556
-  field :NO_ACTION, 260_643_444
-end
-
 defmodule Google.Cloud.Compute.V1.SSLHealthCheck.PortSpecification do
   @moduledoc false
 
@@ -3106,6 +3102,17 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyAdaptiveProtectionConfigLayer7Dd
   field :UNDEFINED_RULE_VISIBILITY, 0
   field :PREMIUM, 399_530_551
   field :STANDARD, 484_642_493
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_TYPE, 0
+  field :HTTP_HEADER_HOST, 374_321_891
+  field :HTTP_PATH, 311_503_228
+  field :UNSPECIFIED_TYPE, 53_933_922
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfig.JsonParsing do
@@ -3513,6 +3520,7 @@ defmodule Google.Cloud.Compute.V1.Subnetwork.StackType do
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
   field :IPV4_ONLY, 22_373_798
+  field :IPV6_ONLY, 79_632_100
   field :UNSPECIFIED_STACK_TYPE, 298_084_569
 end
 
@@ -3604,6 +3612,17 @@ defmodule Google.Cloud.Compute.V1.TargetHttpsProxy.QuicOverride do
   field :NONE, 2_402_104
 end
 
+defmodule Google.Cloud.Compute.V1.TargetHttpsProxy.TlsEarlyData do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_TLS_EARLY_DATA, 0
+  field :DISABLED, 516_696_700
+  field :PERMISSIVE, 504_345_247
+  field :STRICT, 308_826_825
+end
+
 defmodule Google.Cloud.Compute.V1.TargetInstance.NatPolicy do
   @moduledoc false
 
@@ -3627,6 +3646,7 @@ defmodule Google.Cloud.Compute.V1.TargetPool.SessionAffinity do
   field :HEADER_FIELD, 200_737_960
   field :HTTP_COOKIE, 494_981_627
   field :NONE, 2_402_104
+  field :STRONG_COOKIE_AFFINITY, 438_628_091
 end
 
 defmodule Google.Cloud.Compute.V1.TargetSslProxiesSetProxyHeaderRequest.ProxyHeader do
@@ -3773,6 +3793,7 @@ defmodule Google.Cloud.Compute.V1.UsableSubnetwork.StackType do
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
   field :IPV4_ONLY, 22_373_798
+  field :IPV6_ONLY, 79_632_100
 end
 
 defmodule Google.Cloud.Compute.V1.VpnGateway.GatewayIpVersion do
@@ -3793,6 +3814,7 @@ defmodule Google.Cloud.Compute.V1.VpnGateway.StackType do
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
   field :IPV4_ONLY, 22_373_798
+  field :IPV6_ONLY, 79_632_100
 end
 
 defmodule Google.Cloud.Compute.V1.VpnGatewayStatusHighAvailabilityRequirementState.State do
@@ -4653,10 +4675,17 @@ defmodule Google.Cloud.Compute.V1.AdvancedMachineFeatures do
     type: :bool,
     json_name: "enableUefiNetworking"
 
+  field :performance_monitoring_unit, 533_618_956,
+    proto3_optional: true,
+    type: :string,
+    json_name: "performanceMonitoringUnit"
+
   field :threads_per_core, 352_611_671,
     proto3_optional: true,
     type: :int32,
     json_name: "threadsPerCore"
+
+  field :turbo_mode, 432_965_412, proto3_optional: true, type: :string, json_name: "turboMode"
 
   field :visible_core_count, 193_198_684,
     proto3_optional: true,
@@ -6367,17 +6396,6 @@ defmodule Google.Cloud.Compute.V1.AuditLogConfig do
   field :log_type, 403_115_861, proto3_optional: true, type: :string, json_name: "logType"
 end
 
-defmodule Google.Cloud.Compute.V1.AuthorizationLoggingOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :permission_type, 525_978_538,
-    proto3_optional: true,
-    type: :string,
-    json_name: "permissionType"
-end
-
 defmodule Google.Cloud.Compute.V1.Autoscaler.ScalingScheduleStatusEntry do
   @moduledoc false
 
@@ -6737,6 +6755,11 @@ defmodule Google.Cloud.Compute.V1.BackendBucket do
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :used_by, 389_320_729,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendBucketUsedBy,
+    json_name: "usedBy"
 end
 
 defmodule Google.Cloud.Compute.V1.BackendBucketCdnPolicy do
@@ -6841,6 +6864,14 @@ defmodule Google.Cloud.Compute.V1.BackendBucketList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.BackendBucketUsedBy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :reference, 148_586_315, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.BackendService.MetadatasEntry do
   @moduledoc false
 
@@ -6925,6 +6956,12 @@ defmodule Google.Cloud.Compute.V1.BackendService do
   field :health_checks, 448_370_606, repeated: true, type: :string, json_name: "healthChecks"
   field :iap, 104_024, proto3_optional: true, type: Google.Cloud.Compute.V1.BackendServiceIAP
   field :id, 3355, proto3_optional: true, type: :uint64
+
+  field :ip_address_selection_policy, 77_600_840,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipAddressSelectionPolicy"
+
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
   field :load_balancing_scheme, 363_890_244,
@@ -6996,6 +7033,11 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     proto3_optional: true,
     type: :string,
     json_name: "sessionAffinity"
+
+  field :strong_session_affinity_cookie, 238_195_722,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BackendServiceHttpCookie,
+    json_name: "strongSessionAffinityCookie"
 
   field :subsetting, 450_283_536, proto3_optional: true, type: Google.Cloud.Compute.V1.Subsetting
   field :timeout_sec, 79_994_995, proto3_optional: true, type: :int32, json_name: "timeoutSec"
@@ -7179,6 +7221,16 @@ defmodule Google.Cloud.Compute.V1.BackendServiceGroupHealth do
     json_name: "healthStatus"
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceHttpCookie do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :path, 3_433_509, proto3_optional: true, type: :string
+  field :ttl, 115_180, proto3_optional: true, type: Google.Cloud.Compute.V1.Duration
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceIAP do
@@ -7761,6 +7813,11 @@ defmodule Google.Cloud.Compute.V1.Commitment do
     type: :string,
     json_name: "creationTimestamp"
 
+  field :custom_end_timestamp, 181_770_852,
+    proto3_optional: true,
+    type: :string,
+    json_name: "customEndTimestamp"
+
   field :description, 422_937_596, proto3_optional: true, type: :string
 
   field :end_timestamp, 468_096_690,
@@ -7790,6 +7847,12 @@ defmodule Google.Cloud.Compute.V1.Commitment do
   field :plan, 3_443_497, proto3_optional: true, type: :string
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :reservations, 399_717_927, repeated: true, type: Google.Cloud.Compute.V1.Reservation
+
+  field :resource_status, 249_429_315,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CommitmentResourceStatus,
+    json_name: "resourceStatus"
+
   field :resources, 164_412_965, repeated: true, type: Google.Cloud.Compute.V1.ResourceCommitment
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
@@ -7864,6 +7927,17 @@ defmodule Google.Cloud.Compute.V1.CommitmentList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.CommitmentResourceStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :custom_term_eligibility_end_timestamp, 363_976_187,
+    proto3_optional: true,
+    type: :string,
+    json_name: "customTermEligibilityEndTimestamp"
+end
+
 defmodule Google.Cloud.Compute.V1.CommitmentsScopedList do
   @moduledoc false
 
@@ -7873,22 +7947,15 @@ defmodule Google.Cloud.Compute.V1.CommitmentsScopedList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
-defmodule Google.Cloud.Compute.V1.Condition do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :iam, 104_021, proto3_optional: true, type: :string
-  field :op, 3553, proto3_optional: true, type: :string
-  field :svc, 114_272, proto3_optional: true, type: :string
-  field :sys, 114_381, proto3_optional: true, type: :string
-  field :values, 249_928_994, repeated: true, type: :string
-end
-
 defmodule Google.Cloud.Compute.V1.ConfidentialInstanceConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :confidential_instance_type, 43_484_717,
+    proto3_optional: true,
+    type: :string,
+    json_name: "confidentialInstanceType"
 
   field :enable_confidential_compute, 102_135_228,
     proto3_optional: true,
@@ -8035,6 +8102,40 @@ defmodule Google.Cloud.Compute.V1.CreateSnapshotRegionDiskRequest do
     type: Google.Cloud.Compute.V1.Snapshot,
     json_name: "snapshotResource",
     deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.CustomErrorResponsePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :error_response_rules, 14_620_304,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.CustomErrorResponsePolicyCustomErrorResponseRule,
+    json_name: "errorResponseRules"
+
+  field :error_service, 164_214_654,
+    proto3_optional: true,
+    type: :string,
+    json_name: "errorService"
+end
+
+defmodule Google.Cloud.Compute.V1.CustomErrorResponsePolicyCustomErrorResponseRule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :match_response_codes, 104_973_410,
+    repeated: true,
+    type: :string,
+    json_name: "matchResponseCodes"
+
+  field :override_response_code, 530_328_568,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "overrideResponseCode"
+
+  field :path, 3_433_509, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.CustomerEncryptionKey do
@@ -9410,6 +9511,7 @@ defmodule Google.Cloud.Compute.V1.Disk do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
+  field :access_mode, 41_155_486, proto3_optional: true, type: :string, json_name: "accessMode"
   field :architecture, 302_803_283, proto3_optional: true, type: :string
 
   field :async_primary_disk, 180_517_533,
@@ -12755,6 +12857,7 @@ defmodule Google.Cloud.Compute.V1.HealthCheck do
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :source_regions, 405_568_475, repeated: true, type: :string, json_name: "sourceRegions"
 
   field :ssl_health_check, 280_032_440,
     proto3_optional: true,
@@ -12953,6 +13056,13 @@ defmodule Google.Cloud.Compute.V1.HealthStatus do
   field :health_state, 324_007_150, proto3_optional: true, type: :string, json_name: "healthState"
   field :instance, 18_257_045, proto3_optional: true, type: :string
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+  field :ipv6_address, 341_563_804, proto3_optional: true, type: :string, json_name: "ipv6Address"
+
+  field :ipv6_health_state, 190_316_614,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv6HealthState"
+
   field :port, 3_446_913, proto3_optional: true, type: :int32
   field :weight, 282_149_496, proto3_optional: true, type: :string
   field :weight_error, 522_501_505, proto3_optional: true, type: :string, json_name: "weightError"
@@ -12984,6 +13094,11 @@ defmodule Google.Cloud.Compute.V1.HealthStatusForNetworkEndpoint do
     json_name: "healthCheckService"
 
   field :health_state, 324_007_150, proto3_optional: true, type: :string, json_name: "healthState"
+
+  field :ipv6_health_state, 190_316_614,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv6HealthState"
 end
 
 defmodule Google.Cloud.Compute.V1.Help do
@@ -13206,6 +13321,11 @@ defmodule Google.Cloud.Compute.V1.HttpRouteRule do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :custom_error_response_policy, 202_816_619,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CustomErrorResponsePolicy,
+    json_name: "customErrorResponsePolicy"
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -14952,6 +15072,11 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :uint64
 
+  field :instance_flexibility_policy, 26_937_090,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicy,
+    json_name: "instanceFlexibilityPolicy"
+
   field :instance_group, 81_095_253,
     proto3_optional: true,
     type: :string,
@@ -14982,6 +15107,8 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
     json_name: "namedPorts"
 
   field :region, 138_946_292, proto3_optional: true, type: :string
+  field :satisfies_pzi, 480_964_257, proto3_optional: true, type: :bool, json_name: "satisfiesPzi"
+  field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :stateful_policy, 47_538_565,
@@ -15087,6 +15214,39 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerAutoHealingPolicy do
     proto3_optional: true,
     type: :int32,
     json_name: "initialDelaySec"
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicy.InstanceSelectionsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :value, 2,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_selections, 22_954_577,
+    repeated: true,
+    type:
+      Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicy.InstanceSelectionsEntry,
+    json_name: "instanceSelections",
+    map: true
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :machine_types, 79_720_065, repeated: true, type: :string, json_name: "machineTypes"
+  field :rank, 3_492_908, proto3_optional: true, type: :int32
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerInstanceLifecyclePolicy do
@@ -16027,6 +16187,7 @@ defmodule Google.Cloud.Compute.V1.InstancesGetEffectiveFirewallsResponseEffectiv
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -19466,70 +19627,6 @@ defmodule Google.Cloud.Compute.V1.LocationPolicyLocationConstraints do
   field :max_count, 287_620_724, proto3_optional: true, type: :int32, json_name: "maxCount"
 end
 
-defmodule Google.Cloud.Compute.V1.LogConfig do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :cloud_audit, 412_852_561,
-    proto3_optional: true,
-    type: Google.Cloud.Compute.V1.LogConfigCloudAuditOptions,
-    json_name: "cloudAudit"
-
-  field :counter, 420_959_740,
-    proto3_optional: true,
-    type: Google.Cloud.Compute.V1.LogConfigCounterOptions
-
-  field :data_access, 286_633_881,
-    proto3_optional: true,
-    type: Google.Cloud.Compute.V1.LogConfigDataAccessOptions,
-    json_name: "dataAccess"
-end
-
-defmodule Google.Cloud.Compute.V1.LogConfigCloudAuditOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :authorization_logging_options, 217_861_624,
-    proto3_optional: true,
-    type: Google.Cloud.Compute.V1.AuthorizationLoggingOptions,
-    json_name: "authorizationLoggingOptions"
-
-  field :log_name, 402_913_958, proto3_optional: true, type: :string, json_name: "logName"
-end
-
-defmodule Google.Cloud.Compute.V1.LogConfigCounterOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :custom_fields, 249_651_015,
-    repeated: true,
-    type: Google.Cloud.Compute.V1.LogConfigCounterOptionsCustomField,
-    json_name: "customFields"
-
-  field :field, 97_427_706, proto3_optional: true, type: :string
-  field :metric, 533_067_184, proto3_optional: true, type: :string
-end
-
-defmodule Google.Cloud.Compute.V1.LogConfigCounterOptionsCustomField do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :name, 3_373_707, proto3_optional: true, type: :string
-  field :value, 111_972_721, proto3_optional: true, type: :string
-end
-
-defmodule Google.Cloud.Compute.V1.LogConfigDataAccessOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :log_mode, 402_897_342, proto3_optional: true, type: :string, json_name: "logMode"
-end
-
 defmodule Google.Cloud.Compute.V1.MachineImage do
   @moduledoc false
 
@@ -19619,6 +19716,7 @@ defmodule Google.Cloud.Compute.V1.MachineType do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :accelerators, 269_577_064, repeated: true, type: Google.Cloud.Compute.V1.Accelerators
+  field :architecture, 302_803_283, proto3_optional: true, type: :string
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -19767,6 +19865,11 @@ defmodule Google.Cloud.Compute.V1.ManagedInstance do
     type: Google.Cloud.Compute.V1.PreservedState,
     json_name: "preservedStateFromPolicy"
 
+  field :properties_from_flexibility_policy, 155_525_825,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ManagedInstancePropertiesFromFlexibilityPolicy,
+    json_name: "propertiesFromFlexibilityPolicy"
+
   field :version, 351_608_024,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.ManagedInstanceVersion
@@ -19791,6 +19894,14 @@ defmodule Google.Cloud.Compute.V1.ManagedInstanceLastAttempt do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :errors, 315_977_579, proto3_optional: true, type: Google.Cloud.Compute.V1.Errors
+end
+
+defmodule Google.Cloud.Compute.V1.ManagedInstancePropertiesFromFlexibilityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :machine_type, 227_711_026, proto3_optional: true, type: :string, json_name: "machineType"
 end
 
 defmodule Google.Cloud.Compute.V1.ManagedInstanceVersion do
@@ -20257,9 +20368,15 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpoint do
     type: Google.Cloud.Compute.V1.NetworkEndpoint.AnnotationsEntry,
     map: true
 
+  field :client_destination_port, 123_765_766,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "clientDestinationPort"
+
   field :fqdn, 3_150_485, proto3_optional: true, type: :string
   field :instance, 18_257_045, proto3_optional: true, type: :string
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
+  field :ipv6_address, 341_563_804, proto3_optional: true, type: :string, json_name: "ipv6Address"
   field :port, 3_446_913, proto3_optional: true, type: :int32
 end
 
@@ -20420,6 +20537,11 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointGroupPscData do
     proto3_optional: true,
     type: :string,
     json_name: "consumerPscAddress"
+
+  field :producer_port, 410_021_134,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "producerPort"
 
   field :psc_connection_id, 292_082_397,
     proto3_optional: true,
@@ -20687,6 +20809,7 @@ defmodule Google.Cloud.Compute.V1.NetworksGetEffectiveFirewallsResponseEffective
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -22608,6 +22731,11 @@ defmodule Google.Cloud.Compute.V1.PathMatcher do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
+  field :default_custom_error_response_policy, 81_266_089,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CustomErrorResponsePolicy,
+    json_name: "defaultCustomErrorResponsePolicy"
+
   field :default_route_action, 378_919_466,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.HttpRouteAction,
@@ -22647,6 +22775,11 @@ defmodule Google.Cloud.Compute.V1.PathRule do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :custom_error_response_policy, 202_816_619,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CustomErrorResponsePolicy,
+    json_name: "customErrorResponsePolicy"
 
   field :paths, 106_438_894, repeated: true, type: :string
 
@@ -22720,7 +22853,6 @@ defmodule Google.Cloud.Compute.V1.Policy do
   field :bindings, 403_251_854, repeated: true, type: Google.Cloud.Compute.V1.Binding
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :iam_owned, 450_566_203, proto3_optional: true, type: :bool, json_name: "iamOwned"
-  field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.Rule
   field :version, 351_608_024, proto3_optional: true, type: :int32
 end
 
@@ -24624,10 +24756,25 @@ defmodule Google.Cloud.Compute.V1.ResourceStatus do
     type: :string,
     json_name: "physicalHost"
 
+  field :scheduling, 386_688_404,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ResourceStatusScheduling
+
   field :upcoming_maintenance, 227_348_592,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.UpcomingMaintenance,
     json_name: "upcomingMaintenance"
+end
+
+defmodule Google.Cloud.Compute.V1.ResourceStatusScheduling do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :availability_domain, 252_514_344,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "availabilityDomain"
 end
 
 defmodule Google.Cloud.Compute.V1.ResumeInstanceRequest do
@@ -25395,25 +25542,6 @@ defmodule Google.Cloud.Compute.V1.RoutersScopedList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
-defmodule Google.Cloud.Compute.V1.Rule do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :action, 187_661_878, proto3_optional: true, type: :string
-  field :conditions, 142_882_488, repeated: true, type: Google.Cloud.Compute.V1.Condition
-  field :description, 422_937_596, proto3_optional: true, type: :string
-  field :ins, 104_430, repeated: true, type: :string
-
-  field :log_configs, 152_873_846,
-    repeated: true,
-    type: Google.Cloud.Compute.V1.LogConfig,
-    json_name: "logConfigs"
-
-  field :not_ins, 518_443_138, repeated: true, type: :string, json_name: "notIns"
-  field :permissions, 59_962_500, repeated: true, type: :string
-end
-
 defmodule Google.Cloud.Compute.V1.SSLHealthCheck do
   @moduledoc false
 
@@ -25522,6 +25650,11 @@ defmodule Google.Cloud.Compute.V1.Scheduling do
     type: :bool,
     json_name: "automaticRestart"
 
+  field :availability_domain, 252_514_344,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "availabilityDomain"
+
   field :instance_termination_action, 107_380_667,
     proto3_optional: true,
     type: :string,
@@ -25537,6 +25670,11 @@ defmodule Google.Cloud.Compute.V1.Scheduling do
     type: :string,
     json_name: "locationHint"
 
+  field :max_run_duration, 430_839_747,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Duration,
+    json_name: "maxRunDuration"
+
   field :min_node_cpus, 317_231_675, proto3_optional: true, type: :int32, json_name: "minNodeCpus"
 
   field :node_affinities, 461_799_971,
@@ -25549,12 +25687,22 @@ defmodule Google.Cloud.Compute.V1.Scheduling do
     type: :string,
     json_name: "onHostMaintenance"
 
+  field :on_instance_stop_action, 529_876_681,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SchedulingOnInstanceStopAction,
+    json_name: "onInstanceStopAction"
+
   field :preemptible, 324_203_169, proto3_optional: true, type: :bool
 
   field :provisioning_model, 494_423,
     proto3_optional: true,
     type: :string,
     json_name: "provisioningModel"
+
+  field :termination_time, 428_082_984,
+    proto3_optional: true,
+    type: :string,
+    json_name: "terminationTime"
 end
 
 defmodule Google.Cloud.Compute.V1.SchedulingNodeAffinity do
@@ -25565,6 +25713,17 @@ defmodule Google.Cloud.Compute.V1.SchedulingNodeAffinity do
   field :key, 106_079, proto3_optional: true, type: :string
   field :operator, 36_317_348, proto3_optional: true, type: :string
   field :values, 249_928_994, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.SchedulingOnInstanceStopAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :discard_local_ssd, 319_517_903,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "discardLocalSsd"
 end
 
 defmodule Google.Cloud.Compute.V1.ScratchDisks do
@@ -25775,7 +25934,42 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyAdaptiveProtectionConfigLayer7Dd
     type: :float,
     json_name: "autoDeployLoadThreshold"
 
+  field :detection_absolute_qps, 383_123_174,
+    proto3_optional: true,
+    type: :float,
+    json_name: "detectionAbsoluteQps"
+
+  field :detection_load_threshold, 430_499_148,
+    proto3_optional: true,
+    type: :float,
+    json_name: "detectionLoadThreshold"
+
+  field :detection_relative_to_baseline_qps, 291_343_749,
+    proto3_optional: true,
+    type: :float,
+    json_name: "detectionRelativeToBaselineQps"
+
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :traffic_granularity_configs, 85_367_358,
+    repeated: true,
+    type:
+      Google.Cloud.Compute.V1.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig,
+    json_name: "trafficGranularityConfigs"
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enable_each_unique_value, 469_206_341,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableEachUniqueValue"
+
+  field :type, 3_575_610, proto3_optional: true, type: :string
+  field :value, 111_972_721, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfig do
@@ -26267,6 +26461,11 @@ defmodule Google.Cloud.Compute.V1.ServiceAttachment do
     type: :string,
     json_name: "producerForwardingRule"
 
+  field :propagated_connection_limit, 332_719_230,
+    proto3_optional: true,
+    type: :uint32,
+    json_name: "propagatedConnectionLimit"
+
   field :psc_service_attachment_id, 527_695_214,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.Uint128,
@@ -26330,6 +26529,11 @@ defmodule Google.Cloud.Compute.V1.ServiceAttachmentConnectedEndpoint do
     json_name: "consumerNetwork"
 
   field :endpoint, 130_489_749, proto3_optional: true, type: :string
+
+  field :propagated_connection_count, 324_594_130,
+    proto3_optional: true,
+    type: :uint32,
+    json_name: "propagatedConnectionCount"
 
   field :psc_connection_id, 292_082_397,
     proto3_optional: true,
@@ -29737,6 +29941,12 @@ defmodule Google.Cloud.Compute.V1.TargetHttpsProxy do
     json_name: "sslCertificates"
 
   field :ssl_policy, 295_190_213, proto3_optional: true, type: :string, json_name: "sslPolicy"
+
+  field :tls_early_data, 61_108_426,
+    proto3_optional: true,
+    type: :string,
+    json_name: "tlsEarlyData"
+
   field :url_map, 367_020_684, proto3_optional: true, type: :string, json_name: "urlMap"
 end
 
@@ -31320,6 +31530,11 @@ defmodule Google.Cloud.Compute.V1.UrlMap do
     proto3_optional: true,
     type: :string,
     json_name: "creationTimestamp"
+
+  field :default_custom_error_response_policy, 81_266_089,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.CustomErrorResponsePolicy,
+    json_name: "defaultCustomErrorResponsePolicy"
 
   field :default_route_action, 378_919_466,
     proto3_optional: true,
