@@ -11,6 +11,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.AudioEncoding do
   field :AUDIO_ENCODING_AMR_WB, 5
   field :AUDIO_ENCODING_OGG_OPUS, 6
   field :AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE, 7
+  field :AUDIO_ENCODING_ALAW, 8
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechModelVariant do
@@ -46,6 +47,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_MP3_64_KBPS, 4
   field :OUTPUT_AUDIO_ENCODING_OGG_OPUS, 3
   field :OUTPUT_AUDIO_ENCODING_MULAW, 5
+  field :OUTPUT_AUDIO_ENCODING_ALAW, 6
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechWordInfo do

@@ -7,6 +7,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Generator.Placeholder do
   field :name, 2, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.Generator.ModelParameter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :temperature, 1, proto3_optional: true, type: :float
+  field :max_decode_steps, 2, proto3_optional: true, type: :int32, json_name: "maxDecodeSteps"
+  field :top_p, 3, proto3_optional: true, type: :float, json_name: "topP"
+  field :top_k, 4, proto3_optional: true, type: :int32, json_name: "topK"
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Generator do
   @moduledoc false
 
@@ -24,6 +35,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Generator do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3.Generator.Placeholder,
     deprecated: false
+
+  field :model_parameter, 8,
+    type: Google.Cloud.Dialogflow.Cx.V3.Generator.ModelParameter,
+    json_name: "modelParameter"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Phrase do
