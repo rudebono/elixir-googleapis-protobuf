@@ -135,6 +135,12 @@ defmodule Google.Cloud.Dialogflow.V2.InputAudioConfig do
 
   field :enable_automatic_punctuation, 17, type: :bool, json_name: "enableAutomaticPunctuation"
 
+  field :phrase_sets, 20,
+    repeated: true,
+    type: :string,
+    json_name: "phraseSets",
+    deprecated: false
+
   field :opt_out_conformer_model_migration, 26,
     type: :bool,
     json_name: "optOutConformerModelMigration"
@@ -213,6 +219,7 @@ defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
     enum: true
 
   field :model, 2, type: :string
+  field :phrase_sets, 4, repeated: true, type: :string, json_name: "phraseSets", deprecated: false
 
   field :audio_encoding, 6,
     type: Google.Cloud.Dialogflow.V2.AudioEncoding,

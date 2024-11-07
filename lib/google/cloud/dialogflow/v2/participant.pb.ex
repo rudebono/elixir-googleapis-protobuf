@@ -654,6 +654,7 @@ defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.Gener
   field :uri, 2, type: :string
   field :text, 3, type: :string
   field :title, 4, type: :string
+  field :metadata, 5, type: Google.Protobuf.Struct
 end
 
 defmodule Google.Cloud.Dialogflow.V2.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource do

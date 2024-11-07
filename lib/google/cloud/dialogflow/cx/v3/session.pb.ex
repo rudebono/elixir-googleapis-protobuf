@@ -28,6 +28,25 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.StreamingRecognitionResult.MessageType d
   field :END_OF_SINGLE_UTTERANCE, 2
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
+  field :NUMERICAL, 1
+  field :FRESHNESS, 2
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :INTERPOLATION_TYPE_UNSPECIFIED, 0
+  field :LINEAR, 1
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.Match.MatchType do
   @moduledoc false
 
@@ -352,6 +371,44 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.SearchConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :attribute_value, 1, type: :string, json_name: "attributeValue", deprecated: false
+  field :boost_amount, 2, type: :float, json_name: "boostAmount", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName", deprecated: false
+
+  field :attribute_type, 2,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType,
+    json_name: "attributeType",
+    enum: true,
+    deprecated: false
+
+  field :interpolation_type, 3,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType,
+    json_name: "interpolationType",
+    enum: true,
+    deprecated: false
+
+  field :control_points, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint,
+    json_name: "controlPoints",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
@@ -359,6 +416,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec do
 
   field :condition, 1, type: :string, deprecated: false
   field :boost, 2, type: :float, deprecated: false
+
+  field :boost_control_spec, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3.BoostSpec.ConditionBoostSpec.BoostControlSpec,
+    json_name: "boostControlSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.BoostSpec do

@@ -138,6 +138,10 @@ defmodule Google.Api.PythonSettings.ExperimentalFeatures do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :rest_async_io_enabled, 1, type: :bool, json_name: "restAsyncIoEnabled"
+
+  field :protobuf_pythonic_types_enabled, 2,
+    type: :bool,
+    json_name: "protobufPythonicTypesEnabled"
 end
 
 defmodule Google.Api.PythonSettings do
