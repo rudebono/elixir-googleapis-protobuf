@@ -81,6 +81,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.PersonalizationSettings do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.ClientCertificateSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ssl_certificate, 1, type: :string, json_name: "sslCertificate", deprecated: false
+  field :private_key, 2, type: :string, json_name: "privateKey", deprecated: false
+  field :passphrase, 3, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
   @moduledoc false
 
@@ -141,6 +151,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings,
     json_name: "gitIntegrationSettings"
 
+  field :bigquery_export_settings, 29,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.BigQueryExportSettings,
+    json_name: "bigqueryExportSettings",
+    deprecated: false
+
   field :text_to_speech_settings, 31,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.TextToSpeechSettings,
     json_name: "textToSpeechSettings"
@@ -158,6 +173,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
   field :personalization_settings, 42,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.PersonalizationSettings,
     json_name: "personalizationSettings",
+    deprecated: false
+
+  field :client_certificate_settings, 43,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.ClientCertificateSettings,
+    json_name: "clientCertificateSettings",
     deprecated: false
 end
 

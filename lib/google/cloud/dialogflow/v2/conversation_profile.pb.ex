@@ -348,6 +348,8 @@ defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryCo
   field :sections, 8,
     type: Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.SuggestionQueryConfig.Sections,
     deprecated: false
+
+  field :context_size, 9, type: :int32, json_name: "contextSize", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.HumanAgentAssistantConfig.ConversationModelConfig do

@@ -37,6 +37,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.OAuthConfig.Oau
   field :CLIENT_CREDENTIAL, 1
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ServiceAgentAuthConfig.ServiceAgentAuth do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SERVICE_AGENT_AUTH_UNSPECIFIED, 0
+  field :ID_TOKEN, 1
+  field :ACCESS_TOKEN, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateToolRequest do
   @moduledoc false
 
@@ -230,12 +240,28 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.OAuthConfig do
   field :client_id, 2, type: :string, json_name: "clientId", deprecated: false
   field :client_secret, 3, type: :string, json_name: "clientSecret", deprecated: false
   field :token_endpoint, 4, type: :string, json_name: "tokenEndpoint", deprecated: false
+  field :scopes, 5, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ServiceAgentAuthConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :service_agent_auth, 1,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ServiceAgentAuthConfig.ServiceAgentAuth,
+    json_name: "serviceAgentAuth",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.BearerTokenConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :token, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication do
@@ -258,6 +284,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication do
   field :service_agent_auth_config, 3,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ServiceAgentAuthConfig,
     json_name: "serviceAgentAuthConfig",
+    oneof: 0
+
+  field :bearer_token_config, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.BearerTokenConfig,
+    json_name: "bearerTokenConfig",
     oneof: 0
 end
 
