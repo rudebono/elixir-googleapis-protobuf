@@ -35,6 +35,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AudioEncoding do
   field :AUDIO_ENCODING_AMR_WB, 5
   field :AUDIO_ENCODING_OGG_OPUS, 6
   field :AUDIO_ENCODING_SPEEX_WITH_HEADER_BYTE, 7
+  field :AUDIO_ENCODING_ALAW, 8
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechModelVariant do
@@ -70,6 +71,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_MP3_64_KBPS, 4
   field :OUTPUT_AUDIO_ENCODING_OGG_OPUS, 3
   field :OUTPUT_AUDIO_ENCODING_MULAW, 5
+  field :OUTPUT_AUDIO_ENCODING_ALAW, 6
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechContext do
@@ -150,6 +152,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.InputAudioConfig do
     type: Google.Protobuf.Duration,
     json_name: "defaultNoSpeechTimeout"
 
+  field :phrase_sets, 20,
+    repeated: true,
+    type: :string,
+    json_name: "phraseSets",
+    deprecated: false
+
   field :opt_out_conformer_model_migration, 26,
     type: :bool,
     json_name: "optOutConformerModelMigration"
@@ -228,6 +236,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SpeechToTextConfig do
     enum: true
 
   field :model, 2, type: :string
+  field :phrase_sets, 4, repeated: true, type: :string, json_name: "phraseSets", deprecated: false
 
   field :audio_encoding, 6,
     type: Google.Cloud.Dialogflow.V2beta1.AudioEncoding,

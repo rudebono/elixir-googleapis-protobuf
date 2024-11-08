@@ -319,7 +319,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
 
   field :cx_parameters, 18, type: Google.Protobuf.Struct, json_name: "cxParameters"
   field :cx_current_page, 20, type: :string, json_name: "cxCurrentPage"
-  field :message_send_time, 10, type: Google.Protobuf.Timestamp, json_name: "messageSendTime"
+
+  field :message_send_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "messageSendTime",
+    deprecated: false
+
   field :request_id, 11, type: :string, json_name: "requestId"
 end
 
@@ -974,6 +979,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer.
   field :uri, 2, type: :string
   field :text, 3, type: :string
   field :title, 4, type: :string
+  field :metadata, 5, type: Google.Protobuf.Struct
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource do

@@ -208,6 +208,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.VertexRagSource do
   field :rag_corpus_id, 2, type: :int64, json_name: "ragCorpusId", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.OptimizedConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :automatic_resources, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.AutomaticResources,
+    json_name: "automaticResources",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.LabelsEntry do
   @moduledoc false
 
@@ -274,6 +285,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
   field :index_config, 15,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureView.IndexConfig,
     json_name: "indexConfig",
+    deprecated: false
+
+  field :optimized_config, 16,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.OptimizedConfig,
+    json_name: "optimizedConfig",
     deprecated: false
 
   field :service_agent_type, 14,

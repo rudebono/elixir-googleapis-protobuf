@@ -159,6 +159,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Endpoint do
     deprecated: false
 
   field :gke_master_cluster, 7, type: :string, json_name: "gkeMasterCluster"
+  field :fqdn, 19, type: :string
   field :cloud_sql_instance, 8, type: :string, json_name: "cloudSqlInstance"
   field :redis_instance, 17, type: :string, json_name: "redisInstance"
   field :redis_cluster, 18, type: :string, json_name: "redisCluster"
