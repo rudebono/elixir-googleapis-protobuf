@@ -351,6 +351,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION, 80
   field :NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION, 81
   field :NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION, 82
+  field :PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED, 83
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.NatInfo.Type do
@@ -788,6 +789,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.GKEMasterInfo do
   field :cluster_network_uri, 4, type: :string, json_name: "clusterNetworkUri"
   field :internal_ip, 5, type: :string, json_name: "internalIp"
   field :external_ip, 6, type: :string, json_name: "externalIp"
+  field :dns_endpoint, 7, type: :string, json_name: "dnsEndpoint"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.CloudSQLInstanceInfo do
