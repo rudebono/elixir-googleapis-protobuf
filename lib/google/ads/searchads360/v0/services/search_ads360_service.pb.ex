@@ -122,6 +122,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     type: Google.Ads.Searchads360.V0.Resources.AdGroupAd,
     json_name: "adGroupAd"
 
+  field :ad_group_ad_effective_label, 234,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupAdEffectiveLabel,
+    json_name: "adGroupAdEffectiveLabel"
+
   field :ad_group_ad_label, 120,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupAdLabel,
     json_name: "adGroupAdLabel"
@@ -145,6 +149,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
   field :ad_group_criterion, 17,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterion,
     json_name: "adGroupCriterion"
+
+  field :ad_group_criterion_effective_label, 235,
+    type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterionEffectiveLabel,
+    json_name: "adGroupCriterionEffectiveLabel"
 
   field :ad_group_criterion_label, 121,
     type: Google.Ads.Searchads360.V0.Resources.AdGroupCriterionLabel,
@@ -301,6 +309,10 @@ defmodule Google.Ads.Searchads360.V0.Services.SearchAds360Row do
     json_name: "shoppingPerformanceView"
 
   field :user_list, 38, type: Google.Ads.Searchads360.V0.Resources.UserList, json_name: "userList"
+
+  field :user_location_view, 135,
+    type: Google.Ads.Searchads360.V0.Resources.UserLocationView,
+    json_name: "userLocationView"
 
   field :webpage_view, 162,
     type: Google.Ads.Searchads360.V0.Resources.WebpageView,

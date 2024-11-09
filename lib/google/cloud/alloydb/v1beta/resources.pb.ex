@@ -27,6 +27,17 @@ defmodule Google.Cloud.Alloydb.V1beta.DatabaseVersion do
   field :POSTGRES_13, 1
   field :POSTGRES_14, 2
   field :POSTGRES_15, 3
+  field :POSTGRES_16, 4
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.SubscriptionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SUBSCRIPTION_TYPE_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :TRIAL, 2
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.MigrationSource.MigrationSourceType do
@@ -451,6 +462,25 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster.PrimaryConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.Cluster.PscConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :psc_enabled, 1, type: :bool, json_name: "pscEnabled", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Cluster.TrialMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :upgrade_time, 3, type: Google.Protobuf.Timestamp, json_name: "upgradeTime"
+  field :grace_end_time, 4, type: Google.Protobuf.Timestamp, json_name: "graceEndTime"
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.Cluster.LabelsEntry do
   @moduledoc false
 
@@ -461,6 +491,15 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster.LabelsEntry do
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Cluster.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Cluster.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -485,6 +524,12 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster do
   field :migration_source, 16,
     type: Google.Cloud.Alloydb.V1beta.MigrationSource,
     json_name: "migrationSource",
+    oneof: 0,
+    deprecated: false
+
+  field :cloudsql_backup_run_source, 42,
+    type: Google.Cloud.Alloydb.V1beta.CloudSQLBackupRunSource,
+    json_name: "cloudsqlBackupRunSource",
     oneof: 0,
     deprecated: false
 
@@ -586,6 +631,11 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster do
 
   field :satisfies_pzs, 30, type: :bool, json_name: "satisfiesPzs", deprecated: false
 
+  field :psc_config, 31,
+    type: Google.Cloud.Alloydb.V1beta.Cluster.PscConfig,
+    json_name: "pscConfig",
+    deprecated: false
+
   field :maintenance_update_policy, 32,
     type: Google.Cloud.Alloydb.V1beta.MaintenanceUpdatePolicy,
     json_name: "maintenanceUpdatePolicy",
@@ -594,6 +644,28 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster do
   field :maintenance_schedule, 37,
     type: Google.Cloud.Alloydb.V1beta.MaintenanceSchedule,
     json_name: "maintenanceSchedule",
+    deprecated: false
+
+  field :gemini_config, 36,
+    type: Google.Cloud.Alloydb.V1beta.GeminiClusterConfig,
+    json_name: "geminiConfig",
+    deprecated: false
+
+  field :subscription_type, 38,
+    type: Google.Cloud.Alloydb.V1beta.SubscriptionType,
+    json_name: "subscriptionType",
+    enum: true,
+    deprecated: false
+
+  field :trial_metadata, 39,
+    type: Google.Cloud.Alloydb.V1beta.Cluster.TrialMetadata,
+    json_name: "trialMetadata",
+    deprecated: false
+
+  field :tags, 41,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Cluster.TagsEntry,
+    map: true,
     deprecated: false
 end
 
@@ -639,6 +711,47 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.QueryInsightsInstanceConfig do
     json_name: "queryPlansPerMinute"
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.Instance.ObservabilityInstanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
+  field :preserve_comments, 2, proto3_optional: true, type: :bool, json_name: "preserveComments"
+  field :track_wait_events, 3, proto3_optional: true, type: :bool, json_name: "trackWaitEvents"
+
+  field :track_wait_event_types, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "trackWaitEventTypes",
+    deprecated: false
+
+  field :max_query_string_length, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxQueryStringLength"
+
+  field :record_application_tags, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "recordApplicationTags"
+
+  field :query_plans_per_minute, 7,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "queryPlansPerMinute"
+
+  field :track_active_queries, 8,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "trackActiveQueries"
+
+  field :track_client_address, 9,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "trackClientAddress"
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.Instance.ReadPoolConfig do
   @moduledoc false
 
@@ -668,15 +781,6 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.ClientConnectionConfig do
     deprecated: false
 end
 
-defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :consumer_endpoint_ips, 1, repeated: true, type: :string, json_name: "consumerEndpointIps"
-  field :network_attachment, 2, type: :string, json_name: "networkAttachment"
-end
-
 defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig do
   @moduledoc false
 
@@ -693,25 +797,7 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig do
     json_name: "allowedConsumerProjects",
     deprecated: false
 
-  field :allowed_consumer_networks, 3,
-    repeated: true,
-    type: :string,
-    json_name: "allowedConsumerNetworks",
-    deprecated: false
-
-  field :psc_interface_configs, 4,
-    repeated: true,
-    type: Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig,
-    json_name: "pscInterfaceConfigs",
-    deprecated: false
-
-  field :outgoing_service_attachment_links, 5,
-    repeated: true,
-    type: :string,
-    json_name: "outgoingServiceAttachmentLinks",
-    deprecated: false
-
-  field :psc_enabled, 6, type: :bool, json_name: "pscEnabled", deprecated: false
+  field :psc_dns_name, 7, type: :string, json_name: "pscDnsName", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig.AuthorizedNetwork do
@@ -836,6 +922,10 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
     type: Google.Cloud.Alloydb.V1beta.Instance.QueryInsightsInstanceConfig,
     json_name: "queryInsightsConfig"
 
+  field :observability_config, 26,
+    type: Google.Cloud.Alloydb.V1beta.Instance.ObservabilityInstanceConfig,
+    json_name: "observabilityConfig"
+
   field :read_pool_config, 14,
     type: Google.Cloud.Alloydb.V1beta.Instance.ReadPoolConfig,
     json_name: "readPoolConfig"
@@ -869,6 +959,11 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
   field :network_config, 29,
     type: Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig,
     json_name: "networkConfig",
+    deprecated: false
+
+  field :gemini_config, 33,
+    type: Google.Cloud.Alloydb.V1beta.GeminiInstanceConfig,
+    json_name: "geminiConfig",
     deprecated: false
 
   field :outbound_public_ip_addresses, 34,
@@ -920,6 +1015,15 @@ defmodule Google.Cloud.Alloydb.V1beta.Backup.LabelsEntry do
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Backup.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Backup.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -1000,6 +1104,12 @@ defmodule Google.Cloud.Alloydb.V1beta.Backup do
     json_name: "databaseVersion",
     enum: true,
     deprecated: false
+
+  field :tags, 25,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Backup.TagsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.StringRestrictions do
@@ -1074,6 +1184,8 @@ defmodule Google.Cloud.Alloydb.V1beta.User do
     json_name: "userType",
     enum: true,
     deprecated: false
+
+  field :keep_extra_roles, 6, type: :bool, json_name: "keepExtraRoles", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Database do

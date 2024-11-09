@@ -61,6 +61,13 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
 
   field :negative, 58, proto3_optional: true, type: :bool, deprecated: false
   field :labels, 60, repeated: true, type: :string, deprecated: false
+
+  field :effective_labels, 87,
+    repeated: true,
+    type: :string,
+    json_name: "effectiveLabels",
+    deprecated: false
+
   field :bid_modifier, 61, proto3_optional: true, type: :double, json_name: "bidModifier"
   field :cpc_bid_micros, 62, proto3_optional: true, type: :int64, json_name: "cpcBidMicros"
 
