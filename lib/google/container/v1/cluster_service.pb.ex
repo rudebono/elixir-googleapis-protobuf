@@ -89,6 +89,16 @@ defmodule Google.Container.V1.WindowsNodeConfig.OSVersion do
   field :OS_VERSION_LTSC2022, 2
 end
 
+defmodule Google.Container.V1.NodeConfig.LocalSsdEncryptionMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED, 0
+  field :STANDARD_ENCRYPTION, 1
+  field :EPHEMERAL_KEY_ENCRYPTION, 2
+end
+
 defmodule Google.Container.V1.NodeConfig.EffectiveCgroupMode do
   @moduledoc false
 
@@ -497,6 +507,18 @@ defmodule Google.Container.V1.NotificationConfig.EventType do
   field :SECURITY_BULLETIN_EVENT, 3
 end
 
+defmodule Google.Container.V1.UpgradeInfoEvent.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :STARTED, 3
+  field :SUCCEEDED, 4
+  field :FAILED, 5
+  field :CANCELED, 6
+end
+
 defmodule Google.Container.V1.LoggingComponentConfig.Component do
   @moduledoc false
 
@@ -792,6 +814,12 @@ defmodule Google.Container.V1.NodeConfig do
     proto3_optional: true,
     type: Google.Container.V1.SecondaryBootDiskUpdateStrategy,
     json_name: "secondaryBootDiskUpdateStrategy"
+
+  field :local_ssd_encryption_mode, 54,
+    proto3_optional: true,
+    type: Google.Container.V1.NodeConfig.LocalSsdEncryptionMode,
+    json_name: "localSsdEncryptionMode",
+    enum: true
 
   field :effective_cgroup_mode, 55,
     type: Google.Container.V1.NodeConfig.EffectiveCgroupMode,
@@ -1781,6 +1809,11 @@ defmodule Google.Container.V1.NodePoolAutoConfig do
   field :node_kubelet_config, 3,
     type: Google.Container.V1.NodeKubeletConfig,
     json_name: "nodeKubeletConfig"
+
+  field :linux_node_config, 4,
+    type: Google.Container.V1.LinuxNodeConfig,
+    json_name: "linuxNodeConfig",
+    deprecated: false
 end
 
 defmodule Google.Container.V1.NodePoolDefaults do
@@ -2061,6 +2094,14 @@ defmodule Google.Container.V1.ClusterUpdate do
     proto3_optional: true,
     type: Google.Container.V1.RBACBindingConfig,
     json_name: "desiredRbacBindingConfig"
+
+  field :desired_enterprise_config, 147,
+    type: Google.Container.V1.DesiredEnterpriseConfig,
+    json_name: "desiredEnterpriseConfig"
+
+  field :desired_node_pool_auto_config_linux_node_config, 150,
+    type: Google.Container.V1.LinuxNodeConfig,
+    json_name: "desiredNodePoolAutoConfigLinuxNodeConfig"
 end
 
 defmodule Google.Container.V1.AdditionalPodRangesConfig do
@@ -2084,6 +2125,17 @@ defmodule Google.Container.V1.RangeInfo do
 
   field :range_name, 1, type: :string, json_name: "rangeName", deprecated: false
   field :utilization, 2, type: :double, deprecated: false
+end
+
+defmodule Google.Container.V1.DesiredEnterpriseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :desired_tier, 1,
+    type: Google.Container.V1.EnterpriseConfig.ClusterTier,
+    json_name: "desiredTier",
+    enum: true
 end
 
 defmodule Google.Container.V1.Operation do
@@ -3591,6 +3643,26 @@ defmodule Google.Container.V1.UpgradeEvent do
   field :resource, 6, type: :string
 end
 
+defmodule Google.Container.V1.UpgradeInfoEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :resource_type, 1,
+    type: Google.Container.V1.UpgradeResourceType,
+    json_name: "resourceType",
+    enum: true
+
+  field :operation, 2, type: :string
+  field :start_time, 3, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :current_version, 5, type: :string, json_name: "currentVersion"
+  field :target_version, 6, type: :string, json_name: "targetVersion"
+  field :resource, 7, type: :string
+  field :state, 8, type: Google.Container.V1.UpgradeInfoEvent.State, enum: true, deprecated: false
+  field :description, 11, type: :string
+end
+
 defmodule Google.Container.V1.UpgradeAvailableEvent do
   @moduledoc false
 
@@ -3864,6 +3936,11 @@ defmodule Google.Container.V1.EnterpriseConfig do
     json_name: "clusterTier",
     enum: true,
     deprecated: false
+
+  field :desired_tier, 2,
+    type: Google.Container.V1.EnterpriseConfig.ClusterTier,
+    json_name: "desiredTier",
+    enum: true
 end
 
 defmodule Google.Container.V1.SecretManagerConfig do

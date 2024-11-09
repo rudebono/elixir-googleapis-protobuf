@@ -12,6 +12,13 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupAd do
   field :ad, 5, type: Google.Ads.Searchads360.V0.Resources.Ad, deprecated: false
   field :creation_time, 14, type: :string, json_name: "creationTime", deprecated: false
   field :labels, 10, repeated: true, type: :string, deprecated: false
+
+  field :effective_labels, 19,
+    repeated: true,
+    type: :string,
+    json_name: "effectiveLabels",
+    deprecated: false
+
   field :engine_id, 11, type: :string, json_name: "engineId", deprecated: false
 
   field :engine_status, 15,

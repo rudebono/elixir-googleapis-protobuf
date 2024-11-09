@@ -110,6 +110,9 @@ defmodule Google.Maps.Places.V1.Place.OpeningHours do
     repeated: true,
     type: Google.Maps.Places.V1.Place.OpeningHours.SpecialDay,
     json_name: "specialDays"
+
+  field :next_open_time, 6, type: Google.Protobuf.Timestamp, json_name: "nextOpenTime"
+  field :next_close_time, 7, type: Google.Protobuf.Timestamp, json_name: "nextCloseTime"
 end
 
 defmodule Google.Maps.Places.V1.Place.Attribution do
@@ -225,6 +228,15 @@ defmodule Google.Maps.Places.V1.Place.AreaSummary do
     repeated: true,
     type: Google.Maps.Places.V1.ContentBlock,
     json_name: "contentBlocks"
+end
+
+defmodule Google.Maps.Places.V1.Place.ContainingPlace do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :id, 2, type: :string
 end
 
 defmodule Google.Maps.Places.V1.Place do
@@ -363,4 +375,16 @@ defmodule Google.Maps.Places.V1.Place do
     json_name: "generativeSummary"
 
   field :area_summary, 81, type: Google.Maps.Places.V1.Place.AreaSummary, json_name: "areaSummary"
+
+  field :containing_places, 82,
+    repeated: true,
+    type: Google.Maps.Places.V1.Place.ContainingPlace,
+    json_name: "containingPlaces"
+
+  field :pure_service_area_business, 83,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "pureServiceAreaBusiness"
+
+  field :price_range, 86, type: Google.Maps.Places.V1.PriceRange, json_name: "priceRange"
 end

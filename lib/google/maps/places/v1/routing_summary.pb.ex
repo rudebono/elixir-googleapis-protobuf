@@ -13,4 +13,5 @@ defmodule Google.Maps.Places.V1.RoutingSummary do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :legs, 1, repeated: true, type: Google.Maps.Places.V1.RoutingSummary.Leg
+  field :directions_uri, 2, type: :string, json_name: "directionsUri"
 end

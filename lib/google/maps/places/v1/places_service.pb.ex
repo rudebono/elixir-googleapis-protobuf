@@ -200,6 +200,11 @@ defmodule Google.Maps.Places.V1.SearchTextRequest do
     type: Google.Maps.Places.V1.SearchTextRequest.SearchAlongRouteParameters,
     json_name: "searchAlongRouteParameters",
     deprecated: false
+
+  field :include_pure_service_area_businesses, 20,
+    type: :bool,
+    json_name: "includePureServiceAreaBusinesses",
+    deprecated: false
 end
 
 defmodule Google.Maps.Places.V1.SearchTextResponse do
@@ -313,6 +318,11 @@ defmodule Google.Maps.Places.V1.AutocompletePlacesRequest do
     deprecated: false
 
   field :session_token, 11, type: :string, json_name: "sessionToken", deprecated: false
+
+  field :include_pure_service_area_businesses, 12,
+    type: :bool,
+    json_name: "includePureServiceAreaBusinesses",
+    deprecated: false
 end
 
 defmodule Google.Maps.Places.V1.AutocompletePlacesResponse.Suggestion.StringRange do
