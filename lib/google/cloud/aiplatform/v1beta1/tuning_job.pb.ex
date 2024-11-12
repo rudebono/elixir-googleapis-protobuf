@@ -93,6 +93,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
   field :encryption_spec, 16,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :service_account, 22, type: :string, json_name: "serviceAccount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModel do
