@@ -114,6 +114,17 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.State do
   field :CANCELLED, 4
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.ProvisioningState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :PROVISIONING_STATE_UNSPECIFIED, 0
+  field :PROVISIONING_REQUIRED, 1
+  field :PROVISIONING_IN_PROGRESS, 2
+  field :PROVISIONING_COMPLETE, 3
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.PowerReceptacleType do
   @moduledoc false
 
@@ -369,6 +380,8 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress do
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress.AddressType,
     enum: true,
     deprecated: false
+
+  field :ipv4_address, 3, type: :string, json_name: "ipv4Address", deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.DiskInfo do
@@ -655,6 +668,12 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone do
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig,
     json_name: "subscriptionConfigs",
     deprecated: false
+
+  field :provisioning_state, 14,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.ProvisioningState,
+    json_name: "provisioningState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OrganizationContact do
@@ -827,6 +846,17 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ZoneNetworkConfig do
   field :kubernetes_ipv4_subnet, 5,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.Subnet,
     json_name: "kubernetesIpv4Subnet",
+    deprecated: false
+
+  field :dns_ipv4_addresses, 6,
+    repeated: true,
+    type: :string,
+    json_name: "dnsIpv4Addresses",
+    deprecated: false
+
+  field :kubernetes_primary_vlan_id, 7,
+    type: :int32,
+    json_name: "kubernetesPrimaryVlanId",
     deprecated: false
 end
 

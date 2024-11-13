@@ -2814,6 +2814,30 @@ defmodule Google.Cloud.Deploy.V1.AutomationRule do
     json_name: "repairRolloutRule",
     oneof: 0,
     deprecated: false
+
+  field :timed_promote_release_rule, 4,
+    type: Google.Cloud.Deploy.V1.TimedPromoteReleaseRule,
+    json_name: "timedPromoteReleaseRule",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.TimedPromoteReleaseRule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :destination_target_id, 2,
+    type: :string,
+    json_name: "destinationTargetId",
+    deprecated: false
+
+  field :schedule, 3, type: :string, deprecated: false
+  field :time_zone, 4, type: :string, json_name: "timeZone", deprecated: false
+  field :condition, 5, type: Google.Cloud.Deploy.V1.AutomationRuleCondition, deprecated: false
+  field :destination_phase, 6, type: :string, json_name: "destinationPhase", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.PromoteReleaseRule do
@@ -2911,9 +2935,47 @@ defmodule Google.Cloud.Deploy.V1.AutomationRuleCondition do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
+  oneof :rule_type_condition, 0
+
   field :targets_present_condition, 1,
     type: Google.Cloud.Deploy.V1.TargetsPresentCondition,
     json_name: "targetsPresentCondition",
+    deprecated: false
+
+  field :timed_promote_release_condition, 2,
+    type: Google.Cloud.Deploy.V1.TimedPromoteReleaseCondition,
+    json_name: "timedPromoteReleaseCondition",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.TimedPromoteReleaseCondition.Targets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :source_target_id, 1, type: :string, json_name: "sourceTargetId", deprecated: false
+
+  field :destination_target_id, 2,
+    type: :string,
+    json_name: "destinationTargetId",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.TimedPromoteReleaseCondition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :next_promotion_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "nextPromotionTime",
+    deprecated: false
+
+  field :targets_list, 2,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.TimedPromoteReleaseCondition.Targets,
+    json_name: "targetsList",
     deprecated: false
 end
 
@@ -3049,6 +3111,12 @@ defmodule Google.Cloud.Deploy.V1.AutomationRun do
     oneof: 0,
     deprecated: false
 
+  field :timed_promote_release_operation, 19,
+    type: Google.Cloud.Deploy.V1.TimedPromoteReleaseOperation,
+    json_name: "timedPromoteReleaseOperation",
+    oneof: 0,
+    deprecated: false
+
   field :wait_until_time, 16,
     type: Google.Protobuf.Timestamp,
     json_name: "waitUntilTime",
@@ -3097,6 +3165,16 @@ defmodule Google.Cloud.Deploy.V1.RepairRolloutOperation do
 
   field :phase_id, 4, type: :string, json_name: "phaseId", deprecated: false
   field :job_id, 5, type: :string, json_name: "jobId", deprecated: false
+end
+
+defmodule Google.Cloud.Deploy.V1.TimedPromoteReleaseOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :target_id, 1, type: :string, json_name: "targetId", deprecated: false
+  field :release, 2, type: :string, deprecated: false
+  field :phase, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RepairPhase do

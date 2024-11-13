@@ -65,6 +65,17 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
     json_name: "serviceMesh",
     deprecated: false
 
+  field :encryption_key_revocation_action, 17,
+    type: Google.Cloud.Run.V2.EncryptionKeyRevocationAction,
+    json_name: "encryptionKeyRevocationAction",
+    enum: true,
+    deprecated: false
+
+  field :encryption_key_shutdown_duration, 18,
+    type: Google.Protobuf.Duration,
+    json_name: "encryptionKeyShutdownDuration",
+    deprecated: false
+
   field :session_affinity, 19, type: :bool, json_name: "sessionAffinity", deprecated: false
 
   field :health_check_disabled, 20,

@@ -29,6 +29,16 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.Stat
   field :FACTORY_TURNUP_CHECKS_FAILED, 2
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.ProvisioningStateSignal do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :PROVISIONING_STATE_SIGNAL_UNSPECIFIED, 0
+  field :PROVISIONING_IN_PROGRESS, 1
+  field :PROVISIONING_COMPLETE, 2
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListOrdersRequest do
   @moduledoc false
 
@@ -506,6 +516,13 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest do
   field :state_signal, 3,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.StateSignal,
     json_name: "stateSignal",
+    enum: true,
+    deprecated: false
+
+  field :provisioning_state_signal, 4,
+    type:
+      Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.ProvisioningStateSignal,
+    json_name: "provisioningStateSignal",
     enum: true,
     deprecated: false
 end
