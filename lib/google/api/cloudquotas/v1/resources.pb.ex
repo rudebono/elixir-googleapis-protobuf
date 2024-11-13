@@ -26,6 +26,8 @@ defmodule Google.Api.Cloudquotas.V1.QuotaIncreaseEligibility.IneligibilityReason
 
   field :INELIGIBILITY_REASON_UNSPECIFIED, 0
   field :NO_VALID_BILLING_ACCOUNT, 1
+  field :NOT_SUPPORTED, 3
+  field :NOT_ENOUGH_USAGE_HISTORY, 4
   field :OTHER, 2
 end
 

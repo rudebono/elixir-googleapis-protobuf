@@ -146,6 +146,10 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
     json_name: "privateEndpoints",
     deprecated: false
 
+  field :faster_deployment_config, 23,
+    type: Google.Cloud.Aiplatform.V1.FasterDeploymentConfig,
+    json_name: "fasterDeploymentConfig"
+
   field :system_labels, 28,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.DeployedModel.SystemLabelsEntry,
@@ -175,4 +179,12 @@ defmodule Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig do
   field :bigquery_destination, 3,
     type: Google.Cloud.Aiplatform.V1.BigQueryDestination,
     json_name: "bigqueryDestination"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.FasterDeploymentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
 end

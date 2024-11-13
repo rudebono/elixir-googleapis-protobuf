@@ -100,6 +100,17 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.ClassificationReason 
   field :SUSPECTED_CHARGEBACK, 7
 end
 
+defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.Challenge do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :CHALLENGE_UNSPECIFIED, 0
+  field :NOCAPTCHA, 1
+  field :PASSED, 2
+  field :FAILED, 3
+end
+
 defmodule Google.Cloud.Recaptchaenterprise.V1.TokenProperties.InvalidReason do
   @moduledoc false
 
@@ -573,6 +584,11 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis do
     repeated: true,
     type: :string,
     json_name: "extendedVerdictReasons",
+    deprecated: false
+
+  field :challenge, 4,
+    type: Google.Cloud.Recaptchaenterprise.V1.RiskAnalysis.Challenge,
+    enum: true,
     deprecated: false
 end
 
