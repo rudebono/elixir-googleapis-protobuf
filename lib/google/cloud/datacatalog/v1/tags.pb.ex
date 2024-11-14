@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Datacatalog.V1.TagTemplate.DataplexTransferStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DATAPLEX_TRANSFER_STATUS_UNSPECIFIED, 0
+  field :MIGRATED, 1
+end
+
 defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
   @moduledoc false
 
@@ -27,7 +36,7 @@ defmodule Google.Cloud.Datacatalog.V1.Tag do
 
   oneof :scope, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :template, 2, type: :string, deprecated: false
 
   field :template_display_name, 5,
@@ -92,7 +101,7 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :is_publicly_readable, 5, type: :bool, json_name: "isPubliclyReadable"
 
@@ -100,6 +109,12 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplate do
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.TagTemplate.FieldsEntry,
     map: true,
+    deprecated: false
+
+  field :dataplex_transfer_status, 7,
+    type: Google.Cloud.Datacatalog.V1.TagTemplate.DataplexTransferStatus,
+    json_name: "dataplexTransferStatus",
+    enum: true,
     deprecated: false
 end
 
