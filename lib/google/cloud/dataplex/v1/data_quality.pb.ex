@@ -335,6 +335,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   field :threshold, 503, type: :double, deprecated: false
   field :name, 504, type: :string, deprecated: false
   field :description, 505, type: :string, deprecated: false
+  field :suspended, 506, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityColumnResult do

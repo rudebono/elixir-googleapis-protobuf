@@ -20,6 +20,50 @@ defmodule Google.Cloud.Dataplex.V1.TransferStatus do
   field :TRANSFER_STATUS_TRANSFERRED, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :IMPORT, 1
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SYNC_MODE_UNSPECIFIED, 0
+  field :FULL, 1
+  field :INCREMENTAL, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.LogLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :LOG_LEVEL_UNSPECIFIED, 0
+  field :DEBUG, 1
+  field :INFO, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :QUEUED, 1
+  field :RUNNING, 2
+  field :CANCELING, 3
+  field :CANCELED, 4
+  field :SUCCEEDED, 5
+  field :FAILED, 6
+  field :SUCCEEDED_WITH_ERRORS, 7
+end
+
 defmodule Google.Cloud.Dataplex.V1.AspectType.Authorization do
   @moduledoc false
 
@@ -318,6 +362,7 @@ defmodule Google.Cloud.Dataplex.V1.AspectSource do
 
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+  field :data_version, 12, type: :string, json_name: "dataVersion"
 end
 
 defmodule Google.Cloud.Dataplex.V1.Entry.AspectsEntry do
@@ -796,6 +841,222 @@ defmodule Google.Cloud.Dataplex.V1.SearchEntriesResponse do
   field :unreachable, 4, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Dataplex.V1.ImportItem do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :entry, 1, type: Google.Cloud.Dataplex.V1.Entry
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :aspect_keys, 3, repeated: true, type: :string, json_name: "aspectKeys"
+end
+
+defmodule Google.Cloud.Dataplex.V1.CreateMetadataJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :metadata_job, 2,
+    type: Google.Cloud.Dataplex.V1.MetadataJob,
+    json_name: "metadataJob",
+    deprecated: false
+
+  field :metadata_job_id, 3, type: :string, json_name: "metadataJobId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.GetMetadataJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.ListMetadataJobsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.ListMetadataJobsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metadata_jobs, 1,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.MetadataJob,
+    json_name: "metadataJobs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+
+  field :unreachable_locations, 3,
+    repeated: true,
+    type: :string,
+    json_name: "unreachableLocations"
+end
+
+defmodule Google.Cloud.Dataplex.V1.CancelMetadataJobRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :deleted_entries, 1, type: :int64, json_name: "deletedEntries", deprecated: false
+  field :updated_entries, 2, type: :int64, json_name: "updatedEntries", deprecated: false
+  field :created_entries, 3, type: :int64, json_name: "createdEntries", deprecated: false
+  field :unchanged_entries, 4, type: :int64, json_name: "unchangedEntries", deprecated: false
+  field :recreated_entries, 6, type: :int64, json_name: "recreatedEntries", deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.ImportJobScope do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :entry_groups, 1,
+    repeated: true,
+    type: :string,
+    json_name: "entryGroups",
+    deprecated: false
+
+  field :entry_types, 2, repeated: true, type: :string, json_name: "entryTypes", deprecated: false
+
+  field :aspect_types, 3,
+    repeated: true,
+    type: :string,
+    json_name: "aspectTypes",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :source_storage_uri, 1, type: :string, json_name: "sourceStorageUri", deprecated: false
+
+  field :source_create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "sourceCreateTime",
+    deprecated: false
+
+  field :scope, 2,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.ImportJobScope,
+    deprecated: false
+
+  field :entry_sync_mode, 3,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode,
+    json_name: "entrySyncMode",
+    enum: true,
+    deprecated: false
+
+  field :aspect_sync_mode, 4,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode,
+    json_name: "aspectSyncMode",
+    enum: true,
+    deprecated: false
+
+  field :log_level, 6,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.LogLevel,
+    json_name: "logLevel",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.Status.State,
+    enum: true,
+    deprecated: false
+
+  field :message, 2, type: :string, deprecated: false
+  field :completion_percent, 3, type: :int32, json_name: "completionPercent", deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :spec, 0
+
+  oneof :result, 1
+
+  field :name, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :type, 6, type: Google.Cloud.Dataplex.V1.MetadataJob.Type, enum: true, deprecated: false
+
+  field :import_spec, 100,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec,
+    json_name: "importSpec",
+    oneof: 0
+
+  field :import_result, 200,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult,
+    json_name: "importResult",
+    oneof: 1,
+    deprecated: false
+
+  field :status, 7, type: Google.Cloud.Dataplex.V1.MetadataJob.Status, deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.CatalogService.Service do
   @moduledoc false
 
@@ -880,6 +1141,20 @@ defmodule Google.Cloud.Dataplex.V1.CatalogService.Service do
   rpc :SearchEntries,
       Google.Cloud.Dataplex.V1.SearchEntriesRequest,
       Google.Cloud.Dataplex.V1.SearchEntriesResponse
+
+  rpc :CreateMetadataJob,
+      Google.Cloud.Dataplex.V1.CreateMetadataJobRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetMetadataJob,
+      Google.Cloud.Dataplex.V1.GetMetadataJobRequest,
+      Google.Cloud.Dataplex.V1.MetadataJob
+
+  rpc :ListMetadataJobs,
+      Google.Cloud.Dataplex.V1.ListMetadataJobsRequest,
+      Google.Cloud.Dataplex.V1.ListMetadataJobsResponse
+
+  rpc :CancelMetadataJob, Google.Cloud.Dataplex.V1.CancelMetadataJobRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Dataplex.V1.CatalogService.Stub do

@@ -11,6 +11,10 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType do
   field :PARTITION_CREATED, 5
   field :PARTITION_UPDATED, 6
   field :PARTITION_DELETED, 7
+  field :TABLE_PUBLISHED, 10
+  field :TABLE_UPDATED, 11
+  field :TABLE_IGNORED, 12
+  field :TABLE_DELETED, 13
 end
 
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
@@ -21,6 +25,17 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType do
   field :ENTITY_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
   field :FILESET, 2
+end
+
+defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.TableType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :TABLE_TYPE_UNSPECIFIED, 0
+  field :EXTERNAL_TABLE, 1
+  field :BIGLAKE_TABLE, 2
+  field :OBJECT_TABLE, 3
 end
 
 defmodule Google.Cloud.Dataplex.V1.JobEvent.Type do
@@ -128,6 +143,7 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent.ScanType do
   field :SCAN_TYPE_UNSPECIFIED, 0
   field :DATA_PROFILE, 1
   field :DATA_QUALITY, 2
+  field :DATA_DISCOVERY, 4
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataScanEvent.State do
@@ -240,6 +256,15 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails do
   field :type, 2, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityType, enum: true
 end
 
+defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.TableDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :table, 1, type: :string
+  field :type, 2, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.TableType, enum: true
+end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails do
   @moduledoc false
 
@@ -261,6 +286,7 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: :string
+  field :issue, 2, type: :string
 end
 
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
@@ -275,11 +301,13 @@ defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent do
   field :zone_id, 3, type: :string, json_name: "zoneId"
   field :asset_id, 4, type: :string, json_name: "assetId"
   field :data_location, 5, type: :string, json_name: "dataLocation"
+  field :datascan_id, 6, type: :string, json_name: "datascanId"
   field :type, 10, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EventType, enum: true
   field :config, 20, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails, oneof: 0
   field :entity, 21, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.EntityDetails, oneof: 0
   field :partition, 22, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.PartitionDetails, oneof: 0
   field :action, 23, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.ActionDetails, oneof: 0
+  field :table, 24, type: Google.Cloud.Dataplex.V1.DiscoveryEvent.TableDetails, oneof: 0
 end
 
 defmodule Google.Cloud.Dataplex.V1.JobEvent do
