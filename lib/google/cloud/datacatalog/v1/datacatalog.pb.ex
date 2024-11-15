@@ -19,6 +19,9 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
   field :DASHBOARD, 16
   field :EXPLORE, 17
   field :LOOK, 18
+  field :FEATURE_ONLINE_STORE, 19
+  field :FEATURE_VIEW, 20
+  field :FEATURE_GROUP, 21
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
@@ -72,6 +75,9 @@ defmodule Google.Cloud.Datacatalog.V1.VertexModelSourceInfo.ModelSourceType do
   field :CUSTOM, 2
   field :BQML, 3
   field :MODEL_GARDEN, 4
+  field :GENIE, 5
+  field :CUSTOM_TEXT_EMBEDDING, 6
+  field :MARKETPLACE, 7
 end
 
 defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec.DataType do
@@ -92,6 +98,16 @@ defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec.DataType do
   field :STORE_VISION, 10
   field :ENTERPRISE_KNOWLEDGE_GRAPH, 11
   field :TEXT_PROMPT, 12
+end
+
+defmodule Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec.StorageType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STORAGE_TYPE_UNSPECIFIED, 0
+  field :BIGTABLE, 1
+  field :OPTIMIZED, 2
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState do
@@ -383,6 +399,11 @@ defmodule Google.Cloud.Datacatalog.V1.Entry do
     json_name: "modelSpec",
     oneof: 4
 
+  field :feature_online_store_spec, 45,
+    type: Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec,
+    json_name: "featureOnlineStoreSpec",
+    oneof: 4
+
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
 
@@ -639,6 +660,18 @@ defmodule Google.Cloud.Datacatalog.V1.ModelSpec do
     oneof: 0
 end
 
+defmodule Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :storage_type, 1,
+    type: Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec.StorageType,
+    json_name: "storageType",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Datacatalog.V1.BusinessContext do
   @moduledoc false
 
@@ -681,7 +714,7 @@ defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
 

@@ -18,6 +18,35 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ConversationStage do
   field :HUMAN_ASSIST_STAGE, 2
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.QuerySource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :QUERY_SOURCE_UNSPECIFIED, 0
+  field :AGENT_QUERY, 1
+  field :SUGGESTED_QUERY, 2
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
+  field :NUMERICAL, 1
+  field :FRESHNESS, 2
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :INTERPOLATION_TYPE_UNSPECIFIED, 0
+  field :LINEAR, 1
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer.AnswerType do
   @moduledoc false
 
@@ -325,6 +354,110 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionResponse do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :field_name, 1, type: :string, json_name: "fieldName", deprecated: false
+
+  field :attribute_type, 2,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType,
+    json_name: "attributeType",
+    enum: true,
+    deprecated: false
+
+  field :interpolation_type, 3,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType,
+    json_name: "interpolationType",
+    enum: true,
+    deprecated: false
+
+  field :control_points, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint,
+    json_name: "controlPoints",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :condition, 1, type: :string, deprecated: false
+  field :boost, 2, type: :float, deprecated: false
+
+  field :boost_control_spec, 4,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec,
+    json_name: "boostControlSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :condition_boost_specs, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec,
+    json_name: "conditionBoostSpecs",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
+
+  field :spec, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.FilterSpecs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :boost_specs, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.BoostSpecs,
+    json_name: "boostSpecs",
+    deprecated: false
+
+  field :filter_specs, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig.FilterSpecs,
+    json_name: "filterSpecs",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest do
   @moduledoc false
 
@@ -341,6 +474,24 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest do
   field :session_id, 3, type: :string, json_name: "sessionId", deprecated: false
   field :conversation, 4, type: :string, deprecated: false
   field :latest_message, 5, type: :string, json_name: "latestMessage", deprecated: false
+
+  field :query_source, 7,
+    type: Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.QuerySource,
+    json_name: "querySource",
+    enum: true,
+    deprecated: false
+
+  field :end_user_metadata, 9,
+    type: Google.Protobuf.Struct,
+    json_name: "endUserMetadata",
+    deprecated: false
+
+  field :search_config, 11,
+    type: Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.SearchConfig,
+    json_name: "searchConfig",
+    deprecated: false
+
+  field :exact_search, 14, type: :bool, json_name: "exactSearch", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeResponse do
@@ -360,6 +511,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer.AnswerSource do
   field :title, 1, type: :string
   field :uri, 2, type: :string
   field :snippet, 3, type: :string
+  field :metadata, 5, type: Google.Protobuf.Struct
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer do

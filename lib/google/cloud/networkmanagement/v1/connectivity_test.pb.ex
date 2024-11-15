@@ -101,6 +101,13 @@ defmodule Google.Cloud.Networkmanagement.V1.ConnectivityTest do
     json_name: "probingDetails",
     deprecated: false
 
+  field :round_trip, 15, type: :bool, json_name: "roundTrip"
+
+  field :return_reachability_details, 16,
+    type: Google.Cloud.Networkmanagement.V1.ReachabilityDetails,
+    json_name: "returnReachabilityDetails",
+    deprecated: false
+
   field :bypass_firewall_checks, 17, type: :bool, json_name: "bypassFirewallChecks"
 end
 

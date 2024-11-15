@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Contactcenterinsights.V1.DatasetValidationWarning do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DATASET_VALIDATION_WARNING_UNSPECIFIED, 0
+  field :TOO_MANY_INVALID_FEEDBACK_LABELS, 1
+  field :INSUFFICIENT_FEEDBACK_LABELS, 2
+  field :INSUFFICIENT_FEEDBACK_LABELS_PER_ANSWER, 3
+  field :ALL_FEEDBACK_LABELS_HAVE_THE_SAME_ANSWER, 4
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.Medium do
   @moduledoc false
 
@@ -122,6 +134,40 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationC
   field :SUMMARIZATION_MODEL_UNSPECIFIED, 0
   field :BASELINE_MODEL, 1
   field :BASELINE_MODEL_V2_0, 2
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardRevision.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :EDITABLE, 12
+  field :TRAINING, 2
+  field :TRAINING_FAILED, 9
+  field :READY, 11
+  field :DELETING, 7
+  field :TRAINING_CANCELLED, 14
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerSource.SourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SOURCE_TYPE_UNSPECIFIED, 0
+  field :SYSTEM_GENERATED, 1
+  field :MANUAL_EDIT, 2
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.ScoreSource.SourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SOURCE_TYPE_UNSPECIFIED, 0
+  field :SYSTEM_GENERATED_ONLY, 1
+  field :INCLUDES_MANUAL_EDITS, 2
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.CallMetadata do
@@ -449,6 +495,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult.CallAnalysisMetad
   field :issue_model_result, 8,
     type: Google.Cloud.Contactcenterinsights.V1.IssueModelResult,
     json_name: "issueModelResult"
+
+  field :qa_scorecard_results, 10,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardResult,
+    json_name: "qaScorecardResults"
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisResult do
@@ -473,6 +524,34 @@ defmodule Google.Cloud.Contactcenterinsights.V1.IssueModelResult do
 
   field :issue_model, 1, type: :string, json_name: "issueModel", deprecated: false
   field :issues, 2, repeated: true, type: Google.Cloud.Contactcenterinsights.V1.IssueAssignment
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.FeedbackLabel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :label_type, 0
+
+  field :label, 4, type: :string, oneof: 0
+
+  field :qa_answer_label, 7,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerValue,
+    json_name: "qaAnswerLabel",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :labeled_resource, 3, type: :string, json_name: "labeledResource"
+
+  field :create_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.ConversationLevelSentiment do
@@ -968,6 +1047,34 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Settings do
     deprecated: false
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.AnalysisRule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :display_name, 4, proto3_optional: true, type: :string, json_name: "displayName"
+  field :conversation_filter, 5, type: :string, json_name: "conversationFilter"
+
+  field :annotator_selector, 6,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector,
+    json_name: "annotatorSelector"
+
+  field :analysis_percentage, 7, type: :double, json_name: "analysisPercentage"
+  field :active, 8, type: :bool
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.EncryptionSpec do
   @moduledoc false
 
@@ -1305,6 +1412,31 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationC
     oneof: 0
 end
 
+defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.QaConfig.ScorecardList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :qa_scorecard_revisions, 1,
+    repeated: true,
+    type: :string,
+    json_name: "qaScorecardRevisions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.QaConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :scorecard_source, 0
+
+  field :scorecard_list, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.QaConfig.ScorecardList,
+    json_name: "scorecardList",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector do
   @moduledoc false
 
@@ -1336,4 +1468,264 @@ defmodule Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector do
   field :summarization_config, 11,
     type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.SummarizationConfig,
     json_name: "summarizationConfig"
+
+  field :run_qa_annotator, 12, type: :bool, json_name: "runQaAnnotator"
+
+  field :qa_config, 13,
+    type: Google.Cloud.Contactcenterinsights.V1.AnnotatorSelector.QaConfig,
+    json_name: "qaConfig"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaQuestion.AnswerChoice do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :value, 0
+
+  field :str_value, 2, type: :string, json_name: "strValue", oneof: 0
+  field :num_value, 3, type: :double, json_name: "numValue", oneof: 0
+  field :bool_value, 4, type: :bool, json_name: "boolValue", oneof: 0
+  field :na_value, 5, type: :bool, json_name: "naValue", oneof: 0
+  field :key, 1, type: :string
+  field :score, 6, proto3_optional: true, type: :double
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaQuestion.Metrics do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :accuracy, 1, type: :double, deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaQuestion.TuningMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :total_valid_label_count, 1, type: :int64, json_name: "totalValidLabelCount"
+
+  field :dataset_validation_warnings, 2,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.DatasetValidationWarning,
+    json_name: "datasetValidationWarnings",
+    enum: true
+
+  field :tuning_error, 3, type: :string, json_name: "tuningError"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaQuestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :abbreviation, 2, type: :string
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :question_body, 5, type: :string, json_name: "questionBody"
+  field :answer_instructions, 9, type: :string, json_name: "answerInstructions"
+
+  field :answer_choices, 6,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaQuestion.AnswerChoice,
+    json_name: "answerChoices"
+
+  field :tags, 7, repeated: true, type: :string
+  field :order, 8, type: :int32
+  field :metrics, 10, type: Google.Cloud.Contactcenterinsights.V1.QaQuestion.Metrics
+
+  field :tuning_metadata, 11,
+    type: Google.Cloud.Contactcenterinsights.V1.QaQuestion.TuningMetadata,
+    json_name: "tuningMetadata"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecard do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 7, type: :string, json_name: "displayName"
+  field :description, 2, type: :string
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardRevision do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :snapshot, 2, type: Google.Cloud.Contactcenterinsights.V1.QaScorecard
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :alternate_ids, 4,
+    repeated: true,
+    type: :string,
+    json_name: "alternateIds",
+    deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardRevision.State,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :value, 0
+
+  field :str_value, 2, type: :string, json_name: "strValue", oneof: 0
+  field :num_value, 3, type: :double, json_name: "numValue", oneof: 0
+  field :bool_value, 4, type: :bool, json_name: "boolValue", oneof: 0
+  field :na_value, 5, type: :bool, json_name: "naValue", oneof: 0
+  field :key, 1, type: :string
+  field :score, 6, proto3_optional: true, type: :double, deprecated: false
+
+  field :potential_score, 7,
+    proto3_optional: true,
+    type: :double,
+    json_name: "potentialScore",
+    deprecated: false
+
+  field :normalized_score, 8,
+    proto3_optional: true,
+    type: :double,
+    json_name: "normalizedScore",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :source_type, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerSource.SourceType,
+    json_name: "sourceType",
+    enum: true
+
+  field :answer_value, 2,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerValue,
+    json_name: "answerValue"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :qa_question, 7, type: :string, json_name: "qaQuestion", deprecated: false
+  field :conversation, 2, type: :string, deprecated: false
+  field :question_body, 6, type: :string, json_name: "questionBody"
+
+  field :answer_value, 3,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerValue,
+    json_name: "answerValue"
+
+  field :tags, 5, repeated: true, type: :string
+
+  field :answer_sources, 8,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer.AnswerSource,
+    json_name: "answerSources"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.QaTagResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tag, 1, type: :string
+  field :score, 2, proto3_optional: true, type: :double
+  field :potential_score, 3, proto3_optional: true, type: :double, json_name: "potentialScore"
+  field :normalized_score, 4, proto3_optional: true, type: :double, json_name: "normalizedScore"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.ScoreSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :source_type, 1,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.ScoreSource.SourceType,
+    json_name: "sourceType",
+    enum: true
+
+  field :score, 2, proto3_optional: true, type: :double
+  field :potential_score, 3, proto3_optional: true, type: :double, json_name: "potentialScore"
+  field :normalized_score, 4, proto3_optional: true, type: :double, json_name: "normalizedScore"
+
+  field :qa_tag_results, 5,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.QaTagResult,
+    json_name: "qaTagResults"
+end
+
+defmodule Google.Cloud.Contactcenterinsights.V1.QaScorecardResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :qa_scorecard_revision, 2,
+    type: :string,
+    json_name: "qaScorecardRevision",
+    deprecated: false
+
+  field :conversation, 3, type: :string, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :agent_id, 5, type: :string, json_name: "agentId"
+
+  field :qa_answers, 6,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaAnswer,
+    json_name: "qaAnswers"
+
+  field :score, 7, proto3_optional: true, type: :double
+  field :potential_score, 8, proto3_optional: true, type: :double, json_name: "potentialScore"
+  field :normalized_score, 9, proto3_optional: true, type: :double, json_name: "normalizedScore"
+
+  field :qa_tag_results, 10,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.QaTagResult,
+    json_name: "qaTagResults"
+
+  field :score_sources, 11,
+    repeated: true,
+    type: Google.Cloud.Contactcenterinsights.V1.QaScorecardResult.ScoreSource,
+    json_name: "scoreSources"
 end
