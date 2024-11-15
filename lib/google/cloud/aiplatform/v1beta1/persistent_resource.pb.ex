@@ -87,6 +87,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PersistentResource do
     type: :string,
     json_name: "reservedIpRanges",
     deprecated: false
+
+  field :satisfies_pzs, 18, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 19, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ResourcePool.AutoscalingSpec do
@@ -169,6 +172,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RaySpec do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri", deprecated: false
+
+  field :nfs_mounts, 11,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.NfsMount,
+    json_name: "nfsMounts",
+    deprecated: false
 
   field :resource_pool_images, 6,
     repeated: true,
