@@ -60,6 +60,21 @@ defmodule Google.Cloud.Developerconnect.V1.Connection do
     json_name: "githubConfig",
     oneof: 0
 
+  field :github_enterprise_config, 13,
+    type: Google.Cloud.Developerconnect.V1.GitHubEnterpriseConfig,
+    json_name: "githubEnterpriseConfig",
+    oneof: 0
+
+  field :gitlab_config, 14,
+    type: Google.Cloud.Developerconnect.V1.GitLabConfig,
+    json_name: "gitlabConfig",
+    oneof: 0
+
+  field :gitlab_enterprise_config, 16,
+    type: Google.Cloud.Developerconnect.V1.GitLabEnterpriseConfig,
+    json_name: "gitlabEnterpriseConfig",
+    oneof: 0
+
   field :name, 1, type: :string, deprecated: false
 
   field :create_time, 2,
@@ -99,6 +114,19 @@ defmodule Google.Cloud.Developerconnect.V1.Connection do
 
   field :etag, 10, type: :string, deprecated: false
   field :uid, 12, type: :string, deprecated: false
+
+  field :crypto_key_config, 15,
+    type: Google.Cloud.Developerconnect.V1.CryptoKeyConfig,
+    json_name: "cryptoKeyConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Developerconnect.V1.CryptoKeyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key_reference, 1, type: :string, json_name: "keyReference", deprecated: false
 end
 
 defmodule Google.Cloud.Developerconnect.V1.InstallationState do
@@ -135,6 +163,45 @@ defmodule Google.Cloud.Developerconnect.V1.GitHubConfig do
   field :installation_uri, 4, type: :string, json_name: "installationUri", deprecated: false
 end
 
+defmodule Google.Cloud.Developerconnect.V1.GitHubEnterpriseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :host_uri, 1, type: :string, json_name: "hostUri", deprecated: false
+  field :app_id, 2, type: :int64, json_name: "appId", deprecated: false
+  field :app_slug, 3, type: :string, json_name: "appSlug", deprecated: false
+
+  field :private_key_secret_version, 4,
+    type: :string,
+    json_name: "privateKeySecretVersion",
+    deprecated: false
+
+  field :webhook_secret_secret_version, 5,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :app_installation_id, 8, type: :int64, json_name: "appInstallationId", deprecated: false
+  field :installation_uri, 9, type: :string, json_name: "installationUri", deprecated: false
+
+  field :service_directory_config, 10,
+    type: Google.Cloud.Developerconnect.V1.ServiceDirectoryConfig,
+    json_name: "serviceDirectoryConfig",
+    deprecated: false
+
+  field :server_version, 12, type: :string, json_name: "serverVersion", deprecated: false
+  field :ssl_ca_certificate, 14, type: :string, json_name: "sslCaCertificate", deprecated: false
+end
+
+defmodule Google.Cloud.Developerconnect.V1.ServiceDirectoryConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :service, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Developerconnect.V1.OAuthCredential do
   @moduledoc false
 
@@ -146,6 +213,71 @@ defmodule Google.Cloud.Developerconnect.V1.OAuthCredential do
     deprecated: false
 
   field :username, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Developerconnect.V1.GitLabConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :webhook_secret_secret_version, 1,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :read_authorizer_credential, 2,
+    type: Google.Cloud.Developerconnect.V1.UserCredential,
+    json_name: "readAuthorizerCredential",
+    deprecated: false
+
+  field :authorizer_credential, 3,
+    type: Google.Cloud.Developerconnect.V1.UserCredential,
+    json_name: "authorizerCredential",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Developerconnect.V1.UserCredential do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :user_token_secret_version, 1,
+    type: :string,
+    json_name: "userTokenSecretVersion",
+    deprecated: false
+
+  field :username, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Developerconnect.V1.GitLabEnterpriseConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :host_uri, 1, type: :string, json_name: "hostUri", deprecated: false
+
+  field :webhook_secret_secret_version, 2,
+    type: :string,
+    json_name: "webhookSecretSecretVersion",
+    deprecated: false
+
+  field :read_authorizer_credential, 3,
+    type: Google.Cloud.Developerconnect.V1.UserCredential,
+    json_name: "readAuthorizerCredential",
+    deprecated: false
+
+  field :authorizer_credential, 4,
+    type: Google.Cloud.Developerconnect.V1.UserCredential,
+    json_name: "authorizerCredential",
+    deprecated: false
+
+  field :service_directory_config, 5,
+    type: Google.Cloud.Developerconnect.V1.ServiceDirectoryConfig,
+    json_name: "serviceDirectoryConfig",
+    deprecated: false
+
+  field :ssl_ca_certificate, 6, type: :string, json_name: "sslCaCertificate", deprecated: false
+  field :server_version, 7, type: :string, json_name: "serverVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Developerconnect.V1.ListConnectionsRequest do
@@ -297,6 +429,7 @@ defmodule Google.Cloud.Developerconnect.V1.GitRepositoryLink do
     deprecated: false
 
   field :uid, 10, type: :string, deprecated: false
+  field :webhook_id, 11, type: :string, json_name: "webhookId", deprecated: false
 end
 
 defmodule Google.Cloud.Developerconnect.V1.CreateGitRepositoryLinkRequest do

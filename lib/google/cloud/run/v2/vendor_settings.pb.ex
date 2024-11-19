@@ -120,6 +120,12 @@ defmodule Google.Cloud.Run.V2.ServiceScaling do
     json_name: "scalingMode",
     enum: true,
     deprecated: false
+
+  field :manual_instance_count, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "manualInstanceCount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.NodeSelector do

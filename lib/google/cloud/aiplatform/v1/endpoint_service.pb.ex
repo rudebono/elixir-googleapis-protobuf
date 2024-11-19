@@ -61,6 +61,24 @@ defmodule Google.Cloud.Aiplatform.V1.UpdateEndpointRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.UpdateEndpointLongRunningRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :endpoint, 1, type: Google.Cloud.Aiplatform.V1.Endpoint, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UpdateEndpointOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.DeleteEndpointRequest do
   @moduledoc false
 
@@ -217,6 +235,10 @@ defmodule Google.Cloud.Aiplatform.V1.EndpointService.Service do
   rpc :UpdateEndpoint,
       Google.Cloud.Aiplatform.V1.UpdateEndpointRequest,
       Google.Cloud.Aiplatform.V1.Endpoint
+
+  rpc :UpdateEndpointLongRunning,
+      Google.Cloud.Aiplatform.V1.UpdateEndpointLongRunningRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteEndpoint,
       Google.Cloud.Aiplatform.V1.DeleteEndpointRequest,
