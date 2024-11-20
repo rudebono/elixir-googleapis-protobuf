@@ -139,10 +139,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.TuningExamples do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :examples, 1,
-    repeated: true,
-    type: Google.Ai.Generativelanguage.V1beta.TuningExample,
-    deprecated: false
+  field :examples, 1, repeated: true, type: Google.Ai.Generativelanguage.V1beta.TuningExample
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.TuningExample do

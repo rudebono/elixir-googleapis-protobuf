@@ -1695,7 +1695,7 @@ defmodule Google.Cloud.Deploy.V1.Release do
     deprecated: false
 
   field :etag, 16, type: :string
-  field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion"
+  field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion", deprecated: false
 
   field :target_artifacts, 20,
     repeated: true,
