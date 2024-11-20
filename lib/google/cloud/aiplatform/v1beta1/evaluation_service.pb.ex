@@ -131,6 +131,36 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
     json_name: "toolParameterKvMatchInput",
     oneof: 0
 
+  field :trajectory_exact_match_input, 33,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInput,
+    json_name: "trajectoryExactMatchInput",
+    oneof: 0
+
+  field :trajectory_in_order_match_input, 34,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchInput,
+    json_name: "trajectoryInOrderMatchInput",
+    oneof: 0
+
+  field :trajectory_any_order_match_input, 35,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchInput,
+    json_name: "trajectoryAnyOrderMatchInput",
+    oneof: 0
+
+  field :trajectory_precision_input, 37,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionInput,
+    json_name: "trajectoryPrecisionInput",
+    oneof: 0
+
+  field :trajectory_recall_input, 38,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallInput,
+    json_name: "trajectoryRecallInput",
+    oneof: 0
+
+  field :trajectory_single_tool_use_input, 39,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseInput,
+    json_name: "trajectorySingleToolUseInput",
+    oneof: 0
+
   field :location, 1, type: :string, deprecated: false
 end
 
@@ -254,6 +284,36 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
   field :tool_parameter_kv_match_results, 21,
     type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchResults,
     json_name: "toolParameterKvMatchResults",
+    oneof: 0
+
+  field :trajectory_exact_match_results, 31,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchResults,
+    json_name: "trajectoryExactMatchResults",
+    oneof: 0
+
+  field :trajectory_in_order_match_results, 32,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchResults,
+    json_name: "trajectoryInOrderMatchResults",
+    oneof: 0
+
+  field :trajectory_any_order_match_results, 33,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchResults,
+    json_name: "trajectoryAnyOrderMatchResults",
+    oneof: 0
+
+  field :trajectory_precision_results, 35,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionResults,
+    json_name: "trajectoryPrecisionResults",
+    oneof: 0
+
+  field :trajectory_recall_results, 36,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallResults,
+    json_name: "trajectoryRecallResults",
+    oneof: 0
+
+  field :trajectory_single_tool_use_results, 37,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseResults,
+    json_name: "trajectorySingleToolUseResults",
     oneof: 0
 end
 
@@ -1348,6 +1408,396 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchMetricValue do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+
+  field :reference_trajectory, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "referenceTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_exact_match_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchMetricValue,
+    json_name: "trajectoryExactMatchMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+
+  field :reference_trajectory, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "referenceTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_in_order_match_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchMetricValue,
+    json_name: "trajectoryInOrderMatchMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryInOrderMatchMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+
+  field :reference_trajectory, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "referenceTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_any_order_match_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchMetricValue,
+    json_name: "trajectoryAnyOrderMatchMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryAnyOrderMatchMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+
+  field :reference_trajectory, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "referenceTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_precision_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionMetricValue,
+    json_name: "trajectoryPrecisionMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryPrecisionMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+
+  field :reference_trajectory, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "referenceTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_recall_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallMetricValue,
+    json_name: "trajectoryRecallMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryRecallMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instances, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tool_name, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "toolName",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :predicted_trajectory, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Trajectory,
+    json_name: "predictedTrajectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseResults do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :trajectory_single_tool_use_metric_values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseMetricValue,
+    json_name: "trajectorySingleToolUseMetricValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Trajectory do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tool_calls, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ToolCall,
+    json_name: "toolCalls",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ToolCall do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tool_name, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "toolName",
+    deprecated: false
+
+  field :tool_input, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "toolInput",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationService.Service do
