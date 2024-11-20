@@ -86,6 +86,10 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
     json_name: "dedicatedEndpointDns",
     deprecated: false
 
+  field :client_connection_config, 23,
+    type: Google.Cloud.Aiplatform.V1.ClientConnectionConfig,
+    json_name: "clientConnectionConfig"
+
   field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
@@ -187,4 +191,12 @@ defmodule Google.Cloud.Aiplatform.V1.FasterDeploymentConfig do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ClientConnectionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :inference_timeout, 1, type: Google.Protobuf.Duration, json_name: "inferenceTimeout"
 end

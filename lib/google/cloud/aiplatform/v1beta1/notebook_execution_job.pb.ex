@@ -27,6 +27,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.DirectNotebookSou
   field :content, 1, type: :bytes
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.CustomEnvironmentSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :machine_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec"
+
+  field :persistent_disk_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.PersistentDiskSpec,
+    json_name: "persistentDiskSpec"
+
+  field :network_spec, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.NetworkSpec,
+    json_name: "networkSpec"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.LabelsEntry do
   @moduledoc false
 
@@ -69,6 +87,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
     json_name: "notebookRuntimeTemplateResourceName",
     oneof: 1,
     deprecated: false
+
+  field :custom_environment_spec, 16,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.CustomEnvironmentSpec,
+    json_name: "customEnvironmentSpec",
+    oneof: 1
 
   field :gcs_output_uri, 8, type: :string, json_name: "gcsOutputUri", oneof: 2
   field :execution_user, 9, type: :string, json_name: "executionUser", oneof: 3

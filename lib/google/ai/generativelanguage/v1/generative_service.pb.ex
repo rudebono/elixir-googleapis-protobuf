@@ -158,6 +158,8 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse do
     type: Google.Ai.Generativelanguage.V1.GenerateContentResponse.UsageMetadata,
     json_name: "usageMetadata",
     deprecated: false
+
+  field :model_version, 4, type: :string, json_name: "modelVersion", deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.Candidate do
@@ -185,6 +187,12 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate do
     deprecated: false
 
   field :token_count, 7, type: :int32, json_name: "tokenCount", deprecated: false
+
+  field :grounding_metadata, 9,
+    type: Google.Ai.Generativelanguage.V1.GroundingMetadata,
+    json_name: "groundingMetadata",
+    deprecated: false
+
   field :avg_logprobs, 10, type: :double, json_name: "avgLogprobs", deprecated: false
 
   field :logprobs_result, 11,
@@ -227,6 +235,100 @@ defmodule Google.Ai.Generativelanguage.V1.LogprobsResult do
     repeated: true,
     type: Google.Ai.Generativelanguage.V1.LogprobsResult.Candidate,
     json_name: "chosenCandidates"
+end
+
+defmodule Google.Ai.Generativelanguage.V1.RetrievalMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :google_search_dynamic_retrieval_score, 2,
+    type: :float,
+    json_name: "googleSearchDynamicRetrievalScore",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1.GroundingMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :search_entry_point, 1,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1.SearchEntryPoint,
+    json_name: "searchEntryPoint",
+    deprecated: false
+
+  field :grounding_chunks, 2,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.GroundingChunk,
+    json_name: "groundingChunks"
+
+  field :grounding_supports, 3,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.GroundingSupport,
+    json_name: "groundingSupports"
+
+  field :retrieval_metadata, 4,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1.RetrievalMetadata,
+    json_name: "retrievalMetadata"
+
+  field :web_search_queries, 5, repeated: true, type: :string, json_name: "webSearchQueries"
+end
+
+defmodule Google.Ai.Generativelanguage.V1.SearchEntryPoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :rendered_content, 1, type: :string, json_name: "renderedContent", deprecated: false
+  field :sdk_blob, 2, type: :bytes, json_name: "sdkBlob", deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1.GroundingChunk.Web do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, proto3_optional: true, type: :string
+  field :title, 2, proto3_optional: true, type: :string
+end
+
+defmodule Google.Ai.Generativelanguage.V1.GroundingChunk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :chunk_type, 0
+
+  field :web, 1, type: Google.Ai.Generativelanguage.V1.GroundingChunk.Web, oneof: 0
+end
+
+defmodule Google.Ai.Generativelanguage.V1.Segment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
+  field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
+  field :end_index, 3, type: :int32, json_name: "endIndex", deprecated: false
+  field :text, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1.GroundingSupport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :segment, 1, proto3_optional: true, type: Google.Ai.Generativelanguage.V1.Segment
+
+  field :grounding_chunk_indices, 2,
+    repeated: true,
+    type: :int32,
+    json_name: "groundingChunkIndices"
+
+  field :confidence_scores, 3, repeated: true, type: :float, json_name: "confidenceScores"
 end
 
 defmodule Google.Ai.Generativelanguage.V1.EmbedContentRequest do

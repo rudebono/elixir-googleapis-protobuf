@@ -235,6 +235,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse do
     type: Google.Ai.Generativelanguage.V1beta.GenerateContentResponse.UsageMetadata,
     json_name: "usageMetadata",
     deprecated: false
+
+  field :model_version, 4, type: :string, json_name: "modelVersion", deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Candidate do
@@ -403,6 +405,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.GroundingMetadata do
     proto3_optional: true,
     type: Google.Ai.Generativelanguage.V1beta.RetrievalMetadata,
     json_name: "retrievalMetadata"
+
+  field :web_search_queries, 5, repeated: true, type: :string, json_name: "webSearchQueries"
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.SearchEntryPoint do
