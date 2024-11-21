@@ -5,6 +5,7 @@ defmodule Google.Cloud.Datacatalog.V1.TagTemplate.DataplexTransferStatus do
 
   field :DATAPLEX_TRANSFER_STATUS_UNSPECIFIED, 0
   field :MIGRATED, 1
+  field :TRANSFERRED, 2
 end
 
 defmodule Google.Cloud.Datacatalog.V1.FieldType.PrimitiveType do
@@ -50,6 +51,12 @@ defmodule Google.Cloud.Datacatalog.V1.Tag do
     repeated: true,
     type: Google.Cloud.Datacatalog.V1.Tag.FieldsEntry,
     map: true,
+    deprecated: false
+
+  field :dataplex_transfer_status, 7,
+    type: Google.Cloud.Datacatalog.V1.TagTemplate.DataplexTransferStatus,
+    json_name: "dataplexTransferStatus",
+    enum: true,
     deprecated: false
 end
 

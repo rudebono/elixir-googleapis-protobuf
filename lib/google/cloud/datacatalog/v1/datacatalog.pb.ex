@@ -24,6 +24,26 @@ defmodule Google.Cloud.Datacatalog.V1.EntryType do
   field :FEATURE_GROUP, 21
 end
 
+defmodule Google.Cloud.Datacatalog.V1.TagTemplateMigration do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :TAG_TEMPLATE_MIGRATION_UNSPECIFIED, 0
+  field :TAG_TEMPLATE_MIGRATION_ENABLED, 1
+  field :TAG_TEMPLATE_MIGRATION_DISABLED, 2
+end
+
+defmodule Google.Cloud.Datacatalog.V1.CatalogUIExperience do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :CATALOG_UI_EXPERIENCE_UNSPECIFIED, 0
+  field :CATALOG_UI_EXPERIENCE_ENABLED, 1
+  field :CATALOG_UI_EXPERIENCE_DISABLED, 2
+end
+
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
   @moduledoc false
 
@@ -722,6 +742,11 @@ defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
     type: Google.Cloud.Datacatalog.V1.SystemTimestamps,
     json_name: "dataCatalogTimestamps",
     deprecated: false
+
+  field :transferred_to_dataplex, 9,
+    type: :bool,
+    json_name: "transferredToDataplex",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest do
@@ -1036,6 +1061,80 @@ defmodule Google.Cloud.Datacatalog.V1.ModifyEntryContactsRequest do
   field :contacts, 2, type: Google.Cloud.Datacatalog.V1.Contacts, deprecated: false
 end
 
+defmodule Google.Cloud.Datacatalog.V1.SetConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :configuration, 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :tag_template_migration, 2,
+    type: Google.Cloud.Datacatalog.V1.TagTemplateMigration,
+    json_name: "tagTemplateMigration",
+    enum: true,
+    oneof: 0
+
+  field :catalog_ui_experience, 3,
+    type: Google.Cloud.Datacatalog.V1.CatalogUIExperience,
+    json_name: "catalogUiExperience",
+    enum: true,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datacatalog.V1.RetrieveConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Datacatalog.V1.RetrieveEffectiveConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Datacatalog.V1.OrganizationConfig.ConfigEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Datacatalog.V1.MigrationConfig
+end
+
+defmodule Google.Cloud.Datacatalog.V1.OrganizationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :config, 1,
+    repeated: true,
+    type: Google.Cloud.Datacatalog.V1.OrganizationConfig.ConfigEntry,
+    map: true
+end
+
+defmodule Google.Cloud.Datacatalog.V1.MigrationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :tag_template_migration, 1,
+    type: Google.Cloud.Datacatalog.V1.TagTemplateMigration,
+    json_name: "tagTemplateMigration",
+    enum: true
+
+  field :catalog_ui_experience, 2,
+    type: Google.Cloud.Datacatalog.V1.CatalogUIExperience,
+    json_name: "catalogUiExperience",
+    enum: true
+end
+
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   @moduledoc false
 
@@ -1164,6 +1263,18 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
   rpc :ImportEntries,
       Google.Cloud.Datacatalog.V1.ImportEntriesRequest,
       Google.Longrunning.Operation
+
+  rpc :SetConfig,
+      Google.Cloud.Datacatalog.V1.SetConfigRequest,
+      Google.Cloud.Datacatalog.V1.MigrationConfig
+
+  rpc :RetrieveConfig,
+      Google.Cloud.Datacatalog.V1.RetrieveConfigRequest,
+      Google.Cloud.Datacatalog.V1.OrganizationConfig
+
+  rpc :RetrieveEffectiveConfig,
+      Google.Cloud.Datacatalog.V1.RetrieveEffectiveConfigRequest,
+      Google.Cloud.Datacatalog.V1.MigrationConfig
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Stub do

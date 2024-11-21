@@ -284,6 +284,12 @@ defmodule Google.Analytics.Data.V1beta.Filter.BetweenFilter do
   field :to_value, 2, type: Google.Analytics.Data.V1beta.NumericValue, json_name: "toValue"
 end
 
+defmodule Google.Analytics.Data.V1beta.Filter.EmptyFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Analytics.Data.V1beta.Filter do
   @moduledoc false
 
@@ -311,6 +317,11 @@ defmodule Google.Analytics.Data.V1beta.Filter do
   field :between_filter, 6,
     type: Google.Analytics.Data.V1beta.Filter.BetweenFilter,
     json_name: "betweenFilter",
+    oneof: 0
+
+  field :empty_filter, 8,
+    type: Google.Analytics.Data.V1beta.Filter.EmptyFilter,
+    json_name: "emptyFilter",
     oneof: 0
 end
 
