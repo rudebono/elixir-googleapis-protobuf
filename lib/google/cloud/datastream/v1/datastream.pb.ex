@@ -34,6 +34,11 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileRequest do
     type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
     json_name: "postgresqlRdbms",
     oneof: 2
+
+  field :sql_server_rdbms, 103,
+    type: Google.Cloud.Datastream.V1.SqlServerRdbms,
+    json_name: "sqlServerRdbms",
+    oneof: 2
 end
 
 defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
@@ -56,6 +61,11 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
   field :postgresql_rdbms, 102,
     type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
     json_name: "postgresqlRdbms",
+    oneof: 0
+
+  field :sql_server_rdbms, 103,
+    type: Google.Cloud.Datastream.V1.SqlServerRdbms,
+    json_name: "sqlServerRdbms",
     oneof: 0
 end
 
@@ -229,6 +239,21 @@ defmodule Google.Cloud.Datastream.V1.DeleteStreamRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.RunStreamRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :cdc_strategy, 2,
+    type: Google.Cloud.Datastream.V1.CdcStrategy,
+    json_name: "cdcStrategy",
+    deprecated: false
+
+  field :force, 3, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.GetStreamObjectRequest do
@@ -492,6 +517,8 @@ defmodule Google.Cloud.Datastream.V1.Datastream.Service do
   rpc :UpdateStream, Google.Cloud.Datastream.V1.UpdateStreamRequest, Google.Longrunning.Operation
 
   rpc :DeleteStream, Google.Cloud.Datastream.V1.DeleteStreamRequest, Google.Longrunning.Operation
+
+  rpc :RunStream, Google.Cloud.Datastream.V1.RunStreamRequest, Google.Longrunning.Operation
 
   rpc :GetStreamObject,
       Google.Cloud.Datastream.V1.GetStreamObjectRequest,
