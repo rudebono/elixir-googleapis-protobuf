@@ -22,6 +22,11 @@ defmodule Google.Devtools.Testing.V1.ApkManifest do
     type: Google.Devtools.Testing.V1.IntentFilter,
     json_name: "intentFilters"
 
+  field :uses_permission_tags, 13,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.UsesPermissionTag,
+    json_name: "usesPermissionTags"
+
   field :uses_permission, 7, repeated: true, type: :string, json_name: "usesPermission"
   field :version_code, 8, type: :int64, json_name: "versionCode"
   field :version_name, 9, type: :string, json_name: "versionName"
@@ -33,6 +38,15 @@ defmodule Google.Devtools.Testing.V1.ApkManifest do
     json_name: "usesFeature"
 
   field :services, 12, repeated: true, type: Google.Devtools.Testing.V1.Service
+end
+
+defmodule Google.Devtools.Testing.V1.UsesPermissionTag do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :max_sdk_version, 2, type: :int32, json_name: "maxSdkVersion"
 end
 
 defmodule Google.Devtools.Testing.V1.Service do

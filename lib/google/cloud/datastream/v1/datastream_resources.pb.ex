@@ -81,6 +81,7 @@ defmodule Google.Cloud.Datastream.V1.Validation.State do
   field :NOT_EXECUTED, 1
   field :FAILED, 2
   field :PASSED, 3
+  field :WARNING, 4
 end
 
 defmodule Google.Cloud.Datastream.V1.ValidationMessage.Level do
@@ -118,6 +119,54 @@ defmodule Google.Cloud.Datastream.V1.OracleProfile do
     type: Google.Cloud.Datastream.V1.OracleProfile.ConnectionAttributesEntry,
     json_name: "connectionAttributes",
     map: true
+
+  field :oracle_ssl_config, 7,
+    type: Google.Cloud.Datastream.V1.OracleSslConfig,
+    json_name: "oracleSslConfig",
+    deprecated: false
+
+  field :oracle_asm_config, 8,
+    type: Google.Cloud.Datastream.V1.OracleAsmConfig,
+    json_name: "oracleAsmConfig",
+    deprecated: false
+
+  field :secret_manager_stored_password, 9,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleAsmConfig.ConnectionAttributesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleAsmConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :hostname, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32, deprecated: false
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+  field :asm_service, 5, type: :string, json_name: "asmService", deprecated: false
+
+  field :connection_attributes, 6,
+    repeated: true,
+    type: Google.Cloud.Datastream.V1.OracleAsmConfig.ConnectionAttributesEntry,
+    json_name: "connectionAttributes",
+    map: true,
+    deprecated: false
+
+  field :oracle_ssl_config, 7,
+    type: Google.Cloud.Datastream.V1.OracleSslConfig,
+    json_name: "oracleSslConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlProfile do
@@ -133,6 +182,18 @@ defmodule Google.Cloud.Datastream.V1.MysqlProfile do
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :hostname, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+  field :database, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerProfile do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -291,6 +352,15 @@ defmodule Google.Cloud.Datastream.V1.MysqlSslConfig do
   field :ca_certificate_set, 6, type: :bool, json_name: "caCertificateSet", deprecated: false
 end
 
+defmodule Google.Cloud.Datastream.V1.OracleSslConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
+  field :ca_certificate_set, 2, type: :bool, json_name: "caCertificateSet", deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.ConnectionProfile.LabelsEntry do
   @moduledoc false
 
@@ -351,6 +421,11 @@ defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
   field :postgresql_profile, 104,
     type: Google.Cloud.Datastream.V1.PostgresqlProfile,
     json_name: "postgresqlProfile",
+    oneof: 0
+
+  field :sql_server_profile, 105,
+    type: Google.Cloud.Datastream.V1.SqlServerProfile,
+    json_name: "sqlServerProfile",
     oneof: 0
 
   field :static_service_ip_connectivity, 200,
@@ -434,12 +509,60 @@ defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.StreamLargeObjects do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.LogMiner do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.OracleAsmLogFileAccess do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.LogFileDirectories do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :online_log_directory, 1,
+    type: :string,
+    json_name: "onlineLogDirectory",
+    deprecated: false
+
+  field :archived_log_directory, 2,
+    type: :string,
+    json_name: "archivedLogDirectory",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :log_file_access, 0
+
+  field :oracle_asm_log_file_access, 1,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.OracleAsmLogFileAccess,
+    json_name: "oracleAsmLogFileAccess",
+    oneof: 0
+
+  field :log_file_directories, 2,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.LogFileDirectories,
+    json_name: "logFileDirectories",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :large_objects_handling, 0
+
+  oneof :cdc_method, 1
 
   field :include_objects, 1,
     type: Google.Cloud.Datastream.V1.OracleRdbms,
@@ -461,6 +584,16 @@ defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
     type: Google.Cloud.Datastream.V1.OracleSourceConfig.StreamLargeObjects,
     json_name: "streamLargeObjects",
     oneof: 0
+
+  field :log_miner, 103,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.LogMiner,
+    json_name: "logMiner",
+    oneof: 1
+
+  field :binary_log_parser, 104,
+    type: Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser,
+    json_name: "binaryLogParser",
+    oneof: 1
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlColumn do
@@ -533,6 +666,88 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlSourceConfig do
   field :max_concurrent_backfill_tasks, 5, type: :int32, json_name: "maxConcurrentBackfillTasks"
 end
 
+defmodule Google.Cloud.Datastream.V1.SqlServerColumn do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :column, 1, type: :string
+  field :data_type, 2, type: :string, json_name: "dataType"
+  field :length, 3, type: :int32
+  field :precision, 4, type: :int32
+  field :scale, 5, type: :int32
+  field :primary_key, 6, type: :bool, json_name: "primaryKey"
+  field :nullable, 7, type: :bool
+  field :ordinal_position, 8, type: :int32, json_name: "ordinalPosition"
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerTable do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :table, 1, type: :string
+  field :columns, 2, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerColumn
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerSchema do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :schema, 1, type: :string
+  field :tables, 2, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerTable
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerRdbms do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :schemas, 1, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerSchema
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerSourceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :cdc_method, 0
+
+  field :include_objects, 1,
+    type: Google.Cloud.Datastream.V1.SqlServerRdbms,
+    json_name: "includeObjects"
+
+  field :exclude_objects, 2,
+    type: Google.Cloud.Datastream.V1.SqlServerRdbms,
+    json_name: "excludeObjects"
+
+  field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
+  field :max_concurrent_backfill_tasks, 4, type: :int32, json_name: "maxConcurrentBackfillTasks"
+
+  field :transaction_logs, 101,
+    type: Google.Cloud.Datastream.V1.SqlServerTransactionLogs,
+    json_name: "transactionLogs",
+    oneof: 0
+
+  field :change_tables, 102,
+    type: Google.Cloud.Datastream.V1.SqlServerChangeTables,
+    json_name: "changeTables",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerTransactionLogs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerChangeTables do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Datastream.V1.MysqlColumn do
   @moduledoc false
 
@@ -586,10 +801,24 @@ defmodule Google.Cloud.Datastream.V1.MysqlRdbms do
     json_name: "mysqlDatabases"
 end
 
+defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig.BinaryLogPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig.Gtid do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :cdc_method, 0
 
   field :include_objects, 1,
     type: Google.Cloud.Datastream.V1.MysqlRdbms,
@@ -601,6 +830,13 @@ defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
 
   field :max_concurrent_cdc_tasks, 3, type: :int32, json_name: "maxConcurrentCdcTasks"
   field :max_concurrent_backfill_tasks, 4, type: :int32, json_name: "maxConcurrentBackfillTasks"
+
+  field :binary_log_position, 101,
+    type: Google.Cloud.Datastream.V1.MysqlSourceConfig.BinaryLogPosition,
+    json_name: "binaryLogPosition",
+    oneof: 0
+
+  field :gtid, 102, type: Google.Cloud.Datastream.V1.MysqlSourceConfig.Gtid, oneof: 0
 end
 
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
@@ -628,6 +864,11 @@ defmodule Google.Cloud.Datastream.V1.SourceConfig do
   field :postgresql_source_config, 102,
     type: Google.Cloud.Datastream.V1.PostgresqlSourceConfig,
     json_name: "postgresqlSourceConfig",
+    oneof: 0
+
+  field :sql_server_source_config, 103,
+    type: Google.Cloud.Datastream.V1.SqlServerSourceConfig,
+    json_name: "sqlServerSourceConfig",
     oneof: 0
 end
 
@@ -706,12 +947,26 @@ defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDa
     json_name: "datasetTemplate"
 end
 
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.AppendOnly do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.Merge do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   oneof :dataset_config, 0
+
+  oneof :write_mode, 1
 
   field :single_target_dataset, 201,
     type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SingleTargetDataset,
@@ -724,6 +979,12 @@ defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig do
     oneof: 0
 
   field :data_freshness, 300, type: Google.Protobuf.Duration, json_name: "dataFreshness"
+  field :merge, 301, type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.Merge, oneof: 1
+
+  field :append_only, 302,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.AppendOnly,
+    json_name: "appendOnly",
+    oneof: 1
 end
 
 defmodule Google.Cloud.Datastream.V1.DestinationConfig do
@@ -769,6 +1030,11 @@ defmodule Google.Cloud.Datastream.V1.Stream.BackfillAllStrategy do
   field :postgresql_excluded_objects, 3,
     type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
     json_name: "postgresqlExcludedObjects",
+    oneof: 0
+
+  field :sql_server_excluded_objects, 4,
+    type: Google.Cloud.Datastream.V1.SqlServerRdbms,
+    json_name: "sqlServerExcludedObjects",
     oneof: 0
 end
 
@@ -838,6 +1104,11 @@ defmodule Google.Cloud.Datastream.V1.Stream do
     type: :string,
     json_name: "customerManagedEncryptionKey",
     deprecated: false
+
+  field :last_recovery_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastRecoveryTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.StreamObject do
@@ -893,6 +1164,15 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.MysqlObjectIdentifie
   field :table, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SqlServerObjectIdentifier do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :schema, 1, type: :string, deprecated: false
+  field :table, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   @moduledoc false
 
@@ -914,6 +1194,11 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
     type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.PostgresqlObjectIdentifier,
     json_name: "postgresqlIdentifier",
     oneof: 0
+
+  field :sql_server_identifier, 4,
+    type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.SqlServerObjectIdentifier,
+    json_name: "sqlServerIdentifier",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Datastream.V1.BackfillJob do
@@ -921,7 +1206,11 @@ defmodule Google.Cloud.Datastream.V1.BackfillJob do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :state, 1, type: Google.Cloud.Datastream.V1.BackfillJob.State, enum: true
+  field :state, 1,
+    type: Google.Cloud.Datastream.V1.BackfillJob.State,
+    enum: true,
+    deprecated: false
+
   field :trigger, 2, type: Google.Cloud.Datastream.V1.BackfillJob.Trigger, enum: true
 
   field :last_start_time, 3,
@@ -976,7 +1265,12 @@ defmodule Google.Cloud.Datastream.V1.Validation do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :description, 1, type: :string
-  field :state, 2, type: Google.Cloud.Datastream.V1.Validation.State, enum: true
+
+  field :state, 2,
+    type: Google.Cloud.Datastream.V1.Validation.State,
+    enum: true,
+    deprecated: false
+
   field :message, 3, repeated: true, type: Google.Cloud.Datastream.V1.ValidationMessage
   field :code, 4, type: :string
 end
@@ -1004,4 +1298,95 @@ defmodule Google.Cloud.Datastream.V1.ValidationMessage do
     map: true
 
   field :code, 4, type: :string
+end
+
+defmodule Google.Cloud.Datastream.V1.CdcStrategy.MostRecentStartPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.CdcStrategy.NextAvailableStartPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.CdcStrategy.SpecificStartPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :position, 0
+
+  field :mysql_log_position, 101,
+    type: Google.Cloud.Datastream.V1.MysqlLogPosition,
+    json_name: "mysqlLogPosition",
+    oneof: 0
+
+  field :oracle_scn_position, 102,
+    type: Google.Cloud.Datastream.V1.OracleScnPosition,
+    json_name: "oracleScnPosition",
+    oneof: 0
+
+  field :sql_server_lsn_position, 103,
+    type: Google.Cloud.Datastream.V1.SqlServerLsnPosition,
+    json_name: "sqlServerLsnPosition",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datastream.V1.CdcStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :start_position, 0
+
+  field :most_recent_start_position, 101,
+    type: Google.Cloud.Datastream.V1.CdcStrategy.MostRecentStartPosition,
+    json_name: "mostRecentStartPosition",
+    oneof: 0,
+    deprecated: false
+
+  field :next_available_start_position, 102,
+    type: Google.Cloud.Datastream.V1.CdcStrategy.NextAvailableStartPosition,
+    json_name: "nextAvailableStartPosition",
+    oneof: 0,
+    deprecated: false
+
+  field :specific_start_position, 103,
+    type: Google.Cloud.Datastream.V1.CdcStrategy.SpecificStartPosition,
+    json_name: "specificStartPosition",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SqlServerLsnPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :lsn, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.OracleScnPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :scn, 1, type: :int64, deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.MysqlLogPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :log_file, 1, type: :string, json_name: "logFile", deprecated: false
+
+  field :log_position, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "logPosition",
+    deprecated: false
 end
