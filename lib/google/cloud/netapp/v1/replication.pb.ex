@@ -9,6 +9,8 @@ defmodule Google.Cloud.Netapp.V1.Replication.State do
   field :UPDATING, 3
   field :DELETING, 5
   field :ERROR, 6
+  field :PENDING_CLUSTER_PEERING, 8
+  field :PENDING_SVM_PEERING, 9
 end
 
 defmodule Google.Cloud.Netapp.V1.Replication.ReplicationRole do
@@ -42,6 +44,18 @@ defmodule Google.Cloud.Netapp.V1.Replication.MirrorState do
   field :MIRRORED, 2
   field :STOPPED, 3
   field :TRANSFERRING, 4
+  field :BASELINE_TRANSFERRING, 5
+  field :ABORTED, 6
+end
+
+defmodule Google.Cloud.Netapp.V1.Replication.HybridReplicationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :HYBRID_REPLICATION_TYPE_UNSPECIFIED, 0
+  field :MIGRATION, 1
+  field :CONTINUOUS_REPLICATION, 2
 end
 
 defmodule Google.Cloud.Netapp.V1.TransferStats do
@@ -149,6 +163,35 @@ defmodule Google.Cloud.Netapp.V1.Replication do
     deprecated: false
 
   field :source_volume, 15, type: :string, json_name: "sourceVolume", deprecated: false
+
+  field :hybrid_peering_details, 16,
+    type: Google.Cloud.Netapp.V1.HybridPeeringDetails,
+    json_name: "hybridPeeringDetails",
+    deprecated: false
+
+  field :cluster_location, 18, type: :string, json_name: "clusterLocation", deprecated: false
+
+  field :hybrid_replication_type, 19,
+    type: Google.Cloud.Netapp.V1.Replication.HybridReplicationType,
+    json_name: "hybridReplicationType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.HybridPeeringDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :subnet_ip, 1, type: :string, json_name: "subnetIp", deprecated: false
+  field :command, 2, type: :string, deprecated: false
+
+  field :command_expiry_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "commandExpiryTime",
+    deprecated: false
+
+  field :passphrase, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListReplicationsRequest do
@@ -190,6 +233,12 @@ defmodule Google.Cloud.Netapp.V1.DestinationVolumeParameters do
   field :volume_id, 2, type: :string, json_name: "volumeId"
   field :share_name, 3, type: :string, json_name: "shareName"
   field :description, 4, proto3_optional: true, type: :string
+
+  field :tiering_policy, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Netapp.V1.TieringPolicy,
+    json_name: "tieringPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.CreateReplicationRequest do
@@ -241,6 +290,32 @@ defmodule Google.Cloud.Netapp.V1.ResumeReplicationRequest do
 end
 
 defmodule Google.Cloud.Netapp.V1.ReverseReplicationDirectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.EstablishPeeringRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :peer_cluster_name, 2, type: :string, json_name: "peerClusterName", deprecated: false
+  field :peer_svm_name, 3, type: :string, json_name: "peerSvmName", deprecated: false
+
+  field :peer_ip_addresses, 4,
+    repeated: true,
+    type: :string,
+    json_name: "peerIpAddresses",
+    deprecated: false
+
+  field :peer_volume_name, 5, type: :string, json_name: "peerVolumeName", deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.SyncReplicationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3

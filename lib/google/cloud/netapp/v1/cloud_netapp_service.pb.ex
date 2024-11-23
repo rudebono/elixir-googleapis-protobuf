@@ -152,6 +152,14 @@ defmodule Google.Cloud.Netapp.V1.NetApp.Service do
       Google.Cloud.Netapp.V1.ReverseReplicationDirectionRequest,
       Google.Longrunning.Operation
 
+  rpc :EstablishPeering,
+      Google.Cloud.Netapp.V1.EstablishPeeringRequest,
+      Google.Longrunning.Operation
+
+  rpc :SyncReplication,
+      Google.Cloud.Netapp.V1.SyncReplicationRequest,
+      Google.Longrunning.Operation
+
   rpc :CreateBackupVault,
       Google.Cloud.Netapp.V1.CreateBackupVaultRequest,
       Google.Longrunning.Operation

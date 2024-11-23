@@ -69,6 +69,8 @@ defmodule Google.Cloud.Netapp.V1.Volume.State do
   field :RESTORING, 5
   field :DISABLED, 6
   field :ERROR, 7
+  field :PREPARING, 8
+  field :READ_ONLY, 9
 end
 
 defmodule Google.Cloud.Netapp.V1.TieringPolicy.TierAction do
@@ -279,6 +281,11 @@ defmodule Google.Cloud.Netapp.V1.Volume do
   field :replica_zone, 36, type: :string, json_name: "replicaZone", deprecated: false
   field :zone, 37, type: :string, deprecated: false
   field :cold_tier_size_gib, 39, type: :int64, json_name: "coldTierSizeGib", deprecated: false
+
+  field :hybrid_replication_parameters, 40,
+    type: Google.Cloud.Netapp.V1.HybridReplicationParameters,
+    json_name: "hybridReplicationParameters",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
@@ -473,5 +480,40 @@ defmodule Google.Cloud.Netapp.V1.TieringPolicy do
     proto3_optional: true,
     type: :int32,
     json_name: "coolingThresholdDays",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.HybridReplicationParameters.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Netapp.V1.HybridReplicationParameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :replication, 1, type: :string, deprecated: false
+  field :peer_volume_name, 2, type: :string, json_name: "peerVolumeName", deprecated: false
+  field :peer_cluster_name, 3, type: :string, json_name: "peerClusterName", deprecated: false
+  field :peer_svm_name, 4, type: :string, json_name: "peerSvmName", deprecated: false
+
+  field :peer_ip_addresses, 5,
+    repeated: true,
+    type: :string,
+    json_name: "peerIpAddresses",
+    deprecated: false
+
+  field :cluster_location, 6, type: :string, json_name: "clusterLocation", deprecated: false
+  field :description, 7, type: :string, deprecated: false
+
+  field :labels, 8,
+    repeated: true,
+    type: Google.Cloud.Netapp.V1.HybridReplicationParameters.LabelsEntry,
+    map: true,
     deprecated: false
 end

@@ -261,6 +261,7 @@ defmodule Google.Spanner.V1.ExecuteSqlRequest do
     json_name: "directedReadOptions"
 
   field :data_boost_enabled, 16, type: :bool, json_name: "dataBoostEnabled"
+  field :last_statement, 17, type: :bool, json_name: "lastStatement", deprecated: false
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlRequest.Statement.ParamTypesEntry do
@@ -302,6 +303,7 @@ defmodule Google.Spanner.V1.ExecuteBatchDmlRequest do
 
   field :seqno, 4, type: :int64, deprecated: false
   field :request_options, 5, type: Google.Spanner.V1.RequestOptions, json_name: "requestOptions"
+  field :last_statements, 6, type: :bool, json_name: "lastStatements", deprecated: false
 end
 
 defmodule Google.Spanner.V1.ExecuteBatchDmlResponse do
