@@ -161,6 +161,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig do
     oneof: 0
 
   field :api_auth, 5, type: Google.Cloud.Aiplatform.V1beta1.ApiAuth, json_name: "apiAuth"
+
+  field :rag_embedding_model_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig,
+    json_name: "ragEmbeddingModelConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FileStatus do
@@ -174,6 +179,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FileStatus do
     deprecated: false
 
   field :error_status, 2, type: :string, json_name: "errorStatus", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VertexAiSearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :serving_config, 1, type: :string, json_name: "servingConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CorpusStatus do
@@ -194,6 +207,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
+  oneof :backend_config, 0
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
@@ -201,12 +216,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   field :rag_embedding_model_config, 6,
     type: Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig,
     json_name: "ragEmbeddingModelConfig",
-    deprecated: false
+    deprecated: true
 
   field :rag_vector_db_config, 7,
     type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig,
     json_name: "ragVectorDbConfig",
-    deprecated: false
+    deprecated: true
 
   field :create_time, 4,
     type: Google.Protobuf.Timestamp,
@@ -221,6 +236,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   field :corpus_status, 8,
     type: Google.Cloud.Aiplatform.V1beta1.CorpusStatus,
     json_name: "corpusStatus",
+    deprecated: false
+
+  field :vector_db_config, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig,
+    json_name: "vectorDbConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :vertex_ai_search_config, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.VertexAiSearchConfig,
+    json_name: "vertexAiSearchConfig",
+    oneof: 0,
     deprecated: false
 end
 
@@ -291,7 +318,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
     deprecated: false
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig do
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig.FixedLengthChunking do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
@@ -300,12 +327,70 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig do
   field :chunk_overlap, 2, type: :int32, json_name: "chunkOverlap"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :chunking_config, 0
+
+  field :fixed_length_chunking, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig.FixedLengthChunking,
+    json_name: "fixedLengthChunking",
+    oneof: 0
+
+  field :chunk_size, 1, type: :int32, json_name: "chunkSize", deprecated: true
+  field :chunk_overlap, 2, type: :int32, json_name: "chunkOverlap", deprecated: true
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileTransformationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :rag_file_chunking_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
+    json_name: "ragFileChunkingConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.AdvancedParser do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :use_advanced_pdf_parsing, 1, type: :bool, json_name: "useAdvancedPdfParsing"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LayoutParser do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :processor_name, 1, type: :string, json_name: "processorName"
+  field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :use_advanced_pdf_parsing, 2, type: :bool, json_name: "useAdvancedPdfParsing"
+  oneof :parser, 0
+
+  field :advanced_parser, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.AdvancedParser,
+    json_name: "advancedParser",
+    oneof: 0
+
+  field :layout_parser, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LayoutParser,
+    json_name: "layoutParser",
+    oneof: 0
+
+  field :use_advanced_pdf_parsing, 2,
+    type: :bool,
+    json_name: "useAdvancedPdfParsing",
+    deprecated: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadRagFileConfig do
@@ -315,7 +400,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UploadRagFileConfig do
 
   field :rag_file_chunking_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
-    json_name: "ragFileChunkingConfig"
+    json_name: "ragFileChunkingConfig",
+    deprecated: true
+
+  field :rag_file_transformation_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileTransformationConfig,
+    json_name: "ragFileTransformationConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
@@ -355,20 +445,28 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
   field :partial_failure_gcs_sink, 11,
     type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
     json_name: "partialFailureGcsSink",
-    oneof: 1
+    oneof: 1,
+    deprecated: true
 
   field :partial_failure_bigquery_sink, 12,
     type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination,
     json_name: "partialFailureBigquerySink",
-    oneof: 1
+    oneof: 1,
+    deprecated: true
 
   field :rag_file_chunking_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileChunkingConfig,
-    json_name: "ragFileChunkingConfig"
+    json_name: "ragFileChunkingConfig",
+    deprecated: true
+
+  field :rag_file_transformation_config, 16,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileTransformationConfig,
+    json_name: "ragFileTransformationConfig"
 
   field :rag_file_parsing_config, 8,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig,
-    json_name: "ragFileParsingConfig"
+    json_name: "ragFileParsingConfig",
+    deprecated: false
 
   field :max_embedding_requests_per_min, 5,
     type: :int32,

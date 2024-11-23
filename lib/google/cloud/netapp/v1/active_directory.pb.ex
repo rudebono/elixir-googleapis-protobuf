@@ -10,6 +10,7 @@ defmodule Google.Cloud.Netapp.V1.ActiveDirectory.State do
   field :IN_USE, 4
   field :DELETING, 5
   field :ERROR, 6
+  field :DIAGNOSING, 7
 end
 
 defmodule Google.Cloud.Netapp.V1.ListActiveDirectoriesRequest do
