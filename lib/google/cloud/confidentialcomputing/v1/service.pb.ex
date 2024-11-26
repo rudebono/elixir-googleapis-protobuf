@@ -18,6 +18,7 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenType do
   field :TOKEN_TYPE_OIDC, 1
   field :TOKEN_TYPE_PKI, 2
   field :TOKEN_TYPE_LIMITED_AWS, 3
+  field :TOKEN_TYPE_AWS_PRINCIPALTAGS, 4
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
@@ -137,10 +138,50 @@ defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do
     json_name: "serviceAccountIdTokens"
 end
 
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key_ids, 1, repeated: true, type: :string, json_name: "keyIds", deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :container_image_signatures, 1,
+    type:
+      Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures,
+    json_name: "containerImageSignatures",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :allowed_principal_tags, 1,
+    type:
+      Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags,
+    json_name: "allowedPrincipalTags",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :token_type_options, 0
+
+  field :aws_principal_tags_options, 4,
+    type: Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions,
+    json_name: "awsPrincipalTagsOptions",
+    oneof: 0,
+    deprecated: false
 
   field :audience, 1, type: :string, deprecated: false
   field :nonce, 2, repeated: true, type: :string, deprecated: false
