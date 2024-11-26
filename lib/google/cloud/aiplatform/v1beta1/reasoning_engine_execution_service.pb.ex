@@ -5,6 +5,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QueryReasoningEngineRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :input, 2, type: Google.Protobuf.Struct, deprecated: false
+  field :class_method, 3, type: :string, json_name: "classMethod", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryReasoningEngineResponse do
@@ -13,6 +14,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.QueryReasoningEngineResponse do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :output, 1, type: Google.Protobuf.Value
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.StreamQueryReasoningEngineRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :input, 2, type: Google.Protobuf.Struct, deprecated: false
+  field :class_method, 3, type: :string, json_name: "classMethod", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineExecutionService.Service do
@@ -25,6 +36,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineExecutionService.Servic
   rpc :QueryReasoningEngine,
       Google.Cloud.Aiplatform.V1beta1.QueryReasoningEngineRequest,
       Google.Cloud.Aiplatform.V1beta1.QueryReasoningEngineResponse
+
+  rpc :StreamQueryReasoningEngine,
+      Google.Cloud.Aiplatform.V1beta1.StreamQueryReasoningEngineRequest,
+      stream(Google.Api.HttpBody)
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineExecutionService.Stub do
