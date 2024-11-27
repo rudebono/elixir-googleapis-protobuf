@@ -7,4 +7,5 @@ defmodule Google.Maps.Routing.V2.RouteLabel do
   field :DEFAULT_ROUTE, 1
   field :DEFAULT_ROUTE_ALTERNATE, 2
   field :FUEL_EFFICIENT, 3
+  field :SHORTER_DISTANCE, 4
 end

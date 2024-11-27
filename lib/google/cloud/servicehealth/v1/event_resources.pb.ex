@@ -272,6 +272,7 @@ defmodule Google.Cloud.Servicehealth.V1.Product do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :product_name, 1, type: :string, json_name: "productName"
+  field :id, 2, type: :string
 end
 
 defmodule Google.Cloud.Servicehealth.V1.EventImpact do

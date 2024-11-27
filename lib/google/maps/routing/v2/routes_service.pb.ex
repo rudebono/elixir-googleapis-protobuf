@@ -15,6 +15,7 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ReferenceRoute do
 
   field :REFERENCE_ROUTE_UNSPECIFIED, 0
   field :FUEL_EFFICIENT, 1
+  field :SHORTER_DISTANCE, 2
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation do
