@@ -291,6 +291,11 @@ defmodule Google.Analytics.Data.V1alpha.Filter do
     type: Google.Analytics.Data.V1alpha.BetweenFilter,
     json_name: "betweenFilter",
     oneof: 0
+
+  field :empty_filter, 6,
+    type: Google.Analytics.Data.V1alpha.EmptyFilter,
+    json_name: "emptyFilter",
+    oneof: 0
 end
 
 defmodule Google.Analytics.Data.V1alpha.StringFilter do
@@ -365,6 +370,12 @@ defmodule Google.Analytics.Data.V1alpha.BetweenFilter do
 
   field :from_value, 1, type: Google.Analytics.Data.V1alpha.NumericValue, json_name: "fromValue"
   field :to_value, 2, type: Google.Analytics.Data.V1alpha.NumericValue, json_name: "toValue"
+end
+
+defmodule Google.Analytics.Data.V1alpha.EmptyFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Data.V1alpha.NumericValue do
@@ -468,6 +479,11 @@ defmodule Google.Analytics.Data.V1alpha.ResponseMetaData do
     proto3_optional: true,
     type: :bool,
     json_name: "subjectToThresholding"
+
+  field :sampling_metadatas, 9,
+    repeated: true,
+    type: Google.Analytics.Data.V1alpha.SamplingMetadata,
+    json_name: "samplingMetadatas"
 end
 
 defmodule Google.Analytics.Data.V1alpha.DimensionHeader do
