@@ -33,6 +33,11 @@ defmodule Google.Cloud.Aiplatform.V1.DedicatedResources do
   field :min_replica_count, 2, type: :int32, json_name: "minReplicaCount", deprecated: false
   field :max_replica_count, 3, type: :int32, json_name: "maxReplicaCount", deprecated: false
 
+  field :required_replica_count, 9,
+    type: :int32,
+    json_name: "requiredReplicaCount",
+    deprecated: false
+
   field :autoscaling_metric_specs, 4,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.AutoscalingMetricSpec,

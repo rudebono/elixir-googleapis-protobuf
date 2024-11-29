@@ -94,6 +94,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :message, 1, type: :string, deprecated: false
+
+  field :last_update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastUpdateTime",
+    deprecated: false
+
+  field :available_replica_count, 3,
+    type: :int32,
+    json_name: "availableReplicaCount",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry do
   @moduledoc false
 
@@ -154,6 +172,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     type: Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig,
     json_name: "fasterDeploymentConfig"
 
+  field :status, 26, type: Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status, deprecated: false
+
   field :system_labels, 28,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry,
@@ -185,18 +205,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig do
     json_name: "bigqueryDestination"
 end
 
-defmodule Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
-
-  field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
-end
-
 defmodule Google.Cloud.Aiplatform.V1beta1.ClientConnectionConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :inference_timeout, 1, type: Google.Protobuf.Duration, json_name: "inferenceTimeout"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
 end
