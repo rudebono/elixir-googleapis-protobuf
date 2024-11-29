@@ -94,6 +94,24 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.DeployedModel.Status do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :message, 1, type: :string, deprecated: false
+
+  field :last_update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastUpdateTime",
+    deprecated: false
+
+  field :available_replica_count, 3,
+    type: :int32,
+    json_name: "availableReplicaCount",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel.SystemLabelsEntry do
   @moduledoc false
 
@@ -153,6 +171,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
   field :faster_deployment_config, 23,
     type: Google.Cloud.Aiplatform.V1.FasterDeploymentConfig,
     json_name: "fasterDeploymentConfig"
+
+  field :status, 26, type: Google.Cloud.Aiplatform.V1.DeployedModel.Status, deprecated: false
 
   field :system_labels, 28,
     repeated: true,
