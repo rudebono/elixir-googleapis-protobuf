@@ -91,6 +91,13 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
 
   field :multi_region_auxiliary, 14, type: :bool, json_name: "multiRegionAuxiliary"
   field :edition, 17, type: Google.Cloud.Bigquery.Reservation.V1.Edition, enum: true
+  field :primary_location, 18, type: :string, json_name: "primaryLocation", deprecated: false
+  field :secondary_location, 19, type: :string, json_name: "secondaryLocation", deprecated: false
+
+  field :original_primary_location, 20,
+    type: :string,
+    json_name: "originalPrimaryLocation",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
@@ -129,6 +136,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment do
 
   field :multi_region_auxiliary, 10, type: :bool, json_name: "multiRegionAuxiliary"
   field :edition, 12, type: Google.Cloud.Bigquery.Reservation.V1.Edition, enum: true
+  field :is_flat_rate, 14, type: :bool, json_name: "isFlatRate", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateReservationRequest do
@@ -183,6 +191,14 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest do
 
   field :reservation, 1, type: Google.Cloud.Bigquery.Reservation.V1.Reservation
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Cloud.Bigquery.Reservation.V1.FailoverReservationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest do
@@ -476,6 +492,10 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.ReservationService.Service do
 
   rpc :UpdateReservation,
       Google.Cloud.Bigquery.Reservation.V1.UpdateReservationRequest,
+      Google.Cloud.Bigquery.Reservation.V1.Reservation
+
+  rpc :FailoverReservation,
+      Google.Cloud.Bigquery.Reservation.V1.FailoverReservationRequest,
       Google.Cloud.Bigquery.Reservation.V1.Reservation
 
   rpc :CreateCapacityCommitment,
