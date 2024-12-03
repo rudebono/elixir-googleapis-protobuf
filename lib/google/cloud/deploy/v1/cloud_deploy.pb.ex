@@ -959,6 +959,7 @@ defmodule Google.Cloud.Deploy.V1.GkeCluster do
   field :cluster, 1, type: :string, deprecated: false
   field :internal_ip, 2, type: :bool, json_name: "internalIp", deprecated: false
   field :proxy_url, 3, type: :string, json_name: "proxyUrl", deprecated: false
+  field :dns_endpoint, 4, type: :bool, json_name: "dnsEndpoint", deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AnthosCluster do
@@ -1695,7 +1696,7 @@ defmodule Google.Cloud.Deploy.V1.Release do
     deprecated: false
 
   field :etag, 16, type: :string
-  field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion"
+  field :skaffold_version, 19, type: :string, json_name: "skaffoldVersion", deprecated: false
 
   field :target_artifacts, 20,
     repeated: true,
