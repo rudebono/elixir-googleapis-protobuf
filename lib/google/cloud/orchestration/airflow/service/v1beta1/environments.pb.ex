@@ -588,15 +588,18 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig d
 
   field :software_config, 4,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig,
-    json_name: "softwareConfig"
+    json_name: "softwareConfig",
+    deprecated: false
 
   field :node_config, 5,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.NodeConfig,
-    json_name: "nodeConfig"
+    json_name: "nodeConfig",
+    deprecated: false
 
   field :private_environment_config, 7,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.PrivateEnvironmentConfig,
-    json_name: "privateEnvironmentConfig"
+    json_name: "privateEnvironmentConfig",
+    deprecated: false
 
   field :web_server_network_access_control, 9,
     type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.WebServerNetworkAccessControl,
@@ -712,7 +715,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.SoftwareConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :image_version, 1, type: :string, json_name: "imageVersion"
+  field :image_version, 1, type: :string, json_name: "imageVersion", deprecated: false
 
   field :airflow_config_overrides, 2,
     repeated: true,
@@ -1158,8 +1161,12 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.Environment do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :config, 2, type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig
+  field :name, 1, type: :string, deprecated: false
+
+  field :config, 2,
+    type: Google.Cloud.Orchestration.Airflow.Service.V1beta1.EnvironmentConfig,
+    deprecated: false
+
   field :uuid, 3, type: :string, deprecated: false
 
   field :state, 4,

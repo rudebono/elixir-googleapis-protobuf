@@ -8,6 +8,7 @@ defmodule Google.Cloud.Billing.V1.BillingAccount do
   field :display_name, 3, type: :string, json_name: "displayName"
   field :master_billing_account, 4, type: :string, json_name: "masterBillingAccount"
   field :parent, 6, type: :string, deprecated: false
+  field :currency_code, 7, type: :string, json_name: "currencyCode", deprecated: false
 end
 
 defmodule Google.Cloud.Billing.V1.ProjectBillingInfo do
