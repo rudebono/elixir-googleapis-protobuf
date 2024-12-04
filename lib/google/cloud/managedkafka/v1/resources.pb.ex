@@ -73,6 +73,18 @@ defmodule Google.Cloud.Managedkafka.V1.Cluster do
     type: Google.Cloud.Managedkafka.V1.Cluster.State,
     enum: true,
     deprecated: false
+
+  field :satisfies_pzi, 11,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
+
+  field :satisfies_pzs, 12,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Managedkafka.V1.CapacityConfig do

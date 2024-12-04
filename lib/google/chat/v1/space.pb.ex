@@ -208,6 +208,11 @@ defmodule Google.Chat.V1.Space do
     json_name: "permissionSettings",
     oneof: 0,
     deprecated: false
+
+  field :import_mode_expire_time, 28,
+    type: Google.Protobuf.Timestamp,
+    json_name: "importModeExpireTime",
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.CreateSpaceRequest do

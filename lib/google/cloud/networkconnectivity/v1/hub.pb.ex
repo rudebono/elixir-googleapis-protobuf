@@ -16,6 +16,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.RouteType do
   field :ROUTE_TYPE_UNSPECIFIED, 0
   field :VPC_PRIMARY_SUBNET, 1
   field :VPC_SECONDARY_SUBNET, 2
+  field :DYNAMIC_ROUTE, 3
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.State do
@@ -44,6 +45,26 @@ defmodule Google.Cloud.Networkconnectivity.V1.SpokeType do
   field :INTERCONNECT_ATTACHMENT, 2
   field :ROUTER_APPLIANCE, 3
   field :VPC_NETWORK, 4
+  field :PRODUCER_VPC_NETWORK, 7
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.PolicyMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :POLICY_MODE_UNSPECIFIED, 0
+  field :PRESET, 1
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.PresetTopology do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :PRESET_TOPOLOGY_UNSPECIFIED, 0
+  field :MESH, 2
+  field :STAR, 3
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.Spoke.StateReason.Code do
@@ -66,6 +87,20 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListHubSpokesRequest.SpokeView do
   field :SPOKE_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
   field :DETAILED, 2
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.PscPropagationStatus.Code do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :CODE_UNSPECIFIED, 0
+  field :READY, 1
+  field :PROPAGATING, 2
+  field :ERROR_PRODUCER_PROPAGATED_CONNECTION_LIMIT_EXCEEDED, 3
+  field :ERROR_PRODUCER_NAT_IP_SPACE_EXHAUSTED, 4
+  field :ERROR_PRODUCER_QUOTA_EXCEEDED, 5
+  field :ERROR_CONSUMER_QUOTA_EXCEEDED, 6
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry do
@@ -117,6 +152,24 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
   field :spoke_summary, 12,
     type: Google.Cloud.Networkconnectivity.V1.SpokeSummary,
     json_name: "spokeSummary",
+    deprecated: false
+
+  field :policy_mode, 13,
+    type: Google.Cloud.Networkconnectivity.V1.PolicyMode,
+    json_name: "policyMode",
+    enum: true,
+    deprecated: false
+
+  field :preset_topology, 14,
+    type: Google.Cloud.Networkconnectivity.V1.PresetTopology,
+    json_name: "presetTopology",
+    enum: true,
+    deprecated: false
+
+  field :export_psc, 15,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "exportPsc",
     deprecated: false
 end
 
@@ -193,6 +246,11 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
   field :linked_vpc_network, 20,
     type: Google.Cloud.Networkconnectivity.V1.LinkedVpcNetwork,
     json_name: "linkedVpcNetwork",
+    deprecated: false
+
+  field :linked_producer_vpc_network, 26,
+    type: Google.Cloud.Networkconnectivity.V1.LinkedProducerVpcNetwork,
+    json_name: "linkedProducerVpcNetwork",
     deprecated: false
 
   field :unique_id, 11, type: :string, json_name: "uniqueId", deprecated: false
@@ -294,6 +352,22 @@ defmodule Google.Cloud.Networkconnectivity.V1.Route do
   field :state, 9, type: Google.Cloud.Networkconnectivity.V1.State, enum: true, deprecated: false
   field :spoke, 11, type: :string, deprecated: false
   field :location, 12, type: :string, deprecated: false
+  field :priority, 13, type: :int64, deprecated: false
+
+  field :next_hop_vpn_tunnel, 14,
+    type: Google.Cloud.Networkconnectivity.V1.NextHopVPNTunnel,
+    json_name: "nextHopVpnTunnel",
+    deprecated: false
+
+  field :next_hop_router_appliance_instance, 15,
+    type: Google.Cloud.Networkconnectivity.V1.NextHopRouterApplianceInstance,
+    json_name: "nextHopRouterApplianceInstance",
+    deprecated: false
+
+  field :next_hop_interconnect_attachment, 16,
+    type: Google.Cloud.Networkconnectivity.V1.NextHopInterconnectAttachment,
+    json_name: "nextHopInterconnectAttachment",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.Group.LabelsEntry do
@@ -331,6 +405,21 @@ defmodule Google.Cloud.Networkconnectivity.V1.Group do
   field :description, 5, type: :string, deprecated: false
   field :uid, 6, type: :string, deprecated: false
   field :state, 7, type: Google.Cloud.Networkconnectivity.V1.State, enum: true, deprecated: false
+
+  field :auto_accept, 8,
+    type: Google.Cloud.Networkconnectivity.V1.AutoAccept,
+    json_name: "autoAccept",
+    deprecated: false
+
+  field :route_table, 9, type: :string, json_name: "routeTable", deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.AutoAccept do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :auto_accept_projects, 1, repeated: true, type: :string, json_name: "autoAcceptProjects"
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
@@ -422,6 +511,59 @@ defmodule Google.Cloud.Networkconnectivity.V1.ListHubSpokesResponse do
   field :spokes, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1.Spoke
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.QueryHubStatusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+  field :group_by, 6, type: :string, json_name: "groupBy", deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.QueryHubStatusResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :hub_status_entries, 1,
+    repeated: true,
+    type: Google.Cloud.Networkconnectivity.V1.HubStatusEntry,
+    json_name: "hubStatusEntries"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.HubStatusEntry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :count, 1, type: :int32
+  field :group_by, 2, type: :string, json_name: "groupBy"
+
+  field :psc_propagation_status, 3,
+    type: Google.Cloud.Networkconnectivity.V1.PscPropagationStatus,
+    json_name: "pscPropagationStatus"
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.PscPropagationStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :source_spoke, 1, type: :string, json_name: "sourceSpoke"
+  field :source_group, 2, type: :string, json_name: "sourceGroup"
+  field :source_forwarding_rule, 3, type: :string, json_name: "sourceForwardingRule"
+  field :target_spoke, 4, type: :string, json_name: "targetSpoke"
+  field :target_group, 5, type: :string, json_name: "targetGroup"
+  field :code, 6, type: Google.Cloud.Networkconnectivity.V1.PscPropagationStatus.Code, enum: true
+  field :message, 7, type: :string
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.ListSpokesRequest do
@@ -619,6 +761,12 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels do
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
   field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
+
+  field :include_import_ranges, 5,
+    repeated: true,
+    type: :string,
+    json_name: "includeImportRanges",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
@@ -629,6 +777,12 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments do
   field :uris, 1, repeated: true, type: :string, deprecated: false
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
   field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
+
+  field :include_import_ranges, 5,
+    repeated: true,
+    type: :string,
+    json_name: "includeImportRanges",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
@@ -642,6 +796,12 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances do
 
   field :site_to_site_data_transfer, 2, type: :bool, json_name: "siteToSiteDataTransfer"
   field :vpc_network, 3, type: :string, json_name: "vpcNetwork", deprecated: false
+
+  field :include_import_ranges, 5,
+    repeated: true,
+    type: :string,
+    json_name: "includeImportRanges",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpcNetwork do
@@ -655,6 +815,46 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpcNetwork do
     repeated: true,
     type: :string,
     json_name: "excludeExportRanges",
+    deprecated: false
+
+  field :include_export_ranges, 3,
+    repeated: true,
+    type: :string,
+    json_name: "includeExportRanges",
+    deprecated: false
+
+  field :producer_vpc_spokes, 4,
+    repeated: true,
+    type: :string,
+    json_name: "producerVpcSpokes",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.LinkedProducerVpcNetwork do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :network, 1, type: :string, deprecated: false
+
+  field :service_consumer_vpc_spoke, 6,
+    type: :string,
+    json_name: "serviceConsumerVpcSpoke",
+    deprecated: false
+
+  field :peering, 2, type: :string, deprecated: false
+  field :producer_network, 5, type: :string, json_name: "producerNetwork", deprecated: false
+
+  field :exclude_export_ranges, 3,
+    repeated: true,
+    type: :string,
+    json_name: "excludeExportRanges",
+    deprecated: false
+
+  field :include_export_ranges, 4,
+    repeated: true,
+    type: :string,
+    json_name: "includeExportRanges",
     deprecated: false
 end
 
@@ -685,6 +885,36 @@ defmodule Google.Cloud.Networkconnectivity.V1.NextHopVpcNetwork do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.NextHopVPNTunnel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :vpc_network, 2, type: :string, json_name: "vpcNetwork", deprecated: false
+  field :site_to_site_data_transfer, 3, type: :bool, json_name: "siteToSiteDataTransfer"
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.NextHopRouterApplianceInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :vpc_network, 2, type: :string, json_name: "vpcNetwork", deprecated: false
+  field :site_to_site_data_transfer, 3, type: :bool, json_name: "siteToSiteDataTransfer"
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.NextHopInterconnectAttachment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :vpc_network, 2, type: :string, json_name: "vpcNetwork", deprecated: false
+  field :site_to_site_data_transfer, 3, type: :bool, json_name: "siteToSiteDataTransfer"
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.SpokeSummary.SpokeTypeCount do
@@ -756,6 +986,20 @@ defmodule Google.Cloud.Networkconnectivity.V1.GetGroupRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Networkconnectivity.V1.UpdateGroupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :group, 2, type: Google.Cloud.Networkconnectivity.V1.Group, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   @moduledoc false
 
@@ -786,6 +1030,10 @@ defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   rpc :ListHubSpokes,
       Google.Cloud.Networkconnectivity.V1.ListHubSpokesRequest,
       Google.Cloud.Networkconnectivity.V1.ListHubSpokesResponse
+
+  rpc :QueryHubStatus,
+      Google.Cloud.Networkconnectivity.V1.QueryHubStatusRequest,
+      Google.Cloud.Networkconnectivity.V1.QueryHubStatusResponse
 
   rpc :ListSpokes,
       Google.Cloud.Networkconnectivity.V1.ListSpokesRequest,
@@ -838,6 +1086,10 @@ defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
   rpc :ListGroups,
       Google.Cloud.Networkconnectivity.V1.ListGroupsRequest,
       Google.Cloud.Networkconnectivity.V1.ListGroupsResponse
+
+  rpc :UpdateGroup,
+      Google.Cloud.Networkconnectivity.V1.UpdateGroupRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.HubService.Stub do
