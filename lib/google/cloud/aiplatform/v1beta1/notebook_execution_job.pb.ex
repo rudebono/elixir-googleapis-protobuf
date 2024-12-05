@@ -45,6 +45,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.CustomEnvironment
     json_name: "networkSpec"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.WorkbenchRuntime do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.LabelsEntry do
   @moduledoc false
 
@@ -66,6 +72,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
   oneof :execution_sink, 2
 
   oneof :execution_identity, 3
+
+  oneof :runtime_environment, 4
 
   field :dataform_repository_source, 3,
     type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.DataformRepositorySource,
@@ -96,6 +104,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
   field :gcs_output_uri, 8, type: :string, json_name: "gcsOutputUri", oneof: 2
   field :execution_user, 9, type: :string, json_name: "executionUser", oneof: 3
   field :service_account, 18, type: :string, json_name: "serviceAccount", oneof: 3
+
+  field :workbench_runtime, 23,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.WorkbenchRuntime,
+    json_name: "workbenchRuntime",
+    oneof: 4
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :execution_timeout, 5, type: Google.Protobuf.Duration, json_name: "executionTimeout"
@@ -127,6 +141,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.NotebookExecutionJob.LabelsEntry,
     map: true
+
+  field :kernel_name, 20, type: :string, json_name: "kernelName"
 
   field :encryption_spec, 22,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,

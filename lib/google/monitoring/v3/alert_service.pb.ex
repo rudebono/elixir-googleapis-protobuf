@@ -25,10 +25,10 @@ defmodule Google.Monitoring.V3.ListAlertPoliciesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
-  field :filter, 5, type: :string
-  field :order_by, 6, type: :string, json_name: "orderBy"
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
+  field :filter, 5, type: :string, deprecated: false
+  field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ListAlertPoliciesResponse do
@@ -50,7 +50,10 @@ defmodule Google.Monitoring.V3.UpdateAlertPolicyRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :alert_policy, 3,
     type: Google.Monitoring.V3.AlertPolicy,

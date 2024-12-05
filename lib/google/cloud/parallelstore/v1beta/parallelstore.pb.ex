@@ -30,6 +30,16 @@ defmodule Google.Cloud.Parallelstore.V1beta.DirectoryStripeLevel do
   field :DIRECTORY_STRIPE_LEVEL_MAX, 3
 end
 
+defmodule Google.Cloud.Parallelstore.V1beta.DeploymentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DEPLOYMENT_TYPE_UNSPECIFIED, 0
+  field :SCRATCH, 1
+  field :PERSISTENT, 2
+end
+
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.State do
   @moduledoc false
 
@@ -107,6 +117,12 @@ defmodule Google.Cloud.Parallelstore.V1beta.Instance do
   field :directory_stripe_level, 16,
     type: Google.Cloud.Parallelstore.V1beta.DirectoryStripeLevel,
     json_name: "directoryStripeLevel",
+    enum: true,
+    deprecated: false
+
+  field :deployment_type, 17,
+    type: Google.Cloud.Parallelstore.V1beta.DeploymentType,
+    json_name: "deploymentType",
     enum: true,
     deprecated: false
 end

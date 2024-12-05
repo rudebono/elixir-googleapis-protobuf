@@ -31,6 +31,16 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.EvaluationMissingData do
   field :EVALUATION_MISSING_DATA_NO_OP, 3
 end
 
+defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationPrompt do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :NOTIFICATION_PROMPT_UNSPECIFIED, 0
+  field :OPENED, 1
+  field :CLOSED, 3
+end
+
 defmodule Google.Monitoring.V3.AlertPolicy.Documentation.Link do
   @moduledoc false
 
@@ -253,6 +263,12 @@ defmodule Google.Monitoring.V3.AlertPolicy.AlertStrategy do
     type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationRateLimit,
     json_name: "notificationRateLimit"
 
+  field :notification_prompts, 2,
+    repeated: true,
+    type: Google.Monitoring.V3.AlertPolicy.AlertStrategy.NotificationPrompt,
+    json_name: "notificationPrompts",
+    enum: true
+
   field :auto_close, 3, type: Google.Protobuf.Duration, json_name: "autoClose"
 
   field :notification_channel_strategy, 4,
@@ -275,7 +291,7 @@ defmodule Google.Monitoring.V3.AlertPolicy do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :documentation, 13, type: Google.Monitoring.V3.AlertPolicy.Documentation
 
