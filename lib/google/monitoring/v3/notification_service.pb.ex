@@ -48,10 +48,10 @@ defmodule Google.Monitoring.V3.ListNotificationChannelsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
-  field :filter, 6, type: :string
-  field :order_by, 7, type: :string, json_name: "orderBy"
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :filter, 6, type: :string, deprecated: false
+  field :order_by, 7, type: :string, json_name: "orderBy", deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ListNotificationChannelsResponse do
@@ -81,7 +81,10 @@ defmodule Google.Monitoring.V3.UpdateNotificationChannelRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 
   field :notification_channel, 3,
     type: Google.Monitoring.V3.NotificationChannel,

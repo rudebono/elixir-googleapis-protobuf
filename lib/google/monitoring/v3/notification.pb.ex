@@ -53,7 +53,7 @@ defmodule Google.Monitoring.V3.NotificationChannel do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :type, 1, type: :string
-  field :name, 6, type: :string
+  field :name, 6, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName"
   field :description, 4, type: :string
 
