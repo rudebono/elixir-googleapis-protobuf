@@ -43,6 +43,10 @@ defmodule Google.Maps.Routing.V2.Route do
     json_name: "localizedValues"
 
   field :route_token, 12, type: :string, json_name: "routeToken"
+
+  field :polyline_details, 14,
+    type: Google.Maps.Routing.V2.PolylineDetails,
+    json_name: "polylineDetails"
 end
 
 defmodule Google.Maps.Routing.V2.RouteTravelAdvisory do
