@@ -28,6 +28,8 @@ defmodule Google.Maps.Routing.V2.ComputeRoutesRequest.ExtraComputation do
   field :FUEL_CONSUMPTION, 2
   field :TRAFFIC_ON_POLYLINE, 3
   field :HTML_FORMATTED_NAVIGATION_INSTRUCTIONS, 4
+  field :FLYOVER_INFO_ON_POLYLINE, 7
+  field :NARROW_ROAD_INFO_ON_POLYLINE, 8
 end
 
 defmodule Google.Maps.Routing.V2.ComputeRouteMatrixRequest.ExtraComputation do

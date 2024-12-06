@@ -222,12 +222,27 @@ defmodule Google.Api.RubySettings do
   field :common, 1, type: Google.Api.CommonLanguageSettings
 end
 
+defmodule Google.Api.GoSettings.RenamedServicesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Api.GoSettings do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :common, 1, type: Google.Api.CommonLanguageSettings
+
+  field :renamed_services, 2,
+    repeated: true,
+    type: Google.Api.GoSettings.RenamedServicesEntry,
+    json_name: "renamedServices",
+    map: true
 end
 
 defmodule Google.Api.MethodSettings.LongRunning do
