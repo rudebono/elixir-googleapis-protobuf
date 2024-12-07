@@ -43,6 +43,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest do
 
   field :order_by, 6, type: :string, json_name: "orderBy", deprecated: false
   field :language_code, 7, type: :string, json_name: "languageCode", deprecated: false
+  field :list_all_versions, 8, type: :bool, json_name: "listAllVersions", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsResponse do
