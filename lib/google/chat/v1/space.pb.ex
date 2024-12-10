@@ -55,8 +55,8 @@ defmodule Google.Chat.V1.Space.SpaceDetails do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :description, 1, type: :string
-  field :guidelines, 2, type: :string
+  field :description, 1, type: :string, deprecated: false
+  field :guidelines, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Chat.V1.Space.MembershipCount do
@@ -64,8 +64,12 @@ defmodule Google.Chat.V1.Space.MembershipCount do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :joined_direct_human_user_count, 4, type: :int32, json_name: "joinedDirectHumanUserCount"
-  field :joined_group_count, 5, type: :int32, json_name: "joinedGroupCount"
+  field :joined_direct_human_user_count, 4,
+    type: :int32,
+    json_name: "joinedDirectHumanUserCount",
+    deprecated: false
+
+  field :joined_group_count, 5, type: :int32, json_name: "joinedGroupCount", deprecated: false
 end
 
 defmodule Google.Chat.V1.Space.AccessSettings do
@@ -90,32 +94,38 @@ defmodule Google.Chat.V1.Space.PermissionSettings do
   field :manage_members_and_groups, 1,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "manageMembersAndGroups"
+    json_name: "manageMembersAndGroups",
+    deprecated: false
 
   field :modify_space_details, 2,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "modifySpaceDetails"
+    json_name: "modifySpaceDetails",
+    deprecated: false
 
   field :toggle_history, 3,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "toggleHistory"
+    json_name: "toggleHistory",
+    deprecated: false
 
   field :use_at_mention_all, 4,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "useAtMentionAll"
+    json_name: "useAtMentionAll",
+    deprecated: false
 
   field :manage_apps, 5,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "manageApps"
+    json_name: "manageApps",
+    deprecated: false
 
   field :manage_webhooks, 6,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "manageWebhooks"
+    json_name: "manageWebhooks",
+    deprecated: false
 
   field :post_messages, 7,
     proto3_optional: true,
@@ -126,7 +136,8 @@ defmodule Google.Chat.V1.Space.PermissionSettings do
   field :reply_messages, 8,
     proto3_optional: true,
     type: Google.Chat.V1.Space.PermissionSetting,
-    json_name: "replyMessages"
+    json_name: "replyMessages",
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.Space.PermissionSetting do
@@ -134,8 +145,8 @@ defmodule Google.Chat.V1.Space.PermissionSetting do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :managers_allowed, 1, type: :bool, json_name: "managersAllowed"
-  field :members_allowed, 2, type: :bool, json_name: "membersAllowed"
+  field :managers_allowed, 1, type: :bool, json_name: "managersAllowed", deprecated: false
+  field :members_allowed, 2, type: :bool, json_name: "membersAllowed", deprecated: false
 end
 
 defmodule Google.Chat.V1.Space do
@@ -145,12 +156,18 @@ defmodule Google.Chat.V1.Space do
 
   oneof :space_permission_settings, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Chat.V1.Space.Type, enum: true, deprecated: true
-  field :space_type, 10, type: Google.Chat.V1.Space.SpaceType, json_name: "spaceType", enum: true
+
+  field :space_type, 10,
+    type: Google.Chat.V1.Space.SpaceType,
+    json_name: "spaceType",
+    enum: true,
+    deprecated: false
+
   field :single_user_bot_dm, 4, type: :bool, json_name: "singleUserBotDm", deprecated: false
   field :threaded, 5, type: :bool, deprecated: true
-  field :display_name, 3, type: :string, json_name: "displayName"
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
 
   field :external_user_allowed, 8,
     type: :bool,
@@ -163,12 +180,16 @@ defmodule Google.Chat.V1.Space do
     enum: true,
     deprecated: false
 
-  field :space_details, 11, type: Google.Chat.V1.Space.SpaceDetails, json_name: "spaceDetails"
+  field :space_details, 11,
+    type: Google.Chat.V1.Space.SpaceDetails,
+    json_name: "spaceDetails",
+    deprecated: false
 
   field :space_history_state, 13,
     type: Google.Chat.V1.HistoryState,
     json_name: "spaceHistoryState",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :import_mode, 16, type: :bool, json_name: "importMode", deprecated: false
 
@@ -249,7 +270,7 @@ defmodule Google.Chat.V1.GetSpaceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
+  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess", deprecated: false
 end
 
 defmodule Google.Chat.V1.FindDirectMessageRequest do
@@ -266,8 +287,13 @@ defmodule Google.Chat.V1.UpdateSpaceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :space, 1, type: Google.Chat.V1.Space, deprecated: false
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
-  field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess"
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :use_admin_access, 3, type: :bool, json_name: "useAdminAccess", deprecated: false
 end
 
 defmodule Google.Chat.V1.SearchSpacesRequest do
@@ -298,7 +324,7 @@ defmodule Google.Chat.V1.DeleteSpaceRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess"
+  field :use_admin_access, 2, type: :bool, json_name: "useAdminAccess", deprecated: false
 end
 
 defmodule Google.Chat.V1.CompleteImportSpaceRequest do

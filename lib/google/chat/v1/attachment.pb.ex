@@ -15,14 +15,15 @@ defmodule Google.Chat.V1.Attachment do
 
   oneof :data_ref, 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :content_name, 2, type: :string, json_name: "contentName", deprecated: false
   field :content_type, 3, type: :string, json_name: "contentType", deprecated: false
 
   field :attachment_data_ref, 4,
     type: Google.Chat.V1.AttachmentDataRef,
     json_name: "attachmentDataRef",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :drive_data_ref, 7,
     type: Google.Chat.V1.DriveDataRef,
@@ -48,8 +49,12 @@ defmodule Google.Chat.V1.AttachmentDataRef do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :resource_name, 1, type: :string, json_name: "resourceName"
-  field :attachment_upload_token, 2, type: :string, json_name: "attachmentUploadToken"
+  field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
+
+  field :attachment_upload_token, 2,
+    type: :string,
+    json_name: "attachmentUploadToken",
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.GetAttachmentRequest do

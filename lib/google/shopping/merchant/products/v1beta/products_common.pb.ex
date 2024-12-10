@@ -54,7 +54,7 @@ defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
     type: :string,
     json_name: "googleProductCategory"
 
-  field :gtin, 26, proto3_optional: true, type: :string
+  field :gtin, 26, repeated: true, type: :string
   field :item_group_id, 27, proto3_optional: true, type: :string, json_name: "itemGroupId"
   field :material, 28, proto3_optional: true, type: :string
   field :mpn, 29, proto3_optional: true, type: :string
@@ -353,6 +353,13 @@ defmodule Google.Shopping.Merchant.Products.V1beta.LoyaltyProgram do
     json_name: "cashbackForFutureUse"
 
   field :loyalty_points, 5, proto3_optional: true, type: :int64, json_name: "loyaltyPoints"
+
+  field :member_price_effective_date, 6,
+    proto3_optional: true,
+    type: Google.Type.Interval,
+    json_name: "memberPriceEffectiveDate"
+
+  field :shipping_label, 7, proto3_optional: true, type: :string, json_name: "shippingLabel"
 end
 
 defmodule Google.Shopping.Merchant.Products.V1beta.Shipping do
