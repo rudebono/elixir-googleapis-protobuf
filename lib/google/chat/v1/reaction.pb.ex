@@ -3,9 +3,9 @@ defmodule Google.Chat.V1.Reaction do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :user, 2, type: Google.Chat.V1.User, deprecated: false
-  field :emoji, 3, type: Google.Chat.V1.Emoji
+  field :emoji, 3, type: Google.Chat.V1.Emoji, deprecated: false
 end
 
 defmodule Google.Chat.V1.Emoji do
@@ -15,7 +15,7 @@ defmodule Google.Chat.V1.Emoji do
 
   oneof :content, 0
 
-  field :unicode, 1, type: :string, oneof: 0
+  field :unicode, 1, type: :string, oneof: 0, deprecated: false
 
   field :custom_emoji, 2,
     type: Google.Chat.V1.CustomEmoji,
@@ -37,8 +37,13 @@ defmodule Google.Chat.V1.EmojiReactionSummary do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :emoji, 1, type: Google.Chat.V1.Emoji
-  field :reaction_count, 2, proto3_optional: true, type: :int32, json_name: "reactionCount"
+  field :emoji, 1, type: Google.Chat.V1.Emoji, deprecated: false
+
+  field :reaction_count, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "reactionCount",
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.CreateReactionRequest do

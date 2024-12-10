@@ -114,8 +114,8 @@ defmodule Google.Chat.V1.ListSpaceEventsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 5, type: :int32, json_name: "pageSize"
-  field :page_token, 6, type: :string, json_name: "pageToken"
+  field :page_size, 5, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 6, type: :string, json_name: "pageToken", deprecated: false
   field :filter, 8, type: :string, deprecated: false
 end
 

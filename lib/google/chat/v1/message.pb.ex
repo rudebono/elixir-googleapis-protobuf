@@ -27,7 +27,7 @@ defmodule Google.Chat.V1.Message do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :sender, 2, type: Google.Chat.V1.User, deprecated: false
 
   field :create_time, 3,
@@ -45,7 +45,7 @@ defmodule Google.Chat.V1.Message do
     json_name: "deleteTime",
     deprecated: false
 
-  field :text, 4, type: :string
+  field :text, 4, type: :string, deprecated: false
   field :formatted_text, 43, type: :string, json_name: "formattedText", deprecated: false
 
   field :cards, 5,
@@ -53,11 +53,16 @@ defmodule Google.Chat.V1.Message do
     type: Google.Chat.V1.ContextualAddOnMarkup.Card,
     deprecated: true
 
-  field :cards_v2, 22, repeated: true, type: Google.Chat.V1.CardWithId, json_name: "cardsV2"
+  field :cards_v2, 22,
+    repeated: true,
+    type: Google.Chat.V1.CardWithId,
+    json_name: "cardsV2",
+    deprecated: false
+
   field :annotations, 10, repeated: true, type: Google.Chat.V1.Annotation, deprecated: false
   field :thread, 11, type: Google.Chat.V1.Thread
-  field :space, 12, type: Google.Chat.V1.Space
-  field :fallback_text, 13, type: :string, json_name: "fallbackText"
+  field :space, 12, type: Google.Chat.V1.Space, deprecated: false
+  field :fallback_text, 13, type: :string, json_name: "fallbackText", deprecated: false
 
   field :action_response, 14,
     type: Google.Chat.V1.ActionResponse,
@@ -71,7 +76,7 @@ defmodule Google.Chat.V1.Message do
     json_name: "slashCommand",
     deprecated: false
 
-  field :attachment, 18, repeated: true, type: Google.Chat.V1.Attachment
+  field :attachment, 18, repeated: true, type: Google.Chat.V1.Attachment, deprecated: false
 
   field :matched_url, 20,
     type: Google.Chat.V1.MatchedUrl,
@@ -79,7 +84,11 @@ defmodule Google.Chat.V1.Message do
     deprecated: false
 
   field :thread_reply, 25, type: :bool, json_name: "threadReply", deprecated: false
-  field :client_assigned_message_id, 32, type: :string, json_name: "clientAssignedMessageId"
+
+  field :client_assigned_message_id, 32,
+    type: :string,
+    json_name: "clientAssignedMessageId",
+    deprecated: false
 
   field :emoji_reaction_summaries, 33,
     repeated: true,
@@ -111,7 +120,8 @@ defmodule Google.Chat.V1.Message do
   field :accessory_widgets, 44,
     repeated: true,
     type: Google.Chat.V1.AccessoryWidget,
-    json_name: "accessoryWidgets"
+    json_name: "accessoryWidgets",
+    deprecated: false
 end
 
 defmodule Google.Chat.V1.AttachedGif do
@@ -140,7 +150,7 @@ defmodule Google.Chat.V1.Thread do
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :thread_key, 3, type: :string, json_name: "threadKey", deprecated: false
 end
 
@@ -206,7 +216,7 @@ defmodule Google.Chat.V1.DeleteMessageRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :force, 2, type: :bool
+  field :force, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Chat.V1.UpdateMessageRequest do
@@ -215,7 +225,12 @@ defmodule Google.Chat.V1.UpdateMessageRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :message, 1, type: Google.Chat.V1.Message, deprecated: false
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
   field :allow_missing, 4, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
@@ -244,11 +259,11 @@ defmodule Google.Chat.V1.ListMessagesRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize"
-  field :page_token, 3, type: :string, json_name: "pageToken"
-  field :filter, 4, type: :string
-  field :order_by, 5, type: :string, json_name: "orderBy"
-  field :show_deleted, 6, type: :bool, json_name: "showDeleted"
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+  field :show_deleted, 6, type: :bool, json_name: "showDeleted", deprecated: false
 end
 
 defmodule Google.Chat.V1.ListMessagesResponse do
