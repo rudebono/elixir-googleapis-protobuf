@@ -630,6 +630,9 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :GRAPHICS_OPTIMIZED, 68_500_563
   field :MEMORY_OPTIMIZED, 281_753_417
   field :MEMORY_OPTIMIZED_M3, 276_301_372
+  field :MEMORY_OPTIMIZED_X4_16TB, 183_089_120
+  field :MEMORY_OPTIMIZED_X4_24TB, 183_116_989
+  field :MEMORY_OPTIMIZED_X4_32TB, 183_144_858
   field :STORAGE_OPTIMIZED_Z3, 316_796_085
   field :TYPE_UNSPECIFIED, 437_714_322
 end
@@ -1171,6 +1174,16 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequest.State do
   field :FAILED, 455_706_685
   field :STATE_UNSPECIFIED, 470_755_401
   field :SUCCEEDED, 511_103_553
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerStandbyPolicy.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_MODE, 0
+  field :MANUAL, 119_397_318
+  field :SCALE_OUT_POOL, 635_394
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
@@ -1940,6 +1953,8 @@ defmodule Google.Cloud.Compute.V1.NetworkInterface.NicType do
   field :UNDEFINED_NIC_TYPE, 0
   field :GVNIC, 68_209_305
   field :IDPF, 2_242_641
+  field :IRDMA, 69_927_695
+  field :MRDMA, 73_621_779
   field :UNSPECIFIED_NIC_TYPE, 67_411_801
   field :VIRTIO_NET, 452_123_481
 end
@@ -1984,6 +1999,267 @@ defmodule Google.Cloud.Compute.V1.NetworkPerformanceConfig.TotalEgressBandwidthT
   field :UNDEFINED_TOTAL_EGRESS_BANDWIDTH_TIER, 0
   field :DEFAULT, 115_302_945
   field :TIER_1, 326_919_444
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileLocation.Scope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_SCOPE, 0
+  field :REGION, 266_017_524
+  field :ZONE, 2_759_596
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AddressPurposes do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ADDRESS_PURPOSES, 0
+  field :DNS_RESOLVER, 476_114_556
+  field :GCE_ENDPOINT, 230_515_243
+  field :IPSEC_INTERCONNECT, 340_437_251
+  field :NAT_AUTO, 163_666_477
+  field :PRIVATE_SERVICE_CONNECT, 48_134_724
+  field :SERVERLESS, 270_492_508
+  field :SHARED_LOADBALANCER_VIP, 294_447_572
+  field :VPC_PEERING, 400_800_170
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowAliasIpRanges do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_ALIAS_IP_RANGES, 0
+  field :ALIAS_IP_RANGES_ALLOWED, 464_867_048
+  field :ALIAS_IP_RANGES_BLOCKED, 281_030_444
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowAutoModeSubnet do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_AUTO_MODE_SUBNET, 0
+  field :AUTO_MODE_SUBNET_ALLOWED, 391_042_610
+  field :AUTO_MODE_SUBNET_BLOCKED, 207_206_006
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowClassDFirewalls do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_CLASS_D_FIREWALLS, 0
+  field :CLASS_D_FIREWALLS_ALLOWED, 348_219_386
+  field :CLASS_D_FIREWALLS_BLOCKED, 164_382_782
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowCloudNat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_CLOUD_NAT, 0
+  field :CLOUD_NAT_ALLOWED, 245_931_296
+  field :CLOUD_NAT_BLOCKED, 62_094_692
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowCloudRouter do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_CLOUD_ROUTER, 0
+  field :CLOUD_ROUTER_ALLOWED, 365_388_284
+  field :CLOUD_ROUTER_BLOCKED, 181_551_680
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowExternalIpAccess do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_EXTERNAL_IP_ACCESS, 0
+  field :EXTERNAL_IP_ACCESS_ALLOWED, 109_530_193
+  field :EXTERNAL_IP_ACCESS_BLOCKED, 462_564_501
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowInterconnect do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_INTERCONNECT, 0
+  field :INTERCONNECT_ALLOWED, 162_845_399
+  field :INTERCONNECT_BLOCKED, 515_879_707
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowLoadBalancing do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_LOAD_BALANCING, 0
+  field :LOAD_BALANCING_ALLOWED, 28_407_977
+  field :LOAD_BALANCING_BLOCKED, 381_442_285
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowMultiNicInSameNetwork do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_MULTI_NIC_IN_SAME_NETWORK, 0
+  field :MULTI_NIC_IN_SAME_NETWORK_ALLOWED, 457_555_419
+  field :MULTI_NIC_IN_SAME_NETWORK_BLOCKED, 273_718_815
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowPacketMirroring do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_PACKET_MIRRORING, 0
+  field :PACKET_MIRRORING_ALLOWED, 92_416_245
+  field :PACKET_MIRRORING_BLOCKED, 445_450_553
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowPrivateGoogleAccess do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_PRIVATE_GOOGLE_ACCESS, 0
+  field :PRIVATE_GOOGLE_ACCESS_ALLOWED, 220_787_351
+  field :PRIVATE_GOOGLE_ACCESS_BLOCKED, 36_950_747
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowPsc do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_PSC, 0
+  field :PSC_ALLOWED, 171_559_657
+  field :PSC_BLOCKED, 524_593_965
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowSameNetworkUnicast do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_SAME_NETWORK_UNICAST, 0
+  field :SAME_NETWORK_UNICAST_ALLOWED, 159_732_814
+  field :SAME_NETWORK_UNICAST_BLOCKED, 512_767_122
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowStaticRoutes do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_STATIC_ROUTES, 0
+  field :STATIC_ROUTES_ALLOWED, 409_048_964
+  field :STATIC_ROUTES_BLOCKED, 225_212_360
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowSubInterfaces do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_SUB_INTERFACES, 0
+  field :SUBINTERFACES_ALLOWED, 158_685_891
+  field :SUBINTERFACES_BLOCKED, 511_720_199
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowVpcPeering do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_VPC_PEERING, 0
+  field :VPC_PEERING_ALLOWED, 261_465_075
+  field :VPC_PEERING_BLOCKED, 77_628_471
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.AllowVpn do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_VPN, 0
+  field :VPN_ALLOWED, 162_163_997
+  field :VPN_BLOCKED, 515_198_305
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.InterfaceTypes do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_INTERFACE_TYPES, 0
+  field :GVNIC, 68_209_305
+  field :IDPF, 2_242_641
+  field :IRDMA, 69_927_695
+  field :MRDMA, 73_621_779
+  field :UNSPECIFIED_NIC_TYPE, 67_411_801
+  field :VIRTIO_NET, 452_123_481
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.SubnetPurposes do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_SUBNET_PURPOSES, 0
+  field :SUBNET_PURPOSE_CUSTOM_HARDWARE, 283_160_275
+  field :SUBNET_PURPOSE_PRIVATE, 404_371_008
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.SubnetStackTypes do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_SUBNET_STACK_TYPES, 0
+  field :SUBNET_STACK_TYPE_IPV4_IPV6, 41_454_485
+  field :SUBNET_STACK_TYPE_IPV4_ONLY, 41_631_034
+  field :SUBNET_STACK_TYPE_IPV6_ONLY, 98_889_336
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures.Unicast do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_UNICAST, 0
+  field :UNICAST_SDN, 379_954_157
+  field :UNICAST_ULL, 379_956_325
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.BgpBestPathSelectionMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_BGP_BEST_PATH_SELECTION_MODE, 0
+  field :LEGACY, 94_234_569
+  field :STANDARD, 484_642_493
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.BgpInterRegionCost do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_BGP_INTER_REGION_COST, 0
+  field :ADD_COST_TO_MED, 490_583_004
+  field :DEFAULT, 115_302_945
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.RoutingMode do
@@ -2570,6 +2846,7 @@ defmodule Google.Cloud.Compute.V1.QuotaStatusWarning.Code do
   field :NOT_CRITICAL_ERROR, 105_763_924
   field :NO_RESULTS_ON_PAGE, 30_036_744
   field :PARTIAL_SUCCESS, 39_966_469
+  field :QUOTA_INFO_UNAVAILABLE, 304_294_182
   field :REQUIRED_TOS_AGREEMENT, 3_745_539
   field :RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, 496_728_641
   field :RESOURCE_NOT_DELETED, 168_598_460
@@ -2722,6 +2999,17 @@ defmodule Google.Cloud.Compute.V1.ResourcePolicyWeeklyCycleDayOfWeek.Day do
   field :THURSDAY, 207_198_682
   field :TUESDAY, 277_509_677
   field :WEDNESDAY, 422_029_110
+end
+
+defmodule Google.Cloud.Compute.V1.Route.NextHopOrigin do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNDEFINED_NEXT_HOP_ORIGIN, 0
+  field :EGP, 68590
+  field :IGP, 72434
+  field :INCOMPLETE, 11_941_214
 end
 
 defmodule Google.Cloud.Compute.V1.Route.RouteStatus do
@@ -3183,6 +3471,7 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleRateLimitOptions.EnforceOnKe
   field :REGION_CODE, 79_559_768
   field :SNI, 82254
   field :TLS_JA3_FINGERPRINT, 327_127_933
+  field :TLS_JA4_FINGERPRINT, 33_724_926
   field :USER_IP, 34_009_627
   field :XFF_IP, 438_707_118
 end
@@ -3201,6 +3490,7 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyRuleRateLimitOptionsEnforceOnKey
   field :REGION_CODE, 79_559_768
   field :SNI, 82254
   field :TLS_JA3_FINGERPRINT, 327_127_933
+  field :TLS_JA4_FINGERPRINT, 33_724_926
   field :USER_IP, 34_009_627
   field :XFF_IP, 438_707_118
 end
@@ -3496,6 +3786,7 @@ defmodule Google.Cloud.Compute.V1.Subnetwork.Purpose do
   field :UNDEFINED_PURPOSE, 0
   field :GLOBAL_MANAGED_PROXY, 236_463_602
   field :INTERNAL_HTTPS_LOAD_BALANCER, 248_748_889
+  field :PEER_MIGRATION, 491_902_225
   field :PRIVATE, 403_485_027
   field :PRIVATE_NAT, 367_764_517
   field :PRIVATE_RFC_1918, 254_902_107
@@ -3622,6 +3913,7 @@ defmodule Google.Cloud.Compute.V1.TargetHttpsProxy.TlsEarlyData do
   field :DISABLED, 516_696_700
   field :PERMISSIVE, 504_345_247
   field :STRICT, 308_826_825
+  field :UNRESTRICTED, 457_266_100
 end
 
 defmodule Google.Cloud.Compute.V1.TargetInstance.NatPolicy do
@@ -3769,6 +4061,7 @@ defmodule Google.Cloud.Compute.V1.UsableSubnetwork.Purpose do
   field :UNDEFINED_PURPOSE, 0
   field :GLOBAL_MANAGED_PROXY, 236_463_602
   field :INTERNAL_HTTPS_LOAD_BALANCER, 248_748_889
+  field :PEER_MIGRATION, 491_902_225
   field :PRIVATE, 403_485_027
   field :PRIVATE_NAT, 367_764_517
   field :PRIVATE_RFC_1918, 254_902_107
@@ -3885,6 +4178,7 @@ defmodule Google.Cloud.Compute.V1.Warning.Code do
   field :NOT_CRITICAL_ERROR, 105_763_924
   field :NO_RESULTS_ON_PAGE, 30_036_744
   field :PARTIAL_SUCCESS, 39_966_469
+  field :QUOTA_INFO_UNAVAILABLE, 304_294_182
   field :REQUIRED_TOS_AGREEMENT, 3_745_539
   field :RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, 496_728_641
   field :RESOURCE_NOT_DELETED, 168_598_460
@@ -3921,6 +4215,7 @@ defmodule Google.Cloud.Compute.V1.Warnings.Code do
   field :NOT_CRITICAL_ERROR, 105_763_924
   field :NO_RESULTS_ON_PAGE, 30_036_744
   field :PARTIAL_SUCCESS, 39_966_469
+  field :QUOTA_INFO_UNAVAILABLE, 304_294_182
   field :REQUIRED_TOS_AGREEMENT, 3_745_539
   field :RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING, 496_728_641
   field :RESOURCE_NOT_DELETED, 168_598_460
@@ -11806,6 +12101,19 @@ defmodule Google.Cloud.Compute.V1.GetNetworkFirewallPolicyRequest do
   field :project, 227_560_217, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetNetworkProfileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :network_profile, 173_112_472,
+    type: :string,
+    json_name: "networkProfile",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetNetworkRequest do
   @moduledoc false
 
@@ -15112,6 +15420,11 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
+  field :standby_policy, 499_352_324,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerStandbyPolicy,
+    json_name: "standbyPolicy"
+
   field :stateful_policy, 47_538_565,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.StatefulPolicy,
@@ -15123,6 +15436,16 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
 
   field :target_pools, 336_072_617, repeated: true, type: :string, json_name: "targetPools"
   field :target_size, 62_880_239, proto3_optional: true, type: :int32, json_name: "targetSize"
+
+  field :target_stopped_size, 2_419_489,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "targetStoppedSize"
+
+  field :target_suspended_size, 308_085_843,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "targetSuspendedSize"
 
   field :update_policy, 175_809_896,
     proto3_optional: true,
@@ -15362,6 +15685,19 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestsListResponse
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerStandbyPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :initial_delay_sec, 263_207_002,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "initialDelaySec"
+
+  field :mode, 3_357_091, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerStatus do
@@ -15609,6 +15945,14 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagersRecreateInstancesRequest 
   field :instances, 29_097_598, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagersResumeInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagersScopedList do
   @moduledoc false
 
@@ -15640,6 +15984,32 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagersSetTargetPoolsRequest do
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :target_pools, 336_072_617, repeated: true, type: :string, json_name: "targetPools"
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagersStartInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagersStopInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :force_stop, 134_762_710, proto3_optional: true, type: :bool, json_name: "forceStop"
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagersSuspendInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :force_suspend, 27_637_480, proto3_optional: true, type: :bool, json_name: "forceSuspend"
+  field :instances, 29_097_598, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagersUpdatePerInstanceConfigsReq do
@@ -18366,6 +18736,23 @@ defmodule Google.Cloud.Compute.V1.ListNetworkFirewallPoliciesRequest do
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.ListNetworkProfilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.ListNetworksRequest do
   @moduledoc false
 
@@ -20118,6 +20505,11 @@ defmodule Google.Cloud.Compute.V1.Network do
     type: :string,
     json_name: "networkFirewallPolicyEnforcementOrder"
 
+  field :network_profile, 173_112_472,
+    proto3_optional: true,
+    type: :string,
+    json_name: "networkProfile"
+
   field :peerings, 69_883_187, repeated: true, type: Google.Cloud.Compute.V1.NetworkPeering
 
   field :routing_config, 523_556_059,
@@ -20762,10 +21154,187 @@ defmodule Google.Cloud.Compute.V1.NetworkPerformanceConfig do
     json_name: "totalEgressBandwidthTier"
 end
 
+defmodule Google.Cloud.Compute.V1.NetworkProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+
+  field :features, 246_211_645,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures
+
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :location, 290_430_901,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkProfileLocation
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :scope, 109_264_468, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfileNetworkFeatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :address_purposes, 433_024_768,
+    repeated: true,
+    type: :string,
+    json_name: "addressPurposes"
+
+  field :allow_alias_ip_ranges, 457_984_201,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowAliasIpRanges"
+
+  field :allow_auto_mode_subnet, 152_191_263,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowAutoModeSubnet"
+
+  field :allow_class_d_firewalls, 131_608_987,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowClassDFirewalls"
+
+  field :allow_cloud_nat, 254_831_265,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowCloudNat"
+
+  field :allow_cloud_router, 451_110_345,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowCloudRouter"
+
+  field :allow_external_ip_access, 131_538_110,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowExternalIpAccess"
+
+  field :allow_interconnect, 280_512_964,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowInterconnect"
+
+  field :allow_load_balancing, 223_366_198,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowLoadBalancing"
+
+  field :allow_multi_nic_in_same_network, 88_251_004,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowMultiNicInSameNetwork"
+
+  field :allow_packet_mirroring, 512_227_074,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowPacketMirroring"
+
+  field :allow_private_google_access, 374_702_072,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowPrivateGoogleAccess"
+
+  field :allow_psc, 372_357_322, proto3_optional: true, type: :string, json_name: "allowPsc"
+
+  field :allow_same_network_unicast, 167_531_643,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowSameNetworkUnicast"
+
+  field :allow_static_routes, 185_257_925,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowStaticRoutes"
+
+  field :allow_sub_interfaces, 247_208_303,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowSubInterfaces"
+
+  field :allow_vpc_peering, 115_402_228,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowVpcPeering"
+
+  field :allow_vpn, 372_363_006, proto3_optional: true, type: :string, json_name: "allowVpn"
+  field :interface_types, 157_981_171, repeated: true, type: :string, json_name: "interfaceTypes"
+  field :subnet_purposes, 301_338_039, repeated: true, type: :string, json_name: "subnetPurposes"
+
+  field :subnet_stack_types, 521_008_672,
+    repeated: true,
+    type: :string,
+    json_name: "subnetStackTypes"
+
+  field :unicast, 249_841_711, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfilesListResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.NetworkProfile
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :bgp_always_compare_med, 213_102_902,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "bgpAlwaysCompareMed"
+
+  field :bgp_best_path_selection_mode, 317_816_297,
+    proto3_optional: true,
+    type: :string,
+    json_name: "bgpBestPathSelectionMode"
+
+  field :bgp_inter_region_cost, 462_142_689,
+    proto3_optional: true,
+    type: :string,
+    json_name: "bgpInterRegionCost"
 
   field :routing_mode, 475_143_548, proto3_optional: true, type: :string, json_name: "routingMode"
 end
@@ -23728,6 +24297,14 @@ defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersRecreateRequest do
   field :instances, 29_097_598, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersResumeInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersSetTargetPoolsRequest do
   @moduledoc false
 
@@ -23746,6 +24323,32 @@ defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersSetTemplateRequest 
     proto3_optional: true,
     type: :string,
     json_name: "instanceTemplate"
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersStartInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersStopInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :force_stop, 134_762_710, proto3_optional: true, type: :bool, json_name: "forceStop"
+  field :instances, 29_097_598, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagersSuspendInstancesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :force_suspend, 27_637_480, proto3_optional: true, type: :bool, json_name: "forceSuspend"
+  field :instances, 29_097_598, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.RegionInstanceGroupsListInstances do
@@ -24789,6 +25392,47 @@ defmodule Google.Cloud.Compute.V1.ResumeInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ResumeInstancesInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :instance_group_managers_resume_instances_request_resource, 129_015_618,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagersResumeInstancesRequest,
+    json_name: "instanceGroupManagersResumeInstancesRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.ResumeInstancesRegionInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_instance_group_managers_resume_instances_request_resource, 463_471_031,
+    type: Google.Cloud.Compute.V1.RegionInstanceGroupManagersResumeInstancesRequest,
+    json_name: "regionInstanceGroupManagersResumeInstancesRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.Route do
   @moduledoc false
 
@@ -24824,12 +25468,23 @@ defmodule Google.Cloud.Compute.V1.Route do
     type: :string,
     json_name: "nextHopInstance"
 
+  field :next_hop_inter_region_cost, 24_442_003,
+    proto3_optional: true,
+    type: :uint32,
+    json_name: "nextHopInterRegionCost"
+
   field :next_hop_ip, 110_319_529, proto3_optional: true, type: :string, json_name: "nextHopIp"
+  field :next_hop_med, 198_683_530, proto3_optional: true, type: :uint32, json_name: "nextHopMed"
 
   field :next_hop_network, 262_295_788,
     proto3_optional: true,
     type: :string,
     json_name: "nextHopNetwork"
+
+  field :next_hop_origin, 48_752_808,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextHopOrigin"
 
   field :next_hop_peering, 412_682_750,
     proto3_optional: true,
@@ -27440,6 +28095,23 @@ defmodule Google.Cloud.Compute.V1.SetLabelsRegionInstantSnapshotRequest do
   field :resource, 195_806_222, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.SetLabelsRegionSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_set_labels_request_resource, 259_357_782,
+    type: Google.Cloud.Compute.V1.RegionSetLabelsRequest,
+    json_name: "regionSetLabelsRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :resource, 195_806_222, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.SetLabelsSecurityPolicyRequest do
   @moduledoc false
 
@@ -28877,6 +29549,47 @@ defmodule Google.Cloud.Compute.V1.StartInstanceRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.StartInstancesInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :instance_group_managers_start_instances_request_resource, 261_083_819,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagersStartInstancesRequest,
+    json_name: "instanceGroupManagersStartInstancesRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.StartInstancesRegionInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_instance_group_managers_start_instances_request_resource, 497_012_118,
+    type: Google.Cloud.Compute.V1.RegionInstanceGroupManagersStartInstancesRequest,
+    json_name: "regionInstanceGroupManagersStartInstancesRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.StartWithEncryptionKeyInstanceRequest do
   @moduledoc false
 
@@ -29047,6 +29760,47 @@ defmodule Google.Cloud.Compute.V1.StopInstanceRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
   field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.StopInstancesInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :instance_group_managers_stop_instances_request_resource, 37_556_877,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagersStopInstancesRequest,
+    json_name: "instanceGroupManagersStopInstancesRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.StopInstancesRegionInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_instance_group_managers_stop_instances_request_resource, 270_306_882,
+    type: Google.Cloud.Compute.V1.RegionInstanceGroupManagersStopInstancesRequest,
+    json_name: "regionInstanceGroupManagersStopInstancesRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Compute.V1.StoragePool.LabelsEntry do
@@ -29667,6 +30421,47 @@ defmodule Google.Cloud.Compute.V1.SuspendInstanceRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
   field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SuspendInstancesInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :instance_group_managers_suspend_instances_request_resource, 46_679_761,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagersSuspendInstancesRequest,
+    json_name: "instanceGroupManagersSuspendInstancesRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.SuspendInstancesRegionInstanceGroupManagerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :instance_group_manager, 249_363_395,
+    type: :string,
+    json_name: "instanceGroupManager",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :region_instance_group_managers_suspend_instances_request_resource, 214_250_236,
+    type: Google.Cloud.Compute.V1.RegionInstanceGroupManagersSuspendInstancesRequest,
+    json_name: "regionInstanceGroupManagersSuspendInstancesRequestResource",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Compute.V1.SwitchToCustomModeNetworkRequest do
@@ -33466,12 +34261,28 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagers.Service do
       Google.Cloud.Compute.V1.ResizeInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
+  rpc :ResumeInstances,
+      Google.Cloud.Compute.V1.ResumeInstancesInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :SetInstanceTemplate,
       Google.Cloud.Compute.V1.SetInstanceTemplateInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :SetTargetPools,
       Google.Cloud.Compute.V1.SetTargetPoolsInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :StartInstances,
+      Google.Cloud.Compute.V1.StartInstancesInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :StopInstances,
+      Google.Cloud.Compute.V1.StopInstancesInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :SuspendInstances,
+      Google.Cloud.Compute.V1.SuspendInstancesInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :UpdatePerInstanceConfigs,
@@ -34289,6 +35100,28 @@ defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicies.Stub do
   use GRPC.Stub, service: Google.Cloud.Compute.V1.NetworkFirewallPolicies.Service
 end
 
+defmodule Google.Cloud.Compute.V1.NetworkProfiles.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.NetworkProfiles",
+    protoc_gen_elixir_version: "0.13.0"
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetNetworkProfileRequest,
+      Google.Cloud.Compute.V1.NetworkProfile
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListNetworkProfilesRequest,
+      Google.Cloud.Compute.V1.NetworkProfilesListResponse
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkProfiles.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.NetworkProfiles.Service
+end
+
 defmodule Google.Cloud.Compute.V1.Networks.Service do
   @moduledoc false
 
@@ -35020,12 +35853,28 @@ defmodule Google.Cloud.Compute.V1.RegionInstanceGroupManagers.Service do
       Google.Cloud.Compute.V1.ResizeRegionInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
+  rpc :ResumeInstances,
+      Google.Cloud.Compute.V1.ResumeInstancesRegionInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :SetInstanceTemplate,
       Google.Cloud.Compute.V1.SetInstanceTemplateRegionInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :SetTargetPools,
       Google.Cloud.Compute.V1.SetTargetPoolsRegionInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :StartInstances,
+      Google.Cloud.Compute.V1.StartInstancesRegionInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :StopInstances,
+      Google.Cloud.Compute.V1.StopInstancesRegionInstanceGroupManagerRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :SuspendInstances,
+      Google.Cloud.Compute.V1.SuspendInstancesRegionInstanceGroupManagerRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :UpdatePerInstanceConfigs,
@@ -35384,6 +36233,10 @@ defmodule Google.Cloud.Compute.V1.RegionSecurityPolicies.Service do
 
   rpc :RemoveRule,
       Google.Cloud.Compute.V1.RemoveRuleRegionSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :SetLabels,
+      Google.Cloud.Compute.V1.SetLabelsRegionSecurityPolicyRequest,
       Google.Cloud.Compute.V1.Operation
 end
 
