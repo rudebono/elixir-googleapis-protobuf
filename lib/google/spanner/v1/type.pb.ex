@@ -19,6 +19,7 @@ defmodule Google.Spanner.V1.TypeCode do
   field :PROTO, 13
   field :ENUM, 14
   field :INTERVAL, 16
+  field :UUID, 17
 end
 
 defmodule Google.Spanner.V1.TypeAnnotationCode do
