@@ -11,6 +11,28 @@ defmodule Google.Cloud.Aiplatform.V1beta1.HarmCategory do
   field :HARM_CATEGORY_CIVIC_INTEGRITY, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.Modality do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :MODALITY_UNSPECIFIED, 0
+  field :TEXT, 1
+  field :IMAGE, 2
+  field :AUDIO, 3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.MediaResolution do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :MEDIA_RESOLUTION_UNSPECIFIED, 0
+  field :MEDIA_RESOLUTION_LOW, 1
+  field :MEDIA_RESOLUTION_MEDIUM, 2
+  field :MEDIA_RESOLUTION_HIGH, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference do
   @moduledoc false
 
@@ -180,6 +202,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VideoMetadata do
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PrebuiltVoiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :voice_name, 1, proto3_optional: true, type: :string, json_name: "voiceName"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VoiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :voice_config, 0
+
+  field :prebuilt_voice_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.PrebuiltVoiceConfig,
+    json_name: "prebuiltVoiceConfig",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SpeechConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :voice_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.VoiceConfig,
+    json_name: "voiceConfig"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig.AutoRoutingMode do
   @moduledoc false
 
@@ -285,6 +338,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     proto3_optional: true,
     type: :bool,
     json_name: "audioTimestamp",
+    deprecated: false
+
+  field :response_modalities, 21,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.Modality,
+    json_name: "responseModalities",
+    enum: true,
+    deprecated: false
+
+  field :media_resolution, 22,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.MediaResolution,
+    json_name: "mediaResolution",
+    enum: true,
+    deprecated: false
+
+  field :speech_config, 23,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SpeechConfig,
+    json_name: "speechConfig",
     deprecated: false
 end
 

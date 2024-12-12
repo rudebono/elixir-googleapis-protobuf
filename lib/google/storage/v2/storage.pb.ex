@@ -654,6 +654,64 @@ defmodule Google.Storage.V2.RewriteResponse do
   field :resource, 5, type: Google.Storage.V2.Object
 end
 
+defmodule Google.Storage.V2.MoveObjectRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :source_object, 2, type: :string, json_name: "sourceObject", deprecated: false
+  field :destination_object, 3, type: :string, json_name: "destinationObject", deprecated: false
+
+  field :if_source_generation_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifSourceGenerationMatch",
+    deprecated: false
+
+  field :if_source_generation_not_match, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifSourceGenerationNotMatch",
+    deprecated: false
+
+  field :if_source_metageneration_match, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifSourceMetagenerationMatch",
+    deprecated: false
+
+  field :if_source_metageneration_not_match, 7,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifSourceMetagenerationNotMatch",
+    deprecated: false
+
+  field :if_generation_match, 8,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationMatch",
+    deprecated: false
+
+  field :if_generation_not_match, 9,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationNotMatch",
+    deprecated: false
+
+  field :if_metageneration_match, 10,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch",
+    deprecated: false
+
+  field :if_metageneration_not_match, 11,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch",
+    deprecated: false
+end
+
 defmodule Google.Storage.V2.StartResumableWriteRequest do
   @moduledoc false
 
@@ -1089,6 +1147,11 @@ defmodule Google.Storage.V2.Object do
     json_name: "deleteTime",
     deprecated: false
 
+  field :finalize_time, 36,
+    type: Google.Protobuf.Timestamp,
+    json_name: "finalizeTime",
+    deprecated: false
+
   field :content_type, 13, type: :string, json_name: "contentType"
 
   field :create_time, 14,
@@ -1258,6 +1321,8 @@ defmodule Google.Storage.V2.Storage.Service do
   rpc :QueryWriteStatus,
       Google.Storage.V2.QueryWriteStatusRequest,
       Google.Storage.V2.QueryWriteStatusResponse
+
+  rpc :MoveObject, Google.Storage.V2.MoveObjectRequest, Google.Storage.V2.Object
 end
 
 defmodule Google.Storage.V2.Storage.Stub do

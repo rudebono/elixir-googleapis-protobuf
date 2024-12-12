@@ -343,13 +343,8 @@ defmodule Google.Cloud.Config.V1.TerraformBlueprint do
 
   oneof :source, 0
 
-  field :gcs_source, 1, type: :string, json_name: "gcsSource", oneof: 0, deprecated: false
-
-  field :git_source, 2,
-    type: Google.Cloud.Config.V1.GitSource,
-    json_name: "gitSource",
-    oneof: 0,
-    deprecated: false
+  field :gcs_source, 1, type: :string, json_name: "gcsSource", oneof: 0
+  field :git_source, 2, type: Google.Cloud.Config.V1.GitSource, json_name: "gitSource", oneof: 0
 
   field :input_values, 4,
     repeated: true,
@@ -821,6 +816,15 @@ defmodule Google.Cloud.Config.V1.Preview.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Config.V1.Preview.AnnotationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Config.V1.Preview do
   @moduledoc false
 
@@ -898,6 +902,12 @@ defmodule Google.Cloud.Config.V1.Preview do
     proto3_optional: true,
     type: :string,
     json_name: "tfVersionConstraint",
+    deprecated: false
+
+  field :annotations, 20,
+    repeated: true,
+    type: Google.Cloud.Config.V1.Preview.AnnotationsEntry,
+    map: true,
     deprecated: false
 end
 

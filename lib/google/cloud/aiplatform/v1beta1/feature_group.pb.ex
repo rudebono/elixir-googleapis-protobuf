@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.ServiceAgentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :SERVICE_AGENT_TYPE_UNSPECIFIED, 0
+  field :SERVICE_AGENT_TYPE_PROJECT, 1
+  field :SERVICE_AGENT_TYPE_FEATURE_GROUP, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup.BigQuery.TimeSeries do
   @moduledoc false
 
@@ -74,4 +84,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureGroup do
     deprecated: false
 
   field :description, 6, type: :string, deprecated: false
+
+  field :service_agent_type, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureGroup.ServiceAgentType,
+    json_name: "serviceAgentType",
+    enum: true,
+    deprecated: false
+
+  field :service_account_email, 9,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
 end

@@ -38,6 +38,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode do
   field :NONE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution do
   @moduledoc false
 
@@ -56,6 +62,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
     deprecated: false
 
   field :retrieval, 2, type: Google.Cloud.Aiplatform.V1beta1.Retrieval, deprecated: false
+
+  field :google_search, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch,
+    json_name: "googleSearch",
+    deprecated: false
 
   field :google_search_retrieval, 3,
     type: Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval,
