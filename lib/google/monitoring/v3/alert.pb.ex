@@ -195,6 +195,92 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCond
 
   field :rule_group, 5, type: :string, json_name: "ruleGroup", deprecated: false
   field :alert_rule, 6, type: :string, json_name: "alertRule", deprecated: false
+
+  field :disable_metric_validation, 7,
+    type: :bool,
+    json_name: "disableMetricValidation",
+    deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Minutes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :periodicity, 1, type: :int32, deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Hourly do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :periodicity, 1, type: :int32, deprecated: false
+
+  field :minute_offset, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "minuteOffset",
+    deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Daily do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :periodicity, 1, type: :int32, deprecated: false
+
+  field :execution_time, 2,
+    type: Google.Type.TimeOfDay,
+    json_name: "executionTime",
+    deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.RowCountTest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :comparison, 1, type: Google.Monitoring.V3.ComparisonType, enum: true, deprecated: false
+  field :threshold, 2, type: :int64, deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.BooleanTest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :column, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :schedule, 0
+
+  oneof :evaluate, 1
+
+  field :query, 1, type: :string, deprecated: false
+
+  field :minutes, 2,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Minutes,
+    oneof: 0
+
+  field :hourly, 3, type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Hourly, oneof: 0
+  field :daily, 4, type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.Daily, oneof: 0
+
+  field :row_count_test, 5,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.RowCountTest,
+    json_name: "rowCountTest",
+    oneof: 1
+
+  field :boolean_test, 6,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition.BooleanTest,
+    json_name: "booleanTest",
+    oneof: 1
 end
 
 defmodule Google.Monitoring.V3.AlertPolicy.Condition do
@@ -230,6 +316,11 @@ defmodule Google.Monitoring.V3.AlertPolicy.Condition do
   field :condition_prometheus_query_language, 21,
     type: Google.Monitoring.V3.AlertPolicy.Condition.PrometheusQueryLanguageCondition,
     json_name: "conditionPrometheusQueryLanguage",
+    oneof: 0
+
+  field :condition_sql, 22,
+    type: Google.Monitoring.V3.AlertPolicy.Condition.SqlCondition,
+    json_name: "conditionSql",
     oneof: 0
 end
 
