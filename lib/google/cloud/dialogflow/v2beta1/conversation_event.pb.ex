@@ -8,6 +8,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent.Type do
   field :CONVERSATION_FINISHED, 2
   field :HUMAN_INTERVENTION_NEEDED, 3
   field :NEW_MESSAGE, 5
+  field :NEW_RECOGNITION_RESULT, 7
   field :UNRECOVERABLE_ERROR, 4
 end
 
@@ -25,5 +26,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ConversationEvent do
   field :new_message_payload, 4,
     type: Google.Cloud.Dialogflow.V2beta1.Message,
     json_name: "newMessagePayload",
+    oneof: 0
+
+  field :new_recognition_result_payload, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult,
+    json_name: "newRecognitionResultPayload",
     oneof: 0
 end

@@ -77,6 +77,11 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationProfile do
     type: Google.Cloud.Dialogflow.V2.NotificationConfig,
     json_name: "newMessageEventNotificationConfig"
 
+  field :new_recognition_result_notification_config, 21,
+    type: Google.Cloud.Dialogflow.V2.NotificationConfig,
+    json_name: "newRecognitionResultNotificationConfig",
+    deprecated: false
+
   field :stt_config, 9,
     type: Google.Cloud.Dialogflow.V2.SpeechToTextConfig,
     json_name: "sttConfig"

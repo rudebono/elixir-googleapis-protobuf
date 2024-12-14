@@ -45,9 +45,9 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 5, type: :string, deprecated: false
-  field :filter, 2, type: :string
-  field :page_size, 3, type: :int32, json_name: "pageSize"
-  field :page_token, 4, type: :string, json_name: "pageToken"
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do
@@ -186,7 +186,7 @@ end
 defmodule Google.Monitoring.V3.QueryTimeSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 7, type: :string, deprecated: false
@@ -197,7 +197,7 @@ end
 defmodule Google.Monitoring.V3.QueryTimeSeriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :time_series_descriptor, 8,
     type: Google.Monitoring.V3.TimeSeriesDescriptor,

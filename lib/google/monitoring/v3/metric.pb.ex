@@ -28,6 +28,7 @@ defmodule Google.Monitoring.V3.TimeSeries do
 
   field :points, 5, repeated: true, type: Google.Monitoring.V3.Point
   field :unit, 8, type: :string
+  field :description, 9, type: :string
 end
 
 defmodule Google.Monitoring.V3.TimeSeriesDescriptor.ValueDescriptor do
