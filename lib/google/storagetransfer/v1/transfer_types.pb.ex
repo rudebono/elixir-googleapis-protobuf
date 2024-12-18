@@ -509,6 +509,34 @@ defmodule Google.Storagetransfer.V1.TransferSpec do
   field :sink_agent_pool_name, 18, type: :string, json_name: "sinkAgentPoolName"
 end
 
+defmodule Google.Storagetransfer.V1.ReplicationSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :data_source, 0
+
+  oneof :data_sink, 1
+
+  field :gcs_data_source, 1,
+    type: Google.Storagetransfer.V1.GcsData,
+    json_name: "gcsDataSource",
+    oneof: 0
+
+  field :gcs_data_sink, 2,
+    type: Google.Storagetransfer.V1.GcsData,
+    json_name: "gcsDataSink",
+    oneof: 1
+
+  field :object_conditions, 3,
+    type: Google.Storagetransfer.V1.ObjectConditions,
+    json_name: "objectConditions"
+
+  field :transfer_options, 4,
+    type: Google.Storagetransfer.V1.TransferOptions,
+    json_name: "transferOptions"
+end
+
 defmodule Google.Storagetransfer.V1.MetadataOptions do
   @moduledoc false
 
@@ -590,6 +618,10 @@ defmodule Google.Storagetransfer.V1.TransferJob do
   field :description, 2, type: :string
   field :project_id, 3, type: :string, json_name: "projectId"
   field :transfer_spec, 4, type: Google.Storagetransfer.V1.TransferSpec, json_name: "transferSpec"
+
+  field :replication_spec, 17,
+    type: Google.Storagetransfer.V1.ReplicationSpec,
+    json_name: "replicationSpec"
 
   field :notification_config, 11,
     type: Google.Storagetransfer.V1.NotificationConfig,

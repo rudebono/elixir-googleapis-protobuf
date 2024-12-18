@@ -188,6 +188,11 @@ defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata.Age
   field :display_name, 2, type: :string, json_name: "displayName"
   field :team, 3, type: :string
   field :disposition_code, 4, type: :string, json_name: "dispositionCode"
+
+  field :agent_type, 5,
+    type: Google.Cloud.Contactcenterinsights.V1.ConversationParticipant.Role,
+    json_name: "agentType",
+    enum: true
 end
 
 defmodule Google.Cloud.Contactcenterinsights.V1.Conversation.QualityMetadata do

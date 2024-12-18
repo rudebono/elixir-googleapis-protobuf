@@ -169,6 +169,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Part do
     json_name: "videoMetadata",
     oneof: 1,
     deprecated: false
+
+  field :thought, 10, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Blob do
