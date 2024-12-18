@@ -29,6 +29,29 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.State do
   field :READY, 2
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.FreeInstanceAvailability do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :FREE_INSTANCE_AVAILABILITY_UNSPECIFIED, 0
+  field :AVAILABLE, 1
+  field :UNSUPPORTED, 2
+  field :DISABLED, 3
+  field :QUOTA_EXCEEDED, 4
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig.QuorumType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :QUORUM_TYPE_UNSPECIFIED, 0
+  field :REGION, 1
+  field :DUAL_REGION, 2
+  field :MULTI_REGION, 3
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   @moduledoc false
 
@@ -37,6 +60,16 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.State do
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :READY, 2
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.Instance.InstanceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :INSTANCE_TYPE_UNSPECIFIED, 0
+  field :PROVISIONED, 1
+  field :FREE_INSTANCE, 2
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.Instance.Edition do
@@ -58,6 +91,16 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance.DefaultBackupScheduleType do
   field :DEFAULT_BACKUP_SCHEDULE_TYPE_UNSPECIFIED, 0
   field :NONE, 1
   field :AUTOMATIC, 2
+end
+
+defmodule Google.Spanner.Admin.Instance.V1.FreeInstanceMetadata.ExpireBehavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :EXPIRE_BEHAVIOR_UNSPECIFIED, 0
+  field :FREE_TO_PROVISIONED, 1
+  field :REMOVE_AFTER_GRACE_PERIOD, 2
 end
 
 defmodule Google.Spanner.Admin.Instance.V1.InstancePartition.State do
@@ -125,6 +168,23 @@ defmodule Google.Spanner.Admin.Instance.V1.InstanceConfig do
   field :state, 11,
     type: Google.Spanner.Admin.Instance.V1.InstanceConfig.State,
     enum: true,
+    deprecated: false
+
+  field :free_instance_availability, 12,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig.FreeInstanceAvailability,
+    json_name: "freeInstanceAvailability",
+    enum: true,
+    deprecated: false
+
+  field :quorum_type, 18,
+    type: Google.Spanner.Admin.Instance.V1.InstanceConfig.QuorumType,
+    json_name: "quorumType",
+    enum: true,
+    deprecated: false
+
+  field :storage_limit_per_processing_unit, 19,
+    type: :int64,
+    json_name: "storageLimitPerProcessingUnit",
     deprecated: false
 end
 
@@ -270,6 +330,11 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
     type: Google.Spanner.Admin.Instance.V1.Instance.LabelsEntry,
     map: true
 
+  field :instance_type, 10,
+    type: Google.Spanner.Admin.Instance.V1.Instance.InstanceType,
+    json_name: "instanceType",
+    enum: true
+
   field :endpoint_uris, 8, repeated: true, type: :string, json_name: "endpointUris"
 
   field :create_time, 11,
@@ -281,6 +346,10 @@ defmodule Google.Spanner.Admin.Instance.V1.Instance do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :free_instance_metadata, 13,
+    type: Google.Spanner.Admin.Instance.V1.FreeInstanceMetadata,
+    json_name: "freeInstanceMetadata"
 
   field :edition, 20,
     type: Google.Spanner.Admin.Instance.V1.Instance.Edition,
@@ -479,6 +548,27 @@ defmodule Google.Spanner.Admin.Instance.V1.UpdateInstanceMetadata do
     enum: true
 end
 
+defmodule Google.Spanner.Admin.Instance.V1.FreeInstanceMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :expire_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :upgrade_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "upgradeTime",
+    deprecated: false
+
+  field :expire_behavior, 3,
+    type: Google.Spanner.Admin.Instance.V1.FreeInstanceMetadata.ExpireBehavior,
+    json_name: "expireBehavior",
+    enum: true
+end
+
 defmodule Google.Spanner.Admin.Instance.V1.CreateInstanceConfigMetadata do
   @moduledoc false
 
@@ -543,7 +633,7 @@ defmodule Google.Spanner.Admin.Instance.V1.InstancePartition do
     repeated: true,
     type: :string,
     json_name: "referencingBackups",
-    deprecated: false
+    deprecated: true
 
   field :etag, 12, type: :string
 end
