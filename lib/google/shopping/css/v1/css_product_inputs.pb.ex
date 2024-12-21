@@ -8,7 +8,12 @@ defmodule Google.Shopping.Css.V1.CssProductInput do
   field :raw_provided_id, 3, type: :string, json_name: "rawProvidedId", deprecated: false
   field :content_language, 4, type: :string, json_name: "contentLanguage", deprecated: false
   field :feed_label, 5, type: :string, json_name: "feedLabel", deprecated: false
-  field :freshness_time, 6, type: Google.Protobuf.Timestamp, json_name: "freshnessTime"
+
+  field :freshness_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "freshnessTime",
+    deprecated: true
+
   field :attributes, 7, type: Google.Shopping.Css.V1.Attributes
 
   field :custom_attributes, 8,
@@ -29,7 +34,20 @@ defmodule Google.Shopping.Css.V1.InsertCssProductInputRequest do
     json_name: "cssProductInput",
     deprecated: false
 
-  field :feed_id, 3, type: :int64, json_name: "feedId", deprecated: false
+  field :feed_id, 3, type: :int64, json_name: "feedId", deprecated: true
+end
+
+defmodule Google.Shopping.Css.V1.UpdateCssProductInputRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :css_product_input, 1,
+    type: Google.Shopping.Css.V1.CssProductInput,
+    json_name: "cssProductInput",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 end
 
 defmodule Google.Shopping.Css.V1.DeleteCssProductInputRequest do
@@ -54,6 +72,10 @@ defmodule Google.Shopping.Css.V1.CssProductInputsService.Service do
 
   rpc :InsertCssProductInput,
       Google.Shopping.Css.V1.InsertCssProductInputRequest,
+      Google.Shopping.Css.V1.CssProductInput
+
+  rpc :UpdateCssProductInput,
+      Google.Shopping.Css.V1.UpdateCssProductInputRequest,
       Google.Shopping.Css.V1.CssProductInput
 
   rpc :DeleteCssProductInput,
