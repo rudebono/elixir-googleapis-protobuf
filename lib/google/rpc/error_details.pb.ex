@@ -76,6 +76,8 @@ defmodule Google.Rpc.BadRequest.FieldViolation do
 
   field :field, 1, type: :string
   field :description, 2, type: :string
+  field :reason, 3, type: :string
+  field :localized_message, 4, type: Google.Rpc.LocalizedMessage, json_name: "localizedMessage"
 end
 
 defmodule Google.Rpc.BadRequest do

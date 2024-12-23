@@ -183,6 +183,10 @@ defmodule Google.Cloud.Gkemulticloud.V1.MonitoringConfig do
   field :managed_prometheus_config, 2,
     type: Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig,
     json_name: "managedPrometheusConfig"
+
+  field :cloud_monitoring_config, 4,
+    type: Google.Cloud.Gkemulticloud.V1.CloudMonitoringConfig,
+    json_name: "cloudMonitoringConfig"
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig do
@@ -191,6 +195,14 @@ defmodule Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
+end
+
+defmodule Google.Cloud.Gkemulticloud.V1.CloudMonitoringConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization do
