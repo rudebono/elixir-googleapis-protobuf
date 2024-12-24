@@ -83,6 +83,7 @@ defmodule Google.Cloud.Dataplex.V1.DeleteDataScanRequest do
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.GetDataScanRequest do
@@ -211,9 +212,13 @@ defmodule Google.Cloud.Dataplex.V1.DataScan.ExecutionStatus do
 
   field :latest_job_start_time, 4,
     type: Google.Protobuf.Timestamp,
-    json_name: "latestJobStartTime"
+    json_name: "latestJobStartTime",
+    deprecated: false
 
-  field :latest_job_end_time, 5, type: Google.Protobuf.Timestamp, json_name: "latestJobEndTime"
+  field :latest_job_end_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "latestJobEndTime",
+    deprecated: false
 
   field :latest_job_create_time, 6,
     type: Google.Protobuf.Timestamp,

@@ -145,6 +145,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.OpenFineTu
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.DeployVertex do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :multi_deploy_vertex, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy,
+    json_name: "multiDeployVertex",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy.DeployMetadata.LabelsEntry do
   @moduledoc false
 
@@ -278,6 +290,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction do
 
   field :deploy, 7,
     type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy,
+    deprecated: false
+
+  field :multi_deploy_vertex, 16,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.DeployVertex,
+    json_name: "multiDeployVertex",
     deprecated: false
 
   field :deploy_gke, 14,
