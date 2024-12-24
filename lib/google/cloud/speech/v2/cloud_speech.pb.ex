@@ -17,6 +17,15 @@ defmodule Google.Cloud.Speech.V2.ExplicitDecodingConfig.AudioEncoding do
   field :LINEAR16, 1
   field :MULAW, 2
   field :ALAW, 3
+  field :AMR, 4
+  field :AMR_WB, 5
+  field :FLAC, 6
+  field :MP3, 7
+  field :OGG_OPUS, 8
+  field :WEBM_OPUS, 9
+  field :MP4_AAC, 10
+  field :M4A_AAC, 11
+  field :MOV_AAC, 12
 end
 
 defmodule Google.Cloud.Speech.V2.RecognitionFeatures.MultiChannelMode do
@@ -315,8 +324,8 @@ defmodule Google.Cloud.Speech.V2.ExplicitDecodingConfig do
     enum: true,
     deprecated: false
 
-  field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz"
-  field :audio_channel_count, 3, type: :int32, json_name: "audioChannelCount"
+  field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz", deprecated: false
+  field :audio_channel_count, 3, type: :int32, json_name: "audioChannelCount", deprecated: false
 end
 
 defmodule Google.Cloud.Speech.V2.SpeakerDiarizationConfig do
