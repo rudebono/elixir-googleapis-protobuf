@@ -45,6 +45,18 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest.KeywordMatchMode do
   field :KEYWORD_MATCH_TITLE_ONLY, 3
 end
 
+defmodule Google.Cloud.Talent.V4.SearchJobsRequest.RelevanceThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
+  field :LOWEST, 1
+  field :LOW, 2
+  field :MEDIUM, 3
+  field :HIGH, 4
+end
+
 defmodule Google.Cloud.Talent.V4.SearchJobsRequest.CustomRankingInfo.ImportanceLevel do
   @moduledoc false
 
@@ -178,6 +190,12 @@ defmodule Google.Cloud.Talent.V4.SearchJobsRequest do
     type: Google.Cloud.Talent.V4.SearchJobsRequest.KeywordMatchMode,
     json_name: "keywordMatchMode",
     enum: true
+
+  field :relevance_threshold, 19,
+    type: Google.Cloud.Talent.V4.SearchJobsRequest.RelevanceThreshold,
+    json_name: "relevanceThreshold",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Talent.V4.SearchJobsResponse.MatchingJob do
