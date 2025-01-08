@@ -24,6 +24,48 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.State do
   field :TOO_MANY_OBJECTS, 5
 end
 
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :EVENT_HUBS_PERMISSION_DENIED, 2
+  field :PUBLISH_PERMISSION_DENIED, 3
+  field :NAMESPACE_NOT_FOUND, 4
+  field :EVENT_HUB_NOT_FOUND, 5
+  field :SUBSCRIPTION_NOT_FOUND, 6
+  field :RESOURCE_GROUP_NOT_FOUND, 7
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :MSK_PERMISSION_DENIED, 2
+  field :PUBLISH_PERMISSION_DENIED, 3
+  field :CLUSTER_NOT_FOUND, 4
+  field :TOPIC_NOT_FOUND, 5
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :CONFLUENT_CLOUD_PERMISSION_DENIED, 2
+  field :PUBLISH_PERMISSION_DENIED, 3
+  field :UNREACHABLE_BOOTSTRAP_SERVER, 4
+  field :CLUSTER_NOT_FOUND, 5
+  field :TOPIC_NOT_FOUND, 6
+end
+
 defmodule Google.Pubsub.V1.PlatformLogsSettings.Severity do
   @moduledoc false
 
@@ -184,6 +226,58 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage do
   field :match_glob, 9, type: :string, json_name: "matchGlob", deprecated: false
 end
 
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs.State,
+    enum: true,
+    deprecated: false
+
+  field :resource_group, 2, type: :string, json_name: "resourceGroup", deprecated: false
+  field :namespace, 3, type: :string, deprecated: false
+  field :event_hub, 4, type: :string, json_name: "eventHub", deprecated: false
+  field :client_id, 5, type: :string, json_name: "clientId", deprecated: false
+  field :tenant_id, 6, type: :string, json_name: "tenantId", deprecated: false
+  field :subscription_id, 7, type: :string, json_name: "subscriptionId", deprecated: false
+  field :gcp_service_account, 8, type: :string, json_name: "gcpServiceAccount", deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk.State,
+    enum: true,
+    deprecated: false
+
+  field :cluster_arn, 2, type: :string, json_name: "clusterArn", deprecated: false
+  field :topic, 3, type: :string, deprecated: false
+  field :aws_role_arn, 4, type: :string, json_name: "awsRoleArn", deprecated: false
+  field :gcp_service_account, 5, type: :string, json_name: "gcpServiceAccount", deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud.State,
+    enum: true,
+    deprecated: false
+
+  field :bootstrap_server, 2, type: :string, json_name: "bootstrapServer", deprecated: false
+  field :cluster_id, 3, type: :string, json_name: "clusterId", deprecated: false
+  field :topic, 4, type: :string, deprecated: false
+  field :identity_pool_id, 5, type: :string, json_name: "identityPoolId", deprecated: false
+  field :gcp_service_account, 6, type: :string, json_name: "gcpServiceAccount", deprecated: false
+end
+
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
   @moduledoc false
 
@@ -200,6 +294,24 @@ defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
   field :cloud_storage, 2,
     type: Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage,
     json_name: "cloudStorage",
+    oneof: 0,
+    deprecated: false
+
+  field :azure_event_hubs, 3,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs,
+    json_name: "azureEventHubs",
+    oneof: 0,
+    deprecated: false
+
+  field :aws_msk, 5,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk,
+    json_name: "awsMsk",
+    oneof: 0,
+    deprecated: false
+
+  field :confluent_cloud, 6,
+    type: Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud,
+    json_name: "confluentCloud",
     oneof: 0,
     deprecated: false
 
@@ -256,6 +368,63 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
     deprecated: false
 end
 
+defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :reason, 0
+
+  field :cluster_arn, 1, type: :string, json_name: "clusterArn", deprecated: false
+  field :kafka_topic, 2, type: :string, json_name: "kafkaTopic", deprecated: false
+  field :partition_id, 3, type: :int64, json_name: "partitionId", deprecated: false
+  field :offset, 4, type: :int64, deprecated: false
+
+  field :api_violation_reason, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
+    json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent.AzureEventHubsFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :reason, 0
+
+  field :namespace, 1, type: :string, deprecated: false
+  field :event_hub, 2, type: :string, json_name: "eventHub", deprecated: false
+  field :partition_id, 3, type: :int64, json_name: "partitionId", deprecated: false
+  field :offset, 4, type: :int64, deprecated: false
+
+  field :api_violation_reason, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
+    json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :reason, 0
+
+  field :cluster_id, 1, type: :string, json_name: "clusterId", deprecated: false
+  field :kafka_topic, 2, type: :string, json_name: "kafkaTopic", deprecated: false
+  field :partition_id, 3, type: :int64, json_name: "partitionId", deprecated: false
+  field :offset, 4, type: :int64, deprecated: false
+
+  field :api_violation_reason, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
+    json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Pubsub.V1.IngestionFailureEvent do
   @moduledoc false
 
@@ -269,6 +438,24 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent do
   field :cloud_storage_failure, 3,
     type: Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure,
     json_name: "cloudStorageFailure",
+    oneof: 0,
+    deprecated: false
+
+  field :aws_msk_failure, 4,
+    type: Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason,
+    json_name: "awsMskFailure",
+    oneof: 0,
+    deprecated: false
+
+  field :azure_event_hubs_failure, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.AzureEventHubsFailureReason,
+    json_name: "azureEventHubsFailure",
+    oneof: 0,
+    deprecated: false
+
+  field :confluent_cloud_failure, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason,
+    json_name: "confluentCloudFailure",
     oneof: 0,
     deprecated: false
 end

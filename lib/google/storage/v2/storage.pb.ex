@@ -384,6 +384,165 @@ defmodule Google.Storage.V2.ReadObjectResponse do
   field :metadata, 4, type: Google.Storage.V2.Object
 end
 
+defmodule Google.Storage.V2.BidiReadObjectSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
+  field :generation, 3, type: :int64
+
+  field :if_generation_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationMatch"
+
+  field :if_generation_not_match, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifGenerationNotMatch"
+
+  field :if_metageneration_match, 6,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_not_match, 7,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch"
+
+  field :common_object_request_params, 8,
+    type: Google.Storage.V2.CommonObjectRequestParams,
+    json_name: "commonObjectRequestParams"
+
+  field :read_mask, 12,
+    proto3_optional: true,
+    type: Google.Protobuf.FieldMask,
+    json_name: "readMask",
+    deprecated: true
+
+  field :read_handle, 13,
+    proto3_optional: true,
+    type: Google.Storage.V2.BidiReadHandle,
+    json_name: "readHandle"
+
+  field :routing_token, 14, proto3_optional: true, type: :string, json_name: "routingToken"
+end
+
+defmodule Google.Storage.V2.BidiReadObjectRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :read_object_spec, 1,
+    type: Google.Storage.V2.BidiReadObjectSpec,
+    json_name: "readObjectSpec"
+
+  field :read_ranges, 8,
+    repeated: true,
+    type: Google.Storage.V2.ReadRange,
+    json_name: "readRanges"
+end
+
+defmodule Google.Storage.V2.BidiReadObjectResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :object_data_ranges, 6,
+    repeated: true,
+    type: Google.Storage.V2.ObjectRangeData,
+    json_name: "objectDataRanges"
+
+  field :metadata, 4, type: Google.Storage.V2.Object
+  field :read_handle, 7, type: Google.Storage.V2.BidiReadHandle, json_name: "readHandle"
+end
+
+defmodule Google.Storage.V2.BidiReadObjectRedirectedError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :read_handle, 1, type: Google.Storage.V2.BidiReadHandle, json_name: "readHandle"
+  field :routing_token, 2, proto3_optional: true, type: :string, json_name: "routingToken"
+end
+
+defmodule Google.Storage.V2.BidiWriteObjectRedirectedError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :routing_token, 1, proto3_optional: true, type: :string, json_name: "routingToken"
+
+  field :write_handle, 2,
+    proto3_optional: true,
+    type: Google.Storage.V2.BidiWriteHandle,
+    json_name: "writeHandle"
+
+  field :generation, 3, proto3_optional: true, type: :int64
+end
+
+defmodule Google.Storage.V2.BidiReadObjectError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :read_range_errors, 1,
+    repeated: true,
+    type: Google.Storage.V2.ReadRangeError,
+    json_name: "readRangeErrors"
+end
+
+defmodule Google.Storage.V2.ReadRangeError do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :read_id, 1, type: :int64, json_name: "readId"
+  field :status, 2, type: Google.Rpc.Status
+end
+
+defmodule Google.Storage.V2.ReadRange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :read_offset, 1, type: :int64, json_name: "readOffset", deprecated: false
+  field :read_length, 2, type: :int64, json_name: "readLength", deprecated: false
+  field :read_id, 3, type: :int64, json_name: "readId", deprecated: false
+end
+
+defmodule Google.Storage.V2.ObjectRangeData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :checksummed_data, 1,
+    type: Google.Storage.V2.ChecksummedData,
+    json_name: "checksummedData"
+
+  field :read_range, 2, type: Google.Storage.V2.ReadRange, json_name: "readRange"
+  field :range_end, 3, type: :bool, json_name: "rangeEnd"
+end
+
+defmodule Google.Storage.V2.BidiReadHandle do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :handle, 1, type: :bytes, deprecated: false
+end
+
+defmodule Google.Storage.V2.BidiWriteHandle do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :handle, 1, type: :bytes, deprecated: false
+end
+
 defmodule Google.Storage.V2.WriteObjectSpec do
   @moduledoc false
 
@@ -413,6 +572,7 @@ defmodule Google.Storage.V2.WriteObjectSpec do
     json_name: "ifMetagenerationNotMatch"
 
   field :object_size, 8, proto3_optional: true, type: :int64, json_name: "objectSize"
+  field :appendable, 9, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Storage.V2.WriteObjectRequest do
@@ -460,6 +620,33 @@ defmodule Google.Storage.V2.WriteObjectResponse do
   field :resource, 2, type: Google.Storage.V2.Object, oneof: 0
 end
 
+defmodule Google.Storage.V2.AppendObjectSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :object, 2, type: :string, deprecated: false
+  field :generation, 3, type: :int64, deprecated: false
+
+  field :if_metageneration_match, 4,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationMatch"
+
+  field :if_metageneration_not_match, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "ifMetagenerationNotMatch"
+
+  field :routing_token, 6, proto3_optional: true, type: :string, json_name: "routingToken"
+
+  field :write_handle, 7,
+    proto3_optional: true,
+    type: Google.Storage.V2.BidiWriteHandle,
+    json_name: "writeHandle"
+end
+
 defmodule Google.Storage.V2.BidiWriteObjectRequest do
   @moduledoc false
 
@@ -474,6 +661,11 @@ defmodule Google.Storage.V2.BidiWriteObjectRequest do
   field :write_object_spec, 2,
     type: Google.Storage.V2.WriteObjectSpec,
     json_name: "writeObjectSpec",
+    oneof: 0
+
+  field :append_object_spec, 11,
+    type: Google.Storage.V2.AppendObjectSpec,
+    json_name: "appendObjectSpec",
     oneof: 0
 
   field :write_offset, 3, type: :int64, json_name: "writeOffset", deprecated: false
@@ -505,6 +697,11 @@ defmodule Google.Storage.V2.BidiWriteObjectResponse do
 
   field :persisted_size, 1, type: :int64, json_name: "persistedSize", oneof: 0
   field :resource, 2, type: Google.Storage.V2.Object, oneof: 0
+
+  field :write_handle, 3,
+    proto3_optional: true,
+    type: Google.Storage.V2.BidiWriteHandle,
+    json_name: "writeHandle"
 end
 
 defmodule Google.Storage.V2.ListObjectsRequest do
@@ -1299,6 +1496,10 @@ defmodule Google.Storage.V2.Storage.Service do
   rpc :ReadObject,
       Google.Storage.V2.ReadObjectRequest,
       stream(Google.Storage.V2.ReadObjectResponse)
+
+  rpc :BidiReadObject,
+      stream(Google.Storage.V2.BidiReadObjectRequest),
+      stream(Google.Storage.V2.BidiReadObjectResponse)
 
   rpc :UpdateObject, Google.Storage.V2.UpdateObjectRequest, Google.Storage.V2.Object
 
