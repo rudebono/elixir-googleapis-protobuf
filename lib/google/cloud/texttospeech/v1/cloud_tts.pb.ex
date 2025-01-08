@@ -20,6 +20,7 @@ defmodule Google.Cloud.Texttospeech.V1.AudioEncoding do
   field :OGG_OPUS, 3
   field :MULAW, 5
   field :ALAW, 6
+  field :PCM, 7
 end
 
 defmodule Google.Cloud.Texttospeech.V1.CustomPronunciationParams.PhoneticEncoding do
@@ -247,12 +248,31 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesizeSpeechResponse do
   field :audio_content, 1, type: :bytes, json_name: "audioContent"
 end
 
+defmodule Google.Cloud.Texttospeech.V1.StreamingAudioConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :audio_encoding, 1,
+    type: Google.Cloud.Texttospeech.V1.AudioEncoding,
+    json_name: "audioEncoding",
+    enum: true,
+    deprecated: false
+
+  field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz", deprecated: false
+end
+
 defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesizeConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
 
   field :voice, 1, type: Google.Cloud.Texttospeech.V1.VoiceSelectionParams, deprecated: false
+
+  field :streaming_audio_config, 4,
+    type: Google.Cloud.Texttospeech.V1.StreamingAudioConfig,
+    json_name: "streamingAudioConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesisInput do
