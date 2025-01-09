@@ -20,32 +20,37 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSource do
   field :primary_product_data_source, 4,
     type: Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource,
     json_name: "primaryProductDataSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :supplemental_product_data_source, 5,
     type: Google.Shopping.Merchant.Datasources.V1beta.SupplementalProductDataSource,
     json_name: "supplementalProductDataSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :local_inventory_data_source, 6,
     type: Google.Shopping.Merchant.Datasources.V1beta.LocalInventoryDataSource,
     json_name: "localInventoryDataSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :regional_inventory_data_source, 7,
     type: Google.Shopping.Merchant.Datasources.V1beta.RegionalInventoryDataSource,
     json_name: "regionalInventoryDataSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
 
   field :promotion_data_source, 8,
     type: Google.Shopping.Merchant.Datasources.V1beta.PromotionDataSource,
     json_name: "promotionDataSource",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
+
+  field :product_review_data_source, 9,
+    type: Google.Shopping.Merchant.Datasources.V1beta.ProductReviewDataSource,
+    json_name: "productReviewDataSource",
+    oneof: 0
+
+  field :merchant_review_data_source, 12,
+    type: Google.Shopping.Merchant.Datasources.V1beta.MerchantReviewDataSource,
+    json_name: "merchantReviewDataSource",
+    oneof: 0
 
   field :name, 1, type: :string, deprecated: false
   field :data_source_id, 2, type: :int64, json_name: "dataSourceId", deprecated: false

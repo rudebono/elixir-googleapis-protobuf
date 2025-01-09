@@ -58,6 +58,7 @@ defmodule Google.Devtools.Cloudbuild.V1.Hash.HashType do
   field :NONE, 0
   field :SHA256, 1
   field :MD5, 2
+  field :GO_MODULE_H1, 3
   field :SHA512, 4
 end
 
@@ -382,6 +383,20 @@ defmodule Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact do
     deprecated: false
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.UploadedGoModule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :file_hashes, 2, type: Google.Devtools.Cloudbuild.V1.FileHashes, json_name: "fileHashes"
+
+  field :push_timing, 3,
+    type: Google.Devtools.Cloudbuild.V1.TimeSpan,
+    json_name: "pushTiming",
+    deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.UploadedNpmPackage do
   @moduledoc false
 
@@ -468,6 +483,12 @@ defmodule Google.Devtools.Cloudbuild.V1.Results do
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.UploadedMavenArtifact,
     json_name: "mavenArtifacts"
+
+  field :go_modules, 10,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.UploadedGoModule,
+    json_name: "goModules",
+    deprecated: false
 
   field :npm_packages, 12,
     repeated: true,
@@ -624,6 +645,24 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts.MavenArtifact do
   field :version, 5, type: :string
 end
 
+defmodule Google.Devtools.Cloudbuild.V1.Artifacts.GoModule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :repository_name, 1, type: :string, json_name: "repositoryName", deprecated: false
+  field :repository_location, 2, type: :string, json_name: "repositoryLocation", deprecated: false
+
+  field :repository_project_id, 3,
+    type: :string,
+    json_name: "repositoryProjectId",
+    deprecated: false
+
+  field :source_path, 4, type: :string, json_name: "sourcePath", deprecated: false
+  field :module_path, 5, type: :string, json_name: "modulePath", deprecated: false
+  field :module_version, 6, type: :string, json_name: "moduleVersion", deprecated: false
+end
+
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.PythonPackage do
   @moduledoc false
 
@@ -654,6 +693,12 @@ defmodule Google.Devtools.Cloudbuild.V1.Artifacts do
     repeated: true,
     type: Google.Devtools.Cloudbuild.V1.Artifacts.MavenArtifact,
     json_name: "mavenArtifacts"
+
+  field :go_modules, 4,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Artifacts.GoModule,
+    json_name: "goModules",
+    deprecated: false
 
   field :python_packages, 5,
     repeated: true,

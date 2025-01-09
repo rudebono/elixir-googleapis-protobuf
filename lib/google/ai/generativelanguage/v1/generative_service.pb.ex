@@ -23,6 +23,7 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback
   field :OTHER, 2
   field :BLOCKLIST, 3
   field :PROHIBITED_CONTENT, 4
+  field :IMAGE_SAFETY, 5
 end
 
 defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
@@ -41,6 +42,7 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
   field :PROHIBITED_CONTENT, 8
   field :SPII, 9
   field :MALFORMED_FUNCTION_CALL, 10
+  field :IMAGE_SAFETY, 11
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentRequest do
@@ -114,6 +116,12 @@ defmodule Google.Ai.Generativelanguage.V1.GenerationConfig do
     deprecated: false
 
   field :logprobs, 18, proto3_optional: true, type: :int32, deprecated: false
+
+  field :enable_enhanced_civic_answers, 19,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableEnhancedCivicAnswers",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback do

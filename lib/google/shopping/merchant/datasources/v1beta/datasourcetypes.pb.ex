@@ -102,6 +102,18 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.PromotionDataSource do
   field :content_language, 2, type: :string, json_name: "contentLanguage", deprecated: false
 end
 
+defmodule Google.Shopping.Merchant.Datasources.V1beta.ProductReviewDataSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
+defmodule Google.Shopping.Merchant.Datasources.V1beta.MerchantReviewDataSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+end
+
 defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSourceReference do
   @moduledoc false
 
