@@ -20,6 +20,15 @@ defmodule Google.Cloud.Netapp.V1.EncryptionType do
   field :CLOUD_KMS, 2
 end
 
+defmodule Google.Cloud.Netapp.V1.DirectoryServiceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :DIRECTORY_SERVICE_TYPE_UNSPECIFIED, 0
+  field :ACTIVE_DIRECTORY, 1
+end
+
 defmodule Google.Cloud.Netapp.V1.LocationMetadata do
   @moduledoc false
 

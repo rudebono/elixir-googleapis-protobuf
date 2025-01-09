@@ -156,3 +156,16 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
   field :replica_zone, 20, type: :string, json_name: "replicaZone", deprecated: false
   field :zone, 21, type: :string, deprecated: false
 end
+
+defmodule Google.Cloud.Netapp.V1.ValidateDirectoryServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :directory_service_type, 2,
+    type: Google.Cloud.Netapp.V1.DirectoryServiceType,
+    json_name: "directoryServiceType",
+    enum: true
+end

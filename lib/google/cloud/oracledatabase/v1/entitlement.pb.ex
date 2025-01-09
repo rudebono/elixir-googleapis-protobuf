@@ -7,6 +7,7 @@ defmodule Google.Cloud.Oracledatabase.V1.Entitlement.State do
   field :ACCOUNT_NOT_LINKED, 1
   field :ACCOUNT_NOT_ACTIVE, 2
   field :ACTIVE, 3
+  field :ACCOUNT_SUSPENDED, 4
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.Entitlement do

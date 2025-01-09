@@ -46,6 +46,10 @@ defmodule Google.Cloud.Netapp.V1.NetApp.Service do
       Google.Cloud.Netapp.V1.DeleteStoragePoolRequest,
       Google.Longrunning.Operation
 
+  rpc :ValidateDirectoryService,
+      Google.Cloud.Netapp.V1.ValidateDirectoryServiceRequest,
+      Google.Longrunning.Operation
+
   rpc :SwitchActiveReplicaZone,
       Google.Cloud.Netapp.V1.SwitchActiveReplicaZoneRequest,
       Google.Longrunning.Operation
