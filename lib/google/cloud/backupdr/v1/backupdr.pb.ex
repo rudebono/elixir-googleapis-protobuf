@@ -234,6 +234,25 @@ defmodule Google.Cloud.Backupdr.V1.DeleteManagementServerRequest do
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Backupdr.V1.InitializeServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :resource_type, 2, type: :string, json_name: "resourceType", deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Backupdr.V1.InitializeServiceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :backup_vault_name, 1, type: :string, json_name: "backupVaultName"
+  field :backup_plan_name, 2, type: :string, json_name: "backupPlanName"
+end
+
 defmodule Google.Cloud.Backupdr.V1.OperationMetadata.AdditionalInfoEntry do
   @moduledoc false
 
@@ -375,6 +394,10 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
       Google.Longrunning.Operation
 
   rpc :TriggerBackup, Google.Cloud.Backupdr.V1.TriggerBackupRequest, Google.Longrunning.Operation
+
+  rpc :InitializeService,
+      Google.Cloud.Backupdr.V1.InitializeServiceRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupDR.Stub do

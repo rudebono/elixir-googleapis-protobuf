@@ -48,6 +48,7 @@ defmodule Google.Monitoring.V3.ListMetricDescriptorsRequest do
   field :filter, 2, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :active_only, 6, type: :bool, json_name: "activeOnly", deprecated: false
 end
 
 defmodule Google.Monitoring.V3.ListMetricDescriptorsResponse do

@@ -49,6 +49,7 @@ defmodule Google.Cloud.Backupdr.V1.BackupVault.AccessRestriction do
   field :WITHIN_PROJECT, 1
   field :WITHIN_ORGANIZATION, 2
   field :UNRESTRICTED, 3
+  field :WITHIN_ORG_BUT_UNRESTRICTED_FOR_BA, 4
 end
 
 defmodule Google.Cloud.Backupdr.V1.DataSource.State do
@@ -611,6 +612,11 @@ defmodule Google.Cloud.Backupdr.V1.DeleteBackupVaultRequest do
   field :etag, 4, type: :string
   field :validate_only, 5, type: :bool, json_name: "validateOnly", deprecated: false
   field :allow_missing, 6, type: :bool, json_name: "allowMissing", deprecated: false
+
+  field :ignore_backup_plan_references, 7,
+    type: :bool,
+    json_name: "ignoreBackupPlanReferences",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.ListDataSourcesRequest do
