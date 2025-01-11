@@ -1295,6 +1295,11 @@ defmodule Google.Devtools.Cloudbuild.V1.BuildOptions do
     json_name: "defaultLogsBucketBehavior",
     enum: true,
     deprecated: false
+
+  field :enable_structured_logging, 23,
+    type: :bool,
+    json_name: "enableStructuredLogging",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.ReceiveTriggerWebhookRequest do
