@@ -18,6 +18,7 @@ defmodule Google.Cloud.Tpu.V1.Node.State do
   field :HIDING, 13
   field :HIDDEN, 14
   field :UNHIDING, 15
+  field :UNKNOWN, 16
 end
 
 defmodule Google.Cloud.Tpu.V1.Node.Health do
