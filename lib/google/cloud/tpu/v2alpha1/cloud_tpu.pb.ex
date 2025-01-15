@@ -28,6 +28,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.State do
   field :HIDING, 13
   field :HIDDEN, 14
   field :UNHIDING, 15
+  field :UNKNOWN, 16
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.Node.Health do
@@ -51,6 +52,16 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node.ApiVersion do
   field :V1_ALPHA1, 1
   field :V1, 2
   field :V2_ALPHA1, 3
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams.WorkloadType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :WORKLOAD_TYPE_UNSPECIFIED, 0
+  field :THROUGHPUT_OPTIMIZED, 1
+  field :AVAILABILITY_OPTIMIZED, 2
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResourceState.State do
@@ -94,6 +105,30 @@ defmodule Google.Cloud.Tpu.V2alpha1.Symptom.SymptomType do
   field :PROJECT_ABUSE, 6
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.Reservation.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :APPROVED, 3
+  field :PROVISIONING, 4
+  field :ACTIVE, 5
+  field :DEPROVISIONING, 6
+  field :EXPIRED, 7
+  field :FAILED, 8
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.Reservation.Standard.CapacityUnits do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :CAPACITY_UNITS_UNSPECIFIED, 0
+  field :CORES, 1
+  field :CHIPS, 2
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorConfig.Type do
   @moduledoc false
 
@@ -103,6 +138,29 @@ defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorConfig.Type do
   field :V2, 2
   field :V3, 4
   field :V4, 7
+  field :V5LITE_POD, 9
+  field :V5P, 10
+  field :V6E, 11
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance.MaintenanceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNKNOWN_TYPE, 0
+  field :SCHEDULED, 1
+  field :UNSCHEDULED, 2
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance.MaintenanceStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :UNKNOWN, 0
+  field :PENDING, 1
+  field :ONGOING, 2
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.GuestAttributes do
@@ -151,6 +209,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.SchedulingConfig do
 
   field :preemptible, 1, type: :bool
   field :reserved, 2, type: :bool
+  field :spot, 3, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.NetworkEndpoint do
@@ -180,6 +239,7 @@ defmodule Google.Cloud.Tpu.V2alpha1.NetworkConfig do
   field :subnetwork, 2, type: :string
   field :enable_external_ips, 3, type: :bool, json_name: "enableExternalIps"
   field :can_ip_forward, 4, type: :bool, json_name: "canIpForward"
+  field :queue_count, 6, type: :int32, json_name: "queueCount", deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.ServiceAccount do
@@ -224,6 +284,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
   field :network_config, 36,
     type: Google.Cloud.Tpu.V2alpha1.NetworkConfig,
     json_name: "networkConfig"
+
+  field :network_configs, 50,
+    repeated: true,
+    type: Google.Cloud.Tpu.V2alpha1.NetworkConfig,
+    json_name: "networkConfigs",
+    deprecated: false
 
   field :cidr_block, 13, type: :string, json_name: "cidrBlock"
 
@@ -281,9 +347,19 @@ defmodule Google.Cloud.Tpu.V2alpha1.Node do
 
   field :multislice_node, 47, type: :bool, json_name: "multisliceNode", deprecated: false
 
+  field :autocheckpoint_enabled, 48,
+    type: :bool,
+    json_name: "autocheckpointEnabled",
+    deprecated: false
+
   field :boot_disk_config, 49,
     type: Google.Cloud.Tpu.V2alpha1.BootDiskConfig,
     json_name: "bootDiskConfig",
+    deprecated: false
+
+  field :upcoming_maintenance, 51,
+    type: Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance,
+    json_name: "upcomingMaintenance",
     deprecated: false
 end
 
@@ -294,6 +370,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams 
 
   field :node_count, 1, type: :int32, json_name: "nodeCount", deprecated: false
   field :node_id_prefix, 2, type: :string, json_name: "nodeIdPrefix"
+
+  field :workload_type, 4,
+    type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec.MultiNodeParams.WorkloadType,
+    json_name: "workloadType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu.NodeSpec do
@@ -388,6 +470,12 @@ defmodule Google.Cloud.Tpu.V2alpha1.QueuedResource do
   oneof :tier, 1
 
   field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :tpu, 2, type: Google.Cloud.Tpu.V2alpha1.QueuedResource.Tpu, oneof: 0
 
   field :best_effort, 3,
@@ -830,6 +918,83 @@ defmodule Google.Cloud.Tpu.V2alpha1.SimulateMaintenanceEventRequest do
   field :worker_ids, 2, repeated: true, type: :string, json_name: "workerIds"
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.PerformMaintenanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.PerformMaintenanceQueuedResourceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :node_names, 2, repeated: true, type: :string, json_name: "nodeNames"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.Reservation.Standard.Usage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :total, 1, type: :int64
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.Reservation.Standard do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :size, 1, type: :int32
+
+  field :capacity_units, 2,
+    type: Google.Cloud.Tpu.V2alpha1.Reservation.Standard.CapacityUnits,
+    json_name: "capacityUnits",
+    enum: true
+
+  field :resource_type, 3, type: :string, json_name: "resourceType"
+  field :interval, 4, type: Google.Type.Interval
+  field :usage, 5, type: Google.Cloud.Tpu.V2alpha1.Reservation.Standard.Usage
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.Reservation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :name, 1, type: :string
+  field :standard, 2, type: Google.Cloud.Tpu.V2alpha1.Reservation.Standard, oneof: 0
+
+  field :state, 3,
+    type: Google.Cloud.Tpu.V2alpha1.Reservation.State,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.ListReservationsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Tpu.V2alpha1.ListReservationsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :reservations, 1, repeated: true, type: Google.Cloud.Tpu.V2alpha1.Reservation
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.AcceleratorConfig do
   @moduledoc false
 
@@ -877,6 +1042,32 @@ defmodule Google.Cloud.Tpu.V2alpha1.CustomerEncryptionKey do
   field :kms_key_name, 7, type: :string, json_name: "kmsKeyName", oneof: 0
 end
 
+defmodule Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :type, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance.MaintenanceType,
+    enum: true
+
+  field :can_reschedule, 5, proto3_optional: true, type: :bool, json_name: "canReschedule"
+  field :window_start_time, 6, proto3_optional: true, type: :string, json_name: "windowStartTime"
+  field :window_end_time, 7, proto3_optional: true, type: :string, json_name: "windowEndTime"
+
+  field :latest_window_start_time, 8,
+    proto3_optional: true,
+    type: :string,
+    json_name: "latestWindowStartTime"
+
+  field :maintenance_status, 9,
+    proto3_optional: true,
+    type: Google.Cloud.Tpu.V2alpha1.UpcomingMaintenance.MaintenanceStatus,
+    json_name: "maintenanceStatus",
+    enum: true
+end
+
 defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
   @moduledoc false
 
@@ -898,6 +1089,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
 
   rpc :UpdateNode, Google.Cloud.Tpu.V2alpha1.UpdateNodeRequest, Google.Longrunning.Operation
 
+  rpc :PerformMaintenance,
+      Google.Cloud.Tpu.V2alpha1.PerformMaintenanceRequest,
+      Google.Longrunning.Operation
+
   rpc :ListQueuedResources,
       Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesRequest,
       Google.Cloud.Tpu.V2alpha1.ListQueuedResourcesResponse
@@ -916,6 +1111,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
 
   rpc :ResetQueuedResource,
       Google.Cloud.Tpu.V2alpha1.ResetQueuedResourceRequest,
+      Google.Longrunning.Operation
+
+  rpc :PerformMaintenanceQueuedResource,
+      Google.Cloud.Tpu.V2alpha1.PerformMaintenanceQueuedResourceRequest,
       Google.Longrunning.Operation
 
   rpc :GenerateServiceIdentity,
@@ -941,6 +1140,10 @@ defmodule Google.Cloud.Tpu.V2alpha1.Tpu.Service do
   rpc :GetGuestAttributes,
       Google.Cloud.Tpu.V2alpha1.GetGuestAttributesRequest,
       Google.Cloud.Tpu.V2alpha1.GetGuestAttributesResponse
+
+  rpc :ListReservations,
+      Google.Cloud.Tpu.V2alpha1.ListReservationsRequest,
+      Google.Cloud.Tpu.V2alpha1.ListReservationsResponse
 
   rpc :SimulateMaintenanceEvent,
       Google.Cloud.Tpu.V2alpha1.SimulateMaintenanceEventRequest,

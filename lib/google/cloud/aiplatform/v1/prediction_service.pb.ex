@@ -245,6 +245,7 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentRequest do
     json_name: "systemInstruction",
     deprecated: false
 
+  field :cached_content, 9, type: :string, json_name: "cachedContent", deprecated: false
   field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1.Tool, deprecated: false
 
   field :tool_config, 7,
@@ -301,6 +302,11 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse.UsageMetadata do
   field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
   field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
   field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
+
+  field :cached_content_token_count, 5,
+    type: :int32,
+    json_name: "cachedContentTokenCount",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse do

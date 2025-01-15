@@ -170,6 +170,11 @@ defmodule Google.Cloud.Aiplatform.V1.ToolConfig do
     type: Google.Cloud.Aiplatform.V1.FunctionCallingConfig,
     json_name: "functionCallingConfig",
     deprecated: false
+
+  field :retrieval_config, 2,
+    type: Google.Cloud.Aiplatform.V1.RetrievalConfig,
+    json_name: "retrievalConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FunctionCallingConfig do
@@ -187,6 +192,15 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionCallingConfig do
     type: :string,
     json_name: "allowedFunctionNames",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RetrievalConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+
+  field :lat_lng, 1, proto3_optional: true, type: Google.Type.LatLng, json_name: "latLng"
+  field :language_code, 2, proto3_optional: true, type: :string, json_name: "languageCode"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Filter do
