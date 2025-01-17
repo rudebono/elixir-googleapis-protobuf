@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisResponse.FailureInfo.FailureReason.CorpusType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CORPUS_TYPE_UNSPECIFIED, 0
   field :DESKTOP, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetSiteSearchEngineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CreateTargetSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CreateTargetSiteMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchCreateTargetSitesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetTargetSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateTargetSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_site, 1,
     type: Google.Cloud.Discoveryengine.V1.TargetSite,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateTargetSiteMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteTargetSiteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteTargetSiteMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListTargetSitesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListTargetSitesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_sites, 1,
     repeated: true,
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchCreateTargetSiteMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchCreateTargetSitesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_sites, 1,
     repeated: true,
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.EnableAdvancedSiteSearchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
 end
@@ -151,13 +151,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.EnableAdvancedSiteSearchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.EnableAdvancedSiteSearchMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DisableAdvancedSiteSearchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
 end
@@ -174,13 +174,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DisableAdvancedSiteSearchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.DisableAdvancedSiteSearchMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
   field :uris, 2, repeated: true, type: :string, deprecated: false
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisResponse.FailureInfo.FailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :corpus_type, 1,
     type:
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisResponse.FailureInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :failure_samples, 1,
     repeated: true,
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchVerifyTargetSitesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -261,13 +261,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchVerifyTargetSitesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.BatchVerifyTargetSitesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.FetchDomainVerificationStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site_search_engine, 1, type: :string, json_name: "siteSearchEngine", deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -286,7 +286,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.FetchDomainVerificationStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_sites, 1,
     repeated: true,
@@ -302,7 +302,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SiteSearchEngineService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.SiteSearchEngineService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetSiteSearchEngine,
       Google.Cloud.Discoveryengine.V1.GetSiteSearchEngineRequest,

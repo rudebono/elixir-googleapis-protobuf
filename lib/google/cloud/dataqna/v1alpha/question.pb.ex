@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretEntity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INTERPRET_ENTITY_UNSPECIFIED, 0
   field :DIMENSION, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INTERPRET_ERROR_CODE_UNSPECIFIED, 0
   field :INVALID_QUERY, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo.JobExecutionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JOB_EXECUTION_STATE_UNSPECIFIED, 0
   field :NOT_EXECUTED, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.VisualizationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VISUALIZATION_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.Question do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :scopes, 2, repeated: true, type: :string, deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :unsupported_details, 1,
     type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretUnsupportedDetails,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretUnsupportedDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operators, 1, repeated: true, type: :string
   field :intent, 2, repeated: true, type: :string
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretIncompleteQueryDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entities, 1,
     repeated: true,
@@ -122,13 +122,13 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretAmbiguityDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :code, 2, type: Google.Cloud.Dataqna.V1alpha.InterpretError.InterpretErrorCode, enum: true
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.ExecutionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :job_creation_status, 1, type: Google.Rpc.Status, json_name: "jobCreationStatus"
 
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.BigQueryJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :job_id, 1, type: :string, json_name: "jobId"
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.Interpretation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_sources, 1, repeated: true, type: :string, json_name: "dataSources"
   field :confidence, 2, type: :double
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.DataQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sql, 1, type: :string
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.HumanReadable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generated_interpretation, 1,
     type: Google.Cloud.Dataqna.V1alpha.AnnotatedString,
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure.ColumnInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :output_alias, 1, type: :string, json_name: "outputAlias"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.InterpretationStructure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :visualization_types, 1,
     repeated: true,
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Dataqna.V1alpha.DebugFlags do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :include_va_query, 1, type: :bool, json_name: "includeVaQuery"
   field :include_nested_va_query, 2, type: :bool, json_name: "includeNestedVaQuery"

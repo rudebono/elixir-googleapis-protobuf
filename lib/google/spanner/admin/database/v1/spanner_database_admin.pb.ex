@@ -1,7 +1,7 @@
 defmodule Google.Spanner.Admin.Database.V1.RestoreSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :BACKUP, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.Database.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.EncryptionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.RestoreInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.Database do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize"
@@ -115,7 +115,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :databases, 1, repeated: true, type: Google.Spanner.Admin.Database.V1.Database
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -124,7 +124,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :create_statement, 2, type: :string, json_name: "createStatement", deprecated: false
@@ -152,7 +152,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateDatabaseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
@@ -160,7 +160,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -168,7 +168,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: Google.Spanner.Admin.Database.V1.Database, deprecated: false
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request, 1, type: Google.Spanner.Admin.Database.V1.UpdateDatabaseRequest
   field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
@@ -191,7 +191,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :statements, 2, repeated: true, type: :string, deprecated: false
@@ -202,7 +202,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.DdlStatementActionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :action, 1, type: :string
   field :entity_type, 2, type: :string, json_name: "entityType"
@@ -212,7 +212,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :statements, 2, repeated: true, type: :string
@@ -230,7 +230,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.DropDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
@@ -238,7 +238,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseDdlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
 end
@@ -246,7 +246,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.GetDatabaseDdlResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :statements, 1, repeated: true, type: :string
   field :proto_descriptors, 2, type: :bytes, json_name: "protoDescriptors"
@@ -255,7 +255,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -266,7 +266,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseOperationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -275,7 +275,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -292,7 +292,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.RestoreDatabaseEncryptionConfig.EncryptionType,
@@ -312,7 +312,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.RestoreDatabaseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source_info, 0
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.OptimizeRestoredDatabaseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :progress, 2, type: Google.Spanner.Admin.Database.V1.OperationProgress
@@ -348,7 +348,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.DatabaseRole do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -356,7 +356,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseRolesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -366,7 +366,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database_roles, 1,
     repeated: true,
@@ -381,7 +381,7 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
 
   use GRPC.Service,
     name: "google.spanner.admin.database.v1.DatabaseAdmin",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListDatabases,
       Google.Spanner.Admin.Database.V1.ListDatabasesRequest,

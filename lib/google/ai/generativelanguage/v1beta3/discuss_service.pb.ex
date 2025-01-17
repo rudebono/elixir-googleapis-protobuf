@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1beta3.GenerateMessageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :prompt, 2, type: Google.Ai.Generativelanguage.V1beta3.MessagePrompt, deprecated: false
@@ -20,7 +20,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.GenerateMessageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :candidates, 1, repeated: true, type: Google.Ai.Generativelanguage.V1beta3.Message
   field :messages, 2, repeated: true, type: Google.Ai.Generativelanguage.V1beta3.Message
@@ -30,7 +30,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.Message do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :author, 1, type: :string, deprecated: false
   field :content, 2, type: :string, deprecated: false
@@ -45,7 +45,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.MessagePrompt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :context, 1, type: :string, deprecated: false
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.Example do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :input, 1, type: Google.Ai.Generativelanguage.V1beta3.Message, deprecated: false
   field :output, 2, type: Google.Ai.Generativelanguage.V1beta3.Message, deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.CountMessageTokensRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :prompt, 2, type: Google.Ai.Generativelanguage.V1beta3.MessagePrompt, deprecated: false
@@ -81,7 +81,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.CountMessageTokensResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :token_count, 1, type: :int32, json_name: "tokenCount"
 end
@@ -91,7 +91,7 @@ defmodule Google.Ai.Generativelanguage.V1beta3.DiscussService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1beta3.DiscussService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GenerateMessage,
       Google.Ai.Generativelanguage.V1beta3.GenerateMessageRequest,

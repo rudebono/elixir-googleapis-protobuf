@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.CreateDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Contentwarehouse.V1.Document
 
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.UpdateDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Contentwarehouse.V1.Document
 
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.QAResult.Highlight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_index, 1, type: :int32, json_name: "startIndex"
   field :end_index, 2, type: :int32, json_name: "endIndex"
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.QAResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :highlights, 1, repeated: true, type: Google.Cloud.Contentwarehouse.V1.QAResult.Highlight
   field :confidence_score, 2, type: :float, json_name: "confidenceScore"
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse.MatchingDocument do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Contentwarehouse.V1.Document
   field :search_text_snippet, 2, type: :string, json_name: "searchTextSnippet"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.SearchDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :matching_documents, 1,
     repeated: true,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.FetchAclResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy, 1, type: Google.Iam.V1.Policy
   field :metadata, 2, type: Google.Cloud.Contentwarehouse.V1.ResponseMetadata
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.SetAclResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy, 1, type: Google.Iam.V1.Policy
   field :metadata, 2, type: Google.Cloud.Contentwarehouse.V1.ResponseMetadata
@@ -109,7 +109,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.DocumentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.DocumentService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateDocument,
       Google.Cloud.Contentwarehouse.V1.CreateDocumentRequest,

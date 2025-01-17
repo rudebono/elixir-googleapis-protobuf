@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.EntryType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENTRY_TYPE_UNSPECIFIED, 0
   field :TABLE, 2
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.TagTemplateMigration do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TAG_TEMPLATE_MIGRATION_UNSPECIFIED, 0
   field :TAG_TEMPLATE_MIGRATION_ENABLED, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CatalogUIExperience do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CATALOG_UI_EXPERIENCE_UNSPECIFIED, 0
   field :CATALOG_UI_EXPERIENCE_ENABLED, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TABLE_TYPE_UNSPECIFIED, 0
   field :NATIVE, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec.ViewType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VIEW_TYPE_UNSPECIFIED, 0
   field :STANDARD_VIEW, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.RoutineType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ROUTINE_TYPE_UNSPECIFIED, 0
   field :SCALAR_FUNCTION, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :IN, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.VertexModelSourceInfo.ModelSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MODEL_SOURCE_TYPE_UNSPECIFIED, 0
   field :AUTOML, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec.DataType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec.StorageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STORAGE_TYPE_UNSPECIFIED, 0
   field :BIGTABLE, 1
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RECONCILIATION_STATE_UNSPECIFIED, 0
   field :RECONCILIATION_QUEUED, 1
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ImportEntriesMetadata.ImportState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :IMPORT_STATE_UNSPECIFIED, 0
   field :IMPORT_QUEUED, 1
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :include_org_ids, 2, repeated: true, type: :string, json_name: "includeOrgIds"
   field :include_project_ids, 3, repeated: true, type: :string, json_name: "includeProjectIds"
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :scope, 6, type: Google.Cloud.Datacatalog.V1.SearchCatalogRequest.Scope, deprecated: false
   field :query, 1, type: :string, deprecated: false
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.SearchCatalogResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.SearchCatalogResult
   field :total_size, 2, type: :int32, json_name: "totalSize"
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CreateEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entry_group_id, 3, type: :string, json_name: "entryGroupId", deprecated: false
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UpdateEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entry_group, 1,
     type: Google.Cloud.Datacatalog.V1.EntryGroup,
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.GetEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :read_mask, 2, type: Google.Protobuf.FieldMask, json_name: "readMask"
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DeleteEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListEntryGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entry_groups, 1,
     repeated: true,
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CreateEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entry_id, 3, type: :string, json_name: "entryId", deprecated: false
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UpdateEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entry, 1, type: Google.Cloud.Datacatalog.V1.Entry, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -286,7 +286,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DeleteEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -294,7 +294,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.GetEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.LookupEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :target_name, 0
 
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.Entry.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :entry_type, 0
 
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec.DatabaseViewSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source_definition, 0
 
@@ -474,7 +474,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DatabaseTableSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Datacatalog.V1.DatabaseTableSpec.TableType, enum: true
 
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.FilesetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dataplex_fileset, 1,
     type: Google.Cloud.Datacatalog.V1.DataplexFilesetSpec,
@@ -501,7 +501,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DataSourceConnectionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bigquery_connection_spec, 1,
     type: Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec,
@@ -511,7 +511,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec.Argument do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :mode, 2, type: Google.Cloud.Datacatalog.V1.RoutineSpec.Argument.Mode, enum: true
@@ -521,7 +521,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RoutineSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :system_spec, 0
 
@@ -549,7 +549,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DatasetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :system_spec, 0
 
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.SqlDatabaseSystemSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sql_engine, 1, type: :string, json_name: "sqlEngine"
   field :database_version, 2, type: :string, json_name: "databaseVersion"
@@ -572,7 +572,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.LookerSystemSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent_instance_id, 1, type: :string, json_name: "parentInstanceId"
   field :parent_instance_display_name, 2, type: :string, json_name: "parentInstanceDisplayName"
@@ -585,7 +585,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CloudBigtableSystemSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance_display_name, 1, type: :string, json_name: "instanceDisplayName"
 end
@@ -593,7 +593,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec.CloudBigtableClusterSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :location, 2, type: :string
@@ -604,7 +604,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CloudBigtableInstanceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cloud_bigtable_cluster_specs, 1,
     repeated: true,
@@ -615,7 +615,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ServiceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :system_spec, 0
 
@@ -628,7 +628,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.VertexModelSourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_type, 1,
     type: Google.Cloud.Datacatalog.V1.VertexModelSourceInfo.ModelSourceType,
@@ -641,7 +641,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.VertexModelSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version_id, 1, type: :string, json_name: "versionId"
   field :version_aliases, 2, repeated: true, type: :string, json_name: "versionAliases"
@@ -657,7 +657,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.VertexDatasetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_item_count, 1, type: :int64, json_name: "dataItemCount"
 
@@ -670,7 +670,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ModelSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :system_spec, 0
 
@@ -683,7 +683,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :storage_type, 1,
     type: Google.Cloud.Datacatalog.V1.FeatureOnlineStoreSpec.StorageType,
@@ -695,7 +695,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.BusinessContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entry_overview, 1,
     type: Google.Cloud.Datacatalog.V1.EntryOverview,
@@ -707,7 +707,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.EntryOverview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :overview, 1, type: :string
 end
@@ -715,7 +715,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.Contacts.Person do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :designation, 1, type: :string
   field :email, 2, type: :string
@@ -724,7 +724,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.Contacts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :people, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Contacts.Person
 end
@@ -732,7 +732,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.EntryGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -752,7 +752,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tag_template_id, 3, type: :string, json_name: "tagTemplateId", deprecated: false
@@ -766,7 +766,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.GetTagTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -774,7 +774,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag_template, 1,
     type: Google.Cloud.Datacatalog.V1.TagTemplate,
@@ -787,7 +787,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -796,7 +796,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CreateTagRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tag, 2, type: Google.Cloud.Datacatalog.V1.Tag, deprecated: false
@@ -805,7 +805,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag, 1, type: Google.Cloud.Datacatalog.V1.Tag, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -814,7 +814,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -822,7 +822,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CreateTagTemplateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -840,7 +840,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UpdateTagTemplateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -858,7 +858,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -871,7 +871,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RenameTagTemplateFieldEnumValueRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -884,7 +884,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DeleteTagTemplateFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -893,7 +893,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListTagsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -903,7 +903,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListTagsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tags, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Tag
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -912,7 +912,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tag_template, 2, type: :string, json_name: "tagTemplate", deprecated: false
@@ -923,7 +923,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :created_tags_count, 1, type: :int64, json_name: "createdTagsCount"
   field :updated_tags_count, 2, type: :int64, json_name: "updatedTagsCount"
@@ -933,7 +933,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ErrorsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Rpc.Status
@@ -942,7 +942,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Datacatalog.V1.ReconcileTagsMetadata.ReconciliationState,
@@ -957,7 +957,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -968,7 +968,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ListEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Datacatalog.V1.Entry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -977,7 +977,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.StarEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -985,13 +985,13 @@ end
 defmodule Google.Cloud.Datacatalog.V1.StarEntryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datacatalog.V1.UnstarEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -999,13 +999,13 @@ end
 defmodule Google.Cloud.Datacatalog.V1.UnstarEntryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datacatalog.V1.ImportEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1017,7 +1017,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ImportEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :upserted_entries_count, 5,
     proto3_optional: true,
@@ -1033,7 +1033,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ImportEntriesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Datacatalog.V1.ImportEntriesMetadata.ImportState, enum: true
   field :errors, 2, repeated: true, type: Google.Rpc.Status
@@ -1042,7 +1042,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ModifyEntryOverviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1055,7 +1055,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ModifyEntryContactsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :contacts, 2, type: Google.Cloud.Datacatalog.V1.Contacts, deprecated: false
@@ -1064,7 +1064,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.SetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :configuration, 0
 
@@ -1086,7 +1086,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RetrieveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1094,7 +1094,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.RetrieveEffectiveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1102,7 +1102,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.OrganizationConfig.ConfigEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Datacatalog.V1.MigrationConfig
@@ -1111,7 +1111,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.OrganizationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :config, 1,
     repeated: true,
@@ -1122,7 +1122,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.MigrationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag_template_migration, 1,
     type: Google.Cloud.Datacatalog.V1.TagTemplateMigration,
@@ -1140,7 +1140,7 @@ defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
 
   use GRPC.Service,
     name: "google.cloud.datacatalog.v1.DataCatalog",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :SearchCatalog,
       Google.Cloud.Datacatalog.V1.SearchCatalogRequest,

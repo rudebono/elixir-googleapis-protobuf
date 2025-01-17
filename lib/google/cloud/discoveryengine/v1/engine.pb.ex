@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.Engine.SearchEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :search_tier, 1,
     type: Google.Cloud.Discoveryengine.V1.SearchTier,
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Engine.ChatEngineConfig.AgentCreationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :business, 1, type: :string
   field :default_language_code, 2, type: :string, json_name: "defaultLanguageCode"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Engine.ChatEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :agent_creation_config, 1,
     type: Google.Cloud.Discoveryengine.V1.Engine.ChatEngineConfig.AgentCreationConfig,
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Engine.CommonConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :company_name, 1, type: :string, json_name: "companyName"
 end
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Engine.ChatEngineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dialogflow_agent, 1, type: :string, json_name: "dialogflowAgent"
 end
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Engine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :engine_config, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.V3.QueryService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.monitoring.v3.QueryService", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.monitoring.v3.QueryService", protoc_gen_elixir_version: "0.14.0"
 
   rpc :QueryTimeSeries,
       Google.Monitoring.V3.QueryTimeSeriesRequest,

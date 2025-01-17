@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Cloudtrace.V2.Span.SpanKind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SPAN_KIND_UNSPECIFIED, 0
   field :INTERNAL, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SENT, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.Link.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CHILD_LINKED_SPAN, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes.AttributeMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Devtools.Cloudtrace.V2.AttributeValue
@@ -43,7 +43,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.Attributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attribute_map, 1,
     repeated: true,
@@ -57,7 +57,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.Annotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :description, 1, type: Google.Devtools.Cloudtrace.V2.TruncatableString
   field :attributes, 2, type: Google.Devtools.Cloudtrace.V2.Span.Attributes
@@ -66,7 +66,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Cloudtrace.V2.Span.TimeEvent.MessageEvent.Type, enum: true
   field :id, 2, type: :int64
@@ -77,7 +77,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.TimeEvents do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :time_event, 1,
     repeated: true,
@@ -107,7 +107,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.Link do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :trace_id, 1, type: :string, json_name: "traceId"
   field :span_id, 2, type: :string, json_name: "spanId"
@@ -118,7 +118,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span.Links do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :link, 1, repeated: true, type: Google.Devtools.Cloudtrace.V2.Span.Link
   field :dropped_links_count, 2, type: :int32, json_name: "droppedLinksCount"
@@ -127,7 +127,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Span do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :span_id, 2, type: :string, json_name: "spanId", deprecated: false
@@ -170,7 +170,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.AttributeValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -186,7 +186,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :function_name, 1,
     type: Google.Devtools.Cloudtrace.V2.TruncatableString,
@@ -212,7 +212,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace.StackFrames do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :frame, 1, repeated: true, type: Google.Devtools.Cloudtrace.V2.StackTrace.StackFrame
   field :dropped_frames_count, 2, type: :int32, json_name: "droppedFramesCount"
@@ -221,7 +221,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.StackTrace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stack_frames, 1,
     type: Google.Devtools.Cloudtrace.V2.StackTrace.StackFrames,
@@ -233,7 +233,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.Module do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :module, 1, type: Google.Devtools.Cloudtrace.V2.TruncatableString
   field :build_id, 2, type: Google.Devtools.Cloudtrace.V2.TruncatableString, json_name: "buildId"
@@ -242,7 +242,7 @@ end
 defmodule Google.Devtools.Cloudtrace.V2.TruncatableString do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :truncated_byte_count, 2, type: :int32, json_name: "truncatedByteCount"

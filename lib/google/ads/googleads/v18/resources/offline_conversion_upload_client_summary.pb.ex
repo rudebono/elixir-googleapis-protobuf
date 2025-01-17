@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.OfflineConversionUploadClientSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.OfflineConversionSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :dimension_key, 0
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.OfflineConversionAlert do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :error, 1,
     type: Google.Ads.Googleads.V18.Resources.OfflineConversionError,
@@ -79,7 +79,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.OfflineConversionError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :error_code, 0
 

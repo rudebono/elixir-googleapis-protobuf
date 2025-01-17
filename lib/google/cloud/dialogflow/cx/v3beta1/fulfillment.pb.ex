@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.SetParameterAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parameter, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case.CaseContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cases_or_message, 0
 
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :condition, 1, type: :string
 
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cases, 1,
     repeated: true,
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.ResponseMessage
   field :webhook, 2, type: :string, deprecated: false

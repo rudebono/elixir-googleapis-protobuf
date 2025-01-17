@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.CompanySize do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :COMPANY_SIZE_UNSPECIFIED, 0
   field :MINI, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.JobBenefit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JOB_BENEFIT_UNSPECIFIED, 0
   field :CHILD_CARE, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.DegreeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEGREE_TYPE_UNSPECIFIED, 0
   field :PRIMARY_EDUCATION, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.EmploymentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EMPLOYMENT_TYPE_UNSPECIFIED, 0
   field :FULL_TIME, 1
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.JobLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JOB_LEVEL_UNSPECIFIED, 0
   field :ENTRY_LEVEL, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.JobCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JOB_CATEGORY_UNSPECIFIED, 0
   field :ACCOUNTING_AND_FINANCE, 1
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.PostingRegion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :POSTING_REGION_UNSPECIFIED, 0
   field :ADMINISTRATIVE_AREA, 1
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Visibility do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VISIBILITY_UNSPECIFIED, 0
   field :ACCOUNT_ONLY, 1
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.HtmlSanitization do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :HTML_SANITIZATION_UNSPECIFIED, 0
   field :HTML_SANITIZATION_DISABLED, 1
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CommuteMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :COMMUTE_METHOD_UNSPECIFIED, 0
   field :DRIVING, 1
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Location.LocationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LOCATION_TYPE_UNSPECIFIED, 0
   field :COUNTRY, 1
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.DeviceInfo.DeviceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEVICE_TYPE_UNSPECIFIED, 0
   field :WEB, 1
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :COMPENSATION_TYPE_UNSPECIFIED, 0
   field :BASE, 1
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :COMPENSATION_UNIT_UNSPECIFIED, 0
   field :HOURLY, 1
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.TimestampRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_type, 1,
     type: Google.Cloud.Talent.V4beta1.Location.LocationType,
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.RequestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :domain, 1, type: :string
   field :session_id, 2, type: :string, json_name: "sessionId"
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.ResponseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 end
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.DeviceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :device_type, 1,
     type: Google.Cloud.Talent.V4beta1.DeviceInfo.DeviceType,
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CustomAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :string_values, 1, repeated: true, type: :string, json_name: "stringValues"
   field :long_values, 2, repeated: true, type: :int64, json_name: "longValues"
@@ -309,7 +309,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.SpellingCorrection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :corrected, 1, type: :bool
   field :corrected_text, 2, type: :string, json_name: "correctedText"
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :compensation_amount, 0
 
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo.CompensationRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_compensation, 2, type: Google.Type.Money, json_name: "maxCompensation"
   field :min_compensation, 1, type: Google.Type.Money, json_name: "minCompensation"
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.CompensationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.BatchOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Talent.V4beta1.BatchOperationMetadata.State, enum: true
   field :state_description, 2, type: :string, json_name: "stateDescription"

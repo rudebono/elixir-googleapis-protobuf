@@ -1,7 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Common.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :absolute_top_impression_percentage, 183,
     proto3_optional: true,

@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routing.V2.PolylineDetails.RoadFeatureState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ROAD_FEATURE_STATE_UNSPECIFIED, 0
   field :EXISTS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Routing.V2.PolylineDetails.PolylinePointIndex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_index, 1, proto3_optional: true, type: :int32, json_name: "startIndex"
   field :end_index, 2, proto3_optional: true, type: :int32, json_name: "endIndex"
@@ -20,7 +20,7 @@ end
 defmodule Google.Maps.Routing.V2.PolylineDetails.FlyoverInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :flyover_presence, 1,
     type: Google.Maps.Routing.V2.PolylineDetails.RoadFeatureState,
@@ -36,7 +36,7 @@ end
 defmodule Google.Maps.Routing.V2.PolylineDetails.NarrowRoadInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :narrow_road_presence, 1,
     type: Google.Maps.Routing.V2.PolylineDetails.RoadFeatureState,
@@ -52,7 +52,7 @@ end
 defmodule Google.Maps.Routing.V2.PolylineDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :flyover_info, 12,
     repeated: true,

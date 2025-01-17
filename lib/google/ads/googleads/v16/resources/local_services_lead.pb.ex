@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Resources.LocalServicesLead do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.ContactDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber", deprecated: false
   field :email, 2, type: :string, deprecated: false
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.Note do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :edit_date_time, 1, type: :string, json_name: "editDateTime", deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CreditDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :credit_state, 1,
     type: Google.Ads.Googleads.V16.Enums.LocalServicesCreditStateEnum.CreditState,

@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.DockerImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -20,7 +20,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -31,7 +31,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListDockerImagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :docker_images, 1,
     repeated: true,
@@ -44,7 +44,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetDockerImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.MavenArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :pom_uri, 2, type: :string, json_name: "pomUri", deprecated: false
@@ -74,7 +74,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListMavenArtifactsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -84,7 +84,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListMavenArtifactsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :maven_artifacts, 1,
     repeated: true,
@@ -97,7 +97,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetMavenArtifactRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.NpmPackage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :package_name, 3, type: :string, json_name: "packageName"
@@ -126,7 +126,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListNpmPackagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -136,7 +136,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListNpmPackagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :npm_packages, 1,
     repeated: true,
@@ -149,7 +149,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetNpmPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -157,7 +157,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.PythonPackage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -178,7 +178,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListPythonPackagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -188,7 +188,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListPythonPackagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :python_packages, 1,
     repeated: true,
@@ -201,7 +201,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetPythonPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

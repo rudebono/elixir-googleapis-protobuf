@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Tensor.DataType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATA_TYPE_UNSPECIFIED, 0
   field :BOOL, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BoolArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :bool
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DoubleArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :double
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Int64Array do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :int64
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StringArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Tensor.StructValEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Tensor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dtype, 1, type: Google.Cloud.Aiplatform.V1beta1.Tensor.DataType, enum: true
   field :shape, 2, repeated: true, type: :int64

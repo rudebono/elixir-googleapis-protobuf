@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Reviews.V1beta.GetMerchantReviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.DeleteMerchantReviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ListMerchantReviewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -27,7 +27,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.InsertMerchantReviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -42,7 +42,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ListMerchantReviewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :merchant_reviews, 1,
     repeated: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :merchant_review_id, 2, type: :string, json_name: "merchantReviewId", deprecated: false
@@ -83,7 +83,7 @@ defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewsService.Service
 
   use GRPC.Service,
     name: "google.shopping.merchant.reviews.v1beta.MerchantReviewsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetMerchantReview,
       Google.Shopping.Merchant.Reviews.V1beta.GetMerchantReviewRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.TargetSite.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :INCLUDE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.TargetSite.IndexingStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INDEXING_STATUS_UNSPECIFIED, 0
   field :PENDING, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SiteVerificationInfo.SiteVerificationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SITE_VERIFICATION_STATE_UNSPECIFIED, 0
   field :VERIFIED, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SiteSearchEngine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.TargetSite.FailureReason.QuotaFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :total_required_quota, 1, type: :int64, json_name: "totalRequiredQuota"
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.TargetSite.FailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :failure, 0
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.TargetSite do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SiteVerificationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site_verification_state, 1,
     type: Google.Cloud.Discoveryengine.V1.SiteVerificationInfo.SiteVerificationState,

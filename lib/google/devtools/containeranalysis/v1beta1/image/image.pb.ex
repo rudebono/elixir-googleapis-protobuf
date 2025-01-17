@@ -1,7 +1,7 @@
 defmodule Grafeas.V1beta1.Image.Layer.Directive do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DIRECTIVE_UNSPECIFIED, 0
   field :MAINTAINER, 1
@@ -26,7 +26,7 @@ end
 defmodule Grafeas.V1beta1.Image.Layer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :directive, 1, type: Grafeas.V1beta1.Image.Layer.Directive, enum: true
   field :arguments, 2, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Grafeas.V1beta1.Image.Fingerprint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :v1_name, 1, type: :string, json_name: "v1Name"
   field :v2_blob, 2, repeated: true, type: :string, json_name: "v2Blob"
@@ -45,7 +45,7 @@ end
 defmodule Grafeas.V1beta1.Image.Basis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_url, 1, type: :string, json_name: "resourceUrl"
   field :fingerprint, 2, type: Grafeas.V1beta1.Image.Fingerprint
@@ -54,7 +54,7 @@ end
 defmodule Grafeas.V1beta1.Image.Details do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :derived_image, 1, type: Grafeas.V1beta1.Image.Derived, json_name: "derivedImage"
 end
@@ -62,7 +62,7 @@ end
 defmodule Grafeas.V1beta1.Image.Derived do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fingerprint, 1, type: Grafeas.V1beta1.Image.Fingerprint
   field :distance, 2, type: :int32

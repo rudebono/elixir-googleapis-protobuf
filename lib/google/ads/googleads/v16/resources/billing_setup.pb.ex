@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Resources.BillingSetup.PaymentsAccountInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :payments_account_id, 6,
     proto3_optional: true,
@@ -37,7 +37,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.BillingSetup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :start_time, 0
 

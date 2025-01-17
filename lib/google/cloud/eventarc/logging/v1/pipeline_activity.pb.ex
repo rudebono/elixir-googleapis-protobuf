@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.PayloadFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PAYLOAD_FORMAT_UNSPECIFIED, 0
   field :JSON, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageResponseReceived.RetryStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RETRY_STATUS_UNSPECIFIED, 0
   field :WILL_RETRY, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageReceived do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :details, 1, type: :string
 
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageTransformed do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :details, 1, type: :string
   field :error, 2, type: Google.Rpc.Status
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageConverted do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :details, 1, type: :string
 
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageRequestDispatched do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :details, 1, type: :string
   field :destination, 2, type: :string
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.MessageResponseReceived do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :details, 1, type: :string
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.PipelineActivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :activity, 0
 

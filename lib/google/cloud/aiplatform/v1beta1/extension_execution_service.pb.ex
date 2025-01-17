@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ExecuteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :operation_id, 2, type: :string, json_name: "operationId", deprecated: false
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExecuteExtensionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :content, 2, type: :string
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.QueryExtensionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :steps, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Content
   field :failure_message, 2, type: :string, json_name: "failureMessage"
@@ -52,7 +52,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionExecutionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ExtensionExecutionService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ExecuteExtension,
       Google.Cloud.Aiplatform.V1beta1.ExecuteExtensionRequest,

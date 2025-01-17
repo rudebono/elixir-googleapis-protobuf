@@ -1,7 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.LabelPermission.LabelRole do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LABEL_ROLE_UNSPECIFIED, 0
   field :READER, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.LabelPermission do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :principal, 0
 

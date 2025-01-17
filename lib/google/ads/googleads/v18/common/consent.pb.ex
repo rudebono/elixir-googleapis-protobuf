@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.Consent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ad_user_data, 1,
     type: Google.Ads.Googleads.V18.Enums.ConsentStatusEnum.ConsentStatus,

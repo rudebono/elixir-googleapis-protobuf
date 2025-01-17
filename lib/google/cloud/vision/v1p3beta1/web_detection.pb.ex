@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetection.WebEntity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity_id, 1, type: :string, json_name: "entityId"
   field :score, 2, type: :float
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetection.WebImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :score, 2, type: :float
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetection.WebPage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :url, 1, type: :string
   field :score, 2, type: :float
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetection.WebLabel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :label, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :web_entities, 1,
     repeated: true,

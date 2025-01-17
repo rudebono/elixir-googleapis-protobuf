@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.Report.TimePeriodColumn do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TIME_PERIOD_COLUMN_UNSPECIFIED, 0
   field :TIME_PERIOD_COLUMN_DATE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Dimension do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DIMENSION_UNSPECIFIED, 0
   field :ADVERTISER_DOMAIN_NAME, 242
@@ -567,7 +567,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Metric do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METRIC_UNSPECIFIED, 0
   field :ACTIVE_VIEW_AVERAGE_VIEWABLE_TIME, 61
@@ -740,7 +740,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.MetricValueType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PRIMARY, 0
   field :PRIMARY_PERCENT_OF_TOTAL, 1
@@ -753,7 +753,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.ReportType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :REPORT_TYPE_UNSPECIFIED, 0
   field :HISTORICAL, 1
@@ -762,7 +762,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Visibility do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :HIDDEN, 0
   field :DRAFT, 1
@@ -772,7 +772,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Filter.Operation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :IN, 0
   field :NOT_IN, 1
@@ -790,7 +790,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DateRange.RelativeDateRange do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RELATIVE_DATE_RANGE_UNSPECIFIED, 0
   field :TODAY, 1
@@ -825,7 +825,7 @@ end
 defmodule Google.Ads.Admanager.V1.ScheduleOptions.DeliveryCondition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NEVER, 0
   field :ALWAYS, 1
@@ -835,7 +835,7 @@ end
 defmodule Google.Ads.Admanager.V1.Schedule.Frequency do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FREQUENCY_UNSPECIFIED, 0
   field :HOURLY, 1
@@ -850,7 +850,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Value.IntList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :int64
 end
@@ -858,7 +858,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Value.StringList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -866,7 +866,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -891,7 +891,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Sort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :field, 1, type: Google.Ads.Admanager.V1.Report.Field, deprecated: false
   field :descending, 2, type: :bool, deprecated: false
@@ -918,7 +918,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DataTable.Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -934,7 +934,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DataTable.MetricValueGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :primary_values, 1,
     repeated: true,
@@ -972,13 +972,13 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DataTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Admanager.V1.Report.Field do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :field, 0
 
@@ -989,7 +989,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Slice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension, 1,
     type: Google.Ads.Admanager.V1.Report.Dimension,
@@ -1002,7 +1002,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Filter.FieldFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :field, 1, type: Google.Ads.Admanager.V1.Report.Field, deprecated: false
 
@@ -1035,7 +1035,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Filter.FilterList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filters, 1,
     repeated: true,
@@ -1046,7 +1046,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -1074,7 +1074,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.Flag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filters, 1,
     repeated: true,
@@ -1087,7 +1087,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DateRange.FixedDateRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate", deprecated: false
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate", deprecated: false
@@ -1096,7 +1096,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report.DateRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :date_range_type, 0
 
@@ -1111,7 +1111,7 @@ end
 defmodule Google.Ads.Admanager.V1.Report do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :report_id, 3, type: :int64, json_name: "reportId", deprecated: false
@@ -1149,7 +1149,7 @@ end
 defmodule Google.Ads.Admanager.V1.RunReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1157,7 +1157,7 @@ end
 defmodule Google.Ads.Admanager.V1.RunReportMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :percent_complete, 2, type: :int32, json_name: "percentComplete"
   field :report, 4, type: :string, deprecated: false
@@ -1166,7 +1166,7 @@ end
 defmodule Google.Ads.Admanager.V1.RunReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :report_result, 1, type: :string, json_name: "reportResult"
 end
@@ -1174,7 +1174,7 @@ end
 defmodule Google.Ads.Admanager.V1.GetReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1182,7 +1182,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListReportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1195,7 +1195,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListReportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Ads.Admanager.V1.Report
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -1205,7 +1205,7 @@ end
 defmodule Google.Ads.Admanager.V1.CreateReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :report, 2, type: Google.Ads.Admanager.V1.Report, deprecated: false
@@ -1214,7 +1214,7 @@ end
 defmodule Google.Ads.Admanager.V1.UpdateReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :report, 1, type: Google.Ads.Admanager.V1.Report, deprecated: false
 
@@ -1227,7 +1227,7 @@ end
 defmodule Google.Ads.Admanager.V1.FetchReportResultRowsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1237,7 +1237,7 @@ end
 defmodule Google.Ads.Admanager.V1.FetchReportResultRowsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rows, 1, repeated: true, type: Google.Ads.Admanager.V1.Report.DataTable.Row
   field :run_time, 2, type: Google.Protobuf.Timestamp, json_name: "runTime"
@@ -1259,7 +1259,7 @@ end
 defmodule Google.Ads.Admanager.V1.ReportDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimensions, 1,
     repeated: true,
@@ -1335,7 +1335,7 @@ end
 defmodule Google.Ads.Admanager.V1.ScheduleOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :schedule, 1, type: Google.Ads.Admanager.V1.Schedule
 
@@ -1350,7 +1350,7 @@ end
 defmodule Google.Ads.Admanager.V1.Schedule.WeeklySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :weekly_scheduled_days, 1,
     repeated: true,
@@ -1362,7 +1362,7 @@ end
 defmodule Google.Ads.Admanager.V1.Schedule.MonthlySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :monthly_scheduled_days, 1,
     repeated: true,
@@ -1373,7 +1373,7 @@ end
 defmodule Google.Ads.Admanager.V1.Schedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :frequency_schedule, 0
 
@@ -1398,7 +1398,7 @@ defmodule Google.Ads.Admanager.V1.ReportService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.ReportService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetReport, Google.Ads.Admanager.V1.GetReportRequest, Google.Ads.Admanager.V1.Report
 

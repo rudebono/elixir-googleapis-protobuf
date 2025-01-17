@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.DataStore.ContentConfig do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONTENT_CONFIG_UNSPECIFIED, 0
   field :NO_CONTENT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.NaturalLanguageQueryUnderstandingConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.WorkspaceConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GOOGLE_DRIVE, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.DataStore.BillingEstimation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :structured_data_size, 1, type: :int64, json_name: "structuredDataSize"
   field :unstructured_data_size, 2, type: :int64, json_name: "unstructuredDataSize"
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.DataStore.ServingConfigDataStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :disabled_for_serving, 1, type: :bool, json_name: "disabledForServing"
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.DataStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.LanguageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.NaturalLanguageQueryUnderstandingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Discoveryengine.V1beta.NaturalLanguageQueryUnderstandingConfig.Mode,
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.WorkspaceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Discoveryengine.V1beta.WorkspaceConfig.Type, enum: true
   field :dasher_customer_id, 2, type: :string, json_name: "dasherCustomerId"

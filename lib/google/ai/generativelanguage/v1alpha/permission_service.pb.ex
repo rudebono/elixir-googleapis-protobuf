@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.CreatePermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :permission, 2, type: Google.Ai.Generativelanguage.V1alpha.Permission, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GetPermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -18,7 +18,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -28,7 +28,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListPermissionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Permission
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -37,7 +37,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.UpdatePermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :permission, 1, type: Google.Ai.Generativelanguage.V1alpha.Permission, deprecated: false
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DeletePermissionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -58,7 +58,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TransferOwnershipRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :email_address, 2, type: :string, json_name: "emailAddress", deprecated: false
@@ -67,7 +67,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TransferOwnershipResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Ai.Generativelanguage.V1alpha.PermissionService.Service do
@@ -75,7 +75,7 @@ defmodule Google.Ai.Generativelanguage.V1alpha.PermissionService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1alpha.PermissionService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreatePermission,
       Google.Ai.Generativelanguage.V1alpha.CreatePermissionRequest,

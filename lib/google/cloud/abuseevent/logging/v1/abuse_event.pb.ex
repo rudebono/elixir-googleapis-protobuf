@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent.DetectionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DETECTION_TYPE_UNSPECIFIED, 0
   field :CRYPTO_MINING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent.ActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :NOTIFY, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :event_type, 0
 
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.CryptoMiningEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vm_resource, 1, repeated: true, type: :string, json_name: "vmResource"
 
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.LeakedCredentialEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :credential_type, 0
 
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.ServiceAccountCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount"
   field :key_id, 2, type: :string, json_name: "keyId"
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.ApiKeyCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_key, 1, type: :string, json_name: "apiKey"
 end
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.HarmfulContentEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, repeated: true, type: :string
 end
@@ -133,11 +133,11 @@ end
 defmodule Google.Cloud.Abuseevent.Logging.V1.ReinstatementEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Abuseevent.Logging.V1.DecisionEscalationEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end

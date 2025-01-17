@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.AdManagerError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :error_code, 1, type: :string, json_name: "errorCode"
   field :message, 2, type: :string

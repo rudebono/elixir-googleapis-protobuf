@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Asset.V1p1beta1.StandardResourceMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1p1beta1.Permissions
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult.Explanation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :matched_permissions, 1,
     repeated: true,
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Asset.V1p1beta1.IamPolicySearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :project, 3, type: :string
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Asset.V1p1beta1.Permissions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: :string
 end

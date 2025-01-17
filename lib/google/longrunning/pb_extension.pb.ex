@@ -1,6 +1,7 @@
 defmodule Google.Longrunning.PbExtension do
   @moduledoc false
-  use Protobuf, protoc_gen_elixir_version: "0.13.0"
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0"
 
   extend Google.Protobuf.MethodOptions, :operation_info, 1049,
     optional: true,

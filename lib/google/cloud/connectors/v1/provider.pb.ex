@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Connectors.V1.Provider.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Connectors.V1.Provider do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Connectors.V1.GetProviderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListProvidersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Connectors.V1.ListProvidersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :providers, 1, repeated: true, type: Google.Cloud.Connectors.V1.Provider
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryRequest.SuggestionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SUGGESTION_TYPE_UNSPECIFIED, 0
   field :QUERY, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.PersonSuggestion.PersonType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PERSON_TYPE_UNSPECIFIED, 0
   field :CLOUD_IDENTITY, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.ContentSuggestion.ContentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONTENT_TYPE_UNSPECIFIED, 0
   field :GOOGLE_WORKSPACE, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse.QuerySuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.CompleteQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :query_suggestions, 1,
     repeated: true,
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryRequest.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :condition, 1, type: :string
   field :boost, 2, type: :float
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryRequest.BoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :condition_boost_specs, 1,
     repeated: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :completion_config, 1, type: :string, json_name: "completionConfig", deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.QuerySuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.PersonSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.ContentSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
 
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse.RecentSearchSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :suggestion, 1, type: :string
   field :recent_search_time, 2, type: Google.Protobuf.Timestamp, json_name: "recentSearchTime"
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.AdvancedCompleteQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :query_suggestions, 1,
     repeated: true,
@@ -212,7 +212,7 @@ defmodule Google.Cloud.Discoveryengine.V1beta.CompletionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1beta.CompletionService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CompleteQuery,
       Google.Cloud.Discoveryengine.V1beta.CompleteQueryRequest,

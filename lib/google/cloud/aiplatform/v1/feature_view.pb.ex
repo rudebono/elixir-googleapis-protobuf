@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.IndexConfig.DistanceMeasureType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DISTANCE_MEASURE_TYPE_UNSPECIFIED, 0
   field :SQUARED_L2_DISTANCE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.BigQuerySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.SyncConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cron, 1, type: :string
   field :continuous, 2, type: :bool, deprecated: false
@@ -35,13 +35,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.IndexConfig.BruteForceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.IndexConfig.TreeAHConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :leaf_node_embedding_count, 1,
     proto3_optional: true,
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.IndexConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :algorithm_config, 0
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource.FeatureGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_group_id, 1, type: :string, json_name: "featureGroupId", deprecated: false
   field :feature_ids, 2, repeated: true, type: :string, json_name: "featureIds", deprecated: false
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.FeatureRegistrySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_groups, 1,
     repeated: true,
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.VertexRagSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :rag_corpus_id, 2, type: :int64, json_name: "ragCorpusId", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 

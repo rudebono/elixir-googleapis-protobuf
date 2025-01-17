@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1.ClassificationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CLASSIFICATION_TYPE_UNSPECIFIED, 0
   field :MULTICLASS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Automl.V1.ClassificationAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :score, 1, type: :float
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfidenceMetricsEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :confidence_threshold, 1, type: :float, json_name: "confidenceThreshold"
   field :position_threshold, 14, type: :int32, json_name: "positionThreshold"
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix.Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :example_count, 1, repeated: true, type: :int32, json_name: "exampleCount"
 end
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics.ConfusionMatrix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :annotation_spec_id, 1, repeated: true, type: :string, json_name: "annotationSpecId"
   field :display_name, 3, repeated: true, type: :string, json_name: "displayName"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Automl.V1.ClassificationEvaluationMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :au_prc, 1, type: :float, json_name: "auPrc"
   field :au_roc, 6, type: :float, json_name: "auRoc"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2.TeradataDialect.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :SQL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.NameMappingKey.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :DATABASE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.TranslationConfigDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source_location, 0
 
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.Dialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :dialect_value, 0
 
@@ -151,25 +151,25 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.BigQueryDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.HiveQLDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.RedshiftDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.TeradataDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mode, 1, type: Google.Cloud.Bigquery.Migration.V2.TeradataDialect.Mode, enum: true
 end
@@ -177,85 +177,85 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.OracleDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.SparkSQLDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.SnowflakeDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.NetezzaDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.AzureSynapseDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.VerticaDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.SQLServerDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.PostgresqlDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.PrestoDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.MySQLDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.DB2Dialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.SQLiteDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.GreenplumDialect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2.ObjectNameMappingList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name_map, 1,
     repeated: true,
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.ObjectNameMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Bigquery.Migration.V2.NameMappingKey
   field :target, 2, type: Google.Cloud.Bigquery.Migration.V2.NameMappingValue
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.NameMappingKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Bigquery.Migration.V2.NameMappingKey.Type, enum: true
   field :database, 2, type: :string
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.NameMappingValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :schema, 2, type: :string
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.SourceEnv do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase"
   field :schema_search_path, 2, repeated: true, type: :string, json_name: "schemaSearchPath"

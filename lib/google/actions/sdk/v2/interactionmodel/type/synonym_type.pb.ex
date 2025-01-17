@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :EXACT_MATCH, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.EntityDisplay,
@@ -23,7 +23,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.EntitiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.Entity
@@ -32,7 +32,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Type.SynonymType.MatchType,

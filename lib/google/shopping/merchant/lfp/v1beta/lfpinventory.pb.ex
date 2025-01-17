@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpInventory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_account, 2, type: :int64, json_name: "targetAccount", deprecated: false
@@ -41,7 +41,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.InsertLfpInventoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -56,7 +56,7 @@ defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpInventoryService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.lfp.v1beta.LfpInventoryService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :InsertLfpInventory,
       Google.Shopping.Merchant.Lfp.V1beta.InsertLfpInventoryRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.LoggingConfig.Level do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LEVEL_UNSPECIFIED, 0
   field :ALL, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobStatus.Substate do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :SUBMITTED, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.YarnApplication.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NEW, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListJobsRequest.JobStateMatcher do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ALL, 0
   field :ACTIVE, 1
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.LoggingConfig.DriverLogLevelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dataproc.V1.LoggingConfig.Level, enum: true
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.LoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :driver_log_levels, 2,
     repeated: true,
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.HadoopJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.HadoopJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PySparkJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PySparkJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :main_python_file_uri, 1, type: :string, json_name: "mainPythonFileUri", deprecated: false
   field :args, 2, repeated: true, type: :string, deprecated: false
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.QueryList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :queries, 1, repeated: true, type: :string, deprecated: false
 end
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.HiveJob.ScriptVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.HiveJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.HiveJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :queries, 0
 
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.ScriptVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkSqlJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :queries, 0
 
@@ -343,7 +343,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PigJob.ScriptVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -352,7 +352,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PigJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PigJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :queries, 0
 
@@ -397,7 +397,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkRJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -406,7 +406,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkRJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :main_r_file_uri, 1, type: :string, json_name: "mainRFileUri", deprecated: false
   field :args, 2, repeated: true, type: :string, deprecated: false
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PrestoJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -442,7 +442,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.PrestoJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :queries, 0
 
@@ -467,7 +467,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.TrinoJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -476,7 +476,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.TrinoJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :queries, 0
 
@@ -501,7 +501,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.FlinkJob.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.FlinkJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -541,7 +541,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobPlacement.ClusterLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -550,7 +550,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobPlacement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName", deprecated: false
   field :cluster_uuid, 2, type: :string, json_name: "clusterUuid", deprecated: false
@@ -566,7 +566,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataproc.V1.JobStatus.State, enum: true, deprecated: false
   field :details, 2, type: :string, deprecated: false
@@ -585,7 +585,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -594,7 +594,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.YarnApplication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -610,7 +610,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.Job.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -619,7 +619,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type_job, 0
 
@@ -729,7 +729,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.DriverSchedulingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memory_mb, 1, type: :int32, json_name: "memoryMb", deprecated: false
   field :vcores, 2, type: :int32, deprecated: false
@@ -738,7 +738,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobScheduling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_failures_per_hour, 1,
     type: :int32,
@@ -751,7 +751,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SubmitJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -762,7 +762,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JobMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :job_id, 1, type: :string, json_name: "jobId", deprecated: false
   field :status, 2, type: Google.Cloud.Dataproc.V1.JobStatus, deprecated: false
@@ -773,7 +773,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.GetJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -783,7 +783,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 6, type: :string, deprecated: false
@@ -803,7 +803,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.UpdateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 2, type: :string, deprecated: false
@@ -819,7 +819,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Job, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -829,7 +829,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.CancelJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -839,7 +839,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.DeleteJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :region, 3, type: :string, deprecated: false
@@ -851,7 +851,7 @@ defmodule Google.Cloud.Dataproc.V1.JobController.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.JobController",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :SubmitJob, Google.Cloud.Dataproc.V1.SubmitJobRequest, Google.Cloud.Dataproc.V1.Job
 

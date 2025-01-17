@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback.BlockedReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :BLOCKED_REASON_UNSPECIFIED, 0
   field :SAFETY, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :predictions, 1, repeated: true, type: Google.Protobuf.Value
   field :deployed_model_id, 2, type: :string, json_name: "deployedModelId"
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RawPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamRawPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody"
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DirectPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :inputs, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DirectPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :outputs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
   field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DirectRawPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :method_name, 2, type: :string, json_name: "methodName"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DirectRawPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :output, 1, type: :bytes
 end
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :outputs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
   field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :method_name, 2, type: :string, json_name: "methodName", deprecated: false
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamDirectRawPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :output, 1, type: :bytes
 end
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :inputs, 2, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :outputs, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tensor
   field :parameters, 2, type: Google.Cloud.Aiplatform.V1beta1.Tensor
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingRawPredictRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :method_name, 2, type: :string, json_name: "methodName"
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StreamingRawPredictResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :output, 1, type: :bytes
 end
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest.ConcurrentExplanationSpecOverrideEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplanationSpecOverride
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
 end
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ExplainResponse.ConcurrentExplanation
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExplainResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :explanations, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Explanation
 
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :model, 3, type: :string, deprecated: false
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CountTokensResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
   field :total_billable_characters, 2, type: :int32, json_name: "totalBillableCharacters"
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :model, 5, type: :string, deprecated: false
 
@@ -327,7 +327,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :block_reason, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback.BlockedReason,
@@ -350,7 +350,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.UsageMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
   field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :candidates, 2,
     repeated: true,
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :http_body, 2, type: Google.Api.HttpBody, json_name: "httpBody", deprecated: false
@@ -396,7 +396,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictLongRunningResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -409,13 +409,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictLongRunningMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateVideoResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generated_samples, 1, repeated: true, type: :string, json_name: "generatedSamples"
 
@@ -435,7 +435,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.PredictionService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Predict,
       Google.Cloud.Aiplatform.V1beta1.PredictRequest,

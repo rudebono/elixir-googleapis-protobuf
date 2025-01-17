@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.DataSource.Service do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :CLOUD_STORAGE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :properties, 0
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.StorageProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :file_pattern, 1, repeated: true, type: :string, json_name: "filePattern"
   field :file_type, 2, type: :string, json_name: "fileType"

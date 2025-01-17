@@ -1,7 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Services.GetCustomColumnRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.ListCustomColumnsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Services.ListCustomColumnsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :custom_columns, 1,
     repeated: true,
@@ -30,7 +30,7 @@ defmodule Google.Ads.Searchads360.V0.Services.CustomColumnService.Service do
 
   use GRPC.Service,
     name: "google.ads.searchads360.v0.services.CustomColumnService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetCustomColumn,
       Google.Ads.Searchads360.V0.Services.GetCustomColumnRequest,

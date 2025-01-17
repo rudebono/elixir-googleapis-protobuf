@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Asset.V1.TemporalAsset.PriorAssetState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PRIOR_ASSET_STATE_UNSPECIFIED, 0
   field :PRESENT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EVALUATION_VALUE_UNSPECIFIED, 0
   field :TRUE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Asset.V1.TemporalAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :window, 1, type: Google.Cloud.Asset.V1.TimeWindow
   field :deleted, 2, type: :bool
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Asset.V1.TimeWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Asset.V1.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Asset.V1.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Asset.V1.RelatedAssets do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :relationship_attributes, 1,
     type: Google.Cloud.Asset.V1.RelationshipAttributes,
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Asset.V1.RelationshipAttributes do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 4, type: :string
   field :source_resource_type, 1, type: :string, json_name: "sourceResourceType"
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Asset.V1.RelatedAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :asset, 1, type: :string, deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Asset.V1.Tag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag_key, 1, proto3_optional: true, type: :string, json_name: "tagKey"
   field :tag_key_id, 2, proto3_optional: true, type: :string, json_name: "tagKeyId"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Asset.V1.EffectiveTagDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attached_resource, 1, proto3_optional: true, type: :string, json_name: "attachedResource"
 
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.RelationshipsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.RelatedResources
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult.SccSecurityMarksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Asset.V1.VersionedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :resource, 2, type: Google.Protobuf.Struct
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Asset.V1.AttachedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :asset_type, 1, type: :string, json_name: "assetType"
 
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Asset.V1.RelatedResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :related_resources, 1,
     repeated: true,
@@ -294,7 +294,7 @@ end
 defmodule Google.Cloud.Asset.V1.RelatedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :asset_type, 1, type: :string, json_name: "assetType"
   field :full_resource_name, 2, type: :string, json_name: "fullResourceName"
@@ -303,7 +303,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :permissions, 1, repeated: true, type: :string
 end
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.MatchedPermissionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation.Permissions
@@ -320,7 +320,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult.Explanation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :matched_permissions, 1,
     repeated: true,
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicySearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :asset_type, 5, type: :string, json_name: "assetType"
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
@@ -355,7 +355,7 @@ end
 defmodule Google.Cloud.Asset.V1.ConditionEvaluation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :evaluation_value, 1,
     type: Google.Cloud.Asset.V1.ConditionEvaluation.EvaluationValue,
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :full_resource_name, 1, type: :string, json_name: "fullResourceName"
 
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Access do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :oneof_access, 0
 
@@ -393,7 +393,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Identity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.Edge do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_node, 1, type: :string, json_name: "sourceNode"
   field :target_node, 2, type: :string, json_name: "targetNode"
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.AccessControlList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resources, 1,
     repeated: true,
@@ -435,7 +435,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult.IdentityList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :identities, 1,
     repeated: true,
@@ -450,7 +450,7 @@ end
 defmodule Google.Cloud.Asset.V1.IamPolicyAnalysisResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attached_resource_full_name, 1, type: :string, json_name: "attachedResourceFullName"
   field :iam_binding, 2, type: Google.Iam.V1.Binding, json_name: "iamBinding"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Speech.V2.Recognizer.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 2
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Speech.V2.ExplicitDecodingConfig.AudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognitionFeatures.MultiChannelMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MULTI_CHANNEL_MODE_UNSPECIFIED, 0
   field :SEPARATE_RECOGNITION_PER_CHANNEL, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeRequest.ProcessingStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PROCESSING_STRATEGY_UNSPECIFIED, 0
   field :DYNAMIC_BATCHING, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognizeResponse.SpeechEventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SPEECH_EVENT_TYPE_UNSPECIFIED, 0
   field :END_OF_SINGLE_UTTERANCE, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Speech.V2.CustomClass.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 2
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Speech.V2.PhraseSet.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 2
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Speech.V2.CreateRecognizerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :recognizer, 1, type: Google.Cloud.Speech.V2.Recognizer, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Speech.V2.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListRecognizersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListRecognizersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :recognizers, 1, repeated: true, type: Google.Cloud.Speech.V2.Recognizer
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Speech.V2.GetRecognizerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Speech.V2.UpdateRecognizerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :recognizer, 1, type: Google.Cloud.Speech.V2.Recognizer, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Speech.V2.DeleteRecognizerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Speech.V2.UndeleteRecognizerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Speech.V2.Recognizer.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Speech.V2.Recognizer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -311,13 +311,13 @@ end
 defmodule Google.Cloud.Speech.V2.AutoDetectDecodingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Speech.V2.ExplicitDecodingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :encoding, 1,
     type: Google.Cloud.Speech.V2.ExplicitDecodingConfig.AudioEncoding,
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Speech.V2.SpeakerDiarizationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_speaker_count, 2, type: :int32, json_name: "minSpeakerCount", deprecated: false
   field :max_speaker_count, 3, type: :int32, json_name: "maxSpeakerCount", deprecated: false
@@ -340,7 +340,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognitionFeatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :profanity_filter, 1, type: :bool, json_name: "profanityFilter"
   field :enable_word_time_offsets, 2, type: :bool, json_name: "enableWordTimeOffsets"
@@ -364,7 +364,7 @@ end
 defmodule Google.Cloud.Speech.V2.TranscriptNormalization.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :search, 1, type: :string
   field :replace, 2, type: :string
@@ -374,7 +374,7 @@ end
 defmodule Google.Cloud.Speech.V2.TranscriptNormalization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Speech.V2.TranscriptNormalization.Entry
 end
@@ -382,7 +382,7 @@ end
 defmodule Google.Cloud.Speech.V2.TranslationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_language, 1, type: :string, json_name: "targetLanguage", deprecated: false
 end
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Speech.V2.SpeechAdaptation.AdaptationPhraseSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Speech.V2.SpeechAdaptation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phrase_sets, 1,
     repeated: true,
@@ -421,7 +421,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognitionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :decoding_config, 0
 
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :audio_source, 0
 
@@ -474,7 +474,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognitionResponseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_id, 9, type: :string, json_name: "requestId", deprecated: false
 
@@ -486,7 +486,7 @@ end
 defmodule Google.Cloud.Speech.V2.SpeechRecognitionAlternative do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :transcript, 1, type: :string
   field :confidence, 2, type: :float
@@ -496,7 +496,7 @@ end
 defmodule Google.Cloud.Speech.V2.WordInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset"
@@ -508,7 +508,7 @@ end
 defmodule Google.Cloud.Speech.V2.SpeechRecognitionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :alternatives, 1,
     repeated: true,
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognizeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :results, 3, repeated: true, type: Google.Cloud.Speech.V2.SpeechRecognitionResult
   field :metadata, 2, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
@@ -531,7 +531,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognitionFeatures.VoiceActivityTimeout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :speech_start_timeout, 1, type: Google.Protobuf.Duration, json_name: "speechStartTimeout"
   field :speech_end_timeout, 2, type: Google.Protobuf.Duration, json_name: "speechEndTimeout"
@@ -540,7 +540,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognitionFeatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enable_voice_activity_events, 1, type: :bool, json_name: "enableVoiceActivityEvents"
   field :interim_results, 2, type: :bool, json_name: "interimResults"
@@ -553,7 +553,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognitionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Speech.V2.RecognitionConfig, deprecated: false
   field :config_mask, 3, type: Google.Protobuf.FieldMask, json_name: "configMask"
@@ -566,7 +566,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :streaming_request, 0
 
@@ -583,7 +583,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :recognizer, 1, type: :string, deprecated: false
   field :config, 4, type: Google.Cloud.Speech.V2.RecognitionConfig
@@ -603,7 +603,7 @@ end
 defmodule Google.Cloud.Speech.V2.GcsOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -611,31 +611,31 @@ end
 defmodule Google.Cloud.Speech.V2.InlineOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Speech.V2.NativeOutputFileFormatConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Speech.V2.VttOutputFileFormatConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Speech.V2.SrtOutputFileFormatConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Speech.V2.OutputFormatConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :native, 1, type: Google.Cloud.Speech.V2.NativeOutputFileFormatConfig
   field :vtt, 2, type: Google.Cloud.Speech.V2.VttOutputFileFormatConfig
@@ -645,7 +645,7 @@ end
 defmodule Google.Cloud.Speech.V2.RecognitionOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :output, 0
 
@@ -668,7 +668,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeResponse.ResultsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Speech.V2.BatchRecognizeFileResult
@@ -677,7 +677,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -692,7 +692,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeResults do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Speech.V2.SpeechRecognitionResult
   field :metadata, 2, type: Google.Cloud.Speech.V2.RecognitionResponseMetadata
@@ -701,7 +701,7 @@ end
 defmodule Google.Cloud.Speech.V2.CloudStorageResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :vtt_format_uri, 2, type: :string, json_name: "vttFormatUri"
@@ -711,7 +711,7 @@ end
 defmodule Google.Cloud.Speech.V2.InlineResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :transcript, 1, type: Google.Cloud.Speech.V2.BatchRecognizeResults
   field :vtt_captions, 2, type: :string, json_name: "vttCaptions"
@@ -721,7 +721,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeFileResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -745,7 +745,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeTranscriptionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :progress_percent, 1, type: :int32, json_name: "progressPercent"
   field :error, 2, type: Google.Rpc.Status
@@ -755,7 +755,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeMetadata.TranscriptionMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Speech.V2.BatchRecognizeTranscriptionMetadata
@@ -764,7 +764,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :transcription_metadata, 1,
     repeated: true,
@@ -776,7 +776,7 @@ end
 defmodule Google.Cloud.Speech.V2.BatchRecognizeFileMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :audio_source, 0
 
@@ -788,7 +788,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognitionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :alternatives, 1,
     repeated: true,
@@ -804,7 +804,7 @@ end
 defmodule Google.Cloud.Speech.V2.StreamingRecognizeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :results, 6, repeated: true, type: Google.Cloud.Speech.V2.StreamingRecognitionResult
 
@@ -820,7 +820,7 @@ end
 defmodule Google.Cloud.Speech.V2.Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 2, type: :string, json_name: "kmsKeyName", deprecated: false
@@ -834,7 +834,7 @@ end
 defmodule Google.Cloud.Speech.V2.GetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -842,7 +842,7 @@ end
 defmodule Google.Cloud.Speech.V2.UpdateConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Speech.V2.Config, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -851,7 +851,7 @@ end
 defmodule Google.Cloud.Speech.V2.CustomClass.ClassItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
@@ -859,7 +859,7 @@ end
 defmodule Google.Cloud.Speech.V2.CustomClass.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -868,7 +868,7 @@ end
 defmodule Google.Cloud.Speech.V2.CustomClass do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -915,7 +915,7 @@ end
 defmodule Google.Cloud.Speech.V2.PhraseSet.Phrase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :boost, 2, type: :float
@@ -924,7 +924,7 @@ end
 defmodule Google.Cloud.Speech.V2.PhraseSet.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -933,7 +933,7 @@ end
 defmodule Google.Cloud.Speech.V2.PhraseSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -980,7 +980,7 @@ end
 defmodule Google.Cloud.Speech.V2.CreateCustomClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :custom_class, 1,
     type: Google.Cloud.Speech.V2.CustomClass,
@@ -995,7 +995,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListCustomClassesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1006,7 +1006,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListCustomClassesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :custom_classes, 1,
     repeated: true,
@@ -1019,7 +1019,7 @@ end
 defmodule Google.Cloud.Speech.V2.GetCustomClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1027,7 +1027,7 @@ end
 defmodule Google.Cloud.Speech.V2.UpdateCustomClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :custom_class, 1,
     type: Google.Cloud.Speech.V2.CustomClass,
@@ -1041,7 +1041,7 @@ end
 defmodule Google.Cloud.Speech.V2.DeleteCustomClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -1052,7 +1052,7 @@ end
 defmodule Google.Cloud.Speech.V2.UndeleteCustomClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -1062,7 +1062,7 @@ end
 defmodule Google.Cloud.Speech.V2.CreatePhraseSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phrase_set, 1,
     type: Google.Cloud.Speech.V2.PhraseSet,
@@ -1077,7 +1077,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListPhraseSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -1088,7 +1088,7 @@ end
 defmodule Google.Cloud.Speech.V2.ListPhraseSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phrase_sets, 1,
     repeated: true,
@@ -1101,7 +1101,7 @@ end
 defmodule Google.Cloud.Speech.V2.GetPhraseSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1109,7 +1109,7 @@ end
 defmodule Google.Cloud.Speech.V2.UpdatePhraseSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phrase_set, 1,
     type: Google.Cloud.Speech.V2.PhraseSet,
@@ -1123,7 +1123,7 @@ end
 defmodule Google.Cloud.Speech.V2.DeletePhraseSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -1134,7 +1134,7 @@ end
 defmodule Google.Cloud.Speech.V2.UndeletePhraseSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly"
@@ -1144,7 +1144,7 @@ end
 defmodule Google.Cloud.Speech.V2.Speech.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.speech.v2.Speech", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.cloud.speech.v2.Speech", protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateRecognizer,
       Google.Cloud.Speech.V2.CreateRecognizerRequest,

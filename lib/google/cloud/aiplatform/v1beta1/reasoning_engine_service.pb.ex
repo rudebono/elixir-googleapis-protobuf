@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateReasoningEngineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateReasoningEngineOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetReasoningEngineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateReasoningEngineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reasoning_engine, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngine,
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateReasoningEngineOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListReasoningEnginesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListReasoningEnginesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reasoning_engines, 1,
     repeated: true,
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteReasoningEngineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -92,7 +92,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ReasoningEngineService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateReasoningEngine,
       Google.Cloud.Aiplatform.V1beta1.CreateReasoningEngineRequest,

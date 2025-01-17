@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Visionai.V1.Registry do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :REGISTRY_UNSPECIFIED, 0
   field :PUBLIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListOperatorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListOperatorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetOperatorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateOperatorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :operator_id, 2, type: :string, json_name: "operatorId", deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateOperatorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteOperatorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAnalysesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListAnalysesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :analyses, 1, repeated: true, type: Google.Cloud.Visionai.V1.Analysis
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetAnalysisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateAnalysisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :analysis_id, 2, type: :string, json_name: "analysisId", deprecated: false
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateAnalysisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteAnalysisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListProcessesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListProcessesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :processes, 1, repeated: true, type: Google.Cloud.Visionai.V1.Process
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetProcessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateProcessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :process_id, 2, type: :string, json_name: "processId", deprecated: false
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateProcessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteProcessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Visionai.V1.BatchRunProcessRequest.BatchRunProcessOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :retry_count, 1, type: :int32, json_name: "retryCount"
   field :batch_size, 2, type: :int32, json_name: "batchSize"
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Visionai.V1.BatchRunProcessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Visionai.V1.BatchRunProcessResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :batch_id, 1, type: :string, json_name: "batchId"
   field :processes, 2, repeated: true, type: Google.Cloud.Visionai.V1.Process
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ResolveOperatorInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Visionai.V1.OperatorQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operator, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ResolveOperatorInfoResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
 end
@@ -271,7 +271,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListPublicOperatorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListPublicOperatorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operators, 1, repeated: true, type: Google.Cloud.Visionai.V1.Operator
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -294,7 +294,7 @@ defmodule Google.Cloud.Visionai.V1.LiveVideoAnalytics.Service do
 
   use GRPC.Service,
     name: "google.cloud.visionai.v1.LiveVideoAnalytics",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListPublicOperators,
       Google.Cloud.Visionai.V1.ListPublicOperatorsRequest,

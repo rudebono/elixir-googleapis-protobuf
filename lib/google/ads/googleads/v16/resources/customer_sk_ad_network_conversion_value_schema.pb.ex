@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.FineGrainedConversionValueMappings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fine_grained_conversion_value, 1,
     type: :int32,
@@ -18,7 +18,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.PostbackMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :lock_window_trigger, 0
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.CoarseGrainedConversionValueMappings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :low_conversion_value_mapping, 1,
     type:
@@ -81,7 +81,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.ConversionValueMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_time_post_install_hours, 1,
     type: :int64,
@@ -104,7 +104,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.Event.RevenueRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_event_revenue, 3, type: :double, json_name: "minEventRevenue", deprecated: false
   field :max_event_revenue, 4, type: :double, json_name: "maxEventRevenue", deprecated: false
@@ -113,7 +113,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.Event.EventOccurrenceRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_event_count, 1, type: :int64, json_name: "minEventCount", deprecated: false
   field :max_event_count, 2, type: :int64, json_name: "maxEventCount", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :revenue_rate, 0
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema.SkAdNetworkConversionValueSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :app_id, 1, type: :string, json_name: "appId", deprecated: false
 
@@ -184,7 +184,7 @@ end
 defmodule Google.Ads.Googleads.V16.Resources.CustomerSkAdNetworkConversionValueSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 

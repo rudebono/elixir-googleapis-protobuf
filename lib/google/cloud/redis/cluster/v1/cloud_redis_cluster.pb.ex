@@ -1,7 +1,17 @@
+defmodule Google.Cloud.Redis.Cluster.V1.PscConnectionStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :PSC_CONNECTION_STATUS_UNSPECIFIED, 0
+  field :PSC_CONNECTION_STATUS_ACTIVE, 1
+  field :PSC_CONNECTION_STATUS_NOT_FOUND, 2
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.AuthorizationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AUTH_MODE_UNSPECIFIED, 0
   field :AUTH_MODE_IAM_AUTH, 1
@@ -11,7 +21,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.NodeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NODE_TYPE_UNSPECIFIED, 0
   field :REDIS_SHARED_CORE_NANO, 1
@@ -23,17 +33,28 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.TransitEncryptionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, 0
   field :TRANSIT_ENCRYPTION_MODE_DISABLED, 1
   field :TRANSIT_ENCRYPTION_MODE_SERVER_AUTHENTICATION, 2
 end
 
+defmodule Google.Cloud.Redis.Cluster.V1.ConnectionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :CONNECTION_TYPE_UNSPECIFIED, 0
+  field :CONNECTION_TYPE_DISCOVERY, 1
+  field :CONNECTION_TYPE_PRIMARY, 2
+  field :CONNECTION_TYPE_READER, 3
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.Cluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -42,10 +63,53 @@ defmodule Google.Cloud.Redis.Cluster.V1.Cluster.State do
   field :DELETING, 4
 end
 
+defmodule Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig.AutomatedBackupMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :AUTOMATED_BACKUP_MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.Backup.BackupType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :BACKUP_TYPE_UNSPECIFIED, 0
+  field :ON_DEMAND, 1
+  field :AUTOMATED, 2
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.Backup.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :DELETING, 3
+  field :SUSPENDED, 4
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.ClusterRole do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :CLUSTER_ROLE_UNSPECIFIED, 0
+  field :NONE, 1
+  field :PRIMARY, 2
+  field :SECONDARY, 3
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.PersistenceMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PERSISTENCE_MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -56,7 +120,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.RDBConfig.SnapshotPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SNAPSHOT_PERIOD_UNSPECIFIED, 0
   field :ONE_HOUR, 1
@@ -68,7 +132,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.AOFConfig.AppendFsync do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :APPEND_FSYNC_UNSPECIFIED, 0
   field :NO, 1
@@ -79,17 +143,53 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ZoneDistributionConfig.ZoneDistributionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ZONE_DISTRIBUTION_MODE_UNSPECIFIED, 0
   field :MULTI_ZONE, 1
   field :SINGLE_ZONE, 2
 end
 
+defmodule Google.Cloud.Redis.Cluster.V1.RescheduleClusterMaintenanceRequest.RescheduleType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :RESCHEDULE_TYPE_UNSPECIFIED, 0
+  field :IMMEDIATE, 1
+  field :SPECIFIC_TIME, 3
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.EncryptionInfo.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :GOOGLE_DEFAULT_ENCRYPTION, 1
+  field :CUSTOMER_MANAGED_ENCRYPTION, 2
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.EncryptionInfo.KmsKeyState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :KMS_KEY_STATE_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :PERMISSION_DENIED, 2
+  field :DISABLED, 3
+  field :DESTROYED, 4
+  field :DESTROY_SCHEDULED, 5
+  field :EKM_KEY_UNREACHABLE_DETECTED, 6
+  field :BILLING_DISABLED, 7
+  field :UNKNOWN_FAILURE, 8
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -100,7 +200,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -110,7 +210,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Redis.Cluster.V1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -120,7 +220,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -134,7 +234,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -142,7 +242,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId"
@@ -151,15 +251,110 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.GetClusterCertificateAuthorityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ListBackupCollectionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ListBackupCollectionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :backup_collections, 1,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.BackupCollection,
+    json_name: "backupCollections"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.GetBackupCollectionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ListBackupsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ListBackupsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :backups, 1, repeated: true, type: Google.Cloud.Redis.Cluster.V1.Backup
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.GetBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.DeleteBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ExportBackupRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :gcs_bucket, 3, type: :string, json_name: "gcsBucket", oneof: 0
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.BackupClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :ttl, 2, type: Google.Protobuf.Duration, deprecated: false
+
+  field :backup_id, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "backupId",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Redis.Cluster.V1.Cluster.StateInfo.UpdateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_shard_count, 1, proto3_optional: true, type: :int32, json_name: "targetShardCount"
 
@@ -172,7 +367,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.Cluster.StateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :info, 0
 
@@ -182,10 +377,26 @@ defmodule Google.Cloud.Redis.Cluster.V1.Cluster.StateInfo do
     oneof: 0
 end
 
+defmodule Google.Cloud.Redis.Cluster.V1.Cluster.GcsBackupSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :uris, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.Cluster.ManagedBackupSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :backup, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.Cluster.RedisConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -194,7 +405,21 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.Cluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :import_sources, 0
+
+  field :gcs_source, 34,
+    type: Google.Cloud.Redis.Cluster.V1.Cluster.GcsBackupSource,
+    json_name: "gcsSource",
+    oneof: 0,
+    deprecated: false
+
+  field :managed_backup_source, 35,
+    type: Google.Cloud.Redis.Cluster.V1.Cluster.ManagedBackupSource,
+    json_name: "managedBackupSource",
+    oneof: 0,
+    deprecated: false
 
   field :name, 1, type: :string, deprecated: false
 
@@ -288,17 +513,289 @@ defmodule Google.Cloud.Redis.Cluster.V1.Cluster do
     json_name: "zoneDistributionConfig",
     deprecated: false
 
+  field :cross_cluster_replication_config, 24,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig,
+    json_name: "crossClusterReplicationConfig",
+    deprecated: false
+
   field :deletion_protection_enabled, 25,
     proto3_optional: true,
     type: :bool,
     json_name: "deletionProtectionEnabled",
     deprecated: false
+
+  field :maintenance_policy, 26,
+    proto3_optional: true,
+    type: Google.Cloud.Redis.Cluster.V1.ClusterMaintenancePolicy,
+    json_name: "maintenancePolicy",
+    deprecated: false
+
+  field :maintenance_schedule, 27,
+    proto3_optional: true,
+    type: Google.Cloud.Redis.Cluster.V1.ClusterMaintenanceSchedule,
+    json_name: "maintenanceSchedule",
+    deprecated: false
+
+  field :psc_service_attachments, 30,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.PscServiceAttachment,
+    json_name: "pscServiceAttachments",
+    deprecated: false
+
+  field :cluster_endpoints, 36,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.ClusterEndpoint,
+    json_name: "clusterEndpoints",
+    deprecated: false
+
+  field :backup_collection, 39,
+    proto3_optional: true,
+    type: :string,
+    json_name: "backupCollection",
+    deprecated: false
+
+  field :kms_key, 40, proto3_optional: true, type: :string, json_name: "kmsKey", deprecated: false
+
+  field :automated_backup_config, 42,
+    type: Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig,
+    json_name: "automatedBackupConfig",
+    deprecated: false
+
+  field :encryption_info, 43,
+    type: Google.Cloud.Redis.Cluster.V1.EncryptionInfo,
+    json_name: "encryptionInfo",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig.FixedFrequencySchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :start_time, 2,
+    proto3_optional: true,
+    type: Google.Type.TimeOfDay,
+    json_name: "startTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :schedule, 0
+
+  field :fixed_frequency_schedule, 2,
+    type: Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig.FixedFrequencySchedule,
+    json_name: "fixedFrequencySchedule",
+    oneof: 0,
+    deprecated: false
+
+  field :automated_backup_mode, 1,
+    type: Google.Cloud.Redis.Cluster.V1.AutomatedBackupConfig.AutomatedBackupMode,
+    json_name: "automatedBackupMode",
+    enum: true,
+    deprecated: false
+
+  field :retention, 3, proto3_optional: true, type: Google.Protobuf.Duration, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.BackupCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :cluster_uid, 3, type: :string, json_name: "clusterUid", deprecated: false
+  field :cluster, 4, type: :string, deprecated: false
+  field :kms_key, 5, type: :string, json_name: "kmsKey", deprecated: false
+  field :uid, 6, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.Backup do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :cluster, 3, type: :string, deprecated: false
+  field :cluster_uid, 4, type: :string, json_name: "clusterUid", deprecated: false
+  field :total_size_bytes, 5, type: :int64, json_name: "totalSizeBytes", deprecated: false
+
+  field :expire_time, 6,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+
+  field :engine_version, 7, type: :string, json_name: "engineVersion", deprecated: false
+
+  field :backup_files, 8,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.BackupFile,
+    json_name: "backupFiles",
+    deprecated: false
+
+  field :node_type, 9,
+    type: Google.Cloud.Redis.Cluster.V1.NodeType,
+    json_name: "nodeType",
+    enum: true,
+    deprecated: false
+
+  field :replica_count, 10, type: :int32, json_name: "replicaCount", deprecated: false
+  field :shard_count, 11, type: :int32, json_name: "shardCount", deprecated: false
+
+  field :backup_type, 12,
+    type: Google.Cloud.Redis.Cluster.V1.Backup.BackupType,
+    json_name: "backupType",
+    enum: true,
+    deprecated: false
+
+  field :state, 13,
+    type: Google.Cloud.Redis.Cluster.V1.Backup.State,
+    enum: true,
+    deprecated: false
+
+  field :encryption_info, 14,
+    type: Google.Cloud.Redis.Cluster.V1.EncryptionInfo,
+    json_name: "encryptionInfo",
+    deprecated: false
+
+  field :uid, 15, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.BackupFile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :file_name, 1, type: :string, json_name: "fileName", deprecated: false
+  field :size_bytes, 2, type: :int64, json_name: "sizeBytes", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.PscServiceAttachment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :service_attachment, 1, type: :string, json_name: "serviceAttachment", deprecated: false
+
+  field :connection_type, 3,
+    type: Google.Cloud.Redis.Cluster.V1.ConnectionType,
+    json_name: "connectionType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.RemoteCluster do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :cluster, 1, type: :string, deprecated: false
+  field :uid, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.Membership do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :primary_cluster, 1,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.RemoteCluster,
+    json_name: "primaryCluster",
+    deprecated: false
+
+  field :secondary_clusters, 2,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.RemoteCluster,
+    json_name: "secondaryClusters",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :cluster_role, 1,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.ClusterRole,
+    json_name: "clusterRole",
+    enum: true
+
+  field :primary_cluster, 2,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.RemoteCluster,
+    json_name: "primaryCluster"
+
+  field :secondary_clusters, 3,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.RemoteCluster,
+    json_name: "secondaryClusters"
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :membership, 5,
+    type: Google.Cloud.Redis.Cluster.V1.CrossClusterReplicationConfig.Membership,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ClusterMaintenancePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :create_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :weekly_maintenance_window, 3,
+    repeated: true,
+    type: Google.Cloud.Redis.Cluster.V1.ClusterWeeklyMaintenanceWindow,
+    json_name: "weeklyMaintenanceWindow"
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ClusterWeeklyMaintenanceWindow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :day, 1, type: Google.Type.DayOfWeek, enum: true
+  field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime"
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ClusterMaintenanceSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
 end
 
 defmodule Google.Cloud.Redis.Cluster.V1.PscConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :network, 2, type: :string, deprecated: false
 end
@@ -306,7 +803,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.DiscoveryEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: :string, deprecated: false
   field :port, 2, type: :int32, deprecated: false
@@ -320,19 +817,83 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.PscConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :psc_connection_id, 1, type: :string, json_name: "pscConnectionId", deprecated: false
   field :address, 2, type: :string, deprecated: false
   field :forwarding_rule, 3, type: :string, json_name: "forwardingRule", deprecated: false
   field :project_id, 4, type: :string, json_name: "projectId", deprecated: false
-  field :network, 5, type: :string
+  field :network, 5, type: :string, deprecated: false
+  field :service_attachment, 6, type: :string, json_name: "serviceAttachment", deprecated: false
+
+  field :psc_connection_status, 8,
+    type: Google.Cloud.Redis.Cluster.V1.PscConnectionStatus,
+    json_name: "pscConnectionStatus",
+    enum: true,
+    deprecated: false
+
+  field :connection_type, 10,
+    type: Google.Cloud.Redis.Cluster.V1.ConnectionType,
+    json_name: "connectionType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ClusterEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :connections, 1, repeated: true, type: Google.Cloud.Redis.Cluster.V1.ConnectionDetail
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.ConnectionDetail do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :connection, 0
+
+  field :psc_auto_connection, 1,
+    type: Google.Cloud.Redis.Cluster.V1.PscAutoConnection,
+    json_name: "pscAutoConnection",
+    oneof: 0
+
+  field :psc_connection, 2,
+    type: Google.Cloud.Redis.Cluster.V1.PscConnection,
+    json_name: "pscConnection",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.PscAutoConnection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :psc_connection_id, 1, type: :string, json_name: "pscConnectionId", deprecated: false
+  field :address, 2, type: :string, deprecated: false
+  field :forwarding_rule, 3, type: :string, json_name: "forwardingRule", deprecated: false
+  field :project_id, 4, type: :string, json_name: "projectId", deprecated: false
+  field :network, 5, type: :string, deprecated: false
+  field :service_attachment, 6, type: :string, json_name: "serviceAttachment", deprecated: false
+
+  field :psc_connection_status, 8,
+    type: Google.Cloud.Redis.Cluster.V1.PscConnectionStatus,
+    json_name: "pscConnectionStatus",
+    enum: true,
+    deprecated: false
+
+  field :connection_type, 9,
+    type: Google.Cloud.Redis.Cluster.V1.ConnectionType,
+    json_name: "connectionType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Redis.Cluster.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -355,7 +916,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.CertificateAuthority.ManagedCertificateAuthority.CertChain do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: :string
 end
@@ -363,7 +924,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.CertificateAuthority.ManagedCertificateAuthority do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ca_certs, 1,
     repeated: true,
@@ -375,7 +936,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.CertificateAuthority do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :server_ca, 0
 
@@ -390,7 +951,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.RDBConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rdb_snapshot_period, 1,
     type: Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.RDBConfig.SnapshotPeriod,
@@ -407,7 +968,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.AOFConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :append_fsync, 1,
     type: Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.AOFConfig.AppendFsync,
@@ -419,7 +980,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Redis.Cluster.V1.ClusterPersistenceConfig.PersistenceMode,
@@ -440,7 +1001,7 @@ end
 defmodule Google.Cloud.Redis.Cluster.V1.ZoneDistributionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Redis.Cluster.V1.ZoneDistributionConfig.ZoneDistributionMode,
@@ -450,12 +1011,60 @@ defmodule Google.Cloud.Redis.Cluster.V1.ZoneDistributionConfig do
   field :zone, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Redis.Cluster.V1.RescheduleClusterMaintenanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :reschedule_type, 2,
+    type: Google.Cloud.Redis.Cluster.V1.RescheduleClusterMaintenanceRequest.RescheduleType,
+    json_name: "rescheduleType",
+    enum: true,
+    deprecated: false
+
+  field :schedule_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Redis.Cluster.V1.EncryptionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :encryption_type, 1,
+    type: Google.Cloud.Redis.Cluster.V1.EncryptionInfo.Type,
+    json_name: "encryptionType",
+    enum: true,
+    deprecated: false
+
+  field :kms_key_versions, 2,
+    repeated: true,
+    type: :string,
+    json_name: "kmsKeyVersions",
+    deprecated: false
+
+  field :kms_key_primary_state, 3,
+    type: Google.Cloud.Redis.Cluster.V1.EncryptionInfo.KmsKeyState,
+    json_name: "kmsKeyPrimaryState",
+    enum: true,
+    deprecated: false
+
+  field :last_update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastUpdateTime",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Redis.Cluster.V1.CloudRedisCluster.Service do
   @moduledoc false
 
   use GRPC.Service,
     name: "google.cloud.redis.cluster.v1.CloudRedisCluster",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListClusters,
       Google.Cloud.Redis.Cluster.V1.ListClustersRequest,
@@ -480,6 +1089,38 @@ defmodule Google.Cloud.Redis.Cluster.V1.CloudRedisCluster.Service do
   rpc :GetClusterCertificateAuthority,
       Google.Cloud.Redis.Cluster.V1.GetClusterCertificateAuthorityRequest,
       Google.Cloud.Redis.Cluster.V1.CertificateAuthority
+
+  rpc :RescheduleClusterMaintenance,
+      Google.Cloud.Redis.Cluster.V1.RescheduleClusterMaintenanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListBackupCollections,
+      Google.Cloud.Redis.Cluster.V1.ListBackupCollectionsRequest,
+      Google.Cloud.Redis.Cluster.V1.ListBackupCollectionsResponse
+
+  rpc :GetBackupCollection,
+      Google.Cloud.Redis.Cluster.V1.GetBackupCollectionRequest,
+      Google.Cloud.Redis.Cluster.V1.BackupCollection
+
+  rpc :ListBackups,
+      Google.Cloud.Redis.Cluster.V1.ListBackupsRequest,
+      Google.Cloud.Redis.Cluster.V1.ListBackupsResponse
+
+  rpc :GetBackup,
+      Google.Cloud.Redis.Cluster.V1.GetBackupRequest,
+      Google.Cloud.Redis.Cluster.V1.Backup
+
+  rpc :DeleteBackup,
+      Google.Cloud.Redis.Cluster.V1.DeleteBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportBackup,
+      Google.Cloud.Redis.Cluster.V1.ExportBackupRequest,
+      Google.Longrunning.Operation
+
+  rpc :BackupCluster,
+      Google.Cloud.Redis.Cluster.V1.BackupClusterRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Redis.Cluster.V1.CloudRedisCluster.Stub do

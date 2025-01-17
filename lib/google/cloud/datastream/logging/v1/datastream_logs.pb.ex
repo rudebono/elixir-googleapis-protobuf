@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datastream.Logging.V1.StreamActivityLogEntry.StreamStateChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :new_state, 1,
     type: Google.Cloud.Datastream.V1.Stream.State,
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Datastream.Logging.V1.StreamActivityLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :event_payload, 0
 

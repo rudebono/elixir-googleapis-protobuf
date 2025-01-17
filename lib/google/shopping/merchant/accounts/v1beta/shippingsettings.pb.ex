@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.ShipmentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SHIPMENT_TYPE_UNSPECIFIED, 0
   field :DELIVERY, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.StoreConfig.StoreServiceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STORE_SERVICE_TYPE_UNSPECIFIED, 0
   field :ALL_STORES, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Distance.Unit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNIT_UNSPECIFIED, 0
   field :MILES, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessDayConfig.Weekday do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :WEEKDAY_UNSPECIFIED, 0
   field :MONDAY, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ShippingSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.StoreConfig.CutoffConfig.LocalCutoffTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hour, 1, proto3_optional: true, type: :int64
   field :minute, 2, proto3_optional: true, type: :int64
@@ -76,7 +76,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.StoreConfig.CutoffConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :local_cutoff_time, 1,
     proto3_optional: true,
@@ -98,7 +98,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.StoreConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :store_service_type, 1,
     proto3_optional: true,
@@ -122,7 +122,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.LoyaltyProgram.LoyaltyProgramTiers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tier_label, 1, proto3_optional: true, type: :string, json_name: "tierLabel"
 end
@@ -130,7 +130,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service.LoyaltyProgram do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :program_label, 1, proto3_optional: true, type: :string, json_name: "programLabel"
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Service do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_name, 1,
     proto3_optional: true,
@@ -205,7 +205,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Distance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :int64
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Warehouse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -249,7 +249,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.WarehouseCutoffTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hour, 1, proto3_optional: true, type: :int32, deprecated: false
   field :minute, 2, proto3_optional: true, type: :int32, deprecated: false
@@ -258,7 +258,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Address do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :street_address, 1, proto3_optional: true, type: :string, json_name: "streetAddress"
   field :city, 2, proto3_optional: true, type: :string, deprecated: false
@@ -285,7 +285,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DeliveryTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_transit_days, 1, proto3_optional: true, type: :int32, json_name: "minTransitDays"
   field :max_transit_days, 2, proto3_optional: true, type: :int32, json_name: "maxTransitDays"
@@ -323,7 +323,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CutoffTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :hour, 1, proto3_optional: true, type: :int32, deprecated: false
   field :minute, 2, proto3_optional: true, type: :int32, deprecated: false
@@ -338,7 +338,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessDayConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :business_days, 1,
     repeated: true,
@@ -351,7 +351,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.WarehouseBasedDeliveryTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :carrier, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -367,7 +367,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.RateGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :applicable_shipping_labels, 1,
     repeated: true,
@@ -402,7 +402,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Table do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, proto3_optional: true, type: :string
 
@@ -426,7 +426,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.TransitTable.TransitTimeRow.TransitTimeValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_transit_days, 1, proto3_optional: true, type: :int32, json_name: "minTransitDays"
   field :max_transit_days, 2, proto3_optional: true, type: :int32, json_name: "maxTransitDays"
@@ -435,7 +435,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.TransitTable.TransitTimeRow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -446,7 +446,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.TransitTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :postal_code_group_names, 1,
     repeated: true,
@@ -469,7 +469,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.MinimumOrderValueTable.StoreCodeSetWithMov do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :store_codes, 1, repeated: true, type: :string, json_name: "storeCodes", deprecated: false
   field :value, 2, proto3_optional: true, type: Google.Shopping.Type.Price
@@ -478,7 +478,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.MinimumOrderValueTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :store_code_set_with_movs, 1,
     repeated: true,
@@ -490,7 +490,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Headers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :prices, 1, repeated: true, type: Google.Shopping.Type.Price, deprecated: false
   field :weights, 2, repeated: true, type: Google.Shopping.Type.Weight, deprecated: false
@@ -516,7 +516,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.LocationIdSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_ids, 1,
     repeated: true,
@@ -528,7 +528,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cells, 1,
     repeated: true,
@@ -539,7 +539,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :no_shipping, 1, proto3_optional: true, type: :bool, json_name: "noShipping"
 
@@ -556,7 +556,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CarrierRate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, proto3_optional: true, type: :string, deprecated: false
   field :carrier, 2, proto3_optional: true, type: :string, deprecated: false
@@ -589,7 +589,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetShippingSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -597,7 +597,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.InsertShippingSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -612,7 +612,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.ShippingSettingsService.Servi
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.ShippingSettingsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetShippingSettings,
       Google.Shopping.Merchant.Accounts.V1beta.GetShippingSettingsRequest,

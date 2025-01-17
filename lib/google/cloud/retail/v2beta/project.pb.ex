@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.AlertConfig.AlertPolicy.EnrollStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENROLL_STATUS_UNSPECIFIED, 0
   field :ENROLLED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.AlertConfig.AlertPolicy.Recipient do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.AlertConfig.AlertPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :alert_group, 1, type: :string, json_name: "alertGroup"
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.AlertConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

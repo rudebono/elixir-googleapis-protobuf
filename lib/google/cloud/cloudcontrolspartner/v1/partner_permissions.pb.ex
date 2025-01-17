@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1.PartnerPermissions.Permission do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PERMISSION_UNSPECIFIED, 0
   field :ACCESS_TRANSPARENCY_AND_EMERGENCY_ACCESS_LOGS, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.PartnerPermissions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.GetPartnerPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

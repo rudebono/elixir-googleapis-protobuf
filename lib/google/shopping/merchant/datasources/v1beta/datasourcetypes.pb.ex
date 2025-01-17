@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Channel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CHANNEL_UNSPECIFIED, 0
   field :ONLINE_PRODUCTS, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.DefaultRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :take_from_data_sources, 1,
     repeated: true,
@@ -24,7 +24,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :channel, 3,
     type: Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Channel,
@@ -54,7 +54,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.SupplementalProductDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feed_label, 4,
     proto3_optional: true,
@@ -78,7 +78,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.LocalInventoryDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feed_label, 4, type: :string, json_name: "feedLabel", deprecated: false
   field :content_language, 5, type: :string, json_name: "contentLanguage", deprecated: false
@@ -87,7 +87,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.RegionalInventoryDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feed_label, 4, type: :string, json_name: "feedLabel", deprecated: false
   field :content_language, 5, type: :string, json_name: "contentLanguage", deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PromotionDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_country, 1, type: :string, json_name: "targetCountry", deprecated: false
   field :content_language, 2, type: :string, json_name: "contentLanguage", deprecated: false
@@ -105,19 +105,19 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.ProductReviewDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Datasources.V1beta.MerchantReviewDataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSourceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :data_source_id, 0
 

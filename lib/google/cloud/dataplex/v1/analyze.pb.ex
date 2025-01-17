@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.Content.SqlScript.QueryEngine do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :QUERY_ENGINE_UNSPECIFIED, 0
   field :SPARK, 2
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Content.Notebook.KernelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :KERNEL_TYPE_UNSPECIFIED, 0
   field :PYTHON3, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.ComputeResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :disk_size_gb, 1, type: :int32, json_name: "diskSizeGb", deprecated: false
   field :node_count, 2, type: :int32, json_name: "nodeCount", deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec.OsImageRuntime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :image_version, 1, type: :string, json_name: "imageVersion", deprecated: false
 
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.InfrastructureSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :resources, 0
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.SessionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_idle_duration, 1,
     type: Google.Protobuf.Duration,
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.SessionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :active, 1, type: :bool, deprecated: false
 end
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.Endpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebooks, 1, type: :string, deprecated: false
   field :sql, 2, type: :string, deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Environment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Content.SqlScript do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :engine, 1,
     type: Google.Cloud.Dataplex.V1.Content.SqlScript.QueryEngine,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Content.Notebook do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kernel_type, 1,
     type: Google.Cloud.Dataplex.V1.Content.Notebook.KernelType,
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Content.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Content do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -242,7 +242,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Session do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :user_id, 2, type: :string, json_name: "userId", deprecated: false

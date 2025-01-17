@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureOnlineStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetFeatureOnlineStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureOnlineStoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureOnlineStoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_online_stores, 1,
     repeated: true,
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureOnlineStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_online_store, 1,
     type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore,
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteFeatureOnlineStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetFeatureViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureViewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureViewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_views, 1,
     repeated: true,
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_view, 1,
     type: Google.Cloud.Aiplatform.V1.FeatureView,
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteFeatureViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureOnlineStoreOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureOnlineStoreOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureViewOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureViewOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SyncFeatureViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
 end
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SyncFeatureViewResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_view_sync, 1, type: :string, json_name: "featureViewSync"
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetFeatureViewSyncRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureViewSyncsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureViewSyncsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :feature_view_syncs, 1,
     repeated: true,
@@ -235,7 +235,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStoreAdminService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.FeatureOnlineStoreAdminService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateFeatureOnlineStore,
       Google.Cloud.Aiplatform.V1.CreateFeatureOnlineStoreRequest,

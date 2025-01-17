@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec.ConnectionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONNECTION_TYPE_UNSPECIFIED, 0
   field :CLOUD_SQL, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CloudSqlBigQueryConnectionSpec.DatabaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :POSTGRES, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.BigQueryConnectionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :connection_spec, 0
 
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.CloudSqlBigQueryConnectionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :database, 2, type: :string
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.BigQueryRoutineSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :imported_libraries, 1, repeated: true, type: :string, json_name: "importedLibraries"
 end

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetEntitySignalsMappingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListEntitySignalsMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Admanager.V1.CreateEntitySignalsMappingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Admanager.V1.UpdateEntitySignalsMappingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity_signals_mapping, 1,
     type: Google.Ads.Admanager.V1.EntitySignalsMapping,
@@ -51,7 +51,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListEntitySignalsMappingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity_signals_mappings, 1,
     repeated: true,
@@ -65,7 +65,7 @@ end
 defmodule Google.Ads.Admanager.V1.BatchCreateEntitySignalsMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -78,7 +78,7 @@ end
 defmodule Google.Ads.Admanager.V1.BatchCreateEntitySignalsMappingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity_signals_mappings, 1,
     repeated: true,
@@ -89,7 +89,7 @@ end
 defmodule Google.Ads.Admanager.V1.BatchUpdateEntitySignalsMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -102,7 +102,7 @@ end
 defmodule Google.Ads.Admanager.V1.BatchUpdateEntitySignalsMappingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity_signals_mappings, 1,
     repeated: true,
@@ -115,7 +115,7 @@ defmodule Google.Ads.Admanager.V1.EntitySignalsMappingService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.EntitySignalsMappingService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetEntitySignalsMapping,
       Google.Ads.Admanager.V1.GetEntitySignalsMappingRequest,

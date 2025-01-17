@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Collector.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_INITIALIZING, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Annotation.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TYPE_LEGACY_EXPORT_CONSENT, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.GuestOsScan do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :core_source, 1, type: :string, json_name: "coreSource"
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.VSphereScan do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :core_source, 1, type: :string, json_name: "coreSource"
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Collector.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Collector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Annotation.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.Annotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Billing.Budgets.V1.CreateBudgetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :budget, 2, type: Google.Cloud.Billing.Budgets.V1.Budget, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1.UpdateBudgetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :budget, 1, type: Google.Cloud.Billing.Budgets.V1.Budget, deprecated: false
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1.GetBudgetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :scope, 4, type: :string, deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1.ListBudgetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :budgets, 1, repeated: true, type: Google.Cloud.Billing.Budgets.V1.Budget
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1.DeleteBudgetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ defmodule Google.Cloud.Billing.Budgets.V1.BudgetService.Service do
 
   use GRPC.Service,
     name: "google.cloud.billing.budgets.v1.BudgetService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateBudget,
       Google.Cloud.Billing.Budgets.V1.CreateBudgetRequest,

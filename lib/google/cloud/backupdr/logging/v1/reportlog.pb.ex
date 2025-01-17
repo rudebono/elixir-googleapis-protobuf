@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.Logging.V1.BackupRecoveryJobReportLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :job_name, 1, type: :string, json_name: "jobName"
   field :job_category, 2, type: :string, json_name: "jobCategory"
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.UnprotectedResourceReportLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :host_name, 1, type: :string, json_name: "hostName"
   field :resource_name, 2, type: :string, json_name: "resourceName"
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.DailyScheduleComplianceReportLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
   field :resource_type, 2, type: :string, json_name: "resourceType"
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BackupStorageUtilizationReportLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :appliance_name, 1, type: :string, json_name: "applianceName"
   field :storage_type, 2, type: :string, json_name: "storageType"
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.ProtectedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName"
   field :resource_type, 2, type: :string, json_name: "resourceType"
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.MountedImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_resource_name, 1, type: :string, json_name: "sourceResourceName"
   field :source_resource_id, 2, type: :string, json_name: "sourceResourceId"
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.ConnectorVersionReportLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :appliance_name, 1, type: :string, json_name: "applianceName"
   field :appliance_id, 2, type: :string, json_name: "applianceId"

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Common.CpcBidSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1, repeated: true, type: Google.Ads.Googleads.V17.Common.CpcBidSimulationPoint
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.CpvBidSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1, repeated: true, type: Google.Ads.Googleads.V17.Common.CpvBidSimulationPoint
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetCpaSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1, repeated: true, type: Google.Ads.Googleads.V17.Common.TargetCpaSimulationPoint
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetRoasSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1,
     repeated: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.PercentCpcBidSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1,
     repeated: true,
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.BudgetSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1, repeated: true, type: Google.Ads.Googleads.V17.Common.BudgetSimulationPoint
 end
@@ -53,7 +53,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetImpressionShareSimulationPointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1,
     repeated: true,
@@ -63,7 +63,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.CpcBidSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cpc_simulation_key_value, 0
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.CpvBidSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cpv_bid_micros, 5, proto3_optional: true, type: :int64, json_name: "cpvBidMicros"
   field :cost_micros, 6, proto3_optional: true, type: :int64, json_name: "costMicros"
@@ -106,7 +106,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetCpaSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :target_cpa_simulation_key_value, 0
 
@@ -145,7 +145,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetRoasSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_roas, 8, proto3_optional: true, type: :double, json_name: "targetRoas"
   field :required_budget_amount_micros, 15, type: :int64, json_name: "requiredBudgetAmountMicros"
@@ -173,7 +173,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.PercentCpcBidSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :percent_cpc_bid_micros, 1,
     proto3_optional: true,
@@ -203,7 +203,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.BudgetSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :budget_amount_micros, 1, type: :int64, json_name: "budgetAmountMicros"
 
@@ -223,7 +223,7 @@ end
 defmodule Google.Ads.Googleads.V17.Common.TargetImpressionShareSimulationPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target_impression_share_micros, 1, type: :int64, json_name: "targetImpressionShareMicros"
 

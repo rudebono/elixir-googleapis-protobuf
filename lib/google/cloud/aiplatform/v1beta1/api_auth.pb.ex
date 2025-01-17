@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ApiAuth.ApiKeyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_key_secret_version, 1,
     type: :string,
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ApiAuth do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :auth_config, 0
 

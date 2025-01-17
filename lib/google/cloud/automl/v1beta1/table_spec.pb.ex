@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.TableSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :time_column_spec_id, 2, type: :string, json_name: "timeColumnSpecId"

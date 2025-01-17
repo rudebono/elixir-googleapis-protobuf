@@ -1,7 +1,7 @@
 defmodule Google.Api.Servicecontrol.V1.Distribution.LinearBuckets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :width, 2, type: :double
@@ -11,7 +11,7 @@ end
 defmodule Google.Api.Servicecontrol.V1.Distribution.ExponentialBuckets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :num_finite_buckets, 1, type: :int32, json_name: "numFiniteBuckets"
   field :growth_factor, 2, type: :double, json_name: "growthFactor"
@@ -21,7 +21,7 @@ end
 defmodule Google.Api.Servicecontrol.V1.Distribution.ExplicitBuckets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bounds, 1, repeated: true, type: :double
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Api.Servicecontrol.V1.Distribution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :bucket_option, 0
 

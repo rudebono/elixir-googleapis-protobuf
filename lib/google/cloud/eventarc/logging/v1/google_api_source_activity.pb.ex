@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Eventarc.Logging.V1.GoogleApiSourceActivity.Published do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :message_bus, 1, type: :string, json_name: "messageBus"
   field :event_provider, 2, type: :string, json_name: "eventProvider"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.GoogleApiSourceActivity.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Eventarc.Logging.V1.GoogleApiSourceActivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :activity, 0
 

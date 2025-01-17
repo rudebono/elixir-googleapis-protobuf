@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Run.V2.SubmitBuildRequest.DockerBuild do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Run.V2.SubmitBuildRequest.BuildpacksBuild.EnvironmentVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Run.V2.SubmitBuildRequest.BuildpacksBuild do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :runtime, 1, type: :string, deprecated: true
   field :function_target, 2, type: :string, json_name: "functionTarget", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Run.V2.SubmitBuildRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Run.V2.SubmitBuildResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :build_operation, 1, type: Google.Longrunning.Operation, json_name: "buildOperation"
   field :base_image_uri, 2, type: :string, json_name: "baseImageUri"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Run.V2.StorageSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Run.V2.Builds.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.run.v2.Builds", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.cloud.run.v2.Builds", protoc_gen_elixir_version: "0.14.0"
 
   rpc :SubmitBuild,
       Google.Cloud.Run.V2.SubmitBuildRequest,

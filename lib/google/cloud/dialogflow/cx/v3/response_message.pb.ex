@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.ResponseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RESPONSE_TYPE_UNSPECIFIED, 0
   field :ENTRY_PROMPT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.Text do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string, deprecated: false
 
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.LiveAgentHandoff do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.ConversationSuccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.OutputAudioText do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -57,13 +57,13 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.EndInteraction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.PlayAudio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :audio_uri, 1, type: :string, json_name: "audioUri", deprecated: false
 
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.MixedAudio.Segment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.MixedAudio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :segments, 1,
     repeated: true,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :endpoint, 0
 
@@ -112,13 +112,13 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage.KnowledgeInfoCard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ResponseMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :message, 0
 

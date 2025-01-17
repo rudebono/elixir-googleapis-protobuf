@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.ComputeTokensRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TokensInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tokens, 1, repeated: true, type: :bytes
   field :token_ids, 2, repeated: true, type: :int64, json_name: "tokenIds"
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ComputeTokensResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tokens_info, 1,
     repeated: true,
@@ -35,7 +35,7 @@ defmodule Google.Cloud.Aiplatform.V1.LlmUtilityService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.LlmUtilityService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CountTokens,
       Google.Cloud.Aiplatform.V1.CountTokensRequest,

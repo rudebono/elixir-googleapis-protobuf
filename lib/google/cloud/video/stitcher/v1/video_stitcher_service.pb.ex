@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.CreateCdnKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListCdnKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListCdnKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cdn_keys, 1,
     repeated: true,
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetCdnKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.DeleteCdnKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.UpdateCdnKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cdn_key, 1,
     type: Google.Cloud.Video.Stitcher.V1.CdnKey,
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CreateVodSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetVodSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodStitchDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodStitchDetailsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vod_stitch_details, 1,
     repeated: true,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetVodStitchDetailRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodAdTagDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodAdTagDetailsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vod_ad_tag_details, 1,
     repeated: true,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetVodAdTagDetailRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListLiveAdTagDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListLiveAdTagDetailsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :live_ad_tag_details, 1,
     repeated: true,
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetLiveAdTagDetailRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CreateSlateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :slate_id, 2, type: :string, json_name: "slateId", deprecated: false
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetSlateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListSlatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListSlatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :slates, 1, repeated: true, type: Google.Cloud.Video.Stitcher.V1.Slate
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.UpdateSlateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :slate, 1, type: Google.Cloud.Video.Stitcher.V1.Slate, deprecated: false
 
@@ -242,7 +242,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.DeleteSlateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CreateLiveSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetLiveSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -271,7 +271,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CreateLiveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :live_config_id, 2, type: :string, json_name: "liveConfigId", deprecated: false
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListLiveConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListLiveConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :live_configs, 1,
     repeated: true,
@@ -313,7 +313,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetLiveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -321,7 +321,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.DeleteLiveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -329,7 +329,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.UpdateLiveConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :live_config, 1,
     type: Google.Cloud.Video.Stitcher.V1.LiveConfig,
@@ -345,7 +345,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CreateVodConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :vod_config_id, 2, type: :string, json_name: "vodConfigId", deprecated: false
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.ListVodConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vod_configs, 1,
     repeated: true,
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GetVodConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -395,7 +395,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.DeleteVodConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -403,7 +403,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.UpdateVodConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vod_config, 1,
     type: Google.Cloud.Video.Stitcher.V1.VodConfig,
@@ -419,7 +419,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -432,7 +432,7 @@ defmodule Google.Cloud.Video.Stitcher.V1.VideoStitcherService.Service do
 
   use GRPC.Service,
     name: "google.cloud.video.stitcher.v1.VideoStitcherService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateCdnKey,
       Google.Cloud.Video.Stitcher.V1.CreateCdnKeyRequest,

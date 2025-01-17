@@ -1,7 +1,7 @@
 defmodule Google.Storage.V2.ServiceConstants.Values do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VALUES_UNSPECIFIED, 0
   field :MAX_READ_CHUNK_BYTES, 2_097_152
@@ -26,7 +26,7 @@ end
 defmodule Google.Storage.V2.DeleteBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Storage.V2.GetBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Storage.V2.CreateBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :bucket, 2, type: Google.Storage.V2.Bucket
@@ -79,7 +79,7 @@ end
 defmodule Google.Storage.V2.ListBucketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -95,7 +95,7 @@ end
 defmodule Google.Storage.V2.ListBucketsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :buckets, 1, repeated: true, type: Google.Storage.V2.Bucket
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -104,7 +104,7 @@ end
 defmodule Google.Storage.V2.LockBucketRetentionPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Storage.V2.UpdateBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: Google.Storage.V2.Bucket, deprecated: false
 
@@ -143,7 +143,7 @@ end
 defmodule Google.Storage.V2.ComposeObjectRequest.SourceObject.ObjectPreconditions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :if_generation_match, 1,
     proto3_optional: true,
@@ -154,7 +154,7 @@ end
 defmodule Google.Storage.V2.ComposeObjectRequest.SourceObject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :generation, 2, type: :int64
@@ -167,7 +167,7 @@ end
 defmodule Google.Storage.V2.ComposeObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :destination, 1, type: Google.Storage.V2.Object, deprecated: false
 
@@ -202,7 +202,7 @@ end
 defmodule Google.Storage.V2.DeleteObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -236,7 +236,7 @@ end
 defmodule Google.Storage.V2.RestoreObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -273,7 +273,7 @@ end
 defmodule Google.Storage.V2.CancelResumableWriteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :upload_id, 1, type: :string, json_name: "uploadId", deprecated: false
 end
@@ -281,13 +281,13 @@ end
 defmodule Google.Storage.V2.CancelResumableWriteResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Storage.V2.ReadObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -328,7 +328,7 @@ end
 defmodule Google.Storage.V2.GetObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -370,7 +370,7 @@ end
 defmodule Google.Storage.V2.ReadObjectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :checksummed_data, 1,
     type: Google.Storage.V2.ChecksummedData,
@@ -387,7 +387,7 @@ end
 defmodule Google.Storage.V2.BidiReadObjectSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -434,7 +434,7 @@ end
 defmodule Google.Storage.V2.BidiReadObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :read_object_spec, 1,
     type: Google.Storage.V2.BidiReadObjectSpec,
@@ -449,7 +449,7 @@ end
 defmodule Google.Storage.V2.BidiReadObjectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :object_data_ranges, 6,
     repeated: true,
@@ -463,7 +463,7 @@ end
 defmodule Google.Storage.V2.BidiReadObjectRedirectedError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :read_handle, 1, type: Google.Storage.V2.BidiReadHandle, json_name: "readHandle"
   field :routing_token, 2, proto3_optional: true, type: :string, json_name: "routingToken"
@@ -472,7 +472,7 @@ end
 defmodule Google.Storage.V2.BidiWriteObjectRedirectedError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routing_token, 1, proto3_optional: true, type: :string, json_name: "routingToken"
 
@@ -487,7 +487,7 @@ end
 defmodule Google.Storage.V2.BidiReadObjectError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :read_range_errors, 1,
     repeated: true,
@@ -498,7 +498,7 @@ end
 defmodule Google.Storage.V2.ReadRangeError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :read_id, 1, type: :int64, json_name: "readId"
   field :status, 2, type: Google.Rpc.Status
@@ -507,7 +507,7 @@ end
 defmodule Google.Storage.V2.ReadRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :read_offset, 1, type: :int64, json_name: "readOffset", deprecated: false
   field :read_length, 2, type: :int64, json_name: "readLength", deprecated: false
@@ -517,7 +517,7 @@ end
 defmodule Google.Storage.V2.ObjectRangeData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :checksummed_data, 1,
     type: Google.Storage.V2.ChecksummedData,
@@ -530,7 +530,7 @@ end
 defmodule Google.Storage.V2.BidiReadHandle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :handle, 1, type: :bytes, deprecated: false
 end
@@ -538,7 +538,7 @@ end
 defmodule Google.Storage.V2.BidiWriteHandle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :handle, 1, type: :bytes, deprecated: false
 end
@@ -546,7 +546,7 @@ end
 defmodule Google.Storage.V2.WriteObjectSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource, 1, type: Google.Storage.V2.Object, deprecated: false
   field :predefined_acl, 7, type: :string, json_name: "predefinedAcl"
@@ -578,7 +578,7 @@ end
 defmodule Google.Storage.V2.WriteObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :first_message, 0
 
@@ -612,7 +612,7 @@ end
 defmodule Google.Storage.V2.WriteObjectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :write_status, 0
 
@@ -623,7 +623,7 @@ end
 defmodule Google.Storage.V2.AppendObjectSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -650,7 +650,7 @@ end
 defmodule Google.Storage.V2.BidiWriteObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :first_message, 0
 
@@ -691,7 +691,7 @@ end
 defmodule Google.Storage.V2.BidiWriteObjectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :write_status, 0
 
@@ -707,7 +707,7 @@ end
 defmodule Google.Storage.V2.ListObjectsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -741,7 +741,7 @@ end
 defmodule Google.Storage.V2.QueryWriteStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :upload_id, 1, type: :string, json_name: "uploadId", deprecated: false
 
@@ -753,7 +753,7 @@ end
 defmodule Google.Storage.V2.QueryWriteStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :write_status, 0
 
@@ -764,7 +764,7 @@ end
 defmodule Google.Storage.V2.RewriteObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :destination_name, 24, type: :string, json_name: "destinationName", deprecated: false
   field :destination_bucket, 25, type: :string, json_name: "destinationBucket", deprecated: false
@@ -842,7 +842,7 @@ end
 defmodule Google.Storage.V2.RewriteResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :total_bytes_rewritten, 1, type: :int64, json_name: "totalBytesRewritten"
   field :object_size, 2, type: :int64, json_name: "objectSize"
@@ -854,7 +854,7 @@ end
 defmodule Google.Storage.V2.MoveObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :source_object, 2, type: :string, json_name: "sourceObject", deprecated: false
@@ -912,7 +912,7 @@ end
 defmodule Google.Storage.V2.StartResumableWriteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :write_object_spec, 1,
     type: Google.Storage.V2.WriteObjectSpec,
@@ -931,7 +931,7 @@ end
 defmodule Google.Storage.V2.StartResumableWriteResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :upload_id, 1, type: :string, json_name: "uploadId"
 end
@@ -939,7 +939,7 @@ end
 defmodule Google.Storage.V2.UpdateObjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :object, 1, type: Google.Storage.V2.Object, deprecated: false
 
@@ -978,7 +978,7 @@ end
 defmodule Google.Storage.V2.CommonObjectRequestParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :encryption_algorithm, 1, type: :string, json_name: "encryptionAlgorithm"
   field :encryption_key_bytes, 4, type: :bytes, json_name: "encryptionKeyBytes"
@@ -988,13 +988,13 @@ end
 defmodule Google.Storage.V2.ServiceConstants do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Storage.V2.Bucket.Billing do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :requester_pays, 1, type: :bool, json_name: "requesterPays"
 end
@@ -1002,7 +1002,7 @@ end
 defmodule Google.Storage.V2.Bucket.Cors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :origin, 1, repeated: true, type: :string
   field :method, 2, repeated: true, type: :string
@@ -1013,7 +1013,7 @@ end
 defmodule Google.Storage.V2.Bucket.Encryption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :default_kms_key, 1, type: :string, json_name: "defaultKmsKey", deprecated: false
 end
@@ -1021,7 +1021,7 @@ end
 defmodule Google.Storage.V2.Bucket.IamConfig.UniformBucketLevelAccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :lock_time, 2, type: Google.Protobuf.Timestamp, json_name: "lockTime"
@@ -1030,7 +1030,7 @@ end
 defmodule Google.Storage.V2.Bucket.IamConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uniform_bucket_level_access, 1,
     type: Google.Storage.V2.Bucket.IamConfig.UniformBucketLevelAccess,
@@ -1042,7 +1042,7 @@ end
 defmodule Google.Storage.V2.Bucket.Lifecycle.Rule.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: :string
   field :storage_class, 2, type: :string, json_name: "storageClass"
@@ -1051,7 +1051,7 @@ end
 defmodule Google.Storage.V2.Bucket.Lifecycle.Rule.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :age_days, 1, proto3_optional: true, type: :int32, json_name: "ageDays"
   field :created_before, 2, type: Google.Type.Date, json_name: "createdBefore"
@@ -1079,7 +1079,7 @@ end
 defmodule Google.Storage.V2.Bucket.Lifecycle.Rule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :action, 1, type: Google.Storage.V2.Bucket.Lifecycle.Rule.Action
   field :condition, 2, type: Google.Storage.V2.Bucket.Lifecycle.Rule.Condition
@@ -1088,7 +1088,7 @@ end
 defmodule Google.Storage.V2.Bucket.Lifecycle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rule, 1, repeated: true, type: Google.Storage.V2.Bucket.Lifecycle.Rule
 end
@@ -1096,7 +1096,7 @@ end
 defmodule Google.Storage.V2.Bucket.Logging do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :log_bucket, 1, type: :string, json_name: "logBucket"
   field :log_object_prefix, 2, type: :string, json_name: "logObjectPrefix"
@@ -1105,7 +1105,7 @@ end
 defmodule Google.Storage.V2.Bucket.RetentionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :is_locked, 2, type: :bool, json_name: "isLocked"
@@ -1115,7 +1115,7 @@ end
 defmodule Google.Storage.V2.Bucket.SoftDeletePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :retention_duration, 1,
     proto3_optional: true,
@@ -1131,7 +1131,7 @@ end
 defmodule Google.Storage.V2.Bucket.Versioning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -1139,7 +1139,7 @@ end
 defmodule Google.Storage.V2.Bucket.Website do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :main_page_suffix, 1, type: :string, json_name: "mainPageSuffix"
   field :not_found_page, 2, type: :string, json_name: "notFoundPage"
@@ -1148,7 +1148,7 @@ end
 defmodule Google.Storage.V2.Bucket.CustomPlacementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_locations, 1, repeated: true, type: :string, json_name: "dataLocations"
 end
@@ -1156,7 +1156,7 @@ end
 defmodule Google.Storage.V2.Bucket.Autoclass do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -1180,7 +1180,7 @@ end
 defmodule Google.Storage.V2.Bucket.HierarchicalNamespace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enabled, 1, type: :bool, deprecated: false
 end
@@ -1188,7 +1188,7 @@ end
 defmodule Google.Storage.V2.Bucket.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1197,7 +1197,7 @@ end
 defmodule Google.Storage.V2.Bucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :bucket_id, 2, type: :string, json_name: "bucketId", deprecated: false
@@ -1265,7 +1265,7 @@ end
 defmodule Google.Storage.V2.BucketAccessControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :id, 2, type: :string
@@ -1281,7 +1281,7 @@ end
 defmodule Google.Storage.V2.ChecksummedData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :content, 1, type: :bytes, deprecated: false
   field :crc32c, 2, proto3_optional: true, type: :fixed32
@@ -1290,7 +1290,7 @@ end
 defmodule Google.Storage.V2.ObjectChecksums do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :crc32c, 1, proto3_optional: true, type: :fixed32
   field :md5_hash, 2, type: :bytes, json_name: "md5Hash"
@@ -1299,7 +1299,7 @@ end
 defmodule Google.Storage.V2.CustomerEncryption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :encryption_algorithm, 1, type: :string, json_name: "encryptionAlgorithm"
   field :key_sha256_bytes, 3, type: :bytes, json_name: "keySha256Bytes"
@@ -1308,7 +1308,7 @@ end
 defmodule Google.Storage.V2.Object.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1317,7 +1317,7 @@ end
 defmodule Google.Storage.V2.Object do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :bucket, 2, type: :string, deprecated: false
@@ -1403,7 +1403,7 @@ end
 defmodule Google.Storage.V2.ObjectAccessControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :id, 2, type: :string
@@ -1419,7 +1419,7 @@ end
 defmodule Google.Storage.V2.ListObjectsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :objects, 1, repeated: true, type: Google.Storage.V2.Object
   field :prefixes, 2, repeated: true, type: :string
@@ -1429,7 +1429,7 @@ end
 defmodule Google.Storage.V2.ProjectTeam do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_number, 1, type: :string, json_name: "projectNumber"
   field :team, 2, type: :string
@@ -1438,7 +1438,7 @@ end
 defmodule Google.Storage.V2.Owner do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entity, 1, type: :string
   field :entity_id, 2, type: :string, json_name: "entityId"
@@ -1447,7 +1447,7 @@ end
 defmodule Google.Storage.V2.ContentRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start, 1, type: :int64
   field :end, 2, type: :int64
@@ -1457,7 +1457,7 @@ end
 defmodule Google.Storage.V2.Storage.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.storage.v2.Storage", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.storage.v2.Storage", protoc_gen_elixir_version: "0.14.0"
 
   rpc :DeleteBucket, Google.Storage.V2.DeleteBucketRequest, Google.Protobuf.Empty
 

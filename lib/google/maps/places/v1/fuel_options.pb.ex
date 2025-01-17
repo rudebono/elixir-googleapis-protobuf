@@ -1,7 +1,7 @@
 defmodule Google.Maps.Places.V1.FuelOptions.FuelPrice.FuelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FUEL_TYPE_UNSPECIFIED, 0
   field :DIESEL, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Maps.Places.V1.FuelOptions.FuelPrice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Maps.Places.V1.FuelOptions.FuelPrice.FuelType, enum: true
   field :price, 2, type: Google.Type.Money
@@ -37,7 +37,7 @@ end
 defmodule Google.Maps.Places.V1.FuelOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fuel_prices, 1,
     repeated: true,

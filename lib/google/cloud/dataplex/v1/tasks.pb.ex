@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Job.Service do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SERVICE_UNSPECIFIED, 0
   field :DATAPROC, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Job.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Job.Trigger do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TRIGGER_UNSPECIFIED, 0
   field :TASK_CONFIG, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.BatchComputeResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :executors_count, 1, type: :int32, json_name: "executorsCount", deprecated: false
   field :max_executors_count, 2, type: :int32, json_name: "maxExecutorsCount", deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.ContainerImageRuntime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :image, 1, type: :string, deprecated: false
   field :java_jars, 2, repeated: true, type: :string, json_name: "javaJars", deprecated: false
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec.VpcNetwork do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :network_name, 0
 
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.InfrastructureSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :resources, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.TriggerSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :trigger, 0
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec.ArgsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :args, 4,
     repeated: true,
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.SparkTaskConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :driver, 0
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.NotebookTaskConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebook, 4, type: :string, deprecated: false
 
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.ExecutionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_time, 3,
     type: Google.Protobuf.Timestamp,
@@ -238,7 +238,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Task do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Job.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Billing.Budgets.V1beta1.CalendarPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CALENDAR_PERIOD_UNSPECIFIED, 0
   field :MONTH, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule.Basis do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :BASIS_UNSPECIFIED, 0
   field :CURRENT_SPEND, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter.CreditTypesTreatment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CREDIT_TYPES_TREATMENT_UNSPECIFIED, 0
   field :INCLUDE_ALL_CREDITS, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Budget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.BudgetAmount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :budget_amount, 0
 
@@ -77,13 +77,13 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.LastPeriodAmount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Billing.Budgets.V1beta1.ThresholdRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :threshold_percent, 1, type: :double, json_name: "thresholdPercent", deprecated: false
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.AllUpdatesRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :pubsub_topic, 1, type: :string, json_name: "pubsubTopic", deprecated: false
   field :schema_version, 2, type: :string, json_name: "schemaVersion", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.ListValue
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :usage_period, 0
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Billing.Budgets.V1beta1.CustomPeriod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate", deprecated: false
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :stats, 0
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsDataPoint.TypedValue.DistributionDataValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :distribution, 1, type: Google.Protobuf.Value
   field :distribution_deviation, 2, type: :double, json_name: "distributionDeviation"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsDataPoint.TypedValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsDataPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :current_stats, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringStatsDataPoint.TypedValue,
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringTabularStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stats_name, 1, type: :string, json_name: "statsName"
   field :objective_type, 2, type: :string, json_name: "objectiveType"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringStatsFilter.TabularStatsFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stats_name, 1, type: :string, json_name: "statsName"
   field :objective_type, 2, type: :string, json_name: "objectiveType"
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringStatsFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :filter, 0
 

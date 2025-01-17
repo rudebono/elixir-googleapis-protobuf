@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.Attachment.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Attachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :target, 2, type: :string, deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -51,7 +51,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListAttachmentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attachments, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.Attachment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -60,7 +60,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.CreateAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :attachment_id, 2, type: :string, json_name: "attachmentId", deprecated: false
@@ -78,7 +78,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.DeleteAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

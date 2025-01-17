@@ -1,7 +1,7 @@
 defmodule Google.Firestore.Admin.V1.BackupSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :recurrence, 0
 
@@ -33,13 +33,13 @@ end
 defmodule Google.Firestore.Admin.V1.DailyRecurrence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Firestore.Admin.V1.WeeklyRecurrence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :day, 2, type: Google.Type.DayOfWeek, enum: true
 end

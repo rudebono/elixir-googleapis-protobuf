@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Resources.Customer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 19, proto3_optional: true, type: :int64, deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.CallReportingSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :call_reporting_enabled, 10,
     proto3_optional: true,
@@ -149,7 +149,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.ConversionTrackingSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :conversion_tracking_id, 3,
     proto3_optional: true,
@@ -188,7 +188,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.RemarketingSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :google_global_site_tag, 2,
     proto3_optional: true,
@@ -200,7 +200,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.CustomerAgreementSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :accepted_lead_form_terms, 1,
     type: :bool,
@@ -211,7 +211,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.LocalServicesSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :granular_license_statuses, 1,
     repeated: true,
@@ -229,7 +229,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.GranularLicenseStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :geo_criterion_id, 1,
     proto3_optional: true,
@@ -255,7 +255,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.GranularInsuranceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :geo_criterion_id, 1,
     proto3_optional: true,

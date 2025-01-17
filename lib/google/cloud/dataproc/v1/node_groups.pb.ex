@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.CreateNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ResizeNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :size, 2, type: :int32, deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.GetNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -42,7 +42,7 @@ defmodule Google.Cloud.Dataproc.V1.NodeGroupController.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.NodeGroupController",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateNodeGroup,
       Google.Cloud.Dataproc.V1.CreateNodeGroupRequest,

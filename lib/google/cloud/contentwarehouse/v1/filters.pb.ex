@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.TimeFilter.TimeField do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TIME_FIELD_UNSPECIFIED, 0
   field :CREATE_TIME, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.FileTypeFilter.FileType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FILE_TYPE_UNSPECIFIED, 0
   field :ALL, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :is_nl_query, 12, type: :bool, json_name: "isNlQuery"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.TimeFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :time_range, 1, type: Google.Type.Interval, json_name: "timeRange"
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.PropertyFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document_schema_name, 1,
     type: :string,
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.FileTypeFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :file_type, 1,
     type: Google.Cloud.Contentwarehouse.V1.FileTypeFilter.FileType,
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.CustomWeightsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :weighted_schema_properties, 1,
     repeated: true,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.WeightedSchemaProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document_schema_name, 1,
     type: :string,

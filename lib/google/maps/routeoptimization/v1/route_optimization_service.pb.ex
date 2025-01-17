@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routeoptimization.V1.DataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :JSON, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest.SolvingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DEFAULT_SOLVE, 0
   field :VALIDATE_ONLY, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest.SearchMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SEARCH_MODE_UNSPECIFIED, 0
   field :RETURN_FAST, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeIncompatibility.IncompatibilityMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INCOMPATIBILITY_MODE_UNSPECIFIED, 0
   field :NOT_PERFORMED_BY_SAME_VEHICLE, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeRequirement.RequirementMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :REQUIREMENT_MODE_UNSPECIFIED, 0
   field :PERFORMED_BY_SAME_VEHICLE, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.TravelMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TRAVEL_MODE_UNSPECIFIED, 0
   field :DRIVING, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.UnloadingPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNLOADING_POLICY_UNSPECIFIED, 0
   field :LAST_IN_FIRST_OUT, 1
@@ -72,7 +72,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.SkippedShipment.Reason.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :NO_VEHICLE, 1
@@ -87,7 +87,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LEVEL_UNSPECIFIED, 0
   field :RELAX_VISIT_TIMES_AFTER_THRESHOLD, 1
@@ -98,7 +98,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursRequest.AsyncModelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 
@@ -116,7 +116,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -130,19 +130,19 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :timeout, 2, type: Google.Protobuf.Duration
@@ -202,7 +202,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursResponse.Metrics.CostsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
@@ -211,7 +211,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursResponse.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :aggregated_route_metrics, 1,
     type: Google.Maps.Routeoptimization.V1.AggregatedMetrics,
@@ -242,7 +242,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Maps.Routeoptimization.V1.ShipmentRoute
   field :request_label, 3, type: :string, json_name: "requestLabel"
@@ -263,7 +263,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.DurationDistanceMatrix.Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :durations, 1, repeated: true, type: Google.Protobuf.Duration
   field :meters, 2, repeated: true, type: :double
@@ -272,7 +272,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.DurationDistanceMatrix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rows, 1,
     repeated: true,
@@ -284,7 +284,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.PrecedenceRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :first_index, 1, proto3_optional: true, type: :int32, json_name: "firstIndex"
   field :first_is_delivery, 3, type: :bool, json_name: "firstIsDelivery"
@@ -296,7 +296,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :shipments, 1, repeated: true, type: Google.Maps.Routeoptimization.V1.Shipment
   field :vehicles, 2, repeated: true, type: Google.Maps.Routeoptimization.V1.Vehicle
@@ -349,7 +349,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Shipment.VisitRequest.LoadDemandsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.Shipment.Load
@@ -358,7 +358,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Shipment.VisitRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :arrival_location, 1, type: Google.Type.LatLng, json_name: "arrivalLocation"
 
@@ -395,7 +395,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Shipment.Load do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :amount, 2, type: :int64
 end
@@ -403,7 +403,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Shipment.LoadDemandsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.Shipment.Load
@@ -412,7 +412,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Shipment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_name, 16, type: :string, json_name: "displayName"
   field :pickups, 1, repeated: true, type: Google.Maps.Routeoptimization.V1.Shipment.VisitRequest
@@ -462,7 +462,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeIncompatibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :types, 1, repeated: true, type: :string
 
@@ -475,7 +475,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeRequirement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :required_shipment_type_alternatives, 1,
     repeated: true,
@@ -496,7 +496,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.RouteModifiers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :avoid_tolls, 2, type: :bool, json_name: "avoidTolls"
   field :avoid_highways, 3, type: :bool, json_name: "avoidHighways"
@@ -507,7 +507,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.Interval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min, 1, type: :int64
   field :max, 2, proto3_optional: true, type: :int64
@@ -516,7 +516,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_load, 1, proto3_optional: true, type: :int64, json_name: "maxLoad"
   field :soft_max_load, 2, type: :int64, json_name: "softMaxLoad"
@@ -534,7 +534,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.DurationLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_duration, 1, type: Google.Protobuf.Duration, json_name: "maxDuration"
   field :soft_max_duration, 2, type: Google.Protobuf.Duration, json_name: "softMaxDuration"
@@ -557,7 +557,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimitsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit
@@ -566,7 +566,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.ExtraVisitDurationForVisitTypeEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Duration
@@ -575,7 +575,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Vehicle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_name, 32, type: :string, json_name: "displayName"
 
@@ -661,7 +661,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.TimeWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -682,7 +682,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.DistanceLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_meters, 1, proto3_optional: true, type: :int64, json_name: "maxMeters"
   field :soft_max_meters, 2, proto3_optional: true, type: :int64, json_name: "softMaxMeters"
@@ -701,7 +701,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.TransitionAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :src_tag, 1, type: :string, json_name: "srcTag"
   field :excluded_src_tag, 2, type: :string, json_name: "excludedSrcTag"
@@ -720,7 +720,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Waypoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :location_type, 0
 
@@ -732,7 +732,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
   field :heading, 2, proto3_optional: true, type: :int32
@@ -741,7 +741,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BreakRule.BreakRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :earliest_start_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -762,7 +762,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BreakRule.FrequencyConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_break_duration, 1,
     type: Google.Protobuf.Duration,
@@ -778,7 +778,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.BreakRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :break_requests, 1,
     repeated: true,
@@ -794,7 +794,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Visit.LoadDemandsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.Shipment.Load
@@ -803,7 +803,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Visit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :shipment_index, 1, type: :int32, json_name: "shipmentIndex"
   field :is_pickup, 2, type: :bool, json_name: "isPickup"
@@ -824,7 +824,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Transition.VehicleLoadsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.ShipmentRoute.VehicleLoad
@@ -833,7 +833,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Transition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :travel_duration, 1, type: Google.Protobuf.Duration, json_name: "travelDuration"
   field :travel_distance_meters, 2, type: :double, json_name: "travelDistanceMeters"
@@ -860,7 +860,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.VehicleLoad do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :amount, 1, type: :int64
 end
@@ -868,7 +868,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.EncodedPolyline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :points, 1, type: :string
 end
@@ -876,7 +876,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Break do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -885,7 +885,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.RouteCostsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
@@ -894,7 +894,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vehicle_index, 1, type: :int32, json_name: "vehicleIndex"
   field :vehicle_label, 2, type: :string, json_name: "vehicleLabel"
@@ -927,7 +927,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.SkippedShipment.Reason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: Google.Maps.Routeoptimization.V1.SkippedShipment.Reason.Code, enum: true
 
@@ -944,7 +944,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.SkippedShipment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :index, 1, type: :int32
   field :label, 2, type: :string
@@ -954,7 +954,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.AggregatedMetrics.MaxLoadsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Maps.Routeoptimization.V1.ShipmentRoute.VehicleLoad
@@ -963,7 +963,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.AggregatedMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :performed_shipment_count, 1, type: :int32, json_name: "performedShipmentCount"
   field :travel_duration, 2, type: Google.Protobuf.Duration, json_name: "travelDuration"
@@ -984,7 +984,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :level, 1,
     type:
@@ -998,7 +998,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.ConstraintRelaxation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :relaxations, 1,
     repeated: true,
@@ -1011,7 +1011,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :routes, 1, repeated: true, type: Google.Maps.Routeoptimization.V1.ShipmentRoute
 
@@ -1029,7 +1029,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursValidationError.FieldReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :index_or_key, 0
 
@@ -1045,7 +1045,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursValidationError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: :int32
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1061,7 +1061,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.InputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1080,7 +1080,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.OutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -1099,7 +1099,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -1107,7 +1107,7 @@ end
 defmodule Google.Maps.Routeoptimization.V1.GcsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -1117,7 +1117,7 @@ defmodule Google.Maps.Routeoptimization.V1.RouteOptimization.Service do
 
   use GRPC.Service,
     name: "google.maps.routeoptimization.v1.RouteOptimization",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :OptimizeTours,
       Google.Maps.Routeoptimization.V1.OptimizeToursRequest,

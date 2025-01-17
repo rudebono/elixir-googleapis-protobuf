@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetUserRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -11,7 +11,7 @@ defmodule Google.Ads.Admanager.V1.UserService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.UserService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetUser, Google.Ads.Admanager.V1.GetUserRequest, Google.Ads.Admanager.V1.User
 end

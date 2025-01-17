@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.DataplexSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :asset, 1, type: :string
   field :data_format, 2, type: Google.Cloud.Datacatalog.V1.PhysicalSchema, json_name: "dataFormat"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DataplexFilesetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dataplex_spec, 1,
     type: Google.Cloud.Datacatalog.V1.DataplexSpec,
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DataplexTableSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :external_tables, 1,
     repeated: true,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DataplexExternalTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :system, 1, type: Google.Cloud.Datacatalog.V1.IntegratedSystem, enum: true
   field :fully_qualified_name, 28, type: :string, json_name: "fullyQualifiedName"

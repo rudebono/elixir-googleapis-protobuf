@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig.KeyAlgorithm do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :KEY_ALGORITHM_UNSPECIFIED, 0
   field :RSA_2048, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateIssuanceConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.ListCertificateIssuanceConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :certificate_issuance_configs, 1,
     repeated: true,
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.GetCertificateIssuanceConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CreateCertificateIssuanceConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.DeleteCertificateIssuanceConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig.CertificateAuthorityConfig.CertificateAuthorityServiceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ca_pool, 1, type: :string, json_name: "caPool", deprecated: false
 end
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig.CertificateAuthorityConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Certificatemanager.V1.CertificateIssuanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 

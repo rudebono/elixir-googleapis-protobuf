@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.ServingConfig.MediaConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :demote_content_watched, 0
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ServingConfig.GenericConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :content_search_spec, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.SearchRequest.ContentSearchSpec,
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ServingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :vertical_config, 0
 
