@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Css.V1.SubscriptionPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SUBSCRIPTION_PERIOD_UNSPECIFIED, 0
   field :MONTH, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Css.V1.Attributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cpp_link, 1, proto3_optional: true, type: :string, json_name: "cppLink"
   field :cpp_mobile_link, 2, proto3_optional: true, type: :string, json_name: "cppMobileLink"
@@ -129,7 +129,7 @@ end
 defmodule Google.Shopping.Css.V1.Certification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :authority, 2, type: :string
@@ -139,7 +139,7 @@ end
 defmodule Google.Shopping.Css.V1.ProductDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :section_name, 1, type: :string, json_name: "sectionName"
   field :attribute_name, 2, type: :string, json_name: "attributeName"
@@ -149,7 +149,7 @@ end
 defmodule Google.Shopping.Css.V1.ProductDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
   field :unit, 2, type: :string, deprecated: false
@@ -158,7 +158,7 @@ end
 defmodule Google.Shopping.Css.V1.ProductWeight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
   field :unit, 2, type: :string, deprecated: false
@@ -167,7 +167,7 @@ end
 defmodule Google.Shopping.Css.V1.CssProductStatus.DestinationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :destination, 1, type: :string
   field :approved_countries, 2, repeated: true, type: :string, json_name: "approvedCountries"
@@ -182,7 +182,7 @@ end
 defmodule Google.Shopping.Css.V1.CssProductStatus.ItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: :string
   field :servability, 2, type: :string
@@ -198,7 +198,7 @@ end
 defmodule Google.Shopping.Css.V1.CssProductStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :destination_statuses, 3,
     repeated: true,
@@ -221,7 +221,7 @@ end
 defmodule Google.Shopping.Css.V1.HeadlineOfferSubscriptionCost do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :period, 1, type: Google.Shopping.Css.V1.SubscriptionPeriod, enum: true
   field :period_length, 2, type: :int64, json_name: "periodLength"
@@ -231,7 +231,7 @@ end
 defmodule Google.Shopping.Css.V1.HeadlineOfferInstallment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :months, 1, type: :int64
   field :amount, 2, type: Google.Shopping.Type.Price

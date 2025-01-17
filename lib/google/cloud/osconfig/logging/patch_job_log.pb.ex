@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Osconfig.Logging.PatchJobCompletedLog.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Osconfig.Logging.PatchJobCompletedLog.InstanceDetailsSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instances_pending, 1, type: :int64, json_name: "instancesPending"
   field :instances_inactive, 2, type: :int64, json_name: "instancesInactive"
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Osconfig.Logging.PatchJobCompletedLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :patch_job, 1, type: :string, json_name: "patchJob"
   field :state, 2, type: Google.Cloud.Osconfig.Logging.PatchJobCompletedLog.State, enum: true

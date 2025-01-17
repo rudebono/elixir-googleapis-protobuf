@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.DatasetAccessEntry.TargetType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TARGET_TYPE_UNSPECIFIED, 0
   field :VIEWS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Dataset.StorageBillingModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STORAGE_BILLING_MODEL_UNSPECIFIED, 0
   field :LOGICAL, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.LinkedDatasetMetadata.LinkState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LINK_STATE_UNSPECIFIED, 0
   field :LINKED, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetDatasetRequest.DatasetView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATASET_VIEW_UNSPECIFIED, 0
   field :METADATA, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DatasetAccessEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Bigquery.V2.DatasetReference
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Access do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :role, 1, type: :string
   field :user_by_email, 2, type: :string, json_name: "userByEmail"
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Dataset.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Dataset.ResourceTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Dataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kind, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GcpTag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag_key, 1, type: :string, json_name: "tagKey", deprecated: false
   field :tag_value, 2, type: :string, json_name: "tagValue", deprecated: false
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.LinkedDatasetSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_dataset, 1,
     type: Google.Cloud.Bigquery.V2.DatasetReference,
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.LinkedDatasetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :link_state, 1,
     type: Google.Cloud.Bigquery.V2.LinkedDatasetMetadata.LinkState,
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.InsertDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset, 2, type: Google.Cloud.Bigquery.V2.Dataset, deprecated: false
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DeleteDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListDatasetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :max_results, 2, type: Google.Protobuf.UInt32Value, json_name: "maxResults"
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatDataset.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -314,7 +314,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :id, 2, type: :string
@@ -335,7 +335,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DatasetList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kind, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -347,7 +347,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.UndeleteDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -363,7 +363,7 @@ defmodule Google.Cloud.Bigquery.V2.DatasetService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.DatasetService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetDataset, Google.Cloud.Bigquery.V2.GetDatasetRequest, Google.Cloud.Bigquery.V2.Dataset
 

@@ -1,7 +1,7 @@
 defmodule Google.Iam.V3beta.CreatePolicyBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :policy_binding_id, 2, type: :string, json_name: "policyBindingId", deprecated: false
@@ -17,7 +17,7 @@ end
 defmodule Google.Iam.V3beta.GetPolicyBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Iam.V3beta.UpdatePolicyBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy_binding, 1,
     type: Google.Iam.V3beta.PolicyBinding,
@@ -43,7 +43,7 @@ end
 defmodule Google.Iam.V3beta.DeletePolicyBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Iam.V3beta.ListPolicyBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Iam.V3beta.ListPolicyBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy_bindings, 1,
     repeated: true,
@@ -77,7 +77,7 @@ end
 defmodule Google.Iam.V3beta.SearchTargetPolicyBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :target, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -88,7 +88,7 @@ end
 defmodule Google.Iam.V3beta.SearchTargetPolicyBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy_bindings, 1,
     repeated: true,
@@ -101,7 +101,7 @@ end
 defmodule Google.Iam.V3beta.PolicyBindings.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.iam.v3beta.PolicyBindings", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.iam.v3beta.PolicyBindings", protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreatePolicyBinding,
       Google.Iam.V3beta.CreatePolicyBindingRequest,

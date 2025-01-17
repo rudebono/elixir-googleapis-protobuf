@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.JoinRestrictionPolicy.JoinCondition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :JOIN_CONDITION_UNSPECIFIED, 0
   field :JOIN_ANY, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.AggregationThresholdPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :threshold, 1, proto3_optional: true, type: :int64, deprecated: false
 
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DifferentialPrivacyPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_epsilon_per_query, 1,
     proto3_optional: true,
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JoinRestrictionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :join_condition, 1,
     proto3_optional: true,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.PrivacyPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :privacy_policy, 0
 

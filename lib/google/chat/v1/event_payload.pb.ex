@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.MembershipCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :membership, 1, type: Google.Chat.V1.Membership
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Chat.V1.MembershipDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :membership, 1, type: Google.Chat.V1.Membership
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Chat.V1.MembershipUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :membership, 1, type: Google.Chat.V1.Membership
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Chat.V1.MembershipBatchCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memberships, 1, repeated: true, type: Google.Chat.V1.MembershipCreatedEventData
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Chat.V1.MembershipBatchUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memberships, 1, repeated: true, type: Google.Chat.V1.MembershipUpdatedEventData
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Chat.V1.MembershipBatchDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memberships, 1, repeated: true, type: Google.Chat.V1.MembershipDeletedEventData
 end
@@ -49,7 +49,7 @@ end
 defmodule Google.Chat.V1.MessageCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :message, 1, type: Google.Chat.V1.Message
 end
@@ -57,7 +57,7 @@ end
 defmodule Google.Chat.V1.MessageUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :message, 1, type: Google.Chat.V1.Message
 end
@@ -65,7 +65,7 @@ end
 defmodule Google.Chat.V1.MessageDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :message, 1, type: Google.Chat.V1.Message
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Chat.V1.MessageBatchCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Chat.V1.MessageCreatedEventData
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Chat.V1.MessageBatchUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Chat.V1.MessageUpdatedEventData
 end
@@ -89,7 +89,7 @@ end
 defmodule Google.Chat.V1.MessageBatchDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Chat.V1.MessageDeletedEventData
 end
@@ -97,7 +97,7 @@ end
 defmodule Google.Chat.V1.SpaceUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :space, 1, type: Google.Chat.V1.Space
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Chat.V1.SpaceBatchUpdatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spaces, 1, repeated: true, type: Google.Chat.V1.SpaceUpdatedEventData
 end
@@ -113,7 +113,7 @@ end
 defmodule Google.Chat.V1.ReactionCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reaction, 1, type: Google.Chat.V1.Reaction
 end
@@ -121,7 +121,7 @@ end
 defmodule Google.Chat.V1.ReactionDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reaction, 1, type: Google.Chat.V1.Reaction
 end
@@ -129,7 +129,7 @@ end
 defmodule Google.Chat.V1.ReactionBatchCreatedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reactions, 1, repeated: true, type: Google.Chat.V1.ReactionCreatedEventData
 end
@@ -137,7 +137,7 @@ end
 defmodule Google.Chat.V1.ReactionBatchDeletedEventData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reactions, 1, repeated: true, type: Google.Chat.V1.ReactionDeletedEventData
 end

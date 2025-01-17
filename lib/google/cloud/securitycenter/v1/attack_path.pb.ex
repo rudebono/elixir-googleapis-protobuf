@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathNode.NodeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NODE_TYPE_UNSPECIFIED, 0
   field :NODE_TYPE_AND, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathNode.PathNodeAssociatedFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :canonical_finding, 1, type: :string, json_name: "canonicalFinding"
   field :finding_category, 2, type: :string, json_name: "findingCategory"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathNode.AttackStepNode.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathNode.AttackStepNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uuid, 1, type: :string
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :resource_type, 2, type: :string, json_name: "resourceType"
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath.AttackPathEdge do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source, 1, type: :string
   field :destination, 2, type: :string
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AttackPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 

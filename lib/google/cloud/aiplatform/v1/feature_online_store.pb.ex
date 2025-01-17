@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STABLE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable.AutoScaling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min_node_count, 1, type: :int32, json_name: "minNodeCount", deprecated: false
   field :max_node_count, 2, type: :int32, json_name: "maxNodeCount", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :auto_scaling, 1,
     type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable.AutoScaling,
@@ -36,13 +36,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Optimized do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.DedicatedServingEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :public_endpoint_domain_name, 2,
     type: :string,
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :storage_type, 0
 

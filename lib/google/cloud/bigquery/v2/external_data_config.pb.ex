@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ExternalDataConfiguration.ObjectMetadata do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OBJECT_METADATA_UNSPECIFIED, 0
   field :DIRECTORY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ExternalDataConfiguration.MetadataCacheMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METADATA_CACHE_MODE_UNSPECIFIED, 0
   field :AUTOMATIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.AvroOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :use_avro_logical_types, 1,
     type: Google.Protobuf.BoolValue,
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ParquetOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enum_as_string, 1,
     type: Google.Protobuf.BoolValue,
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.CsvOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :field_delimiter, 1, type: :string, json_name: "fieldDelimiter", deprecated: false
 
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JsonOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
 end
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.BigtableColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :qualifier_encoded, 1, type: Google.Protobuf.BytesValue, json_name: "qualifierEncoded"
   field :qualifier_string, 2, type: Google.Protobuf.StringValue, json_name: "qualifierString"
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.BigtableColumnFamily do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :family_id, 1, type: :string, json_name: "familyId"
   field :type, 2, type: :string, deprecated: false
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.BigtableOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :column_families, 1,
     repeated: true,
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GoogleSheetsOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :skip_leading_rows, 1,
     type: Google.Protobuf.Int64Value,
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ExternalDataConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source_uris, 1, repeated: true, type: :string, json_name: "sourceUris"
 

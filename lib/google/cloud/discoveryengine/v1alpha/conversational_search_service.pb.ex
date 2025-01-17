@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstandingSpec.QueryClassificationSpec.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConverseConversationRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConverseConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: Google.Cloud.Discoveryengine.V1alpha.TextInput, deprecated: false
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConverseConversationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :reply, 1, type: Google.Cloud.Discoveryengine.V1alpha.Reply
   field :conversation, 2, type: Google.Cloud.Discoveryengine.V1alpha.Conversation
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CreateConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :conversation, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.Conversation,
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListConversationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListConversationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :conversations, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.Conversation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SafetySpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enable, 1, type: :bool
 end
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.RelatedQuestionsSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :enable, 1, type: :bool
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.AnswerGenerationSpec.ModelSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :model_version, 1, type: :string, json_name: "modelVersion"
 end
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.AnswerGenerationSpec.PromptSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :preamble, 1, type: :string
 end
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.AnswerGenerationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :model_spec, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.AnswerGenerationSpec.ModelSpec,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_return_results, 1, type: :int32, json_name: "maxReturnResults"
   field :filter, 2, type: :string
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.DocumentContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_identifier, 1, type: :string, json_name: "pageIdentifier"
   field :content, 2, type: :string
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.ExtractiveSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_identifier, 1, type: :string, json_name: "pageIdentifier"
   field :content, 2, type: :string
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo.ExtractiveAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :page_identifier, 1, type: :string, json_name: "pageIdentifier"
   field :content, 2, type: :string
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.UnstructuredDocumentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document, 1, type: :string, deprecated: false
   field :uri, 2, type: :string
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult.ChunkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :chunk, 1, type: :string, deprecated: false
   field :content, 2, type: :string
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList.SearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -294,7 +294,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec.SearchResultList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :search_results, 1,
     repeated: true,
@@ -306,7 +306,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.SearchSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :input, 0
 
@@ -324,7 +324,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstandingSpec.QueryClassificationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :types, 1,
     repeated: true,
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :disable, 1, type: :bool
   field :max_rephrase_steps, 2, type: :int32, json_name: "maxRephraseSteps"
@@ -345,7 +345,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.QueryUnderstandingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :query_classification_spec, 1,
     type:
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -370,7 +370,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :query, 2, type: Google.Cloud.Discoveryengine.V1alpha.Query, deprecated: false
@@ -409,7 +409,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AnswerQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :answer, 1, type: Google.Cloud.Discoveryengine.V1alpha.Answer
   field :session, 2, type: Google.Cloud.Discoveryengine.V1alpha.Session
@@ -419,7 +419,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetAnswerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -427,7 +427,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CreateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :session, 2, type: Google.Cloud.Discoveryengine.V1alpha.Session, deprecated: false
@@ -436,7 +436,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :session, 1, type: Google.Cloud.Discoveryengine.V1alpha.Session, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -445,7 +445,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -453,7 +453,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -461,7 +461,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -473,7 +473,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sessions, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.Session
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -484,7 +484,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.ConversationalSearchService.Servi
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.ConversationalSearchService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ConverseConversation,
       Google.Cloud.Discoveryengine.V1alpha.ConverseConversationRequest,

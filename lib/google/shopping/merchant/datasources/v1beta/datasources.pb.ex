@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSource.Input do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INPUT_UNSPECIFIED, 0
   field :API, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :Type, 0
 
@@ -70,7 +70,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.GetDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -78,7 +78,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.ListDataSourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -88,7 +88,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.ListDataSourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_sources, 1,
     repeated: true,
@@ -101,7 +101,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.CreateDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -114,7 +114,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.UpdateDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_source, 1,
     type: Google.Shopping.Merchant.Datasources.V1beta.DataSource,
@@ -130,7 +130,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FetchDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -138,7 +138,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.DeleteDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -148,7 +148,7 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.DataSourcesService.Service
 
   use GRPC.Service,
     name: "google.shopping.merchant.datasources.v1beta.DataSourcesService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetDataSource,
       Google.Shopping.Merchant.Datasources.V1beta.GetDataSourceRequest,

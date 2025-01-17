@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RETURN_METHOD_UNSPECIFIED, 0
   field :BY_MAIL, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ItemCondition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ITEM_CONDITION_UNSPECIFIED, 0
   field :NEW, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :FIXED, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NUMBER_OF_DAYS_AFTER_DELIVERY, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetOnlineReturnPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -51,7 +51,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -61,7 +61,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :online_return_policies, 1,
     repeated: true,
@@ -74,7 +74,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee.Type,
@@ -86,7 +86,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.RestockingFee do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy.Type,
@@ -109,7 +109,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :return_policy_id, 2, type: :string, json_name: "returnPolicyId", deprecated: false
@@ -157,7 +157,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicyService.Ser
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.OnlineReturnPolicyService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetOnlineReturnPolicy,
       Google.Shopping.Merchant.Accounts.V1beta.GetOnlineReturnPolicyRequest,

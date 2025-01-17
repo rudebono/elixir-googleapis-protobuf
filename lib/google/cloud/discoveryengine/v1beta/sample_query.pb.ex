@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.SampleQuery.QueryEntry.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :page_numbers, 2, repeated: true, type: :int32, json_name: "pageNumbers"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.SampleQuery.QueryEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.SampleQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :content, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :address, 2, proto3_optional: true, type: Google.Type.PostalAddress, deprecated: false
@@ -30,7 +30,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetBusinessInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -38,7 +38,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateBusinessInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :business_info, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.BusinessInfo,
@@ -56,7 +56,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessInfoService.Service d
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.BusinessInfoService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetBusinessInfo,
       Google.Shopping.Merchant.Accounts.V1beta.GetBusinessInfoRequest,

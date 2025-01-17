@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Sql.V1beta4.ExternalSyncParallelLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EXTERNAL_SYNC_PARALLEL_LEVEL_UNSPECIFIED, 0
   field :MIN, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.BackupReencryptionConfig.BackupType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :BACKUP_TYPE_UNSPECIFIED, 0
   field :AUTOMATED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.ExternalSyncMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EXTERNAL_SYNC_MODE_UNSPECIFIED, 0
   field :ONLINE, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest.MigrationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MIGRATION_TYPE_UNSPECIFIED, 0
   field :LOGICAL, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsGetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :int64
   field :instance, 2, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsInsertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :int32, json_name: "maxResults"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesGetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesInsertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesUpdateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :instance, 2, type: :string
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlFlagsListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database_version, 1, type: :string, json_name: "databaseVersion"
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCloneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDeleteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteMasterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesDemoteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
   field :project, 2, type: :string, deprecated: false
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesFailoverRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesImportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesInsertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project, 1, type: :string
   field :body, 100, type: Google.Cloud.Sql.V1beta4.DatabaseInstance
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :filter, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesListServerCasRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPatchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPromoteReplicaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesSwitchoverRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetSslConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestartRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRestoreBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRotateServerCaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartReplicaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -334,7 +334,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStopReplicaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -343,7 +343,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesTruncateLogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -353,7 +353,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesUpdateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReencryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.InstancesReencryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :backup_reencryption_config, 1,
     proto3_optional: true,
@@ -384,7 +384,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.BackupReencryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :backup_limit, 1, proto3_optional: true, type: :int32, json_name: "backupLimit"
 
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesRescheduleMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -408,7 +408,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesPerformDiskShrinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -418,7 +418,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesVerifyExternalSyncSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :sync_config, 0
 
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesStartExternalSyncRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :sync_config, 0
 
@@ -493,7 +493,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesResetReplicaSizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -502,7 +502,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
@@ -511,7 +511,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :max_results, 2, type: :uint32, json_name: "maxResults"
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlOperationsCancelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operation, 1, type: :string
   field :project, 2, type: :string
@@ -531,7 +531,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesCreateEphemeralCertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -541,7 +541,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -551,7 +551,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsGetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -561,7 +561,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsInsertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -571,7 +571,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -580,7 +580,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetDiskShrinkConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -589,7 +589,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
@@ -598,7 +598,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesGetLatestRecoveryTimeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :latest_recovery_time, 2, type: Google.Protobuf.Timestamp, json_name: "latestRecoveryTime"
@@ -607,7 +607,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
   field :project, 2, type: :string, deprecated: false
@@ -616,7 +616,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesReleaseSsrsLeaseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 end
@@ -624,7 +624,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
   field :project, 2, type: :string, deprecated: false
@@ -634,7 +634,7 @@ end
 defmodule Google.Cloud.Sql.V1beta4.SqlInstancesAcquireSsrsLeaseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operation_id, 1, proto3_optional: true, type: :string, json_name: "operationId"
 end
@@ -644,7 +644,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlBackupRunsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlBackupRunsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Delete,
       Google.Cloud.Sql.V1beta4.SqlBackupRunsDeleteRequest,
@@ -672,7 +672,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlDatabasesService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlDatabasesService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Delete,
       Google.Cloud.Sql.V1beta4.SqlDatabasesDeleteRequest,
@@ -708,7 +708,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlFlagsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlFlagsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :List,
       Google.Cloud.Sql.V1beta4.SqlFlagsListRequest,
@@ -726,7 +726,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlInstancesService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlInstancesService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :AddServerCa,
       Google.Cloud.Sql.V1beta4.SqlInstancesAddServerCaRequest,
@@ -876,7 +876,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlOperationsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlOperationsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Get, Google.Cloud.Sql.V1beta4.SqlOperationsGetRequest, Google.Cloud.Sql.V1beta4.Operation
 
@@ -898,7 +898,7 @@ defmodule Google.Cloud.Sql.V1beta4.SqlSslCertsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1beta4.SqlSslCertsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Delete,
       Google.Cloud.Sql.V1beta4.SqlSslCertsDeleteRequest,

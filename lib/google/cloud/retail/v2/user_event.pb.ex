@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2.UserEvent.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2.CustomAttribute
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Retail.V2.UserEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
   field :visitor_id, 2, type: :string, json_name: "visitorId", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Retail.V2.ProductDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Retail.V2.Product, deprecated: false
   field :quantity, 2, type: Google.Protobuf.Int32Value
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Retail.V2.CompletionDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :completion_attribution_token, 1, type: :string, json_name: "completionAttributionToken"
   field :selected_suggestion, 2, type: :string, json_name: "selectedSuggestion"
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Retail.V2.PurchaseTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :revenue, 2, type: :float, deprecated: false

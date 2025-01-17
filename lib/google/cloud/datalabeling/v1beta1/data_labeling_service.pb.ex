@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest.Feature do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FEATURE_UNSPECIFIED, 0
   field :CLASSIFICATION, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest.Feature do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FEATURE_UNSPECIFIED, 0
   field :CLASSIFICATION, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest.Feature do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FEATURE_UNSPECIFIED, 0
   field :TEXT_CLASSIFICATION, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: Google.Cloud.Datalabeling.V1beta1.Dataset, deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDatasetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ImportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ExportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :annotated_dataset, 2, type: :string, json_name: "annotatedDataset", deprecated: false
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetDataItemRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListDataItemsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_items, 1,
     repeated: true,
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotatedDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotatedDatasetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :annotated_datasets, 1,
     repeated: true,
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotatedDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :request_config, 0
 
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelVideoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :request_config, 0
 
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.LabelTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :request_config, 0
 
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetExampleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :examples, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Example
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateAnnotationSpecSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -338,7 +338,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetAnnotationSpecSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -357,7 +357,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListAnnotationSpecSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :annotation_spec_sets, 1,
     repeated: true,
@@ -370,7 +370,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteAnnotationSpecSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateInstructionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instruction, 2, type: Google.Cloud.Datalabeling.V1beta1.Instruction, deprecated: false
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetInstructionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -395,7 +395,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteInstructionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -403,7 +403,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListInstructionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instructions, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Instruction
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -423,7 +423,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -431,7 +431,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -442,7 +442,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchEvaluationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :evaluations, 1, repeated: true, type: Google.Cloud.Datalabeling.V1beta1.Evaluation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -451,7 +451,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -461,7 +461,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse.ExampleComparison do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ground_truth_example, 1,
     type: Google.Cloud.Datalabeling.V1beta1.Example,
@@ -476,7 +476,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.SearchExampleComparisonsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :example_comparisons, 1,
     repeated: true,
@@ -489,7 +489,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.CreateEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job, 2, type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob, deprecated: false
@@ -498,7 +498,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.UpdateEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :evaluation_job, 1,
     type: Google.Cloud.Datalabeling.V1beta1.EvaluationJob,
@@ -514,7 +514,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.GetEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.PauseEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ResumeEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -538,7 +538,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.DeleteEvaluationJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -546,7 +546,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -557,7 +557,7 @@ end
 defmodule Google.Cloud.Datalabeling.V1beta1.ListEvaluationJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :evaluation_jobs, 1,
     repeated: true,
@@ -572,7 +572,7 @@ defmodule Google.Cloud.Datalabeling.V1beta1.DataLabelingService.Service do
 
   use GRPC.Service,
     name: "google.cloud.datalabeling.v1beta1.DataLabelingService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateDataset,
       Google.Cloud.Datalabeling.V1beta1.CreateDatasetRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.PowerSupply do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :POWER_SUPPLY_UNSPECIFIED, 0
   field :POWER_SUPPLY_AC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Entity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENTITY_UNSPECIFIED, 0
   field :GOOGLE, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PAID, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ADDITIONAL_INFO_NEEDED, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ADDITIONAL_INFO_NEEDED, 1
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress.AddressType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ADDRESS_TYPE_UNSPECIFIED, 0
   field :NIC, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :RACK, 1
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ADDITIONAL_INFO_NEEDED, 1
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.ProvisioningState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PROVISIONING_STATE_UNSPECIFIED, 0
   field :PROVISIONING_REQUIRED, 1
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.PowerReceptacleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :POWER_RECEPTACLE_TYPE_UNSPECIFIED, 0
   field :NEMA_5_15, 1
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.NetworkUplinkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NETWORK_UPLINK_TYPE_UNSPECIFIED, 0
   field :RJ_45, 1
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.Voltage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VOLTAGE_UNSPECIFIED, 0
   field :VOLTAGE_110, 1
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.Amperes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AMPERES_UNSPECIFIED, 0
   field :AMPERES_15, 1
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareInstallationInfo.RackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RACK_TYPE_UNSPECIFIED, 0
   field :TWO_POST, 1
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig.SubscriptionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SUBSCRIPTION_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 13, type: :string, json_name: "displayName", deprecated: false
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Site.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Site do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 24, type: :string, json_name: "displayName", deprecated: false
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: :string, deprecated: false
 
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.DiskInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :manufacturer, 1, type: :string, deprecated: false
   field :slot, 2, type: :int32, deprecated: false
@@ -400,7 +400,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MachineInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_tag, 1, type: :string, json_name: "serviceTag", deprecated: false
 
@@ -422,7 +422,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -431,7 +431,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -504,7 +504,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Comment.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -513,7 +513,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Comment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -546,7 +546,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ChangeLogEntry.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -555,7 +555,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ChangeLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -576,7 +576,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -613,7 +613,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -622,7 +622,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -679,7 +679,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OrganizationContact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: Google.Type.PostalAddress, deprecated: false
   field :email, 2, type: :string, deprecated: false
@@ -694,7 +694,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Contact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :given_name, 1, type: :string, json_name: "givenName", deprecated: false
   field :family_name, 2, type: :string, json_name: "familyName", deprecated: false
@@ -712,7 +712,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sku, 1, type: :string, deprecated: false
 
@@ -731,7 +731,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SkuConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cpu, 1, type: :string
   field :gpu, 2, type: :string
@@ -742,7 +742,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SkuInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :region_code, 1, type: :string, json_name: "regionCode"
 
@@ -759,7 +759,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :power_receptacle, 1,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.PowerReceptacleType,
@@ -787,7 +787,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareInstallationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rack_location, 1, type: :string, json_name: "rackLocation", deprecated: false
 
@@ -821,7 +821,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ZoneNetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :machine_mgmt_ipv4_range, 1,
     type: :string,
@@ -863,7 +863,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Subnet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address_range, 1, type: :string, json_name: "addressRange", deprecated: false
 
@@ -876,7 +876,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.TimePeriod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Type.TimeOfDay, json_name: "endTime", deprecated: false
@@ -886,7 +886,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Dimensions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :width_inches, 1, type: :float, json_name: "widthInches", deprecated: false
   field :height_inches, 2, type: :float, json_name: "heightInches", deprecated: false
@@ -896,7 +896,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RackSpace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_rack_unit, 1, type: :int32, json_name: "startRackUnit", deprecated: false
   field :end_rack_unit, 2, type: :int32, json_name: "endRackUnit", deprecated: false
@@ -905,7 +905,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :site, 1, type: :string, deprecated: false
   field :rack_location, 2, type: :string, json_name: "rackLocation", deprecated: false
@@ -920,7 +920,7 @@ end
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubscriptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :subscription_id, 1, type: :string, json_name: "subscriptionId", deprecated: false
   field :billing_id, 2, type: :string, json_name: "billingId", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.TableView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TABLE_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Database.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :HIVE, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Table.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :HIVE, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Lock.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EXCLUSIVE, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Lock.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :WAITING, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Catalog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Database do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :options, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Table do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :options, 0
 
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.Lock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :resources, 0
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.CreateCatalogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :catalog, 2, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Catalog, deprecated: false
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.DeleteCatalogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.GetCatalogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListCatalogsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListCatalogsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Catalog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.CreateDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :database, 2, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Database, deprecated: false
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.DeleteDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.UpdateDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Database, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.GetDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListDatabasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListDatabasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :databases, 1, repeated: true, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Database
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.CreateTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :table, 2, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Table, deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.DeleteTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.UpdateTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :table, 1, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Table, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -300,7 +300,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.RenameTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :new_name, 2, type: :string, json_name: "newName", deprecated: false
@@ -309,7 +309,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.GetTableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -317,7 +317,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListTablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListTablesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tables, 1, repeated: true, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Table
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.CreateLockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :lock, 2, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Lock, deprecated: false
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.DeleteLockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.CheckLockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -362,7 +362,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListLocksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.ListLocksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :locks, 1, repeated: true, type: Google.Cloud.Bigquery.Biglake.V1alpha1.Lock
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveDatabaseOptions.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveDatabaseOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_uri, 1, type: :string, json_name: "locationUri"
 
@@ -403,7 +403,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveTableOptions.SerDeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :serialization_lib, 1, type: :string, json_name: "serializationLib"
 end
@@ -411,7 +411,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveTableOptions.StorageDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_uri, 1, type: :string, json_name: "locationUri"
   field :input_format, 2, type: :string, json_name: "inputFormat"
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveTableOptions.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -434,7 +434,7 @@ end
 defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.HiveTableOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -453,7 +453,7 @@ defmodule Google.Cloud.Bigquery.Biglake.V1alpha1.MetastoreService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.biglake.v1alpha1.MetastoreService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateCatalog,
       Google.Cloud.Bigquery.Biglake.V1alpha1.CreateCatalogRequest,

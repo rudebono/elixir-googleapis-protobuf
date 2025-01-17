@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.UpdateType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UPDATE_TYPE_UNSPECIFIED, 0
   field :UPDATE_TYPE_REPLACE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.DatabaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DB_UNKNOWN, 0
   field :DB_INFRA_SPANNER, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.AccessControlMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ACL_MODE_UNKNOWN, 0
   field :ACL_MODE_UNIVERSAL_ACCESS, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentCreatorDefaultRole do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DOCUMENT_CREATOR_DEFAULT_ROLE_UNSPECIFIED, 0
   field :DOCUMENT_ADMIN, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.RequestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :user_info, 1, type: Google.Cloud.Contentwarehouse.V1.UserInfo, json_name: "userInfo"
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.ResponseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 end
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.UserInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :group_ids, 2, repeated: true, type: :string, json_name: "groupIds"
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.UpdateOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_type, 1,
     type: Google.Cloud.Contentwarehouse.V1.UpdateType,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.MergeFieldsOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :replace_message_fields, 1,
     proto3_optional: true,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1.ProcessorType.LocationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_id, 1, type: :string, json_name: "locationId"
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string

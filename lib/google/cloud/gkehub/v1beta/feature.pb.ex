@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkehub.V1beta.FeatureResourceState.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.FeatureState.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :OK, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.Feature.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.Feature.MembershipSpecsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1beta.MembershipFeatureSpec
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.Feature.MembershipStatesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.V1beta.MembershipFeatureState
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.Feature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.FeatureResourceState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Gkehub.V1beta.FeatureResourceState.State, enum: true
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.FeatureState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Gkehub.V1beta.FeatureState.Code, enum: true
   field :description, 2, type: :string
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.CommonFeatureSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :feature_spec, 0
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.CommonFeatureState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Gkehub.V1beta.FeatureState, deprecated: false
 end
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.MembershipFeatureSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :feature_spec, 0
 
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Gkehub.V1beta.MembershipFeatureState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :feature_state, 0
 

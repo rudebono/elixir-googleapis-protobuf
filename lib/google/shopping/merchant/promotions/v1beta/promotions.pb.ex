@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Promotions.V1beta.Promotion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :promotion_id, 2, type: :string, json_name: "promotionId", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.InsertPromotionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.GetPromotionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.ListPromotionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -74,7 +74,7 @@ end
 defmodule Google.Shopping.Merchant.Promotions.V1beta.ListPromotionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :promotions, 1, repeated: true, type: Google.Shopping.Merchant.Promotions.V1beta.Promotion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -85,7 +85,7 @@ defmodule Google.Shopping.Merchant.Promotions.V1beta.PromotionsService.Service d
 
   use GRPC.Service,
     name: "google.shopping.merchant.promotions.v1beta.PromotionsService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :InsertPromotion,
       Google.Shopping.Merchant.Promotions.V1beta.InsertPromotionRequest,

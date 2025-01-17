@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJobView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :NOTEBOOK_EXECUTION_JOB_VIEW_UNSPECIFIED, 0
   field :NOTEBOOK_EXECUTION_JOB_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateNotebookRuntimeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateNotebookRuntimeTemplateOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetNotebookRuntimeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookRuntimeTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookRuntimeTemplatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebook_runtime_templates, 1,
     repeated: true,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteNotebookRuntimeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateNotebookRuntimeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebook_runtime_template, 1,
     type: Google.Cloud.Aiplatform.V1.NotebookRuntimeTemplate,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AssignNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AssignNotebookRuntimeOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookRuntimesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookRuntimesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebook_runtimes, 1,
     repeated: true,
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpgradeNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpgradeNotebookRuntimeOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -191,13 +191,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpgradeNotebookRuntimeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StartNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StartNotebookRuntimeOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -217,13 +217,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StartNotebookRuntimeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -241,13 +241,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.StopNotebookRuntimeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.CreateNotebookExecutionJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateNotebookExecutionJobOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetNotebookExecutionJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookExecutionJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListNotebookExecutionJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notebook_execution_jobs, 1,
     repeated: true,
@@ -320,7 +320,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteNotebookExecutionJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -330,7 +330,7 @@ defmodule Google.Cloud.Aiplatform.V1.NotebookService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.NotebookService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateNotebookRuntimeTemplate,
       Google.Cloud.Aiplatform.V1.CreateNotebookRuntimeTemplateRequest,

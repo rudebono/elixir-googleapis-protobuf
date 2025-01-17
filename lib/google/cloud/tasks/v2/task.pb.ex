@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Tasks.V2.Task.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Tasks.V2.Task do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :message_type, 0
 
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Tasks.V2.Attempt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :schedule_time, 1, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
   field :dispatch_time, 2, type: Google.Protobuf.Timestamp, json_name: "dispatchTime"

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Services.MutateCampaignDraftsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.PromoteCampaignDraftRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :campaign_draft, 1, type: :string, json_name: "campaignDraft", deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly"
@@ -31,7 +31,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.CampaignDraftOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.MutateCampaignDraftsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.MutateCampaignDraftResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.ListCampaignDraftAsyncErrorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -78,7 +78,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.ListCampaignDraftAsyncErrorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :errors, 1, repeated: true, type: Google.Rpc.Status
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -89,7 +89,7 @@ defmodule Google.Ads.Googleads.V17.Services.CampaignDraftService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v17.services.CampaignDraftService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :MutateCampaignDrafts,
       Google.Ads.Googleads.V17.Services.MutateCampaignDraftsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Asset.V1p5beta1.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :access_context_policy, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Asset.V1p5beta1.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :discovery_document_uri, 2, type: :string, json_name: "discoveryDocumentUri"

@@ -1,7 +1,7 @@
 defmodule Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettings.Enablement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENABLEMENT_UNSPECIFIED, 0
   field :ENABLED, 2
@@ -11,7 +11,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.GetQuotaAdjusterSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.UpdateQuotaAdjusterSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :quota_adjuster_settings, 1,
     type: Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettings,
@@ -37,7 +37,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -59,7 +59,7 @@ defmodule Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettingsManager.Service do
 
   use GRPC.Service,
     name: "google.api.cloudquotas.v1beta.QuotaAdjusterSettingsManager",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :UpdateQuotaAdjusterSettings,
       Google.Api.Cloudquotas.V1beta.UpdateQuotaAdjusterSettingsRequest,

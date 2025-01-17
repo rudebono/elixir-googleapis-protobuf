@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Oracledatabase.V1.ListCloudExadataInfrastructuresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListCloudExadataInfrastructuresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cloud_exadata_infrastructures, 1,
     repeated: true,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.GetCloudExadataInfrastructureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CreateCloudExadataInfrastructureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DeleteCloudExadataInfrastructureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListCloudVmClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListCloudVmClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cloud_vm_clusters, 1,
     repeated: true,
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.GetCloudVmClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CreateCloudVmClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cloud_vm_cluster_id, 2, type: :string, json_name: "cloudVmClusterId", deprecated: false
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DeleteCloudVmClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListEntitlementsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListEntitlementsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :entitlements, 1, repeated: true, type: Google.Cloud.Oracledatabase.V1.Entitlement
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbServersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbServersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :db_servers, 1,
     repeated: true,
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbNodesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :db_nodes, 1,
     repeated: true,
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListGiVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListGiVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :gi_versions, 1,
     repeated: true,
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbSystemShapesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListDbSystemShapesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :db_system_shapes, 1,
     repeated: true,
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :autonomous_databases, 1,
     repeated: true,
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.GetAutonomousDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CreateAutonomousDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DeleteAutonomousDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -317,7 +317,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.RestoreAutonomousDatabaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -330,7 +330,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.GenerateAutonomousDatabaseWalletRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Oracledatabase.V1.GenerateType, enum: true, deprecated: false
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.GenerateAutonomousDatabaseWalletResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :archive_content, 1, type: :bytes, json_name: "archiveContent", deprecated: false
 end
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDbVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDbVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :autonomous_db_versions, 1,
     repeated: true,
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseCharacterSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -383,7 +383,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseCharacterSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :autonomous_database_character_sets, 1,
     repeated: true,
@@ -396,7 +396,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 5, type: :string, deprecated: false
@@ -407,7 +407,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :autonomous_database_backups, 1,
     repeated: true,
@@ -422,7 +422,7 @@ defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
 
   use GRPC.Service,
     name: "google.cloud.oracledatabase.v1.OracleDatabase",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListCloudExadataInfrastructures,
       Google.Cloud.Oracledatabase.V1.ListCloudExadataInfrastructuresRequest,

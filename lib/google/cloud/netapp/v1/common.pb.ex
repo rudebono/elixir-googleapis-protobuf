@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Netapp.V1.ServiceLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SERVICE_LEVEL_UNSPECIFIED, 0
   field :PREMIUM, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Netapp.V1.EncryptionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :SERVICE_MANAGED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DirectoryServiceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DIRECTORY_SERVICE_TYPE_UNSPECIFIED, 0
   field :ACTIVE_DIRECTORY, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Netapp.V1.LocationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :supported_service_levels, 1,
     repeated: true,

@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :monitored_resource_container, 1,
     type: :string,
@@ -32,7 +32,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.ListMetricsScopesByMonitoredProjectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metrics_scopes, 1,
     repeated: true,
@@ -43,7 +43,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.CreateMonitoredProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.DeleteMonitoredProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Monitoring.Metricsscope.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1, type: Google.Monitoring.Metricsscope.V1.OperationMetadata.State, enum: true
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -76,7 +76,7 @@ defmodule Google.Monitoring.Metricsscope.V1.MetricsScopes.Service do
 
   use GRPC.Service,
     name: "google.monitoring.metricsscope.v1.MetricsScopes",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetMetricsScope,
       Google.Monitoring.Metricsscope.V1.GetMetricsScopeRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudSqlProperties.DatabaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :POSTGRES, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.CreateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connection_id, 2, type: :string, json_name: "connectionId", deprecated: false
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.GetConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.ListConnectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.ListConnectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :next_page_token, 1, type: :string, json_name: "nextPageToken"
   field :connections, 2, repeated: true, type: Google.Cloud.Bigquery.Connection.V1.Connection
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.UpdateConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :connection, 2, type: Google.Cloud.Bigquery.Connection.V1.Connection, deprecated: false
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.DeleteConnectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.Connection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :properties, 0
 
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudSqlProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance_id, 1, type: :string, json_name: "instanceId"
   field :database, 2, type: :string
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudSqlCredential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudSpannerProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :database, 1, type: :string
   field :use_parallelism, 2, type: :bool, json_name: "useParallelism"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsCrossAccountRole do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :iam_role_id, 1, type: :string, json_name: "iamRoleId"
   field :iam_user_id, 2, type: :string, json_name: "iamUserId", deprecated: false
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.AwsAccessRole do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :iam_role_id, 1, type: :string, json_name: "iamRoleId"
   field :identity, 2, type: :string
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.AzureProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :application, 1, type: :string, deprecated: false
   field :client_id, 2, type: :string, json_name: "clientId", deprecated: false
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.CloudResourceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId", deprecated: false
 end
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.MetastoreServiceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metastore_service, 1, type: :string, json_name: "metastoreService", deprecated: false
 end
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.SparkHistoryServerConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dataproc_cluster, 1, type: :string, json_name: "dataprocCluster", deprecated: false
 end
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.SparkProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account_id, 1, type: :string, json_name: "serviceAccountId", deprecated: false
 
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Bigquery.Connection.V1.SalesforceDataCloudProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :instance_uri, 1, type: :string, json_name: "instanceUri"
   field :identity, 2, type: :string, deprecated: false
@@ -263,7 +263,7 @@ defmodule Google.Cloud.Bigquery.Connection.V1.ConnectionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.connection.v1.ConnectionService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateConnection,
       Google.Cloud.Bigquery.Connection.V1.CreateConnectionRequest,

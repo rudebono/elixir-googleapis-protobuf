@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apihub.V1.CreateApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_id, 2, type: :string, json_name: "apiId", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api, 1, type: Google.Cloud.Apihub.V1.Api, deprecated: false
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListApisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListApisResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :apis, 1, repeated: true, type: Google.Cloud.Apihub.V1.Api
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :version_id, 2, type: :string, json_name: "versionId", deprecated: false
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :version, 1, type: Google.Cloud.Apihub.V1.Version, deprecated: false
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :versions, 1, repeated: true, type: Google.Cloud.Apihub.V1.Version
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :spec_id, 2, type: :string, json_name: "specId", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :spec, 1, type: Google.Cloud.Apihub.V1.Spec, deprecated: false
 
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListSpecsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListSpecsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :specs, 1, repeated: true, type: Google.Cloud.Apihub.V1.Spec
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetSpecContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetApiOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListApiOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListApiOperationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_operations, 1,
     repeated: true,
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetDefinitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -238,7 +238,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :deployment, 1, type: Google.Cloud.Apihub.V1.Deployment, deprecated: false
 
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Apihub.V1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :attribute_id, 2, type: :string, json_name: "attributeId", deprecated: false
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attribute, 1, type: Google.Cloud.Apihub.V1.Attribute, deprecated: false
 
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListAttributesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListAttributesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attributes, 1, repeated: true, type: Google.Cloud.Apihub.V1.Attribute
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Apihub.V1.SearchResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ApiHubResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Apihub.V1.SearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource, 1, type: Google.Cloud.Apihub.V1.ApiHubResource
 end
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Apihub.V1.SearchResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :search_results, 1,
     repeated: true,
@@ -394,7 +394,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateDependencyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dependency_id, 2, type: :string, json_name: "dependencyId", deprecated: false
@@ -404,7 +404,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetDependencyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -412,7 +412,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateDependencyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dependency, 1, type: Google.Cloud.Apihub.V1.Dependency, deprecated: false
 
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteDependencyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListDependenciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -444,7 +444,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListDependenciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dependencies, 1, repeated: true, type: Google.Cloud.Apihub.V1.Dependency
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -453,7 +453,7 @@ end
 defmodule Google.Cloud.Apihub.V1.CreateExternalApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :external_api_id, 2, type: :string, json_name: "externalApiId", deprecated: false
@@ -467,7 +467,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetExternalApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateExternalApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :external_api, 1,
     type: Google.Cloud.Apihub.V1.ExternalApi,
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteExternalApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -499,7 +499,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListExternalApisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListExternalApisResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :external_apis, 1,
     repeated: true,
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ApiHub.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.apihub.v1.ApiHub", protoc_gen_elixir_version: "0.13.0"
+  use GRPC.Service, name: "google.cloud.apihub.v1.ApiHub", protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateApi, Google.Cloud.Apihub.V1.CreateApiRequest, Google.Cloud.Apihub.V1.Api
 
@@ -642,7 +642,7 @@ defmodule Google.Cloud.Apihub.V1.ApiHubDependencies.Service do
 
   use GRPC.Service,
     name: "google.cloud.apihub.v1.ApiHubDependencies",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateDependency,
       Google.Cloud.Apihub.V1.CreateDependencyRequest,

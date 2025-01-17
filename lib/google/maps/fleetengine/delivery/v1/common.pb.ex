@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocationSensor do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNKNOWN_SENSOR, 0
   field :GPS, 1
@@ -17,7 +17,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNKNOWN_NAVIGATION_STATUS, 0
   field :NO_GUIDANCE, 1
@@ -29,7 +29,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :delivery_vehicle_attribute_value, 0
 
@@ -43,7 +43,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng
 
@@ -134,7 +134,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.TimeWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Maps.Fleetengine.Delivery.V1.TaskAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :task_attribute_value, 0
 

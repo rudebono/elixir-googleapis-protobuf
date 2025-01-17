@@ -3,7 +3,7 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CloudControlsPartnerMonitorin
 
   use GRPC.Service,
     name: "google.cloud.cloudcontrolspartner.v1beta.CloudControlsPartnerMonitoring",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListViolations,
       Google.Cloud.Cloudcontrolspartner.V1beta.ListViolationsRequest,

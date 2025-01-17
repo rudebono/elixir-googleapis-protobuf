@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access_tuple, 1,
     type: Google.Cloud.Policytroubleshooter.V1.AccessTuple,
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access, 1, type: Google.Cloud.Policytroubleshooter.V1.AccessState, enum: true
 
@@ -28,7 +28,7 @@ defmodule Google.Cloud.Policytroubleshooter.V1.IamChecker.Service do
 
   use GRPC.Service,
     name: "google.cloud.policytroubleshooter.v1.IamChecker",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :TroubleshootIamPolicy,
       Google.Cloud.Policytroubleshooter.V1.TroubleshootIamPolicyRequest,

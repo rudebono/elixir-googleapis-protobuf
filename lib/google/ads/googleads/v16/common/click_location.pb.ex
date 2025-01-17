@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Common.ClickLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :city, 6, proto3_optional: true, type: :string
   field :country, 7, proto3_optional: true, type: :string

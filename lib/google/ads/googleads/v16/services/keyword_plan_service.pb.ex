@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.MutateKeywordPlansRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.KeywordPlanOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateKeywordPlansResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -42,7 +42,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.MutateKeywordPlansResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -52,7 +52,7 @@ defmodule Google.Ads.Googleads.V16.Services.KeywordPlanService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.KeywordPlanService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :MutateKeywordPlans,
       Google.Ads.Googleads.V16.Services.MutateKeywordPlansRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunErrorTrace.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :INTERNAL_ERROR, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1beta.ScanRunErrorTrace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Websecurityscanner.V1beta.ScanRunErrorTrace.Code, enum: true
 

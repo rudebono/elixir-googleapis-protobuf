@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AssignmentProtocol.ManualAssignmentType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AssignmentProtocol.AutoAssignmentType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :inactive_license_ttl, 1,
     type: Google.Protobuf.Duration,
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AssignmentProtocol do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :assignment_type, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.LicensePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.GetLicensePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.UpdateLicensePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :license_pool, 1,
     type: Google.Cloud.Commerce.Consumer.Procurement.V1.LicensePool,
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AssignRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :usernames, 2, repeated: true, type: :string, deprecated: false
@@ -89,13 +89,13 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AssignResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.UnassignRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :usernames, 2, repeated: true, type: :string, deprecated: false
@@ -104,13 +104,13 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.UnassignResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.EnumerateLicensedUsersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.LicensedUser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :username, 1, type: :string
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.EnumerateLicensedUsersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :licensed_users, 1,
     repeated: true,
@@ -153,7 +153,7 @@ defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.LicenseManagementService
 
   use GRPC.Service,
     name: "google.cloud.commerce.consumer.procurement.v1.LicenseManagementService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetLicensePool,
       Google.Cloud.Commerce.Consumer.Procurement.V1.GetLicensePoolRequest,

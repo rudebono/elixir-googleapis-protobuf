@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.VodStitchDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.AdStitchDetail.MediaEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.AdStitchDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ad_break_id, 1, type: :string, json_name: "adBreakId", deprecated: false
   field :ad_id, 2, type: :string, json_name: "adId", deprecated: false

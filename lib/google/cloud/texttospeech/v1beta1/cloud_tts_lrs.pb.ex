@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeLongAudioRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :input, 2, type: Google.Cloud.Texttospeech.V1beta1.SynthesisInput, deprecated: false
@@ -18,13 +18,13 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeLongAudioResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeLongAudioMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
 
@@ -41,7 +41,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeechLongAudioSynthesize.Serv
 
   use GRPC.Service,
     name: "google.cloud.texttospeech.v1beta1.TextToSpeechLongAudioSynthesize",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :SynthesizeLongAudio,
       Google.Cloud.Texttospeech.V1beta1.SynthesizeLongAudioRequest,

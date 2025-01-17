@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.V1.BackupPlanAssociation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.RuleConfigInfo.LastBackupState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LAST_BACKUP_STATE_UNSPECIFIED, 0
   field :FIRST_BACKUP_PENDING, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupPlanAssociation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :resource_type, 2, type: :string, json_name: "resourceType", deprecated: false
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.RuleConfigInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :rule_id, 1, type: :string, json_name: "ruleId", deprecated: false
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.CreateBackupPlanAssociationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :backup_plan_associations, 1,
     repeated: true,
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GetBackupPlanAssociationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DeleteBackupPlanAssociationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.TriggerBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :rule_id, 2, type: :string, json_name: "ruleId", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.Index.IndexUpdateMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INDEX_UPDATE_METHOD_UNSPECIFIED, 0
   field :BATCH_UPDATE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction.Operator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Index.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Index do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.SparseEmbedding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :float, deprecated: false
   field :dimensions, 2, repeated: true, type: :int64, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.Restriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :allow_list, 2, repeated: true, type: :string, json_name: "allowList"
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.NumericRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :Value, 0
 
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint.CrowdingTag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :crowding_attribute, 1, type: :string, json_name: "crowdingAttribute"
 end
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexDatapoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :datapoint_id, 1, type: :string, json_name: "datapointId", deprecated: false
 
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.IndexStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vectors_count, 1, type: :int64, json_name: "vectorsCount", deprecated: false
   field :sparse_vectors_count, 3, type: :int64, json_name: "sparseVectorsCount", deprecated: false

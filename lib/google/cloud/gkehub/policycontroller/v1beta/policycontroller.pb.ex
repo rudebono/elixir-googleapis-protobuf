@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MembershipState.LifecycleState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LIFECYCLE_STATE_UNSPECIFIED, 0
   field :NOT_INSTALLED, 1
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.HubConfig.InstallSpec do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INSTALL_SPEC_UNSPECIFIED, 0
   field :INSTALL_SPEC_NOT_INSTALLED, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyControllerDeploymentConfig.Affinity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AFFINITY_UNSPECIFIED, 0
   field :NO_AFFINITY, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.TemplateLibraryConfig.Installation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INSTALLATION_UNSPECIFIED, 0
   field :NOT_INSTALLED, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MonitoringConfig.MonitoringBackend do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MONITORING_BACKEND_UNSPECIFIED, 0
   field :PROMETHEUS, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MembershipState.ComponentStatesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.Policycontroller.V1beta.OnClusterState
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MembershipState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :component_states, 3,
     repeated: true,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyContentState.BundleStatesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.Policycontroller.V1beta.OnClusterState
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyContentState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :template_library_state, 1,
     type: Google.Cloud.Gkehub.Policycontroller.V1beta.OnClusterState,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MembershipSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policy_controller_hub_config, 1,
     type: Google.Cloud.Gkehub.Policycontroller.V1beta.HubConfig,
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.HubConfig.DeploymentConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.HubConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :install_spec, 1,
     type: Google.Cloud.Gkehub.Policycontroller.V1beta.HubConfig.InstallSpec,
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyControllerDeploymentConfig.Toleration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, proto3_optional: true, type: :string
   field :operator, 2, proto3_optional: true, type: :string
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyControllerDeploymentConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :replica_count, 1, proto3_optional: true, type: :int64, json_name: "replicaCount"
 
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.ResourceRequirements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :limits, 1,
     proto3_optional: true,
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.ResourceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :memory, 1, proto3_optional: true, type: :string
   field :cpu, 2, proto3_optional: true, type: :string
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.TemplateLibraryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :installation, 2,
     type: Google.Cloud.Gkehub.Policycontroller.V1beta.TemplateLibraryConfig.Installation,
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.MonitoringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :backends, 1,
     repeated: true,
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.OnClusterState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Gkehub.Policycontroller.V1beta.MembershipState.LifecycleState,
@@ -282,7 +282,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.BundleInstallSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :exempted_namespaces, 2, repeated: true, type: :string, json_name: "exemptedNamespaces"
 end
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyContentSpec.BundlesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Gkehub.Policycontroller.V1beta.BundleInstallSpec
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Gkehub.Policycontroller.V1beta.PolicyContentSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :bundles, 1,
     repeated: true,

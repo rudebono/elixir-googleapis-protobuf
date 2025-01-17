@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluatedAnnotation.EvaluatedAnnotationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EVALUATED_ANNOTATION_TYPE_UNSPECIFIED, 0
   field :TRUE_POSITIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ErrorAnalysisAnnotation.QueryType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :QUERY_TYPE_UNSPECIFIED, 0
   field :ALL_SIMILAR, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluatedAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Aiplatform.V1beta1.EvaluatedAnnotation.EvaluatedAnnotationType,
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluatedAnnotationExplanation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :explanation_type, 1, type: :string, json_name: "explanationType"
   field :explanation, 2, type: Google.Cloud.Aiplatform.V1beta1.Explanation
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ErrorAnalysisAnnotation.AttributedItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :annotation_resource_name, 1, type: :string, json_name: "annotationResourceName"
   field :distance, 2, type: :double
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ErrorAnalysisAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attributed_items, 1,
     repeated: true,

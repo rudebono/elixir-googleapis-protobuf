@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.StockState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STOCK_STATE_UNSPECIFIED, 0
   field :IN_STOCK, 0
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem.CategoryHierarchy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :categories, 1, repeated: true, type: :string, deprecated: false
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.CatalogItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :recommendation_type, 0
 
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.ExactPrice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_price, 1, type: :float, json_name: "displayPrice", deprecated: false
   field :original_price, 2, type: :float, json_name: "originalPrice", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.PriceRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :min, 1, type: :float, deprecated: false
   field :max, 2, type: :float, deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem.CostsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :float
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.ProductCatalogItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :price, 0
 
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Recommendationengine.V1beta1.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :height, 2, type: :int32, deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Maps.Addressvalidation.V1.ProvideValidationFeedbackRequest.ValidationConclusion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :VALIDATION_CONCLUSION_UNSPECIFIED, 0
   field :VALIDATED_VERSION_USED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.Verdict.Granularity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :GRANULARITY_UNSPECIFIED, 0
   field :SUB_PREMISE, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.ValidateAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :address, 1, type: Google.Type.PostalAddress, deprecated: false
   field :previous_response_id, 2, type: :string, json_name: "previousResponseId"
@@ -38,7 +38,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.ValidateAddressResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :result, 1, type: Google.Maps.Addressvalidation.V1.ValidationResult
   field :response_id, 2, type: :string, json_name: "responseId"
@@ -47,7 +47,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.ProvideValidationFeedbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :conclusion, 1,
     type: Google.Maps.Addressvalidation.V1.ProvideValidationFeedbackRequest.ValidationConclusion,
@@ -60,13 +60,13 @@ end
 defmodule Google.Maps.Addressvalidation.V1.ProvideValidationFeedbackResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Addressvalidation.V1.ValidationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :verdict, 1, type: Google.Maps.Addressvalidation.V1.Verdict
   field :address, 2, type: Google.Maps.Addressvalidation.V1.Address
@@ -78,7 +78,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.Verdict do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :input_granularity, 1,
     type: Google.Maps.Addressvalidation.V1.Verdict.Granularity,
@@ -106,7 +106,7 @@ defmodule Google.Maps.Addressvalidation.V1.AddressValidation.Service do
 
   use GRPC.Service,
     name: "google.maps.addressvalidation.v1.AddressValidation",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ValidateAddress,
       Google.Maps.Addressvalidation.V1.ValidateAddressRequest,

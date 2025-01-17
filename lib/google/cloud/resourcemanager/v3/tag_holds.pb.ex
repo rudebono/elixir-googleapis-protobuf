@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Resourcemanager.V3.TagHold do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :holder, 2, type: :string, deprecated: false
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagHoldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -32,13 +32,13 @@ end
 defmodule Google.Cloud.Resourcemanager.V3.CreateTagHoldMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagHoldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -47,13 +47,13 @@ end
 defmodule Google.Cloud.Resourcemanager.V3.DeleteTagHoldMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Resourcemanager.V3.ListTagHoldsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Resourcemanager.V3.ListTagHoldsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tag_holds, 1,
     repeated: true,
@@ -79,7 +79,7 @@ defmodule Google.Cloud.Resourcemanager.V3.TagHolds.Service do
 
   use GRPC.Service,
     name: "google.cloud.resourcemanager.v3.TagHolds",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateTagHold,
       Google.Cloud.Resourcemanager.V3.CreateTagHoldRequest,

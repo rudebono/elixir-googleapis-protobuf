@@ -1,7 +1,7 @@
 defmodule Grafeas.V1.SBOMReferenceNote do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :format, 1, type: :string
   field :version, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Grafeas.V1.SBOMReferenceOccurrence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :payload, 1, type: Grafeas.V1.SbomReferenceIntotoPayload
   field :payload_type, 2, type: :string, json_name: "payloadType"
@@ -20,7 +20,7 @@ end
 defmodule Grafeas.V1.SbomReferenceIntotoPayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: :string, json_name: "_type"
   field :predicate_type, 2, type: :string, json_name: "predicateType"
@@ -31,7 +31,7 @@ end
 defmodule Grafeas.V1.SbomReferenceIntotoPredicate.DigestEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -40,7 +40,7 @@ end
 defmodule Grafeas.V1.SbomReferenceIntotoPredicate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :referrer_id, 1, type: :string, json_name: "referrerId"
   field :location, 2, type: :string

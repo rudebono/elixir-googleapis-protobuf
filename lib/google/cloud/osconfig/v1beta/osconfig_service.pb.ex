@@ -3,7 +3,7 @@ defmodule Google.Cloud.Osconfig.V1beta.OsConfigService.Service do
 
   use GRPC.Service,
     name: "google.cloud.osconfig.v1beta.OsConfigService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ExecutePatchJob,
       Google.Cloud.Osconfig.V1beta.ExecutePatchJobRequest,

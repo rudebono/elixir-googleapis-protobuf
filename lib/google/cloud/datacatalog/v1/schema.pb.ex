@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.IndexingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INDEXING_TYPE_UNSPECIFIED, 0
   field :INDEXING_TYPE_NONE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.LookerColumnSpec.LookerColumnType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :LOOKER_COLUMN_TYPE_UNSPECIFIED, 0
   field :DIMENSION, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :columns, 2, repeated: true, type: Google.Cloud.Datacatalog.V1.ColumnSchema
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.LookerColumnSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Datacatalog.V1.ColumnSchema.LookerColumnSpec.LookerColumnType,
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema.FieldElementType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ColumnSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :system_spec, 0
 

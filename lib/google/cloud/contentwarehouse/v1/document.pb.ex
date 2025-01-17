@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Contentwarehouse.V1.RawDocumentFileType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RAW_DOCUMENT_FILE_TYPE_UNSPECIFIED, 0
   field :RAW_DOCUMENT_FILE_TYPE_PDF, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.ContentCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONTENT_CATEGORY_UNSPECIFIED, 0
   field :CONTENT_CATEGORY_IMAGE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :structured_content, 0
 
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.DocumentReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document_name, 1, type: :string, json_name: "documentName", deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :values, 0
 
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.IntegerArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :int32
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.FloatArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :float
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.TextArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.EnumArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.DateTimeArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Type.DateTime
 end
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.TimestampArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Cloud.Contentwarehouse.V1.TimestampValue
 end
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.TimestampValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -243,7 +243,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.PropertyArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :properties, 1, repeated: true, type: Google.Cloud.Contentwarehouse.V1.Property
 end
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.MapProperty.FieldsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Contentwarehouse.V1.Value
@@ -260,7 +260,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.MapProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fields, 1,
     repeated: true,
@@ -271,7 +271,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.EnumValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :string
 end

@@ -1,7 +1,7 @@
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.AttackVector do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ATTACK_VECTOR_UNSPECIFIED, 0
   field :ATTACK_VECTOR_NETWORK, 1
@@ -13,7 +13,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.AttackComplexity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ATTACK_COMPLEXITY_UNSPECIFIED, 0
   field :ATTACK_COMPLEXITY_LOW, 1
@@ -23,7 +23,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.PrivilegesRequired do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :PRIVILEGES_REQUIRED_UNSPECIFIED, 0
   field :PRIVILEGES_REQUIRED_NONE, 1
@@ -34,7 +34,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.UserInteraction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :USER_INTERACTION_UNSPECIFIED, 0
   field :USER_INTERACTION_NONE, 1
@@ -44,7 +44,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.Scope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SCOPE_UNSPECIFIED, 0
   field :SCOPE_UNCHANGED, 1
@@ -54,7 +54,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3.Impact do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :IMPACT_UNSPECIFIED, 0
   field :IMPACT_HIGH, 1
@@ -65,7 +65,7 @@ end
 defmodule Grafeas.V1beta1.Vulnerability.CVSSv3 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :base_score, 1, type: :float, json_name: "baseScore"
   field :exploitability_score, 2, type: :float, json_name: "exploitabilityScore"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Metastore.V1alpha.Federation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.BackendMetastore.MetastoreType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METASTORE_TYPE_UNSPECIFIED, 0
   field :DATAPLEX, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.Federation.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.Federation.BackendMetastoresEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Cloud.Metastore.V1alpha.BackendMetastore
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.Federation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.BackendMetastore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.ListFederationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.ListFederationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :federations, 1, repeated: true, type: Google.Cloud.Metastore.V1alpha.Federation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.GetFederationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.CreateFederationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :federation_id, 2, type: :string, json_name: "federationId", deprecated: false
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.UpdateFederationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Metastore.V1alpha.DeleteFederationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -163,7 +163,7 @@ defmodule Google.Cloud.Metastore.V1alpha.DataprocMetastoreFederation.Service do
 
   use GRPC.Service,
     name: "google.cloud.metastore.v1alpha.DataprocMetastoreFederation",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :ListFederations,
       Google.Cloud.Metastore.V1alpha.ListFederationsRequest,

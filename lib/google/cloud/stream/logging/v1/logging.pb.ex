@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Stream.Logging.V1.OperationEventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OPERATION_EVENT_TYPE_UNSPECIFIED, 0
   field :OPERATION_EVENT_CREATE_CONTENT_STARTED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Stream.Logging.V1.SessionEventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SESSION_EVENT_TYPE_UNSPECIFIED, 0
   field :SESSION_EVENT_SERVER_STREAMER_SHUTTING_DOWN, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Stream.Logging.V1.OperationEventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :event_type, 1,
     type: Google.Cloud.Stream.Logging.V1.OperationEventType,
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Stream.Logging.V1.OperationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :artifact_type, 1, type: :string, json_name: "artifactType"
   field :artifact_uri, 2, type: :string, json_name: "artifactUri"
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Stream.Logging.V1.SessionEventLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :event_type, 1,
     type: Google.Cloud.Stream.Logging.V1.SessionEventType,

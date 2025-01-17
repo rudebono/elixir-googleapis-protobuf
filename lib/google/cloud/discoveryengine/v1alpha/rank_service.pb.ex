@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankingRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :title, 2, type: :string
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ranking_config, 1, type: :string, json_name: "rankingConfig", deprecated: false
   field :model, 2, type: :string
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.RankResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :records, 5, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.RankingRecord
 end
@@ -57,7 +57,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.RankService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.RankService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :Rank,
       Google.Cloud.Discoveryengine.V1alpha.RankRequest,

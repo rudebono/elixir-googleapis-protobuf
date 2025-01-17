@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Managedkafka.V1.Cluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.RebalanceConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :NO_REBALANCE, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.Cluster.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.Cluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :platform_config, 0
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CapacityConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :vcpu_count, 1, type: :int64, json_name: "vcpuCount", deprecated: false
   field :memory_bytes, 2, type: :int64, json_name: "memoryBytes", deprecated: false
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.RebalanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Managedkafka.V1.RebalanceConfig.Mode,
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :subnet, 2, type: :string, deprecated: false
 end
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.AccessConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :network_configs, 1,
     repeated: true,
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GcpConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :access_config, 3,
     type: Google.Cloud.Managedkafka.V1.AccessConfig,
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.Topic.ConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.Topic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :partition_count, 2, type: :int32, json_name: "partitionCount", deprecated: false
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ConsumerTopicMetadata.PartitionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: Google.Cloud.Managedkafka.V1.ConsumerPartitionMetadata
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ConsumerTopicMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :partitions, 1,
     repeated: true,
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ConsumerPartitionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :offset, 1, type: :int64, deprecated: false
   field :metadata, 2, type: :string, deprecated: false
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ConsumerGroup.TopicsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Managedkafka.V1.ConsumerTopicMetadata
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ConsumerGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,

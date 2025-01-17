@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Resources.LocalServicesEmployee do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, proto3_optional: true, type: :int64, deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.UniversityDegree do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :institution_name, 1,
     proto3_optional: true,
@@ -112,7 +112,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Residency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :institution_name, 1,
     proto3_optional: true,
@@ -130,7 +130,7 @@ end
 defmodule Google.Ads.Googleads.V17.Resources.Fellowship do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :institution_name, 1,
     proto3_optional: true,

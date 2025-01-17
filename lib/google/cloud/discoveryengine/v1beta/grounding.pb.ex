@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.GroundingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.GroundingFact.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.GroundingFact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fact_text, 1, type: :string, json_name: "factText"
 
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.FactChunk.SourceMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.FactChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :chunk_text, 1, type: :string, json_name: "chunkText"
   field :source, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Api.Cloudquotas.V1beta.QuotaSafetyCheck do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :QUOTA_SAFETY_CHECK_UNSPECIFIED, 0
   field :QUOTA_DECREASE_BELOW_USAGE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaInfo.ContainerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CONTAINER_TYPE_UNSPECIFIED, 0
   field :PROJECT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaIncreaseEligibility.IneligibilityReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :INELIGIBILITY_REASON_UNSPECIFIED, 0
   field :NO_VALID_BILLING_ACCOUNT, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaConfig.Origin do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ORIGIN_UNSPECIFIED, 0
   field :CLOUD_CONSOLE, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :quota_id, 2, type: :string, json_name: "quotaId"
@@ -81,7 +81,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaIncreaseEligibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :is_eligible, 1, type: :bool, json_name: "isEligible"
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaPreference.DimensionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -103,7 +103,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaPreference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -140,7 +140,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaConfig.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -149,7 +149,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :preferred_value, 1, type: :int64, json_name: "preferredValue", deprecated: false
   field :state_detail, 2, type: :string, json_name: "stateDetail", deprecated: false
@@ -177,7 +177,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.DimensionsInfo.DimensionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -186,7 +186,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.DimensionsInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimensions, 1,
     repeated: true,
@@ -200,7 +200,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.QuotaDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, type: :int64
 
@@ -212,7 +212,7 @@ end
 defmodule Google.Api.Cloudquotas.V1beta.RolloutInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ongoing_rollout, 1, type: :bool, json_name: "ongoingRollout"
 end

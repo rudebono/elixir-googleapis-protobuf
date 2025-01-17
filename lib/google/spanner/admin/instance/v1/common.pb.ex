@@ -1,7 +1,7 @@
 defmodule Google.Spanner.Admin.Instance.V1.FulfillmentPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :FULFILLMENT_PERIOD_UNSPECIFIED, 0
   field :FULFILLMENT_PERIOD_NORMAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Spanner.Admin.Instance.V1.OperationProgress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :progress_percent, 1, type: :int32, json_name: "progressPercent"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -21,7 +21,7 @@ end
 defmodule Google.Spanner.Admin.Instance.V1.ReplicaSelection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
 end

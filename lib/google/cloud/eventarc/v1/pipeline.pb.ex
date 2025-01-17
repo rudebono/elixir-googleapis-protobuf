@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Eventarc.V1.Pipeline.MessagePayloadFormat.JsonFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Eventarc.V1.Pipeline.MessagePayloadFormat.ProtobufFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :schema_definition, 1, type: :string, json_name: "schemaDefinition", deprecated: false
 end
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.MessagePayloadFormat.AvroFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :schema_definition, 1, type: :string, json_name: "schemaDefinition", deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.MessagePayloadFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :network_attachment, 1, type: :string, json_name: "networkAttachment", deprecated: false
 end
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination.HttpEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination.AuthenticationConfig.OidcToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
   field :audience, 2, type: :string, deprecated: false
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination.AuthenticationConfig.OAuthToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
   field :scope, 2, type: :string, deprecated: false
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination.AuthenticationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :authentication_method_descriptor, 0
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Destination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :destination_descriptor, 0
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Mediation.Transformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :transformation_template, 1,
     type: :string,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.Mediation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :mediation_descriptor, 0
 
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.RetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts", deprecated: false
 
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Eventarc.V1.Pipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

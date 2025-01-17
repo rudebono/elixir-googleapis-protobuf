@@ -1,7 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Resources.AssetGroupListingGroupFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :asset_group, 2, type: :string, json_name: "assetGroup", deprecated: false
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimensionPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimensions, 1,
     repeated: true,
@@ -46,7 +46,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductBiddingCategory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :id, 1, proto3_optional: true, type: :int64
 
@@ -59,7 +59,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductBrand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -67,7 +67,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductChannel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :channel, 1,
     type:
@@ -78,7 +78,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :condition, 1,
     type:
@@ -89,7 +89,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductCustomAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 
@@ -102,7 +102,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductItemId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -110,7 +110,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension.ProductType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 
@@ -123,7 +123,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Resources.ListingGroupFilterDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :dimension, 0
 

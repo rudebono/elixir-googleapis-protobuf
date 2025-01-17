@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Data.V1beta.MetricAggregation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METRIC_AGGREGATION_UNSPECIFIED, 0
   field :TOTAL, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :METRIC_TYPE_UNSPECIFIED, 0
   field :TYPE_INTEGER, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RestrictedMetricType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :RESTRICTED_METRIC_TYPE_UNSPECIFIED, 0
   field :COST_DATA, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Compatibility do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :COMPATIBILITY_UNSPECIFIED, 0
   field :COMPATIBLE, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.StringFilter.MatchType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.NumericFilter.Operation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :EQUAL, 1
@@ -80,7 +80,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy.DimensionOrderBy.OrderType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ORDER_TYPE_UNSPECIFIED, 0
   field :ALPHANUMERIC, 1
@@ -91,7 +91,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CohortsRange.Granularity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :GRANULARITY_UNSPECIFIED, 0
   field :DAILY, 1
@@ -102,7 +102,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricMetadata.BlockedReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :BLOCKED_REASON_UNSPECIFIED, 0
   field :NO_REVENUE_METRICS, 1
@@ -112,7 +112,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DateRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
@@ -122,7 +122,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MinuteRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :start_minutes_ago, 1, proto3_optional: true, type: :int32, json_name: "startMinutesAgo"
   field :end_minutes_ago, 2, proto3_optional: true, type: :int32, json_name: "endMinutesAgo"
@@ -132,7 +132,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Dimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionExpression.CaseExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 end
@@ -152,7 +152,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionExpression.ConcatenateExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_names, 1, repeated: true, type: :string, json_name: "dimensionNames"
   field :delimiter, 2, type: :string
@@ -161,7 +161,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_expression, 0
 
@@ -183,7 +183,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Metric do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :expression, 2, type: :string
@@ -193,7 +193,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Comparison do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_comparison, 0
 
@@ -210,7 +210,7 @@ end
 defmodule Google.Analytics.Data.V1beta.FilterExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :expr, 0
 
@@ -235,7 +235,7 @@ end
 defmodule Google.Analytics.Data.V1beta.FilterExpressionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :expressions, 1, repeated: true, type: Google.Analytics.Data.V1beta.FilterExpression
 end
@@ -243,7 +243,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.StringFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Data.V1beta.Filter.StringFilter.MatchType,
@@ -257,7 +257,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.InListFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
   field :case_sensitive, 2, type: :bool, json_name: "caseSensitive"
@@ -266,7 +266,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.NumericFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :operation, 1,
     type: Google.Analytics.Data.V1beta.Filter.NumericFilter.Operation,
@@ -278,7 +278,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.BetweenFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :from_value, 1, type: Google.Analytics.Data.V1beta.NumericValue, json_name: "fromValue"
   field :to_value, 2, type: Google.Analytics.Data.V1beta.NumericValue, json_name: "toValue"
@@ -287,13 +287,13 @@ end
 defmodule Google.Analytics.Data.V1beta.Filter.EmptyFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Data.V1beta.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -328,7 +328,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy.MetricOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 end
@@ -336,7 +336,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy.DimensionOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
 
@@ -349,7 +349,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy.PivotOrderBy.PivotSelection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName"
   field :dimension_value, 2, type: :string, json_name: "dimensionValue"
@@ -358,7 +358,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy.PivotOrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_name, 1, type: :string, json_name: "metricName"
 
@@ -371,7 +371,7 @@ end
 defmodule Google.Analytics.Data.V1beta.OrderBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_order_by, 0
 
@@ -384,7 +384,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Pivot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :field_names, 1, repeated: true, type: :string, json_name: "fieldNames"
 
@@ -406,7 +406,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CohortSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :cohorts, 1, repeated: true, type: Google.Analytics.Data.V1beta.Cohort
 
@@ -422,7 +422,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Cohort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :dimension, 2, type: :string
@@ -432,7 +432,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CohortsRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :granularity, 1, type: Google.Analytics.Data.V1beta.CohortsRange.Granularity, enum: true
   field :start_offset, 2, type: :int32, json_name: "startOffset"
@@ -442,7 +442,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CohortReportSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :accumulate, 1, type: :bool
 end
@@ -450,7 +450,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ResponseMetaData.SchemaRestrictionResponse.ActiveMetricRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_name, 1, proto3_optional: true, type: :string, json_name: "metricName"
 
@@ -464,7 +464,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ResponseMetaData.SchemaRestrictionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :active_metric_restrictions, 1,
     repeated: true,
@@ -476,7 +476,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ResponseMetaData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data_loss_from_other_row, 3, type: :bool, json_name: "dataLossFromOtherRow"
 
@@ -503,7 +503,7 @@ end
 defmodule Google.Analytics.Data.V1beta.SamplingMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :samples_read_count, 1, type: :int64, json_name: "samplesReadCount"
   field :sampling_space_size, 2, type: :int64, json_name: "samplingSpaceSize"
@@ -512,7 +512,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -520,7 +520,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Analytics.Data.V1beta.MetricType, enum: true
@@ -529,7 +529,7 @@ end
 defmodule Google.Analytics.Data.V1beta.PivotHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :pivot_dimension_headers, 1,
     repeated: true,
@@ -542,7 +542,7 @@ end
 defmodule Google.Analytics.Data.V1beta.PivotDimensionHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -553,7 +553,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Row do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -569,7 +569,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -579,7 +579,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -589,7 +589,7 @@ end
 defmodule Google.Analytics.Data.V1beta.NumericValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -600,7 +600,7 @@ end
 defmodule Google.Analytics.Data.V1beta.PropertyQuota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :tokens_per_day, 1,
     type: Google.Analytics.Data.V1beta.QuotaStatus,
@@ -630,7 +630,7 @@ end
 defmodule Google.Analytics.Data.V1beta.QuotaStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :consumed, 1, proto3_optional: true, type: :int32
   field :remaining, 2, proto3_optional: true, type: :int32
@@ -639,7 +639,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_name, 1, type: :string, json_name: "apiName"
   field :ui_name, 2, type: :string, json_name: "uiName"
@@ -652,7 +652,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_name, 1, type: :string, json_name: "apiName"
   field :ui_name, 2, type: :string, json_name: "uiName"
@@ -674,7 +674,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ComparisonMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :api_name, 1, type: :string, json_name: "apiName"
   field :ui_name, 2, type: :string, json_name: "uiName"
@@ -684,7 +684,7 @@ end
 defmodule Google.Analytics.Data.V1beta.DimensionCompatibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dimension_metadata, 1,
     proto3_optional: true,
@@ -700,7 +700,7 @@ end
 defmodule Google.Analytics.Data.V1beta.MetricCompatibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_metadata, 1,
     proto3_optional: true,

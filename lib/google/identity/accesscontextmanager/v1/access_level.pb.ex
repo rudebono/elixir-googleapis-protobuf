@@ -1,7 +1,7 @@
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel.ConditionCombiningFunction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AND, 0
   field :OR, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.AccessLevel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :level, 0
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.BasicLevel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :conditions, 1, repeated: true, type: Google.Identity.Accesscontextmanager.V1.Condition
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :ip_subnetworks, 1, repeated: true, type: :string, json_name: "ipSubnetworks"
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.CustomLevel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :expr, 1, type: Google.Type.Expr
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.DevicePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :require_screenlock, 1, type: :bool, json_name: "requireScreenlock"
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Identity.Accesscontextmanager.V1.OsConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :os_type, 1,
     type: Google.Identity.Accesscontextmanager.Type.OsType,

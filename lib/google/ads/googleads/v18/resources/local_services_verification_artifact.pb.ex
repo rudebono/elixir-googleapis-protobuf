@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.LocalServicesVerificationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :artifact_data, 0
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.BackgroundCheckVerificationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :case_url, 1,
     proto3_optional: true,
@@ -68,7 +68,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.InsuranceVerificationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :amount_micros, 1,
     proto3_optional: true,
@@ -100,7 +100,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.LicenseVerificationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :license_type, 1,
     proto3_optional: true,
@@ -150,7 +150,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.BusinessRegistrationCheckVerificationArtifact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :business_registration, 0
 
@@ -192,7 +192,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.BusinessRegistrationNumber do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :number, 1, proto3_optional: true, type: :string, deprecated: false
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.BusinessRegistrationDocument do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :document_readonly, 1,
     proto3_optional: true,

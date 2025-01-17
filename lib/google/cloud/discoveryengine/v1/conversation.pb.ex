@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.Conversation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Conversation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Discoveryengine.V1.Conversation.State, enum: true
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Reply do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :summary, 3, type: Google.Cloud.Discoveryengine.V1.SearchResponse.Summary
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ConversationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :context_documents, 1, repeated: true, type: :string, json_name: "contextDocuments"
   field :active_document, 2, type: :string, json_name: "activeDocument"
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :input, 1, type: :string
   field :context, 2, type: Google.Cloud.Discoveryengine.V1.ConversationContext
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ConversationMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :message, 0
 

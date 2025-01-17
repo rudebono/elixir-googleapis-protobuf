@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsRequest.MuteState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :MUTE_STATE_UNSPECIFIED, 0
   field :MUTED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.BatchCreateResourceValueConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.BatchCreateResourceValueConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_value_configs, 1,
     repeated: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -50,13 +50,13 @@ end
 defmodule Google.Cloud.Securitycenter.V2.BulkMuteFindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Securitycenter.V2.CreateBigQueryExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.CreateFindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :finding_id, 2, type: :string, json_name: "findingId", deprecated: false
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.CreateMuteConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.CreateNotificationConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :config_id, 2, type: :string, json_name: "configId", deprecated: false
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.CreateResourceValueConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.CreateSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :source, 2, type: Google.Cloud.Securitycenter.V2.Source, deprecated: false
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.DeleteBigQueryExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.DeleteMuteConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.DeleteNotificationConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.DeleteResourceValueConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetBigQueryExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetMuteConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetNotificationConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetResourceValueConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GroupFindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GroupFindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :group_by_results, 1,
     repeated: true,
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GroupResult.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GroupResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :properties, 1,
     repeated: true,
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListAttackPathsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListAttackPathsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :attack_paths, 1,
     repeated: true,
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetSimulationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -284,7 +284,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.GetValuedResourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -292,7 +292,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListBigQueryExportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListBigQueryExportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :big_query_exports, 1,
     repeated: true,
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListFindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListFindingsResponse.ListFindingsResult.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :cloud_provider_metadata, 0
 
@@ -369,7 +369,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListFindingsResponse.ListFindingsResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :finding, 1, type: Google.Cloud.Securitycenter.V2.Finding
 
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListFindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :list_findings_results, 1,
     repeated: true,
@@ -395,7 +395,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListMuteConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListMuteConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mute_configs, 1,
     repeated: true,
@@ -418,7 +418,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListNotificationConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -428,7 +428,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListNotificationConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notification_configs, 1,
     repeated: true,
@@ -441,7 +441,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListResourceValueConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -451,7 +451,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListResourceValueConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_value_configs, 1,
     repeated: true,
@@ -464,7 +464,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListSourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -474,7 +474,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListSourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sources, 1, repeated: true, type: Google.Cloud.Securitycenter.V2.Source
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -483,7 +483,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListValuedResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -495,7 +495,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.ListValuedResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :valued_resources, 1,
     repeated: true,
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.SetFindingStateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.SetMuteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :mute, 2, type: Google.Cloud.Securitycenter.V2.Finding.Mute, enum: true, deprecated: false
@@ -531,7 +531,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateBigQueryExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :big_query_export, 1,
     type: Google.Cloud.Securitycenter.V2.BigQueryExport,
@@ -544,7 +544,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateExternalSystemRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :external_system, 1,
     type: Google.Cloud.Securitycenter.V2.ExternalSystem,
@@ -557,7 +557,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateFindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :finding, 1, type: Google.Cloud.Securitycenter.V2.Finding, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -566,7 +566,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateMuteConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :mute_config, 1,
     type: Google.Cloud.Securitycenter.V2.MuteConfig,
@@ -579,7 +579,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateNotificationConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :notification_config, 1,
     type: Google.Cloud.Securitycenter.V2.NotificationConfig,
@@ -592,7 +592,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateResourceValueConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :resource_value_config, 1,
     type: Google.Cloud.Securitycenter.V2.ResourceValueConfig,
@@ -605,7 +605,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateSecurityMarksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :security_marks, 1,
     type: Google.Cloud.Securitycenter.V2.SecurityMarks,
@@ -618,7 +618,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.UpdateSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Securitycenter.V2.Source, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -629,7 +629,7 @@ defmodule Google.Cloud.Securitycenter.V2.SecurityCenter.Service do
 
   use GRPC.Service,
     name: "google.cloud.securitycenter.v2.SecurityCenter",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :BatchCreateResourceValueConfigs,
       Google.Cloud.Securitycenter.V2.BatchCreateResourceValueConfigsRequest,

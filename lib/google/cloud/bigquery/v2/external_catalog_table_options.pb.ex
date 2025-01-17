@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ExternalCatalogTableOptions.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ExternalCatalogTableOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parameters, 1,
     repeated: true,
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.StorageDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location_uri, 1, type: :string, json_name: "locationUri", deprecated: false
   field :input_format, 2, type: :string, json_name: "inputFormat", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.SerDeInfo.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.SerDeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.CreateSessionTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.UpdateSessionTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :session_template, 1,
     type: Google.Cloud.Dataproc.V1.SessionTemplate,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.GetSessionTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListSessionTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListSessionTemplatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :session_templates, 1,
     repeated: true,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.DeleteSessionTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SessionTemplate.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SessionTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :session_config, 0
 
@@ -130,7 +130,7 @@ defmodule Google.Cloud.Dataproc.V1.SessionTemplateController.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.SessionTemplateController",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateSessionTemplate,
       Google.Cloud.Dataproc.V1.CreateSessionTemplateRequest,

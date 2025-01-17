@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.TelephonyDtmf do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :TELEPHONY_DTMF_UNSPECIFIED, 0
   field :DTMF_ONE, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.AudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :AUDIO_ENCODING_LINEAR_16, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SpeechModelVariant do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SPEECH_MODEL_VARIANT_UNSPECIFIED, 0
   field :USE_BEST_AVAILABLE, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SsmlVoiceGender do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :SSML_VOICE_GENDER_MALE, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.OutputAudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :OUTPUT_AUDIO_ENCODING_UNSPECIFIED, 0
   field :OUTPUT_AUDIO_ENCODING_LINEAR_16, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SpeechContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :phrases, 1, repeated: true, type: :string, deprecated: false
   field :boost, 2, type: :float, deprecated: false
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SpeechWordInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :word, 3, type: :string
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.InputAudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.V2.AudioEncoding,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.VoiceSelectionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SynthesizeSpeechConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :speaking_rate, 1, type: :double, json_name: "speakingRate", deprecated: false
   field :pitch, 2, type: :double, deprecated: false
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.OutputAudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.V2.OutputAudioEncoding,
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.TelephonyDtmfEvents do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :dtmf_events, 1,
     repeated: true,
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SpeechToTextConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :speech_model_variant, 1,
     type: Google.Cloud.Dialogflow.V2.SpeechModelVariant,

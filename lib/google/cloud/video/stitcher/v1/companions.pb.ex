@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.CompanionAds.DisplayRequirement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :DISPLAY_REQUIREMENT_UNSPECIFIED, 0
   field :ALL, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.CompanionAds do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :display_requirement, 1,
     type: Google.Cloud.Video.Stitcher.V1.CompanionAds.DisplayRequirement,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.Companion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :ad_resource, 0
 
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.HtmlAdResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :html_source, 1, type: :string, json_name: "htmlSource"
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.IframeAdResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.StaticAdResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :creative_type, 2, type: :string, json_name: "creativeType"

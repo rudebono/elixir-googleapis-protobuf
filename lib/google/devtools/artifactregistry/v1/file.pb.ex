@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Artifactregistry.V1.Hash.HashType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :HASH_TYPE_UNSPECIFIED, 0
   field :SHA256, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.Hash do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :type, 1, type: Google.Devtools.Artifactregistry.V1.Hash.HashType, enum: true
   field :value, 2, type: :bytes
@@ -20,7 +20,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.File.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -29,7 +29,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.File do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :size_bytes, 3, type: :int64, json_name: "sizeBytes"
@@ -58,7 +58,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListFilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string
@@ -70,7 +70,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.ListFilesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :files, 1, repeated: true, type: Google.Devtools.Artifactregistry.V1.File
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -79,7 +79,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.GetFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -87,7 +87,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.DeleteFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Devtools.Artifactregistry.V1.UpdateFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :file, 1, type: Google.Devtools.Artifactregistry.V1.File, deprecated: false
 

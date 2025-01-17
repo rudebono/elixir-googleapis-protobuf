@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V16.Services.SuggestGeoTargetConstantsRequest.LocationNames do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :names, 2, repeated: true, type: :string
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SuggestGeoTargetConstantsRequest.GeoTargets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :geo_target_constants, 2, repeated: true, type: :string, json_name: "geoTargetConstants"
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SuggestGeoTargetConstantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -38,7 +38,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.SuggestGeoTargetConstantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :geo_target_constant_suggestions, 1,
     repeated: true,
@@ -49,7 +49,7 @@ end
 defmodule Google.Ads.Googleads.V16.Services.GeoTargetConstantSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :locale, 6, proto3_optional: true, type: :string
   field :reach, 7, proto3_optional: true, type: :int64
@@ -70,7 +70,7 @@ defmodule Google.Ads.Googleads.V16.Services.GeoTargetConstantService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v16.services.GeoTargetConstantService",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :SuggestGeoTargetConstants,
       Google.Ads.Googleads.V16.Services.SuggestGeoTargetConstantsRequest,

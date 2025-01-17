@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Secretmanager.V1.SecretVersion.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Secret.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Secret.VersionAliasesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Secret.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Secret do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.SecretVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Replication.Automatic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :customer_managed_encryption, 1,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryption,
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged.Replica do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location, 1, type: :string
 
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Replication.UserManaged do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :replicas, 1,
     repeated: true,
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Replication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :replication, 0
 
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.AutomaticStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :customer_managed_encryption, 1,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus,
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus.ReplicaStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
 
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus.UserManagedStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :replicas, 1,
     repeated: true,
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.ReplicationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :replication_status, 0
 
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.CustomerManagedEncryptionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName", deprecated: false
 end
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Topic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.Rotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :next_rotation_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Secretmanager.V1.SecretPayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :data, 1, type: :bytes
 

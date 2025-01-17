@@ -1,7 +1,7 @@
 defmodule Google.Dataflow.V1beta3.ExecutionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :EXECUTION_STATE_UNKNOWN, 0
   field :EXECUTION_STATE_NOT_STARTED, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Dataflow.V1beta3.MetricStructuredName.ContextEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -23,7 +23,7 @@ end
 defmodule Google.Dataflow.V1beta3.MetricStructuredName do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :origin, 1, type: :string
   field :name, 2, type: :string
@@ -37,7 +37,7 @@ end
 defmodule Google.Dataflow.V1beta3.MetricUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: Google.Dataflow.V1beta3.MetricStructuredName
   field :kind, 2, type: :string
@@ -55,7 +55,7 @@ end
 defmodule Google.Dataflow.V1beta3.GetJobMetricsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -66,7 +66,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :metric_time, 1, type: Google.Protobuf.Timestamp, json_name: "metricTime"
   field :metrics, 2, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
@@ -75,7 +75,7 @@ end
 defmodule Google.Dataflow.V1beta3.GetJobExecutionDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -87,7 +87,7 @@ end
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries.Point do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :value, 2, type: :double
@@ -96,7 +96,7 @@ end
 defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :current_progress, 1, type: :double, json_name: "currentProgress"
 
@@ -109,7 +109,7 @@ end
 defmodule Google.Dataflow.V1beta3.StageSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stage_id, 1, type: :string, json_name: "stageId"
   field :state, 2, type: Google.Dataflow.V1beta3.ExecutionState, enum: true
@@ -122,7 +122,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobExecutionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :stages, 1, repeated: true, type: Google.Dataflow.V1beta3.StageSummary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -131,7 +131,7 @@ end
 defmodule Google.Dataflow.V1beta3.GetStageExecutionDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -146,7 +146,7 @@ end
 defmodule Google.Dataflow.V1beta3.WorkItemDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :task_id, 1, type: :string, json_name: "taskId"
   field :attempt_id, 2, type: :string, json_name: "attemptId"
@@ -160,7 +160,7 @@ end
 defmodule Google.Dataflow.V1beta3.WorkerDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :worker_name, 1, type: :string, json_name: "workerName"
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Dataflow.V1beta3.StageExecutionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :workers, 1, repeated: true, type: Google.Dataflow.V1beta3.WorkerDetails
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -184,7 +184,7 @@ defmodule Google.Dataflow.V1beta3.MetricsV1Beta3.Service do
 
   use GRPC.Service,
     name: "google.dataflow.v1beta3.MetricsV1Beta3",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :GetJobMetrics,
       Google.Dataflow.V1beta3.GetJobMetricsRequest,

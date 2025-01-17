@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Connection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CONNECTED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Connection.CertificateState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :CERTIFICATE_STATE_UNSPECIFIED, 0
   field :CERTIFICATE_VALID, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateSipTrunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteSipTrunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSipTrunksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSipTrunksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sip_trunks, 1,
     repeated: true,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetSipTrunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateSipTrunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :sip_trunk, 1,
     type: Google.Cloud.Dialogflow.V2beta1.SipTrunk,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SipTrunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Connection.ErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :certificate_state, 1,
     proto3_optional: true,
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Connection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :connection_id, 1, type: :string, json_name: "connectionId", deprecated: false
 
@@ -160,7 +160,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SipTrunks.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.SipTrunks",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreateSipTrunk,
       Google.Cloud.Dialogflow.V2beta1.CreateSipTrunkRequest,

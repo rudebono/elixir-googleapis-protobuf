@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :playbook, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePlaybookRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybooksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybooksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :playbooks, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPlaybookRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePlaybookRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :playbook, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   oneof :instruction, 0
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Instruction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :steps, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string, deprecated: false
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPlaybookVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybookVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybookVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :playbook_versions, 1,
     repeated: true,
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePlaybookVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.13.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -205,7 +205,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbooks.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Playbooks",
-    protoc_gen_elixir_version: "0.13.0"
+    protoc_gen_elixir_version: "0.14.0"
 
   rpc :CreatePlaybook,
       Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookRequest,
