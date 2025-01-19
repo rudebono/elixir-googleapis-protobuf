@@ -276,6 +276,7 @@ defmodule Google.Firestore.Admin.V1.ListBackupsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string
 end
 
 defmodule Google.Firestore.Admin.V1.ListBackupsResponse do

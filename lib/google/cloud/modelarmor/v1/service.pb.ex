@@ -478,12 +478,6 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizeUserPromptRequest do
     type: Google.Cloud.Modelarmor.V1.DataItem,
     json_name: "userPromptData",
     deprecated: false
-
-  field :filter_config, 3,
-    proto3_optional: true,
-    type: Google.Cloud.Modelarmor.V1.FilterConfig,
-    json_name: "filterConfig",
-    deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseRequest do
@@ -496,12 +490,6 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseRequest do
   field :model_response_data, 2,
     type: Google.Cloud.Modelarmor.V1.DataItem,
     json_name: "modelResponseData",
-    deprecated: false
-
-  field :filter_config, 3,
-    proto3_optional: true,
-    type: Google.Cloud.Modelarmor.V1.FilterConfig,
-    json_name: "filterConfig",
     deprecated: false
 
   field :user_prompt, 4, type: :string, json_name: "userPrompt", deprecated: false
