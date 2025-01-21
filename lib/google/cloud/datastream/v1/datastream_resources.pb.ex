@@ -191,6 +191,11 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
   field :username, 3, type: :string, deprecated: false
   field :password, 4, type: :string, deprecated: false
   field :database, 5, type: :string, deprecated: false
+
+  field :ssl_config, 7,
+    type: Google.Cloud.Datastream.V1.PostgresqlSslConfig,
+    json_name: "sslConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.SqlServerProfile do
@@ -359,6 +364,42 @@ defmodule Google.Cloud.Datastream.V1.OracleSslConfig do
 
   field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
   field :ca_certificate_set, 2, type: :bool, json_name: "caCertificateSet", deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerVerification do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerAndClientVerification do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :client_certificate, 1, type: :string, json_name: "clientCertificate", deprecated: false
+  field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
+  field :ca_certificate, 3, type: :string, json_name: "caCertificate", deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :encryption_setting, 0
+
+  field :server_verification, 1,
+    type: Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerVerification,
+    json_name: "serverVerification",
+    oneof: 0
+
+  field :server_and_client_verification, 2,
+    type: Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerAndClientVerification,
+    json_name: "serverAndClientVerification",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Datastream.V1.ConnectionProfile.LabelsEntry do
