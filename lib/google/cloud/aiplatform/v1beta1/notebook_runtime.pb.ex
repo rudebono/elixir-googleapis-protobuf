@@ -50,7 +50,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate do
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
-  field :is_default, 4, type: :bool, json_name: "isDefault", deprecated: false
+  field :is_default, 4, type: :bool, json_name: "isDefault", deprecated: true
 
   field :machine_spec, 5,
     type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
@@ -67,7 +67,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate do
     json_name: "networkSpec",
     deprecated: false
 
-  field :service_account, 13, type: :string, json_name: "serviceAccount"
+  field :service_account, 13, type: :string, json_name: "serviceAccount", deprecated: true
   field :etag, 14, type: :string
 
   field :labels, 15,
@@ -185,9 +185,34 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime do
     enum: true,
     deprecated: false
 
+  field :machine_spec, 20,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec",
+    deprecated: false
+
+  field :data_persistent_disk_spec, 21,
+    type: Google.Cloud.Aiplatform.V1beta1.PersistentDiskSpec,
+    json_name: "dataPersistentDiskSpec",
+    deprecated: false
+
+  field :network_spec, 22,
+    type: Google.Cloud.Aiplatform.V1beta1.NetworkSpec,
+    json_name: "networkSpec",
+    deprecated: false
+
   field :idle_shutdown_config, 23,
     type: Google.Cloud.Aiplatform.V1beta1.NotebookIdleShutdownConfig,
     json_name: "idleShutdownConfig",
+    deprecated: false
+
+  field :euc_config, 24,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookEucConfig,
+    json_name: "eucConfig",
+    deprecated: false
+
+  field :shielded_vm_config, 32,
+    type: Google.Cloud.Aiplatform.V1beta1.ShieldedVmConfig,
+    json_name: "shieldedVmConfig",
     deprecated: false
 
   field :network_tags, 25,
