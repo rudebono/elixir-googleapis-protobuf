@@ -1417,6 +1417,7 @@ defmodule Google.Cloud.Compute.V1.InterconnectAttachment.Bandwidth do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :UNDEFINED_BANDWIDTH, 0
+  field :BPS_100G, 49_547_952
   field :BPS_100M, 49_547_958
   field :BPS_10G, 278_693_006
   field :BPS_1G, 355_358_448
@@ -2260,6 +2261,14 @@ defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.BgpInterRegionCost do
   field :UNDEFINED_BGP_INTER_REGION_COST, 0
   field :ADD_COST_TO_MED, 490_583_004
   field :DEFAULT, 115_302_945
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.EffectiveBgpInterRegionCost do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_EFFECTIVE_BGP_INTER_REGION_COST, 0
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig.RoutingMode do
@@ -5494,6 +5503,34 @@ defmodule Google.Cloud.Compute.V1.AggregatedListNetworkEdgeSecurityServicesReque
 end
 
 defmodule Google.Cloud.Compute.V1.AggregatedListNetworkEndpointGroupsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+
+  field :include_all_scopes, 391_327_988,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeAllScopes"
+
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :service_project_number, 316_757_497,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "serviceProjectNumber"
+end
+
+defmodule Google.Cloud.Compute.V1.AggregatedListNetworkFirewallPoliciesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
@@ -10671,6 +10708,19 @@ defmodule Google.Cloud.Compute.V1.FirewallPoliciesListAssociationsResponse do
     type: Google.Cloud.Compute.V1.FirewallPolicyAssociation
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.FirewallPoliciesScopedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :firewall_policies, 392_512_943,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.FirewallPolicy,
+    json_name: "firewallPolicies"
+
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.FirewallPolicy do
@@ -21029,6 +21079,39 @@ defmodule Google.Cloud.Compute.V1.NetworkEndpointWithHealthStatus do
     json_name: "networkEndpoint"
 end
 
+defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicyAggregatedList.ItemsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Compute.V1.FirewallPoliciesScopedList
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicyAggregatedList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+
+  field :items, 100_526_016,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.NetworkFirewallPolicyAggregatedList.ItemsEntry,
+    map: true
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
 defmodule Google.Cloud.Compute.V1.NetworkInterface do
   @moduledoc false
 
@@ -21335,6 +21418,16 @@ defmodule Google.Cloud.Compute.V1.NetworkRoutingConfig do
     proto3_optional: true,
     type: :string,
     json_name: "bgpInterRegionCost"
+
+  field :effective_bgp_always_compare_med, 214_661_838,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "effectiveBgpAlwaysCompareMed"
+
+  field :effective_bgp_inter_region_cost, 185_098_313,
+    proto3_optional: true,
+    type: :string,
+    json_name: "effectiveBgpInterRegionCost"
 
   field :routing_mode, 475_143_548, proto3_optional: true, type: :string, json_name: "routingMode"
 end
@@ -35036,6 +35129,10 @@ defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicies.Service do
   rpc :AddRule,
       Google.Cloud.Compute.V1.AddRuleNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
+
+  rpc :AggregatedList,
+      Google.Cloud.Compute.V1.AggregatedListNetworkFirewallPoliciesRequest,
+      Google.Cloud.Compute.V1.NetworkFirewallPolicyAggregatedList
 
   rpc :CloneRules,
       Google.Cloud.Compute.V1.CloneRulesNetworkFirewallPolicyRequest,
