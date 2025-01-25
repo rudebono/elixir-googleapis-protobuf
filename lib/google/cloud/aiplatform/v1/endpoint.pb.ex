@@ -179,6 +179,11 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
     type: Google.Cloud.Aiplatform.V1.DeployedModel.SystemLabelsEntry,
     json_name: "systemLabels",
     map: true
+
+  field :speculative_decoding_spec, 30,
+    type: Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec,
+    json_name: "speculativeDecodingSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PrivateEndpoints do
@@ -205,6 +210,14 @@ defmodule Google.Cloud.Aiplatform.V1.PredictRequestResponseLoggingConfig do
     json_name: "bigqueryDestination"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ClientConnectionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :inference_timeout, 1, type: Google.Protobuf.Duration, json_name: "inferenceTimeout"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FasterDeploymentConfig do
   @moduledoc false
 
@@ -213,10 +226,38 @@ defmodule Google.Cloud.Aiplatform.V1.FasterDeploymentConfig do
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
 end
 
-defmodule Google.Cloud.Aiplatform.V1.ClientConnectionConfig do
+defmodule Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec.DraftModelSpeculation do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :inference_timeout, 1, type: Google.Protobuf.Duration, json_name: "inferenceTimeout"
+  field :draft_model, 1, type: :string, json_name: "draftModel", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec.NgramSpeculation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :ngram_size, 1, type: :int32, json_name: "ngramSize"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :speculation, 0
+
+  field :draft_model_speculation, 2,
+    type: Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec.DraftModelSpeculation,
+    json_name: "draftModelSpeculation",
+    oneof: 0
+
+  field :ngram_speculation, 3,
+    type: Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec.NgramSpeculation,
+    json_name: "ngramSpeculation",
+    oneof: 0
+
+  field :speculative_token_count, 1, type: :int32, json_name: "speculativeTokenCount"
 end

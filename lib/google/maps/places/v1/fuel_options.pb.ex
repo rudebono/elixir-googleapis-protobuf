@@ -5,6 +5,7 @@ defmodule Google.Maps.Places.V1.FuelOptions.FuelPrice.FuelType do
 
   field :FUEL_TYPE_UNSPECIFIED, 0
   field :DIESEL, 1
+  field :DIESEL_PLUS, 19
   field :REGULAR_UNLEADED, 2
   field :MIDGRADE, 3
   field :PREMIUM, 4
@@ -19,6 +20,7 @@ defmodule Google.Maps.Places.V1.FuelOptions.FuelPrice.FuelType do
   field :LPG, 13
   field :E80, 14
   field :E85, 15
+  field :E100, 20
   field :METHANE, 16
   field :BIO_DIESEL, 17
   field :TRUCK_DIESEL, 18

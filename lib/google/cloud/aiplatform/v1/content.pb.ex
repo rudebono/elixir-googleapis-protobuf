@@ -11,6 +11,19 @@ defmodule Google.Cloud.Aiplatform.V1.HarmCategory do
   field :HARM_CATEGORY_CIVIC_INTEGRITY, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Modality do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :MODALITY_UNSPECIFIED, 0
+  field :TEXT, 1
+  field :IMAGE, 2
+  field :VIDEO, 3
+  field :AUDIO, 4
+  field :DOCUMENT, 5
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference do
   @moduledoc false
 
@@ -127,6 +140,18 @@ defmodule Google.Cloud.Aiplatform.V1.Part do
   field :function_response, 6,
     type: Google.Cloud.Aiplatform.V1.FunctionResponse,
     json_name: "functionResponse",
+    oneof: 0,
+    deprecated: false
+
+  field :executable_code, 8,
+    type: Google.Cloud.Aiplatform.V1.ExecutableCode,
+    json_name: "executableCode",
+    oneof: 0,
+    deprecated: false
+
+  field :code_execution_result, 9,
+    type: Google.Cloud.Aiplatform.V1.CodeExecutionResult,
+    json_name: "codeExecutionResult",
     oneof: 0,
     deprecated: false
 
@@ -530,4 +555,13 @@ defmodule Google.Cloud.Aiplatform.V1.RetrievalMetadata do
     type: :float,
     json_name: "googleSearchDynamicRetrievalScore",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ModalityTokenCount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :modality, 1, type: Google.Cloud.Aiplatform.V1.Modality, enum: true
+  field :token_count, 2, type: :int32, json_name: "tokenCount"
 end

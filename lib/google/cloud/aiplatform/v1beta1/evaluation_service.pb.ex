@@ -9,6 +9,46 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseChoice do
   field :TIE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CometSpec.CometVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :COMET_VERSION_UNSPECIFIED, 0
+  field :COMET_22_SRC_REF, 2
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetricxSpec.MetricxVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :METRICX_VERSION_UNSPECIFIED, 0
+  field :METRICX_24_REF, 1
+  field :METRICX_24_SRC, 2
+  field :METRICX_24_SRC_REF, 3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AutoraterConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :sampling_count, 1,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "samplingCount",
+    deprecated: false
+
+  field :flip_enabled, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "flipEnabled",
+    deprecated: false
+
+  field :autorater_model, 3, type: :string, json_name: "autoraterModel", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
   @moduledoc false
 
@@ -131,6 +171,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
     json_name: "toolParameterKvMatchInput",
     oneof: 0
 
+  field :comet_input, 31,
+    type: Google.Cloud.Aiplatform.V1beta1.CometInput,
+    json_name: "cometInput",
+    oneof: 0
+
+  field :metricx_input, 32,
+    type: Google.Cloud.Aiplatform.V1beta1.MetricxInput,
+    json_name: "metricxInput",
+    oneof: 0
+
   field :trajectory_exact_match_input, 33,
     type: Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInput,
     json_name: "trajectoryExactMatchInput",
@@ -162,6 +212,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
     oneof: 0
 
   field :location, 1, type: :string, deprecated: false
+
+  field :autorater_config, 30,
+    type: Google.Cloud.Aiplatform.V1beta1.AutoraterConfig,
+    json_name: "autoraterConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
@@ -284,6 +339,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
   field :tool_parameter_kv_match_results, 21,
     type: Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchResults,
     json_name: "toolParameterKvMatchResults",
+    oneof: 0
+
+  field :comet_result, 29,
+    type: Google.Cloud.Aiplatform.V1beta1.CometResult,
+    json_name: "cometResult",
+    oneof: 0
+
+  field :metricx_result, 30,
+    type: Google.Cloud.Aiplatform.V1beta1.MetricxResult,
+    json_name: "metricxResult",
     oneof: 0
 
   field :trajectory_exact_match_results, 31,
@@ -1139,6 +1204,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec do
     type: :string,
     json_name: "metricPromptTemplate",
     deprecated: false
+
+  field :system_instruction, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "systemInstruction",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult do
@@ -1184,6 +1255,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec do
     proto3_optional: true,
     type: :string,
     json_name: "metricPromptTemplate",
+    deprecated: false
+
+  field :candidate_response_field_name, 2,
+    type: :string,
+    json_name: "candidateResponseFieldName",
+    deprecated: false
+
+  field :baseline_response_field_name, 3,
+    type: :string,
+    json_name: "baselineResponseFieldName",
+    deprecated: false
+
+  field :system_instruction, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "systemInstruction",
     deprecated: false
 end
 
@@ -1403,6 +1490,98 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchResults do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolParameterKVMatchMetricValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CometInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.CometSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.CometInstance, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CometSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :version, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.CometSpec.CometVersion,
+    enum: true,
+    deprecated: false
+
+  field :source_language, 2, type: :string, json_name: "sourceLanguage", deprecated: false
+  field :target_language, 3, type: :string, json_name: "targetLanguage", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CometInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
+  field :reference, 2, proto3_optional: true, type: :string, deprecated: false
+  field :source, 3, proto3_optional: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CometResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetricxInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.MetricxSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instance, 2, type: Google.Cloud.Aiplatform.V1beta1.MetricxInstance, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetricxSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :version, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.MetricxSpec.MetricxVersion,
+    enum: true,
+    deprecated: false
+
+  field :source_language, 2, type: :string, json_name: "sourceLanguage", deprecated: false
+  field :target_language, 3, type: :string, json_name: "targetLanguage", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetricxInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :prediction, 1, proto3_optional: true, type: :string, deprecated: false
+  field :reference, 2, proto3_optional: true, type: :string, deprecated: false
+  field :source, 3, proto3_optional: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.MetricxResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
