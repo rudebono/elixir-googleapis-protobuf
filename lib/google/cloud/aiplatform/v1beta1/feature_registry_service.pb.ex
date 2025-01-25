@@ -103,6 +103,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListFeatureMonitorsRequest do
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureMonitorRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :feature_monitor, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureMonitor,
+    json_name: "featureMonitor",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteFeatureMonitorRequest do
   @moduledoc false
 
@@ -165,6 +181,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureOperationMetadata do
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateFeatureMonitorOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateFeatureMonitorOperationMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
@@ -287,6 +313,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureRegistryService.Service do
   rpc :ListFeatureMonitors,
       Google.Cloud.Aiplatform.V1beta1.ListFeatureMonitorsRequest,
       Google.Cloud.Aiplatform.V1beta1.ListFeatureMonitorsResponse
+
+  rpc :UpdateFeatureMonitor,
+      Google.Cloud.Aiplatform.V1beta1.UpdateFeatureMonitorRequest,
+      Google.Longrunning.Operation
 
   rpc :DeleteFeatureMonitor,
       Google.Cloud.Aiplatform.V1beta1.DeleteFeatureMonitorRequest,

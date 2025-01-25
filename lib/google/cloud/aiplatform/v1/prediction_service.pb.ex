@@ -220,6 +220,12 @@ defmodule Google.Cloud.Aiplatform.V1.CountTokensResponse do
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
   field :total_billable_characters, 2, type: :int32, json_name: "totalBillableCharacters"
+
+  field :prompt_tokens_details, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModalityTokenCount,
+    json_name: "promptTokensDetails",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GenerateContentRequest.LabelsEntry do
@@ -306,6 +312,24 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse.UsageMetadata do
   field :cached_content_token_count, 5,
     type: :int32,
     json_name: "cachedContentTokenCount",
+    deprecated: false
+
+  field :prompt_tokens_details, 9,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModalityTokenCount,
+    json_name: "promptTokensDetails",
+    deprecated: false
+
+  field :cache_tokens_details, 10,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModalityTokenCount,
+    json_name: "cacheTokensDetails",
+    deprecated: false
+
+  field :candidates_tokens_details, 11,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ModalityTokenCount,
+    json_name: "candidatesTokensDetails",
     deprecated: false
 end
 

@@ -1,3 +1,23 @@
+defmodule Google.Cloud.Aiplatform.V1.ExecutableCode.Language do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :LANGUAGE_UNSPECIFIED, 0
+  field :PYTHON, 1
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CodeExecutionResult.Outcome do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :OUTCOME_UNSPECIFIED, 0
+  field :OUTCOME_OK, 1
+  field :OUTCOME_FAILED, 2
+  field :OUTCOME_DEADLINE_EXCEEDED, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig.Mode do
   @moduledoc false
 
@@ -18,6 +38,12 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionCallingConfig.Mode do
   field :NONE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Tool.CodeExecution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Tool do
   @moduledoc false
 
@@ -34,6 +60,11 @@ defmodule Google.Cloud.Aiplatform.V1.Tool do
   field :google_search_retrieval, 3,
     type: Google.Cloud.Aiplatform.V1.GoogleSearchRetrieval,
     json_name: "googleSearchRetrieval",
+    deprecated: false
+
+  field :code_execution, 4,
+    type: Google.Cloud.Aiplatform.V1.Tool.CodeExecution,
+    json_name: "codeExecution",
     deprecated: false
 end
 
@@ -64,6 +95,32 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionResponse do
 
   field :name, 1, type: :string, deprecated: false
   field :response, 2, type: Google.Protobuf.Struct, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ExecutableCode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :language, 1,
+    type: Google.Cloud.Aiplatform.V1.ExecutableCode.Language,
+    enum: true,
+    deprecated: false
+
+  field :code, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.CodeExecutionResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :outcome, 1,
+    type: Google.Cloud.Aiplatform.V1.CodeExecutionResult.Outcome,
+    enum: true,
+    deprecated: false
+
+  field :output, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Retrieval do
