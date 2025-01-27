@@ -37,11 +37,25 @@ defmodule Google.Cloud.Scheduler.V1.Job do
 
   field :schedule, 20, type: :string
   field :time_zone, 21, type: :string, json_name: "timeZone"
-  field :user_update_time, 9, type: Google.Protobuf.Timestamp, json_name: "userUpdateTime"
-  field :state, 10, type: Google.Cloud.Scheduler.V1.Job.State, enum: true
-  field :status, 11, type: Google.Rpc.Status
-  field :schedule_time, 17, type: Google.Protobuf.Timestamp, json_name: "scheduleTime"
-  field :last_attempt_time, 18, type: Google.Protobuf.Timestamp, json_name: "lastAttemptTime"
+
+  field :user_update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "userUpdateTime",
+    deprecated: false
+
+  field :state, 10, type: Google.Cloud.Scheduler.V1.Job.State, enum: true, deprecated: false
+  field :status, 11, type: Google.Rpc.Status, deprecated: false
+
+  field :schedule_time, 17,
+    type: Google.Protobuf.Timestamp,
+    json_name: "scheduleTime",
+    deprecated: false
+
+  field :last_attempt_time, 18,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastAttemptTime",
+    deprecated: false
+
   field :retry_config, 19, type: Google.Cloud.Scheduler.V1.RetryConfig, json_name: "retryConfig"
   field :attempt_deadline, 22, type: Google.Protobuf.Duration, json_name: "attemptDeadline"
 end
