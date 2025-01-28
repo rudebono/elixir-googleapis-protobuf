@@ -119,6 +119,7 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string
   field :version_description, 30, type: :string, json_name: "versionDescription"
+  field :default_checkpoint_id, 53, type: :string, json_name: "defaultCheckpointId"
 
   field :predict_schemata, 4,
     type: Google.Cloud.Aiplatform.V1.PredictSchemata,

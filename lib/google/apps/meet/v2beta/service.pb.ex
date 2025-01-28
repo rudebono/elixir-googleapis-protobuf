@@ -35,6 +35,50 @@ defmodule Google.Apps.Meet.V2beta.EndActiveConferenceRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Apps.Meet.V2beta.CreateMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :member, 2, type: Google.Apps.Meet.V2beta.Member, deprecated: false
+end
+
+defmodule Google.Apps.Meet.V2beta.GetMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Apps.Meet.V2beta.ListMembersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Apps.Meet.V2beta.ListMembersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :members, 1, repeated: true, type: Google.Apps.Meet.V2beta.Member
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Apps.Meet.V2beta.DeleteMemberRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Apps.Meet.V2beta.GetConferenceRecordRequest do
   @moduledoc false
 
@@ -228,6 +272,16 @@ defmodule Google.Apps.Meet.V2beta.SpacesService.Service do
   rpc :EndActiveConference,
       Google.Apps.Meet.V2beta.EndActiveConferenceRequest,
       Google.Protobuf.Empty
+
+  rpc :CreateMember, Google.Apps.Meet.V2beta.CreateMemberRequest, Google.Apps.Meet.V2beta.Member
+
+  rpc :GetMember, Google.Apps.Meet.V2beta.GetMemberRequest, Google.Apps.Meet.V2beta.Member
+
+  rpc :ListMembers,
+      Google.Apps.Meet.V2beta.ListMembersRequest,
+      Google.Apps.Meet.V2beta.ListMembersResponse
+
+  rpc :DeleteMember, Google.Apps.Meet.V2beta.DeleteMemberRequest, Google.Protobuf.Empty
 end
 
 defmodule Google.Apps.Meet.V2beta.SpacesService.Stub do
