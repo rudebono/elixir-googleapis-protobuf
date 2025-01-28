@@ -80,6 +80,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionCheckpointsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelVersionCheckpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :checkpoint_id, 1, type: :string, json_name: "checkpointId"
+  field :epoch, 2, type: :int64
+  field :step, 3, type: :int64
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ListModelVersionCheckpointsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :checkpoints, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelVersionCheckpoint
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelRequest do
   @moduledoc false
 
@@ -395,6 +427,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
   rpc :ListModelVersions,
       Google.Cloud.Aiplatform.V1beta1.ListModelVersionsRequest,
       Google.Cloud.Aiplatform.V1beta1.ListModelVersionsResponse
+
+  rpc :ListModelVersionCheckpoints,
+      Google.Cloud.Aiplatform.V1beta1.ListModelVersionCheckpointsRequest,
+      Google.Cloud.Aiplatform.V1beta1.ListModelVersionCheckpointsResponse
 
   rpc :UpdateModel,
       Google.Cloud.Aiplatform.V1beta1.UpdateModelRequest,
