@@ -16,12 +16,7 @@ defmodule Google.Chat.V1.Emoji do
   oneof :content, 0
 
   field :unicode, 1, type: :string, oneof: 0, deprecated: false
-
-  field :custom_emoji, 2,
-    type: Google.Chat.V1.CustomEmoji,
-    json_name: "customEmoji",
-    oneof: 0,
-    deprecated: false
+  field :custom_emoji, 2, type: Google.Chat.V1.CustomEmoji, json_name: "customEmoji", oneof: 0
 end
 
 defmodule Google.Chat.V1.CustomEmoji do

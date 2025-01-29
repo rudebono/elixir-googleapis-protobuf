@@ -77,6 +77,8 @@ defmodule Google.Analytics.Admin.V1beta.ChangeHistoryResourceType do
   field :GOOGLE_SIGNALS_SETTINGS, 8
   field :CONVERSION_EVENT, 9
   field :MEASUREMENT_PROTOCOL_SECRET, 10
+  field :CUSTOM_DIMENSION, 11
+  field :CUSTOM_METRIC, 12
   field :DATA_RETENTION_SETTINGS, 13
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK, 14
   field :DISPLAY_VIDEO_360_ADVERTISER_LINK_PROPOSAL, 15
@@ -654,7 +656,14 @@ defmodule Google.Analytics.Admin.V1beta.DataRetentionSettings do
   field :event_data_retention, 2,
     type: Google.Analytics.Admin.V1beta.DataRetentionSettings.RetentionDuration,
     json_name: "eventDataRetention",
-    enum: true
+    enum: true,
+    deprecated: false
+
+  field :user_data_retention, 4,
+    type: Google.Analytics.Admin.V1beta.DataRetentionSettings.RetentionDuration,
+    json_name: "userDataRetention",
+    enum: true,
+    deprecated: false
 
   field :reset_user_data_on_new_activity, 3, type: :bool, json_name: "resetUserDataOnNewActivity"
 end

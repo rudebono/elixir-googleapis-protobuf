@@ -7,6 +7,7 @@ defmodule Google.Chat.V1.AnnotationType do
   field :USER_MENTION, 1
   field :SLASH_COMMAND, 2
   field :RICH_LINK, 3
+  field :CUSTOM_EMOJI, 4
 end
 
 defmodule Google.Chat.V1.UserMentionMetadata.Type do
@@ -64,6 +65,11 @@ defmodule Google.Chat.V1.Annotation do
     type: Google.Chat.V1.RichLinkMetadata,
     json_name: "richLinkMetadata",
     oneof: 0
+
+  field :custom_emoji_metadata, 7,
+    type: Google.Chat.V1.CustomEmojiMetadata,
+    json_name: "customEmojiMetadata",
+    oneof: 0
 end
 
 defmodule Google.Chat.V1.UserMentionMetadata do
@@ -110,6 +116,14 @@ defmodule Google.Chat.V1.RichLinkMetadata do
     type: Google.Chat.V1.ChatSpaceLinkData,
     json_name: "chatSpaceLinkData",
     oneof: 0
+end
+
+defmodule Google.Chat.V1.CustomEmojiMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :custom_emoji, 1, type: Google.Chat.V1.CustomEmoji, json_name: "customEmoji"
 end
 
 defmodule Google.Chat.V1.DriveLinkData do

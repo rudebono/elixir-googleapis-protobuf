@@ -1121,7 +1121,14 @@ defmodule Google.Analytics.Admin.V1alpha.DataRetentionSettings do
   field :event_data_retention, 2,
     type: Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration,
     json_name: "eventDataRetention",
-    enum: true
+    enum: true,
+    deprecated: false
+
+  field :user_data_retention, 4,
+    type: Google.Analytics.Admin.V1alpha.DataRetentionSettings.RetentionDuration,
+    json_name: "userDataRetention",
+    enum: true,
+    deprecated: false
 
   field :reset_user_data_on_new_activity, 3, type: :bool, json_name: "resetUserDataOnNewActivity"
 end
