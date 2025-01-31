@@ -425,6 +425,7 @@ defmodule Google.Cloud.Netapp.V1.MountOption do
   field :export_full, 2, type: :string, json_name: "exportFull"
   field :protocol, 3, type: Google.Cloud.Netapp.V1.Protocols, enum: true
   field :instructions, 4, type: :string
+  field :ip_address, 5, type: :string, json_name: "ipAddress", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.RestoreParameters do

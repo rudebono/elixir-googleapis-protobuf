@@ -272,4 +272,5 @@ defmodule Google.Api.SelectiveGapicGeneration do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :methods, 1, repeated: true, type: :string
+  field :generate_omitted_as_internal, 2, type: :bool, json_name: "generateOmittedAsInternal"
 end
