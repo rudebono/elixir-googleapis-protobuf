@@ -62,6 +62,8 @@ defmodule Google.Cloud.Netapp.V1.Backup do
 
   field :labels, 9, repeated: true, type: Google.Cloud.Netapp.V1.Backup.LabelsEntry, map: true
   field :chain_storage_bytes, 10, type: :int64, json_name: "chainStorageBytes", deprecated: false
+  field :satisfies_pzs, 11, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 12, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListBackupsRequest do

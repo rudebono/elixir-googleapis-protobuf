@@ -460,6 +460,31 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent do
     deprecated: false
 end
 
+defmodule Google.Pubsub.V1.JavaScriptUDF do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :function_name, 1, type: :string, json_name: "functionName", deprecated: false
+  field :code, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Pubsub.V1.MessageTransform do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :transform, 0
+
+  field :javascript_udf, 2,
+    type: Google.Pubsub.V1.JavaScriptUDF,
+    json_name: "javascriptUdf",
+    oneof: 0,
+    deprecated: false
+
+  field :enabled, 3, type: :bool, deprecated: false
+end
+
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   @moduledoc false
 
@@ -506,6 +531,12 @@ defmodule Google.Pubsub.V1.Topic do
   field :ingestion_data_source_settings, 10,
     type: Google.Pubsub.V1.IngestionDataSourceSettings,
     json_name: "ingestionDataSourceSettings",
+    deprecated: false
+
+  field :message_transforms, 13,
+    repeated: true,
+    type: Google.Pubsub.V1.MessageTransform,
+    json_name: "messageTransforms",
     deprecated: false
 end
 
@@ -751,6 +782,12 @@ defmodule Google.Pubsub.V1.Subscription do
   field :analytics_hub_subscription_info, 23,
     type: Google.Pubsub.V1.Subscription.AnalyticsHubSubscriptionInfo,
     json_name: "analyticsHubSubscriptionInfo",
+    deprecated: false
+
+  field :message_transforms, 25,
+    repeated: true,
+    type: Google.Pubsub.V1.MessageTransform,
+    json_name: "messageTransforms",
     deprecated: false
 end
 

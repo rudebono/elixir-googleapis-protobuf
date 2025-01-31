@@ -4,6 +4,7 @@ defmodule Google.Monitoring.V3.Snooze.Criteria do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :policies, 1, repeated: true, type: :string, deprecated: false
+  field :filter, 2, type: :string
 end
 
 defmodule Google.Monitoring.V3.Snooze do

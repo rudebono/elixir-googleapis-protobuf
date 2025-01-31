@@ -215,6 +215,24 @@ defmodule Google.Cloud.Netapp.V1.NetApp.Service do
   rpc :DeleteBackupPolicy,
       Google.Cloud.Netapp.V1.DeleteBackupPolicyRequest,
       Google.Longrunning.Operation
+
+  rpc :ListQuotaRules,
+      Google.Cloud.Netapp.V1.ListQuotaRulesRequest,
+      Google.Cloud.Netapp.V1.ListQuotaRulesResponse
+
+  rpc :GetQuotaRule, Google.Cloud.Netapp.V1.GetQuotaRuleRequest, Google.Cloud.Netapp.V1.QuotaRule
+
+  rpc :CreateQuotaRule,
+      Google.Cloud.Netapp.V1.CreateQuotaRuleRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateQuotaRule,
+      Google.Cloud.Netapp.V1.UpdateQuotaRuleRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteQuotaRule,
+      Google.Cloud.Netapp.V1.DeleteQuotaRuleRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Netapp.V1.NetApp.Stub do

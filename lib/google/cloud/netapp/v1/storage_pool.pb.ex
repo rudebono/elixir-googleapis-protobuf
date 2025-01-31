@@ -155,6 +155,8 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
   field :allow_auto_tiering, 18, type: :bool, json_name: "allowAutoTiering", deprecated: false
   field :replica_zone, 20, type: :string, json_name: "replicaZone", deprecated: false
   field :zone, 21, type: :string, deprecated: false
+  field :satisfies_pzs, 23, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 24, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ValidateDirectoryServiceRequest do

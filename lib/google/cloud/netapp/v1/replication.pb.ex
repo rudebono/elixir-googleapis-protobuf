@@ -192,6 +192,9 @@ defmodule Google.Cloud.Netapp.V1.HybridPeeringDetails do
     deprecated: false
 
   field :passphrase, 4, type: :string, deprecated: false
+  field :peer_volume_name, 5, type: :string, json_name: "peerVolumeName", deprecated: false
+  field :peer_cluster_name, 6, type: :string, json_name: "peerClusterName", deprecated: false
+  field :peer_svm_name, 7, type: :string, json_name: "peerSvmName", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListReplicationsRequest do

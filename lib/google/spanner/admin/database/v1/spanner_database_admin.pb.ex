@@ -376,6 +376,55 @@ defmodule Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Spanner.Admin.Database.V1.AddSplitPointsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :database, 1, type: :string, deprecated: false
+
+  field :split_points, 2,
+    repeated: true,
+    type: Google.Spanner.Admin.Database.V1.SplitPoints,
+    json_name: "splitPoints",
+    deprecated: false
+
+  field :initiator, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Database.V1.AddSplitPointsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+end
+
+defmodule Google.Spanner.Admin.Database.V1.SplitPoints.Key do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :key_parts, 1, type: Google.Protobuf.ListValue, json_name: "keyParts", deprecated: false
+end
+
+defmodule Google.Spanner.Admin.Database.V1.SplitPoints do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :table, 1, type: :string
+  field :index, 2, type: :string
+
+  field :keys, 3,
+    repeated: true,
+    type: Google.Spanner.Admin.Database.V1.SplitPoints.Key,
+    deprecated: false
+
+  field :expire_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+end
+
 defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   @moduledoc false
 
@@ -454,6 +503,10 @@ defmodule Google.Spanner.Admin.Database.V1.DatabaseAdmin.Service do
   rpc :ListDatabaseRoles,
       Google.Spanner.Admin.Database.V1.ListDatabaseRolesRequest,
       Google.Spanner.Admin.Database.V1.ListDatabaseRolesResponse
+
+  rpc :AddSplitPoints,
+      Google.Spanner.Admin.Database.V1.AddSplitPointsRequest,
+      Google.Spanner.Admin.Database.V1.AddSplitPointsResponse
 
   rpc :CreateBackupSchedule,
       Google.Spanner.Admin.Database.V1.CreateBackupScheduleRequest,

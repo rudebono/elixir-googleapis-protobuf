@@ -614,6 +614,7 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :ACCELERATOR_OPTIMIZED, 280_848_403
   field :ACCELERATOR_OPTIMIZED_A3, 158_574_526
   field :ACCELERATOR_OPTIMIZED_A3_MEGA, 156_517_459
+  field :ACCELERATOR_OPTIMIZED_A3_ULTRA, 27_812_811
   field :COMPUTE_OPTIMIZED, 158_349_023
   field :COMPUTE_OPTIMIZED_C2D, 383_246_453
   field :COMPUTE_OPTIMIZED_C3, 428_004_784
@@ -26403,6 +26404,11 @@ defmodule Google.Cloud.Compute.V1.Scheduling do
     proto3_optional: true,
     type: :int32,
     json_name: "availabilityDomain"
+
+  field :host_error_timeout_seconds, 408_317_459,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "hostErrorTimeoutSeconds"
 
   field :instance_termination_action, 107_380_667,
     proto3_optional: true,
