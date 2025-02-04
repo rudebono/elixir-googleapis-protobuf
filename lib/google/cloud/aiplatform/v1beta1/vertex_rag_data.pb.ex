@@ -249,6 +249,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
     json_name: "vertexAiSearchConfig",
     oneof: 0,
     deprecated: false
+
+  field :rag_files_count, 11, type: :int32, json_name: "ragFilesCount"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
