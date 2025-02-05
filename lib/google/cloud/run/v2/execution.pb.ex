@@ -71,6 +71,7 @@ defmodule Google.Cloud.Run.V2.Execution do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
+  field :creator, 32, type: :string, deprecated: false
   field :generation, 3, type: :int64, deprecated: false
 
   field :labels, 4,
