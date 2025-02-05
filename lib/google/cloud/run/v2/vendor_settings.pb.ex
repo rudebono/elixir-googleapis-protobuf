@@ -135,3 +135,40 @@ defmodule Google.Cloud.Run.V2.NodeSelector do
 
   field :accelerator, 1, type: :string, deprecated: false
 end
+
+defmodule Google.Cloud.Run.V2.BuildConfig.EnvironmentVariablesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Run.V2.BuildConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :source_location, 2, type: :string, json_name: "sourceLocation"
+  field :function_target, 3, type: :string, json_name: "functionTarget", deprecated: false
+  field :image_uri, 4, type: :string, json_name: "imageUri", deprecated: false
+  field :base_image, 5, type: :string, json_name: "baseImage", deprecated: false
+
+  field :enable_automatic_updates, 6,
+    type: :bool,
+    json_name: "enableAutomaticUpdates",
+    deprecated: false
+
+  field :worker_pool, 7, type: :string, json_name: "workerPool", deprecated: false
+
+  field :environment_variables, 8,
+    repeated: true,
+    type: Google.Cloud.Run.V2.BuildConfig.EnvironmentVariablesEntry,
+    json_name: "environmentVariables",
+    map: true,
+    deprecated: false
+
+  field :service_account, 9, type: :string, json_name: "serviceAccount", deprecated: false
+end

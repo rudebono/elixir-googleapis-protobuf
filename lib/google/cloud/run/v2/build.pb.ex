@@ -34,6 +34,8 @@ defmodule Google.Cloud.Run.V2.SubmitBuildRequest.BuildpacksBuild do
     type: :bool,
     json_name: "enableAutomaticUpdates",
     deprecated: false
+
+  field :project_descriptor, 7, type: :string, json_name: "projectDescriptor", deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.SubmitBuildRequest do

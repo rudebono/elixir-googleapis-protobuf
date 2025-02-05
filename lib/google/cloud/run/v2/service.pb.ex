@@ -173,6 +173,12 @@ defmodule Google.Cloud.Run.V2.Service do
 
   field :uri, 36, type: :string, deprecated: false
   field :satisfies_pzs, 38, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :build_config, 41,
+    type: Google.Cloud.Run.V2.BuildConfig,
+    json_name: "buildConfig",
+    deprecated: false
+
   field :reconciling, 98, type: :bool, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end

@@ -29,6 +29,12 @@ defmodule Google.Cloud.Run.V2.Container do
   field :liveness_probe, 10, type: Google.Cloud.Run.V2.Probe, json_name: "livenessProbe"
   field :startup_probe, 11, type: Google.Cloud.Run.V2.Probe, json_name: "startupProbe"
   field :depends_on, 12, repeated: true, type: :string, json_name: "dependsOn"
+  field :base_image_uri, 13, type: :string, json_name: "baseImageUri"
+
+  field :build_info, 15,
+    type: Google.Cloud.Run.V2.BuildInfo,
+    json_name: "buildInfo",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.ResourceRequirements.LimitsEntry do
@@ -257,4 +263,13 @@ defmodule Google.Cloud.Run.V2.GRPCAction do
 
   field :port, 1, type: :int32, deprecated: false
   field :service, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Run.V2.BuildInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :function_target, 1, type: :string, json_name: "functionTarget", deprecated: false
+  field :source_location, 2, type: :string, json_name: "sourceLocation", deprecated: false
 end
