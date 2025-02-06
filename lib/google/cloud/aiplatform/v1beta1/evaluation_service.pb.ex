@@ -9,6 +9,24 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseChoice do
   field :TIE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Metric.AggregationMetric do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :AGGREGATION_METRIC_UNSPECIFIED, 0
+  field :AVERAGE, 1
+  field :MODE, 2
+  field :STANDARD_DEVIATION, 3
+  field :VARIANCE, 4
+  field :MINIMUM, 5
+  field :MAXIMUM, 6
+  field :MEDIAN, 7
+  field :PERCENTILE_P90, 8
+  field :PERCENTILE_P95, 9
+  field :PERCENTILE_P99, 10
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CometSpec.CometVersion do
   @moduledoc false
 
@@ -27,6 +45,136 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetricxSpec.MetricxVersion do
   field :METRICX_24_REF, 1
   field :METRICX_24_SRC, 2
   field :METRICX_24_SRC_REF, 3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :output_info, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.OutputInfo,
+    json_name: "outputInfo",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.OutputInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :output_location, 0
+
+  field :gcs_output_directory, 1,
+    type: :string,
+    json_name: "gcsOutputDirectory",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :location, 1, type: :string, deprecated: false
+  field :dataset, 2, type: Google.Cloud.Aiplatform.V1beta1.EvaluationDataset, deprecated: false
+
+  field :metrics, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Metric,
+    deprecated: false
+
+  field :output_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+
+  field :autorater_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.AutoraterConfig,
+    json_name: "autoraterConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.OutputConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :gcs_destination, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Metric do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :metric_spec, 0
+
+  field :pointwise_metric_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec,
+    json_name: "pointwiseMetricSpec",
+    oneof: 0
+
+  field :pairwise_metric_spec, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec,
+    json_name: "pairwiseMetricSpec",
+    oneof: 0
+
+  field :exact_match_spec, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchSpec,
+    json_name: "exactMatchSpec",
+    oneof: 0
+
+  field :bleu_spec, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.BleuSpec,
+    json_name: "bleuSpec",
+    oneof: 0
+
+  field :rouge_spec, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.RougeSpec,
+    json_name: "rougeSpec",
+    oneof: 0
+
+  field :aggregation_metrics, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Metric.AggregationMetric,
+    json_name: "aggregationMetrics",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationDataset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :gcs_source, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsSource,
+    json_name: "gcsSource",
+    oneof: 0
+
+  field :bigquery_source, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.BigQuerySource,
+    json_name: "bigquerySource",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AutoraterConfig do
@@ -1989,6 +2137,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationService.Service do
   rpc :EvaluateInstances,
       Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest,
       Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse
+
+  rpc :EvaluateDataset,
+      Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationService.Stub do
