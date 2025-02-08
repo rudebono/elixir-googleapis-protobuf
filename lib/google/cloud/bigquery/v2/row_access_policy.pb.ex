@@ -23,6 +23,72 @@ defmodule Google.Cloud.Bigquery.V2.ListRowAccessPoliciesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Bigquery.V2.GetRowAccessPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
+  field :policy_id, 4, type: :string, json_name: "policyId", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.CreateRowAccessPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
+
+  field :row_access_policy, 4,
+    type: Google.Cloud.Bigquery.V2.RowAccessPolicy,
+    json_name: "rowAccessPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.UpdateRowAccessPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
+  field :policy_id, 4, type: :string, json_name: "policyId", deprecated: false
+
+  field :row_access_policy, 5,
+    type: Google.Cloud.Bigquery.V2.RowAccessPolicy,
+    json_name: "rowAccessPolicy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.DeleteRowAccessPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
+  field :policy_id, 4, type: :string, json_name: "policyId", deprecated: false
+  field :force, 5, proto3_optional: true, type: :bool
+end
+
+defmodule Google.Cloud.Bigquery.V2.BatchDeleteRowAccessPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
+  field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
+  field :table_id, 3, type: :string, json_name: "tableId", deprecated: false
+  field :policy_ids, 4, repeated: true, type: :string, json_name: "policyIds", deprecated: false
+  field :force, 5, proto3_optional: true, type: :bool
+end
+
 defmodule Google.Cloud.Bigquery.V2.RowAccessPolicy do
   @moduledoc false
 
@@ -46,6 +112,8 @@ defmodule Google.Cloud.Bigquery.V2.RowAccessPolicy do
     type: Google.Protobuf.Timestamp,
     json_name: "lastModifiedTime",
     deprecated: false
+
+  field :grantees, 6, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.RowAccessPolicyService.Service do
@@ -58,6 +126,26 @@ defmodule Google.Cloud.Bigquery.V2.RowAccessPolicyService.Service do
   rpc :ListRowAccessPolicies,
       Google.Cloud.Bigquery.V2.ListRowAccessPoliciesRequest,
       Google.Cloud.Bigquery.V2.ListRowAccessPoliciesResponse
+
+  rpc :GetRowAccessPolicy,
+      Google.Cloud.Bigquery.V2.GetRowAccessPolicyRequest,
+      Google.Cloud.Bigquery.V2.RowAccessPolicy
+
+  rpc :CreateRowAccessPolicy,
+      Google.Cloud.Bigquery.V2.CreateRowAccessPolicyRequest,
+      Google.Cloud.Bigquery.V2.RowAccessPolicy
+
+  rpc :UpdateRowAccessPolicy,
+      Google.Cloud.Bigquery.V2.UpdateRowAccessPolicyRequest,
+      Google.Cloud.Bigquery.V2.RowAccessPolicy
+
+  rpc :DeleteRowAccessPolicy,
+      Google.Cloud.Bigquery.V2.DeleteRowAccessPolicyRequest,
+      Google.Protobuf.Empty
+
+  rpc :BatchDeleteRowAccessPolicies,
+      Google.Cloud.Bigquery.V2.BatchDeleteRowAccessPoliciesRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Bigquery.V2.RowAccessPolicyService.Stub do

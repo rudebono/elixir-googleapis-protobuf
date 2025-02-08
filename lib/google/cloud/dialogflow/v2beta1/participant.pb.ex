@@ -473,6 +473,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentResponse do
   field :debugging_info, 11,
     type: Google.Cloud.Dialogflow.V2beta1.CloudConversationDebuggingInfo,
     json_name: "debuggingInfo"
+
+  field :speech_model, 13, type: :string, json_name: "speechModel"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart do

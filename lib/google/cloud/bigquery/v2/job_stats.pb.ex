@@ -84,6 +84,20 @@ defmodule Google.Cloud.Bigquery.V2.IndexUnusedReason.Code do
   field :OTHER_REASON, 16
 end
 
+defmodule Google.Cloud.Bigquery.V2.StoredColumnsUsage.StoredColumnsUnusedReason.Code do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :CODE_UNSPECIFIED, 0
+  field :STORED_COLUMNS_COVER_INSUFFICIENT, 1
+  field :BASE_TABLE_HAS_RLS, 2
+  field :BASE_TABLE_HAS_CLS, 3
+  field :UNSUPPORTED_PREFILTER, 4
+  field :INTERNAL_ERROR, 5
+  field :OTHER_REASON, 6
+end
+
 defmodule Google.Cloud.Bigquery.V2.SearchStatistics.IndexUsageMode do
   @moduledoc false
 
@@ -312,6 +326,41 @@ defmodule Google.Cloud.Bigquery.V2.IndexUnusedReason do
   field :index_name, 4, proto3_optional: true, type: :string, json_name: "indexName"
 end
 
+defmodule Google.Cloud.Bigquery.V2.StoredColumnsUsage.StoredColumnsUnusedReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :code, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.V2.StoredColumnsUsage.StoredColumnsUnusedReason.Code,
+    enum: true
+
+  field :message, 2, proto3_optional: true, type: :string
+  field :uncovered_columns, 3, repeated: true, type: :string, json_name: "uncoveredColumns"
+end
+
+defmodule Google.Cloud.Bigquery.V2.StoredColumnsUsage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :is_query_accelerated, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "isQueryAccelerated"
+
+  field :base_table, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.V2.TableReference,
+    json_name: "baseTable"
+
+  field :stored_columns_unused_reasons, 3,
+    repeated: true,
+    type: Google.Cloud.Bigquery.V2.StoredColumnsUsage.StoredColumnsUnusedReason,
+    json_name: "storedColumnsUnusedReasons"
+end
+
 defmodule Google.Cloud.Bigquery.V2.SearchStatistics do
   @moduledoc false
 
@@ -342,6 +391,11 @@ defmodule Google.Cloud.Bigquery.V2.VectorSearchStatistics do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.IndexUnusedReason,
     json_name: "indexUnusedReasons"
+
+  field :stored_columns_usages, 3,
+    repeated: true,
+    type: Google.Cloud.Bigquery.V2.StoredColumnsUsage,
+    json_name: "storedColumnsUsages"
 end
 
 defmodule Google.Cloud.Bigquery.V2.QueryInfo do
@@ -781,7 +835,7 @@ defmodule Google.Cloud.Bigquery.V2.JobStatistics do
     json_name: "totalSlotMs",
     deprecated: false
 
-  field :reservation_id, 15, type: :string, json_name: "reservationId", deprecated: false
+  field :reservation_id, 15, type: :string, deprecated: false
   field :num_child_jobs, 12, type: :int64, json_name: "numChildJobs", deprecated: false
   field :parent_job_id, 13, type: :string, json_name: "parentJobId", deprecated: false
 

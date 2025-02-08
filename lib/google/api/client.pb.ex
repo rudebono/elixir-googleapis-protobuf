@@ -142,6 +142,8 @@ defmodule Google.Api.PythonSettings.ExperimentalFeatures do
   field :protobuf_pythonic_types_enabled, 2,
     type: :bool,
     json_name: "protobufPythonicTypesEnabled"
+
+  field :unversioned_package_disabled, 3, type: :bool, json_name: "unversionedPackageDisabled"
 end
 
 defmodule Google.Api.PythonSettings do

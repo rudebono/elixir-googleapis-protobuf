@@ -928,6 +928,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
     type: :string,
     json_name: "timeSeriesIdColumns"
 
+  field :forecast_limit_lower_bound, 99, type: :double, json_name: "forecastLimitLowerBound"
+  field :forecast_limit_upper_bound, 100, type: :double, json_name: "forecastLimitUpperBound"
   field :horizon, 44, type: :int64
   field :auto_arima_max_order, 46, type: :int64, json_name: "autoArimaMaxOrder"
   field :auto_arima_min_order, 83, type: :int64, json_name: "autoArimaMinOrder"

@@ -281,6 +281,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec do
     type: Google.Cloud.Aiplatform.V1beta1.Probe,
     json_name: "healthProbe",
     deprecated: false
+
+  field :liveness_probe, 14,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe,
+    json_name: "livenessProbe",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Port do
@@ -312,6 +317,49 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Probe.ExecAction do
   field :command, 1, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe.HttpGetAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :path, 1, type: :string
+  field :port, 2, type: :int32
+  field :host, 3, type: :string
+  field :scheme, 4, type: :string
+
+  field :http_headers, 5,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe.HttpHeader,
+    json_name: "httpHeaders"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe.GrpcAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :port, 1, type: :int32
+  field :service, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe.TcpSocketAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :port, 1, type: :int32
+  field :host, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.Probe.HttpHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Probe do
   @moduledoc false
 
@@ -320,6 +368,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Probe do
   oneof :probe_type, 0
 
   field :exec, 1, type: Google.Cloud.Aiplatform.V1beta1.Probe.ExecAction, oneof: 0
+
+  field :http_get, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe.HttpGetAction,
+    json_name: "httpGet",
+    oneof: 0
+
+  field :grpc, 5, type: Google.Cloud.Aiplatform.V1beta1.Probe.GrpcAction, oneof: 0
+
+  field :tcp_socket, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.Probe.TcpSocketAction,
+    json_name: "tcpSocket",
+    oneof: 0
+
   field :period_seconds, 2, type: :int32, json_name: "periodSeconds"
   field :timeout_seconds, 3, type: :int32, json_name: "timeoutSeconds"
+  field :failure_threshold, 7, type: :int32, json_name: "failureThreshold"
+  field :success_threshold, 8, type: :int32, json_name: "successThreshold"
+  field :initial_delay_seconds, 9, type: :int32, json_name: "initialDelaySeconds"
 end

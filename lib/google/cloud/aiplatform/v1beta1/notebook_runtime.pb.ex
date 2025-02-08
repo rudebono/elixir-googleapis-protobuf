@@ -113,6 +113,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntimeTemplate do
   field :encryption_spec, 23,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :software_config, 24,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookSoftwareConfig,
+    json_name: "softwareConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime.LabelsEntry do
@@ -219,6 +224,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NotebookRuntime do
     repeated: true,
     type: :string,
     json_name: "networkTags",
+    deprecated: false
+
+  field :software_config, 31,
+    type: Google.Cloud.Aiplatform.V1beta1.NotebookSoftwareConfig,
+    json_name: "softwareConfig",
     deprecated: false
 
   field :encryption_spec, 28,

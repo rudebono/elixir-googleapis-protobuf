@@ -172,6 +172,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     type: Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig,
     json_name: "fasterDeploymentConfig"
 
+  field :rollout_options, 25,
+    type: Google.Cloud.Aiplatform.V1beta1.RolloutOptions,
+    json_name: "rolloutOptions"
+
   field :status, 26, type: Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status, deprecated: false
 
   field :system_labels, 28,
@@ -219,4 +223,26 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RolloutOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :max_unavailable, 0
+
+  oneof :max_surge, 1
+
+  field :max_unavailable_replicas, 3, type: :int32, json_name: "maxUnavailableReplicas", oneof: 0
+
+  field :max_unavailable_percentage, 4,
+    type: :int32,
+    json_name: "maxUnavailablePercentage",
+    oneof: 0
+
+  field :max_surge_replicas, 5, type: :int32, json_name: "maxSurgeReplicas", oneof: 1
+  field :max_surge_percentage, 6, type: :int32, json_name: "maxSurgePercentage", oneof: 1
+  field :previous_deployed_model, 1, type: :string, json_name: "previousDeployedModel"
+  field :revision_number, 2, type: :int32, json_name: "revisionNumber", deprecated: false
 end

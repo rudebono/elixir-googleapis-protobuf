@@ -37,6 +37,7 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode do
   field :SYNC_MODE_UNSPECIFIED, 0
   field :FULL, 1
   field :INCREMENTAL, 2
+  field :NONE, 3
 end
 
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.LogLevel do
