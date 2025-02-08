@@ -41,7 +41,7 @@ defmodule Google.Cloud.Bigquery.V2.Job do
   field :etag, 2, type: :string, deprecated: false
   field :id, 3, type: :string, deprecated: false
   field :self_link, 4, type: :string, json_name: "selfLink", deprecated: false
-  field :user_email, 5, type: :string, json_name: "userEmail", deprecated: false
+  field :user_email, 5, type: :string, deprecated: false
   field :configuration, 6, type: Google.Cloud.Bigquery.V2.JobConfiguration, deprecated: false
 
   field :job_reference, 7,
@@ -51,7 +51,7 @@ defmodule Google.Cloud.Bigquery.V2.Job do
 
   field :statistics, 8, type: Google.Cloud.Bigquery.V2.JobStatistics, deprecated: false
   field :status, 9, type: Google.Cloud.Bigquery.V2.JobStatus, deprecated: false
-  field :principal_subject, 13, type: :string, json_name: "principalSubject", deprecated: false
+  field :principal_subject, 13, type: :string, deprecated: false
 
   field :job_creation_reason, 14,
     type: Google.Cloud.Bigquery.V2.JobCreationReason,
@@ -142,8 +142,8 @@ defmodule Google.Cloud.Bigquery.V2.ListFormatJob do
   field :statistics, 6, type: Google.Cloud.Bigquery.V2.JobStatistics, deprecated: false
   field :configuration, 7, type: Google.Cloud.Bigquery.V2.JobConfiguration, deprecated: false
   field :status, 8, type: Google.Cloud.Bigquery.V2.JobStatus
-  field :user_email, 9, type: :string, json_name: "userEmail"
-  field :principal_subject, 10, type: :string, json_name: "principalSubject"
+  field :user_email, 9, type: :string
+  field :principal_subject, 10, type: :string
 end
 
 defmodule Google.Cloud.Bigquery.V2.JobList do
@@ -296,6 +296,11 @@ defmodule Google.Cloud.Bigquery.V2.QueryRequest do
     json_name: "jobCreationMode",
     enum: true,
     deprecated: false
+
+  field :write_incremental_results, 25,
+    type: :bool,
+    json_name: "writeIncrementalResults",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.QueryResponse do
@@ -313,6 +318,7 @@ defmodule Google.Cloud.Bigquery.V2.QueryResponse do
     deprecated: false
 
   field :query_id, 14, type: :string, json_name: "queryId"
+  field :location, 18, type: :string, deprecated: false
   field :total_rows, 4, type: Google.Protobuf.UInt64Value, json_name: "totalRows"
   field :page_token, 5, type: :string, json_name: "pageToken"
   field :rows, 6, repeated: true, type: Google.Protobuf.Struct
@@ -320,6 +326,18 @@ defmodule Google.Cloud.Bigquery.V2.QueryResponse do
   field :total_bytes_processed, 7,
     type: Google.Protobuf.Int64Value,
     json_name: "totalBytesProcessed"
+
+  field :total_bytes_billed, 16,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalBytesBilled",
+    deprecated: false
+
+  field :total_slot_ms, 17,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalSlotMs",
+    deprecated: false
 
   field :job_complete, 8, type: Google.Protobuf.BoolValue, json_name: "jobComplete"
   field :errors, 9, repeated: true, type: Google.Cloud.Bigquery.V2.ErrorProto, deprecated: false
@@ -338,6 +356,24 @@ defmodule Google.Cloud.Bigquery.V2.QueryResponse do
   field :dml_stats, 13,
     type: Google.Cloud.Bigquery.V2.DmlStats,
     json_name: "dmlStats",
+    deprecated: false
+
+  field :creation_time, 19,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "creationTime",
+    deprecated: false
+
+  field :start_time, 20,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "startTime",
+    deprecated: false
+
+  field :end_time, 21,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "endTime",
     deprecated: false
 end
 

@@ -92,7 +92,7 @@ defmodule Google.Cloud.Bigquery.V2.JobConfigurationQuery do
   field :external_table_definitions, 23,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.JobConfigurationQuery.ExternalTableDefinitionsEntry,
-    json_name: "externalTableDefinitions",
+    json_name: "tableDefinitions",
     map: true,
     deprecated: false
 
@@ -178,6 +178,11 @@ defmodule Google.Cloud.Bigquery.V2.JobConfigurationQuery do
 
   field :create_session, 34, type: Google.Protobuf.BoolValue, json_name: "createSession"
   field :continuous, 36, type: Google.Protobuf.BoolValue, deprecated: false
+
+  field :write_incremental_results, 37,
+    type: :bool,
+    json_name: "writeIncrementalResults",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.ScriptOptions do

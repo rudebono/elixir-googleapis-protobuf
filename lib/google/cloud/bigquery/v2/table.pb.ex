@@ -275,6 +275,12 @@ defmodule Google.Cloud.Bigquery.V2.Table do
     json_name: "biglakeConfiguration",
     deprecated: false
 
+  field :managed_table_type, 55,
+    type: Google.Cloud.Bigquery.V2.ManagedTableType,
+    json_name: "managedTableType",
+    enum: true,
+    deprecated: false
+
   field :location, 20, type: :string, deprecated: false
 
   field :streaming_buffer, 21,
