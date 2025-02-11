@@ -71,6 +71,7 @@ defmodule Google.Cloud.Memorystore.V1.Instance.Mode do
   field :MODE_UNSPECIFIED, 0
   field :STANDALONE, 1
   field :CLUSTER, 2
+  field :CLUSTER_DISABLED, 4
 end
 
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.PersistenceMode do
