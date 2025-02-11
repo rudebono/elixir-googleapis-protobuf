@@ -20,6 +20,8 @@ defmodule Google.Cloud.Batch.V1.JobStatus.State do
   field :SUCCEEDED, 4
   field :FAILED, 5
   field :DELETION_IN_PROGRESS, 6
+  field :CANCELLATION_IN_PROGRESS, 7
+  field :CANCELLED, 8
 end
 
 defmodule Google.Cloud.Batch.V1.JobNotification.Type do
