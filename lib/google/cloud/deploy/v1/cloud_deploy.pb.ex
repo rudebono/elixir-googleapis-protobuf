@@ -290,12 +290,13 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
-  field :description, 3, type: :string
+  field :description, 3, type: :string, deprecated: false
 
   field :annotations, 4,
     repeated: true,
     type: Google.Cloud.Deploy.V1.DeliveryPipeline.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 5,
     repeated: true,
@@ -315,11 +316,12 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipeline do
   field :serial_pipeline, 8,
     type: Google.Cloud.Deploy.V1.SerialPipeline,
     json_name: "serialPipeline",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :condition, 11, type: Google.Cloud.Deploy.V1.PipelineCondition, deprecated: false
   field :etag, 10, type: :string
-  field :suspended, 12, type: :bool
+  field :suspended, 12, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.SerialPipeline do
@@ -327,7 +329,7 @@ defmodule Google.Cloud.Deploy.V1.SerialPipeline do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage
+  field :stages, 1, repeated: true, type: Google.Cloud.Deploy.V1.Stage, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Stage do
@@ -335,8 +337,8 @@ defmodule Google.Cloud.Deploy.V1.Stage do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :target_id, 1, type: :string, json_name: "targetId"
-  field :profiles, 2, repeated: true, type: :string
+  field :target_id, 1, type: :string, json_name: "targetId", deprecated: false
+  field :profiles, 2, repeated: true, type: :string, deprecated: false
   field :strategy, 5, type: Google.Cloud.Deploy.V1.Strategy, deprecated: false
 
   field :deploy_parameters, 6,
@@ -390,8 +392,8 @@ defmodule Google.Cloud.Deploy.V1.Strategy do
 
   oneof :deployment_strategy, 0
 
-  field :standard, 1, type: Google.Cloud.Deploy.V1.Standard, oneof: 0
-  field :canary, 2, type: Google.Cloud.Deploy.V1.Canary, oneof: 0
+  field :standard, 1, type: Google.Cloud.Deploy.V1.Standard, oneof: 0, deprecated: false
+  field :canary, 2, type: Google.Cloud.Deploy.V1.Canary, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.Predeploy do
@@ -415,7 +417,7 @@ defmodule Google.Cloud.Deploy.V1.Standard do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :verify, 1, type: :bool
+  field :verify, 1, type: :bool, deprecated: false
   field :predeploy, 2, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
   field :postdeploy, 3, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
@@ -435,12 +437,14 @@ defmodule Google.Cloud.Deploy.V1.Canary do
   field :canary_deployment, 2,
     type: Google.Cloud.Deploy.V1.CanaryDeployment,
     json_name: "canaryDeployment",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :custom_canary_deployment, 3,
     type: Google.Cloud.Deploy.V1.CustomCanaryDeployment,
     json_name: "customCanaryDeployment",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CanaryDeployment do
@@ -449,7 +453,7 @@ defmodule Google.Cloud.Deploy.V1.CanaryDeployment do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :percentages, 1, repeated: true, type: :int32, deprecated: false
-  field :verify, 2, type: :bool
+  field :verify, 2, type: :bool, deprecated: false
   field :predeploy, 3, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
   field :postdeploy, 4, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
@@ -461,8 +465,8 @@ defmodule Google.Cloud.Deploy.V1.CustomCanaryDeployment.PhaseConfig do
 
   field :phase_id, 1, type: :string, json_name: "phaseId", deprecated: false
   field :percentage, 2, type: :int32, deprecated: false
-  field :profiles, 3, repeated: true, type: :string
-  field :verify, 4, type: :bool
+  field :profiles, 3, repeated: true, type: :string, deprecated: false
+  field :verify, 4, type: :bool, deprecated: false
   field :predeploy, 5, type: Google.Cloud.Deploy.V1.Predeploy, deprecated: false
   field :postdeploy, 6, type: Google.Cloud.Deploy.V1.Postdeploy, deprecated: false
 end
@@ -546,12 +550,14 @@ defmodule Google.Cloud.Deploy.V1.KubernetesConfig do
   field :gateway_service_mesh, 1,
     type: Google.Cloud.Deploy.V1.KubernetesConfig.GatewayServiceMesh,
     json_name: "gatewayServiceMesh",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :service_networking, 2,
     type: Google.Cloud.Deploy.V1.KubernetesConfig.ServiceNetworking,
     json_name: "serviceNetworking",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CloudRunConfig do
@@ -559,7 +565,10 @@ defmodule Google.Cloud.Deploy.V1.CloudRunConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :automatic_traffic_control, 1, type: :bool, json_name: "automaticTrafficControl"
+  field :automatic_traffic_control, 1,
+    type: :bool,
+    json_name: "automaticTrafficControl",
+    deprecated: false
 
   field :canary_revision_tags, 2,
     repeated: true,
@@ -587,12 +596,13 @@ defmodule Google.Cloud.Deploy.V1.RuntimeConfig do
 
   oneof :runtime_config, 0
 
-  field :kubernetes, 1, type: Google.Cloud.Deploy.V1.KubernetesConfig, oneof: 0
+  field :kubernetes, 1, type: Google.Cloud.Deploy.V1.KubernetesConfig, oneof: 0, deprecated: false
 
   field :cloud_run, 2,
     type: Google.Cloud.Deploy.V1.CloudRunConfig,
     json_name: "cloudRun",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.PipelineReadyCondition do
@@ -885,7 +895,8 @@ defmodule Google.Cloud.Deploy.V1.Target do
   field :execution_configs, 16,
     repeated: true,
     type: Google.Cloud.Deploy.V1.ExecutionConfig,
-    json_name: "executionConfigs"
+    json_name: "executionConfigs",
+    deprecated: false
 
   field :deploy_parameters, 20,
     repeated: true,
@@ -1144,7 +1155,8 @@ defmodule Google.Cloud.Deploy.V1.CustomTargetType do
   field :custom_actions, 10,
     type: Google.Cloud.Deploy.V1.CustomTargetSkaffoldActions,
     json_name: "customActions",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.CustomTargetSkaffoldActions do
@@ -1199,17 +1211,23 @@ defmodule Google.Cloud.Deploy.V1.SkaffoldModules do
   oneof :source, 0
 
   field :configs, 1, repeated: true, type: :string, deprecated: false
-  field :git, 2, type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGitSource, oneof: 0
+
+  field :git, 2,
+    type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGitSource,
+    oneof: 0,
+    deprecated: false
 
   field :google_cloud_storage, 3,
     type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCSSource,
     json_name: "googleCloudStorage",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 
   field :google_cloud_build_repo, 4,
     type: Google.Cloud.Deploy.V1.SkaffoldModules.SkaffoldGCBRepoSource,
     json_name: "googleCloudBuildRepo",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.ListCustomTargetTypesRequest do
@@ -1324,12 +1342,13 @@ defmodule Google.Cloud.Deploy.V1.DeployPolicy do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
-  field :description, 3, type: :string
+  field :description, 3, type: :string, deprecated: false
 
   field :annotations, 4,
     repeated: true,
     type: Google.Cloud.Deploy.V1.DeployPolicy.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 5,
     repeated: true,
@@ -1346,7 +1365,7 @@ defmodule Google.Cloud.Deploy.V1.DeployPolicy do
     json_name: "updateTime",
     deprecated: false
 
-  field :suspended, 8, type: :bool
+  field :suspended, 8, type: :bool, deprecated: false
 
   field :selectors, 12,
     repeated: true,
@@ -1384,7 +1403,7 @@ defmodule Google.Cloud.Deploy.V1.DeliveryPipelineAttribute do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 
   field :labels, 2,
     repeated: true,
@@ -1406,7 +1425,7 @@ defmodule Google.Cloud.Deploy.V1.TargetAttribute do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 
   field :labels, 2,
     repeated: true,
@@ -1424,7 +1443,8 @@ defmodule Google.Cloud.Deploy.V1.PolicyRule do
   field :rollout_restriction, 2,
     type: Google.Cloud.Deploy.V1.RolloutRestriction,
     json_name: "rolloutRestriction",
-    oneof: 0
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.RolloutRestriction do
@@ -1639,12 +1659,13 @@ defmodule Google.Cloud.Deploy.V1.Release do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
-  field :description, 3, type: :string
+  field :description, 3, type: :string, deprecated: false
 
   field :annotations, 4,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Release.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Release.LabelsEntry, map: true
   field :abandoned, 23, type: :bool, deprecated: false
@@ -1664,13 +1685,18 @@ defmodule Google.Cloud.Deploy.V1.Release do
     json_name: "renderEndTime",
     deprecated: false
 
-  field :skaffold_config_uri, 17, type: :string, json_name: "skaffoldConfigUri"
-  field :skaffold_config_path, 9, type: :string, json_name: "skaffoldConfigPath"
+  field :skaffold_config_uri, 17, type: :string, json_name: "skaffoldConfigUri", deprecated: false
+
+  field :skaffold_config_path, 9,
+    type: :string,
+    json_name: "skaffoldConfigPath",
+    deprecated: false
 
   field :build_artifacts, 10,
     repeated: true,
     type: Google.Cloud.Deploy.V1.BuildArtifact,
-    json_name: "buildArtifacts"
+    json_name: "buildArtifacts",
+    deprecated: false
 
   field :delivery_pipeline_snapshot, 11,
     type: Google.Cloud.Deploy.V1.DeliveryPipeline,
@@ -1810,8 +1836,8 @@ defmodule Google.Cloud.Deploy.V1.BuildArtifact do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :image, 3, type: :string
-  field :tag, 2, type: :string
+  field :image, 3, type: :string, deprecated: false
+  field :tag, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.TargetArtifact.PhaseArtifact do
@@ -1969,12 +1995,13 @@ defmodule Google.Cloud.Deploy.V1.Rollout do
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
-  field :description, 3, type: :string
+  field :description, 3, type: :string, deprecated: false
 
   field :annotations, 4,
     repeated: true,
     type: Google.Cloud.Deploy.V1.Rollout.AnnotationsEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :labels, 5, repeated: true, type: Google.Cloud.Deploy.V1.Rollout.LabelsEntry, map: true
 
@@ -2169,6 +2196,11 @@ defmodule Google.Cloud.Deploy.V1.DeploymentJobs do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
+  field :predeploy_job, 3,
+    type: Google.Cloud.Deploy.V1.Job,
+    json_name: "predeployJob",
+    deprecated: false
+
   field :deploy_job, 1,
     type: Google.Cloud.Deploy.V1.Job,
     json_name: "deployJob",
@@ -2177,11 +2209,6 @@ defmodule Google.Cloud.Deploy.V1.DeploymentJobs do
   field :verify_job, 2,
     type: Google.Cloud.Deploy.V1.Job,
     json_name: "verifyJob",
-    deprecated: false
-
-  field :predeploy_job, 3,
-    type: Google.Cloud.Deploy.V1.Job,
-    json_name: "predeployJob",
     deprecated: false
 
   field :postdeploy_job, 4,
@@ -2788,7 +2815,10 @@ defmodule Google.Cloud.Deploy.V1.AutomationResourceSelector do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :targets, 1, repeated: true, type: Google.Cloud.Deploy.V1.TargetAttribute
+  field :targets, 1,
+    repeated: true,
+    type: Google.Cloud.Deploy.V1.TargetAttribute,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Deploy.V1.AutomationRule do

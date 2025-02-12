@@ -345,6 +345,13 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse do
 
   field :model_version, 11, type: :string, json_name: "modelVersion", deprecated: false
 
+  field :create_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :response_id, 13, type: :string, json_name: "responseId", deprecated: false
+
   field :prompt_feedback, 3,
     type: Google.Cloud.Aiplatform.V1.GenerateContentResponse.PromptFeedback,
     json_name: "promptFeedback",
