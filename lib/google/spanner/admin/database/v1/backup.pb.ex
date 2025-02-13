@@ -107,6 +107,12 @@ defmodule Google.Spanner.Admin.Database.V1.Backup do
     type: Google.Protobuf.Timestamp,
     json_name: "oldestVersionTime",
     deprecated: false
+
+  field :instance_partitions, 19,
+    repeated: true,
+    type: Google.Spanner.Admin.Database.V1.BackupInstancePartition,
+    json_name: "instancePartitions",
+    deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
@@ -296,4 +302,12 @@ defmodule Google.Spanner.Admin.Database.V1.IncrementalBackupSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+end
+
+defmodule Google.Spanner.Admin.Database.V1.BackupInstancePartition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :instance_partition, 1, type: :string, json_name: "instancePartition", deprecated: false
 end
