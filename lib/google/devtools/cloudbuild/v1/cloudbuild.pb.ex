@@ -617,10 +617,85 @@ defmodule Google.Devtools.Cloudbuild.V1.Build do
     type: Google.Devtools.Cloudbuild.V1.Build.Warning,
     deprecated: false
 
+  field :git_config, 48,
+    type: Google.Devtools.Cloudbuild.V1.GitConfig,
+    json_name: "gitConfig",
+    deprecated: false
+
   field :failure_info, 51,
     type: Google.Devtools.Cloudbuild.V1.Build.FailureInfo,
     json_name: "failureInfo",
     deprecated: false
+
+  field :dependencies, 56,
+    repeated: true,
+    type: Google.Devtools.Cloudbuild.V1.Dependency,
+    deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.Dependency.GitSourceDependency do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :repository, 1,
+    type: Google.Devtools.Cloudbuild.V1.Dependency.GitSourceRepository,
+    deprecated: false
+
+  field :revision, 2, type: :string, deprecated: false
+  field :recurse_submodules, 3, type: :bool, json_name: "recurseSubmodules", deprecated: false
+  field :depth, 4, type: :int64, deprecated: false
+  field :dest_path, 5, type: :string, json_name: "destPath", deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.Dependency.GitSourceRepository do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :repotype, 0
+
+  field :url, 1, type: :string, oneof: 0
+
+  field :developer_connect, 2,
+    type: :string,
+    json_name: "developerConnect",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.Dependency do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  oneof :dep, 0
+
+  field :empty, 1, type: :bool, oneof: 0
+
+  field :git_source, 2,
+    type: Google.Devtools.Cloudbuild.V1.Dependency.GitSourceDependency,
+    json_name: "gitSource",
+    oneof: 0
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.GitConfig.HttpConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :proxy_secret_version_name, 1,
+    type: :string,
+    json_name: "proxySecretVersionName",
+    deprecated: false
+end
+
+defmodule Google.Devtools.Cloudbuild.V1.GitConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :http, 1, type: Google.Devtools.Cloudbuild.V1.GitConfig.HttpConfig
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.Artifacts.ArtifactObjects do

@@ -149,7 +149,17 @@ defmodule Google.Cloud.Securitycenter.V2.AzureMetadata.AzureResourceGroup do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
+  field :id, 2, type: :string
   field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Securitycenter.V2.AzureMetadata.AzureTenant do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :id, 1, type: :string
+  field :display_name, 2, type: :string, json_name: "displayName"
 end
 
 defmodule Google.Cloud.Securitycenter.V2.AzureMetadata do
@@ -167,6 +177,8 @@ defmodule Google.Cloud.Securitycenter.V2.AzureMetadata do
   field :resource_group, 3,
     type: Google.Cloud.Securitycenter.V2.AzureMetadata.AzureResourceGroup,
     json_name: "resourceGroup"
+
+  field :tenant, 7, type: Google.Cloud.Securitycenter.V2.AzureMetadata.AzureTenant
 end
 
 defmodule Google.Cloud.Securitycenter.V2.ResourcePath.ResourcePathNode do

@@ -44,6 +44,7 @@ defmodule Google.Cloud.Securitycenter.V2.Finding.FindingClass do
   field :SCC_ERROR, 5
   field :POSTURE_VIOLATION, 6
   field :TOXIC_COMBINATION, 7
+  field :SENSITIVE_DATA_RISK, 8
 end
 
 defmodule Google.Cloud.Securitycenter.V2.Finding.MuteInfo.StaticMute do
@@ -255,4 +256,21 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
     repeated: true,
     type: Google.Cloud.Securitycenter.V2.GroupMembership,
     json_name: "groupMemberships"
+
+  field :disk, 58, type: Google.Cloud.Securitycenter.V2.Disk
+
+  field :data_access_events, 61,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V2.DataAccessEvent,
+    json_name: "dataAccessEvents"
+
+  field :data_flow_events, 62,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V2.DataFlowEvent,
+    json_name: "dataFlowEvents"
+
+  field :data_retention_deletion_events, 64,
+    repeated: true,
+    type: Google.Cloud.Securitycenter.V2.DataRetentionDeletionEvent,
+    json_name: "dataRetentionDeletionEvents"
 end
