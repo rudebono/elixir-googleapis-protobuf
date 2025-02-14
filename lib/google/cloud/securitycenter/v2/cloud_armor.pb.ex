@@ -52,7 +52,9 @@ defmodule Google.Cloud.Securitycenter.V2.Attack do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
-  field :volume_pps, 1, type: :int32, json_name: "volumePps"
-  field :volume_bps, 2, type: :int32, json_name: "volumeBps"
+  field :volume_pps_long, 4, type: :int64, json_name: "volumePpsLong"
+  field :volume_bps_long, 5, type: :int64, json_name: "volumeBpsLong"
   field :classification, 3, type: :string
+  field :volume_pps, 1, type: :int32, json_name: "volumePps", deprecated: true
+  field :volume_bps, 2, type: :int32, json_name: "volumeBps", deprecated: true
 end

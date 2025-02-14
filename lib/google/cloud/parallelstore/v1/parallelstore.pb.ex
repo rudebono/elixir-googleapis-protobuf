@@ -30,6 +30,16 @@ defmodule Google.Cloud.Parallelstore.V1.DirectoryStripeLevel do
   field :DIRECTORY_STRIPE_LEVEL_MAX, 3
 end
 
+defmodule Google.Cloud.Parallelstore.V1.DeploymentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :DEPLOYMENT_TYPE_UNSPECIFIED, 0
+  field :SCRATCH, 1
+  field :PERSISTENT, 2
+end
+
 defmodule Google.Cloud.Parallelstore.V1.Instance.State do
   @moduledoc false
 
@@ -41,6 +51,7 @@ defmodule Google.Cloud.Parallelstore.V1.Instance.State do
   field :DELETING, 3
   field :FAILED, 4
   field :UPGRADING, 5
+  field :REPAIRING, 6
 end
 
 defmodule Google.Cloud.Parallelstore.V1.Instance.LabelsEntry do
@@ -82,7 +93,7 @@ defmodule Google.Cloud.Parallelstore.V1.Instance do
     deprecated: false
 
   field :capacity_gib, 8, type: :int64, json_name: "capacityGib", deprecated: false
-  field :daos_version, 9, type: :string, json_name: "daosVersion", deprecated: false
+  field :daos_version, 9, type: :string, json_name: "daosVersion", deprecated: true
 
   field :access_points, 10,
     repeated: true,
@@ -107,6 +118,12 @@ defmodule Google.Cloud.Parallelstore.V1.Instance do
   field :directory_stripe_level, 16,
     type: Google.Cloud.Parallelstore.V1.DirectoryStripeLevel,
     json_name: "directoryStripeLevel",
+    enum: true,
+    deprecated: false
+
+  field :deployment_type, 17,
+    type: Google.Cloud.Parallelstore.V1.DeploymentType,
+    json_name: "deploymentType",
     enum: true,
     deprecated: false
 end
@@ -284,6 +301,29 @@ defmodule Google.Cloud.Parallelstore.V1.ImportDataResponse do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 end
 
+defmodule Google.Cloud.Parallelstore.V1.TransferErrorLogEntry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :error_details, 2, repeated: true, type: :string, json_name: "errorDetails"
+end
+
+defmodule Google.Cloud.Parallelstore.V1.TransferErrorSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :error_code, 1, type: Google.Rpc.Code, json_name: "errorCode", enum: true
+  field :error_count, 2, type: :int64, json_name: "errorCount"
+
+  field :error_log_entries, 4,
+    repeated: true,
+    type: Google.Cloud.Parallelstore.V1.TransferErrorLogEntry,
+    json_name: "errorLogEntries"
+end
+
 defmodule Google.Cloud.Parallelstore.V1.ImportDataMetadata do
   @moduledoc false
 
@@ -384,6 +424,12 @@ defmodule Google.Cloud.Parallelstore.V1.TransferOperationMetadata do
     json_name: "transferType",
     enum: true,
     deprecated: false
+
+  field :error_summary, 13,
+    repeated: true,
+    type: Google.Cloud.Parallelstore.V1.TransferErrorSummary,
+    json_name: "errorSummary",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Parallelstore.V1.TransferCounters do
@@ -397,6 +443,8 @@ defmodule Google.Cloud.Parallelstore.V1.TransferCounters do
   field :bytes_skipped, 4, type: :int64, json_name: "bytesSkipped"
   field :objects_copied, 5, type: :int64, json_name: "objectsCopied"
   field :bytes_copied, 6, type: :int64, json_name: "bytesCopied"
+  field :objects_failed, 7, type: :int64, json_name: "objectsFailed"
+  field :bytes_failed, 8, type: :int64, json_name: "bytesFailed"
 end
 
 defmodule Google.Cloud.Parallelstore.V1.Parallelstore.Service do
