@@ -4643,6 +4643,27 @@ defmodule Google.Cloud.Compute.V1.AddNodesNodeGroupRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.AddPacketMirroringRuleNetworkFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :firewall_policy, 498_173_265,
+    type: :string,
+    json_name: "firewallPolicy",
+    deprecated: false
+
+  field :firewall_policy_rule_resource, 250_523_523,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "firewallPolicyRuleResource",
+    deprecated: false
+
+  field :max_priority, 329_635_359, proto3_optional: true, type: :int32, json_name: "maxPriority"
+  field :min_priority, 267_190_513, proto3_optional: true, type: :int32, json_name: "minPriority"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.AddPeeringNetworkRequest do
   @moduledoc false
 
@@ -10744,6 +10765,12 @@ defmodule Google.Cloud.Compute.V1.FirewallPolicy do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :packet_mirroring_rules, 531_644_356,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "packetMirroringRules"
+
   field :parent, 78_317_738, proto3_optional: true, type: :string
   field :region, 138_946_292, proto3_optional: true, type: :string
 
@@ -12216,6 +12243,20 @@ defmodule Google.Cloud.Compute.V1.GetPacketMirroringRequest do
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetPacketMirroringRuleNetworkFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :firewall_policy, 498_173_265,
+    type: :string,
+    json_name: "firewallPolicy",
+    deprecated: false
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :project, 227_560_217, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetProjectRequest do
@@ -16609,6 +16650,12 @@ defmodule Google.Cloud.Compute.V1.InstancesGetEffectiveFirewallsResponseEffectiv
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :packet_mirroring_rules, 531_644_356,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "packetMirroringRules"
+
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
@@ -21473,6 +21520,12 @@ defmodule Google.Cloud.Compute.V1.NetworksGetEffectiveFirewallsResponseEffective
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :packet_mirroring_rules, 531_644_356,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "packetMirroringRules"
+
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
@@ -21917,6 +21970,7 @@ defmodule Google.Cloud.Compute.V1.NodeType do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :local_ssd_gb, 329_237_578, proto3_optional: true, type: :int32, json_name: "localSsdGb"
+  field :max_vms, 307_579_713, proto3_optional: true, type: :int32, json_name: "maxVms"
   field :memory_mb, 116_001_171, proto3_optional: true, type: :int32, json_name: "memoryMb"
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
@@ -22809,6 +22863,26 @@ defmodule Google.Cloud.Compute.V1.PatchPacketMirroringRequest do
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.PatchPacketMirroringRuleNetworkFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :firewall_policy, 498_173_265,
+    type: :string,
+    json_name: "firewallPolicy",
+    deprecated: false
+
+  field :firewall_policy_rule_resource, 250_523_523,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "firewallPolicyRuleResource",
+    deprecated: false
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
@@ -24550,6 +24624,12 @@ defmodule Google.Cloud.Compute.V1.RegionNetworkFirewallPoliciesGetEffectiveFirew
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :packet_mirroring_rules, 531_644_356,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.FirewallPolicyRule,
+    json_name: "packetMirroringRules"
+
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
@@ -24700,6 +24780,21 @@ defmodule Google.Cloud.Compute.V1.RemoveInstancesInstanceGroupRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
   field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.RemovePacketMirroringRuleNetworkFirewallPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :firewall_policy, 498_173_265,
+    type: :string,
+    json_name: "firewallPolicy",
+    deprecated: false
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
 defmodule Google.Cloud.Compute.V1.RemovePeeringNetworkRequest do
@@ -35132,6 +35227,10 @@ defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicies.Service do
       Google.Cloud.Compute.V1.AddAssociationNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
 
+  rpc :AddPacketMirroringRule,
+      Google.Cloud.Compute.V1.AddPacketMirroringRuleNetworkFirewallPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :AddRule,
       Google.Cloud.Compute.V1.AddRuleNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
@@ -35160,6 +35259,10 @@ defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicies.Service do
       Google.Cloud.Compute.V1.GetIamPolicyNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Policy
 
+  rpc :GetPacketMirroringRule,
+      Google.Cloud.Compute.V1.GetPacketMirroringRuleNetworkFirewallPolicyRequest,
+      Google.Cloud.Compute.V1.FirewallPolicyRule
+
   rpc :GetRule,
       Google.Cloud.Compute.V1.GetRuleNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.FirewallPolicyRule
@@ -35176,12 +35279,20 @@ defmodule Google.Cloud.Compute.V1.NetworkFirewallPolicies.Service do
       Google.Cloud.Compute.V1.PatchNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
 
+  rpc :PatchPacketMirroringRule,
+      Google.Cloud.Compute.V1.PatchPacketMirroringRuleNetworkFirewallPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :PatchRule,
       Google.Cloud.Compute.V1.PatchRuleNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :RemoveAssociation,
       Google.Cloud.Compute.V1.RemoveAssociationNetworkFirewallPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :RemovePacketMirroringRule,
+      Google.Cloud.Compute.V1.RemovePacketMirroringRuleNetworkFirewallPolicyRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :RemoveRule,
