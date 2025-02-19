@@ -10,6 +10,7 @@ defmodule Google.Chat.V1.DeletionMetadata.DeletionType do
   field :APP_MESSAGE_EXPIRY, 4
   field :CREATOR_VIA_APP, 5
   field :SPACE_OWNER_VIA_APP, 6
+  field :SPACE_MEMBER, 7
 end
 
 defmodule Google.Chat.V1.DeletionMetadata do

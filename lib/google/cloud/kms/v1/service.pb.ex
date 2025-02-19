@@ -135,6 +135,12 @@ defmodule Google.Cloud.Kms.V1.GetPublicKeyRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :public_key_format, 2,
+    type: Google.Cloud.Kms.V1.PublicKey.PublicKeyFormat,
+    json_name: "publicKeyFormat",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.GetImportJobRequest do
