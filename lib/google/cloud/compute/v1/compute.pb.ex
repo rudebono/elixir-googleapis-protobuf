@@ -112,8 +112,10 @@ defmodule Google.Cloud.Compute.V1.AllocationAggregateReservation.VmFamily do
   field :VM_FAMILY_CLOUD_TPU_DEVICE_CT3, 42_845_948
   field :VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L, 108_020_067
   field :VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP, 18_705_267
+  field :VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT6E, 398_926_997
   field :VM_FAMILY_CLOUD_TPU_POD_SLICE_CT3P, 517_384_376
   field :VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P, 517_384_407
+  field :VM_FAMILY_CLOUD_TPU_POD_SLICE_CT5P, 517_384_438
 end
 
 defmodule Google.Cloud.Compute.V1.AllocationAggregateReservation.WorkloadType do
@@ -556,6 +558,27 @@ defmodule Google.Cloud.Compute.V1.BfdStatus.LocalState do
   field :INIT, 2_252_048
   field :STATE_UNSPECIFIED, 470_755_401
   field :UP, 2715
+end
+
+defmodule Google.Cloud.Compute.V1.BgpRoute.Origin do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_ORIGIN, 0
+  field :BGP_ORIGIN_EGP, 378_906_473
+  field :BGP_ORIGIN_IGP, 378_910_317
+  field :BGP_ORIGIN_INCOMPLETE, 452_839_811
+end
+
+defmodule Google.Cloud.Compute.V1.BgpRouteAsPath.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_TYPE, 0
+  field :AS_PATH_TYPE_SEQUENCE, 362_887_609
+  field :AS_PATH_TYPE_SET, 302_584_650
 end
 
 defmodule Google.Cloud.Compute.V1.BulkInsertOperationStatus.Status do
@@ -1722,6 +1745,28 @@ defmodule Google.Cloud.Compute.V1.LicenseCode.State do
   field :RESTRICTED, 261_551_195
   field :STATE_UNSPECIFIED, 470_755_401
   field :TERMINATED, 250_018_339
+end
+
+defmodule Google.Cloud.Compute.V1.ListBgpRoutesRoutersRequest.AddressFamily do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_ADDRESS_FAMILY, 0
+  field :IPV4, 2_254_341
+  field :IPV6, 2_254_343
+  field :UNSPECIFIED_IP_VERSION, 72_938_440
+end
+
+defmodule Google.Cloud.Compute.V1.ListBgpRoutesRoutersRequest.RouteType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_ROUTE_TYPE, 0
+  field :ADVERTISED, 20_302_109
+  field :LEARNED, 231_892_419
+  field :UNSPECIFIED_ROUTE_TYPE, 248_064_440
 end
 
 defmodule Google.Cloud.Compute.V1.ListPeeringRoutesNetworksRequest.Direction do
@@ -2920,6 +2965,8 @@ defmodule Google.Cloud.Compute.V1.RegionNetworkFirewallPoliciesGetEffectiveFirew
   field :HIERARCHY, 69_902_869
   field :NETWORK, 413_984_270
   field :NETWORK_REGIONAL, 190_804_272
+  field :SYSTEM_GLOBAL, 60_099_507
+  field :SYSTEM_REGIONAL, 161_777_199
   field :UNSPECIFIED, 526_786_327
 end
 
@@ -3056,6 +3103,16 @@ defmodule Google.Cloud.Compute.V1.RouteAsPath.PathSegmentType do
   field :AS_CONFED_SET, 374_040_307
   field :AS_SEQUENCE, 106_735_918
   field :AS_SET, 329_846_453
+end
+
+defmodule Google.Cloud.Compute.V1.RoutePolicy.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :UNDEFINED_TYPE, 0
+  field :ROUTE_POLICY_TYPE_EXPORT, 293_086_882
+  field :ROUTE_POLICY_TYPE_IMPORT, 397_444_755
 end
 
 defmodule Google.Cloud.Compute.V1.RouterBgp.AdvertiseMode do
@@ -3442,6 +3499,7 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyDdosProtectionConfig.DdosProtect
 
   field :UNDEFINED_DDOS_PROTECTION, 0
   field :ADVANCED, 63_789_090
+  field :ADVANCED_PREVIEW, 40_905_867
   field :STANDARD, 484_642_493
 end
 
@@ -7850,6 +7908,44 @@ defmodule Google.Cloud.Compute.V1.BfdStatusPacketCounts do
   field :num_tx, 39_375_325, proto3_optional: true, type: :uint32, json_name: "numTx"
 end
 
+defmodule Google.Cloud.Compute.V1.BgpRoute do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :as_paths, 137_568_929,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BgpRouteAsPath,
+    json_name: "asPaths"
+
+  field :communities, 188_262_983, repeated: true, type: :string
+
+  field :destination, 180_765_710,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BgpRouteNetworkLayerReachabilityInformation
+
+  field :med, 107_980, proto3_optional: true, type: :uint32
+  field :origin, 65_122_086, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BgpRouteAsPath do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :asns, 3_003_767, repeated: true, type: :int32
+  field :type, 3_575_610, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BgpRouteNetworkLayerReachabilityInformation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :path_id, 282_287_989, proto3_optional: true, type: :uint32, json_name: "pathId"
+  field :prefix, 93_631_122, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.Binding do
   @moduledoc false
 
@@ -9417,6 +9513,18 @@ defmodule Google.Cloud.Compute.V1.DeleteResourcePolicyRequest do
     type: :string,
     json_name: "resourcePolicy",
     deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteRoutePolicyRouterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :policy, 91_071_794, proto3_optional: true, type: :string
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :router, 148_608_841, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.DeleteRouteRequest do
@@ -12598,6 +12706,17 @@ defmodule Google.Cloud.Compute.V1.GetResourcePolicyRequest do
     type: :string,
     json_name: "resourcePolicy",
     deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetRoutePolicyRouterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :policy, 91_071_794, proto3_optional: true, type: :string
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :router, 148_608_841, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetRouteRequest do
@@ -18052,6 +18171,44 @@ defmodule Google.Cloud.Compute.V1.ListBackendServicesRequest do
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.ListBgpRoutesRoutersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :address_family, 173_744_655,
+    proto3_optional: true,
+    type: :string,
+    json_name: "addressFamily"
+
+  field :destination_prefix, 263_872_483,
+    proto3_optional: true,
+    type: :string,
+    json_name: "destinationPrefix"
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :peer, 3_436_898, proto3_optional: true, type: :string
+
+  field :policy_applied, 379_464_304,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "policyApplied"
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :route_type, 375_888_752, proto3_optional: true, type: :string, json_name: "routeType"
+  field :router, 148_608_841, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.ListDiskTypesRequest do
   @moduledoc false
 
@@ -19570,6 +19727,26 @@ defmodule Google.Cloud.Compute.V1.ListResourcePoliciesRequest do
     proto3_optional: true,
     type: :bool,
     json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListRoutePoliciesRoutersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :router, 148_608_841, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.ListRoutersRequest do
@@ -23178,6 +23355,23 @@ defmodule Google.Cloud.Compute.V1.PatchResourcePolicyRequest do
   field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
 end
 
+defmodule Google.Cloud.Compute.V1.PatchRoutePolicyRouterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :route_policy_resource, 116_219_525,
+    type: Google.Cloud.Compute.V1.RoutePolicy,
+    json_name: "routePolicyResource",
+    deprecated: false
+
+  field :router, 148_608_841, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.PatchRouterRequest do
   @moduledoc false
 
@@ -24630,6 +24824,7 @@ defmodule Google.Cloud.Compute.V1.RegionNetworkFirewallPoliciesGetEffectiveFirew
     type: Google.Cloud.Compute.V1.FirewallPolicyRule,
     json_name: "packetMirroringRules"
 
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.FirewallPolicyRule
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
@@ -25724,6 +25919,28 @@ defmodule Google.Cloud.Compute.V1.RouteList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.RoutePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :terms, 110_250_375, repeated: true, type: Google.Cloud.Compute.V1.RoutePolicyPolicyTerm
+  field :type, 3_575_610, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.RoutePolicyPolicyTerm do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :actions, 448_809_213, repeated: true, type: Google.Cloud.Compute.V1.Expr
+  field :match, 103_668_165, proto3_optional: true, type: Google.Cloud.Compute.V1.Expr
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+end
+
 defmodule Google.Cloud.Compute.V1.Router do
   @moduledoc false
 
@@ -26368,6 +26585,54 @@ defmodule Google.Cloud.Compute.V1.RouterStatusResponse do
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :result, 139_315_229, proto3_optional: true, type: Google.Cloud.Compute.V1.RouterStatus
+end
+
+defmodule Google.Cloud.Compute.V1.RoutersGetRoutePolicyResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :resource, 195_806_222, proto3_optional: true, type: Google.Cloud.Compute.V1.RoutePolicy
+end
+
+defmodule Google.Cloud.Compute.V1.RoutersListBgpRoutes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :result, 139_315_229, repeated: true, type: Google.Cloud.Compute.V1.BgpRoute
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.RoutersListRoutePolicies do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :result, 139_315_229, repeated: true, type: Google.Cloud.Compute.V1.RoutePolicy
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
 defmodule Google.Cloud.Compute.V1.RoutersPreviewResponse do
@@ -32445,6 +32710,23 @@ defmodule Google.Cloud.Compute.V1.UpdateReservationRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.UpdateRoutePolicyRouterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :region, 138_946_292, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :route_policy_resource, 116_219_525,
+    type: Google.Cloud.Compute.V1.RoutePolicy,
+    json_name: "routePolicyResource",
+    deprecated: false
+
+  field :router, 148_608_841, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.UpdateRouterRequest do
   @moduledoc false
 
@@ -36805,6 +37087,10 @@ defmodule Google.Cloud.Compute.V1.Routers.Service do
 
   rpc :Delete, Google.Cloud.Compute.V1.DeleteRouterRequest, Google.Cloud.Compute.V1.Operation
 
+  rpc :DeleteRoutePolicy,
+      Google.Cloud.Compute.V1.DeleteRoutePolicyRouterRequest,
+      Google.Cloud.Compute.V1.Operation
+
   rpc :Get, Google.Cloud.Compute.V1.GetRouterRequest, Google.Cloud.Compute.V1.Router
 
   rpc :GetNatIpInfo,
@@ -36815,6 +37101,10 @@ defmodule Google.Cloud.Compute.V1.Routers.Service do
       Google.Cloud.Compute.V1.GetNatMappingInfoRoutersRequest,
       Google.Cloud.Compute.V1.VmEndpointNatMappingsList
 
+  rpc :GetRoutePolicy,
+      Google.Cloud.Compute.V1.GetRoutePolicyRouterRequest,
+      Google.Cloud.Compute.V1.RoutersGetRoutePolicyResponse
+
   rpc :GetRouterStatus,
       Google.Cloud.Compute.V1.GetRouterStatusRouterRequest,
       Google.Cloud.Compute.V1.RouterStatusResponse
@@ -36823,13 +37113,29 @@ defmodule Google.Cloud.Compute.V1.Routers.Service do
 
   rpc :List, Google.Cloud.Compute.V1.ListRoutersRequest, Google.Cloud.Compute.V1.RouterList
 
+  rpc :ListBgpRoutes,
+      Google.Cloud.Compute.V1.ListBgpRoutesRoutersRequest,
+      Google.Cloud.Compute.V1.RoutersListBgpRoutes
+
+  rpc :ListRoutePolicies,
+      Google.Cloud.Compute.V1.ListRoutePoliciesRoutersRequest,
+      Google.Cloud.Compute.V1.RoutersListRoutePolicies
+
   rpc :Patch, Google.Cloud.Compute.V1.PatchRouterRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :PatchRoutePolicy,
+      Google.Cloud.Compute.V1.PatchRoutePolicyRouterRequest,
+      Google.Cloud.Compute.V1.Operation
 
   rpc :Preview,
       Google.Cloud.Compute.V1.PreviewRouterRequest,
       Google.Cloud.Compute.V1.RoutersPreviewResponse
 
   rpc :Update, Google.Cloud.Compute.V1.UpdateRouterRequest, Google.Cloud.Compute.V1.Operation
+
+  rpc :UpdateRoutePolicy,
+      Google.Cloud.Compute.V1.UpdateRoutePolicyRouterRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.Routers.Stub do

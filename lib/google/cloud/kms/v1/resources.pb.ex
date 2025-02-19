@@ -93,6 +93,8 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :HMAC_SHA512, 35
   field :HMAC_SHA224, 36
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
+  field :PQ_SIGN_ML_DSA_65, 56
+  field :PQ_SIGN_SLH_DSA_SHA2_128S, 57
 end
 
 defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionState do
@@ -120,6 +122,16 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionView do
 
   field :CRYPTO_KEY_VERSION_VIEW_UNSPECIFIED, 0
   field :FULL, 1
+end
+
+defmodule Google.Cloud.Kms.V1.PublicKey.PublicKeyFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :PUBLIC_KEY_FORMAT_UNSPECIFIED, 0
+  field :PEM, 1
+  field :NIST_PQC, 3
 end
 
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do
@@ -330,6 +342,15 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion do
   field :reimport_eligible, 18, type: :bool, json_name: "reimportEligible", deprecated: false
 end
 
+defmodule Google.Cloud.Kms.V1.ChecksummedData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+
+  field :data, 3, type: :bytes
+  field :crc32c_checksum, 2, type: Google.Protobuf.Int64Value, json_name: "crc32cChecksum"
+end
+
 defmodule Google.Cloud.Kms.V1.PublicKey do
   @moduledoc false
 
@@ -348,6 +369,13 @@ defmodule Google.Cloud.Kms.V1.PublicKey do
     type: Google.Cloud.Kms.V1.ProtectionLevel,
     json_name: "protectionLevel",
     enum: true
+
+  field :public_key_format, 7,
+    type: Google.Cloud.Kms.V1.PublicKey.PublicKeyFormat,
+    json_name: "publicKeyFormat",
+    enum: true
+
+  field :public_key, 8, type: Google.Cloud.Kms.V1.ChecksummedData, json_name: "publicKey"
 end
 
 defmodule Google.Cloud.Kms.V1.ImportJob.WrappingPublicKey do
