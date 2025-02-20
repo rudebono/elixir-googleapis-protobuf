@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.Routine.RoutineType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ROUTINE_TYPE_UNSPECIFIED, 0
   field :SCALAR_FUNCTION, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.Language do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :SQL, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.DeterminismLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DETERMINISM_LEVEL_UNSPECIFIED, 0
   field :DETERMINISTIC, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.SecurityMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SECURITY_MODE_UNSPECIFIED, 0
   field :DEFINER, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.DataGovernanceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_GOVERNANCE_TYPE_UNSPECIFIED, 0
   field :DATA_MASKING, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.Argument.ArgumentKind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ARGUMENT_KIND_UNSPECIFIED, 0
   field :FIXED_TYPE, 1
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.Argument.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :IN, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.Argument do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.RemoteFunctionOptions.UserDefinedContextEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine.RemoteFunctionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoint, 1, type: :string
   field :connection, 2, type: :string
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Routine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :etag, 1, type: :string, deprecated: false
 
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.SparkOptions.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.SparkOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :connection, 1, type: :string
   field :runtime_version, 2, type: :string, json_name: "runtimeVersion"
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetRoutineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.InsertRoutineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.UpdateRoutineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.PatchRoutineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DeleteRoutineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListRoutinesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListRoutinesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :routines, 1, repeated: true, type: Google.Cloud.Bigquery.V2.Routine
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -306,7 +306,7 @@ defmodule Google.Cloud.Bigquery.V2.RoutineService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.RoutineService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetRoutine, Google.Cloud.Bigquery.V2.GetRoutineRequest, Google.Cloud.Bigquery.V2.Routine
 

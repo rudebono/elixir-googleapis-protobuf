@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.ModelEvaluationExplanationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :explanation_type, 1, type: :string, json_name: "explanationType"
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation.BiasConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bias_slices, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 10, type: :string, json_name: "displayName"

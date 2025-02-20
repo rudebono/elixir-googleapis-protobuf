@@ -3,7 +3,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.SynonymSetService.Service do
 
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.SynonymSetService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateSynonymSet,
       Google.Cloud.Contentwarehouse.V1.CreateSynonymSetRequest,

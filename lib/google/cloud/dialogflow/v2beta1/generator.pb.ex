@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.TriggerEvent do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRIGGER_EVENT_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.MessageEntry.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :HUMAN_AGENT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationSection.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SITUATION, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateGeneratorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :generator, 2, type: Google.Cloud.Dialogflow.V2beta1.Generator, deprecated: false
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetGeneratorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListGeneratorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListGeneratorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generators, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Generator
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteGeneratorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateGeneratorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generator, 1, type: Google.Cloud.Dialogflow.V2beta1.Generator, deprecated: false
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.MessageEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :role, 1,
     type: Google.Cloud.Dialogflow.V2beta1.MessageEntry.Role,
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ConversationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :message_entries, 1,
     repeated: true,
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationSectionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :summarization_sections, 1,
     repeated: true,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.FewShotExample.ExtraInfoEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.FewShotExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :instruction_list, 0
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.InferenceParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_output_tokens, 1,
     proto3_optional: true,
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationSection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :definition, 2, type: :string, deprecated: false
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :summarization_sections, 1,
     repeated: true,
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Generator do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :context, 0
 
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarySuggestion.SummarySection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :section, 1, type: :string, deprecated: false
   field :summary, 2, type: :string, deprecated: false
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarySuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :summary_sections, 1,
     repeated: true,
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GeneratorSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :suggestion, 0
 
@@ -303,7 +303,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Generators.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.Generators",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateGenerator,
       Google.Cloud.Dialogflow.V2beta1.CreateGeneratorRequest,

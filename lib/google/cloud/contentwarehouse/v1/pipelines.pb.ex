@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineMetadata.GcsIngestPipelineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_path, 1, type: :string, json_name: "inputPath"
 end
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineMetadata.ExportToCdwPipelineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: :string
   field :doc_ai_dataset, 2, type: :string, json_name: "docAiDataset"
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineMetadata.ProcessWithDocAiPipelineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: :string
 
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineMetadata.IndividualDocumentStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document_id, 1, type: :string, json_name: "documentId"
   field :status, 2, type: Google.Rpc.Status
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.RunPipelineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :pipeline_metadata, 0
 
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.ProcessorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :processor_name, 1, type: :string, json_name: "processorName"
   field :document_type, 2, type: :string, json_name: "documentType"
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.IngestPipelineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document_acl_policy, 1, type: Google.Iam.V1.Policy, json_name: "documentAclPolicy"
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.GcsIngestPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_path, 1, type: :string, json_name: "inputPath"
   field :schema_name, 2, type: :string, json_name: "schemaName"
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.GcsIngestWithDocAiProcessorsPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_path, 1, type: :string, json_name: "inputPath"
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.ExportToCdwPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: :string
   field :export_folder_path, 2, type: :string, json_name: "exportFolderPath"
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Contentwarehouse.V1.ProcessWithDocAiPipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: :string
   field :export_folder_path, 2, type: :string, json_name: "exportFolderPath"

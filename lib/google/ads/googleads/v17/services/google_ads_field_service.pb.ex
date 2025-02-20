@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Services.GetGoogleAdsFieldRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.SearchGoogleAdsFieldsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :query, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -19,7 +19,7 @@ end
 defmodule Google.Ads.Googleads.V17.Services.SearchGoogleAdsFieldsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V17.Resources.GoogleAdsField
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -31,7 +31,7 @@ defmodule Google.Ads.Googleads.V17.Services.GoogleAdsFieldService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v17.services.GoogleAdsFieldService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetGoogleAdsField,
       Google.Ads.Googleads.V17.Services.GetGoogleAdsFieldRequest,

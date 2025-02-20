@@ -3,7 +3,7 @@ defmodule Google.Cloud.Networkservices.V1.NetworkServices.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkservices.v1.NetworkServices",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListEndpointPolicies,
       Google.Cloud.Networkservices.V1.ListEndpointPoliciesRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1.GetModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.ListModelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
@@ -18,7 +18,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.ListModelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Ai.Generativelanguage.V1.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -29,7 +29,7 @@ defmodule Google.Ai.Generativelanguage.V1.ModelService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1.ModelService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetModel,
       Google.Ai.Generativelanguage.V1.GetModelRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.DataTaxonomy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataTaxonomy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataAttribute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataAttributeBinding.Path do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :attributes, 2, repeated: true, type: :string, deprecated: false
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataAttributeBinding.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataAttributeBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :resource_reference, 0
 
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateDataTaxonomyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_taxonomy_id, 2, type: :string, json_name: "dataTaxonomyId", deprecated: false
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateDataTaxonomyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataTaxonomyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataTaxonomiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataTaxonomiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data_taxonomies, 1,
     repeated: true,
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteDataTaxonomyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateDataAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_attribute_id, 2, type: :string, json_name: "dataAttributeId", deprecated: false
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateDataAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataAttributesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataAttributesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data_attributes, 1,
     repeated: true,
@@ -303,7 +303,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteDataAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -312,7 +312,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateDataAttributeBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateDataAttributeBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -350,7 +350,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetDataAttributeBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataAttributeBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -370,7 +370,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListDataAttributeBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data_attribute_bindings, 1,
     repeated: true,
@@ -388,7 +388,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteDataAttributeBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -399,7 +399,7 @@ defmodule Google.Cloud.Dataplex.V1.DataTaxonomyService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.DataTaxonomyService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateDataTaxonomy,
       Google.Cloud.Dataplex.V1.CreateDataTaxonomyRequest,

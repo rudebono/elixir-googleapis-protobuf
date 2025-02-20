@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Data.V1alpha.AudienceList.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest.FunnelVisualizationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FUNNEL_VISUALIZATION_TYPE_UNSPECIFIED, 0
   field :STANDARD_FUNNEL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.CreateRecurringAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.RecurringAudienceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :audience, 2, type: :string, deprecated: false
@@ -83,7 +83,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.WebhookNotification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uri, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.GetRecurringAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListRecurringAudienceListsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListRecurringAudienceListsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :recurring_audience_lists, 1,
     repeated: true,
@@ -128,7 +128,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.GetPropertyQuotasSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -136,7 +136,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.PropertyQuotasSnapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 4, type: :string, deprecated: false
 
@@ -156,7 +156,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.GetAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -164,7 +164,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListAudienceListsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -174,7 +174,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListAudienceListsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audience_lists, 1,
     repeated: true,
@@ -187,7 +187,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.CreateAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -200,7 +200,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.AudienceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :audience, 2, type: :string, deprecated: false
@@ -266,13 +266,13 @@ end
 defmodule Google.Analytics.Data.V1alpha.AudienceListMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Analytics.Data.V1alpha.QueryAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :offset, 2, type: :int64, deprecated: false
@@ -282,7 +282,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.QueryAudienceListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audience_list, 1,
     proto3_optional: true,
@@ -300,7 +300,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.SheetExportAudienceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :offset, 2, type: :int64, deprecated: false
@@ -310,7 +310,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.SheetExportAudienceListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :spreadsheet_uri, 1, proto3_optional: true, type: :string, json_name: "spreadsheetUri"
   field :spreadsheet_id, 2, proto3_optional: true, type: :string, json_name: "spreadsheetId"
@@ -325,7 +325,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.AudienceRow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -336,7 +336,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.AudienceDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName", deprecated: false
 end
@@ -344,7 +344,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.AudienceDimensionValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -354,7 +354,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :property, 1, type: :string, deprecated: false
 
@@ -403,7 +403,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.RunFunnelReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :funnel_table, 1,
     type: Google.Analytics.Data.V1alpha.FunnelSubReport,
@@ -423,7 +423,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimensions, 2,
     repeated: true,
@@ -484,7 +484,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ReportTask.ReportMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1,
     proto3_optional: true,
@@ -525,7 +525,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ReportTask do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -543,7 +543,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.CreateReportTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -556,13 +556,13 @@ end
 defmodule Google.Analytics.Data.V1alpha.ReportTaskMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Analytics.Data.V1alpha.QueryReportTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :offset, 2, type: :int64, deprecated: false
@@ -572,7 +572,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.QueryReportTaskResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -595,7 +595,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.GetReportTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -603,7 +603,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListReportTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -613,7 +613,7 @@ end
 defmodule Google.Analytics.Data.V1alpha.ListReportTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :report_tasks, 1,
     repeated: true,
@@ -628,7 +628,7 @@ defmodule Google.Analytics.Data.V1alpha.AlphaAnalyticsData.Service do
 
   use GRPC.Service,
     name: "google.analytics.data.v1alpha.AlphaAnalyticsData",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :RunFunnelReport,
       Google.Analytics.Data.V1alpha.RunFunnelReportRequest,

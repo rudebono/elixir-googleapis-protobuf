@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.DeploymentState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEPLOYMENT_STATE_UNSPECIFIED, 0
   field :NOT_INSTALLED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.SyncState.SyncCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SYNC_CODE_UNSPECIFIED, 0
   field :SYNCED, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.MembershipState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cluster_name, 1, type: :string, json_name: "clusterName"
 
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.MembershipSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_sync, 1,
     type: Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSync,
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSync do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :git, 7, type: Google.Cloud.Gkehub.Configmanagement.V1alpha.GitConfig
   field :source_format, 8, type: :string, json_name: "sourceFormat"
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.GitConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sync_repo, 1, type: :string, json_name: "syncRepo"
   field :sync_branch, 2, type: :string, json_name: "syncBranch"
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.PolicyController do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.BinauthzConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.HierarchyControllerConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :enable_pod_tree_labels, 2, type: :bool, json_name: "enablePodTreeLabels"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.HierarchyControllerDeploymentState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hnc, 1, type: Google.Cloud.Gkehub.Configmanagement.V1alpha.DeploymentState, enum: true
 
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.HierarchyControllerVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hnc, 1, type: :string
   field :extension, 2, type: :string
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.HierarchyControllerState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: Google.Cloud.Gkehub.Configmanagement.V1alpha.HierarchyControllerVersion
 
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.OperatorState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: :string
 
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.InstallError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :error_message, 1, type: :string, json_name: "errorMessage"
 end
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSyncState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSyncVersion
 
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSyncVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :importer, 1, type: :string
   field :syncer, 2, type: :string
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.ConfigSyncDeploymentState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :importer, 1,
     type: Google.Cloud.Gkehub.Configmanagement.V1alpha.DeploymentState,
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.SyncState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_token, 1, type: :string, json_name: "sourceToken"
   field :import_token, 2, type: :string, json_name: "importToken"
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.SyncError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: :string
   field :error_message, 2, type: :string, json_name: "errorMessage"
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.ErrorResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_path, 1, type: :string, json_name: "sourcePath"
   field :resource_name, 2, type: :string, json_name: "resourceName"
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.GroupVersionKind do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :group, 1, type: :string
   field :version, 2, type: :string
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.PolicyControllerState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: Google.Cloud.Gkehub.Configmanagement.V1alpha.PolicyControllerVersion
 
@@ -338,7 +338,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.PolicyControllerVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: :string
 end
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.BinauthzState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :webhook, 1,
     type: Google.Cloud.Gkehub.Configmanagement.V1alpha.DeploymentState,
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.BinauthzVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :webhook_version, 1, type: :string, json_name: "webhookVersion"
 end
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Gkehub.Configmanagement.V1alpha.GatekeeperDeploymentState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gatekeeper_controller_manager_state, 1,
     type: Google.Cloud.Gkehub.Configmanagement.V1alpha.DeploymentState,

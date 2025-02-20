@@ -1,7 +1,7 @@
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite.ReadLockMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :READ_LOCK_MODE_UNSPECIFIED, 0
   field :PESSIMISTIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Spanner.V1.TransactionOptions.ReadWrite do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_lock_mode, 1,
     type: Google.Spanner.V1.TransactionOptions.ReadWrite.ReadLockMode,
@@ -27,13 +27,13 @@ end
 defmodule Google.Spanner.V1.TransactionOptions.PartitionedDml do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Spanner.V1.TransactionOptions.ReadOnly do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :timestamp_bound, 0
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Spanner.V1.TransactionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :mode, 0
 
@@ -78,7 +78,7 @@ end
 defmodule Google.Spanner.V1.Transaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :bytes
   field :read_timestamp, 2, type: Google.Protobuf.Timestamp, json_name: "readTimestamp"
@@ -91,7 +91,7 @@ end
 defmodule Google.Spanner.V1.TransactionSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :selector, 0
 
@@ -107,7 +107,7 @@ end
 defmodule Google.Spanner.V1.MultiplexedSessionPrecommitToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :precommit_token, 1, type: :bytes, json_name: "precommitToken"
   field :seq_num, 2, type: :int32, json_name: "seqNum"

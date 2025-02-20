@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.V1.KeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED, 0
   field :NONE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceRestoreProperties.InstancePrivateIpv6GoogleAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :INSTANCE_PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED, 0
   field :INHERIT_FROM_SUBNETWORK, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkInterface.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STACK_TYPE_UNSPECIFIED, 0
   field :IPV4_ONLY, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkInterface.Ipv6AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSPECIFIED_IPV6_ACCESS_TYPE, 0
   field :INTERNAL, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkInterface.NicType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NIC_TYPE_UNSPECIFIED, 0
   field :VIRTIO_NET, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkPerformanceConfig.Tier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TIER_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AccessConfig.AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACCESS_TYPE_UNSPECIFIED, 0
   field :ONE_TO_ONE_NAT, 1
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AccessConfig.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :NETWORK_TIER_UNSPECIFIED, 0
   field :PREMIUM, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AllocationAffinity.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NO_RESERVATION, 1
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling.OnHostMaintenance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ON_HOST_MAINTENANCE_UNSPECIFIED, 0
   field :TERMINATE, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling.ProvisioningModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROVISIONING_MODEL_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling.InstanceTerminationAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :INSTANCE_TERMINATION_ACTION_UNSPECIFIED, 0
   field :DELETE, 1
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling.NodeAffinity.Operator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :IN, 1
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk.DiskType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :SCRATCH, 1
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk.DiskMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_MODE_UNSPECIFIED, 0
   field :READ_WRITE, 1
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk.DiskInterface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_INTERFACE_UNSPECIFIED, 0
   field :SCSI, 1
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk.DiskSavedState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_SAVED_STATE_UNSPECIFIED, 0
   field :PRESERVED, 1
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GuestOsFeature.FeatureType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FEATURE_TYPE_UNSPECIFIED, 0
   field :VIRTIO_SCSI_MULTIQUEUE, 1
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceBackupProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceBackupProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :description, 1, proto3_optional: true, type: :string
   field :tags, 2, proto3_optional: true, type: Google.Cloud.Backupdr.V1.Tags
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceRestoreProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceRestoreProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -396,7 +396,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceTargetEnvironment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :zone, 2, type: :string, deprecated: false
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ComputeInstanceDataSourceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -417,7 +417,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AdvancedMachineFeatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_nested_virtualization, 1,
     proto3_optional: true,
@@ -447,7 +447,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ConfidentialInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_confidential_compute, 1,
     proto3_optional: true,
@@ -459,7 +459,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DisplayDevice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_display, 1,
     proto3_optional: true,
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AcceleratorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :accelerator_type, 1,
     proto3_optional: true,
@@ -489,7 +489,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.CustomerEncryptionKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :key, 0
 
@@ -513,7 +513,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, proto3_optional: true, type: :string, deprecated: false
   field :value, 2, proto3_optional: true, type: :string, deprecated: false
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :items, 1, repeated: true, type: Google.Cloud.Backupdr.V1.Entry, deprecated: false
 end
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :network, 1, proto3_optional: true, type: :string, deprecated: false
   field :subnetwork, 2, proto3_optional: true, type: :string, deprecated: false
@@ -609,7 +609,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkPerformanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :total_egress_bandwidth_tier, 1,
     proto3_optional: true,
@@ -622,7 +622,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AccessConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1,
     proto3_optional: true,
@@ -673,7 +673,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AliasIpRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ip_cidr_range, 1,
     proto3_optional: true,
@@ -691,7 +691,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.InstanceParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -700,7 +700,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.InstanceParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_manager_tags, 1,
     repeated: true,
@@ -713,7 +713,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AllocationAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :consume_allocation_type, 1,
     proto3_optional: true,
@@ -729,7 +729,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling.NodeAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, proto3_optional: true, type: :string, deprecated: false
 
@@ -745,7 +745,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Scheduling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :on_host_maintenance, 1,
     proto3_optional: true,
@@ -798,7 +798,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.SchedulingDuration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :seconds, 1, proto3_optional: true, type: :int64, deprecated: false
   field :nanos, 2, proto3_optional: true, type: :int32, deprecated: false
@@ -807,7 +807,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ServiceAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :email, 1, proto3_optional: true, type: :string, deprecated: false
   field :scopes, 2, repeated: true, type: :string, deprecated: false
@@ -816,7 +816,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Tags do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :items, 1, repeated: true, type: :string, deprecated: false
 end
@@ -824,7 +824,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk.InitializeParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disk_name, 1,
     proto3_optional: true,
@@ -842,7 +842,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.AttachedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :initialize_params, 1,
     proto3_optional: true,
@@ -931,7 +931,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GuestOsFeature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1,
     proto3_optional: true,

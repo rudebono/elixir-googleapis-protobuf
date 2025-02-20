@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance.OSPolicyCompliance do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :os_policy_id, 1, type: :string, json_name: "osPolicyId"
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.InstanceOSPoliciesCompliance do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :instance, 2, type: :string, deprecated: false
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.GetInstanceOSPoliciesComplianceRequest do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesRequest do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.ListInstanceOSPoliciesCompliancesResponse do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instance_os_policies_compliances, 1,
     repeated: true,

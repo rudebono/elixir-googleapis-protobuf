@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis.Baseline do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :BASELINE_UNSPECIFIED, 0
   field :LATEST_STATS, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disabled, 1, type: :bool
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ImportFeaturesAnalysis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1,
     type:
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.ThresholdConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :threshold, 0
 
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :snapshot_analysis, 1,
     type: Google.Cloud.Aiplatform.V1beta1.FeaturestoreMonitoringConfig.SnapshotAnalysis,

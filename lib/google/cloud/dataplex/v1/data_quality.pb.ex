@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation.ColumnStatistic do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATISTIC_UNDEFINED, 0
   field :MEAN, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :results_table, 1, type: :string, json_name: "resultsTable", deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.Recipients do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :emails, 1, repeated: true, type: :string, deprecated: false
 end
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.ScoreThresholdTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :score_threshold, 2, type: :float, json_name: "scoreThreshold", deprecated: false
 end
@@ -47,19 +47,19 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobFailureTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.JobEndTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.NotificationReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :recipients, 1,
     type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.Recipients,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bigquery_export, 1,
     type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions.BigQueryExport,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualitySpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rules, 1,
     repeated: true,
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1,
     type:
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bigquery_export_result, 1,
     type: Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult,
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :passed, 5, type: :bool
   field :score, 9, proto3_optional: true, type: :float, deprecated: false
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRuleResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rule, 1, type: Google.Cloud.Dataplex.V1.DataQualityRule
   field :passed, 7, type: :bool
@@ -183,7 +183,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityDimensionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimension, 1, type: Google.Cloud.Dataplex.V1.DataQualityDimension, deprecated: false
   field :passed, 3, type: :bool
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RangeExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :min_value, 1, type: :string, json_name: "minValue", deprecated: false
   field :max_value, 2, type: :string, json_name: "maxValue", deprecated: false
@@ -212,13 +212,13 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.NonNullExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.SetExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 end
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RegexExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :regex, 1, type: :string, deprecated: false
 end
@@ -234,13 +234,13 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.UniquenessExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :statistic, 1,
     type: Google.Cloud.Dataplex.V1.DataQualityRule.StatisticRangeExpectation.ColumnStatistic,
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RowConditionExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sql_expression, 1, type: :string, json_name: "sqlExpression", deprecated: false
 end
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.TableConditionExpectation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sql_expression, 1, type: :string, json_name: "sqlExpression", deprecated: false
 end
@@ -272,7 +272,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.SqlAssertion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sql_statement, 1, type: :string, json_name: "sqlStatement", deprecated: false
 end
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :rule_type, 0
 
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataQualityColumnResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :column, 1, type: :string, deprecated: false
   field :score, 2, proto3_optional: true, type: :float, deprecated: false

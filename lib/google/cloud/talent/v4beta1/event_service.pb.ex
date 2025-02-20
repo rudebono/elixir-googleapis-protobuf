@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.CreateClientEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ defmodule Google.Cloud.Talent.V4beta1.EventService.Service do
 
   use GRPC.Service,
     name: "google.cloud.talent.v4beta1.EventService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateClientEvent,
       Google.Cloud.Talent.V4beta1.CreateClientEventRequest,

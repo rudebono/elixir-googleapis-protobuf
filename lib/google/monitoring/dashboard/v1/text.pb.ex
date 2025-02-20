@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.Dashboard.V1.Text.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :MARKDOWN, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle.HorizontalAlignment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HORIZONTAL_ALIGNMENT_UNSPECIFIED, 0
   field :H_LEFT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle.VerticalAlignment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VERTICAL_ALIGNMENT_UNSPECIFIED, 0
   field :V_TOP, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle.PaddingSize do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PADDING_SIZE_UNSPECIFIED, 0
   field :P_EXTRA_SMALL, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle.FontSize do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FONT_SIZE_UNSPECIFIED, 0
   field :FS_EXTRA_SMALL, 1
@@ -59,7 +59,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle.PointerLocation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :POINTER_LOCATION_UNSPECIFIED, 0
   field :PL_TOP, 1
@@ -79,7 +79,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text.TextStyle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :background_color, 1, type: :string, json_name: "backgroundColor"
   field :text_color, 2, type: :string, json_name: "textColor"
@@ -110,7 +110,7 @@ end
 defmodule Google.Monitoring.Dashboard.V1.Text do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :content, 1, type: :string
   field :format, 2, type: Google.Monitoring.Dashboard.V1.Text.Format, enum: true
