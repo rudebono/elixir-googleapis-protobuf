@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Baremetalsolution.V2.SSHKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :public_key, 2, type: :string, json_name: "publicKey"
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListSSHKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListSSHKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ssh_keys, 1,
     repeated: true,
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.CreateSSHKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.DeleteSSHKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

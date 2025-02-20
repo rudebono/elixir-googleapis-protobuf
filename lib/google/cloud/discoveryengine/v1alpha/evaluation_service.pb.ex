@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetEvaluationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListEvaluationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListEvaluationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :evaluations, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.Evaluation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CreateEvaluationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :evaluation, 2, type: Google.Cloud.Discoveryengine.V1alpha.Evaluation, deprecated: false
@@ -37,13 +37,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CreateEvaluationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListEvaluationResultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :evaluation, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListEvaluationResultsResponse.EvaluationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sample_query, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.SampleQuery,
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListEvaluationResultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :evaluation_results, 1,
     repeated: true,
@@ -84,7 +84,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.EvaluationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.EvaluationService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetEvaluation,
       Google.Cloud.Discoveryengine.V1alpha.GetEvaluationRequest,

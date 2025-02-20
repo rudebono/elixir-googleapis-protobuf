@@ -1,7 +1,7 @@
 defmodule Google.Longrunning.Operation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :result, 0
 
@@ -15,7 +15,7 @@ end
 defmodule Google.Longrunning.GetOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Longrunning.ListOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 4, type: :string
   field :filter, 1, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Longrunning.ListOperationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -43,7 +43,7 @@ end
 defmodule Google.Longrunning.CancelOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -51,7 +51,7 @@ end
 defmodule Google.Longrunning.DeleteOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Longrunning.WaitOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :timeout, 2, type: Google.Protobuf.Duration
@@ -68,7 +68,7 @@ end
 defmodule Google.Longrunning.OperationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :response_type, 1, type: :string, json_name: "responseType"
   field :metadata_type, 2, type: :string, json_name: "metadataType"
@@ -77,7 +77,7 @@ end
 defmodule Google.Longrunning.Operations.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.longrunning.Operations", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.longrunning.Operations", protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListOperations,
       Google.Longrunning.ListOperationsRequest,

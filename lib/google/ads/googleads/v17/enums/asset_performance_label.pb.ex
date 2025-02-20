@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Enums.AssetPerformanceLabelEnum.AssetPerformanceLabel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -15,5 +15,5 @@ end
 defmodule Google.Ads.Googleads.V17.Enums.AssetPerformanceLabelEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

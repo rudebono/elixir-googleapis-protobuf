@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties.LicenseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LICENSE_TYPE_UNSPECIFIED, 0
   field :LICENSE_INCLUDED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties.DiskRedundancy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_REDUNDANCY_UNSPECIFIED, 0
   field :HIGH, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmCluster.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ocid, 1, type: :string, deprecated: false
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DataCollectionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :diagnostics_events_enabled, 1,
     type: :bool,

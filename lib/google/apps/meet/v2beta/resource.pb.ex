@@ -1,7 +1,7 @@
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACCESS_TYPE_UNSPECIFIED, 0
   field :OPEN, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.EntryPointAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENTRY_POINT_ACCESS_UNSPECIFIED, 0
   field :ALL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.Moderation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODERATION_UNSPECIFIED, 0
   field :OFF, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.AttendanceReportGenerationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ATTENDANCE_REPORT_GENERATION_TYPE_UNSPECIFIED, 0
   field :GENERATE_REPORT, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ModerationRestrictions.RestrictionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RESTRICTION_TYPE_UNSPECIFIED, 0
   field :HOSTS_ONLY, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ModerationRestrictions.DefaultJoinAsViewerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEFAULT_JOIN_AS_VIEWER_TYPE_UNSPECIFIED, 0
   field :ON, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.AutoGenerationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUTO_GENERATION_TYPE_UNSPECIFIED, 0
   field :ON, 1
@@ -72,7 +72,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Member.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :COHOST, 1
@@ -81,7 +81,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Recording.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Transcript.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Space do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :meeting_uri, 2, type: :string, json_name: "meetingUri", deprecated: false
@@ -118,7 +118,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ActiveConference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :conference_record, 1, type: :string, json_name: "conferenceRecord", deprecated: false
 end
@@ -126,7 +126,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ModerationRestrictions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chat_restriction, 1,
     type: Google.Apps.Meet.V2beta.SpaceConfig.ModerationRestrictions.RestrictionType,
@@ -152,7 +152,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.RecordingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_recording_generation, 2,
     type: Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.AutoGenerationType,
@@ -163,7 +163,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.TranscriptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_transcription_generation, 2,
     type: Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.AutoGenerationType,
@@ -174,7 +174,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.SmartNotesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_smart_notes_generation, 2,
     type: Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.AutoGenerationType,
@@ -185,7 +185,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :recording_config, 1,
     type: Google.Apps.Meet.V2beta.SpaceConfig.ArtifactConfig.RecordingConfig,
@@ -203,7 +203,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SpaceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_type, 1,
     type: Google.Apps.Meet.V2beta.SpaceConfig.AccessType,
@@ -234,7 +234,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Member do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :email, 2, type: :string
@@ -245,7 +245,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ConferenceRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -262,7 +262,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Participant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :user, 0
 
@@ -293,7 +293,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ParticipantSession do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -303,7 +303,7 @@ end
 defmodule Google.Apps.Meet.V2beta.SignedinUser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :user, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -312,7 +312,7 @@ end
 defmodule Google.Apps.Meet.V2beta.AnonymousUser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 end
@@ -320,7 +320,7 @@ end
 defmodule Google.Apps.Meet.V2beta.PhoneUser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 end
@@ -328,7 +328,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Recording do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -347,7 +347,7 @@ end
 defmodule Google.Apps.Meet.V2beta.DriveDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :file, 1, type: :string, deprecated: false
   field :export_uri, 2, type: :string, json_name: "exportUri", deprecated: false
@@ -356,7 +356,7 @@ end
 defmodule Google.Apps.Meet.V2beta.Transcript do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -375,7 +375,7 @@ end
 defmodule Google.Apps.Meet.V2beta.DocsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document, 1, type: :string, deprecated: false
   field :export_uri, 2, type: :string, json_name: "exportUri", deprecated: false
@@ -384,7 +384,7 @@ end
 defmodule Google.Apps.Meet.V2beta.TranscriptEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :participant, 2, type: :string, deprecated: false

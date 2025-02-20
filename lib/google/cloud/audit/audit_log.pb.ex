@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Audit.ViolationInfo.PolicyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :POLICY_TYPE_UNSPECIFIED, 0
   field :BOOLEAN_CONSTRAINT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Audit.AuditLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_name, 7, type: :string, json_name: "serviceName"
   field :method_name, 8, type: :string, json_name: "methodName"
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Audit.AuthenticationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :authority_selector, 2, type: :string, json_name: "authoritySelector"
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Audit.AuthorizationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource, 1, type: :string
   field :permission, 2, type: :string
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Audit.RequestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :caller_ip, 1, type: :string, json_name: "callerIp"
   field :caller_supplied_user_agent, 2, type: :string, json_name: "callerSuppliedUserAgent"
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Audit.ResourceLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :current_locations, 1, repeated: true, type: :string, json_name: "currentLocations"
   field :original_locations, 2, repeated: true, type: :string, json_name: "originalLocations"
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.FirstPartyPrincipal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principal_email, 1, type: :string, json_name: "principalEmail"
   field :service_metadata, 2, type: Google.Protobuf.Struct, json_name: "serviceMetadata"
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo.ThirdPartyPrincipal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :third_party_claims, 1, type: Google.Protobuf.Struct, json_name: "thirdPartyClaims"
 end
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Audit.ServiceAccountDelegationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :Authority, 0
 
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Audit.PolicyViolationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :org_policy_violation_info, 1,
     type: Google.Cloud.Audit.OrgPolicyViolationInfo,
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Audit.OrgPolicyViolationInfo.ResourceTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Audit.OrgPolicyViolationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :payload, 1, type: Google.Protobuf.Struct, deprecated: false
   field :resource_type, 2, type: :string, json_name: "resourceType", deprecated: false
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Audit.ViolationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :constraint, 1, type: :string, deprecated: false
   field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false

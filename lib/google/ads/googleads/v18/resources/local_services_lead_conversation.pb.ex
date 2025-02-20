@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.LocalServicesLeadConversation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false
@@ -37,7 +37,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.PhoneCallDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :call_duration_millis, 1, type: :int64, json_name: "callDurationMillis", deprecated: false
   field :call_recording_url, 2, type: :string, json_name: "callRecordingUrl", deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.MessageDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 

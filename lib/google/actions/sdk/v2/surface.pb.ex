@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SURFACE_CAPABILITY_UNSPECIFIED, 0
   field :AUDIO_OUTPUT, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Actions.Sdk.V2.SurfaceRequirements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :minimum_requirements, 1,
     repeated: true,
@@ -27,7 +27,7 @@ end
 defmodule Google.Actions.Sdk.V2.CapabilityRequirement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :capability, 1,
     type: Google.Actions.Sdk.V2.CapabilityRequirement.SurfaceCapability,

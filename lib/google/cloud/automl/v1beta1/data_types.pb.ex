@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1beta1.TypeCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_CODE_UNSPECIFIED, 0
   field :FLOAT64, 3
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.DataType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :details, 0
 
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.StructType.FieldsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Automl.V1beta1.DataType
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Automl.V1beta1.StructType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fields, 1,
     repeated: true,

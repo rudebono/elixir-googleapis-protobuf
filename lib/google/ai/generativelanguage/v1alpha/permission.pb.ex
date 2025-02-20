@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.Permission.GranteeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :GRANTEE_TYPE_UNSPECIFIED, 0
   field :USER, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Permission.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :OWNER, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Permission do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

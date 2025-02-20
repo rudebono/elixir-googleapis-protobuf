@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Deploy.V1.DeployPolicyEvaluationEvent.PolicyVerdict do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :POLICY_VERDICT_UNSPECIFIED, 0
   field :ALLOWED_BY_POLICY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployPolicyEvaluationEvent.PolicyVerdictOverride do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :POLICY_VERDICT_OVERRIDE_UNSPECIFIED, 0
   field :POLICY_OVERRIDDEN, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Deploy.V1.DeployPolicyEvaluationEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :message, 1, type: :string
   field :rule_type, 2, type: :string, json_name: "ruleType"

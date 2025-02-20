@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.FrequencyCapEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: Google.Ads.Googleads.V18.Common.FrequencyCapKey
   field :cap, 3, proto3_optional: true, type: :int32
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.FrequencyCapKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :level, 1,
     type: Google.Ads.Googleads.V18.Enums.FrequencyCapLevelEnum.FrequencyCapLevel,

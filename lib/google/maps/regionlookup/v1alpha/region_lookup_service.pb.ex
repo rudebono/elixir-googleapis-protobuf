@@ -1,7 +1,7 @@
 defmodule Google.Maps.Regionlookup.V1alpha.LookupRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :identifiers, 1, repeated: true, type: Google.Maps.Regionlookup.V1alpha.RegionIdentifier
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Regionlookup.V1alpha.LookupRegionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :matches, 1, repeated: true, type: Google.Maps.Regionlookup.V1alpha.RegionMatch
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,7 +20,7 @@ end
 defmodule Google.Maps.Regionlookup.V1alpha.SearchRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :search_values, 1,
     repeated: true,
@@ -34,7 +34,7 @@ end
 defmodule Google.Maps.Regionlookup.V1alpha.SearchRegionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :matches, 1, repeated: true, type: Google.Maps.Regionlookup.V1alpha.RegionMatch
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -45,7 +45,7 @@ defmodule Google.Maps.Regionlookup.V1alpha.RegionLookup.Service do
 
   use GRPC.Service,
     name: "google.maps.regionlookup.v1alpha.RegionLookup",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :LookupRegion,
       Google.Maps.Regionlookup.V1alpha.LookupRegionRequest,
