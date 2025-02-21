@@ -1,7 +1,7 @@
 defmodule Google.Apps.Script.Type.Gmail.ComposeTrigger.DraftAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :NONE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Apps.Script.Type.Gmail.GmailAddOnManifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :homepage_trigger, 14,
     type: Google.Apps.Script.Type.HomepageExtensionPoint,
@@ -37,7 +37,7 @@ end
 defmodule Google.Apps.Script.Type.Gmail.UniversalAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :action_type, 0
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Apps.Script.Type.Gmail.ComposeTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actions, 5, repeated: true, type: Google.Apps.Script.Type.MenuItemExtensionPoint
 
@@ -62,7 +62,7 @@ end
 defmodule Google.Apps.Script.Type.Gmail.ContextualTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :trigger, 0
 
@@ -73,5 +73,5 @@ end
 defmodule Google.Apps.Script.Type.Gmail.UnconditionalTrigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

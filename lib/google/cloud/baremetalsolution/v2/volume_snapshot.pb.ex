@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeSnapshot.SnapshotType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SNAPSHOT_TYPE_UNSPECIFIED, 0
   field :AD_HOC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.VolumeSnapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 6, type: :string, deprecated: false
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.GetVolumeSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.ListVolumeSnapshotsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :volume_snapshots, 1,
     repeated: true,
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.DeleteVolumeSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.CreateVolumeSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Baremetalsolution.V2.RestoreVolumeSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :volume_snapshot, 1, type: :string, json_name: "volumeSnapshot", deprecated: false
 end

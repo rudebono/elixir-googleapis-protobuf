@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :configs, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 2, type: :string
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfig
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 2, type: :string
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListVariablesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :variables, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.WatchVariableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :newer_than, 4, type: Google.Protobuf.Timestamp, json_name: "newerThan"
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetVariableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateVariableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.UpdateVariableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :variable, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Variable
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteVariableRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :recursive, 2, type: :bool
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.ListWaitersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :waiters, 1, repeated: true, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.GetWaiterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.CreateWaiterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string
   field :waiter, 2, type: Google.Cloud.Runtimeconfig.V1beta1.Waiter
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Runtimeconfig.V1beta1.DeleteWaiterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -168,7 +168,7 @@ defmodule Google.Cloud.Runtimeconfig.V1beta1.RuntimeConfigManager.Service do
 
   use GRPC.Service,
     name: "google.cloud.runtimeconfig.v1beta1.RuntimeConfigManager",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListConfigs,
       Google.Cloud.Runtimeconfig.V1beta1.ListConfigsRequest,

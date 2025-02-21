@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1beta.ListCachedContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.ListCachedContentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cached_contents, 1,
     repeated: true,
@@ -23,7 +23,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.CreateCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cached_content, 1,
     type: Google.Ai.Generativelanguage.V1beta.CachedContent,
@@ -34,7 +34,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.GetCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -42,7 +42,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.UpdateCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cached_content, 1,
     type: Google.Ai.Generativelanguage.V1beta.CachedContent,
@@ -55,7 +55,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta.DeleteCachedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -65,7 +65,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.CacheService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1beta.CacheService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListCachedContents,
       Google.Ai.Generativelanguage.V1beta.ListCachedContentsRequest,

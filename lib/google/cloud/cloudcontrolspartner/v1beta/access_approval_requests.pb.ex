@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.AccessReason.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CUSTOMER_INITIATED_SUPPORT, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.AccessApprovalRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_time, 2, type: Google.Protobuf.Timestamp, json_name: "requestTime"
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListAccessApprovalRequestsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListAccessApprovalRequestsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_approval_requests, 1,
     repeated: true,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.AccessReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Cloudcontrolspartner.V1beta.AccessReason.Type, enum: true
   field :detail, 2, type: :string

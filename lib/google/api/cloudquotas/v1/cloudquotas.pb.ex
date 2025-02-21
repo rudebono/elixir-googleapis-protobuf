@@ -1,7 +1,7 @@
 defmodule Google.Api.Cloudquotas.V1.ListQuotaInfosRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.ListQuotaInfosResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :quota_infos, 1,
     repeated: true,
@@ -24,7 +24,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.GetQuotaInfoRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.ListQuotaPreferencesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.ListQuotaPreferencesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :quota_preferences, 1,
     repeated: true,
@@ -58,7 +58,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.GetQuotaPreferenceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.CreateQuotaPreferenceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :quota_preference_id, 2, type: :string, json_name: "quotaPreferenceId", deprecated: false
@@ -86,7 +86,7 @@ end
 defmodule Google.Api.Cloudquotas.V1.UpdateQuotaPreferenceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -113,7 +113,7 @@ defmodule Google.Api.Cloudquotas.V1.CloudQuotas.Service do
 
   use GRPC.Service,
     name: "google.api.cloudquotas.v1.CloudQuotas",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListQuotaInfos,
       Google.Api.Cloudquotas.V1.ListQuotaInfosRequest,

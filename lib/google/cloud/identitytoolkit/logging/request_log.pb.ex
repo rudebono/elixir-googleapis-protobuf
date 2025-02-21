@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Identitytoolkit.Logging.RequestLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :method_name, 1, type: :string, json_name: "methodName"
   field :status, 2, type: Google.Rpc.Status
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.Logging.RequestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :caller_ip, 1, type: :string, json_name: "callerIp"
   field :caller_supplied_user_agent, 2, type: :string, json_name: "callerSuppliedUserAgent"

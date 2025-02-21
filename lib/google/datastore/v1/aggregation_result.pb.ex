@@ -1,7 +1,7 @@
 defmodule Google.Datastore.V1.AggregationResult.AggregatePropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Datastore.V1.Value
@@ -10,7 +10,7 @@ end
 defmodule Google.Datastore.V1.AggregationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aggregate_properties, 2,
     repeated: true,
@@ -22,7 +22,7 @@ end
 defmodule Google.Datastore.V1.AggregationResultBatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aggregation_results, 1,
     repeated: true,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Memcache.V1.MemcacheVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MEMCACHE_VERSION_UNSPECIFIED, 0
   field :MEMCACHE_1_5, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.Node.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.InstanceMessage.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CODE_UNSPECIFIED, 0
   field :ZONE_DISTRIBUTION_UNBALANCED, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest.RescheduleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RESCHEDULE_TYPE_UNSPECIFIED, 0
   field :IMMEDIATE, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.NodeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cpu_count, 1, type: :int32, json_name: "cpuCount", deprecated: false
   field :memory_size_mb, 2, type: :int32, json_name: "memorySizeMb", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.Node do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node_id, 1, type: :string, json_name: "nodeId", deprecated: false
   field :zone, 2, type: :string, deprecated: false
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.InstanceMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: Google.Cloud.Memcache.V1.Instance.InstanceMessage.Code, enum: true
   field :message, 2, type: :string
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Memcache.V1.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Memcache.V1.MaintenancePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Memcache.V1.WeeklyMaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Memcache.V1.MaintenanceSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Memcache.V1.RescheduleMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
 
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Memcache.V1.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Memcache.V1.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Memcache.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Memcache.V1.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Memcache.V1.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Memcache.V1.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Memcache.V1.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Memcache.V1.ApplyParametersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :node_ids, 2, repeated: true, type: :string, json_name: "nodeIds"
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Memcache.V1.UpdateParametersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -314,7 +314,7 @@ end
 defmodule Google.Cloud.Memcache.V1.MemcacheParameters.ParamsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Memcache.V1.MemcacheParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Memcache.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Memcache.V1.LocationMetadata.AvailableZonesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Memcache.V1.ZoneMetadata
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Memcache.V1.LocationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :available_zones, 1,
     repeated: true,
@@ -376,7 +376,7 @@ end
 defmodule Google.Cloud.Memcache.V1.ZoneMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Memcache.V1.CloudMemcache.Service do
@@ -384,7 +384,7 @@ defmodule Google.Cloud.Memcache.V1.CloudMemcache.Service do
 
   use GRPC.Service,
     name: "google.cloud.memcache.v1.CloudMemcache",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListInstances,
       Google.Cloud.Memcache.V1.ListInstancesRequest,

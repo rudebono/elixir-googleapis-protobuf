@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Kms.V1.AutokeyConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Kms.V1.UpdateAutokeyConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :autokey_config, 1,
     type: Google.Cloud.Kms.V1.AutokeyConfig,
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetAutokeyConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Kms.V1.AutokeyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :key_project, 2, type: :string, json_name: "keyProject", deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Kms.V1.ShowEffectiveAutokeyConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Kms.V1.ShowEffectiveAutokeyConfigResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key_project, 1, type: :string, json_name: "keyProject"
 end
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Kms.V1.AutokeyAdmin.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.kms.v1.AutokeyAdmin", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.cloud.kms.v1.AutokeyAdmin", protoc_gen_elixir_version: "0.14.1"
 
   rpc :UpdateAutokeyConfig,
       Google.Cloud.Kms.V1.UpdateAutokeyConfigRequest,

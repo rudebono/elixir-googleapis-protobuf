@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Oracledatabase.V1.DbServerProperties.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DbServer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DbServerProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ocid, 1, type: :string, deprecated: false
   field :ocpu_count, 2, type: :int32, json_name: "ocpuCount", deprecated: false

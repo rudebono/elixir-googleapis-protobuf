@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.Gateway.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :OPEN_MESH, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.Gateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.Gateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 13, type: :string, json_name: "selfLink", deprecated: false
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGatewaysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gateways, 1, repeated: true, type: Google.Cloud.Networkservices.V1.Gateway
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
