@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterCondition.StringFilter.MatchType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterClause.FilterClauseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FILTER_CLAUSE_TYPE_UNSPECIFIED, 0
   field :INCLUDE, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterCondition.StringFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match_type, 1,
     type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilterCondition.StringFilter.MatchType,
@@ -40,7 +40,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :one_filter, 0
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expr, 0
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterExpressionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :filter_expressions, 1,
     repeated: true,
@@ -92,7 +92,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilterClause do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :filter_clause_type, 1,
     type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilterClause.FilterClauseType,
@@ -109,7 +109,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.SubpropertyEventFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

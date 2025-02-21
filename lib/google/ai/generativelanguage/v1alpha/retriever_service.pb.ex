@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.CreateCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :corpus, 1, type: Google.Ai.Generativelanguage.V1alpha.Corpus, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GetCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.UpdateCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :corpus, 1, type: Google.Ai.Generativelanguage.V1alpha.Corpus, deprecated: false
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DeleteCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListCorporaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -48,7 +48,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListCorporaResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :corpora, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Corpus
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -57,7 +57,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.QueryCorpusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -74,7 +74,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.QueryCorpusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :relevant_chunks, 1,
     repeated: true,
@@ -85,7 +85,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.RelevantChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chunk_relevance_score, 1, type: :float, json_name: "chunkRelevanceScore"
   field :chunk, 2, type: Google.Ai.Generativelanguage.V1alpha.Chunk
@@ -94,7 +94,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CreateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Ai.Generativelanguage.V1alpha.Document, deprecated: false
@@ -103,7 +103,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GetDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.UpdateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document, 1, type: Google.Ai.Generativelanguage.V1alpha.Document, deprecated: false
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DeleteDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Document
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -152,7 +152,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.QueryDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -168,7 +168,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.QueryDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :relevant_chunks, 1,
     repeated: true,
@@ -179,7 +179,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CreateChunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :chunk, 2, type: Google.Ai.Generativelanguage.V1alpha.Chunk, deprecated: false
@@ -188,7 +188,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.BatchCreateChunksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.BatchCreateChunksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chunks, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Chunk
 end
@@ -209,7 +209,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GetChunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -217,7 +217,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.UpdateChunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chunk, 1, type: Google.Ai.Generativelanguage.V1alpha.Chunk, deprecated: false
 
@@ -230,7 +230,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.BatchUpdateChunksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -243,7 +243,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.BatchUpdateChunksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chunks, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Chunk
 end
@@ -251,7 +251,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DeleteChunkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -259,7 +259,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.BatchDeleteChunksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -272,7 +272,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListChunksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -282,7 +282,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ListChunksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :chunks, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Chunk
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -293,7 +293,7 @@ defmodule Google.Ai.Generativelanguage.V1alpha.RetrieverService.Service do
 
   use GRPC.Service,
     name: "google.ai.generativelanguage.v1alpha.RetrieverService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateCorpus,
       Google.Ai.Generativelanguage.V1alpha.CreateCorpusRequest,

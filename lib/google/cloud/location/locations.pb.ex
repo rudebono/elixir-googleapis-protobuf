@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Location.ListLocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :filter, 2, type: :string
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Location.ListLocationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :locations, 1, repeated: true, type: Google.Cloud.Location.Location
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Location.GetLocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Location.Location.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Location.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :location_id, 4, type: :string, json_name: "locationId"
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Location.Locations.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.location.Locations", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.cloud.location.Locations", protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListLocations,
       Google.Cloud.Location.ListLocationsRequest,

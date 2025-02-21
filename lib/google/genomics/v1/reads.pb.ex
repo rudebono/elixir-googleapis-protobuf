@@ -1,7 +1,7 @@
 defmodule Google.Genomics.V1.ImportReadGroupSetsRequest.PartitionStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PARTITION_STRATEGY_UNSPECIFIED, 0
   field :PER_FILE_PER_SAMPLE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Genomics.V1.SearchReadGroupSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset_ids, 1, repeated: true, type: :string, json_name: "datasetIds"
   field :name, 3, type: :string
@@ -22,7 +22,7 @@ end
 defmodule Google.Genomics.V1.SearchReadGroupSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_sets, 1,
     repeated: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Genomics.V1.ImportReadGroupSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :reference_set_id, 4, type: :string, json_name: "referenceSetId"
@@ -50,7 +50,7 @@ end
 defmodule Google.Genomics.V1.ImportReadGroupSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
 end
@@ -58,7 +58,7 @@ end
 defmodule Google.Genomics.V1.ExportReadGroupSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :export_uri, 2, type: :string, json_name: "exportUri"
@@ -69,7 +69,7 @@ end
 defmodule Google.Genomics.V1.UpdateReadGroupSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
   field :read_group_set, 2, type: Google.Genomics.V1.ReadGroupSet, json_name: "readGroupSet"
@@ -79,7 +79,7 @@ end
 defmodule Google.Genomics.V1.DeleteReadGroupSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
 end
@@ -87,7 +87,7 @@ end
 defmodule Google.Genomics.V1.GetReadGroupSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Genomics.V1.ListCoverageBucketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_id, 1, type: :string, json_name: "readGroupSetId"
   field :reference_name, 3, type: :string, json_name: "referenceName"
@@ -109,7 +109,7 @@ end
 defmodule Google.Genomics.V1.CoverageBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :range, 1, type: Google.Genomics.V1.Range
   field :mean_coverage, 2, type: :float, json_name: "meanCoverage"
@@ -118,7 +118,7 @@ end
 defmodule Google.Genomics.V1.ListCoverageBucketsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :bucket_width, 1, type: :int64, json_name: "bucketWidth"
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Genomics.V1.SearchReadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read_group_set_ids, 1, repeated: true, type: :string, json_name: "readGroupSetIds"
   field :read_group_ids, 5, repeated: true, type: :string, json_name: "readGroupIds"
@@ -147,7 +147,7 @@ end
 defmodule Google.Genomics.V1.SearchReadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -156,7 +156,7 @@ end
 defmodule Google.Genomics.V1.StreamReadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :read_group_set_id, 2, type: :string, json_name: "readGroupSetId"
@@ -170,7 +170,7 @@ end
 defmodule Google.Genomics.V1.StreamReadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :alignments, 1, repeated: true, type: Google.Genomics.V1.Read
 end
@@ -180,7 +180,7 @@ defmodule Google.Genomics.V1.StreamingReadService.Service do
 
   use GRPC.Service,
     name: "google.genomics.v1.StreamingReadService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StreamReads,
       Google.Genomics.V1.StreamReadsRequest,
@@ -196,7 +196,7 @@ end
 defmodule Google.Genomics.V1.ReadServiceV1.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.genomics.v1.ReadServiceV1", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.genomics.v1.ReadServiceV1", protoc_gen_elixir_version: "0.14.1"
 
   rpc :ImportReadGroupSets,
       Google.Genomics.V1.ImportReadGroupSetsRequest,

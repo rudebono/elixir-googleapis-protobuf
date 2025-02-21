@@ -1,7 +1,7 @@
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :DONE, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.Diagnostic.Kind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :WARNING, 0
   field :ERROR, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ConfigFile.FileType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FILE_TYPE_UNSPECIFIED, 0
   field :SERVICE_CONFIG_YAML, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.Rollout.RolloutStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ROLLOUT_STATUS_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ManagedService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_name, 2, type: :string, json_name: "serviceName"
   field :producer_project_id, 3, type: :string, json_name: "producerProjectId"
@@ -59,7 +59,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :description, 2, type: :string
   field :status, 4, type: Google.Api.Servicemanagement.V1.OperationMetadata.Status, enum: true
@@ -68,7 +68,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_names, 1, repeated: true, type: :string, json_name: "resourceNames"
   field :steps, 2, repeated: true, type: Google.Api.Servicemanagement.V1.OperationMetadata.Step
@@ -79,7 +79,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.Diagnostic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :location, 1, type: :string
   field :kind, 2, type: Google.Api.Servicemanagement.V1.Diagnostic.Kind, enum: true
@@ -89,7 +89,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ConfigSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 5, type: :string
   field :files, 2, repeated: true, type: Google.Api.Servicemanagement.V1.ConfigFile
@@ -98,7 +98,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ConfigFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :file_path, 1, type: :string, json_name: "filePath"
   field :file_contents, 3, type: :bytes, json_name: "fileContents"
@@ -112,7 +112,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ConfigRef do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -120,7 +120,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.ChangeReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :config_changes, 1,
     repeated: true,
@@ -131,7 +131,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy.PercentagesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
@@ -140,7 +140,7 @@ end
 defmodule Google.Api.Servicemanagement.V1.Rollout.TrafficPercentStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :percentages, 1,
     repeated: true,
@@ -151,13 +151,13 @@ end
 defmodule Google.Api.Servicemanagement.V1.Rollout.DeleteServiceStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Api.Servicemanagement.V1.Rollout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :strategy, 0
 

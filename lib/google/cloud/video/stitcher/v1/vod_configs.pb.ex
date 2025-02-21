@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Stitcher.V1.VodConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.VodConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_uri, 2, type: :string, json_name: "sourceUri", deprecated: false
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Video.Stitcher.V1.GamVodConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :network_code, 1, type: :string, json_name: "networkCode", deprecated: false
 end

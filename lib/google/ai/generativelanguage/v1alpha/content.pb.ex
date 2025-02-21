@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ExecutableCode.Language do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :PYTHON, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CodeExecutionResult.Outcome do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OUTCOME_UNSPECIFIED, 0
   field :OUTCOME_OK, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DynamicRetrievalConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :MODE_DYNAMIC, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FunctionCallingConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :AUTO, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Content do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parts, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.Part
   field :role, 2, type: :string, deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Part do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data, 0
 
@@ -104,7 +104,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Blob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :data, 2, type: :bytes
@@ -113,7 +113,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FileData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
   field :file_uri, 2, type: :string, json_name: "fileUri", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ExecutableCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language, 1,
     type: Google.Ai.Generativelanguage.V1alpha.ExecutableCode.Language,
@@ -135,7 +135,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CodeExecutionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :outcome, 1,
     type: Google.Ai.Generativelanguage.V1alpha.CodeExecutionResult.Outcome,
@@ -148,13 +148,13 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Tool.GoogleSearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Ai.Generativelanguage.V1alpha.Tool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :function_declarations, 1,
     repeated: true,
@@ -181,7 +181,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GoogleSearchRetrieval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dynamic_retrieval_config, 1,
     type: Google.Ai.Generativelanguage.V1alpha.DynamicRetrievalConfig,
@@ -191,7 +191,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.DynamicRetrievalConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mode, 1,
     type: Google.Ai.Generativelanguage.V1alpha.DynamicRetrievalConfig.Mode,
@@ -203,13 +203,13 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CodeExecution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Ai.Generativelanguage.V1alpha.ToolConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :function_calling_config, 1,
     type: Google.Ai.Generativelanguage.V1alpha.FunctionCallingConfig,
@@ -220,7 +220,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FunctionCallingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mode, 1,
     type: Google.Ai.Generativelanguage.V1alpha.FunctionCallingConfig.Mode,
@@ -237,7 +237,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FunctionDeclaration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -256,7 +256,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FunctionCall do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
@@ -266,7 +266,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.FunctionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
@@ -276,7 +276,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Schema.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Ai.Generativelanguage.V1alpha.Schema
@@ -285,7 +285,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: Google.Ai.Generativelanguage.V1alpha.Type, enum: true, deprecated: false
   field :format, 2, type: :string, deprecated: false
@@ -313,7 +313,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GroundingPassage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :content, 2, type: Google.Ai.Generativelanguage.V1alpha.Content
@@ -322,7 +322,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.GroundingPassages do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :passages, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.GroundingPassage
 end

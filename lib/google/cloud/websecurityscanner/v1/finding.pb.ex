@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1.Finding.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1.Finding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :finding_type, 2, type: :string, json_name: "findingType"

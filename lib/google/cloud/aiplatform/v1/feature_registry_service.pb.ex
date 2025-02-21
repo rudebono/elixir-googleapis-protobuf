@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetFeatureGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ListFeatureGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :feature_groups, 1,
     repeated: true,
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :feature_group, 1,
     type: Google.Cloud.Aiplatform.V1.FeatureGroup,
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeleteFeatureGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateFeatureGroupOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureGroupOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CreateRegistryFeatureOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UpdateFeatureOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -113,7 +113,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureRegistryService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.FeatureRegistryService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateFeatureGroup,
       Google.Cloud.Aiplatform.V1.CreateFeatureGroupRequest,

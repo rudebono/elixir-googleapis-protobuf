@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Billing.V1.AggregationInfo.AggregationLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AGGREGATION_LEVEL_UNSPECIFIED, 0
   field :ACCOUNT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Billing.V1.AggregationInfo.AggregationInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AGGREGATION_INTERVAL_UNSPECIFIED, 0
   field :DAILY, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Billing.V1.GeoTaxonomy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GLOBAL, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Billing.V1.Service do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :service_id, 2, type: :string, json_name: "serviceId"
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Billing.V1.Sku do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :sku_id, 2, type: :string, json_name: "skuId"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Billing.V1.Category do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_display_name, 1, type: :string, json_name: "serviceDisplayName"
   field :resource_family, 2, type: :string, json_name: "resourceFamily"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Billing.V1.PricingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :effective_time, 1, type: Google.Protobuf.Timestamp, json_name: "effectiveTime"
   field :summary, 2, type: :string
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Billing.V1.PricingExpression.TierRate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_usage_amount, 1, type: :double, json_name: "startUsageAmount"
   field :unit_price, 2, type: Google.Type.Money, json_name: "unitPrice"
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Billing.V1.PricingExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :usage_unit, 1, type: :string, json_name: "usageUnit"
   field :display_quantity, 2, type: :double, json_name: "displayQuantity"
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Billing.V1.AggregationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aggregation_level, 1,
     type: Google.Cloud.Billing.V1.AggregationInfo.AggregationLevel,
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Billing.V1.GeoTaxonomy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Billing.V1.GeoTaxonomy.Type, enum: true
   field :regions, 2, repeated: true, type: :string
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListServicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Billing.V1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListSkusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Billing.V1.ListSkusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :skus, 1, repeated: true, type: Google.Cloud.Billing.V1.Sku
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -190,7 +190,7 @@ defmodule Google.Cloud.Billing.V1.CloudCatalog.Service do
 
   use GRPC.Service,
     name: "google.cloud.billing.v1.CloudCatalog",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListServices,
       Google.Cloud.Billing.V1.ListServicesRequest,

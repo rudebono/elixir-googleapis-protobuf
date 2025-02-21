@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.IntentView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :INTENT_VIEW_UNSPECIFIED, 0
   field :INTENT_VIEW_PARTIAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportIntentsRequest.MergeOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MERGE_OPTION_UNSPECIFIED, 0
   field :REJECT, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportIntentsRequest.DataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase.Part do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :parameter_id, 2, type: :string, json_name: "parameterId"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.TrainingPhrase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.Parameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :entity_type, 2, type: :string, json_name: "entityType", deprecated: false
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListIntentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :intents, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Intent
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.CreateIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :intent, 2, type: Google.Cloud.Dialogflow.Cx.V3.Intent, deprecated: false
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.UpdateIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :intent, 1, type: Google.Cloud.Dialogflow.Cx.V3.Intent, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.DeleteIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportIntentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :intents, 0
 
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportIntentsResponse.ConflictingResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :intent_display_names, 1, repeated: true, type: :string, json_name: "intentDisplayNames"
   field :entity_display_names, 2, repeated: true, type: :string, json_name: "entityDisplayNames"
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportIntentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :intents, 1, repeated: true, type: :string, deprecated: false
 
@@ -210,13 +210,13 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ImportIntentsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportIntentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportIntentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :intents, 0
 
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ExportIntentsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Service do
@@ -263,7 +263,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Intents.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.Intents",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListIntents,
       Google.Cloud.Dialogflow.Cx.V3.ListIntentsRequest,

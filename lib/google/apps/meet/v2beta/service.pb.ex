@@ -1,7 +1,7 @@
 defmodule Google.Apps.Meet.V2beta.CreateSpaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :space, 1, type: Google.Apps.Meet.V2beta.Space
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetSpaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Apps.Meet.V2beta.UpdateSpaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :space, 1, type: Google.Apps.Meet.V2beta.Space, deprecated: false
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Apps.Meet.V2beta.EndActiveConferenceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -38,7 +38,7 @@ end
 defmodule Google.Apps.Meet.V2beta.CreateMemberRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :member, 2, type: Google.Apps.Meet.V2beta.Member, deprecated: false
@@ -47,7 +47,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetMemberRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListMembersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListMembersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :members, 1, repeated: true, type: Google.Apps.Meet.V2beta.Member
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -74,7 +74,7 @@ end
 defmodule Google.Apps.Meet.V2beta.DeleteMemberRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -82,7 +82,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetConferenceRecordRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -90,7 +90,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListConferenceRecordsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -100,7 +100,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListConferenceRecordsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :conference_records, 1,
     repeated: true,
@@ -113,7 +113,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -121,7 +121,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListParticipantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -132,7 +132,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListParticipantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :participants, 1, repeated: true, type: Google.Apps.Meet.V2beta.Participant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -142,7 +142,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetParticipantSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -150,7 +150,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListParticipantSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListParticipantSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :participant_sessions, 1,
     repeated: true,
@@ -174,7 +174,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetRecordingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -182,7 +182,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListRecordingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -192,7 +192,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListRecordingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :recordings, 1, repeated: true, type: Google.Apps.Meet.V2beta.Recording
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -201,7 +201,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetTranscriptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -209,7 +209,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListTranscriptsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -219,7 +219,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListTranscriptsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transcripts, 1, repeated: true, type: Google.Apps.Meet.V2beta.Transcript
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -228,7 +228,7 @@ end
 defmodule Google.Apps.Meet.V2beta.GetTranscriptEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -236,7 +236,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListTranscriptEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -246,7 +246,7 @@ end
 defmodule Google.Apps.Meet.V2beta.ListTranscriptEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :transcript_entries, 1,
     repeated: true,
@@ -261,7 +261,7 @@ defmodule Google.Apps.Meet.V2beta.SpacesService.Service do
 
   use GRPC.Service,
     name: "google.apps.meet.v2beta.SpacesService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateSpace, Google.Apps.Meet.V2beta.CreateSpaceRequest, Google.Apps.Meet.V2beta.Space
 
@@ -295,7 +295,7 @@ defmodule Google.Apps.Meet.V2beta.ConferenceRecordsService.Service do
 
   use GRPC.Service,
     name: "google.apps.meet.v2beta.ConferenceRecordsService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetConferenceRecord,
       Google.Apps.Meet.V2beta.GetConferenceRecordRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Recommender.Logging.V1.ActionLog.StateMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Recommender.Logging.V1.ActionLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actor, 1, type: :string
   field :state, 2, type: Google.Cloud.Recommender.V1.RecommendationStateInfo.State, enum: true
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog.StateMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Recommender.Logging.V1.InsightActionLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actor, 1, type: :string, deprecated: false
 

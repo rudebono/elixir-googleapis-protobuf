@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.Evaluation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Evaluation.EvaluationSpec.QuerySetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sample_query_set, 1, type: :string, json_name: "sampleQuerySet", deprecated: false
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Evaluation.EvaluationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :search_spec, 0
 
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Evaluation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.QualityMetrics.TopkMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :top_1, 1, type: :double, json_name: "top1"
   field :top_3, 2, type: :double, json_name: "top3"
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.QualityMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :doc_recall, 1,
     type: Google.Cloud.Discoveryengine.V1beta.QualityMetrics.TopkMetrics,

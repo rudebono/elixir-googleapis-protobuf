@@ -1,7 +1,7 @@
 defmodule Grafeas.V1beta1.Source.AliasContext.Kind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :KIND_UNSPECIFIED, 0
   field :FIXED, 1
@@ -12,7 +12,7 @@ end
 defmodule Grafeas.V1beta1.Source.SourceContext.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Grafeas.V1beta1.Source.SourceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :context, 0
 
@@ -42,7 +42,7 @@ end
 defmodule Grafeas.V1beta1.Source.AliasContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :kind, 1, type: Grafeas.V1beta1.Source.AliasContext.Kind, enum: true
   field :name, 2, type: :string
@@ -51,7 +51,7 @@ end
 defmodule Grafeas.V1beta1.Source.CloudRepoSourceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :revision, 0
 
@@ -67,7 +67,7 @@ end
 defmodule Grafeas.V1beta1.Source.GerritSourceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :revision, 0
 
@@ -84,7 +84,7 @@ end
 defmodule Grafeas.V1beta1.Source.GitSourceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :url, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"
@@ -93,7 +93,7 @@ end
 defmodule Grafeas.V1beta1.Source.RepoId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :id, 0
 
@@ -108,7 +108,7 @@ end
 defmodule Grafeas.V1beta1.Source.ProjectRepoId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :repo_name, 2, type: :string, json_name: "repoName"

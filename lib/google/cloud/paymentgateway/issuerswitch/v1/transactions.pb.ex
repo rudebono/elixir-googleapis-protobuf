@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionSubType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRANSACTION_SUB_TYPE_UNSPECIFIED, 0
   field :COLLECT, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule.PaymentRuleName do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PAYMENT_RULE_NAME_UNSPECIFIED, 0
   field :EXPIRE_AFTER, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.RecurrencePatternType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RECURRENCE_PATTERN_TYPE_UNSPECIFIED, 0
   field :AS_PRESENTED, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.RecurrenceRuleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RECURRENCE_RULE_TYPE_UNSPECIFIED, 0
   field :AFTER, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction.AmountRuleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AMOUNT_RULE_TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :error_code, 1, type: :string, json_name: "errorCode", deprecated: false
   field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo.ResponseMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.AdapterInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request_ids, 1, type: :string, json_name: "requestIds", deprecated: false
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo.TransactionRiskInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :provider, 1, type: :string
   field :type, 2, type: :string
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MetadataTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :info, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction.PaymentRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :payment_rule, 1,
     type:
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FinancialTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :info, 2, type: Google.Cloud.Paymentgateway.Issuerswitch.V1.TransactionInfo
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.MandateTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ComplaintTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :case, 0
 
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListMetadataTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -348,7 +348,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListFinancialTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListMandateTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -370,7 +370,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListComplaintTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListMetadataTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_transactions, 1,
     repeated: true,
@@ -394,7 +394,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListFinancialTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :financial_transactions, 1,
     repeated: true,
@@ -407,7 +407,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListMandateTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mandate_transactions, 1,
     repeated: true,
@@ -420,7 +420,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ListComplaintTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :complaint_transactions, 1,
     repeated: true,
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportFinancialTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -449,7 +449,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMetadataTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -465,7 +465,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMandateTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportComplaintTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -497,7 +497,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportFinancialTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri"
 end
@@ -505,7 +505,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMetadataTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri"
 end
@@ -513,7 +513,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMandateTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri"
 end
@@ -521,7 +521,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportComplaintTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri"
 end
@@ -529,7 +529,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportFinancialTransactionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -540,7 +540,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMandateTransactionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -551,7 +551,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportMetadataTransactionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ExportComplaintTransactionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -575,7 +575,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchTransactions.S
 
   use GRPC.Service,
     name: "google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchTransactions",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListMetadataTransactions,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.ListMetadataTransactionsRequest,

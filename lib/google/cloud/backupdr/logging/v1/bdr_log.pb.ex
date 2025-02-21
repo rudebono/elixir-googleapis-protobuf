@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupRestoreJobLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :job_id, 1, proto3_optional: true, type: :string, json_name: "jobId"
   field :job_category, 2, proto3_optional: true, type: :string, json_name: "jobCategory"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRProtectedResourceLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_resource_name, 1,
     proto3_optional: true,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BackupRuleDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rule_name, 1, proto3_optional: true, type: :string, json_name: "ruleName"
   field :retention_days, 2, proto3_optional: true, type: :int32, json_name: "retentionDays"
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupVaultDetailsLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :backup_vault_name, 1, proto3_optional: true, type: :string, json_name: "backupVaultName"
 

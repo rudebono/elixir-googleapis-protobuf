@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.EntryView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENTRY_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.TransferStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRANSFER_STATUS_UNSPECIFIED, 0
   field :TRANSFER_STATUS_MIGRATED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :IMPORT, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SYNC_MODE_UNSPECIFIED, 0
   field :FULL, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.LogLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LOG_LEVEL_UNSPECIFIED, 0
   field :DEBUG, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :QUEUED, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.Authorization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :alternate_use_permission, 1,
     type: :string,
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.MetadataTemplate.EnumValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :index, 1, type: :int32, deprecated: false
   field :name, 2, type: :string, deprecated: false
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.MetadataTemplate.Constraints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :required, 1, type: :bool, deprecated: false
 end
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.MetadataTemplate.Annotations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :deprecated, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.MetadataTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :index, 1, type: :int32, deprecated: false
   field :name, 2, type: :string, deprecated: false
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryGroup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryType.AspectInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryType.Authorization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :alternate_use_permission, 1,
     type: :string,
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryType.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntryType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -333,7 +333,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Aspect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aspect_type, 1, type: :string, json_name: "aspectType", deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.AspectSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 10, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 11, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -369,7 +369,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entry.AspectsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dataplex.V1.Aspect
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :entry_type, 4, type: :string, json_name: "entryType", deprecated: false
@@ -415,7 +415,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntrySource.Ancestor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false
@@ -424,7 +424,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntrySource.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EntrySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource, 1, type: :string
   field :system, 2, type: :string
@@ -459,7 +459,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entry_group_id, 2, type: :string, json_name: "entryGroupId", deprecated: false
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry_group, 1,
     type: Google.Cloud.Dataplex.V1.EntryGroup,
@@ -493,7 +493,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -502,7 +502,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntryGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -514,7 +514,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntryGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry_groups, 1,
     repeated: true,
@@ -532,7 +532,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEntryGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -540,7 +540,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateEntryTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entry_type_id, 2, type: :string, json_name: "entryTypeId", deprecated: false
@@ -556,7 +556,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateEntryTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry_type, 1,
     type: Google.Cloud.Dataplex.V1.EntryType,
@@ -574,7 +574,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteEntryTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -583,7 +583,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntryTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -595,7 +595,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntryTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry_types, 1,
     repeated: true,
@@ -613,7 +613,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEntryTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -621,7 +621,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateAspectTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :aspect_type_id, 2, type: :string, json_name: "aspectTypeId", deprecated: false
@@ -637,7 +637,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateAspectTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aspect_type, 1,
     type: Google.Cloud.Dataplex.V1.AspectType,
@@ -655,7 +655,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteAspectTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -664,7 +664,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListAspectTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -676,7 +676,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListAspectTypesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aspect_types, 1,
     repeated: true,
@@ -694,7 +694,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetAspectTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -702,7 +702,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entry_id, 2, type: :string, json_name: "entryId", deprecated: false
@@ -712,7 +712,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry, 1, type: Google.Cloud.Dataplex.V1.Entry, deprecated: false
 
@@ -734,7 +734,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -742,7 +742,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -753,7 +753,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Entry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -762,7 +762,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Dataplex.V1.EntryView, enum: true, deprecated: false
@@ -779,7 +779,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.LookupEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Dataplex.V1.EntryView, enum: true, deprecated: false
@@ -797,7 +797,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -810,7 +810,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataplex_entry, 1,
     type: Google.Cloud.Dataplex.V1.Entry,
@@ -821,7 +821,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :linked_resource, 8, type: :string, json_name: "linkedResource", deprecated: true
   field :dataplex_entry, 9, type: Google.Cloud.Dataplex.V1.Entry, json_name: "dataplexEntry"
@@ -834,7 +834,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Cloud.Dataplex.V1.SearchEntriesResult
   field :total_size, 2, type: :int32, json_name: "totalSize"
@@ -845,7 +845,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ImportItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry, 1, type: Google.Cloud.Dataplex.V1.Entry
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -855,7 +855,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateMetadataJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -871,7 +871,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetMetadataJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -879,7 +879,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListMetadataJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -891,7 +891,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListMetadataJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_jobs, 1,
     repeated: true,
@@ -909,7 +909,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CancelMetadataJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -917,7 +917,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :deleted_entries, 1, type: :int64, json_name: "deletedEntries", deprecated: false
   field :updated_entries, 2, type: :int64, json_name: "updatedEntries", deprecated: false
@@ -934,7 +934,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.ImportJobScope do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entry_groups, 1,
     repeated: true,
@@ -954,7 +954,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_storage_uri, 1, type: :string, json_name: "sourceStorageUri", deprecated: false
 
@@ -989,7 +989,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Dataplex.V1.MetadataJob.Status.State,
@@ -1008,7 +1008,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1017,7 +1017,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.MetadataJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :spec, 0
 
@@ -1063,7 +1063,7 @@ defmodule Google.Cloud.Dataplex.V1.CatalogService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.CatalogService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateEntryType,
       Google.Cloud.Dataplex.V1.CreateEntryTypeRequest,

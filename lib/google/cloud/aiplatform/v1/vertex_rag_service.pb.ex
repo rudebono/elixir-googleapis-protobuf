@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.RagQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :query, 0
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RetrieveContextsRequest.VertexRagStore.RagResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rag_corpus, 1, type: :string, json_name: "ragCorpus", deprecated: false
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RetrieveContextsRequest.VertexRagStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rag_resources, 3,
     repeated: true,
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RetrieveContextsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagContexts.Context do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_uri, 1, type: :string, json_name: "sourceUri"
   field :source_display_name, 5, type: :string, json_name: "sourceDisplayName"
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagContexts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :contexts, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.RagContexts.Context
 end
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RetrieveContextsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :contexts, 1, type: Google.Cloud.Aiplatform.V1.RagContexts
 end
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AugmentPromptRequest.Model do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_version, 2, type: :string, json_name: "modelVersion", deprecated: false
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AugmentPromptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AugmentPromptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :augmented_prompt, 1,
     repeated: true,
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CorroborateContentRequest.Parameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :citation_threshold, 1, type: :double, json_name: "citationThreshold", deprecated: false
 end
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CorroborateContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CorroborateContentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :corroboration_score, 1,
     proto3_optional: true,
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Fact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :query, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Claim do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_index, 1, proto3_optional: true, type: :int32, json_name: "startIndex"
   field :end_index, 2, proto3_optional: true, type: :int32, json_name: "endIndex"
@@ -203,7 +203,7 @@ defmodule Google.Cloud.Aiplatform.V1.VertexRagService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.VertexRagService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :RetrieveContexts,
       Google.Cloud.Aiplatform.V1.RetrieveContextsRequest,

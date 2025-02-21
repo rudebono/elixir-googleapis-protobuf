@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.Logging.ServiceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service, 1, type: :string
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.Logging.HttpRequestContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :response_status_code, 1, type: :int32, json_name: "responseStatusCode"
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Discoveryengine.Logging.SourceLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :function_name, 1, type: :string, json_name: "functionName"
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Discoveryengine.Logging.ErrorContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_request, 1,
     type: Google.Cloud.Discoveryengine.Logging.HttpRequestContext,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Discoveryengine.Logging.ImportErrorContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :line_content, 0
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Discoveryengine.Logging.ErrorLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_context, 1,
     type: Google.Cloud.Discoveryengine.Logging.ServiceContext,

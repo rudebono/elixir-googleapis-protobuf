@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent.UsageMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :total_token_count, 1, type: :int32, json_name: "totalTokenCount"
   field :text_count, 2, type: :int32, json_name: "textCount"
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CachedContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expiration, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Batch.V1alpha.Volume do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.NFS do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :server, 1, type: :string
   field :remote_path, 2, type: :string, json_name: "remotePath"
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.PD do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disk, 1, type: :string
   field :device, 2, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.GCS do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :remote_path, 1, type: :string, json_name: "remotePath"
 end

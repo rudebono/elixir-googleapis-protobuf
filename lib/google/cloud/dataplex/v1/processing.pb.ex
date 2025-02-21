@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Dataplex.V1.Trigger.OnDemand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataplex.V1.Trigger.Schedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cron, 1, type: :string, deprecated: false
 end
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Trigger do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :mode, 0
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ScannedData.IncrementalField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :field, 1, type: :string
   field :start, 2, type: :string
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ScannedData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data_range, 0
 
