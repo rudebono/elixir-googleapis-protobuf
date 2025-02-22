@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1.HarmCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_CATEGORY_UNSPECIFIED, 0
   field :HARM_CATEGORY_DEROGATORY, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.SafetyRating.HarmProbability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_PROBABILITY_UNSPECIFIED, 0
   field :NEGLIGIBLE, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.SafetySetting.HarmBlockThreshold do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_BLOCK_THRESHOLD_UNSPECIFIED, 0
   field :BLOCK_LOW_AND_ABOVE, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.SafetyRating do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :category, 3,
     type: Google.Ai.Generativelanguage.V1.HarmCategory,
@@ -63,7 +63,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1.SafetySetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :category, 3,
     type: Google.Ai.Generativelanguage.V1.HarmCategory,

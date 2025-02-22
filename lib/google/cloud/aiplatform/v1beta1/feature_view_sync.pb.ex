@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewSync.SyncSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :row_synced, 1, type: :int64, json_name: "rowSynced", deprecated: false
   field :total_slot, 2, type: :int64, json_name: "totalSlot", deprecated: false
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewSync do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

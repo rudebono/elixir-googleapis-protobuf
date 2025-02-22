@@ -1,7 +1,7 @@
 defmodule Google.Api.Quota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :limits, 3, repeated: true, type: Google.Api.QuotaLimit
   field :metric_rules, 4, repeated: true, type: Google.Api.MetricRule, json_name: "metricRules"
@@ -10,7 +10,7 @@ end
 defmodule Google.Api.MetricRule.MetricCostsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -19,7 +19,7 @@ end
 defmodule Google.Api.MetricRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :selector, 1, type: :string
 
@@ -33,7 +33,7 @@ end
 defmodule Google.Api.QuotaLimit.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -42,7 +42,7 @@ end
 defmodule Google.Api.QuotaLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 6, type: :string
   field :description, 2, type: :string

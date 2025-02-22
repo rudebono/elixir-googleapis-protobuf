@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.HarmCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_CATEGORY_UNSPECIFIED, 0
   field :HARM_CATEGORY_HATE_SPEECH, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Modality do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODALITY_UNSPECIFIED, 0
   field :TEXT, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode.ModelRoutingPreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :PRIORITIZE_QUALITY, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockThreshold do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_BLOCK_THRESHOLD_UNSPECIFIED, 0
   field :BLOCK_LOW_AND_ABOVE, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting.HarmBlockMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_BLOCK_METHOD_UNSPECIFIED, 0
   field :SEVERITY, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetyRating.HarmProbability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_PROBABILITY_UNSPECIFIED, 0
   field :NEGLIGIBLE, 1
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetyRating.HarmSeverity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HARM_SEVERITY_UNSPECIFIED, 0
   field :HARM_SEVERITY_NEGLIGIBLE, 1
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Candidate.FinishReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FINISH_REASON_UNSPECIFIED, 0
   field :STOP, 1
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Content do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :role, 1, type: :string, deprecated: false
   field :parts, 2, repeated: true, type: Google.Cloud.Aiplatform.V1.Part, deprecated: false
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Part do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data, 0
 
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Blob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
   field :data, 2, type: :bytes, deprecated: false
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FileData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
   field :file_uri, 2, type: :string, json_name: "fileUri", deprecated: false
@@ -183,7 +183,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.VideoMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_offset, 1,
     type: Google.Protobuf.Duration,
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model_routing_preference, 1,
     proto3_optional: true,
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.ManualRoutingMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model_name, 1, proto3_optional: true, type: :string, json_name: "modelName"
 end
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :routing_config, 0
 
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :temperature, 1, proto3_optional: true, type: :float, deprecated: false
   field :top_p, 2, proto3_optional: true, type: :float, json_name: "topP", deprecated: false
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetySetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :category, 1, type: Google.Cloud.Aiplatform.V1.HarmCategory, enum: true, deprecated: false
 
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SafetyRating do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :category, 1, type: Google.Cloud.Aiplatform.V1.HarmCategory, enum: true, deprecated: false
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CitationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :citations, 1,
     repeated: true,
@@ -350,7 +350,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Citation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_index, 1, type: :int32, json_name: "startIndex", deprecated: false
   field :end_index, 2, type: :int32, json_name: "endIndex", deprecated: false
@@ -367,7 +367,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Candidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :index, 1, type: :int32, deprecated: false
   field :content, 2, type: Google.Cloud.Aiplatform.V1.Content, deprecated: false
@@ -411,7 +411,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.LogprobsResult.Candidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :token, 1, proto3_optional: true, type: :string
   field :token_id, 3, proto3_optional: true, type: :int32, json_name: "tokenId"
@@ -421,7 +421,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.LogprobsResult.TopCandidates do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :candidates, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.LogprobsResult.Candidate
 end
@@ -429,7 +429,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.LogprobsResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :top_candidates, 1,
     repeated: true,
@@ -445,7 +445,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Segment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :part_index, 1, type: :int32, json_name: "partIndex", deprecated: false
   field :start_index, 2, type: :int32, json_name: "startIndex", deprecated: false
@@ -456,7 +456,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Web do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uri, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
@@ -465,7 +465,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uri, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :chunk_type, 0
 
@@ -490,7 +490,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GroundingSupport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :segment, 1, proto3_optional: true, type: Google.Cloud.Aiplatform.V1.Segment
 
@@ -505,7 +505,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :web_search_queries, 1,
     repeated: true,
@@ -540,7 +540,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SearchEntryPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :rendered_content, 1, type: :string, json_name: "renderedContent", deprecated: false
   field :sdk_blob, 2, type: :bytes, json_name: "sdkBlob", deprecated: false
@@ -549,7 +549,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RetrievalMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :google_search_dynamic_retrieval_score, 2,
     type: :float,
@@ -560,7 +560,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ModalityTokenCount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :modality, 1, type: Google.Cloud.Aiplatform.V1.Modality, enum: true
   field :token_count, 2, type: :int32, json_name: "tokenCount"

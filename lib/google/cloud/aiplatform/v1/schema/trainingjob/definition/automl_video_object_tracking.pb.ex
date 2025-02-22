@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs.ModelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :CLOUD, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTracking do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :inputs, 1,
     type: Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.Schema.Trainingjob.Definition.AutoMlVideoObjectTrackingInputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model_type, 1,
     type:

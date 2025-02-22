@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :INHERITED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveSecurityHealthAnalyticsCustomModule.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityHealthAnalyticsCustomModule.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CustomConfig.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding.FindingClass do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FINDING_CLASS_UNSPECIFIED, 0
   field :THREAT, 1
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveEventThreatDetectionCustomModule.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EventThreatDetectionCustomModule.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModuleSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :intended_enablement_state, 1,
     type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.EnablementState,
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService.ModulesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveSecurityHealthAnalyticsCustomModule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :effective_security_health_analytics_custom_modules, 1,
     repeated: true,
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.GetEffectiveSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SecurityHealthAnalyticsCustomModule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CustomConfig.CustomOutputSpec.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CustomConfig.CustomOutputSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :properties, 1,
     repeated: true,
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CustomConfig.ResourceSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_types, 1,
     repeated: true,
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CustomConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :predicate, 1, type: Google.Type.Expr, deprecated: false
 
@@ -313,7 +313,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityHealthAnalyticsCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityHealthAnalyticsCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :security_health_analytics_custom_modules, 1,
     repeated: true,
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListDescendantSecurityHealthAnalyticsCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListDescendantSecurityHealthAnalyticsCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :security_health_analytics_custom_modules, 1,
     repeated: true,
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.GetSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -367,7 +367,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CreateSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -382,7 +382,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.UpdateSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -400,7 +400,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.DeleteSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -409,7 +409,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest.SimulatedResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_type, 1, type: :string, json_name: "resourceType", deprecated: false
 
@@ -427,7 +427,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulateSecurityHealthAnalyticsCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -445,7 +445,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding.SourcePropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -454,7 +454,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulatedFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, type: :string
@@ -487,7 +487,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse.SimulatedResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :result, 0
 
@@ -499,7 +499,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.SimulateSecurityHealthAnalyticsCustomModuleResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :result, 1,
     type:
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EffectiveEventThreatDetectionCustomModule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Protobuf.Struct, deprecated: false
@@ -529,7 +529,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEffectiveEventThreatDetectionCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -539,7 +539,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEffectiveEventThreatDetectionCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :effective_event_threat_detection_custom_modules, 1,
     repeated: true,
@@ -552,7 +552,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.GetEffectiveEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -560,7 +560,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.EventThreatDetectionCustomModule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Protobuf.Struct, deprecated: false
@@ -588,7 +588,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEventThreatDetectionCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -598,7 +598,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListEventThreatDetectionCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :event_threat_detection_custom_modules, 1,
     repeated: true,
@@ -611,7 +611,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListDescendantEventThreatDetectionCustomModulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -621,7 +621,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListDescendantEventThreatDetectionCustomModulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :event_threat_detection_custom_modules, 1,
     repeated: true,
@@ -634,7 +634,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.GetEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -642,7 +642,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.CreateEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -657,7 +657,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.UpdateEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -675,7 +675,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.DeleteEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -684,7 +684,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :raw_text, 2, type: :string, json_name: "rawText", deprecated: false
@@ -694,7 +694,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleResponse.CustomModuleValidationError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :description, 1, type: :string
   field :field_path, 2, type: :string, json_name: "fieldPath"
@@ -713,7 +713,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleResponse.Position do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :line_number, 1, type: :int32, json_name: "lineNumber"
   field :column_number, 2, type: :int32, json_name: "columnNumber"
@@ -722,7 +722,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ValidateEventThreatDetectionCustomModuleResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :errors, 2,
     repeated: true,
@@ -733,7 +733,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.GetSecurityCenterServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :show_eligible_modules_only, 2, type: :bool, json_name: "showEligibleModulesOnly"
@@ -742,7 +742,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -753,7 +753,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.ListSecurityCenterServicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :security_center_services, 1,
     repeated: true,
@@ -766,7 +766,7 @@ end
 defmodule Google.Cloud.Securitycentermanagement.V1.UpdateSecurityCenterServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :security_center_service, 1,
     type: Google.Cloud.Securitycentermanagement.V1.SecurityCenterService,
@@ -786,7 +786,7 @@ defmodule Google.Cloud.Securitycentermanagement.V1.SecurityCenterManagement.Serv
 
   use GRPC.Service,
     name: "google.cloud.securitycentermanagement.v1.SecurityCenterManagement",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListEffectiveSecurityHealthAnalyticsCustomModules,
       Google.Cloud.Securitycentermanagement.V1.ListEffectiveSecurityHealthAnalyticsCustomModulesRequest,

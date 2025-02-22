@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileUpload.ProcessingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROCESSING_STATE_UNSPECIFIED, 0
   field :FAILED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileUpload.Issue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :WARNING, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileUpload.Issue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.FileUpload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data_source_id, 2, type: :int64, json_name: "dataSourceId", deprecated: false
@@ -69,7 +69,7 @@ end
 defmodule Google.Shopping.Merchant.Datasources.V1beta.GetFileUploadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -79,7 +79,7 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.FileUploadsService.Service
 
   use GRPC.Service,
     name: "google.shopping.merchant.datasources.v1beta.FileUploadsService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetFileUpload,
       Google.Shopping.Merchant.Datasources.V1beta.GetFileUploadRequest,

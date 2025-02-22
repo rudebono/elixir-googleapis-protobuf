@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint.Effect do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EFFECT_UNSPECIFIED, 0
   field :NO_SCHEDULE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig.Component do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :COMPONENT_UNSPECIFIED, 0
   field :SYSTEM_COMPONENTS, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EVALUATION_MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig.VulnerabilityMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VULNERABILITY_MODE_UNSPECIFIED, 0
   field :VULNERABILITY_DISABLED, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.Jwk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :kty, 1, type: :string
   field :alg, 2, type: :string
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.WorkloadIdentityConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :issuer_uri, 1, type: :string, json_name: "issuerUri"
   field :workload_pool, 2, type: :string, json_name: "workloadPool"
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.MaxPodsConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_pods_per_node, 1, type: :int64, json_name: "maxPodsPerNode", deprecated: false
 end
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.NodeTaint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.NodeKubeletConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :insecure_kubelet_readonly_port_enabled, 1,
     type: :bool,
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.Fleet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :membership, 2, type: :string, deprecated: false
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :component_config, 1,
     type: Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig,
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.LoggingComponentConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_components, 1,
     repeated: true,
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.MonitoringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :managed_prometheus_config, 2,
     type: Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig,
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.ManagedPrometheusConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.CloudMonitoringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, proto3_optional: true, type: :bool
 end
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.BinaryAuthorization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :evaluation_mode, 1,
     type: Google.Cloud.Gkemulticloud.V1.BinaryAuthorization.EvaluationMode,
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :vulnerability_mode, 1,
     type: Google.Cloud.Gkemulticloud.V1.SecurityPostureConfig.VulnerabilityMode,

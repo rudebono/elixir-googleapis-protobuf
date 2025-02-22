@@ -1,7 +1,7 @@
 defmodule Google.Dataflow.V1beta3.JobMessageImportance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :JOB_MESSAGE_IMPORTANCE_UNKNOWN, 0
   field :JOB_MESSAGE_DEBUG, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Dataflow.V1beta3.AutoscalingEvent.AutoscalingEventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNKNOWN, 0
   field :TARGET_NUM_WORKERS_CHANGED, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :time, 2, type: Google.Protobuf.Timestamp
@@ -41,7 +41,7 @@ end
 defmodule Google.Dataflow.V1beta3.StructuredMessage.Parameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -50,7 +50,7 @@ end
 defmodule Google.Dataflow.V1beta3.StructuredMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :message_text, 1, type: :string, json_name: "messageText"
   field :message_key, 2, type: :string, json_name: "messageKey"
@@ -60,7 +60,7 @@ end
 defmodule Google.Dataflow.V1beta3.AutoscalingEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :current_num_workers, 1, type: :int64, json_name: "currentNumWorkers"
   field :target_num_workers, 2, type: :int64, json_name: "targetNumWorkers"
@@ -78,7 +78,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListJobMessagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -98,7 +98,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListJobMessagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :job_messages, 1,
     repeated: true,
@@ -118,7 +118,7 @@ defmodule Google.Dataflow.V1beta3.MessagesV1Beta3.Service do
 
   use GRPC.Service,
     name: "google.dataflow.v1beta3.MessagesV1Beta3",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListJobMessages,
       Google.Dataflow.V1beta3.ListJobMessagesRequest,

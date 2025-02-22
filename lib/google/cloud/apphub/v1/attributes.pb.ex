@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apphub.V1.Criticality.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :MISSION_CRITICAL, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Apphub.V1.Environment.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRODUCTION, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Apphub.V1.Attributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :criticality, 1, type: Google.Cloud.Apphub.V1.Criticality, deprecated: false
   field :environment, 2, type: Google.Cloud.Apphub.V1.Environment, deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Apphub.V1.Criticality do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 3, type: Google.Cloud.Apphub.V1.Criticality.Type, enum: true, deprecated: false
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Apphub.V1.Environment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 2, type: Google.Cloud.Apphub.V1.Environment.Type, enum: true, deprecated: false
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ContactInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :email, 2, type: :string, deprecated: false

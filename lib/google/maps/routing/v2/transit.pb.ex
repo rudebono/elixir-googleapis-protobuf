@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routing.V2.TransitVehicle.TransitVehicleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRANSIT_VEHICLE_TYPE_UNSPECIFIED, 0
   field :BUS, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Maps.Routing.V2.TransitAgency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :phone_number, 2, type: :string, json_name: "phoneNumber"
@@ -37,7 +37,7 @@ end
 defmodule Google.Maps.Routing.V2.TransitLine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :agencies, 1, repeated: true, type: Google.Maps.Routing.V2.TransitAgency
   field :name, 2, type: :string
@@ -52,7 +52,7 @@ end
 defmodule Google.Maps.Routing.V2.TransitStop do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :location, 2, type: Google.Maps.Routing.V2.Location
@@ -61,7 +61,7 @@ end
 defmodule Google.Maps.Routing.V2.TransitVehicle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: Google.Type.LocalizedText
   field :type, 2, type: Google.Maps.Routing.V2.TransitVehicle.TransitVehicleType, enum: true
