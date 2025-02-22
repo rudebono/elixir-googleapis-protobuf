@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Translation.V3.ImportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Translation.V3.DatasetInputConfig.InputFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Translation.V3.DatasetInputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_files, 1,
     repeated: true,
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Translation.V3.ImportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Translation.V3.ExportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Translation.V3.DatasetOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Translation.V3.ExportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteDatasetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListDatasetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListDatasetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Translation.V3.Dataset
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: Google.Cloud.Translation.V3.Dataset, deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateDatasetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :examples, 1, repeated: true, type: Google.Cloud.Translation.V3.Example
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Translation.V3.Example do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_text, 2, type: :string, json_name: "sourceText"
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTransferResourcesResponse.TransferResourceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source, 1, type: :string
   field :target, 2, type: :string
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTransferResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Translation.V3.Dataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :model, 2, type: Google.Cloud.Translation.V3.Model, deprecated: false
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateModelMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListModelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string, deprecated: false
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListModelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Translation.V3.Model
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteModelMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.OperationState, enum: true
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Translation.V3.Model do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"

@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Testing.V1.StatusUpdate.DeviceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DEVICE_STATE_UNSPECIFIED, 0
   field :DEVICE, 1
@@ -18,7 +18,7 @@ end
 defmodule Google.Devtools.Testing.V1.DeviceMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :contents, 0
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Devtools.Testing.V1.AdbMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :contents, 0
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Devtools.Testing.V1.StatusUpdate.PropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -65,7 +65,7 @@ end
 defmodule Google.Devtools.Testing.V1.StatusUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Devtools.Testing.V1.StatusUpdate.DeviceState, enum: true
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Devtools.Testing.V1.StreamStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :status, 0
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Devtools.Testing.V1.Open do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stream_id, 1, type: :int32, json_name: "streamId"
   field :service, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Devtools.Testing.V1.StreamData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :contents, 0
 
@@ -113,13 +113,13 @@ end
 defmodule Google.Devtools.Testing.V1.Okay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Devtools.Testing.V1.Fail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reason, 1, type: :string
 end
@@ -127,5 +127,5 @@ end
 defmodule Google.Devtools.Testing.V1.Close do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end

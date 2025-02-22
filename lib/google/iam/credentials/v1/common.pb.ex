@@ -1,7 +1,7 @@
 defmodule Google.Iam.Credentials.V1.GenerateAccessTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 2, repeated: true, type: :string
@@ -12,7 +12,7 @@ end
 defmodule Google.Iam.Credentials.V1.GenerateAccessTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken"
   field :expire_time, 3, type: Google.Protobuf.Timestamp, json_name: "expireTime"
@@ -21,7 +21,7 @@ end
 defmodule Google.Iam.Credentials.V1.SignBlobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 3, repeated: true, type: :string
@@ -31,7 +31,7 @@ end
 defmodule Google.Iam.Credentials.V1.SignBlobResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :signed_blob, 4, type: :bytes, json_name: "signedBlob"
@@ -40,7 +40,7 @@ end
 defmodule Google.Iam.Credentials.V1.SignJwtRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 3, repeated: true, type: :string
@@ -50,7 +50,7 @@ end
 defmodule Google.Iam.Credentials.V1.SignJwtResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key_id, 1, type: :string, json_name: "keyId"
   field :signed_jwt, 2, type: :string, json_name: "signedJwt"
@@ -59,7 +59,7 @@ end
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :delegates, 2, repeated: true, type: :string
@@ -70,7 +70,7 @@ end
 defmodule Google.Iam.Credentials.V1.GenerateIdTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :token, 1, type: :string
 end

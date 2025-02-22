@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.AccountLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :linked_account, 0
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ThirdPartyAppAnalyticsLinkIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :app_analytics_provider_id, 4,
     proto3_optional: true,

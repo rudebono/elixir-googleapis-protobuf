@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STAGE_UNSPECIFIED, 0
   field :SENT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Event do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EVENT_UNSPECIFIED, 0
   field :HEALTH_STATUS_CHANGE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :stage, 1,
     type: Google.Cloud.Saasaccelerator.Management.Logs.V1.NotificationStage.Stage,

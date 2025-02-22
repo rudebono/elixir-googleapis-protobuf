@@ -3,7 +3,7 @@ defmodule Google.Cloud.Sql.V1.SqlRegionsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlRegionsService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlRegionsService.Stub do

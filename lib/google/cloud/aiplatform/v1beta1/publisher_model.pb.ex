@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.OpenSourceCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OPEN_SOURCE_CATEGORY_UNSPECIFIED, 0
   field :PROPRIETARY, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.LaunchStage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LAUNCH_STAGE_UNSPECIFIED, 0
   field :EXPERIMENTAL, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.VersionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :VERSION_STATE_UNSPECIFIED, 0
   field :VERSION_STATE_STABLE, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.ResourceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :reference, 0
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.Parent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.Documentation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :title, 1, type: :string, deprecated: false
   field :content, 2, type: :string, deprecated: false
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences.ReferencesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.ResourceReference
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.RegionalResourceReferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :references, 1,
     repeated: true,
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.ViewRestApi do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documentations, 1,
     repeated: true,
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.OpenNotebooks do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :notebooks, 1,
     repeated: true,
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.OpenFineTuningPipelines do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fine_tuning_pipelines, 1,
     repeated: true,
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.DeployVertex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :multi_deploy_vertex, 1,
     repeated: true,
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy.DeployMetadata.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy.DeployMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.Deploy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :prediction_resources, 0
 
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.DeployGke do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gke_yaml_configs, 1,
     repeated: true,
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :view_rest_api, 1,
     type: Google.Cloud.Aiplatform.V1beta1.PublisherModel.CallToAction.ViewRestApi,
@@ -321,7 +321,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version_id, 2, type: :string, json_name: "versionId", deprecated: false

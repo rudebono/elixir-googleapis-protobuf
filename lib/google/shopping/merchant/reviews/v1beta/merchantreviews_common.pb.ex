@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewAttributes.CollectionMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :COLLECTION_METHOD_UNSPECIFIED, 0
   field :MERCHANT_UNSOLICITED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewStatus.MerchantReviewItemLevelIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOT_IMPACTED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :merchant_id, 1,
     proto3_optional: true,
@@ -111,7 +111,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewStatus.MerchantReviewDestinationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reporting_context, 1,
     type: Google.Shopping.Type.ReportingContext.ReportingContextEnum,
@@ -123,7 +123,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewStatus.MerchantReviewItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: :string, deprecated: false
 
@@ -150,7 +150,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :destination_statuses, 3,
     repeated: true,

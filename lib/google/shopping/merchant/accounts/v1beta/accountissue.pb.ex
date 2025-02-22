@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountIssue.ImpactedDestination.Impact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :region_code, 1, type: :string, json_name: "regionCode"
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountIssue.ImpactedDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reporting_context, 1,
     proto3_optional: true,
@@ -40,7 +40,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :title, 2, type: :string
@@ -61,7 +61,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountIssuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountIssuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :account_issues, 1,
     repeated: true,
@@ -88,7 +88,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountIssueService.Service d
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.AccountIssueService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListAccountIssues,
       Google.Shopping.Merchant.Accounts.V1beta.ListAccountIssuesRequest,

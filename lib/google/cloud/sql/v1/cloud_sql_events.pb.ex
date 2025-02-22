@@ -3,7 +3,7 @@ defmodule Google.Cloud.Sql.V1.SqlEventsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlEventsService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlEventsService.Stub do

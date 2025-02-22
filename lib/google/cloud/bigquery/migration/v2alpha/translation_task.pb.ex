@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.FileEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FILE_ENCODING_UNSPECIFIED, 0
   field :UTF_8, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.TokenType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TOKEN_TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierCase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :IDENTIFIER_CASE_UNSPECIFIED, 0
   field :ORIGINAL, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierRewriteMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :IDENTIFIER_REWRITE_MODE_UNSPECIFIED, 0
   field :NONE, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationFileMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_path, 1, type: :string, json_name: "inputPath"
   field :output_path, 2, type: :string, json_name: "outputPath"
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails.SpecialTokenMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TranslationTaskDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :language_options, 0
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_file_exclusion_prefixes, 1,
     repeated: true,
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :output_identifier_case, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.IdentifierSettings.IdentifierCase,
@@ -145,13 +145,13 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TeradataOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions.FileReplacementMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.BteqOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_dataset, 1,
     type: Google.Cloud.Bigquery.Migration.V2alpha.DatasetReference,
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.DatasetReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :project_id, 2, type: :string, json_name: "projectId"

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipant.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.FetchParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipant.Metadata.ValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipant.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :values, 1,
     repeated: true,
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :account_reference, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.V1.AccountReference,
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.UpdateIssuerParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.ParticipantStateChangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :id, 0
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerParticipants do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :participants, 1,
     repeated: true,
@@ -137,7 +137,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.V1.IssuerSwitchParticipants.S
 
   use GRPC.Service,
     name: "google.cloud.paymentgateway.issuerswitch.v1.IssuerSwitchParticipants",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :FetchParticipant,
       Google.Cloud.Paymentgateway.Issuerswitch.V1.FetchParticipantRequest,

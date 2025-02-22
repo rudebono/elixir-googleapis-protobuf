@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.BackupDisasterRecovery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :backup_template, 1, type: :string, json_name: "backupTemplate"
   field :policies, 2, repeated: true, type: :string

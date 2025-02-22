@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RESOLVED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.RemediationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :REMEDIATION_TYPE_UNSPECIFIED, 0
   field :REMEDIATION_BOOLEAN_ORG_POLICY_VIOLATION, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.Instructions.Gcloud do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcloud_commands, 1, repeated: true, type: :string, json_name: "gcloudCommands"
   field :steps, 2, repeated: true, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.Instructions.Console do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :console_uris, 1, repeated: true, type: :string, json_name: "consoleUris"
   field :steps, 2, repeated: true, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.Instructions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcloud_instructions, 1,
     type: Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.Instructions.Gcloud,
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instructions, 1,
     type: Google.Cloud.Cloudcontrolspartner.V1beta.Violation.Remediation.Instructions,
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Violation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListViolationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListViolationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :violations, 1, repeated: true, type: Google.Cloud.Cloudcontrolspartner.V1beta.Violation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.GetViolationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

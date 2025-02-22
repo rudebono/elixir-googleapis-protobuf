@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apigeeregistry.V1.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.Instance.Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :cmek_key_name, 2, type: :string, json_name: "cmekKeyName", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Apigeeregistry.V1.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -92,7 +92,7 @@ defmodule Google.Cloud.Apigeeregistry.V1.Provisioning.Service do
 
   use GRPC.Service,
     name: "google.cloud.apigeeregistry.v1.Provisioning",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateInstance,
       Google.Cloud.Apigeeregistry.V1.CreateInstanceRequest,

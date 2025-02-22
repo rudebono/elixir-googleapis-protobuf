@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.CloudArmor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :security_policy, 1,
     type: Google.Cloud.Securitycenter.V1.SecurityPolicy,
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.SecurityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: :string
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Requests do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ratio, 1, type: :double
   field :short_term_allowed, 2, type: :int32, json_name: "shortTermAllowed"
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AdaptiveProtection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :confidence, 1, type: :double
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Attack do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :volume_pps, 1, type: :int32, json_name: "volumePps"
   field :volume_bps, 2, type: :int32, json_name: "volumeBps"

@@ -1,7 +1,7 @@
 defmodule Google.Maps.Places.V1.PriceLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PRICE_LEVEL_UNSPECIFIED, 0
   field :PRICE_LEVEL_FREE, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Maps.Places.V1.Place.BusinessStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :BUSINESS_STATUS_UNSPECIFIED, 0
   field :OPERATIONAL, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Maps.Places.V1.Place.OpeningHours.SecondaryHoursType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SECONDARY_HOURS_TYPE_UNSPECIFIED, 0
   field :DRIVE_THROUGH, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Maps.Places.V1.Place.AddressComponent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :long_text, 1, type: :string, json_name: "longText"
   field :short_text, 2, type: :string, json_name: "shortText"
@@ -57,7 +57,7 @@ end
 defmodule Google.Maps.Places.V1.Place.PlusCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :global_code, 1, type: :string, json_name: "globalCode"
   field :compound_code, 2, type: :string, json_name: "compoundCode"
@@ -66,7 +66,7 @@ end
 defmodule Google.Maps.Places.V1.Place.OpeningHours.Period.Point do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :day, 1, proto3_optional: true, type: :int32
   field :hour, 2, proto3_optional: true, type: :int32
@@ -78,7 +78,7 @@ end
 defmodule Google.Maps.Places.V1.Place.OpeningHours.Period do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :open, 1, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point
   field :close, 2, type: Google.Maps.Places.V1.Place.OpeningHours.Period.Point
@@ -87,7 +87,7 @@ end
 defmodule Google.Maps.Places.V1.Place.OpeningHours.SpecialDay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Maps.Places.V1.Place.OpeningHours do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :open_now, 1, proto3_optional: true, type: :bool, json_name: "openNow"
   field :periods, 2, repeated: true, type: Google.Maps.Places.V1.Place.OpeningHours.Period
@@ -118,7 +118,7 @@ end
 defmodule Google.Maps.Places.V1.Place.Attribution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :provider, 1, type: :string
   field :provider_uri, 2, type: :string, json_name: "providerUri"
@@ -127,7 +127,7 @@ end
 defmodule Google.Maps.Places.V1.Place.PaymentOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :accepts_credit_cards, 1,
     proto3_optional: true,
@@ -146,7 +146,7 @@ end
 defmodule Google.Maps.Places.V1.Place.ParkingOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :free_parking_lot, 1, proto3_optional: true, type: :bool, json_name: "freeParkingLot"
   field :paid_parking_lot, 2, proto3_optional: true, type: :bool, json_name: "paidParkingLot"
@@ -177,7 +177,7 @@ end
 defmodule Google.Maps.Places.V1.Place.SubDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
@@ -186,7 +186,7 @@ end
 defmodule Google.Maps.Places.V1.Place.AccessibilityOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :wheelchair_accessible_parking, 1,
     proto3_optional: true,
@@ -212,7 +212,7 @@ end
 defmodule Google.Maps.Places.V1.Place.GenerativeSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :overview, 1, type: Google.Type.LocalizedText
   field :description, 2, type: Google.Type.LocalizedText
@@ -222,7 +222,7 @@ end
 defmodule Google.Maps.Places.V1.Place.AreaSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :content_blocks, 4,
     repeated: true,
@@ -233,7 +233,7 @@ end
 defmodule Google.Maps.Places.V1.Place.ContainingPlace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
@@ -242,7 +242,7 @@ end
 defmodule Google.Maps.Places.V1.Place do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Batch.V1alpha.TaskStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.LifecyclePolicy.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :RETRY_TASK, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ComputeResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cpu_milli, 1, type: :int64, json_name: "cpuMilli"
   field :memory_mib, 2, type: :int64, json_name: "memoryMib"
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.StatusEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 3, type: :string
   field :description, 1, type: :string
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.TaskExecution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :exit_code, 1, type: :int32, json_name: "exitCode"
   field :stderr_snippet, 2, type: :string, json_name: "stderrSnippet", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.TaskStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Batch.V1alpha.TaskStatus.State, enum: true
 
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.TaskResourceUsage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :core_hours, 1, type: :double, json_name: "coreHours"
 end
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Runnable.Container do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
   field :commands, 2, repeated: true, type: :string
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Runnable.Script do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :command, 0
 
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Runnable.Barrier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Runnable.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Runnable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :executable, 0
 
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.TaskSpec.EnvironmentsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.TaskSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :runnables, 8, repeated: true, type: Google.Cloud.Batch.V1alpha.Runnable
 
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.LifecyclePolicy.ActionCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :exit_codes, 1, repeated: true, type: :int32, json_name: "exitCodes"
 end
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.LifecyclePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action, 1, type: Google.Cloud.Batch.V1alpha.LifecyclePolicy.Action, enum: true
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Task do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :status, 2, type: Google.Cloud.Batch.V1alpha.TaskStatus
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Environment.KMSEnvMap do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key_name, 1, type: :string, json_name: "keyName"
   field :cipher_text, 2, type: :string, json_name: "cipherText"
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Environment.VariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Environment.SecretVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.Environment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :variables, 1,
     repeated: true,

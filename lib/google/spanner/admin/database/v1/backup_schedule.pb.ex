@@ -1,7 +1,7 @@
 defmodule Google.Spanner.Admin.Database.V1.BackupScheduleSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :schedule_spec, 0
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.BackupSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :backup_type_spec, 0
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CrontabSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :time_zone, 2, type: :string, json_name: "timeZone", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupScheduleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_schedule_id, 2, type: :string, json_name: "backupScheduleId", deprecated: false
@@ -78,7 +78,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.GetBackupScheduleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -86,7 +86,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.DeleteBackupScheduleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupSchedulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -104,7 +104,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupSchedulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :backup_schedules, 1,
     repeated: true,
@@ -117,7 +117,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateBackupScheduleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :backup_schedule, 1,
     type: Google.Spanner.Admin.Database.V1.BackupSchedule,
