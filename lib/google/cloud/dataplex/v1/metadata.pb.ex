@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.StorageSystem do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STORAGE_SYSTEM_UNSPECIFIED, 0
   field :CLOUD_STORAGE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntitiesRequest.EntityView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENTITY_VIEW_UNSPECIFIED, 0
   field :TABLES, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEntityRequest.EntityView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ENTITY_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entity.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :BOOLEAN, 1
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :REQUIRED, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema.PartitionStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PARTITION_STYLE_UNSPECIFIED, 0
   field :HIVE_COMPATIBLE, 1
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat.Format do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FORMAT_UNSPECIFIED, 0
   field :PARQUET, 1
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat.CompressionFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :COMPRESSION_FORMAT_UNSPECIFIED, 0
   field :GZIP, 2
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageAccess.AccessMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACCESS_MODE_UNSPECIFIED, 0
   field :DIRECT, 1
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateEntityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entity, 3, type: Google.Cloud.Dataplex.V1.Entity, deprecated: false
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateEntityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entity, 2, type: Google.Cloud.Dataplex.V1.Entity, deprecated: false
   field :validate_only, 3, type: :bool, json_name: "validateOnly", deprecated: false
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteEntityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntitiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEntitiesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entities, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Entity
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEntityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListPartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreatePartitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :partition, 3, type: Google.Cloud.Dataplex.V1.Partition, deprecated: false
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeletePartitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: true
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListPartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :partitions, 1, repeated: true, type: Google.Cloud.Dataplex.V1.Partition
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetPartitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entity.CompatibilityStatus.Compatibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :compatible, 1, type: :bool, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entity.CompatibilityStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hive_metastore, 1,
     type: Google.Cloud.Dataplex.V1.Entity.CompatibilityStatus.Compatibility,
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Entity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Partition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :values, 2, repeated: true, type: :string, deprecated: false
@@ -312,7 +312,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema.SchemaField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema.PartitionField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Dataplex.V1.Schema.Type, enum: true, deprecated: false
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :user_managed, 1, type: :bool, json_name: "userManaged", deprecated: false
 
@@ -362,7 +362,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat.CsvOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
   field :header_rows, 2, type: :int32, json_name: "headerRows", deprecated: false
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat.JsonOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
 end
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat.IcebergOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metadata_location, 1, type: :string, json_name: "metadataLocation", deprecated: false
 end
@@ -389,7 +389,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :options, 0
 
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.StorageAccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :read, 21,
     type: Google.Cloud.Dataplex.V1.StorageAccess.AccessMode,
@@ -438,7 +438,7 @@ defmodule Google.Cloud.Dataplex.V1.MetadataService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.MetadataService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateEntity, Google.Cloud.Dataplex.V1.CreateEntityRequest, Google.Cloud.Dataplex.V1.Entity
 

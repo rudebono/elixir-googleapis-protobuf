@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchEntitlementsRequest.CallerAccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CALLER_ACCESS_TYPE_UNSPECIFIED, 0
   field :GRANT_REQUESTER, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :APPROVAL_AWAITED, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchGrantsRequest.CallerRelationshipType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CALLER_RELATIONSHIP_TYPE_UNSPECIFIED, 0
   field :HAD_CREATED, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CheckOnboardingStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CheckOnboardingStatusResponse.Finding.IAMAccessDenied do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :missing_permissions, 1, repeated: true, type: :string, json_name: "missingPermissions"
 end
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CheckOnboardingStatusResponse.Finding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :finding_type, 0
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CheckOnboardingStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount"
 
@@ -95,19 +95,19 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement.RequesterJustificationConfig.NotMandatory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement.RequesterJustificationConfig.Unstructured do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement.RequesterJustificationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :justification_type, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement.AdditionalNotificationTargets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :admin_email_recipients, 1,
     repeated: true,
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Entitlement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.AccessControlEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principals, 1, repeated: true, type: :string, deprecated: false
 end
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ApprovalWorkflow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :approval_workflow, 0
 
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ManualApprovals.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :approvers, 1,
     repeated: true,
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ManualApprovals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :require_approver_justification, 1,
     type: :bool,
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.PrivilegedAccess.GcpIamAccess.RoleBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :role, 1, type: :string, deprecated: false
 
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.PrivilegedAccess.GcpIamAccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_type, 1, type: :string, json_name: "resourceType", deprecated: false
   field :resource, 2, type: :string, deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.PrivilegedAccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :access_type, 0
 
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ListEntitlementsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ListEntitlementsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entitlements, 1,
     repeated: true,
@@ -321,7 +321,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchEntitlementsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchEntitlementsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entitlements, 1,
     repeated: true,
@@ -351,7 +351,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.GetEntitlementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -359,7 +359,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CreateEntitlementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :entitlement_id, 2, type: :string, json_name: "entitlementId", deprecated: false
@@ -374,7 +374,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.DeleteEntitlementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -384,7 +384,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.UpdateEntitlementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :entitlement, 1,
     type: Google.Cloud.Privilegedaccessmanager.V1.Entitlement,
@@ -399,7 +399,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Requested do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :expire_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -410,7 +410,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Approved do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reason, 1, type: :string, deprecated: false
   field :actor, 2, type: :string, deprecated: false
@@ -419,7 +419,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Denied do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reason, 1, type: :string, deprecated: false
   field :actor, 2, type: :string, deprecated: false
@@ -428,7 +428,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Revoked do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reason, 1, type: :string, deprecated: false
   field :actor, 2, type: :string, deprecated: false
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Scheduled do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :scheduled_activation_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -448,13 +448,13 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Activated do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.ActivationFailed do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :error, 1, type: Google.Rpc.Status, deprecated: false
 end
@@ -462,25 +462,25 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Expired do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Ended do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.ExternallyModified do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :event, 0
 
@@ -532,7 +532,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :events, 1,
     repeated: true,
@@ -543,7 +543,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.AuditTrail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_grant_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -559,7 +559,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -615,7 +615,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Justification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :justification, 0
 
@@ -628,7 +628,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ListGrantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -640,7 +640,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ListGrantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grants, 1, repeated: true, type: Google.Cloud.Privilegedaccessmanager.V1.Grant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -650,7 +650,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchGrantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -668,7 +668,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchGrantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :grants, 1, repeated: true, type: Google.Cloud.Privilegedaccessmanager.V1.Grant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -677,7 +677,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.GetGrantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -685,7 +685,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.ApproveGrantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -694,7 +694,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.DenyGrantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -703,7 +703,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.RevokeGrantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -712,7 +712,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.CreateGrantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :grant, 2, type: Google.Cloud.Privilegedaccessmanager.V1.Grant, deprecated: false
@@ -722,7 +722,7 @@ end
 defmodule Google.Cloud.Privilegedaccessmanager.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -747,7 +747,7 @@ defmodule Google.Cloud.Privilegedaccessmanager.V1.PrivilegedAccessManager.Servic
 
   use GRPC.Service,
     name: "google.cloud.privilegedaccessmanager.v1.PrivilegedAccessManager",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CheckOnboardingStatus,
       Google.Cloud.Privilegedaccessmanager.V1.CheckOnboardingStatusRequest,

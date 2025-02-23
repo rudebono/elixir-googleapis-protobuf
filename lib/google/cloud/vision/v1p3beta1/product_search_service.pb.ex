@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROCESSING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Product.KeyValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Product do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ProductSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ReferenceImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :uri, 2, type: :string, deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CreateProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :product, 2, type: Google.Cloud.Vision.V1p3beta1.Product, deprecated: false
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.GetProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Vision.V1p3beta1.Product, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CreateProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :product_sets, 1,
     repeated: true,
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.GetProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.UpdateProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :product_set, 1,
     type: Google.Cloud.Vision.V1p3beta1.ProductSet,
@@ -177,7 +177,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CreateReferenceImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListReferenceImagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reference_images, 1,
     repeated: true,
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.GetReferenceImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.DeleteReferenceImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AddProductToProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :product, 2, type: :string, deprecated: false
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.RemoveProductFromProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :product, 2, type: :string, deprecated: false
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ListProductsInProductSetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsGcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :csv_file_uri, 1, type: :string, json_name: "csvFileUri"
 end
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsInputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImportProductSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reference_images, 1,
     repeated: true,
@@ -324,7 +324,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Vision.V1p3beta1.BatchOperationMetadata.State, enum: true
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
@@ -336,7 +336,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ProductSearch.Service do
 
   use GRPC.Service,
     name: "google.cloud.vision.v1p3beta1.ProductSearch",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateProductSet,
       Google.Cloud.Vision.V1p3beta1.CreateProductSetRequest,

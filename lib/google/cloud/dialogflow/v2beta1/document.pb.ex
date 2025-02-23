@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Document.KnowledgeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :KNOWLEDGE_TYPE_UNSPECIFIED, 0
   field :FAQ, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Document.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Document.ReloadStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :status, 2, type: Google.Rpc.Status
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Document.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Document
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Dialogflow.V2beta1.Document, deprecated: false
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ImportDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ImportDocumentTemplate.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ImportDocumentTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
 
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ImportDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :warnings, 1, repeated: true, type: Google.Rpc.Status
 end
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.DeleteDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Dialogflow.V2beta1.Document, deprecated: false
 
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ExportOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :exported_gcs_destination, 1,
     type: Google.Cloud.Dialogflow.V2beta1.GcsDestination,
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :operation_metadata, 0
 
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -264,7 +264,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Documents.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.Documents",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListDocuments,
       Google.Cloud.Dialogflow.V2beta1.ListDocumentsRequest,

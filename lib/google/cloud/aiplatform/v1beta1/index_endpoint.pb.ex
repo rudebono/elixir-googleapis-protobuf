@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :index, 2, type: :string, deprecated: false
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audiences, 1, repeated: true, type: :string
   field :allowed_issuers, 2, repeated: true, type: :string, json_name: "allowedIssuers"
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auth_provider, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig.AuthProvider,
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexPrivateEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :match_grpc_address, 1, type: :string, json_name: "matchGrpcAddress", deprecated: false
   field :service_attachment, 2, type: :string, json_name: "serviceAttachment", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.Segments do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :activity_account_id, 148,
     proto3_optional: true,
@@ -442,7 +442,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.Keyword do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ad_group_criterion, 3,
     proto3_optional: true,
@@ -455,7 +455,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.BudgetCampaignAssociationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :campaign, 1, proto3_optional: true, type: :string
 
@@ -468,7 +468,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AssetInteractionTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :asset, 1, type: :string
   field :interaction_on_this_asset, 2, type: :bool, json_name: "interactionOnThisAsset"
@@ -477,7 +477,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.SkAdNetworkSourceApp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sk_ad_network_source_app_id, 1,
     proto3_optional: true,

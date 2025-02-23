@@ -1,7 +1,7 @@
 defmodule Google.Iam.V3.CreatePrincipalAccessBoundaryPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Iam.V3.GetPrincipalAccessBoundaryPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Iam.V3.UpdatePrincipalAccessBoundaryPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principal_access_boundary_policy, 1,
     type: Google.Iam.V3.PrincipalAccessBoundaryPolicy,
@@ -47,7 +47,7 @@ end
 defmodule Google.Iam.V3.DeletePrincipalAccessBoundaryPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -58,7 +58,7 @@ end
 defmodule Google.Iam.V3.ListPrincipalAccessBoundaryPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -68,7 +68,7 @@ end
 defmodule Google.Iam.V3.ListPrincipalAccessBoundaryPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :principal_access_boundary_policies, 1,
     repeated: true,
@@ -81,7 +81,7 @@ end
 defmodule Google.Iam.V3.SearchPrincipalAccessBoundaryPolicyBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
@@ -91,7 +91,7 @@ end
 defmodule Google.Iam.V3.SearchPrincipalAccessBoundaryPolicyBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :policy_bindings, 1,
     repeated: true,
@@ -106,7 +106,7 @@ defmodule Google.Iam.V3.PrincipalAccessBoundaryPolicies.Service do
 
   use GRPC.Service,
     name: "google.iam.v3.PrincipalAccessBoundaryPolicies",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreatePrincipalAccessBoundaryPolicy,
       Google.Iam.V3.CreatePrincipalAccessBoundaryPolicyRequest,

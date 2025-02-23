@@ -3,7 +3,7 @@ defmodule Google.Cloud.Contentwarehouse.V1.RuleSetService.Service do
 
   use GRPC.Service,
     name: "google.cloud.contentwarehouse.v1.RuleSetService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateRuleSet,
       Google.Cloud.Contentwarehouse.V1.CreateRuleSetRequest,

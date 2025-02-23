@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.ModelMonitoringDataset.ModelMonitoringGcsSource.DataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :CSV, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :objective_spec, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec,
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.DataDriftSpec.FeatureAlertConditionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertCondition
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.DataDriftSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :features, 1, repeated: true, type: :string
   field :categorical_metric_type, 2, type: :string, json_name: "categoricalMetricType"
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.FeatureAttributionSpec.FeatureAlertConditionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringAlertCondition
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.FeatureAttributionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :features, 1, repeated: true, type: :string
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.TabularObjective do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :feature_drift_spec, 10,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec.DataDriftSpec,
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringObjectiveSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :objective, 0
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringOutputSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_base_directory, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GcsDestination,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.ModelMonitoringDataset.ModelMonitoringGcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri"
 
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.ModelMonitoringDataset.ModelMonitoringBigQuerySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :connection, 0
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.ModelMonitoringDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data_location, 0
 
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.BatchPredictionOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :batch_prediction_job, 1,
     type: :string,
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.VertexEndpointLogs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoints, 1, repeated: true, type: :string, deprecated: false
 end
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput.TimeOffset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :offset, 1, type: :string
   field :window, 2, type: :string
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :dataset, 0
 
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringNotificationSpec.EmailConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :user_emails, 1, repeated: true, type: :string, json_name: "userEmails"
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringNotificationSpec.NotificationChannelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :notification_channel, 1, type: :string, json_name: "notificationChannel"
 end
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringNotificationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :email_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringNotificationSpec.EmailConfig,

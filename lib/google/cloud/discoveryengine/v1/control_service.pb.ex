@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.CreateControlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :control, 2, type: Google.Cloud.Discoveryengine.V1.Control, deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateControlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :control, 1, type: Google.Cloud.Discoveryengine.V1.Control, deprecated: false
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteControlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetControlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListControlsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListControlsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :controls, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1.Control
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -62,7 +62,7 @@ defmodule Google.Cloud.Discoveryengine.V1.ControlService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.ControlService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateControl,
       Google.Cloud.Discoveryengine.V1.CreateControlRequest,

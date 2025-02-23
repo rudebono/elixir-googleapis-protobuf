@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1.EkmMetadata.EkmSolution do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EKM_SOLUTION_UNSPECIFIED, 0
   field :FORTANIX, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.Partner do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :skus, 3, repeated: true, type: Google.Cloud.Cloudcontrolspartner.V1.Sku
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.GetPartnerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.Sku do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1.EkmMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ekm_solution, 1,
     type: Google.Cloud.Cloudcontrolspartner.V1.EkmMetadata.EkmSolution,

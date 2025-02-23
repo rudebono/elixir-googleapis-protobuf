@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Services.StartIdentityVerificationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GetIdentityVerificationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 end
@@ -24,7 +24,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GetIdentityVerificationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :identity_verification, 1,
     repeated: true,
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.IdentityVerification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :verification_program, 1,
     type:
@@ -57,7 +57,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.IdentityVerificationProgress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :program_status, 1,
     type:
@@ -75,7 +75,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.IdentityVerificationRequirement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :verification_start_deadline_time, 1,
     type: :string,
@@ -91,7 +91,7 @@ defmodule Google.Ads.Googleads.V18.Services.IdentityVerificationService.Service 
 
   use GRPC.Service,
     name: "google.ads.googleads.v18.services.IdentityVerificationService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :StartIdentityVerification,
       Google.Ads.Googleads.V18.Services.StartIdentityVerificationRequest,

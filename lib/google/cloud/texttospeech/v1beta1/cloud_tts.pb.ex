@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Texttospeech.V1beta1.SsmlVoiceGender do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :MALE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :LINEAR16, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TIMEPOINT_TYPE_UNSPECIFIED, 0
   field :SSML_MARK, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams.PhoneticEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PHONETIC_ENCODING_UNSPECIFIED, 0
   field :PHONETIC_ENCODING_IPA, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :REPORTED_USAGE_UNSPECIFIED, 0
   field :REALTIME, 1
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.ListVoicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :voices, 1, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Voice
 end
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.Voice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
   field :name, 2, type: :string
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.AdvancedVoiceOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :low_latency_journey_synthesis, 1,
     proto3_optional: true,
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input, 1, type: Google.Cloud.Texttospeech.V1beta1.SynthesisInput, deprecated: false
   field :voice, 2, type: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams, deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :phrase, 1, proto3_optional: true, type: :string
 
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :pronunciations, 1,
     repeated: true,
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup.Turn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :speaker, 1, type: :string, deprecated: false
   field :text, 2, type: :string, deprecated: false
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.MultiSpeakerMarkup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :turns, 1,
     repeated: true,
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :input_source, 0
 
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode", deprecated: false
   field :name, 2, type: :string
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Texttospeech.V1beta1.AudioEncoding,
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
 
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.VoiceCloneParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :voice_cloning_key, 1, type: :string, json_name: "voiceCloningKey", deprecated: false
 end
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_content, 1, type: :bytes, json_name: "audioContent"
   field :timepoints, 2, repeated: true, type: Google.Cloud.Texttospeech.V1beta1.Timepoint
@@ -272,7 +272,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.Timepoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :mark_name, 4, type: :string, json_name: "markName"
   field :time_seconds, 3, type: :double, json_name: "timeSeconds"
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingAudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Texttospeech.V1beta1.AudioEncoding,
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :voice, 1, type: Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams, deprecated: false
 
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesisInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :input_source, 0
 
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :streaming_request, 0
 
@@ -333,7 +333,7 @@ end
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_content, 1, type: :bytes, json_name: "audioContent"
 end
@@ -343,7 +343,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.TextToSpeech.Service do
 
   use GRPC.Service,
     name: "google.cloud.texttospeech.v1beta1.TextToSpeech",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListVoices,
       Google.Cloud.Texttospeech.V1beta1.ListVoicesRequest,
