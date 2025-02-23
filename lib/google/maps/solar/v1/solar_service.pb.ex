@@ -1,7 +1,7 @@
 defmodule Google.Maps.Solar.V1.DataLayerView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_LAYER_VIEW_UNSPECIFIED, 0
   field :DSM_LAYER, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Maps.Solar.V1.ImageryQuality do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :IMAGERY_QUALITY_UNSPECIFIED, 0
   field :HIGH, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Maps.Solar.V1.SolarPanelOrientation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SOLAR_PANEL_ORIENTATION_UNSPECIFIED, 0
   field :LANDSCAPE, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Maps.Solar.V1.FindClosestBuildingInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng, deprecated: false
 
@@ -54,7 +54,7 @@ end
 defmodule Google.Maps.Solar.V1.LatLngBox do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sw, 1, type: Google.Type.LatLng
   field :ne, 2, type: Google.Type.LatLng
@@ -63,7 +63,7 @@ end
 defmodule Google.Maps.Solar.V1.BuildingInsights do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :center, 2, type: Google.Type.LatLng
@@ -88,7 +88,7 @@ end
 defmodule Google.Maps.Solar.V1.SolarPotential do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_array_panels_count, 1, type: :int32, json_name: "maxArrayPanelsCount"
   field :panel_capacity_watts, 9, type: :float, json_name: "panelCapacityWatts"
@@ -131,7 +131,7 @@ end
 defmodule Google.Maps.Solar.V1.RoofSegmentSizeAndSunshineStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :pitch_degrees, 1, proto3_optional: true, type: :float, json_name: "pitchDegrees"
   field :azimuth_degrees, 2, proto3_optional: true, type: :float, json_name: "azimuthDegrees"
@@ -148,7 +148,7 @@ end
 defmodule Google.Maps.Solar.V1.SizeAndSunshineStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :area_meters2, 1, type: :float, json_name: "areaMeters2"
   field :sunshine_quantiles, 2, repeated: true, type: :float, json_name: "sunshineQuantiles"
@@ -158,7 +158,7 @@ end
 defmodule Google.Maps.Solar.V1.SolarPanel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :center, 1, type: Google.Type.LatLng
   field :orientation, 2, type: Google.Maps.Solar.V1.SolarPanelOrientation, enum: true
@@ -169,7 +169,7 @@ end
 defmodule Google.Maps.Solar.V1.SolarPanelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :panels_count, 1, type: :int32, json_name: "panelsCount"
   field :yearly_energy_dc_kwh, 2, type: :float, json_name: "yearlyEnergyDcKwh"
@@ -183,7 +183,7 @@ end
 defmodule Google.Maps.Solar.V1.RoofSegmentSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :pitch_degrees, 2, proto3_optional: true, type: :float, json_name: "pitchDegrees"
   field :azimuth_degrees, 3, proto3_optional: true, type: :float, json_name: "azimuthDegrees"
@@ -195,7 +195,7 @@ end
 defmodule Google.Maps.Solar.V1.FinancialAnalysis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :monthly_bill, 3, type: Google.Type.Money, json_name: "monthlyBill"
   field :default_bill, 4, type: :bool, json_name: "defaultBill"
@@ -222,7 +222,7 @@ end
 defmodule Google.Maps.Solar.V1.FinancialDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :initial_ac_kwh_per_year, 1, type: :float, json_name: "initialAcKwhPerYear"
 
@@ -251,7 +251,7 @@ end
 defmodule Google.Maps.Solar.V1.SavingsOverTime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :savings_year1, 1, type: Google.Type.Money, json_name: "savingsYear1"
   field :savings_year20, 2, type: Google.Type.Money, json_name: "savingsYear20"
@@ -272,7 +272,7 @@ end
 defmodule Google.Maps.Solar.V1.LeasingSavings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :leases_allowed, 1, type: :bool, json_name: "leasesAllowed"
   field :leases_supported, 2, type: :bool, json_name: "leasesSupported"
@@ -283,7 +283,7 @@ end
 defmodule Google.Maps.Solar.V1.CashPurchaseSavings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :out_of_pocket_cost, 1, type: Google.Type.Money, json_name: "outOfPocketCost"
   field :upfront_cost, 2, type: Google.Type.Money, json_name: "upfrontCost"
@@ -295,7 +295,7 @@ end
 defmodule Google.Maps.Solar.V1.FinancedPurchaseSavings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :annual_loan_payment, 1, type: Google.Type.Money, json_name: "annualLoanPayment"
   field :rebate_value, 2, type: Google.Type.Money, json_name: "rebateValue"
@@ -306,7 +306,7 @@ end
 defmodule Google.Maps.Solar.V1.GetDataLayersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :location, 1, type: Google.Type.LatLng, deprecated: false
   field :radius_meters, 2, type: :float, json_name: "radiusMeters", deprecated: false
@@ -329,7 +329,7 @@ end
 defmodule Google.Maps.Solar.V1.DataLayers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :imagery_date, 1, type: Google.Type.Date, json_name: "imageryDate"
   field :imagery_processed_date, 2, type: Google.Type.Date, json_name: "imageryProcessedDate"
@@ -349,7 +349,7 @@ end
 defmodule Google.Maps.Solar.V1.GetGeoTiffRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 end
@@ -357,7 +357,7 @@ end
 defmodule Google.Maps.Solar.V1.Solar.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.maps.solar.v1.Solar", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.maps.solar.v1.Solar", protoc_gen_elixir_version: "0.14.1"
 
   rpc :FindClosestBuildingInsights,
       Google.Maps.Solar.V1.FindClosestBuildingInsightsRequest,

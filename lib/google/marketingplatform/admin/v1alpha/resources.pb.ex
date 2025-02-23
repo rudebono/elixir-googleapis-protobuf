@@ -1,7 +1,7 @@
 defmodule Google.Marketingplatform.Admin.V1alpha.LinkVerificationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :LINK_VERIFICATION_STATE_UNSPECIFIED, 0
   field :LINK_VERIFICATION_STATE_VERIFIED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Marketingplatform.Admin.V1alpha.Organization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -20,7 +20,7 @@ end
 defmodule Google.Marketingplatform.Admin.V1alpha.AnalyticsAccountLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :analytics_account, 2, type: :string, json_name: "analyticsAccount", deprecated: false

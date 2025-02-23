@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Notebooks.V2.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HEALTH_STATE_UNSPECIFIED, 0
   field :HEALTHY, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.UpgradeHistoryEntry.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTED, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.UpgradeHistoryEntry.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :UPGRADE, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.UpgradeHistoryEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :snapshot, 1, type: :string, deprecated: false
   field :vm_image, 2, type: :string, json_name: "vmImage", deprecated: false
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.Instance.HealthInfoEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Notebooks.V2.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :infrastructure, 0
 

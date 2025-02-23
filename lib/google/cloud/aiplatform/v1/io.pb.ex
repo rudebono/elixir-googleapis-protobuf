@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.GoogleDriveSource.ResourceId.ResourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :RESOURCE_TYPE_FILE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.AvroSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_source, 1,
     type: Google.Cloud.Aiplatform.V1.GcsSource,
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CsvSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_source, 1,
     type: Google.Cloud.Aiplatform.V1.GcsSource,
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GcsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.BigQuerySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri", deprecated: false
 end
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.BigQueryDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :output_uri, 1, type: :string, json_name: "outputUri", deprecated: false
 end
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CsvDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_destination, 1,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TFRecordDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_destination, 1,
     type: Google.Cloud.Aiplatform.V1.GcsDestination,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ContainerRegistryDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :output_uri, 1, type: :string, json_name: "outputUri", deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GoogleDriveSource.ResourceId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_type, 1,
     type: Google.Cloud.Aiplatform.V1.GoogleDriveSource.ResourceId.ResourceType,
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GoogleDriveSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resource_ids, 1,
     repeated: true,
@@ -121,13 +121,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DirectUploadSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SlackSource.SlackChannels.SlackChannel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :channel_id, 1, type: :string, json_name: "channelId", deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SlackSource.SlackChannels do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :channels, 1,
     repeated: true,
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SlackSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :channels, 1,
     repeated: true,
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.JiraSource.JiraQueries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :projects, 3, repeated: true, type: :string
   field :custom_queries, 4, repeated: true, type: :string, json_name: "customQueries"
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.JiraSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :jira_queries, 1,
     repeated: true,
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SharePointSources.SharePointSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :folder_source, 0
 
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SharePointSources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :share_point_sources, 1,
     repeated: true,

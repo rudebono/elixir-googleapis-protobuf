@@ -1,7 +1,7 @@
 defmodule Google.Api.Documentation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :summary, 1, type: :string
   field :pages, 5, repeated: true, type: Google.Api.Page
@@ -14,7 +14,7 @@ end
 defmodule Google.Api.DocumentationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :selector, 1, type: :string
   field :description, 2, type: :string
@@ -24,7 +24,7 @@ end
 defmodule Google.Api.Page do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :content, 2, type: :string

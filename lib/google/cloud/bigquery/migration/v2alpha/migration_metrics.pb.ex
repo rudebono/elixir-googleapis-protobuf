@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeSeries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metric, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.Point do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :interval, 1, type: Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval
   field :value, 2, type: Google.Cloud.Bigquery.Migration.V2alpha.TypedValue
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TimeInterval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2alpha.TypedValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :value, 0
 

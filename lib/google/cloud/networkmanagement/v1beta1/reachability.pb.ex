@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :resources, 1,
     repeated: true,
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.GetConnectivityTestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.CreateConnectivityTestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :test_id, 2, type: :string, json_name: "testId", deprecated: false
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.UpdateConnectivityTestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.DeleteConnectivityTestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.RerunConnectivityTestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1beta1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -94,7 +94,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ReachabilityService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkmanagement.v1beta1.ReachabilityService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListConnectivityTests,
       Google.Cloud.Networkmanagement.V1beta1.ListConnectivityTestsRequest,

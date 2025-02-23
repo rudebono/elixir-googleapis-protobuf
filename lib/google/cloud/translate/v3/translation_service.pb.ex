@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Translation.V3.BatchTranslateMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateGlossaryMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Translation.V3.UpdateGlossaryMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Translation.V3.TransliterationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_transliteration, 1, type: :bool, json_name: "enableTransliteration"
 end
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateTextRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :contents, 1, repeated: true, type: :string, deprecated: false
   field :mime_type, 3, type: :string, json_name: "mimeType", deprecated: false
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :translations, 1, repeated: true, type: Google.Cloud.Translation.V3.Translation
 
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Translation.V3.Translation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :translated_text, 1, type: :string, json_name: "translatedText"
   field :model, 2, type: :string
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Translation.V3.RomanizeTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :contents, 1, repeated: true, type: :string, deprecated: false
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Translation.V3.Romanization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :romanized_text, 1, type: :string, json_name: "romanizedText"
   field :detected_language_code, 2, type: :string, json_name: "detectedLanguageCode"
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Translation.V3.RomanizeTextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :romanizations, 1, repeated: true, type: Google.Cloud.Translation.V3.Romanization
 end
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Translation.V3.DetectLanguageRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Translation.V3.DetectLanguageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Translation.V3.DetectedLanguage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :confidence, 2, type: :float
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Translation.V3.DetectLanguageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3.DetectedLanguage
 end
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetSupportedLanguagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 3, type: :string, deprecated: false
 
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Translation.V3.SupportedLanguages do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :languages, 1, repeated: true, type: Google.Cloud.Translation.V3.SupportedLanguage
 end
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Translation.V3.SupportedLanguage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Translation.V3.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input_uri, 1, type: :string, json_name: "inputUri", deprecated: false
 end
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Translation.V3.InputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Translation.V3.GcsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :output_uri_prefix, 1, type: :string, json_name: "outputUriPrefix", deprecated: false
 end
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Translation.V3.OutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Translation.V3.DocumentInputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Translation.V3.DocumentOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -335,7 +335,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateDocumentRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -344,7 +344,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Translation.V3.DocumentTranslation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :byte_stream_outputs, 1, repeated: true, type: :bytes, json_name: "byteStreamOutputs"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -415,7 +415,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document_translation, 1,
     type: Google.Cloud.Translation.V3.DocumentTranslation,
@@ -435,7 +435,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateTextRequest.ModelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -444,7 +444,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateTextRequest.GlossariesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig
@@ -453,7 +453,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateTextRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -462,7 +462,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateTextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Translation.V3.BatchTranslateMetadata.State, enum: true
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
@@ -522,7 +522,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :total_characters, 1, type: :int64, json_name: "totalCharacters"
   field :translated_characters, 2, type: :int64, json_name: "translatedCharacters"
@@ -534,7 +534,7 @@ end
 defmodule Google.Cloud.Translation.V3.GlossaryInputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -547,7 +547,7 @@ end
 defmodule Google.Cloud.Translation.V3.Glossary.LanguageCodePair do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :source_language_code, 1, type: :string, json_name: "sourceLanguageCode"
   field :target_language_code, 2, type: :string, json_name: "targetLanguageCode"
@@ -556,7 +556,7 @@ end
 defmodule Google.Cloud.Translation.V3.Glossary.LanguageCodesSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :language_codes, 1, repeated: true, type: :string, json_name: "languageCodes"
 end
@@ -564,7 +564,7 @@ end
 defmodule Google.Cloud.Translation.V3.Glossary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :languages, 0
 
@@ -598,7 +598,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateGlossaryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :glossary, 2, type: Google.Cloud.Translation.V3.Glossary, deprecated: false
@@ -607,7 +607,7 @@ end
 defmodule Google.Cloud.Translation.V3.UpdateGlossaryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossary, 1, type: Google.Cloud.Translation.V3.Glossary, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -616,7 +616,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetGlossaryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -624,7 +624,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -632,7 +632,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListGlossariesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -643,7 +643,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListGlossariesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossaries, 1, repeated: true, type: Google.Cloud.Translation.V3.Glossary
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -652,7 +652,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetGlossaryEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -660,7 +660,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -668,7 +668,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListGlossaryEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -678,7 +678,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListGlossaryEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossary_entries, 1,
     repeated: true,
@@ -692,7 +692,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateGlossaryEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -705,7 +705,7 @@ end
 defmodule Google.Cloud.Translation.V3.UpdateGlossaryEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossary_entry, 1,
     type: Google.Cloud.Translation.V3.GlossaryEntry,
@@ -716,7 +716,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateGlossaryMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3.CreateGlossaryMetadata.State, enum: true
@@ -726,7 +726,7 @@ end
 defmodule Google.Cloud.Translation.V3.UpdateGlossaryMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossary, 1, type: Google.Cloud.Translation.V3.Glossary
   field :state, 2, type: Google.Cloud.Translation.V3.UpdateGlossaryMetadata.State, enum: true
@@ -736,7 +736,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :state, 2, type: Google.Cloud.Translation.V3.DeleteGlossaryMetadata.State, enum: true
@@ -746,7 +746,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteGlossaryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :submit_time, 2, type: Google.Protobuf.Timestamp, json_name: "submitTime"
@@ -756,7 +756,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.ModelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -765,7 +765,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.GlossariesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Translation.V3.TranslateTextGlossaryConfig
@@ -774,7 +774,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest.FormatConversionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -783,7 +783,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -847,7 +847,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchDocumentInputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source, 0
 
@@ -860,7 +860,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchDocumentOutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :destination, 0
 
@@ -873,7 +873,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :total_pages, 1, type: :int64, json_name: "totalPages"
   field :translated_pages, 2, type: :int64, json_name: "translatedPages"
@@ -890,7 +890,7 @@ end
 defmodule Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Translation.V3.BatchTranslateDocumentMetadata.State,
@@ -910,7 +910,7 @@ end
 defmodule Google.Cloud.Translation.V3.TranslateTextGlossaryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :glossary, 1, type: :string, deprecated: false
   field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
@@ -926,7 +926,7 @@ defmodule Google.Cloud.Translation.V3.TranslationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.translation.v3.TranslationService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :TranslateText,
       Google.Cloud.Translation.V3.TranslateTextRequest,

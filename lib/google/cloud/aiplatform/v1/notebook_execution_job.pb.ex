@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.DataformRepositorySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataform_repository_resource_name, 1,
     type: :string,
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.GcsNotebookSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uri, 1, type: :string
   field :generation, 2, type: :string
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.DirectNotebookSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :content, 1, type: :bytes
 end
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.CustomEnvironmentSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :machine_spec, 1, type: Google.Cloud.Aiplatform.V1.MachineSpec, json_name: "machineSpec"
 
@@ -44,13 +44,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.WorkbenchRuntime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookExecutionJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :notebook_source, 0
 

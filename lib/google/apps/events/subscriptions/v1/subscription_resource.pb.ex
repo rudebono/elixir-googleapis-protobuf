@@ -1,7 +1,7 @@
 defmodule Google.Apps.Events.Subscriptions.V1.Subscription.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1.Subscription.ErrorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ERROR_TYPE_UNSPECIFIED, 0
   field :USER_SCOPE_REVOKED, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1.Subscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1.PayloadOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :include_resource, 1, type: :bool, json_name: "includeResource", deprecated: false
   field :field_mask, 2, type: Google.Protobuf.FieldMask, json_name: "fieldMask", deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1.NotificationEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :endpoint, 0
 

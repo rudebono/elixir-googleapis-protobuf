@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes.CollectionMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :COLLECTION_METHOD_UNSPECIFIED, 0
   field :UNSOLICITED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes.ReviewLink.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :SINGLETON, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewStatus.ProductReviewItemLevelIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOT_IMPACTED, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes.ReviewLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes.ReviewLink.Type,
@@ -44,7 +44,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :aggregator_name, 1,
     proto3_optional: true,
@@ -166,7 +166,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewStatus.ProductReviewDestinationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reporting_context, 1,
     type: Google.Shopping.Type.ReportingContext.ReportingContextEnum,
@@ -178,7 +178,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewStatus.ProductReviewItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: :string, deprecated: false
 
@@ -205,7 +205,7 @@ end
 defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :destination_statuses, 3,
     repeated: true,
