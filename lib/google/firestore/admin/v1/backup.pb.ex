@@ -1,7 +1,7 @@
 defmodule Google.Firestore.Admin.V1.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Firestore.Admin.V1.Backup.Stats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :size_bytes, 1, type: :int64, json_name: "sizeBytes", deprecated: false
   field :document_count, 2, type: :int64, json_name: "documentCount", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Firestore.Admin.V1.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :database, 2, type: :string, deprecated: false

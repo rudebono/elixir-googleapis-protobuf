@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.AudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AUDIO_ENCODING_UNSPECIFIED, 0
   field :AUDIO_ENCODING_LINEAR_16, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechModelVariant do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SPEECH_MODEL_VARIANT_UNSPECIFIED, 0
   field :USE_BEST_AVAILABLE, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.SsmlVoiceGender do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SSML_VOICE_GENDER_UNSPECIFIED, 0
   field :SSML_VOICE_GENDER_MALE, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :OUTPUT_AUDIO_ENCODING_UNSPECIFIED, 0
   field :OUTPUT_AUDIO_ENCODING_LINEAR_16, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.SpeechWordInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :word, 3, type: :string
   field :start_offset, 1, type: Google.Protobuf.Duration, json_name: "startOffset"
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.BargeInConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :no_barge_in_duration, 1, type: Google.Protobuf.Duration, json_name: "noBargeInDuration"
   field :total_duration, 2, type: Google.Protobuf.Duration, json_name: "totalDuration"
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.InputAudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.AudioEncoding,
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.VoiceSelectionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :speaking_rate, 1, type: :double, json_name: "speakingRate"
   field :pitch, 2, type: :double
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.OutputAudioConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :audio_encoding, 1,
     type: Google.Cloud.Dialogflow.Cx.V3.OutputAudioEncoding,
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings.SynthesizeSpeechConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Dialogflow.Cx.V3.SynthesizeSpeechConfig
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.TextToSpeechSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :synthesize_speech_configs, 1,
     repeated: true,

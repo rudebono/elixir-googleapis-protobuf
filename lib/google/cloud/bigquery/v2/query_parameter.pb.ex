@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.QueryParameterStructType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Bigquery.V2.QueryParameterType, deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryParameterType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.RangeValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start, 1, type: Google.Cloud.Bigquery.V2.QueryParameterValue, deprecated: false
   field :end, 2, type: Google.Cloud.Bigquery.V2.QueryParameterValue, deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryParameterValue.StructValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Bigquery.V2.QueryParameterValue
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryParameterValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :value, 1, type: Google.Protobuf.StringValue, deprecated: false
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

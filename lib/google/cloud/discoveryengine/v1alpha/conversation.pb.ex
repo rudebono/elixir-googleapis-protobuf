@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.Conversation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Conversation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Discoveryengine.V1alpha.Conversation.State, enum: true
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Reply.Reference do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :uri, 1, type: :string
   field :anchor_text, 2, type: :string, json_name: "anchorText"
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Reply do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reply, 1, type: :string, deprecated: true
 
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConversationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :context_documents, 1, repeated: true, type: :string, json_name: "contextDocuments"
   field :active_document, 2, type: :string, json_name: "activeDocument"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :input, 1, type: :string
   field :context, 2, type: Google.Cloud.Discoveryengine.V1alpha.ConversationContext
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ConversationMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :message, 0
 

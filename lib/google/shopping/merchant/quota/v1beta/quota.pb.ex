@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Quota.V1beta.QuotaGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :quota_usage, 2, type: :int64, json_name: "quotaUsage", deprecated: false
@@ -18,7 +18,7 @@ end
 defmodule Google.Shopping.Merchant.Quota.V1beta.MethodDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :method, 1, type: :string, deprecated: false
   field :version, 2, type: :string, deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Shopping.Merchant.Quota.V1beta.ListQuotaGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Shopping.Merchant.Quota.V1beta.ListQuotaGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :quota_groups, 1,
     repeated: true,
@@ -54,7 +54,7 @@ defmodule Google.Shopping.Merchant.Quota.V1beta.QuotaService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.quota.v1beta.QuotaService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListQuotaGroups,
       Google.Shopping.Merchant.Quota.V1beta.ListQuotaGroupsRequest,

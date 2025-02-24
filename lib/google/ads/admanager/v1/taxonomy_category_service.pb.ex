@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetTaxonomyCategoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListTaxonomyCategoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListTaxonomyCategoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :taxonomy_categories, 1,
     repeated: true,
@@ -38,7 +38,7 @@ defmodule Google.Ads.Admanager.V1.TaxonomyCategoryService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.TaxonomyCategoryService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetTaxonomyCategory,
       Google.Ads.Admanager.V1.GetTaxonomyCategoryRequest,

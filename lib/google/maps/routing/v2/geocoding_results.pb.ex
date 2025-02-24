@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routing.V2.GeocodingResults do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routing.V2.GeocodedWaypoint
   field :destination, 2, type: Google.Maps.Routing.V2.GeocodedWaypoint
@@ -11,7 +11,7 @@ end
 defmodule Google.Maps.Routing.V2.GeocodedWaypoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :geocoder_status, 1, type: Google.Rpc.Status, json_name: "geocoderStatus"
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Notebooks.V1.Runtime.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.Runtime.HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HEALTH_STATE_UNSPECIFIED, 0
   field :HEALTHY, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig.AcceleratorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ACCELERATOR_TYPE_UNSPECIFIED, 0
   field :NVIDIA_TESLA_K80, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.LocalDiskInitializeParams.DiskType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DISK_TYPE_UNSPECIFIED, 0
   field :PD_STANDARD, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeAccessConfig.RuntimeAccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RUNTIME_ACCESS_TYPE_UNSPECIFIED, 0
   field :SINGLE_USER, 1
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeSoftwareConfig.PostStartupScriptBehavior do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED, 0
   field :RUN_EVERY_START, 1
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.NicType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNSPECIFIED_NIC_TYPE, 0
   field :VIRTIO_NET, 1
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.Runtime do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :runtime_type, 0
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Notebooks.V1.RuntimeAcceleratorConfig.AcceleratorType,
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey"
 end
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.LocalDisk.RuntimeGuestOsFeature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: :string
 end
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.LocalDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_delete, 1, type: :bool, json_name: "autoDelete", deprecated: false
   field :boot, 2, type: :bool, deprecated: false
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.LocalDiskInitializeParams.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.LocalDiskInitializeParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :description, 1, type: :string, deprecated: false
   field :disk_name, 2, type: :string, json_name: "diskName", deprecated: false
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeAccessConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :access_type, 1,
     type: Google.Cloud.Notebooks.V1.RuntimeAccessConfig.RuntimeAccessType,
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeSoftwareConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :notebook_upgrade_schedule, 1, type: :string, json_name: "notebookUpgradeSchedule"
 
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeMetrics.SystemMetricsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -279,7 +279,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :system_metrics, 1,
     repeated: true,
@@ -292,7 +292,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.RuntimeShieldedInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
   field :enable_vtpm, 2, type: :bool, json_name: "enableVtpm"
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -315,13 +315,13 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.BootImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.GuestAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -330,7 +330,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -339,7 +339,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -348,7 +348,7 @@ end
 defmodule Google.Cloud.Notebooks.V1.VirtualMachineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :zone, 1, type: :string, deprecated: false
   field :machine_type, 2, type: :string, json_name: "machineType", deprecated: false

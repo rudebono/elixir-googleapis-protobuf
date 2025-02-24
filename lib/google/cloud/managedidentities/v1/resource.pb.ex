@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Managedidentities.V1.Domain.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Trust.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Trust.TrustType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRUST_TYPE_UNSPECIFIED, 0
   field :FOREST, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Trust.TrustDirection do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRUST_DIRECTION_UNSPECIFIED, 0
   field :INBOUND, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Domain.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Domain do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Managedidentities.V1.Trust do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_domain_name, 1, type: :string, json_name: "targetDomainName", deprecated: false
 

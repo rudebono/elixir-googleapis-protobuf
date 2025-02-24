@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.MultiTrialAlgorithm do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :MULTI_TRIAL_ALGORITHM_UNSPECIFIED, 0
   field :REINFORCEMENT_LEARNING, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.MetricSpec.GoalType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :GOAL_TYPE_UNSPECIFIED, 0
   field :MAXIMIZE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasTrial.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :REQUESTED, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasTrialDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameters, 2, type: :string
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.MetricSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :metric_id, 1, type: :string, json_name: "metricId", deprecated: false
 
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.SearchTrialSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :search_trial_job_spec, 1,
     type: Google.Cloud.Aiplatform.V1beta1.CustomJobSpec,
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.TrainTrialSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :train_trial_job_spec, 1,
     type: Google.Cloud.Aiplatform.V1beta1.CustomJobSpec,
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :multi_trial_algorithm, 1,
     type: Google.Cloud.Aiplatform.V1beta1.NasJobSpec.MultiTrialAlgorithmSpec.MultiTrialAlgorithm,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :nas_algorithm_spec, 0
 
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobOutput.MultiTrialJobOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :search_trials, 1,
     repeated: true,
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasJobOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :output, 0
 
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.NasTrial do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 

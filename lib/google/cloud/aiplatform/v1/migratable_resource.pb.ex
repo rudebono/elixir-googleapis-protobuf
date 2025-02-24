@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource.MlEngineModelVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :endpoint, 1, type: :string
   field :version, 2, type: :string, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource.AutomlModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_display_name, 3, type: :string, json_name: "modelDisplayName"
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource.AutomlDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :dataset_display_name, 4, type: :string, json_name: "datasetDisplayName"
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource.DataLabelingDataset.DataLabelingAnnotatedDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :annotated_dataset, 1, type: :string, json_name: "annotatedDataset", deprecated: false
 
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource.DataLabelingDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :dataset_display_name, 4, type: :string, json_name: "datasetDisplayName"
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.MigratableResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :resource, 0
 

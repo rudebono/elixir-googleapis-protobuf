@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataproc.V1.Session.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JupyterConfig.Kernel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :KERNEL_UNSPECIFIED, 0
   field :PYTHON, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.CreateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :session, 2, type: Google.Cloud.Dataproc.V1.Session, deprecated: false
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.GetSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.ListSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sessions, 1, repeated: true, type: Google.Cloud.Dataproc.V1.Session, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.TerminateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.DeleteSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.Session.SessionStateHistory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Dataproc.V1.Session.State, enum: true, deprecated: false
   field :state_message, 2, type: :string, json_name: "stateMessage", deprecated: false
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.Session.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.Session do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :session_config, 0
 
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.JupyterConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :kernel, 1,
     type: Google.Cloud.Dataproc.V1.JupyterConfig.Kernel,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Dataproc.V1.SparkConnectConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataproc.V1.SessionController.Service do
@@ -189,7 +189,7 @@ defmodule Google.Cloud.Dataproc.V1.SessionController.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataproc.v1.SessionController",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateSession, Google.Cloud.Dataproc.V1.CreateSessionRequest, Google.Longrunning.Operation
 

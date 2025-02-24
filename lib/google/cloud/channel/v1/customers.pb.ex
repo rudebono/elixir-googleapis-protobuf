@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Channel.V1.Customer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :org_display_name, 2, type: :string, json_name: "orgDisplayName", deprecated: false
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Channel.V1.ContactInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :first_name, 1, type: :string, json_name: "firstName"
   field :last_name, 2, type: :string, json_name: "lastName"

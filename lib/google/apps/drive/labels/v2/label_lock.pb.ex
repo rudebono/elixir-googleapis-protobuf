@@ -1,7 +1,7 @@
 defmodule Google.Apps.Drive.Labels.V2.LabelLock.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.LabelLock.Capabilities do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :can_view_policy, 1, type: :bool, json_name: "canViewPolicy"
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Apps.Drive.Labels.V2.LabelLock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :field_id, 2, type: :string, json_name: "fieldId"
