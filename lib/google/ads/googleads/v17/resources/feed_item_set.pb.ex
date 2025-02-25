@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V17.Resources.FeedItemSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :dynamic_set_filter, 0
 

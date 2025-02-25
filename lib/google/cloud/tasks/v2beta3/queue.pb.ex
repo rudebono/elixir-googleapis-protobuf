@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Tasks.V2beta3.Queue.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.Queue.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PULL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.Queue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :queue_type, 0
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.RateLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_dispatches_per_second, 1, type: :double, json_name: "maxDispatchesPerSecond"
   field :max_burst_size, 2, type: :int32, json_name: "maxBurstSize"
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.RetryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :max_attempts, 1, type: :int32, json_name: "maxAttempts"
   field :max_retry_duration, 2, type: Google.Protobuf.Duration, json_name: "maxRetryDuration"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.StackdriverLoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sampling_ratio, 1, type: :double, json_name: "samplingRatio"
 end
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Tasks.V2beta3.QueueStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tasks_count, 1, type: :int64, json_name: "tasksCount", deprecated: false
 

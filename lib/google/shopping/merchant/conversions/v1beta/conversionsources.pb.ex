@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Conversions.V1beta.ConversionSource.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.ConversionSource.Controller do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CONTROLLER_UNSPECIFIED, 0
   field :MERCHANT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.AttributionSettings.AttributionModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ATTRIBUTION_MODEL_UNSPECIFIED, 0
   field :CROSS_CHANNEL_LAST_CLICK, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.ConversionSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :source_data, 0
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.AttributionSettings.ConversionType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :report, 2, type: :bool, deprecated: false
@@ -82,7 +82,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.AttributionSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attribution_lookback_window_days, 1,
     type: :int32,
@@ -105,7 +105,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.GoogleAnalyticsLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :property_id, 1, type: :int64, json_name: "propertyId", deprecated: false
 
@@ -120,7 +120,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.MerchantCenterDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :destination, 1, type: :string, deprecated: false
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.CreateConversionSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -149,7 +149,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.UpdateConversionSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :conversion_source, 1,
     type: Google.Shopping.Merchant.Conversions.V1beta.ConversionSource,
@@ -165,7 +165,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.DeleteConversionSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -173,7 +173,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.UndeleteConversionSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -181,7 +181,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.GetConversionSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -189,7 +189,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.ListConversionSourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -200,7 +200,7 @@ end
 defmodule Google.Shopping.Merchant.Conversions.V1beta.ListConversionSourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :conversion_sources, 1,
     repeated: true,
@@ -215,7 +215,7 @@ defmodule Google.Shopping.Merchant.Conversions.V1beta.ConversionSourcesService.S
 
   use GRPC.Service,
     name: "google.shopping.merchant.conversions.v1beta.ConversionSourcesService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateConversionSource,
       Google.Shopping.Merchant.Conversions.V1beta.CreateConversionSourceRequest,

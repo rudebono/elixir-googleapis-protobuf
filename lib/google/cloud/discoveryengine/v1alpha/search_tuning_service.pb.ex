@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListCustomModelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :models, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1alpha.CustomTuningModel
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest.GcsTrainingInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :corpus_data_path, 1, type: :string, json_name: "corpusDataPath"
   field :query_data_path, 2, type: :string, json_name: "queryDataPath"
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :training_input, 0
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse.MetricsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :double
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -91,7 +91,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTuningService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.SearchTuningService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :TrainCustomModel,
       Google.Cloud.Discoveryengine.V1alpha.TrainCustomModelRequest,

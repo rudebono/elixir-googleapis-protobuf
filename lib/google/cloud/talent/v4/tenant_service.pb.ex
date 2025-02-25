@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Talent.V4.CreateTenantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tenant, 2, type: Google.Cloud.Talent.V4.Tenant, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Talent.V4.GetTenantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Talent.V4.UpdateTenantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tenant, 1, type: Google.Cloud.Talent.V4.Tenant, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Talent.V4.DeleteTenantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Talent.V4.ListTenantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Talent.V4.ListTenantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tenants, 1, repeated: true, type: Google.Cloud.Talent.V4.Tenant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -57,7 +57,7 @@ defmodule Google.Cloud.Talent.V4.TenantService.Service do
 
   use GRPC.Service,
     name: "google.cloud.talent.v4.TenantService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateTenant, Google.Cloud.Talent.V4.CreateTenantRequest, Google.Cloud.Talent.V4.Tenant
 

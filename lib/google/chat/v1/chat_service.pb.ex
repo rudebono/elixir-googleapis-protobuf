@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.ChatService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.chat.v1.ChatService", protoc_gen_elixir_version: "0.14.0"
+  use GRPC.Service, name: "google.chat.v1.ChatService", protoc_gen_elixir_version: "0.14.1"
 
   rpc :CreateMessage, Google.Chat.V1.CreateMessageRequest, Google.Chat.V1.Message
 

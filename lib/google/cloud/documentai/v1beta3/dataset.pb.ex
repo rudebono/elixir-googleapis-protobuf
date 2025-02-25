@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1beta3.Dataset.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :UNINITIALIZED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Dataset.GCSManagedConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_prefix, 1,
     type: Google.Cloud.Documentai.V1beta3.GcsPrefix,
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Dataset.DocumentWarehouseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :collection, 1, type: :string, deprecated: false
   field :schema, 2, type: :string, deprecated: false
@@ -32,19 +32,19 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.Dataset.UnmanagedDatasetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Dataset.SpannerIndexingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Dataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :storage_source, 0
 
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentId.GCSManagedDocumentId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :gcs_uri, 1, type: :string, json_name: "gcsUri", deprecated: false
   field :cw_doc_id, 2, type: :string, json_name: "cwDocId", deprecated: true
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentId.UnmanagedDocumentId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :doc_id, 1, type: :string, json_name: "docId", deprecated: false
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :type, 0
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DatasetSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.BatchDatasetDocuments.IndividualDocumentIds do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :document_ids, 1,
     repeated: true,
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.BatchDatasetDocuments do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :criteria, 0
 

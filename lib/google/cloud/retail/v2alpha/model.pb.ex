@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.Model.ServingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.TrainingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRAINING_STATE_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.PeriodicTuningState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PERIODIC_TUNING_STATE_UNSPECIFIED, 0
   field :PERIODIC_TUNING_DISABLED, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.DataState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_STATE_UNSPECIFIED, 0
   field :DATA_OK, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.ContextProductsType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CONTEXT_PRODUCTS_TYPE_UNSPECIFIED, 0
   field :SINGLE_CONTEXT_PRODUCT, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Restriction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RESTRICTION_UNSPECIFIED, 0
   field :NO_RESTRICTION, 1
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Candidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :candidate, 0
 
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig.Panel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.PageOptimizationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_optimization_event_type, 1,
     type: :string,
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.ServingConfigList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :serving_config_ids, 1,
     repeated: true,
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.FrequentlyBoughtTogetherFeaturesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :context_products_type, 2,
     type: Google.Cloud.Retail.V2alpha.Model.ContextProductsType,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig.LlmEmbeddingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :llm_embedding_version, 1,
     type: :string,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model.ModelFeaturesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :type_dedicated_config, 0
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Model do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :training_config, 0
 

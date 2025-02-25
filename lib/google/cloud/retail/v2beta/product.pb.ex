@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.Product.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.Product.Availability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :AVAILABILITY_UNSPECIFIED, 0
   field :IN_STOCK, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.Product.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2beta.CustomAttribute
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.Product do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :expiration, 0
 

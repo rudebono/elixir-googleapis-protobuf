@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster.TagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string, deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClustersAuthorization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :admin_users, 1,
     repeated: true,
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterUser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
 end
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :group, 1, type: :string, deprecated: false
 end
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedOidcConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :issuer_url, 1, type: :string, json_name: "issuerUrl"
   field :jwks, 2, type: :bytes, deprecated: false
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedServerConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedPlatformVersionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :version, 1, type: :string
 end
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedClusterError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :message, 1, type: :string
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.AttachedProxyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :kubernetes_secret, 1,
     type: Google.Cloud.Gkemulticloud.V1.KubernetesSecret,
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Gkemulticloud.V1.KubernetesSecret do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :namespace, 2, type: :string
