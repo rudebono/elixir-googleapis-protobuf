@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Integrations.V1alpha.ValueType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :value, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Integrations.V1alpha.StringParameterArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :string_values, 1, repeated: true, type: :string, json_name: "stringValues"
 end
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Integrations.V1alpha.IntParameterArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :int_values, 1, repeated: true, type: :int64, json_name: "intValues"
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Integrations.V1alpha.DoubleParameterArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :double_values, 1, repeated: true, type: :double, json_name: "doubleValues"
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Integrations.V1alpha.BooleanParameterArray do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :boolean_values, 1, repeated: true, type: :bool, json_name: "booleanValues"
 end

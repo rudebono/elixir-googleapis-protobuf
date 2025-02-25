@@ -1,7 +1,7 @@
 defmodule Google.Ads.Searchads360.V0.Common.YoutubeVideoAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :youtube_video_id, 2, proto3_optional: true, type: :string, json_name: "youtubeVideoId"
   field :youtube_video_title, 3, type: :string, json_name: "youtubeVideoTitle"
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.ImageAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :file_size, 6, proto3_optional: true, type: :int64, json_name: "fileSize"
 
@@ -27,7 +27,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.ImageDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :height_pixels, 4, proto3_optional: true, type: :int64, json_name: "heightPixels"
   field :width_pixels, 5, proto3_optional: true, type: :int64, json_name: "widthPixels"
@@ -37,7 +37,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.TextAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 2, proto3_optional: true, type: :string
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedCalloutAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :callout_text, 1, type: :string, json_name: "calloutText"
   field :start_date, 2, type: :string, json_name: "startDate"
@@ -62,7 +62,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedSitelinkAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :link_text, 1, type: :string, json_name: "linkText"
   field :description1, 2, type: :string
@@ -83,7 +83,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedPageFeedAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :page_url, 1, type: :string, json_name: "pageUrl"
   field :labels, 2, repeated: true, type: :string
@@ -92,7 +92,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.MobileAppAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :app_id, 1, type: :string, json_name: "appId", deprecated: false
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedCallAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :country_code, 1, type: :string, json_name: "countryCode"
   field :phone_number, 2, type: :string, json_name: "phoneNumber"
@@ -138,7 +138,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.CallToActionAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :call_to_action, 1,
     type: Google.Ads.Searchads360.V0.Enums.CallToActionTypeEnum.CallToActionType,
@@ -149,7 +149,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.UnifiedLocationAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Ads.Searchads360.V0.Common.BusinessProfileLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :labels, 1, repeated: true, type: :string
   field :store_code, 2, type: :string, json_name: "storeCode"

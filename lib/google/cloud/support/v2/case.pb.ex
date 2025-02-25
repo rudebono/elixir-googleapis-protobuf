@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Support.V2.Case.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NEW, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Support.V2.Case.Priority do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :P0, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Support.V2.Case do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Support.V2.CaseClassification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 3, type: :string
   field :display_name, 4, type: :string, json_name: "displayName"

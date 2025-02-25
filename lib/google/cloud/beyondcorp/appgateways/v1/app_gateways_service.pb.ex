@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :TCP_PROXY, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway.HostType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :HOST_TYPE_UNSPECIFIED, 0
   field :GCP_REGIONAL_MIG, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.ListAppGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.ListAppGatewaysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :app_gateways, 1,
     repeated: true,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.GetAppGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.CreateAppGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :app_gateway_id, 2, type: :string, json_name: "appGatewayId", deprecated: false
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.DeleteAppGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway.AllocatedConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :psc_uri, 1, type: :string, json_name: "pscUri", deprecated: false
   field :ingress_port, 2, type: :int32, json_name: "ingressPort", deprecated: false
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGatewayOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -187,7 +187,7 @@ defmodule Google.Cloud.Beyondcorp.Appgateways.V1.AppGatewaysService.Service do
 
   use GRPC.Service,
     name: "google.cloud.beyondcorp.appgateways.v1.AppGatewaysService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListAppGateways,
       Google.Cloud.Beyondcorp.Appgateways.V1.ListAppGatewaysRequest,

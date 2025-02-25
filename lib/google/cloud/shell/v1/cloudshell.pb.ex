@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Shell.V1.Environment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUSPENDED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STARTING, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CLOUD_SHELL_ERROR_CODE_UNSPECIFIED, 0
   field :IMAGE_UNAVAILABLE, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Shell.V1.Environment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Shell.V1.GetEnvironmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -62,19 +62,19 @@ end
 defmodule Google.Cloud.Shell.V1.CreateEnvironmentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.DeleteEnvironmentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.StartEnvironmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :access_token, 2, type: :string, json_name: "accessToken"
@@ -95,19 +95,19 @@ end
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.AuthorizeEnvironmentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.StartEnvironmentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Shell.V1.StartEnvironmentMetadata.State, enum: true
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Shell.V1.StartEnvironmentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :environment, 1, type: Google.Cloud.Shell.V1.Environment
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
 end
@@ -140,13 +140,13 @@ end
 defmodule Google.Cloud.Shell.V1.AddPublicKeyMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :environment, 1, type: :string
   field :key, 2, type: :string
@@ -155,19 +155,19 @@ end
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.RemovePublicKeyMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Shell.V1.CloudShellErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1,
     type: Google.Cloud.Shell.V1.CloudShellErrorDetails.CloudShellErrorCode,
@@ -179,7 +179,7 @@ defmodule Google.Cloud.Shell.V1.CloudShellService.Service do
 
   use GRPC.Service,
     name: "google.cloud.shell.v1.CloudShellService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetEnvironment,
       Google.Cloud.Shell.V1.GetEnvironmentRequest,

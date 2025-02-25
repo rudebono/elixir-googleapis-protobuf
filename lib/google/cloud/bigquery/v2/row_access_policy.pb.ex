@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ListRowAccessPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListRowAccessPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :row_access_policies, 1,
     repeated: true,
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetRowAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.CreateRowAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.UpdateRowAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DeleteRowAccessPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.BatchDeleteRowAccessPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.RowAccessPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :etag, 1, type: :string, deprecated: false
 
@@ -121,7 +121,7 @@ defmodule Google.Cloud.Bigquery.V2.RowAccessPolicyService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.RowAccessPolicyService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListRowAccessPolicies,
       Google.Cloud.Bigquery.V2.ListRowAccessPoliciesRequest,

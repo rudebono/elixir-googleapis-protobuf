@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.GetEncryptionSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.EncryptionSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.InitializeEncryptionSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :encryption_spec, 1,
     type: Google.Cloud.Dialogflow.V2beta1.EncryptionSpec,
@@ -29,13 +29,13 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.InitializeEncryptionSpecResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.InitializeEncryptionSpecMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :request, 4,
     type: Google.Cloud.Dialogflow.V2beta1.InitializeEncryptionSpecRequest,
@@ -47,7 +47,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.EncryptionSpecService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.EncryptionSpecService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetEncryptionSpec,
       Google.Cloud.Dialogflow.V2beta1.GetEncryptionSpecRequest,

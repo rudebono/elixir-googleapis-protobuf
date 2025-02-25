@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding.FindingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :FINDING_TYPE_UNSPECIFIED, 0
   field :MIXED_CONTENT, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Websecurityscanner.V1alpha.Finding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 

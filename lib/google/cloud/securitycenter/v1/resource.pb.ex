@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.CloudProvider do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :CLOUD_PROVIDER_UNSPECIFIED, 0
   field :GOOGLE_CLOUD_PLATFORM, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.ResourcePath.ResourcePathNodeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :RESOURCE_PATH_NODE_TYPE_UNSPECIFIED, 0
   field :GCP_ORGANIZATION, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :cloud_provider_metadata, 0
 
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AwsMetadata.AwsOrganization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
 end
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AwsMetadata.AwsOrganizationalUnit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AwsMetadata.AwsAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AwsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :organization, 2, type: Google.Cloud.Securitycenter.V1.AwsMetadata.AwsOrganization
 
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AzureMetadata.AzureManagementGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AzureMetadata.AzureSubscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :id, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AzureMetadata.AzureResourceGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.AzureMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :management_groups, 4,
     repeated: true,
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.ResourcePath.ResourcePathNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node_type, 1,
     type: Google.Cloud.Securitycenter.V1.ResourcePath.ResourcePathNodeType,
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.ResourcePath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :nodes, 1,
     repeated: true,

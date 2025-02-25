@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apihub.V1.GetStyleGuideRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Apihub.V1.UpdateStyleGuideRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :style_guide, 1,
     type: Google.Cloud.Apihub.V1.StyleGuide,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetStyleGuideContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Apihub.V1.LintSpecRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Apihub.V1.StyleGuideContents do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :contents, 1, type: :bytes, deprecated: false
   field :mime_type, 2, type: :string, json_name: "mimeType", deprecated: false
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Apihub.V1.StyleGuide do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :linter, 2, type: Google.Cloud.Apihub.V1.Linter, enum: true, deprecated: false
@@ -62,7 +62,7 @@ defmodule Google.Cloud.Apihub.V1.LintingService.Service do
 
   use GRPC.Service,
     name: "google.cloud.apihub.v1.LintingService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetStyleGuide,
       Google.Cloud.Apihub.V1.GetStyleGuideRequest,

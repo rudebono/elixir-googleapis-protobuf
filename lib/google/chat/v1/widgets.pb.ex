@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.WidgetMarkup.Icon do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :ICON_UNSPECIFIED, 0
   field :AIRPLANE, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.TextParagraph do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 1, type: :string
 end
@@ -47,7 +47,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.Button do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :type, 0
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.TextButton do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :text, 1, type: :string
   field :on_click, 2, type: Google.Chat.V1.WidgetMarkup.OnClick, json_name: "onClick"
@@ -74,7 +74,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.KeyValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :icons, 0
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :image_url, 1, type: :string, json_name: "imageUrl"
   field :on_click, 2, type: Google.Chat.V1.WidgetMarkup.OnClick, json_name: "onClick"
@@ -103,7 +103,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.ImageButton do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :icons, 0
 
@@ -116,7 +116,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.OnClick do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data, 0
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.OpenLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :url, 1, type: :string
 end
@@ -135,7 +135,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.FormAction.ActionParameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -144,7 +144,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup.FormAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action_method_name, 1, type: :string, json_name: "actionMethodName"
 
@@ -156,7 +156,7 @@ end
 defmodule Google.Chat.V1.WidgetMarkup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :data, 0
 

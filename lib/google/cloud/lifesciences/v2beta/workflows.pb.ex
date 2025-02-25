@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 4, type: :string
   field :pipeline, 1, type: Google.Cloud.Lifesciences.V2beta.Pipeline, deprecated: false
@@ -26,13 +26,13 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.RunPipelineResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Lifesciences.V2beta.Pipeline.EnvironmentEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Pipeline do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Cloud.Lifesciences.V2beta.Action
   field :resources, 2, type: Google.Cloud.Lifesciences.V2beta.Resources
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Action.EnvironmentEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Action.PortMappingsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Action.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :container_name, 1, type: :string, json_name: "containerName"
   field :image_uri, 2, type: :string, json_name: "imageUri", deprecated: false
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Secret do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key_name, 1, type: :string, json_name: "keyName"
   field :cipher_text, 2, type: :string, json_name: "cipherText"
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Mount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disk, 1, type: :string
   field :path, 2, type: :string
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Resources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :regions, 2, repeated: true, type: :string
   field :zones, 3, repeated: true, type: :string
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.VirtualMachine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
   field :preemptible, 2, type: :bool
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ServiceAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :email, 1, type: :string
   field :scopes, 2, repeated: true, type: :string
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Accelerator do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: :string
   field :count, 2, type: :int64
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Network do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :network, 1, type: :string
   field :use_private_address, 2, type: :bool, json_name: "usePrivateAddress"
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Disk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :size_gb, 2, type: :int32, json_name: "sizeGb"
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Volume do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :storage, 0
 
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.PersistentDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :size_gb, 1, type: :int32, json_name: "sizeGb"
   field :type, 2, type: :string
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ExistingDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disk, 1, type: :string
 end
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.NFSMount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target, 1, type: :string
 end
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Metadata.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -310,7 +310,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :pipeline, 1, type: Google.Cloud.Lifesciences.V2beta.Pipeline
 
@@ -329,7 +329,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :details, 0
 
@@ -383,7 +383,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.DelayedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cause, 1, type: :string
   field :metrics, 2, repeated: true, type: :string
@@ -392,7 +392,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.WorkerAssignedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :zone, 1, type: :string
   field :instance, 2, type: :string
@@ -402,7 +402,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.WorkerReleasedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :zone, 1, type: :string
   field :instance, 2, type: :string
@@ -411,7 +411,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.PullStartedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
 end
@@ -419,7 +419,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.PullStoppedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :image_uri, 1, type: :string, json_name: "imageUri"
 end
@@ -427,7 +427,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent.PortMappingsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :int32
@@ -436,7 +436,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStartedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
 
@@ -452,7 +452,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerStoppedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :exit_status, 2, type: :int32, json_name: "exitStatus"
@@ -462,7 +462,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.UnexpectedExitStatusEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
   field :exit_status, 2, type: :int32, json_name: "exitStatus"
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.ContainerKilledEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :action_id, 1, type: :int32, json_name: "actionId"
 end
@@ -479,7 +479,7 @@ end
 defmodule Google.Cloud.Lifesciences.V2beta.FailedEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :code, 1, type: Google.Rpc.Code, enum: true
   field :cause, 2, type: :string
@@ -490,7 +490,7 @@ defmodule Google.Cloud.Lifesciences.V2beta.WorkflowsServiceV2Beta.Service do
 
   use GRPC.Service,
     name: "google.cloud.lifesciences.v2beta.WorkflowsServiceV2Beta",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :RunPipeline,
       Google.Cloud.Lifesciences.V2beta.RunPipelineRequest,

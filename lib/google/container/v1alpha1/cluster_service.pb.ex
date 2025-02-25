@@ -1,7 +1,7 @@
 defmodule Google.Container.V1alpha1.NodeTaint.Effect do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :EFFECT_UNSPECIFIED, 0
   field :NO_SCHEDULE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Container.V1alpha1.NetworkPolicy.Provider do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROVIDER_UNSPECIFIED, 0
   field :CALICO, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Container.V1alpha1.Cluster.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Container.V1alpha1.Operation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :PENDING, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Container.V1alpha1.Operation.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CREATE_CLUSTER, 1
@@ -70,7 +70,7 @@ end
 defmodule Google.Container.V1alpha1.SetMasterAuthRequest.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNKNOWN, 0
   field :SET_PASSWORD, 1
@@ -81,7 +81,7 @@ end
 defmodule Google.Container.V1alpha1.NodePool.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -95,7 +95,7 @@ end
 defmodule Google.Container.V1alpha1.NodeConfig.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -104,7 +104,7 @@ end
 defmodule Google.Container.V1alpha1.NodeConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -113,7 +113,7 @@ end
 defmodule Google.Container.V1alpha1.NodeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :machine_type, 1, type: :string, json_name: "machineType"
   field :disk_size_gb, 2, type: :int32, json_name: "diskSizeGb"
@@ -143,7 +143,7 @@ end
 defmodule Google.Container.V1alpha1.NodeTaint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -153,7 +153,7 @@ end
 defmodule Google.Container.V1alpha1.MasterAuth do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -170,7 +170,7 @@ end
 defmodule Google.Container.V1alpha1.ClientCertificateConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :issue_client_certificate, 1, type: :bool, json_name: "issueClientCertificate"
 end
@@ -178,7 +178,7 @@ end
 defmodule Google.Container.V1alpha1.AddonsConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :http_load_balancing, 1,
     type: Google.Container.V1alpha1.HttpLoadBalancing,
@@ -200,7 +200,7 @@ end
 defmodule Google.Container.V1alpha1.HttpLoadBalancing do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disabled, 1, type: :bool
 end
@@ -208,7 +208,7 @@ end
 defmodule Google.Container.V1alpha1.HorizontalPodAutoscaling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disabled, 1, type: :bool
 end
@@ -216,7 +216,7 @@ end
 defmodule Google.Container.V1alpha1.KubernetesDashboard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disabled, 1, type: :bool
 end
@@ -224,7 +224,7 @@ end
 defmodule Google.Container.V1alpha1.NetworkPolicyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :disabled, 1, type: :bool
 end
@@ -232,7 +232,7 @@ end
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :cidr_block, 2, type: :string, json_name: "cidrBlock"
@@ -241,7 +241,7 @@ end
 defmodule Google.Container.V1alpha1.MasterAuthorizedNetworksConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 
@@ -254,7 +254,7 @@ end
 defmodule Google.Container.V1alpha1.NetworkPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :provider, 1, type: Google.Container.V1alpha1.NetworkPolicy.Provider, enum: true
   field :enabled, 2, type: :bool
@@ -263,7 +263,7 @@ end
 defmodule Google.Container.V1alpha1.IPAllocationPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :use_ip_aliases, 1, type: :bool, json_name: "useIpAliases"
   field :create_subnetwork, 2, type: :bool, json_name: "createSubnetwork"
@@ -281,7 +281,7 @@ end
 defmodule Google.Container.V1alpha1.PodSecurityPolicyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -289,7 +289,7 @@ end
 defmodule Google.Container.V1alpha1.Cluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :description, 2, type: :string
@@ -355,7 +355,7 @@ end
 defmodule Google.Container.V1alpha1.ClusterUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :desired_node_version, 4, type: :string, json_name: "desiredNodeVersion"
   field :desired_monitoring_service, 5, type: :string, json_name: "desiredMonitoringService"
@@ -387,7 +387,7 @@ end
 defmodule Google.Container.V1alpha1.Operation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :zone, 2, type: :string
@@ -410,7 +410,7 @@ end
 defmodule Google.Container.V1alpha1.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -421,7 +421,7 @@ end
 defmodule Google.Container.V1alpha1.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -432,7 +432,7 @@ end
 defmodule Google.Container.V1alpha1.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -444,7 +444,7 @@ end
 defmodule Google.Container.V1alpha1.UpdateNodePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -458,7 +458,7 @@ end
 defmodule Google.Container.V1alpha1.SetNodePoolAutoscalingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -471,7 +471,7 @@ end
 defmodule Google.Container.V1alpha1.SetLoggingServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -483,7 +483,7 @@ end
 defmodule Google.Container.V1alpha1.SetMonitoringServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -495,7 +495,7 @@ end
 defmodule Google.Container.V1alpha1.SetAddonsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -507,7 +507,7 @@ end
 defmodule Google.Container.V1alpha1.SetLocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -519,7 +519,7 @@ end
 defmodule Google.Container.V1alpha1.UpdateMasterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -531,7 +531,7 @@ end
 defmodule Google.Container.V1alpha1.SetMasterAuthRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -544,7 +544,7 @@ end
 defmodule Google.Container.V1alpha1.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -555,7 +555,7 @@ end
 defmodule Google.Container.V1alpha1.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -565,7 +565,7 @@ end
 defmodule Google.Container.V1alpha1.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Container.V1alpha1.Cluster
   field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
@@ -574,7 +574,7 @@ end
 defmodule Google.Container.V1alpha1.GetOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -585,7 +585,7 @@ end
 defmodule Google.Container.V1alpha1.ListOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -595,7 +595,7 @@ end
 defmodule Google.Container.V1alpha1.CancelOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -606,7 +606,7 @@ end
 defmodule Google.Container.V1alpha1.ListOperationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Container.V1alpha1.Operation
   field :missing_zones, 2, repeated: true, type: :string, json_name: "missingZones"
@@ -615,7 +615,7 @@ end
 defmodule Google.Container.V1alpha1.GetServerConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -625,7 +625,7 @@ end
 defmodule Google.Container.V1alpha1.ServerConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :default_cluster_version, 1, type: :string, json_name: "defaultClusterVersion"
   field :valid_node_versions, 3, repeated: true, type: :string, json_name: "validNodeVersions"
@@ -637,7 +637,7 @@ end
 defmodule Google.Container.V1alpha1.CreateNodePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -649,7 +649,7 @@ end
 defmodule Google.Container.V1alpha1.DeleteNodePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -661,7 +661,7 @@ end
 defmodule Google.Container.V1alpha1.ListNodePoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -672,7 +672,7 @@ end
 defmodule Google.Container.V1alpha1.GetNodePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -684,7 +684,7 @@ end
 defmodule Google.Container.V1alpha1.NodePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
   field :config, 2, type: Google.Container.V1alpha1.NodeConfig
@@ -701,7 +701,7 @@ end
 defmodule Google.Container.V1alpha1.NodeManagement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_upgrade, 1, type: :bool, json_name: "autoUpgrade"
   field :auto_repair, 2, type: :bool, json_name: "autoRepair"
@@ -714,7 +714,7 @@ end
 defmodule Google.Container.V1alpha1.AutoUpgradeOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :auto_upgrade_start_time, 1, type: :string, json_name: "autoUpgradeStartTime"
   field :description, 2, type: :string
@@ -723,7 +723,7 @@ end
 defmodule Google.Container.V1alpha1.MaintenancePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :window, 1, type: Google.Container.V1alpha1.MaintenanceWindow
 end
@@ -731,7 +731,7 @@ end
 defmodule Google.Container.V1alpha1.MaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :policy, 0
 
@@ -744,7 +744,7 @@ end
 defmodule Google.Container.V1alpha1.DailyMaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :start_time, 2, type: :string, json_name: "startTime"
   field :duration, 3, type: :string
@@ -753,7 +753,7 @@ end
 defmodule Google.Container.V1alpha1.SetNodePoolManagementRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -766,7 +766,7 @@ end
 defmodule Google.Container.V1alpha1.SetNodePoolSizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -779,7 +779,7 @@ end
 defmodule Google.Container.V1alpha1.RollbackNodePoolUpgradeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -791,7 +791,7 @@ end
 defmodule Google.Container.V1alpha1.ListNodePoolsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :node_pools, 1,
     repeated: true,
@@ -802,7 +802,7 @@ end
 defmodule Google.Container.V1alpha1.NodePoolAutoscaling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :min_node_count, 2, type: :int32, json_name: "minNodeCount"
@@ -812,7 +812,7 @@ end
 defmodule Google.Container.V1alpha1.SetLabelsRequest.ResourceLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -821,7 +821,7 @@ end
 defmodule Google.Container.V1alpha1.SetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -840,7 +840,7 @@ end
 defmodule Google.Container.V1alpha1.SetLegacyAbacRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -852,7 +852,7 @@ end
 defmodule Google.Container.V1alpha1.StartIPRotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -863,7 +863,7 @@ end
 defmodule Google.Container.V1alpha1.CompleteIPRotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -874,7 +874,7 @@ end
 defmodule Google.Container.V1alpha1.AcceleratorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :accelerator_count, 1, type: :int64, json_name: "acceleratorCount"
   field :accelerator_type, 2, type: :string, json_name: "acceleratorType"
@@ -883,7 +883,7 @@ end
 defmodule Google.Container.V1alpha1.SetNetworkPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -899,7 +899,7 @@ end
 defmodule Google.Container.V1alpha1.SetMaintenancePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :zone, 2, type: :string
@@ -917,7 +917,7 @@ defmodule Google.Container.V1alpha1.ClusterManager.Service do
 
   use GRPC.Service,
     name: "google.container.v1alpha1.ClusterManager",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListClusters,
       Google.Container.V1alpha1.ListClustersRequest,

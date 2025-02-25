@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Hub do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.Spoke do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListHubsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :hubs, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1alpha1.Hub
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetHubRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateHubRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :hub_id, 2, type: :string, json_name: "hubId", deprecated: false
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateHubRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteHubRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.ListSpokesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :spokes, 1, repeated: true, type: Google.Cloud.Networkconnectivity.V1alpha1.Spoke
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.GetSpokeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.CreateSpokeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :spoke_id, 2, type: :string, json_name: "spokeId", deprecated: false
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.UpdateSpokeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.DeleteSpokeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1alpha1.RouterApplianceInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :virtual_machine, 1, type: :string, json_name: "virtualMachine", deprecated: false
   field :ip_address, 3, type: :string, json_name: "ipAddress"
@@ -236,7 +236,7 @@ defmodule Google.Cloud.Networkconnectivity.V1alpha1.HubService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1alpha1.HubService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListHubs,
       Google.Cloud.Networkconnectivity.V1alpha1.ListHubsRequest,

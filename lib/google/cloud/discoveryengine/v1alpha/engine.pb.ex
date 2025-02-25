@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.MediaRecommendationEngineConfig.TrainingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :TRAINING_STATE_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.RecommendationMetadata.ServingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.RecommendationMetadata.DataState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :DATA_STATE_UNSPECIFIED, 0
   field :DATA_OK, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.SearchEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :search_tier, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.SearchTier,
@@ -49,13 +49,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.SimilarDocumentsEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.MediaRecommendationEngineConfig.OptimizationObjectiveConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :target_field, 1, type: :string, json_name: "targetField", deprecated: false
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.MediaRecommendationEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
   field :optimization_objective, 2, type: :string, json_name: "optimizationObjective"
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineConfig.AgentCreationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :business, 1, type: :string
   field :default_language_code, 2, type: :string, json_name: "defaultLanguageCode"
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :agent_creation_config, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineConfig.AgentCreationConfig,
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.CommonConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :company_name, 1, type: :string, json_name: "companyName"
 end
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.RecommendationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :serving_state, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.Engine.RecommendationMetadata.ServingState,
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine.ChatEngineMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dialogflow_agent, 1, type: :string, json_name: "dialogflowAgent"
 end
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Engine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :engine_config, 0
 

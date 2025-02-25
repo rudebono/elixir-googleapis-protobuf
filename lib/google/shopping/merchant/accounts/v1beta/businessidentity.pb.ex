@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentity.PromotionsConsent do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :PROMOTIONS_CONSENT_UNSPECIFIED, 0
   field :PROMOTIONS_CONSENT_GIVEN, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentity.IdentityAttribute.IdentityDeclaration do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :IDENTITY_DECLARATION_UNSPECIFIED, 0
   field :SELF_IDENTIFIES_AS, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentity.IdentityAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :identity_declaration, 1,
     type:
@@ -34,7 +34,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetBusinessIdentityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateBusinessIdentityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :business_identity, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentity,
@@ -99,7 +99,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.BusinessIdentityService.Servi
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.BusinessIdentityService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :GetBusinessIdentity,
       Google.Shopping.Merchant.Accounts.V1beta.GetBusinessIdentityRequest,

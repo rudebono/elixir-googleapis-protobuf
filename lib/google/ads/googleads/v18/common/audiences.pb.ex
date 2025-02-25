@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.AudienceDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :dimension, 0
 
@@ -27,7 +27,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AudienceExclusionDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :exclusions, 1, repeated: true, type: Google.Ads.Googleads.V18.Common.ExclusionSegment
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.ExclusionSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :segment, 0
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AgeDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :age_ranges, 1,
     repeated: true,
@@ -64,7 +64,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AgeSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :min_age, 1, proto3_optional: true, type: :int32, json_name: "minAge"
   field :max_age, 2, proto3_optional: true, type: :int32, json_name: "maxAge"
@@ -73,7 +73,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.GenderDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :genders, 1,
     repeated: true,
@@ -89,7 +89,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.HouseholdIncomeDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :income_ranges, 1,
     repeated: true,
@@ -106,7 +106,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.ParentalStatusDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parental_statuses, 1,
     repeated: true,
@@ -123,7 +123,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AudienceSegmentDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :segments, 1, repeated: true, type: Google.Ads.Googleads.V18.Common.AudienceSegment
 end
@@ -131,7 +131,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.AudienceSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :segment, 0
 
@@ -164,7 +164,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :user_list, 1, proto3_optional: true, type: :string, json_name: "userList"
 end
@@ -172,7 +172,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserInterestSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :user_interest_category, 1,
     proto3_optional: true,
@@ -183,7 +183,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LifeEventSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :life_event, 1,
     proto3_optional: true,
@@ -195,7 +195,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DetailedDemographicSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :detailed_demographic, 1,
     proto3_optional: true,
@@ -207,7 +207,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CustomAudienceSegment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :custom_audience, 1, proto3_optional: true, type: :string, json_name: "customAudience"
 end

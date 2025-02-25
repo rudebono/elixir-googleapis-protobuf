@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.ListCatalogsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ListCatalogsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :catalogs, 1, repeated: true, type: Google.Cloud.Retail.V2alpha.Catalog
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateCatalogRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :catalog, 1, type: Google.Cloud.Retail.V2alpha.Catalog, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.SetDefaultBranchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :catalog, 1, type: :string, deprecated: false
   field :branch_id, 2, type: :string, json_name: "branchId", deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetDefaultBranchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :catalog, 1, type: :string, deprecated: false
 end
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetDefaultBranchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :branch, 1, type: :string, deprecated: false
   field :set_time, 2, type: Google.Protobuf.Timestamp, json_name: "setTime"
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetCompletionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateCompletionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :completion_config, 1,
     type: Google.Cloud.Retail.V2alpha.CompletionConfig,
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetAttributesConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateAttributesConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attributes_config, 1,
     type: Google.Cloud.Retail.V2alpha.AttributesConfig,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AddCatalogAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.RemoveCatalogAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
   field :key, 2, type: :string, deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.BatchRemoveCatalogAttributesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.BatchRemoveCatalogAttributesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :deleted_catalog_attributes, 1,
     repeated: true,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ReplaceCatalogAttributeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.0", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :attributes_config, 1, type: :string, json_name: "attributesConfig", deprecated: false
 
@@ -169,7 +169,7 @@ defmodule Google.Cloud.Retail.V2alpha.CatalogService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.CatalogService",
-    protoc_gen_elixir_version: "0.14.0"
+    protoc_gen_elixir_version: "0.14.1"
 
   rpc :ListCatalogs,
       Google.Cloud.Retail.V2alpha.ListCatalogsRequest,
