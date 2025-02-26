@@ -357,7 +357,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
   field :populate_data_store_connection_signals, 25,
     type: :bool,
     json_name: "populateDataStoreConnectionSignals",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SearchConfig do

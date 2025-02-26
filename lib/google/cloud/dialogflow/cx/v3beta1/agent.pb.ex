@@ -179,6 +179,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.ClientCertificateSettings,
     json_name: "clientCertificateSettings",
     deprecated: false
+
+  field :satisfies_pzs, 45,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 46,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListAgentsRequest do

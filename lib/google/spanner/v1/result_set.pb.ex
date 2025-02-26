@@ -28,6 +28,8 @@ defmodule Google.Spanner.V1.PartialResultSet do
     type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
     json_name: "precommitToken",
     deprecated: false
+
+  field :last, 9, type: :bool, deprecated: false
 end
 
 defmodule Google.Spanner.V1.ResultSetMetadata do

@@ -67,6 +67,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Instruction do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :guidelines, 1, type: :string
   field :steps, 2, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.Step
 end
 
@@ -125,6 +126,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
   field :llm_model_settings, 14,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings,
     json_name: "llmModelSettings",
+    deprecated: false
+
+  field :speech_settings, 20,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.SpeechSettings,
+    json_name: "speechSettings",
     deprecated: false
 end
 

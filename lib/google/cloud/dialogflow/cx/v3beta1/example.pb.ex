@@ -203,6 +203,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolUse do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :tool, 1, type: :string, deprecated: false
+  field :display_name, 8, type: :string, json_name: "displayName", deprecated: false
   field :action, 2, type: :string, deprecated: false
 
   field :input_action_parameters, 5,
@@ -222,6 +223,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInvocation do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :playbook, 1, type: :string, deprecated: false
+  field :display_name, 5, type: :string, json_name: "displayName", deprecated: false
 
   field :playbook_input, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookInput,
@@ -246,6 +248,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FlowInvocation do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :flow, 1, type: :string, deprecated: false
+  field :display_name, 7, type: :string, json_name: "displayName", deprecated: false
 
   field :input_action_parameters, 5,
     type: Google.Protobuf.Struct,
