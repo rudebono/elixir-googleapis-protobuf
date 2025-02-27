@@ -59,8 +59,8 @@ defmodule Google.Cloud.Sql.V1.GenerateEphemeralCertRequest do
 
   field :instance, 1, type: :string
   field :project, 2, type: :string
-  field :public_key, 3, type: :string, json_name: "publicKey"
-  field :access_token, 4, type: :string, json_name: "accessToken", deprecated: false
+  field :public_key, 3, type: :string
+  field :access_token, 4, type: :string, deprecated: false
   field :read_time, 7, type: Google.Protobuf.Timestamp, json_name: "readTime", deprecated: false
 
   field :valid_duration, 12,

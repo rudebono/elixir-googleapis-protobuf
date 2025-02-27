@@ -597,8 +597,8 @@ defmodule Google.Cloud.Sql.V1.SslCertsCreateEphemeralRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :public_key, 1, type: :string, json_name: "publicKey"
-  field :access_token, 2, type: :string, json_name: "accessToken"
+  field :public_key, 1, type: :string
+  field :access_token, 2, type: :string
 end
 
 defmodule Google.Cloud.Sql.V1.InstancesImportRequest do
