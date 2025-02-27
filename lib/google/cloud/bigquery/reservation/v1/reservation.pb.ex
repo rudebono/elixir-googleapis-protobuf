@@ -47,6 +47,7 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.JobType do
   field :QUERY, 2
   field :ML_EXTERNAL, 3
   field :BACKGROUND, 4
+  field :CONTINUOUS, 6
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment.State do
@@ -66,6 +67,24 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.Autoscale do
 
   field :current_slots, 1, type: :int64, json_name: "currentSlots", deprecated: false
   field :max_slots, 2, type: :int64, json_name: "maxSlots"
+end
+
+defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.ReplicationStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :error, 1, type: Google.Rpc.Status, deprecated: false
+
+  field :last_error_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastErrorTime",
+    deprecated: false
+
+  field :last_replication_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastReplicationTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
@@ -97,6 +116,11 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   field :original_primary_location, 20,
     type: :string,
     json_name: "originalPrimaryLocation",
+    deprecated: false
+
+  field :replication_status, 24,
+    type: Google.Cloud.Bigquery.Reservation.V1.Reservation.ReplicationStatus,
+    json_name: "replicationStatus",
     deprecated: false
 end
 
@@ -318,6 +342,11 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Assignment do
   field :state, 6,
     type: Google.Cloud.Bigquery.Reservation.V1.Assignment.State,
     enum: true,
+    deprecated: false
+
+  field :enable_gemini_in_bigquery, 10,
+    type: :bool,
+    json_name: "enableGeminiInBigquery",
     deprecated: false
 end
 

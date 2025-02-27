@@ -132,6 +132,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.SpeechSettings,
     json_name: "speechSettings",
     deprecated: false
+
+  field :handlers, 16,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Handler,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookVersionRequest do
@@ -204,6 +209,44 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePlaybookVersionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Handler.EventHandler do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :event, 1, type: :string, deprecated: false
+  field :condition, 3, type: :string, deprecated: false
+  field :fulfillment, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Handler.LifecycleHandler do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :lifecycle_stage, 1, type: :string, json_name: "lifecycleStage", deprecated: false
+  field :condition, 2, type: :string, deprecated: false
+  field :fulfillment, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Handler do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :handler, 0
+
+  field :event_handler, 1,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Handler.EventHandler,
+    json_name: "eventHandler",
+    oneof: 0
+
+  field :lifecycle_handler, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Handler.LifecycleHandler,
+    json_name: "lifecycleHandler",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbooks.Service do

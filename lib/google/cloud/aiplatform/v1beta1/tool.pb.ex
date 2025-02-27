@@ -73,6 +73,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
     json_name: "googleSearchRetrieval",
     deprecated: false
 
+  field :enterprise_web_search, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch,
+    json_name: "enterpriseWebSearch",
+    deprecated: false
+
   field :code_execution, 4,
     type: Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution,
     json_name: "codeExecution",
@@ -244,6 +249,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
   field :dynamic_retrieval_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig,
     json_name: "dynamicRetrievalConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig do
