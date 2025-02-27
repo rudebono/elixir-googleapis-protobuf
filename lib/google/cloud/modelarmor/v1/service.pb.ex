@@ -247,6 +247,7 @@ defmodule Google.Cloud.Modelarmor.V1.FloorSetting do
     deprecated: false
 
   field :enable_floor_setting_enforcement, 5,
+    proto3_optional: true,
     type: :bool,
     json_name: "enableFloorSettingEnforcement",
     deprecated: false
@@ -592,9 +593,9 @@ defmodule Google.Cloud.Modelarmor.V1.FilterResult do
     json_name: "maliciousUriFilterResult",
     oneof: 0
 
-  field :csam_filter_filter_result, 5,
+  field :csam_filter_result, 5,
     type: Google.Cloud.Modelarmor.V1.CsamFilterResult,
-    json_name: "csamFilterFilterResult",
+    json_name: "csamFilterResult",
     oneof: 0
 
   field :virus_scan_filter_result, 6,
@@ -760,6 +761,7 @@ defmodule Google.Cloud.Modelarmor.V1.SdpDeidentifyResult do
 
   field :data, 4, type: Google.Cloud.Modelarmor.V1.DataItem
   field :transformed_bytes, 5, type: :int64, json_name: "transformedBytes"
+  field :info_types, 6, repeated: true, type: :string, json_name: "infoTypes"
 end
 
 defmodule Google.Cloud.Modelarmor.V1.SdpFinding.SdpFindingLocation do

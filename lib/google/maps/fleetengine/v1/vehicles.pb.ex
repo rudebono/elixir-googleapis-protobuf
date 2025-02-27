@@ -103,6 +103,13 @@ defmodule Maps.Fleetengine.V1.Vehicle do
     deprecated: false
 
   field :last_location, 5, type: Maps.Fleetengine.V1.VehicleLocation, json_name: "lastLocation"
+
+  field :past_locations, 30,
+    repeated: true,
+    type: Maps.Fleetengine.V1.VehicleLocation,
+    json_name: "pastLocations",
+    deprecated: false
+
   field :maximum_capacity, 6, type: :int32, json_name: "maximumCapacity"
   field :attributes, 8, repeated: true, type: Maps.Fleetengine.V1.VehicleAttribute
 

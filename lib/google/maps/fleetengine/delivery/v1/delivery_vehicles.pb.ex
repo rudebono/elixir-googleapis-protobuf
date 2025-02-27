@@ -32,6 +32,12 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicle do
     type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation,
     json_name: "lastLocation"
 
+  field :past_locations, 12,
+    repeated: true,
+    type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation,
+    json_name: "pastLocations",
+    deprecated: false
+
   field :navigation_status, 3,
     type: Maps.Fleetengine.Delivery.V1.DeliveryVehicleNavigationStatus,
     json_name: "navigationStatus",

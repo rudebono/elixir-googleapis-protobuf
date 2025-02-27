@@ -106,6 +106,15 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction.MissingTra
   field :score, 2, type: :float
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction.StepMetrics do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :latency, 2, type: Google.Protobuf.Duration
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction do
   @moduledoc false
 
@@ -123,9 +132,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction do
   field :response_utterances, 5, type: :string, json_name: "responseUtterances"
   field :create_time, 6, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
+  field :answer_feedback, 7,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.AnswerFeedback,
+    json_name: "answerFeedback"
+
   field :missing_transition, 8,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction.MissingTransition,
     json_name: "missingTransition"
+
+  field :step_metrics, 9,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.Interaction.StepMetrics,
+    json_name: "stepMetrics"
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Conversation.FlowVersionsEntry do

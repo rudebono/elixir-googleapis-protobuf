@@ -9,6 +9,16 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreType do
   field :STRUCTURED, 3
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DocumentProcessingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DOCUMENT_PROCESSING_MODE_UNSPECIFIED, 0
+  field :DOCUMENTS, 1
+  field :CHUNKS, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.GroundingSignals.GroundingDecision do
   @moduledoc false
 
@@ -64,6 +74,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnection do
     enum: true
 
   field :data_store, 2, type: :string, json_name: "dataStore"
+
+  field :document_processing_mode, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.DocumentProcessingMode,
+    json_name: "documentProcessingMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.RewriterModelCallSignals do

@@ -38,6 +38,12 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionCallingConfig.Mode do
   field :NONE, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Tool.GoogleSearch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Tool.CodeExecution do
   @moduledoc false
 
@@ -57,9 +63,19 @@ defmodule Google.Cloud.Aiplatform.V1.Tool do
 
   field :retrieval, 2, type: Google.Cloud.Aiplatform.V1.Retrieval, deprecated: false
 
+  field :google_search, 7,
+    type: Google.Cloud.Aiplatform.V1.Tool.GoogleSearch,
+    json_name: "googleSearch",
+    deprecated: false
+
   field :google_search_retrieval, 3,
     type: Google.Cloud.Aiplatform.V1.GoogleSearchRetrieval,
     json_name: "googleSearchRetrieval",
+    deprecated: false
+
+  field :enterprise_web_search, 6,
+    type: Google.Cloud.Aiplatform.V1.EnterpriseWebSearch,
+    json_name: "enterpriseWebSearch",
     deprecated: false
 
   field :code_execution, 4,
@@ -202,6 +218,12 @@ defmodule Google.Cloud.Aiplatform.V1.GoogleSearchRetrieval do
   field :dynamic_retrieval_config, 2,
     type: Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig,
     json_name: "dynamicRetrievalConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.EnterpriseWebSearch do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DynamicRetrievalConfig do

@@ -47,7 +47,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Intent.TrainingPhrase do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :id, 1, type: :string
+  field :id, 1, type: :string, deprecated: false
 
   field :parts, 2,
     repeated: true,
