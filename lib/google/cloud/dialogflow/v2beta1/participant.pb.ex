@@ -430,7 +430,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
 
   field :enable_partial_automated_agent_reply, 12,
     type: :bool,
-    json_name: "enablePartialAutomatedAgentReply"
+    json_name: "enablePartialAutomatedAgentReply",
+    deprecated: false
 
   field :enable_debugging_info, 19, type: :bool, json_name: "enableDebuggingInfo"
 end

@@ -22,6 +22,15 @@ defmodule Maps.Fleetengine.Delivery.V1.GetDeliveryVehicleRequest do
   field :name, 3, type: :string, deprecated: false
 end
 
+defmodule Maps.Fleetengine.Delivery.V1.DeleteDeliveryVehicleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
+  field :name, 2, type: :string, deprecated: false
+end
+
 defmodule Maps.Fleetengine.Delivery.V1.ListDeliveryVehiclesRequest do
   @moduledoc false
 
@@ -109,6 +118,15 @@ defmodule Maps.Fleetengine.Delivery.V1.GetTaskRequest do
   field :name, 3, type: :string, deprecated: false
 end
 
+defmodule Maps.Fleetengine.Delivery.V1.DeleteTaskRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.Delivery.V1.DeliveryRequestHeader, deprecated: false
+  field :name, 2, type: :string, deprecated: false
+end
+
 defmodule Maps.Fleetengine.Delivery.V1.UpdateTaskRequest do
   @moduledoc false
 
@@ -169,6 +187,10 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
       Maps.Fleetengine.Delivery.V1.GetDeliveryVehicleRequest,
       Maps.Fleetengine.Delivery.V1.DeliveryVehicle
 
+  rpc :DeleteDeliveryVehicle,
+      Maps.Fleetengine.Delivery.V1.DeleteDeliveryVehicleRequest,
+      Google.Protobuf.Empty
+
   rpc :UpdateDeliveryVehicle,
       Maps.Fleetengine.Delivery.V1.UpdateDeliveryVehicleRequest,
       Maps.Fleetengine.Delivery.V1.DeliveryVehicle
@@ -182,6 +204,8 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryService.Service do
       Maps.Fleetengine.Delivery.V1.Task
 
   rpc :GetTask, Maps.Fleetengine.Delivery.V1.GetTaskRequest, Maps.Fleetengine.Delivery.V1.Task
+
+  rpc :DeleteTask, Maps.Fleetengine.Delivery.V1.DeleteTaskRequest, Google.Protobuf.Empty
 
   rpc :UpdateTask,
       Maps.Fleetengine.Delivery.V1.UpdateTaskRequest,
