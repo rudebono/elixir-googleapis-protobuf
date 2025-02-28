@@ -59,6 +59,15 @@ defmodule Maps.Fleetengine.V1.GetVehicleRequest do
   field :waypoints_version, 5, type: Google.Protobuf.Timestamp, json_name: "waypointsVersion"
 end
 
+defmodule Maps.Fleetengine.V1.DeleteVehicleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :name, 2, type: :string, deprecated: false
+end
+
 defmodule Maps.Fleetengine.V1.UpdateVehicleRequest do
   @moduledoc false
 
@@ -307,6 +316,8 @@ defmodule Maps.Fleetengine.V1.VehicleService.Service do
   rpc :CreateVehicle, Maps.Fleetengine.V1.CreateVehicleRequest, Maps.Fleetengine.V1.Vehicle
 
   rpc :GetVehicle, Maps.Fleetengine.V1.GetVehicleRequest, Maps.Fleetengine.V1.Vehicle
+
+  rpc :DeleteVehicle, Maps.Fleetengine.V1.DeleteVehicleRequest, Google.Protobuf.Empty
 
   rpc :UpdateVehicle, Maps.Fleetengine.V1.UpdateVehicleRequest, Maps.Fleetengine.V1.Vehicle
 

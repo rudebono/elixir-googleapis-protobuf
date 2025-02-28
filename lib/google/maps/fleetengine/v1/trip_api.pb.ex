@@ -49,6 +49,15 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
     json_name: "remainingWaypointsRouteVersion"
 end
 
+defmodule Maps.Fleetengine.V1.DeleteTripRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
+  field :name, 2, type: :string, deprecated: false
+end
+
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
   @moduledoc false
 
@@ -111,6 +120,8 @@ defmodule Maps.Fleetengine.V1.TripService.Service do
   rpc :CreateTrip, Maps.Fleetengine.V1.CreateTripRequest, Maps.Fleetengine.V1.Trip
 
   rpc :GetTrip, Maps.Fleetengine.V1.GetTripRequest, Maps.Fleetengine.V1.Trip
+
+  rpc :DeleteTrip, Maps.Fleetengine.V1.DeleteTripRequest, Google.Protobuf.Empty
 
   rpc :ReportBillableTrip, Maps.Fleetengine.V1.ReportBillableTripRequest, Google.Protobuf.Empty
 
