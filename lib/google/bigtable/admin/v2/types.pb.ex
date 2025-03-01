@@ -66,7 +66,16 @@ defmodule Google.Bigtable.Admin.V2.Type.Int64.Encoding.BigEndianBytes do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :bytes_type, 1, type: Google.Bigtable.Admin.V2.Type.Bytes, json_name: "bytesType"
+  field :bytes_type, 1,
+    type: Google.Bigtable.Admin.V2.Type.Bytes,
+    json_name: "bytesType",
+    deprecated: true
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.Int64.Encoding.OrderedCodeBytes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Bigtable.Admin.V2.Type.Int64.Encoding do
@@ -79,6 +88,11 @@ defmodule Google.Bigtable.Admin.V2.Type.Int64.Encoding do
   field :big_endian_bytes, 1,
     type: Google.Bigtable.Admin.V2.Type.Int64.Encoding.BigEndianBytes,
     json_name: "bigEndianBytes",
+    oneof: 0
+
+  field :ordered_code_bytes, 2,
+    type: Google.Bigtable.Admin.V2.Type.Int64.Encoding.OrderedCodeBytes,
+    json_name: "orderedCodeBytes",
     oneof: 0
 end
 
@@ -108,10 +122,25 @@ defmodule Google.Bigtable.Admin.V2.Type.Float64 do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Bigtable.Admin.V2.Type.Timestamp.Encoding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :encoding, 0
+
+  field :unix_micros_int64, 1,
+    type: Google.Bigtable.Admin.V2.Type.Int64.Encoding,
+    json_name: "unixMicrosInt64",
+    oneof: 0
+end
+
 defmodule Google.Bigtable.Admin.V2.Type.Timestamp do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :encoding, 1, type: Google.Bigtable.Admin.V2.Type.Timestamp.Encoding
 end
 
 defmodule Google.Bigtable.Admin.V2.Type.Date do
@@ -129,12 +158,53 @@ defmodule Google.Bigtable.Admin.V2.Type.Struct.Field do
   field :type, 2, type: Google.Bigtable.Admin.V2.Type
 end
 
+defmodule Google.Bigtable.Admin.V2.Type.Struct.Encoding.Singleton do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.Struct.Encoding.DelimitedBytes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :delimiter, 1, type: :bytes
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.Struct.Encoding.OrderedCodeBytes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.Struct.Encoding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :encoding, 0
+
+  field :singleton, 1, type: Google.Bigtable.Admin.V2.Type.Struct.Encoding.Singleton, oneof: 0
+
+  field :delimited_bytes, 2,
+    type: Google.Bigtable.Admin.V2.Type.Struct.Encoding.DelimitedBytes,
+    json_name: "delimitedBytes",
+    oneof: 0
+
+  field :ordered_code_bytes, 3,
+    type: Google.Bigtable.Admin.V2.Type.Struct.Encoding.OrderedCodeBytes,
+    json_name: "orderedCodeBytes",
+    oneof: 0
+end
+
 defmodule Google.Bigtable.Admin.V2.Type.Struct do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Bigtable.Admin.V2.Type.Struct.Field
+  field :encoding, 2, type: Google.Bigtable.Admin.V2.Type.Struct.Encoding
 end
 
 defmodule Google.Bigtable.Admin.V2.Type.Array do

@@ -210,6 +210,8 @@ defmodule Google.Bigtable.Admin.V2.Table do
     type: Google.Bigtable.Admin.V2.Table.AutomatedBackupPolicy,
     json_name: "automatedBackupPolicy",
     oneof: 0
+
+  field :row_key_schema, 15, type: Google.Bigtable.Admin.V2.Type.Struct, json_name: "rowKeySchema"
 end
 
 defmodule Google.Bigtable.Admin.V2.AuthorizedView.FamilySubsets do
