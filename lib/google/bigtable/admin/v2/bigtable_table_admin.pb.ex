@@ -127,6 +127,8 @@ defmodule Google.Bigtable.Admin.V2.UpdateTableRequest do
     type: Google.Protobuf.FieldMask,
     json_name: "updateMask",
     deprecated: false
+
+  field :ignore_warnings, 3, type: :bool, json_name: "ignoreWarnings", deprecated: false
 end
 
 defmodule Google.Bigtable.Admin.V2.UpdateTableMetadata do

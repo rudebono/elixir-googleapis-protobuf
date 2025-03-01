@@ -71,6 +71,14 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.DataEncryptionState do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName", deprecated: false
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.Repository.GitRemoteSettings.SshAuthenticationConfig do
   @moduledoc false
 
@@ -134,6 +142,12 @@ defmodule Google.Cloud.Dataform.V1beta1.Repository do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
   field :display_name, 8, type: :string, json_name: "displayName", deprecated: false
 
   field :git_remote_settings, 2,
@@ -163,6 +177,18 @@ defmodule Google.Cloud.Dataform.V1beta1.Repository do
     deprecated: false
 
   field :service_account, 10, type: :string, json_name: "serviceAccount", deprecated: false
+  field :kms_key_name, 11, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :data_encryption_state, 12,
+    type: Google.Cloud.Dataform.V1beta1.DataEncryptionState,
+    json_name: "dataEncryptionState",
+    deprecated: false
+
+  field :internal_metadata, 15,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ListRepositoriesRequest do
@@ -224,7 +250,7 @@ defmodule Google.Cloud.Dataform.V1beta1.DeleteRepositoryRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :force, 2, type: :bool
+  field :force, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperation.WriteFile do
@@ -291,7 +317,16 @@ defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest do
     repeated: true,
     type: Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperationsEntry,
     json_name: "fileOperations",
-    map: true
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :commit_sha, 1, type: :string, json_name: "commitSha"
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ReadRepositoryFileRequest do
@@ -417,6 +452,22 @@ defmodule Google.Cloud.Dataform.V1beta1.Workspace do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :data_encryption_state, 2,
+    type: Google.Cloud.Dataform.V1beta1.DataEncryptionState,
+    json_name: "dataEncryptionState",
+    deprecated: false
+
+  field :internal_metadata, 5,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkspacesRequest do
@@ -486,6 +537,12 @@ defmodule Google.Cloud.Dataform.V1beta1.PullGitCommitsRequest do
   field :author, 3, type: Google.Cloud.Dataform.V1beta1.CommitAuthor, deprecated: false
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.PullGitCommitsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.PushGitCommitsRequest do
   @moduledoc false
 
@@ -493,6 +550,12 @@ defmodule Google.Cloud.Dataform.V1beta1.PushGitCommitsRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :remote_branch, 2, type: :string, json_name: "remoteBranch", deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.PushGitCommitsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesRequest do
@@ -512,7 +575,8 @@ defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse.Uncommitted
 
   field :state, 2,
     type: Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse.UncommittedFileChange.State,
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse do
@@ -555,6 +619,12 @@ defmodule Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesRequest do
   field :paths, 3, repeated: true, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesRequest do
   @moduledoc false
 
@@ -563,6 +633,12 @@ defmodule Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesRequest do
   field :name, 1, type: :string, deprecated: false
   field :paths, 2, repeated: true, type: :string, deprecated: false
   field :clean, 3, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileDiffRequest do
@@ -617,6 +693,57 @@ defmodule Google.Cloud.Dataform.V1beta1.DirectoryEntry do
   field :directory, 2, type: :string, oneof: 0
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.SearchFilesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :workspace, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.SearchFilesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :search_results, 1,
+    repeated: true,
+    type: Google.Cloud.Dataform.V1beta1.SearchResult,
+    json_name: "searchResults"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.SearchResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :entry, 0
+
+  field :file, 1, type: Google.Cloud.Dataform.V1beta1.FileSearchResult, oneof: 0
+  field :directory, 2, type: Google.Cloud.Dataform.V1beta1.DirectorySearchResult, oneof: 0
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.FileSearchResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :path, 1, type: :string
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.DirectorySearchResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :path, 1, type: :string
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.MakeDirectoryRequest do
   @moduledoc false
 
@@ -639,6 +766,12 @@ defmodule Google.Cloud.Dataform.V1beta1.RemoveDirectoryRequest do
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.RemoveDirectoryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.MoveDirectoryRequest do
@@ -664,6 +797,7 @@ defmodule Google.Cloud.Dataform.V1beta1.ReadFileRequest do
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
+  field :revision, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ReadFileResponse do
@@ -681,6 +815,12 @@ defmodule Google.Cloud.Dataform.V1beta1.RemoveFileRequest do
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.RemoveFileResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.MoveFileRequest do
@@ -736,8 +876,6 @@ defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig.ScheduledReleaseRecord do
 
   oneof :result, 0
 
-  field :release_time, 1, type: Google.Protobuf.Timestamp, json_name: "releaseTime"
-
   field :compilation_result, 2,
     type: :string,
     json_name: "compilationResult",
@@ -745,6 +883,11 @@ defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig.ScheduledReleaseRecord do
     deprecated: false
 
   field :error_status, 3, type: Google.Rpc.Status, json_name: "errorStatus", oneof: 0
+
+  field :release_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "releaseTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig do
@@ -772,6 +915,14 @@ defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig do
   field :release_compilation_result, 6,
     type: :string,
     json_name: "releaseCompilationResult",
+    deprecated: false
+
+  field :disabled, 8, type: :bool, deprecated: false
+
+  field :internal_metadata, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
     deprecated: false
 end
 
@@ -868,10 +1019,10 @@ defmodule Google.Cloud.Dataform.V1beta1.CompilationResult do
 
   oneof :source, 0
 
-  field :name, 1, type: :string, deprecated: false
   field :git_commitish, 2, type: :string, json_name: "gitCommitish", oneof: 0, deprecated: false
   field :workspace, 3, type: :string, oneof: 0, deprecated: false
   field :release_config, 7, type: :string, json_name: "releaseConfig", oneof: 0, deprecated: false
+  field :name, 1, type: :string, deprecated: false
 
   field :code_compilation_config, 4,
     type: Google.Cloud.Dataform.V1beta1.CodeCompilationConfig,
@@ -892,6 +1043,22 @@ defmodule Google.Cloud.Dataform.V1beta1.CompilationResult do
     repeated: true,
     type: Google.Cloud.Dataform.V1beta1.CompilationResult.CompilationError,
     json_name: "compilationErrors",
+    deprecated: false
+
+  field :data_encryption_state, 9,
+    type: Google.Cloud.Dataform.V1beta1.DataEncryptionState,
+    json_name: "dataEncryptionState",
+    deprecated: false
+
+  field :create_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :internal_metadata, 11,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
     deprecated: false
 end
 
@@ -923,6 +1090,25 @@ defmodule Google.Cloud.Dataform.V1beta1.CodeCompilationConfig do
   field :database_suffix, 5, type: :string, json_name: "databaseSuffix", deprecated: false
   field :schema_suffix, 6, type: :string, json_name: "schemaSuffix", deprecated: false
   field :table_prefix, 7, type: :string, json_name: "tablePrefix", deprecated: false
+
+  field :default_notebook_runtime_options, 9,
+    type: Google.Cloud.Dataform.V1beta1.NotebookRuntimeOptions,
+    json_name: "defaultNotebookRuntimeOptions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.NotebookRuntimeOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :execution_sink, 0
+
+  field :gcs_output_bucket, 1,
+    type: :string,
+    json_name: "gcsOutputBucket",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ListCompilationResultsRequest do
@@ -933,6 +1119,8 @@ defmodule Google.Cloud.Dataform.V1beta1.ListCompilationResultsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :order_by, 4, type: :string, json_name: "orderBy", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ListCompilationResultsResponse do
@@ -975,9 +1163,9 @@ defmodule Google.Cloud.Dataform.V1beta1.Target do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :database, 1, type: :string
-  field :schema, 2, type: :string
-  field :name, 3, type: :string
+  field :database, 1, type: :string, deprecated: false
+  field :schema, 2, type: :string, deprecated: false
+  field :name, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.RelationDescriptor.ColumnDescriptor do
@@ -1140,20 +1328,27 @@ defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Declaration do
     json_name: "relationDescriptor"
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Notebook do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dependency_targets, 1,
+    repeated: true,
+    type: Google.Cloud.Dataform.V1beta1.Target,
+    json_name: "dependencyTargets"
+
+  field :disabled, 2, type: :bool
+  field :contents, 3, type: :string
+  field :tags, 4, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :compiled_object, 0
-
-  field :target, 1, type: Google.Cloud.Dataform.V1beta1.Target
-
-  field :canonical_target, 2,
-    type: Google.Cloud.Dataform.V1beta1.Target,
-    json_name: "canonicalTarget"
-
-  field :file_path, 3, type: :string, json_name: "filePath"
 
   field :relation, 4,
     type: Google.Cloud.Dataform.V1beta1.CompilationResultAction.Relation,
@@ -1170,6 +1365,24 @@ defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction do
   field :declaration, 7,
     type: Google.Cloud.Dataform.V1beta1.CompilationResultAction.Declaration,
     oneof: 0
+
+  field :notebook, 8,
+    type: Google.Cloud.Dataform.V1beta1.CompilationResultAction.Notebook,
+    oneof: 0
+
+  field :target, 1, type: Google.Cloud.Dataform.V1beta1.Target
+
+  field :canonical_target, 2,
+    type: Google.Cloud.Dataform.V1beta1.Target,
+    json_name: "canonicalTarget"
+
+  field :file_path, 3, type: :string, json_name: "filePath"
+
+  field :internal_metadata, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.QueryCompilationResultActionsRequest do
@@ -1203,8 +1416,6 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig.ScheduledExecutionRecord 
 
   oneof :result, 0
 
-  field :execution_time, 1, type: Google.Protobuf.Timestamp, json_name: "executionTime"
-
   field :workflow_invocation, 2,
     type: :string,
     json_name: "workflowInvocation",
@@ -1212,6 +1423,11 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig.ScheduledExecutionRecord 
     deprecated: false
 
   field :error_status, 3, type: Google.Rpc.Status, json_name: "errorStatus", oneof: 0
+
+  field :execution_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "executionTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig do
@@ -1234,6 +1450,22 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig do
     repeated: true,
     type: Google.Cloud.Dataform.V1beta1.WorkflowConfig.ScheduledExecutionRecord,
     json_name: "recentScheduledExecutionRecords",
+    deprecated: false
+
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :internal_metadata, 11,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
     deprecated: false
 end
 
@@ -1350,8 +1582,6 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocation do
 
   oneof :compilation_source, 0
 
-  field :name, 1, type: :string, deprecated: false
-
   field :compilation_result, 2,
     type: :string,
     json_name: "compilationResult",
@@ -1363,6 +1593,8 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocation do
     json_name: "workflowConfig",
     oneof: 0,
     deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
 
   field :invocation_config, 3,
     type: Google.Cloud.Dataform.V1beta1.InvocationConfig,
@@ -1377,6 +1609,22 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocation do
   field :invocation_timing, 5,
     type: Google.Type.Interval,
     json_name: "invocationTiming",
+    deprecated: false
+
+  field :resolved_compilation_result, 7,
+    type: :string,
+    json_name: "resolvedCompilationResult",
+    deprecated: false
+
+  field :data_encryption_state, 8,
+    type: Google.Cloud.Dataform.V1beta1.DataEncryptionState,
+    json_name: "dataEncryptionState",
+    deprecated: false
+
+  field :internal_metadata, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
     deprecated: false
 end
 
@@ -1443,18 +1691,48 @@ defmodule Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.BigQueryAction do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :sql_script, 1, type: :string, json_name: "sqlScript", deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.NotebookAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :contents, 1, type: :string, deprecated: false
+  field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :action, 0
+
+  field :bigquery_action, 6,
+    type: Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.BigQueryAction,
+    json_name: "bigqueryAction",
+    oneof: 0,
+    deprecated: false
+
+  field :notebook_action, 8,
+    type: Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.NotebookAction,
+    json_name: "notebookAction",
+    oneof: 0,
+    deprecated: false
 
   field :target, 1, type: Google.Cloud.Dataform.V1beta1.Target, deprecated: false
 
@@ -1475,9 +1753,10 @@ defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction do
     json_name: "invocationTiming",
     deprecated: false
 
-  field :bigquery_action, 6,
-    type: Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.BigQueryAction,
-    json_name: "bigqueryAction",
+  field :internal_metadata, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "internalMetadata",
     deprecated: false
 end
 
@@ -1502,6 +1781,36 @@ defmodule Google.Cloud.Dataform.V1beta1.QueryWorkflowInvocationActionsResponse d
     json_name: "workflowInvocationActions"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.Config do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :default_kms_key_name, 2, type: :string, json_name: "defaultKmsKeyName", deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.GetConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataform.V1beta1.UpdateConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :config, 1, type: Google.Cloud.Dataform.V1beta1.Config, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
@@ -1533,7 +1842,7 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
 
   rpc :CommitRepositoryChanges,
       Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest,
-      Google.Protobuf.Empty
+      Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesResponse
 
   rpc :ReadRepositoryFile,
       Google.Cloud.Dataform.V1beta1.ReadRepositoryFileRequest,
@@ -1575,9 +1884,13 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
       Google.Cloud.Dataform.V1beta1.InstallNpmPackagesRequest,
       Google.Cloud.Dataform.V1beta1.InstallNpmPackagesResponse
 
-  rpc :PullGitCommits, Google.Cloud.Dataform.V1beta1.PullGitCommitsRequest, Google.Protobuf.Empty
+  rpc :PullGitCommits,
+      Google.Cloud.Dataform.V1beta1.PullGitCommitsRequest,
+      Google.Cloud.Dataform.V1beta1.PullGitCommitsResponse
 
-  rpc :PushGitCommits, Google.Cloud.Dataform.V1beta1.PushGitCommitsRequest, Google.Protobuf.Empty
+  rpc :PushGitCommits,
+      Google.Cloud.Dataform.V1beta1.PushGitCommitsRequest,
+      Google.Cloud.Dataform.V1beta1.PushGitCommitsResponse
 
   rpc :FetchFileGitStatuses,
       Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesRequest,
@@ -1589,11 +1902,11 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
 
   rpc :CommitWorkspaceChanges,
       Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesRequest,
-      Google.Protobuf.Empty
+      Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesResponse
 
   rpc :ResetWorkspaceChanges,
       Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesRequest,
-      Google.Protobuf.Empty
+      Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesResponse
 
   rpc :FetchFileDiff,
       Google.Cloud.Dataform.V1beta1.FetchFileDiffRequest,
@@ -1603,13 +1916,17 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
       Google.Cloud.Dataform.V1beta1.QueryDirectoryContentsRequest,
       Google.Cloud.Dataform.V1beta1.QueryDirectoryContentsResponse
 
+  rpc :SearchFiles,
+      Google.Cloud.Dataform.V1beta1.SearchFilesRequest,
+      Google.Cloud.Dataform.V1beta1.SearchFilesResponse
+
   rpc :MakeDirectory,
       Google.Cloud.Dataform.V1beta1.MakeDirectoryRequest,
       Google.Cloud.Dataform.V1beta1.MakeDirectoryResponse
 
   rpc :RemoveDirectory,
       Google.Cloud.Dataform.V1beta1.RemoveDirectoryRequest,
-      Google.Protobuf.Empty
+      Google.Cloud.Dataform.V1beta1.RemoveDirectoryResponse
 
   rpc :MoveDirectory,
       Google.Cloud.Dataform.V1beta1.MoveDirectoryRequest,
@@ -1619,7 +1936,9 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
       Google.Cloud.Dataform.V1beta1.ReadFileRequest,
       Google.Cloud.Dataform.V1beta1.ReadFileResponse
 
-  rpc :RemoveFile, Google.Cloud.Dataform.V1beta1.RemoveFileRequest, Google.Protobuf.Empty
+  rpc :RemoveFile,
+      Google.Cloud.Dataform.V1beta1.RemoveFileRequest,
+      Google.Cloud.Dataform.V1beta1.RemoveFileResponse
 
   rpc :MoveFile,
       Google.Cloud.Dataform.V1beta1.MoveFileRequest,
@@ -1703,11 +2022,19 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
 
   rpc :CancelWorkflowInvocation,
       Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationRequest,
-      Google.Protobuf.Empty
+      Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationResponse
 
   rpc :QueryWorkflowInvocationActions,
       Google.Cloud.Dataform.V1beta1.QueryWorkflowInvocationActionsRequest,
       Google.Cloud.Dataform.V1beta1.QueryWorkflowInvocationActionsResponse
+
+  rpc :GetConfig,
+      Google.Cloud.Dataform.V1beta1.GetConfigRequest,
+      Google.Cloud.Dataform.V1beta1.Config
+
+  rpc :UpdateConfig,
+      Google.Cloud.Dataform.V1beta1.UpdateConfigRequest,
+      Google.Cloud.Dataform.V1beta1.Config
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.Dataform.Stub do
