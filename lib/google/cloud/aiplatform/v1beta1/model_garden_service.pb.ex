@@ -24,6 +24,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GetPublisherModelRequest do
 
   field :is_hugging_face_model, 5, type: :bool, json_name: "isHuggingFaceModel", deprecated: false
   field :hugging_face_token, 6, type: :string, json_name: "huggingFaceToken", deprecated: false
+
+  field :include_equivalent_model_garden_model_deployment_configs, 7,
+    type: :bool,
+    json_name: "includeEquivalentModelGardenModelDeploymentConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsRequest do
@@ -148,7 +153,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :destination, 2, type: :string, deprecated: false
@@ -186,7 +191,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :publisher_model, 1, type: :string, json_name: "publisherModel", deprecated: false
   field :endpoint, 2, type: :string, deprecated: false
@@ -210,7 +215,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
