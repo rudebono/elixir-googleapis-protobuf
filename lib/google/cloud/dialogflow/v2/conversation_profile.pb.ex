@@ -31,6 +31,7 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionFeature.Type do
   field :ARTICLE_SUGGESTION, 1
   field :FAQ, 2
   field :SMART_REPLY, 3
+  field :CONVERSATION_SUMMARIZATION, 8
   field :KNOWLEDGE_SEARCH, 14
   field :KNOWLEDGE_ASSIST, 15
 end

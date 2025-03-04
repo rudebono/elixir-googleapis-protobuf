@@ -58,6 +58,45 @@ defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerType do
   field :INTENT, 3
 end
 
+defmodule Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo.SipHeader do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo.MimeContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
+  field :content, 2, type: :bytes, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dialed_number, 2, type: :string, json_name: "dialedNumber", deprecated: false
+  field :sdp, 5, type: :string, deprecated: false
+
+  field :sip_headers, 12,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo.SipHeader,
+    json_name: "sipHeaders",
+    deprecated: false
+
+  field :extra_mime_contents, 13,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo.MimeContent,
+    json_name: "extraMimeContents",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2.Conversation do
   @moduledoc false
 
@@ -88,6 +127,11 @@ defmodule Google.Cloud.Dialogflow.V2.Conversation do
     type: Google.Cloud.Dialogflow.V2.Conversation.ConversationStage,
     json_name: "conversationStage",
     enum: true,
+    deprecated: false
+
+  field :telephony_connection_info, 10,
+    type: Google.Cloud.Dialogflow.V2.Conversation.TelephonyConnectionInfo,
+    json_name: "telephonyConnectionInfo",
     deprecated: false
 end
 
@@ -162,6 +206,7 @@ defmodule Google.Cloud.Dialogflow.V2.ConversationPhoneNumber do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :country_code, 2, type: :int32, json_name: "countryCode", deprecated: false
   field :phone_number, 3, type: :string, json_name: "phoneNumber", deprecated: false
 end
 
@@ -318,6 +363,9 @@ defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest.SearchConfig.BoostSp
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :attribute_value, 1, type: :string, json_name: "attributeValue", deprecated: false
+  field :boost_amount, 2, type: :float, json_name: "boostAmount", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeRequest.SearchConfig.BoostSpecs.BoostSpec.ConditionBoostSpec.BoostControlSpec do
@@ -490,7 +538,7 @@ defmodule Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer do
     type: Google.Cloud.Dialogflow.V2.SearchKnowledgeAnswer.AnswerSource,
     json_name: "answerSources"
 
-  field :answer_record, 5, type: :string, json_name: "answerRecord"
+  field :answer_record, 5, type: :string, json_name: "answerRecord", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.Conversations.Service do
