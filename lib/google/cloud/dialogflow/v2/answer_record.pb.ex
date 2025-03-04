@@ -66,7 +66,7 @@ defmodule Google.Cloud.Dialogflow.V2.ListAnswerRecordsRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
-  field :filter, 2, type: :string, deprecated: true
+  field :filter, 2, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end

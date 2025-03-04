@@ -151,6 +151,11 @@ defmodule Google.Cloud.Dialogflow.V2.AnalyzeContentRequest do
     json_name: "textInput",
     oneof: 0
 
+  field :audio_input, 7,
+    type: Google.Cloud.Dialogflow.V2.AudioInput,
+    json_name: "audioInput",
+    oneof: 0
+
   field :event_input, 8,
     type: Google.Cloud.Dialogflow.V2.EventInput,
     json_name: "eventInput",
@@ -264,7 +269,8 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentRequest do
 
   field :enable_partial_automated_agent_reply, 12,
     type: :bool,
-    json_name: "enablePartialAutomatedAgentReply"
+    json_name: "enablePartialAutomatedAgentReply",
+    deprecated: false
 
   field :enable_debugging_info, 19, type: :bool, json_name: "enableDebuggingInfo"
 end
@@ -304,6 +310,8 @@ defmodule Google.Cloud.Dialogflow.V2.StreamingAnalyzeContentResponse do
   field :debugging_info, 11,
     type: Google.Cloud.Dialogflow.V2.CloudConversationDebuggingInfo,
     json_name: "debuggingInfo"
+
+  field :speech_model, 13, type: :string, json_name: "speechModel"
 end
 
 defmodule Google.Cloud.Dialogflow.V2.SuggestArticlesRequest do
@@ -390,6 +398,15 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse do
 
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
   field :context_size, 3, type: :int32, json_name: "contextSize"
+end
+
+defmodule Google.Cloud.Dialogflow.V2.AudioInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :config, 1, type: Google.Cloud.Dialogflow.V2.InputAudioConfig, deprecated: false
+  field :audio, 2, type: :bytes, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2.OutputAudio do
