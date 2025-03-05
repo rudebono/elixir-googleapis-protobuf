@@ -76,7 +76,7 @@ defmodule Google.Bigtable.Admin.V2.Instance do
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
-  field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true
+  field :state, 3, type: Google.Bigtable.Admin.V2.Instance.State, enum: true, deprecated: false
   field :type, 4, type: Google.Bigtable.Admin.V2.Instance.Type, enum: true
   field :labels, 5, repeated: true, type: Google.Bigtable.Admin.V2.Instance.LabelsEntry, map: true
 
@@ -89,6 +89,12 @@ defmodule Google.Bigtable.Admin.V2.Instance do
     proto3_optional: true,
     type: :bool,
     json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 11,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
     deprecated: false
 end
 
@@ -288,4 +294,25 @@ defmodule Google.Bigtable.Admin.V2.HotTablet do
     type: :float,
     json_name: "nodeCpuUsagePercent",
     deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.LogicalView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+  field :etag, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.MaterializedView do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+  field :etag, 3, type: :string, deprecated: false
+  field :deletion_protection, 6, type: :bool, json_name: "deletionProtection"
 end

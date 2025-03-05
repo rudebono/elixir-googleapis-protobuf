@@ -95,6 +95,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :AUDIENCE, 28
   field :EVENT_CREATE_RULE, 29
   field :CALCULATED_METRIC, 31
+  field :KEY_EVENT, 32
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -801,6 +802,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :calculated_metric, 31,
     type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
     json_name: "calculatedMetric",
+    oneof: 0
+
+  field :key_event, 32,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent,
+    json_name: "keyEvent",
     oneof: 0
 end
 

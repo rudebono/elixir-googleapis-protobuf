@@ -37,6 +37,38 @@ defmodule Google.Cloud.Filestore.V1.NfsExportOptions.SquashMode do
   field :ROOT_SQUASH, 2
 end
 
+defmodule Google.Cloud.Filestore.V1.ReplicaConfig.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :READY, 3
+  field :REMOVING, 4
+  field :FAILED, 5
+end
+
+defmodule Google.Cloud.Filestore.V1.ReplicaConfig.StateReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_REASON_UNSPECIFIED, 0
+  field :PEER_INSTANCE_UNREACHABLE, 1
+  field :REMOVE_FAILED, 2
+end
+
+defmodule Google.Cloud.Filestore.V1.Replication.Role do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ROLE_UNSPECIFIED, 0
+  field :ACTIVE, 1
+  field :STANDBY, 2
+end
+
 defmodule Google.Cloud.Filestore.V1.Instance.State do
   @moduledoc false
 
@@ -53,6 +85,7 @@ defmodule Google.Cloud.Filestore.V1.Instance.State do
   field :SUSPENDING, 9
   field :RESUMING, 10
   field :REVERTING, 12
+  field :PROMOTING, 13
 end
 
 defmodule Google.Cloud.Filestore.V1.Instance.Tier do
@@ -78,6 +111,16 @@ defmodule Google.Cloud.Filestore.V1.Instance.SuspensionReason do
 
   field :SUSPENSION_REASON_UNSPECIFIED, 0
   field :KMS_KEY_ISSUE, 1
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.FileProtocol do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :FILE_PROTOCOL_UNSPECIFIED, 0
+  field :NFS_V3, 1
+  field :NFS_V4_1, 2
 end
 
 defmodule Google.Cloud.Filestore.V1.Snapshot.State do
@@ -168,7 +211,108 @@ defmodule Google.Cloud.Filestore.V1.NfsExportOptions do
   field :anon_gid, 5, type: :int64, json_name: "anonGid"
 end
 
+defmodule Google.Cloud.Filestore.V1.ReplicaConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :state, 1,
+    type: Google.Cloud.Filestore.V1.ReplicaConfig.State,
+    enum: true,
+    deprecated: false
+
+  field :state_reasons, 2,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1.ReplicaConfig.StateReason,
+    json_name: "stateReasons",
+    enum: true,
+    deprecated: false
+
+  field :peer_instance, 3, type: :string, json_name: "peerInstance", deprecated: false
+
+  field :last_active_sync_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastActiveSyncTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Filestore.V1.Replication do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :role, 1, type: Google.Cloud.Filestore.V1.Replication.Role, enum: true, deprecated: false
+
+  field :replicas, 2,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1.ReplicaConfig,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.IOPSPerTB do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :max_iops_per_tb, 2, type: :int64, json_name: "maxIopsPerTb", deprecated: false
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.FixedIOPS do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :max_iops, 2, type: :int64, json_name: "maxIops", deprecated: false
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.PerformanceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :mode, 0
+
+  field :iops_per_tb, 4,
+    type: Google.Cloud.Filestore.V1.Instance.IOPSPerTB,
+    json_name: "iopsPerTb",
+    oneof: 0
+
+  field :fixed_iops, 2,
+    type: Google.Cloud.Filestore.V1.Instance.FixedIOPS,
+    json_name: "fixedIops",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.PerformanceLimits do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :max_iops, 7, type: :int64, json_name: "maxIops", deprecated: false
+  field :max_read_iops, 1, type: :int64, json_name: "maxReadIops", deprecated: false
+  field :max_write_iops, 2, type: :int64, json_name: "maxWriteIops", deprecated: false
+
+  field :max_read_throughput_bps, 5,
+    type: :int64,
+    json_name: "maxReadThroughputBps",
+    deprecated: false
+
+  field :max_write_throughput_bps, 6,
+    type: :int64,
+    json_name: "maxWriteThroughputBps",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Filestore.V1.Instance.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Filestore.V1.Instance.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -220,6 +364,44 @@ defmodule Google.Cloud.Filestore.V1.Instance do
     type: Google.Cloud.Filestore.V1.Instance.SuspensionReason,
     json_name: "suspensionReasons",
     enum: true,
+    deprecated: false
+
+  field :replication, 19, type: Google.Cloud.Filestore.V1.Replication, deprecated: false
+
+  field :tags, 20,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1.Instance.TagsEntry,
+    map: true,
+    deprecated: false
+
+  field :protocol, 21,
+    type: Google.Cloud.Filestore.V1.Instance.FileProtocol,
+    enum: true,
+    deprecated: false
+
+  field :custom_performance_supported, 23,
+    type: :bool,
+    json_name: "customPerformanceSupported",
+    deprecated: false
+
+  field :performance_config, 24,
+    type: Google.Cloud.Filestore.V1.Instance.PerformanceConfig,
+    json_name: "performanceConfig",
+    deprecated: false
+
+  field :performance_limits, 25,
+    type: Google.Cloud.Filestore.V1.Instance.PerformanceLimits,
+    json_name: "performanceLimits",
+    deprecated: false
+
+  field :deletion_protection_enabled, 26,
+    type: :bool,
+    json_name: "deletionProtectionEnabled",
+    deprecated: false
+
+  field :deletion_protection_reason, 27,
+    type: :string,
+    json_name: "deletionProtectionReason",
     deprecated: false
 end
 
@@ -299,10 +481,19 @@ defmodule Google.Cloud.Filestore.V1.ListInstancesResponse do
 
   field :instances, 1, repeated: true, type: Google.Cloud.Filestore.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.Snapshot.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Filestore.V1.Snapshot.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -333,6 +524,12 @@ defmodule Google.Cloud.Filestore.V1.Snapshot do
   field :filesystem_used_bytes, 6,
     type: :int64,
     json_name: "filesystemUsedBytes",
+    deprecated: false
+
+  field :tags, 7,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1.Snapshot.TagsEntry,
+    map: true,
     deprecated: false
 end
 
@@ -385,6 +582,11 @@ defmodule Google.Cloud.Filestore.V1.ListSnapshotsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
   field :order_by, 4, type: :string, json_name: "orderBy"
   field :filter, 5, type: :string
+
+  field :return_partial_success, 6,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.ListSnapshotsResponse do
@@ -394,9 +596,19 @@ defmodule Google.Cloud.Filestore.V1.ListSnapshotsResponse do
 
   field :snapshots, 1, repeated: true, type: Google.Cloud.Filestore.V1.Snapshot
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.Backup.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Filestore.V1.Backup.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -440,6 +652,18 @@ defmodule Google.Cloud.Filestore.V1.Backup do
 
   field :satisfies_pzi, 14, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :kms_key, 13, type: :string, json_name: "kmsKey", deprecated: false
+
+  field :tags, 15,
+    repeated: true,
+    type: Google.Cloud.Filestore.V1.Backup.TagsEntry,
+    map: true,
+    deprecated: false
+
+  field :file_system_protocol, 16,
+    type: Google.Cloud.Filestore.V1.Instance.FileProtocol,
+    json_name: "fileSystemProtocol",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.CreateBackupRequest do
@@ -473,6 +697,15 @@ defmodule Google.Cloud.Filestore.V1.UpdateBackupRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Filestore.V1.PromoteReplicaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :peer_instance, 2, type: :string, json_name: "peerInstance", deprecated: false
+end
+
 defmodule Google.Cloud.Filestore.V1.GetBackupRequest do
   @moduledoc false
 
@@ -500,7 +733,7 @@ defmodule Google.Cloud.Filestore.V1.ListBackupsResponse do
 
   field :backups, 1, repeated: true, type: Google.Cloud.Filestore.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-  field :unreachable, 3, repeated: true, type: :string
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Filestore.V1.CloudFilestoreManager.Service do
@@ -569,6 +802,10 @@ defmodule Google.Cloud.Filestore.V1.CloudFilestoreManager.Service do
   rpc :DeleteBackup, Google.Cloud.Filestore.V1.DeleteBackupRequest, Google.Longrunning.Operation
 
   rpc :UpdateBackup, Google.Cloud.Filestore.V1.UpdateBackupRequest, Google.Longrunning.Operation
+
+  rpc :PromoteReplica,
+      Google.Cloud.Filestore.V1.PromoteReplicaRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Filestore.V1.CloudFilestoreManager.Stub do

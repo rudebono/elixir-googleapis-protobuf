@@ -336,6 +336,93 @@ defmodule Google.Bigtable.Admin.V2.ListHotTabletsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Bigtable.Admin.V2.CreateLogicalViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :logical_view_id, 2, type: :string, json_name: "logicalViewId", deprecated: false
+
+  field :logical_view, 3,
+    type: Google.Bigtable.Admin.V2.LogicalView,
+    json_name: "logicalView",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.CreateLogicalViewMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.CreateLogicalViewRequest,
+    json_name: "originalRequest"
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateLogicalViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :logical_view, 1,
+    type: Google.Bigtable.Admin.V2.LogicalView,
+    json_name: "logicalView",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateLogicalViewMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.UpdateLogicalViewRequest,
+    json_name: "originalRequest"
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.CreateMaterializedViewRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :materialized_view_id, 2,
+    type: :string,
+    json_name: "materializedViewId",
+    deprecated: false
+
+  field :materialized_view, 3,
+    type: Google.Bigtable.Admin.V2.MaterializedView,
+    json_name: "materializedView",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.CreateMaterializedViewMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :original_request, 1,
+    type: Google.Bigtable.Admin.V2.CreateMaterializedViewRequest,
+    json_name: "originalRequest"
+
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
 defmodule Google.Bigtable.Admin.V2.BigtableInstanceAdmin.Service do
   @moduledoc false
 
