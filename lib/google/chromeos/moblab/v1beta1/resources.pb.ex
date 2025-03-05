@@ -20,6 +20,23 @@ defmodule Google.Chromeos.Moblab.V1beta1.Build.BuildType do
   field :FIRMWARE, 2
 end
 
+defmodule Google.Chromeos.Moblab.V1beta1.CloudBuild.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :QUEUED, 1
+  field :PENDING, 2
+  field :WORKING, 3
+  field :SUCCEEDED, 4
+  field :FAILED, 5
+  field :INTERNAL_ERROR, 6
+  field :TIMEOUT, 7
+  field :CANCELLED, 8
+  field :EXPIRED, 9
+end
+
 defmodule Google.Chromeos.Moblab.V1beta1.BuildTarget do
   @moduledoc false
 
@@ -69,4 +86,29 @@ defmodule Google.Chromeos.Moblab.V1beta1.BuildArtifact do
   field :bucket, 3, type: :string
   field :path, 4, type: :string
   field :object_count, 5, type: :uint32, json_name: "objectCount"
+end
+
+defmodule Google.Chromeos.Moblab.V1beta1.CloudBuild do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :status, 2,
+    type: Google.Chromeos.Moblab.V1beta1.CloudBuild.State,
+    enum: true,
+    deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :start_time, 4, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+
+  field :finish_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "finishTime",
+    deprecated: false
 end

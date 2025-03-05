@@ -78,7 +78,8 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShip
 
   field :type, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee.Type,
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :fixed_fee, 2, type: Google.Shopping.Type.Price, json_name: "fixedFee"
 end
@@ -106,6 +107,20 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy do
   field :days, 2, type: :int64
 end
 
+defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.SeasonalOverride do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :return_window, 0
+
+  field :return_days, 5, type: :int32, json_name: "returnDays", oneof: 0
+  field :return_until_date, 6, type: Google.Type.Date, json_name: "returnUntilDate", oneof: 0
+  field :label, 1, type: :string, deprecated: false
+  field :start_date, 2, type: Google.Type.Date, json_name: "startDate", deprecated: false
+  field :end_date, 3, type: Google.Type.Date, json_name: "endDate", deprecated: false
+end
+
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
   @moduledoc false
 
@@ -113,9 +128,15 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
 
   field :name, 1, type: :string, deprecated: false
   field :return_policy_id, 2, type: :string, json_name: "returnPolicyId", deprecated: false
-  field :label, 3, type: :string
-  field :countries, 4, repeated: true, type: :string
+  field :label, 3, type: :string, deprecated: false
+  field :countries, 4, repeated: true, type: :string, deprecated: false
   field :policy, 5, type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy
+
+  field :seasonal_overrides, 14,
+    repeated: true,
+    type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.SeasonalOverride,
+    json_name: "seasonalOverrides",
+    deprecated: false
 
   field :restocking_fee, 6,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.RestockingFee,
@@ -137,7 +158,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee,
     json_name: "returnShippingFee"
 
-  field :return_policy_uri, 10, type: :string, json_name: "returnPolicyUri"
+  field :return_policy_uri, 10, type: :string, json_name: "returnPolicyUri", deprecated: false
 
   field :accept_defective_only, 11,
     proto3_optional: true,

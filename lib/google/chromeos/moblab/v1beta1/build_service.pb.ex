@@ -103,6 +103,11 @@ defmodule Google.Chromeos.Moblab.V1beta1.CheckBuildStageStatusResponse do
   field :source_build_artifact, 3,
     type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
     json_name: "sourceBuildArtifact"
+
+  field :cloud_build, 4,
+    type: Google.Chromeos.Moblab.V1beta1.CloudBuild,
+    json_name: "cloudBuild",
+    deprecated: false
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildRequest do
@@ -122,6 +127,8 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
   field :staged_build_artifact, 1,
     type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
     json_name: "stagedBuildArtifact"
+
+  field :cloud_build, 2, type: Google.Chromeos.Moblab.V1beta1.CloudBuild, json_name: "cloudBuild"
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
