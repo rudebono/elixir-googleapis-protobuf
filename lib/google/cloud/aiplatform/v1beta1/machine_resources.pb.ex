@@ -14,6 +14,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MachineSpec do
   field :accelerator_count, 3, type: :int32, json_name: "acceleratorCount"
   field :tpu_topology, 4, type: :string, json_name: "tpuTopology", deprecated: false
 
+  field :multihost_gpu_node_count, 6,
+    type: :int32,
+    json_name: "multihostGpuNodeCount",
+    deprecated: false
+
   field :reservation_affinity, 5,
     type: Google.Cloud.Aiplatform.V1beta1.ReservationAffinity,
     json_name: "reservationAffinity",
