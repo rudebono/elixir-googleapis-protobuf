@@ -243,6 +243,28 @@ defmodule Google.Cloud.Aiplatform.V1.RagFileTransformationConfig do
     json_name: "ragFileChunkingConfig"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LayoutParser do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :processor_name, 1, type: :string, json_name: "processorName"
+  field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :parser, 0
+
+  field :layout_parser, 4,
+    type: Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LayoutParser,
+    json_name: "layoutParser",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Aiplatform.V1.UploadRagFileConfig do
   @moduledoc false
 
@@ -302,6 +324,11 @@ defmodule Google.Cloud.Aiplatform.V1.ImportRagFilesConfig do
   field :rag_file_transformation_config, 16,
     type: Google.Cloud.Aiplatform.V1.RagFileTransformationConfig,
     json_name: "ragFileTransformationConfig"
+
+  field :rag_file_parsing_config, 8,
+    type: Google.Cloud.Aiplatform.V1.RagFileParsingConfig,
+    json_name: "ragFileParsingConfig",
+    deprecated: false
 
   field :max_embedding_requests_per_min, 5,
     type: :int32,

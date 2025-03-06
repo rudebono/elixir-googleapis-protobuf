@@ -593,9 +593,9 @@ defmodule Google.Cloud.Modelarmor.V1.FilterResult do
     json_name: "maliciousUriFilterResult",
     oneof: 0
 
-  field :csam_filter_result, 5,
+  field :csam_filter_filter_result, 5,
     type: Google.Cloud.Modelarmor.V1.CsamFilterResult,
-    json_name: "csamFilterResult",
+    json_name: "csamFilterFilterResult",
     oneof: 0
 
   field :virus_scan_filter_result, 6,

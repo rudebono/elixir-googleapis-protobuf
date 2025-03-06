@@ -215,6 +215,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenSource do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :public_model_name, 1, type: :string, json_name: "publicModelName", deprecated: false
+  field :version_id, 3, type: :string, json_name: "versionId", deprecated: false
+  field :skip_hf_model_cache, 4, type: :bool, json_name: "skipHfModelCache", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GenieSource do
