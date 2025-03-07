@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Audit.AuthorizationInfo.PermissionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :PERMISSION_TYPE_UNSPECIFIED, 0
+  field :ADMIN_READ, 1
+  field :ADMIN_WRITE, 2
+  field :DATA_READ, 3
+  field :DATA_WRITE, 4
+end
+
 defmodule Google.Cloud.Audit.ViolationInfo.PolicyType do
   @moduledoc false
 
@@ -82,6 +94,11 @@ defmodule Google.Cloud.Audit.AuthorizationInfo do
   field :resource_attributes, 5,
     type: Google.Rpc.Context.AttributeContext.Resource,
     json_name: "resourceAttributes"
+
+  field :permission_type, 7,
+    type: Google.Cloud.Audit.AuthorizationInfo.PermissionType,
+    json_name: "permissionType",
+    enum: true
 end
 
 defmodule Google.Cloud.Audit.RequestMetadata do

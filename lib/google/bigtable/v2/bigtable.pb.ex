@@ -407,8 +407,15 @@ defmodule Google.Bigtable.V2.ExecuteQueryRequest do
 
   field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
   field :app_profile_id, 2, type: :string, json_name: "appProfileId", deprecated: false
-  field :query, 3, type: :string, deprecated: false
-  field :proto_format, 4, type: Google.Bigtable.V2.ProtoFormat, json_name: "protoFormat", oneof: 0
+  field :query, 3, type: :string, deprecated: true
+  field :prepared_query, 9, type: :bytes, json_name: "preparedQuery"
+
+  field :proto_format, 4,
+    type: Google.Bigtable.V2.ProtoFormat,
+    json_name: "protoFormat",
+    oneof: 0,
+    deprecated: true
+
   field :resume_token, 8, type: :bytes, json_name: "resumeToken", deprecated: false
 
   field :params, 7,
@@ -427,6 +434,45 @@ defmodule Google.Bigtable.V2.ExecuteQueryResponse do
 
   field :metadata, 1, type: Google.Bigtable.V2.ResultSetMetadata, oneof: 0
   field :results, 2, type: Google.Bigtable.V2.PartialResultSet, oneof: 0
+end
+
+defmodule Google.Bigtable.V2.PrepareQueryRequest.ParamTypesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Bigtable.V2.Type
+end
+
+defmodule Google.Bigtable.V2.PrepareQueryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :data_format, 0
+
+  field :instance_name, 1, type: :string, json_name: "instanceName", deprecated: false
+  field :app_profile_id, 2, type: :string, json_name: "appProfileId", deprecated: false
+  field :query, 3, type: :string, deprecated: false
+  field :proto_format, 4, type: Google.Bigtable.V2.ProtoFormat, json_name: "protoFormat", oneof: 0
+
+  field :param_types, 6,
+    repeated: true,
+    type: Google.Bigtable.V2.PrepareQueryRequest.ParamTypesEntry,
+    json_name: "paramTypes",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Bigtable.V2.PrepareQueryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :metadata, 1, type: Google.Bigtable.V2.ResultSetMetadata
+  field :prepared_query, 2, type: :bytes, json_name: "preparedQuery"
+  field :valid_until, 3, type: Google.Protobuf.Timestamp, json_name: "validUntil"
 end
 
 defmodule Google.Bigtable.V2.Bigtable.Service do
@@ -463,6 +509,10 @@ defmodule Google.Bigtable.V2.Bigtable.Service do
   rpc :ReadChangeStream,
       Google.Bigtable.V2.ReadChangeStreamRequest,
       stream(Google.Bigtable.V2.ReadChangeStreamResponse)
+
+  rpc :PrepareQuery,
+      Google.Bigtable.V2.PrepareQueryRequest,
+      Google.Bigtable.V2.PrepareQueryResponse
 
   rpc :ExecuteQuery,
       Google.Bigtable.V2.ExecuteQueryRequest,

@@ -72,6 +72,14 @@ defmodule Google.Chat.V1.ChatService.Service do
   rpc :ListSpaceEvents,
       Google.Chat.V1.ListSpaceEventsRequest,
       Google.Chat.V1.ListSpaceEventsResponse
+
+  rpc :GetSpaceNotificationSetting,
+      Google.Chat.V1.GetSpaceNotificationSettingRequest,
+      Google.Chat.V1.SpaceNotificationSetting
+
+  rpc :UpdateSpaceNotificationSetting,
+      Google.Chat.V1.UpdateSpaceNotificationSettingRequest,
+      Google.Chat.V1.SpaceNotificationSetting
 end
 
 defmodule Google.Chat.V1.ChatService.Stub do

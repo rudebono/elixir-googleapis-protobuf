@@ -6,6 +6,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.TriggerEvent do
   field :TRIGGER_EVENT_UNSPECIFIED, 0
   field :END_OF_UTTERANCE, 1
   field :MANUAL_CALL, 2
+  field :CUSTOMER_MESSAGE, 3
+  field :AGENT_MESSAGE, 4
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.MessageEntry.Role do
@@ -32,6 +34,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationSection.Type do
   field :CUSTOMER_SATISFACTION, 5
   field :ENTITIES, 6
   field :CUSTOMER_DEFINED, 7
+  field :SITUATION_CONCISE, 9
+  field :ACTION_CONCISE, 10
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateGeneratorRequest do
@@ -226,6 +230,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SummarizationContext do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.FreeFormContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :text, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Generator do
   @moduledoc false
 
@@ -233,8 +245,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Generator do
 
   oneof :context, 0
 
+  oneof :foundation_model, 1
+
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
+
+  field :free_form_context, 11,
+    type: Google.Cloud.Dialogflow.V2beta1.FreeFormContext,
+    json_name: "freeFormContext",
+    oneof: 0
 
   field :summarization_context, 13,
     type: Google.Cloud.Dialogflow.V2beta1.SummarizationContext,
@@ -252,6 +271,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Generator do
     enum: true,
     deprecated: false
 
+  field :published_model, 15,
+    type: :string,
+    json_name: "publishedModel",
+    oneof: 1,
+    deprecated: false
+
   field :create_time, 8,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
@@ -261,6 +286,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Generator do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.FreeFormSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :response, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SummarySuggestion.SummarySection do
@@ -290,6 +323,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GeneratorSuggestion do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   oneof :suggestion, 0
+
+  field :free_form_suggestion, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.FreeFormSuggestion,
+    json_name: "freeFormSuggestion",
+    oneof: 0,
+    deprecated: false
 
   field :summary_suggestion, 2,
     type: Google.Cloud.Dialogflow.V2beta1.SummarySuggestion,

@@ -18,6 +18,26 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ConversationStage do
   field :HUMAN_ASSIST_STAGE, 2
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.UpdateMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UPDATE_MODE_UNSPECIFIED, 0
+  field :APPEND, 1
+  field :OVERWRITE, 2
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.ContextContent.ContentFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :CONTENT_FORMAT_UNSPECIFIED, 0
+  field :JSON, 1
+  field :PLAIN_TEXT, 2
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest.QuerySource do
   @moduledoc false
 
@@ -97,6 +117,60 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.TelephonyConnectionInfo d
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.ContextContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :content, 1, type: :string, deprecated: false
+
+  field :content_format, 2,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.ContextContent.ContentFormat,
+    json_name: "contentFormat",
+    enum: true,
+    deprecated: false
+
+  field :ingestion_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "ingestionTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :context_contents, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.ContextContent,
+    json_name: "contextContents",
+    deprecated: false
+
+  field :update_mode, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.UpdateMode,
+    json_name: "updateMode",
+    enum: true,
+    deprecated: false
+
+  field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.IngestedContextReferencesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation do
   @moduledoc false
 
@@ -132,6 +206,13 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation do
   field :telephony_connection_info, 10,
     type: Google.Cloud.Dialogflow.V2beta1.Conversation.TelephonyConnectionInfo,
     json_name: "telephonyConnectionInfo",
+    deprecated: false
+
+  field :ingested_context_references, 17,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.Conversation.IngestedContextReferencesEntry,
+    json_name: "ingestedContextReferences",
+    map: true,
     deprecated: false
 end
 
@@ -238,6 +319,52 @@ defmodule Google.Cloud.Dialogflow.V2beta1.ListMessagesResponse do
 
   field :messages, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Message
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesRequest.ContextReferencesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :conversation, 1, type: :string, deprecated: false
+
+  field :context_references, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesRequest.ContextReferencesEntry,
+    json_name: "contextReferences",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesResponse.IngestedContextReferencesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ingested_context_references, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesResponse.IngestedContextReferencesEntry,
+    json_name: "ingestedContextReferences",
+    map: true
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestConversationSummaryRequest do
@@ -364,6 +491,15 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSummaryResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest.ContextReferencesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest do
   @moduledoc false
 
@@ -374,6 +510,14 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest do
   field :parent, 1, type: :string, deprecated: false
   field :generator, 2, type: Google.Cloud.Dialogflow.V2beta1.Generator, oneof: 0
   field :generator_name, 3, type: :string, json_name: "generatorName", oneof: 0
+
+  field :context_references, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest.ContextReferencesEntry,
+    json_name: "contextReferences",
+    map: true,
+    deprecated: false
 
   field :conversation_context, 5,
     type: Google.Cloud.Dialogflow.V2beta1.ConversationContext,
@@ -582,6 +726,22 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeAnswer do
   field :answer_record, 5, type: :string, json_name: "answerRecord", deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.GenerateSuggestionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :conversation, 1, type: :string, deprecated: false
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+
+  field :trigger_events, 3,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.TriggerEvent,
+    json_name: "triggerEvents",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   @moduledoc false
 
@@ -604,6 +764,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   rpc :CompleteConversation,
       Google.Cloud.Dialogflow.V2beta1.CompleteConversationRequest,
       Google.Cloud.Dialogflow.V2beta1.Conversation
+
+  rpc :IngestContextReferences,
+      Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesRequest,
+      Google.Cloud.Dialogflow.V2beta1.IngestContextReferencesResponse
 
   rpc :BatchCreateMessages,
       Google.Cloud.Dialogflow.V2beta1.BatchCreateMessagesRequest,
@@ -628,6 +792,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Service do
   rpc :SearchKnowledge,
       Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeRequest,
       Google.Cloud.Dialogflow.V2beta1.SearchKnowledgeResponse
+
+  rpc :GenerateSuggestions,
+      Google.Cloud.Dialogflow.V2beta1.GenerateSuggestionsRequest,
+      Google.Cloud.Dialogflow.V2beta1.GenerateSuggestionsResponse
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversations.Stub do

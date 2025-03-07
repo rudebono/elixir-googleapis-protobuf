@@ -18,6 +18,19 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ToolType do
   field :BUILTIN_TOOL, 2
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action.EntityOperation.OperationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :OPERATION_TYPE_UNSPECIFIED, 0
+  field :LIST, 1
+  field :GET, 2
+  field :CREATE, 3
+  field :UPDATE, 4
+  field :DELETE, 5
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.RequestLocation do
   @moduledoc false
 
@@ -211,6 +224,65 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.FunctionTool do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action.EntityOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :entity_id, 1, type: :string, json_name: "entityId", deprecated: false
+
+  field :operation, 2,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action.EntityOperation.OperationType,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :action_spec, 0
+
+  field :connection_action_id, 4, type: :string, json_name: "connectionActionId", oneof: 0
+
+  field :entity_operation, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action.EntityOperation,
+    json_name: "entityOperation",
+    oneof: 0
+
+  field :input_fields, 2,
+    repeated: true,
+    type: :string,
+    json_name: "inputFields",
+    deprecated: false
+
+  field :output_fields, 3,
+    repeated: true,
+    type: :string,
+    json_name: "outputFields",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :actions, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool.Action,
+    deprecated: false
+
+  field :end_user_auth_config, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig,
+    json_name: "endUserAuthConfig",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ApiKeyConfig do
   @moduledoc false
 
@@ -321,6 +393,42 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ServiceDirectoryConfig do
   field :service, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig.Oauth2AuthCodeConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :oauth_token, 1, type: :string, json_name: "oauthToken", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig.Oauth2JwtBearerConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :issuer, 1, type: :string, deprecated: false
+  field :subject, 2, type: :string, deprecated: false
+  field :client_key, 3, type: :string, json_name: "clientKey", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :end_user_auth_config, 0
+
+  field :oauth2_auth_code_config, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig.Oauth2AuthCodeConfig,
+    json_name: "oauth2AuthCodeConfig",
+    oneof: 0
+
+  field :oauth2_jwt_bearer_config, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.EndUserAuthConfig.Oauth2JwtBearerConfig,
+    json_name: "oauth2JwtBearerConfig",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool do
   @moduledoc false
 
@@ -352,10 +460,104 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool do
     json_name: "functionSpec",
     oneof: 0
 
+  field :connector_spec, 15,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ConnectorTool,
+    json_name: "connectorSpec",
+    oneof: 0
+
   field :tool_type, 12,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ToolType,
     json_name: "toolType",
     enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListToolVersionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListToolVersionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :tool_versions, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ToolVersion,
+    json_name: "toolVersions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreateToolVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :tool_version, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ToolVersion,
+    json_name: "toolVersion",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetToolVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeleteToolVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :force, 2, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreToolVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestoreToolVersionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :tool, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ToolVersion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :tool, 3, type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool, deprecated: false
+
+  field :create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
     deprecated: false
 end
 
@@ -393,6 +595,26 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tools.Service do
       Google.Cloud.Dialogflow.Cx.V3beta1.Tool
 
   rpc :DeleteTool, Google.Cloud.Dialogflow.Cx.V3beta1.DeleteToolRequest, Google.Protobuf.Empty
+
+  rpc :ListToolVersions,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListToolVersionsRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ListToolVersionsResponse
+
+  rpc :CreateToolVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.CreateToolVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ToolVersion
+
+  rpc :GetToolVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.GetToolVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ToolVersion
+
+  rpc :DeleteToolVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.DeleteToolVersionRequest,
+      Google.Protobuf.Empty
+
+  rpc :RestoreToolVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RestoreToolVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RestoreToolVersionResponse
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tools.Stub do
