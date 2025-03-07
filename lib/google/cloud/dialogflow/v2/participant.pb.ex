@@ -370,6 +370,32 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestFaqAnswersResponse do
   field :context_size, 3, type: :int32, json_name: "contextSize"
 end
 
+defmodule Google.Cloud.Dialogflow.V2.GenerateSuggestionsResponse.GeneratorSuggestionAnswer do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generator_suggestion, 1,
+    type: Google.Cloud.Dialogflow.V2.GeneratorSuggestion,
+    json_name: "generatorSuggestion"
+
+  field :source_generator, 2, type: :string, json_name: "sourceGenerator"
+  field :answer_record, 3, type: :string, json_name: "answerRecord", deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2.GenerateSuggestionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generator_suggestion_answers, 1,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2.GenerateSuggestionsResponse.GeneratorSuggestionAnswer,
+    json_name: "generatorSuggestionAnswers"
+
+  field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.V2.SuggestSmartRepliesRequest do
   @moduledoc false
 
@@ -559,6 +585,11 @@ defmodule Google.Cloud.Dialogflow.V2.SuggestionResult do
   field :suggest_smart_replies_response, 4,
     type: Google.Cloud.Dialogflow.V2.SuggestSmartRepliesResponse,
     json_name: "suggestSmartRepliesResponse",
+    oneof: 0
+
+  field :generate_suggestions_response, 9,
+    type: Google.Cloud.Dialogflow.V2.GenerateSuggestionsResponse,
+    json_name: "generateSuggestionsResponse",
     oneof: 0
 end
 

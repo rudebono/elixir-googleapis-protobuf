@@ -482,7 +482,8 @@ defmodule Google.Pubsub.V1.MessageTransform do
     oneof: 0,
     deprecated: false
 
-  field :enabled, 3, type: :bool, deprecated: false
+  field :enabled, 3, type: :bool, deprecated: true
+  field :disabled, 4, type: :bool, deprecated: false
 end
 
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do

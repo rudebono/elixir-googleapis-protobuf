@@ -38,6 +38,25 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings.Github
   field :branches, 5, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings.GitConnectionSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :git_authentication, 0
+
+  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
+  field :repository_uri, 2, type: :string, json_name: "repositoryUri", deprecated: false
+  field :tracking_branch, 3, type: :string, json_name: "trackingBranch", deprecated: false
+  field :branches, 4, repeated: true, type: :string, deprecated: false
+
+  field :access_token_secret, 5,
+    type: :string,
+    json_name: "accessTokenSecret",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings do
   @moduledoc false
 
@@ -48,6 +67,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings do
   field :github_settings, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings.GithubSettings,
     json_name: "githubSettings",
+    oneof: 0
+
+  field :git_connection_settings, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Agent.GitIntegrationSettings.GitConnectionSettings,
+    json_name: "gitConnectionSettings",
     oneof: 0
 end
 

@@ -407,6 +407,8 @@ defmodule Google.Bigtable.V2.PartialResultSet do
     json_name: "protoRowsBatch",
     oneof: 0
 
+  field :batch_checksum, 6, proto3_optional: true, type: :uint32, json_name: "batchChecksum"
   field :resume_token, 5, type: :bytes, json_name: "resumeToken"
+  field :reset, 7, type: :bool
   field :estimated_batch_size, 4, type: :int32, json_name: "estimatedBatchSize"
 end
