@@ -258,6 +258,7 @@ defmodule Google.Maps.Places.V1.Place do
   field :international_phone_number, 8, type: :string, json_name: "internationalPhoneNumber"
   field :formatted_address, 9, type: :string, json_name: "formattedAddress"
   field :short_formatted_address, 51, type: :string, json_name: "shortFormattedAddress"
+  field :postal_address, 90, type: Google.Type.PostalAddress, json_name: "postalAddress"
 
   field :address_components, 10,
     repeated: true,
@@ -281,6 +282,7 @@ defmodule Google.Maps.Places.V1.Place do
     type: :int32,
     json_name: "utcOffsetMinutes"
 
+  field :time_zone, 88, type: Google.Type.TimeZone, json_name: "timeZone"
   field :photos, 54, repeated: true, type: Google.Maps.Places.V1.Photo
   field :adr_format_address, 24, type: :string, json_name: "adrFormatAddress"
 
