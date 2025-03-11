@@ -31,6 +31,11 @@ defmodule Google.Bigtable.V2.ReadRowsRequest do
     json_name: "authorizedViewName",
     deprecated: false
 
+  field :materialized_view_name, 11,
+    type: :string,
+    json_name: "materializedViewName",
+    deprecated: false
+
   field :app_profile_id, 5, type: :string, json_name: "appProfileId"
   field :rows, 2, type: Google.Bigtable.V2.RowSet
   field :filter, 3, type: Google.Bigtable.V2.RowFilter
@@ -82,6 +87,11 @@ defmodule Google.Bigtable.V2.SampleRowKeysRequest do
   field :authorized_view_name, 4,
     type: :string,
     json_name: "authorizedViewName",
+    deprecated: false
+
+  field :materialized_view_name, 5,
+    type: :string,
+    json_name: "materializedViewName",
     deprecated: false
 
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
