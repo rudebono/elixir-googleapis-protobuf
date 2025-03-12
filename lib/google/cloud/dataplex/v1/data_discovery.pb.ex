@@ -20,6 +20,7 @@ defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.BigQueryPublishingConfig do
     deprecated: false
 
   field :connection, 3, type: :string, deprecated: false
+  field :location, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.StorageConfig.CsvOptions do

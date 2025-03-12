@@ -227,6 +227,23 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult.Result do
   field :FAILED, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.BusinessGlossaryEvent.EventType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EVENT_TYPE_UNSPECIFIED, 0
+  field :GLOSSARY_CREATE, 1
+  field :GLOSSARY_UPDATE, 2
+  field :GLOSSARY_DELETE, 3
+  field :GLOSSARY_CATEGORY_CREATE, 4
+  field :GLOSSARY_CATEGORY_UPDATE, 5
+  field :GLOSSARY_CATEGORY_DELETE, 6
+  field :GLOSSARY_TERM_CREATE, 7
+  field :GLOSSARY_TERM_UPDATE, 8
+  field :GLOSSARY_TERM_DELETE, 9
+end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
 
@@ -567,4 +584,19 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult do
   field :passed_row_count, 11, type: :int64, json_name: "passedRowCount"
   field :null_row_count, 12, type: :int64, json_name: "nullRowCount"
   field :assertion_row_count, 13, type: :int64, json_name: "assertionRowCount"
+end
+
+defmodule Google.Cloud.Dataplex.V1.BusinessGlossaryEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :message, 1, type: :string
+
+  field :event_type, 2,
+    type: Google.Cloud.Dataplex.V1.BusinessGlossaryEvent.EventType,
+    json_name: "eventType",
+    enum: true
+
+  field :resource, 3, type: :string
 end
