@@ -416,6 +416,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1.Event do
   field :requested_uri, 8, type: :string, json_name: "requestedUri", deprecated: false
   field :waf_token_assessment, 9, type: :bool, json_name: "wafTokenAssessment", deprecated: false
   field :ja3, 10, type: :string, deprecated: false
+  field :ja4, 18, type: :string, deprecated: false
   field :headers, 11, repeated: true, type: :string, deprecated: false
 
   field :firewall_policy_evaluation, 12,
