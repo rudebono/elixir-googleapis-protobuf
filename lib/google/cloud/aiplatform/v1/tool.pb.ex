@@ -304,6 +304,50 @@ defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Filter do
   field :metadata_filter, 2, type: :string, json_name: "metadataFilter", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking.RankService do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "modelName",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking.LlmRanker do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "modelName",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :ranking_config, 0
+
+  field :rank_service, 1,
+    type: Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking.RankService,
+    json_name: "rankService",
+    oneof: 0,
+    deprecated: false
+
+  field :llm_ranker, 3,
+    type: Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking.LlmRanker,
+    json_name: "llmRanker",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig do
   @moduledoc false
 
@@ -311,4 +355,8 @@ defmodule Google.Cloud.Aiplatform.V1.RagRetrievalConfig do
 
   field :top_k, 1, type: :int32, json_name: "topK", deprecated: false
   field :filter, 3, type: Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Filter, deprecated: false
+
+  field :ranking, 4,
+    type: Google.Cloud.Aiplatform.V1.RagRetrievalConfig.Ranking,
+    deprecated: false
 end
