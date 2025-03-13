@@ -129,6 +129,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCall do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
   field :args, 2, type: Google.Protobuf.Struct, deprecated: false
 end
@@ -138,6 +139,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FunctionResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
   field :response, 2, type: Google.Protobuf.Struct, deprecated: false
 end
