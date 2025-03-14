@@ -129,6 +129,17 @@ defmodule Google.Cloud.Compute.V1.AllocationAggregateReservation.WorkloadType do
   field :UNSPECIFIED, 526_786_327
 end
 
+defmodule Google.Cloud.Compute.V1.AllocationReservationSharingPolicy.ServiceShareType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_SERVICE_SHARE_TYPE, 0
+  field :ALLOW_ALL, 475_536_235
+  field :DISALLOW_ALL, 277_786_301
+  field :SERVICE_SHARE_TYPE_UNSPECIFIED, 279_057_148
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.Interface do
   @moduledoc false
 
@@ -304,6 +315,7 @@ defmodule Google.Cloud.Compute.V1.Backend.BalancingMode do
 
   field :UNDEFINED_BALANCING_MODE, 0
   field :CONNECTION, 246_311_646
+  field :CUSTOM_METRICS, 331_575_765
   field :RATE, 2_508_000
   field :UTILIZATION, 157_008_386
 end
@@ -391,6 +403,7 @@ defmodule Google.Cloud.Compute.V1.BackendService.LocalityLbPolicy do
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
   field :WEIGHTED_MAGLEV, 254_930_962
+  field :WEIGHTED_ROUND_ROBIN, 5_584_977
 end
 
 defmodule Google.Cloud.Compute.V1.BackendService.Protocol do
@@ -474,6 +487,7 @@ defmodule Google.Cloud.Compute.V1.BackendServiceLocalityLoadBalancingPolicyConfi
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
   field :WEIGHTED_MAGLEV, 254_930_962
+  field :WEIGHTED_ROUND_ROBIN, 5_584_977
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceLogConfig.OptionalMode do
@@ -654,6 +668,7 @@ defmodule Google.Cloud.Compute.V1.Commitment.Type do
   field :GRAPHICS_OPTIMIZED, 68_500_563
   field :MEMORY_OPTIMIZED, 281_753_417
   field :MEMORY_OPTIMIZED_M3, 276_301_372
+  field :MEMORY_OPTIMIZED_M4, 276_301_373
   field :MEMORY_OPTIMIZED_X4_16TB, 183_089_120
   field :MEMORY_OPTIMIZED_X4_24TB, 183_116_989
   field :MEMORY_OPTIMIZED_X4_32TB, 183_144_858
@@ -1352,6 +1367,29 @@ defmodule Google.Cloud.Compute.V1.InstancesGetEffectiveFirewallsResponseEffectiv
   field :SYSTEM_GLOBAL, 60_099_507
   field :SYSTEM_REGIONAL, 161_777_199
   field :UNSPECIFIED, 526_786_327
+end
+
+defmodule Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequest.DisruptionSchedule do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_DISRUPTION_SCHEDULE, 0
+  field :DISRUPTION_SCHEDULE_UNSPECIFIED, 332_543_835
+  field :FUTURE, 474_513_859
+  field :IMMEDIATE, 152_881_041
+end
+
+defmodule Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequestFaultReason.Behavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_BEHAVIOR, 0
+  field :BEHAVIOR_UNSPECIFIED, 85_734_570
+  field :PERFORMANCE, 135_701_520
+  field :SILENT_DATA_CORRUPTION, 111_360_678
+  field :UNRECOVERABLE_GPU_ERROR, 363_710_747
 end
 
 defmodule Google.Cloud.Compute.V1.InstantSnapshot.Architecture do
@@ -2656,6 +2694,7 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.Mode do
   field :UNDEFINED_MODE, 0
   field :DELEGATION, 264_149_288
   field :EXTERNAL_IPV6_FORWARDING_RULE_CREATION, 398_684_356
+  field :EXTERNAL_IPV6_SUBNETWORK_CREATION, 61_198_284
 end
 
 defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefix.Status do
@@ -2680,6 +2719,7 @@ defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix.
   field :UNDEFINED_MODE, 0
   field :DELEGATION, 264_149_288
   field :EXTERNAL_IPV6_FORWARDING_RULE_CREATION, 398_684_356
+  field :EXTERNAL_IPV6_SUBNETWORK_CREATION, 61_198_284
 end
 
 defmodule Google.Cloud.Compute.V1.PublicDelegatedPrefixPublicDelegatedSubPrefix.Status do
@@ -3424,6 +3464,7 @@ defmodule Google.Cloud.Compute.V1.Scheduling.ProvisioningModel do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNDEFINED_PROVISIONING_MODEL, 0
+  field :RESERVATION_BOUND, 293_538_571
   field :SPOT, 2_552_066
   field :STANDARD, 484_642_493
 end
@@ -3833,6 +3874,16 @@ defmodule Google.Cloud.Compute.V1.Subnetwork.Ipv6AccessType do
   field :EXTERNAL, 35_607_499
   field :INTERNAL, 279_295_677
   field :UNSPECIFIED_IPV6_ACCESS_TYPE, 313_080_613
+end
+
+defmodule Google.Cloud.Compute.V1.Subnetwork.Ipv6GceEndpoint do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_IPV6_GCE_ENDPOINT, 0
+  field :VM_AND_FR, 41_830_108
+  field :VM_ONLY, 236_773_428
 end
 
 defmodule Google.Cloud.Compute.V1.Subnetwork.PrivateIpv6GoogleAccess do
@@ -6400,6 +6451,17 @@ defmodule Google.Cloud.Compute.V1.AllocationAggregateReservationReservedResource
     json_name: "acceleratorType"
 end
 
+defmodule Google.Cloud.Compute.V1.AllocationReservationSharingPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :service_share_type, 514_508_644,
+    proto3_optional: true,
+    type: :string,
+    json_name: "serviceShareType"
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationResourceStatus do
   @moduledoc false
 
@@ -6411,6 +6473,15 @@ defmodule Google.Cloud.Compute.V1.AllocationResourceStatus do
     json_name: "specificSkuAllocation"
 end
 
+defmodule Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation.UtilizationsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :int64
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation do
   @moduledoc false
 
@@ -6420,6 +6491,11 @@ defmodule Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation 
     proto3_optional: true,
     type: :string,
     json_name: "sourceInstanceTemplateId"
+
+  field :utilizations, 402_495_121,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation.UtilizationsEntry,
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk do
@@ -7090,6 +7166,11 @@ defmodule Google.Cloud.Compute.V1.Backend do
     type: :float,
     json_name: "capacityScaler"
 
+  field :custom_metrics, 429_453_813,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendCustomMetric,
+    json_name: "customMetrics"
+
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :failover, 138_892_530, proto3_optional: true, type: :bool
   field :group, 98_629_247, proto3_optional: true, type: :string
@@ -7285,6 +7366,21 @@ defmodule Google.Cloud.Compute.V1.BackendBucketUsedBy do
   field :reference, 148_586_315, proto3_optional: true, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1.BackendCustomMetric do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dry_run, 323_854_839, proto3_optional: true, type: :bool, json_name: "dryRun"
+
+  field :max_utilization, 148_192_199,
+    proto3_optional: true,
+    type: :float,
+    json_name: "maxUtilization"
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.BackendService.MetadatasEntry do
   @moduledoc false
 
@@ -7340,6 +7436,11 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     proto3_optional: true,
     type: :string,
     json_name: "creationTimestamp"
+
+  field :custom_metrics, 429_453_813,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendServiceCustomMetric,
+    json_name: "customMetrics"
 
   field :custom_request_headers, 27_977_992,
     repeated: true,
@@ -7586,6 +7687,15 @@ defmodule Google.Cloud.Compute.V1.BackendServiceConnectionTrackingPolicy do
     proto3_optional: true,
     type: :string,
     json_name: "trackingMode"
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceCustomMetric do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dry_run, 323_854_839, proto3_optional: true, type: :bool, json_name: "dryRun"
+  field :name, 3_373_707, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceFailoverPolicy do
@@ -15627,6 +15737,12 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManager do
     json_name: "namedPorts"
 
   field :region, 138_946_292, proto3_optional: true, type: :string
+
+  field :resource_policies, 22_220_385,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InstanceGroupManagerResourcePolicies,
+    json_name: "resourcePolicies"
+
   field :satisfies_pzi, 480_964_257, proto3_optional: true, type: :bool, json_name: "satisfiesPzi"
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
@@ -15896,6 +16012,17 @@ defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResizeRequestsListResponse
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.InstanceGroupManagerResourcePolicies do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :workload_policy, 114_721_530,
+    proto3_optional: true,
+    type: :string,
+    json_name: "workloadPolicy"
 end
 
 defmodule Google.Cloud.Compute.V1.InstanceGroupManagerStandbyPolicy do
@@ -16790,6 +16917,31 @@ defmodule Google.Cloud.Compute.V1.InstancesRemoveResourcePoliciesRequest do
     repeated: true,
     type: :string,
     json_name: "resourcePolicies"
+end
+
+defmodule Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :disruption_schedule, 95_871_619,
+    proto3_optional: true,
+    type: :string,
+    json_name: "disruptionSchedule"
+
+  field :fault_reasons, 168_056_210,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequestFaultReason,
+    json_name: "faultReasons"
+end
+
+defmodule Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequestFaultReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :behavior, 437_170_770, proto3_optional: true, type: :string
+  field :description, 422_937_596, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InstancesScopedList do
@@ -25133,6 +25285,23 @@ defmodule Google.Cloud.Compute.V1.RemoveRuleSecurityPolicyRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ReportHostAsFaultyInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :instance, 18_257_045, type: :string, deprecated: false
+
+  field :instances_report_host_as_faulty_request_resource, 494_094_886,
+    type: Google.Cloud.Compute.V1.InstancesReportHostAsFaultyRequest,
+    json_name: "instancesReportHostAsFaultyRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.RequestMirrorPolicy do
   @moduledoc false
 
@@ -25174,6 +25343,11 @@ defmodule Google.Cloud.Compute.V1.Reservation do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :reservation_sharing_policy, 205_970_120,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.AllocationReservationSharingPolicy,
+    json_name: "reservationSharingPolicy"
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -25744,6 +25918,11 @@ defmodule Google.Cloud.Compute.V1.ResourceStatus do
     type: :string,
     json_name: "physicalHost"
 
+  field :physical_host_topology, 390_842_814,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ResourceStatusPhysicalHostTopology,
+    json_name: "physicalHostTopology"
+
   field :scheduling, 386_688_404,
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.ResourceStatusScheduling
@@ -25752,6 +25931,17 @@ defmodule Google.Cloud.Compute.V1.ResourceStatus do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.UpcomingMaintenance,
     json_name: "upcomingMaintenance"
+end
+
+defmodule Google.Cloud.Compute.V1.ResourceStatusPhysicalHostTopology do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :block, 93_832_333, proto3_optional: true, type: :string
+  field :cluster, 335_221_242, proto3_optional: true, type: :string
+  field :host, 3_208_616, proto3_optional: true, type: :string
+  field :subblock, 70_446_669, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.ResourceStatusScheduling do
@@ -30693,6 +30883,11 @@ defmodule Google.Cloud.Compute.V1.Subnetwork do
 
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
 
+  field :ip_collection, 176_818_358,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipCollection"
+
   field :ipv6_access_type, 504_658_653,
     proto3_optional: true,
     type: :string,
@@ -30702,6 +30897,11 @@ defmodule Google.Cloud.Compute.V1.Subnetwork do
     proto3_optional: true,
     type: :string,
     json_name: "ipv6CidrRange"
+
+  field :ipv6_gce_endpoint, 320_382_307,
+    proto3_optional: true,
+    type: :string,
+    json_name: "ipv6GceEndpoint"
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
@@ -34963,6 +35163,10 @@ defmodule Google.Cloud.Compute.V1.Instances.Service do
 
   rpc :RemoveResourcePolicies,
       Google.Cloud.Compute.V1.RemoveResourcePoliciesInstanceRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :ReportHostAsFaulty,
+      Google.Cloud.Compute.V1.ReportHostAsFaultyInstanceRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :Reset, Google.Cloud.Compute.V1.ResetInstanceRequest, Google.Cloud.Compute.V1.Operation
