@@ -9,6 +9,16 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.C
   field :PRODUCTS, 3
 end
 
+defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Destination.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ENABLED, 1
+  field :DISABLED, 2
+end
+
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.DefaultRule do
   @moduledoc false
 
@@ -19,6 +29,18 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.D
     type: Google.Shopping.Merchant.Datasources.V1beta.DataSourceReference,
     json_name: "takeFromDataSources",
     deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Destination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :destination, 1, type: Google.Shopping.Type.Destination.DestinationEnum, enum: true
+
+  field :state, 2,
+    type: Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Destination.State,
+    enum: true
 end
 
 defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource do
@@ -48,6 +70,11 @@ defmodule Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource d
   field :default_rule, 7,
     type: Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.DefaultRule,
     json_name: "defaultRule",
+    deprecated: false
+
+  field :destinations, 10,
+    repeated: true,
+    type: Google.Shopping.Merchant.Datasources.V1beta.PrimaryProductDataSource.Destination,
     deprecated: false
 end
 
