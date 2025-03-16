@@ -8,6 +8,7 @@ defmodule Google.Cloud.Oracledatabase.V1.Entitlement.State do
   field :ACCOUNT_NOT_ACTIVE, 2
   field :ACTIVE, 3
   field :ACCOUNT_SUSPENDED, 4
+  field :NOT_APPROVED_IN_PRIVATE_MARKETPLACE, 5
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.Entitlement do
