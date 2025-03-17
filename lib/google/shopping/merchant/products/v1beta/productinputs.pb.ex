@@ -42,6 +42,24 @@ defmodule Google.Shopping.Merchant.Products.V1beta.InsertProductInputRequest do
   field :data_source, 3, type: :string, json_name: "dataSource", deprecated: false
 end
 
+defmodule Google.Shopping.Merchant.Products.V1beta.UpdateProductInputRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :product_input, 1,
+    type: Google.Shopping.Merchant.Products.V1beta.ProductInput,
+    json_name: "productInput",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :data_source, 3, type: :string, json_name: "dataSource", deprecated: false
+end
+
 defmodule Google.Shopping.Merchant.Products.V1beta.DeleteProductInputRequest do
   @moduledoc false
 
@@ -60,6 +78,10 @@ defmodule Google.Shopping.Merchant.Products.V1beta.ProductInputsService.Service 
 
   rpc :InsertProductInput,
       Google.Shopping.Merchant.Products.V1beta.InsertProductInputRequest,
+      Google.Shopping.Merchant.Products.V1beta.ProductInput
+
+  rpc :UpdateProductInput,
+      Google.Shopping.Merchant.Products.V1beta.UpdateProductInputRequest,
       Google.Shopping.Merchant.Products.V1beta.ProductInput
 
   rpc :DeleteProductInput,
