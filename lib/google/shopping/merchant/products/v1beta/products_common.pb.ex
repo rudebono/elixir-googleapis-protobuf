@@ -19,6 +19,16 @@ defmodule Google.Shopping.Merchant.Products.V1beta.ProductStatus.ItemLevelIssue.
   field :DISAPPROVED, 3
 end
 
+defmodule Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :EV_TAX_CREDIT, 1
+  field :EV_PRICE_DISCOUNT, 2
+end
+
 defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
   @moduledoc false
 
@@ -256,6 +266,11 @@ defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
   field :auto_pricing_min_price, 124,
     type: Google.Shopping.Type.Price,
     json_name: "autoPricingMinPrice"
+
+  field :sustainability_incentives, 138,
+    repeated: true,
+    type: Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive,
+    json_name: "sustainabilityIncentives"
 end
 
 defmodule Google.Shopping.Merchant.Products.V1beta.Tax do
@@ -553,4 +568,20 @@ defmodule Google.Shopping.Merchant.Products.V1beta.CloudExportAdditionalProperti
   field :min_value, 6, proto3_optional: true, type: :float, json_name: "minValue"
   field :max_value, 7, proto3_optional: true, type: :float, json_name: "maxValue"
   field :unit_code, 8, proto3_optional: true, type: :string, json_name: "unitCode"
+end
+
+defmodule Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :value, 0
+
+  field :amount, 2, type: Google.Shopping.Type.Price, oneof: 0
+  field :percentage, 3, type: :double, oneof: 0
+
+  field :type, 1,
+    proto3_optional: true,
+    type: Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive.Type,
+    enum: true
 end
