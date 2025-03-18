@@ -682,10 +682,10 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.Node do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :zone_id, 1, type: :string, json_name: "zoneId"
-  field :id, 2, type: :string
-  field :ip, 3, type: :string
-  field :state, 4, type: :string
+  field :zone_id, 1, type: :string, json_name: "zoneId", deprecated: false
+  field :id, 2, type: :string, deprecated: false
+  field :ip, 3, type: :string, deprecated: false
+  field :state, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.QueryInsightsInstanceConfig do

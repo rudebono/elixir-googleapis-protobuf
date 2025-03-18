@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Workflows.V1.ExecutionHistoryLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EXECUTION_HISTORY_LEVEL_UNSPECIFIED, 0
+  field :EXECUTION_HISTORY_BASIC, 1
+  field :EXECUTION_HISTORY_DETAILED, 2
+end
+
 defmodule Google.Cloud.Workflows.V1.Workflow.State do
   @moduledoc false
 
@@ -47,6 +57,15 @@ defmodule Google.Cloud.Workflows.V1.Workflow.LabelsEntry do
 end
 
 defmodule Google.Cloud.Workflows.V1.Workflow.UserEnvVarsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Workflows.V1.Workflow.TagsEntry do
   @moduledoc false
 
   use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -106,6 +125,32 @@ defmodule Google.Cloud.Workflows.V1.Workflow do
     repeated: true,
     type: Google.Cloud.Workflows.V1.Workflow.UserEnvVarsEntry,
     json_name: "userEnvVars",
+    map: true,
+    deprecated: false
+
+  field :execution_history_level, 15,
+    type: Google.Cloud.Workflows.V1.ExecutionHistoryLevel,
+    json_name: "executionHistoryLevel",
+    enum: true,
+    deprecated: false
+
+  field :all_kms_keys, 16,
+    repeated: true,
+    type: :string,
+    json_name: "allKmsKeys",
+    deprecated: false
+
+  field :all_kms_keys_versions, 17,
+    repeated: true,
+    type: :string,
+    json_name: "allKmsKeysVersions",
+    deprecated: false
+
+  field :crypto_key_version, 18, type: :string, json_name: "cryptoKeyVersion", deprecated: false
+
+  field :tags, 19,
+    repeated: true,
+    type: Google.Cloud.Workflows.V1.Workflow.TagsEntry,
     map: true,
     deprecated: false
 end
@@ -180,6 +225,25 @@ defmodule Google.Cloud.Workflows.V1.OperationMetadata do
   field :api_version, 5, type: :string, json_name: "apiVersion"
 end
 
+defmodule Google.Cloud.Workflows.V1.ListWorkflowRevisionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Cloud.Workflows.V1.ListWorkflowRevisionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :workflows, 1, repeated: true, type: Google.Cloud.Workflows.V1.Workflow
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
 defmodule Google.Cloud.Workflows.V1.Workflows.Service do
   @moduledoc false
 
@@ -206,6 +270,10 @@ defmodule Google.Cloud.Workflows.V1.Workflows.Service do
   rpc :UpdateWorkflow,
       Google.Cloud.Workflows.V1.UpdateWorkflowRequest,
       Google.Longrunning.Operation
+
+  rpc :ListWorkflowRevisions,
+      Google.Cloud.Workflows.V1.ListWorkflowRevisionsRequest,
+      Google.Cloud.Workflows.V1.ListWorkflowRevisionsResponse
 end
 
 defmodule Google.Cloud.Workflows.V1.Workflows.Stub do
