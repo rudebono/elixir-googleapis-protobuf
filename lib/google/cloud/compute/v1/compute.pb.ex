@@ -20708,7 +20708,17 @@ defmodule Google.Cloud.Compute.V1.ManagedInstanceLastAttempt do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :errors, 315_977_579, proto3_optional: true, type: Google.Cloud.Compute.V1.Errors
+  field :errors, 315_977_579,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ManagedInstanceLastAttemptErrors
+end
+
+defmodule Google.Cloud.Compute.V1.ManagedInstanceLastAttemptErrors do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :errors, 315_977_579, repeated: true, type: Google.Cloud.Compute.V1.Errors
 end
 
 defmodule Google.Cloud.Compute.V1.ManagedInstancePropertiesFromFlexibilityPolicy do

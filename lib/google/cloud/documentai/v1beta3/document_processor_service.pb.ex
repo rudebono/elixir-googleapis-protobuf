@@ -98,6 +98,18 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig do
     type: Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig.ChunkingConfig,
     json_name: "chunkingConfig",
     deprecated: false
+
+  field :return_images, 2, type: :bool, json_name: "returnImages", deprecated: false
+
+  field :return_bounding_boxes, 3,
+    type: :bool,
+    json_name: "returnBoundingBoxes",
+    deprecated: false
+
+  field :enable_llm_layout_parsing, 5,
+    type: :bool,
+    json_name: "enableLlmLayoutParsing",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.IndividualPageSelector do

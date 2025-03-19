@@ -235,6 +235,7 @@ defmodule Google.Devtools.Testing.V1.LabInfo do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string
+  field :region_code, 2, type: :string, json_name: "regionCode"
 end
 
 defmodule Google.Devtools.Testing.V1.IosDeviceCatalog do
