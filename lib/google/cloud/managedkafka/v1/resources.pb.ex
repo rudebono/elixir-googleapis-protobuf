@@ -19,6 +19,31 @@ defmodule Google.Cloud.Managedkafka.V1.RebalanceConfig.Mode do
   field :AUTO_REBALANCE_ON_SCALE_UP, 2
 end
 
+defmodule Google.Cloud.Managedkafka.V1.ConnectCluster.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :CREATING, 1
+  field :ACTIVE, 2
+  field :DELETING, 3
+end
+
+defmodule Google.Cloud.Managedkafka.V1.Connector.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :UNASSIGNED, 1
+  field :RUNNING, 2
+  field :PAUSED, 3
+  field :FAILED, 4
+  field :RESTARTING, 5
+  field :STOPPED, 6
+end
+
 defmodule Google.Cloud.Managedkafka.V1.Cluster.LabelsEntry do
   @moduledoc false
 
@@ -239,4 +264,172 @@ defmodule Google.Cloud.Managedkafka.V1.OperationMetadata do
     deprecated: false
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectCluster.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectCluster.ConfigEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectCluster do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :platform_config, 0
+
+  field :gcp_config, 7,
+    type: Google.Cloud.Managedkafka.V1.ConnectGcpConfig,
+    json_name: "gcpConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+  field :kafka_cluster, 2, type: :string, json_name: "kafkaCluster", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.ConnectCluster.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :capacity_config, 6,
+    type: Google.Cloud.Managedkafka.V1.CapacityConfig,
+    json_name: "capacityConfig",
+    deprecated: false
+
+  field :state, 8,
+    type: Google.Cloud.Managedkafka.V1.ConnectCluster.State,
+    enum: true,
+    deprecated: false
+
+  field :config, 9,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.ConnectCluster.ConfigEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectNetworkConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :primary_subnet, 3, type: :string, json_name: "primarySubnet", deprecated: false
+
+  field :additional_subnets, 4,
+    repeated: true,
+    type: :string,
+    json_name: "additionalSubnets",
+    deprecated: false
+
+  field :dns_domain_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "dnsDomainNames",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectAccessConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :network_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.ConnectNetworkConfig,
+    json_name: "networkConfigs",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ConnectGcpConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :access_config, 1,
+    type: Google.Cloud.Managedkafka.V1.ConnectAccessConfig,
+    json_name: "accessConfig",
+    deprecated: false
+
+  field :secret_paths, 2,
+    repeated: true,
+    type: :string,
+    json_name: "secretPaths",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.Connector.ConfigsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Managedkafka.V1.Connector do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :restart_policy, 0
+
+  field :task_restart_policy, 4,
+    type: Google.Cloud.Managedkafka.V1.TaskRetryPolicy,
+    json_name: "taskRestartPolicy",
+    oneof: 0,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :configs, 2,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.Connector.ConfigsEntry,
+    map: true,
+    deprecated: false
+
+  field :state, 3,
+    type: Google.Cloud.Managedkafka.V1.Connector.State,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.TaskRetryPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :minimum_backoff, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "minimumBackoff",
+    deprecated: false
+
+  field :maximum_backoff, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "maximumBackoff",
+    deprecated: false
 end

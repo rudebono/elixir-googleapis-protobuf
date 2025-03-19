@@ -21,6 +21,20 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.PackageSpec do
   field :python_version, 4, type: :string, json_name: "pythonVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :env, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar, deprecated: false
+
+  field :secret_env, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.SecretEnvVar,
+    json_name: "secretEnv",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec do
   @moduledoc false
 
@@ -31,11 +45,18 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec do
     json_name: "packageSpec",
     deprecated: false
 
+  field :deployment_spec, 4,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec,
+    json_name: "deploymentSpec",
+    deprecated: false
+
   field :class_methods, 3,
     repeated: true,
     type: Google.Protobuf.Struct,
     json_name: "classMethods",
     deprecated: false
+
+  field :agent_framework, 5, type: :string, json_name: "agentFramework", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine do
