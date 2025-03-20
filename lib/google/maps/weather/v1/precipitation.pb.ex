@@ -30,6 +30,11 @@ defmodule Google.Maps.Weather.V1.Precipitation do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :probability, 1, type: Google.Maps.Weather.V1.PrecipitationProbability
+
+  field :snow_qpf, 3,
+    type: Google.Maps.Weather.V1.QuantitativePrecipitationForecast,
+    json_name: "snowQpf"
+
   field :qpf, 4, type: Google.Maps.Weather.V1.QuantitativePrecipitationForecast
 end
 

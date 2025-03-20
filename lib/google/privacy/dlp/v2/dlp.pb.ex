@@ -293,6 +293,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :CHINA, 8
   field :COLOMBIA, 9
   field :CROATIA, 42
+  field :CZECHIA, 52
   field :DENMARK, 10
   field :FRANCE, 11
   field :FINLAND, 12
@@ -1373,6 +1374,8 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   field :sensitivity_score, 11,
     type: Google.Privacy.Dlp.V2.SensitivityScore,
     json_name: "sensitivityScore"
+
+  field :specific_info_types, 12, repeated: true, type: :string, json_name: "specificInfoTypes"
 end
 
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory do
@@ -3159,6 +3162,10 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.Export do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :profile_table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, json_name: "profileTable"
+
+  field :sample_findings_table, 2,
+    type: Google.Privacy.Dlp.V2.BigQueryTable,
+    json_name: "sampleFindingsTable"
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.PubSubNotification do
@@ -3266,6 +3273,48 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction do
     type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources,
     json_name: "tagResources",
     oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileFinding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :quote, 1, type: :string
+  field :infotype, 2, type: Google.Privacy.Dlp.V2.InfoType
+  field :quote_info, 3, type: Google.Privacy.Dlp.V2.QuoteInfo, json_name: "quoteInfo"
+  field :data_profile_resource_name, 4, type: :string, json_name: "dataProfileResourceName"
+  field :finding_id, 5, type: :string, json_name: "findingId"
+  field :timestamp, 6, type: Google.Protobuf.Timestamp
+  field :location, 7, type: Google.Privacy.Dlp.V2.DataProfileFindingLocation
+
+  field :resource_visibility, 8,
+    type: Google.Privacy.Dlp.V2.ResourceVisibility,
+    json_name: "resourceVisibility",
+    enum: true
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileFindingLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :location_extra_details, 0
+
+  field :container_name, 1, type: :string, json_name: "containerName"
+
+  field :data_profile_finding_record_location, 2,
+    type: Google.Privacy.Dlp.V2.DataProfileFindingRecordLocation,
+    json_name: "dataProfileFindingRecordLocation",
+    oneof: 0
+end
+
+defmodule Google.Privacy.Dlp.V2.DataProfileFindingRecordLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileJobConfig do
@@ -4769,6 +4818,12 @@ defmodule Google.Privacy.Dlp.V2.TableDataProfile do
 
   field :create_time, 23, type: Google.Protobuf.Timestamp, json_name: "createTime"
 
+  field :sample_findings_table, 37,
+    type: Google.Privacy.Dlp.V2.BigQueryTable,
+    json_name: "sampleFindingsTable"
+
+  field :tags, 39, repeated: true, type: Google.Privacy.Dlp.V2.Tag
+
   field :related_resources, 41,
     repeated: true,
     type: Google.Privacy.Dlp.V2.RelatedResource,
@@ -4953,12 +5008,27 @@ defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile do
     type: Google.Privacy.Dlp.V2.FileStoreInfoTypeSummary,
     json_name: "fileStoreInfoTypeSummaries"
 
+  field :sample_findings_table, 22,
+    type: Google.Privacy.Dlp.V2.BigQueryTable,
+    json_name: "sampleFindingsTable"
+
   field :file_store_is_empty, 23, type: :bool, json_name: "fileStoreIsEmpty"
+  field :tags, 25, repeated: true, type: Google.Privacy.Dlp.V2.Tag
 
   field :related_resources, 26,
     repeated: true,
     type: Google.Privacy.Dlp.V2.RelatedResource,
     json_name: "relatedResources"
+end
+
+defmodule Google.Privacy.Dlp.V2.Tag do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :namespaced_tag_value, 1, type: :string, json_name: "namespacedTagValue"
+  field :key, 2, type: :string
+  field :value, 3, type: :string
 end
 
 defmodule Google.Privacy.Dlp.V2.RelatedResource do

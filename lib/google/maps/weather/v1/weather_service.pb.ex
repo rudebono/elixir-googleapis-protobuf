@@ -29,6 +29,11 @@ defmodule Google.Maps.Weather.V1.LookupCurrentConditionsResponse.CurrentConditio
 
   field :max_temperature, 2, type: Google.Maps.Weather.V1.Temperature, json_name: "maxTemperature"
   field :min_temperature, 3, type: Google.Maps.Weather.V1.Temperature, json_name: "minTemperature"
+
+  field :snow_qpf, 5,
+    type: Google.Maps.Weather.V1.QuantitativePrecipitationForecast,
+    json_name: "snowQpf"
+
   field :qpf, 6, type: Google.Maps.Weather.V1.QuantitativePrecipitationForecast
 end
 
