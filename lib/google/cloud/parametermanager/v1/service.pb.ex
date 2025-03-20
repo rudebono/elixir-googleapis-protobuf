@@ -60,6 +60,8 @@ defmodule Google.Cloud.Parametermanager.V1.Parameter do
     type: Google.Iam.V1.ResourcePolicyMember,
     json_name: "policyMember",
     deprecated: false
+
+  field :kms_key, 7, proto3_optional: true, type: :string, json_name: "kmsKey", deprecated: false
 end
 
 defmodule Google.Cloud.Parametermanager.V1.ListParametersRequest do
@@ -147,6 +149,12 @@ defmodule Google.Cloud.Parametermanager.V1.ParameterVersion do
 
   field :payload, 5,
     type: Google.Cloud.Parametermanager.V1.ParameterVersionPayload,
+    deprecated: false
+
+  field :kms_key_version, 6,
+    proto3_optional: true,
+    type: :string,
+    json_name: "kmsKeyVersion",
     deprecated: false
 end
 

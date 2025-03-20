@@ -284,6 +284,8 @@ defmodule Google.Cloud.Aiplatform.V1.ImportRagFilesConfig do
 
   oneof :partial_failure_sink, 1
 
+  oneof :import_result_sink, 2
+
   field :gcs_source, 2,
     type: Google.Cloud.Aiplatform.V1.GcsSource,
     json_name: "gcsSource",
@@ -320,6 +322,16 @@ defmodule Google.Cloud.Aiplatform.V1.ImportRagFilesConfig do
     json_name: "partialFailureBigquerySink",
     oneof: 1,
     deprecated: true
+
+  field :import_result_gcs_sink, 14,
+    type: Google.Cloud.Aiplatform.V1.GcsDestination,
+    json_name: "importResultGcsSink",
+    oneof: 2
+
+  field :import_result_bigquery_sink, 15,
+    type: Google.Cloud.Aiplatform.V1.BigQueryDestination,
+    json_name: "importResultBigquerySink",
+    oneof: 2
 
   field :rag_file_transformation_config, 16,
     type: Google.Cloud.Aiplatform.V1.RagFileTransformationConfig,
