@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningValidationAssessmentConfig.DatasetUsage do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DATASET_USAGE_UNSPECIFIED, 0
+  field :SFT_TRAINING, 1
+  field :SFT_VALIDATION, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateDatasetRequest do
   @moduledoc false
 
@@ -382,6 +392,220 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningValidationAssessmentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName", deprecated: false
+
+  field :dataset_usage, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningValidationAssessmentConfig.DatasetUsage,
+    json_name: "datasetUsage",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningResourceUsageAssessmentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :assessment_config, 0
+
+  oneof :read_config, 1
+
+  field :tuning_validation_assessment_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningValidationAssessmentConfig,
+    json_name: "tuningValidationAssessmentConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :tuning_resource_usage_assessment_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningResourceUsageAssessmentConfig,
+    json_name: "tuningResourceUsageAssessmentConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :gemini_template_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
+    json_name: "geminiTemplateConfig",
+    oneof: 1,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningValidationAssessmentResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :errors, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningResourceUsageAssessmentResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :token_count, 1, type: :int64, json_name: "tokenCount"
+  field :billable_character_count, 2, type: :int64, json_name: "billableCharacterCount"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :assessment_result, 0
+
+  field :tuning_validation_assessment_result, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningValidationAssessmentResult,
+    json_name: "tuningValidationAssessmentResult",
+    oneof: 0,
+    deprecated: false
+
+  field :tuning_resource_usage_assessment_result, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningResourceUsageAssessmentResult,
+    json_name: "tuningResourceUsageAssessmentResult",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig.FieldMappingEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :gemini_example, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiExample,
+    json_name: "geminiExample",
+    deprecated: false
+
+  field :field_mapping, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig.FieldMappingEntry,
+    json_name: "fieldMapping",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GeminiExample.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GeminiExample do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model, 1, type: :string, deprecated: false
+
+  field :contents, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
+
+  field :system_instruction, 8,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    json_name: "systemInstruction",
+    deprecated: false
+
+  field :cached_content, 9, type: :string, json_name: "cachedContent", deprecated: false
+  field :tools, 6, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Tool, deprecated: false
+
+  field :tool_config, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.ToolConfig,
+    json_name: "toolConfig",
+    deprecated: false
+
+  field :labels, 10,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiExample.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :safety_settings, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.SafetySetting,
+    json_name: "safetySettings",
+    deprecated: false
+
+  field :generation_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig,
+    json_name: "generationConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :read_config, 0
+
+  field :gemini_template_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
+    json_name: "geminiTemplateConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bigquery_destination, 1, type: :string, json_name: "bigqueryDestination"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Service do
   @moduledoc false
 
@@ -460,6 +684,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Service do
   rpc :ListAnnotations,
       Google.Cloud.Aiplatform.V1beta1.ListAnnotationsRequest,
       Google.Cloud.Aiplatform.V1beta1.ListAnnotationsResponse
+
+  rpc :AssessData, Google.Cloud.Aiplatform.V1beta1.AssessDataRequest, Google.Longrunning.Operation
+
+  rpc :AssembleData,
+      Google.Cloud.Aiplatform.V1beta1.AssembleDataRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DatasetService.Stub do
