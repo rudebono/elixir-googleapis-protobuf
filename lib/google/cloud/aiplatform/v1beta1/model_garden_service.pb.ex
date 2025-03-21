@@ -210,6 +210,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployOperationMetadata do
   field :publisher_model, 2, type: :string, json_name: "publisherModel", deprecated: false
   field :destination, 3, type: :string, deprecated: false
   field :project_number, 4, type: :int64, json_name: "projectNumber", deprecated: false
+  field :model_id, 5, type: :string, json_name: "modelId", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelOperationMetadata do
@@ -224,6 +225,35 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelOperationMetadata 
   field :publisher_model, 2, type: :string, json_name: "publisherModel", deprecated: false
   field :destination, 3, type: :string, deprecated: false
   field :project_number, 4, type: :int64, json_name: "projectNumber", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :publisher_model, 1, type: :string, json_name: "publisherModel"
+  field :destination_uri, 2, type: :string, json_name: "destinationUri"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :destination, 2, type: Google.Cloud.Aiplatform.V1beta1.GcsDestination, deprecated: false
+  field :parent, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
@@ -245,6 +275,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
 
   rpc :DeployPublisherModel,
       Google.Cloud.Aiplatform.V1beta1.DeployPublisherModelRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportPublisherModel,
+      Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelRequest,
       Google.Longrunning.Operation
 end
 
