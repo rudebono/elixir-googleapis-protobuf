@@ -33,6 +33,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.State do
   field :UPDATING, 6
   field :INACTIVE, 7
   field :OBSOLETE, 10
+  field :FAILED, 11
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.SpokeType do
@@ -77,6 +78,9 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke.StateReason.Code do
   field :REJECTED, 2
   field :PAUSED, 3
   field :FAILED, 4
+  field :UPDATE_PENDING_REVIEW, 5
+  field :UPDATE_REJECTED, 6
+  field :UPDATE_FAILED, 7
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubSpokesRequest.SpokeView do
@@ -134,7 +138,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.Hub do
     type: Google.Cloud.Networkconnectivity.V1.Hub.LabelsEntry,
     map: true
 
-  field :description, 5, type: :string
+  field :description, 5, type: :string, deprecated: false
   field :unique_id, 8, type: :string, json_name: "uniqueId", deprecated: false
   field :state, 9, type: Google.Cloud.Networkconnectivity.V1.State, enum: true, deprecated: false
 
@@ -227,21 +231,24 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
     type: Google.Cloud.Networkconnectivity.V1.Spoke.LabelsEntry,
     map: true
 
-  field :description, 5, type: :string
+  field :description, 5, type: :string, deprecated: false
   field :hub, 6, type: :string, deprecated: false
   field :group, 23, type: :string, deprecated: false
 
   field :linked_vpn_tunnels, 17,
     type: Google.Cloud.Networkconnectivity.V1.LinkedVpnTunnels,
-    json_name: "linkedVpnTunnels"
+    json_name: "linkedVpnTunnels",
+    deprecated: false
 
   field :linked_interconnect_attachments, 18,
     type: Google.Cloud.Networkconnectivity.V1.LinkedInterconnectAttachments,
-    json_name: "linkedInterconnectAttachments"
+    json_name: "linkedInterconnectAttachments",
+    deprecated: false
 
   field :linked_router_appliance_instances, 19,
     type: Google.Cloud.Networkconnectivity.V1.LinkedRouterApplianceInstances,
-    json_name: "linkedRouterApplianceInstances"
+    json_name: "linkedRouterApplianceInstances",
+    deprecated: false
 
   field :linked_vpc_network, 20,
     type: Google.Cloud.Networkconnectivity.V1.LinkedVpcNetwork,
@@ -265,6 +272,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.Spoke do
     type: Google.Cloud.Networkconnectivity.V1.SpokeType,
     json_name: "spokeType",
     enum: true,
+    deprecated: false
+
+  field :etag, 27, type: :string, deprecated: false
+
+  field :field_paths_pending_update, 28,
+    repeated: true,
+    type: :string,
+    json_name: "fieldPathsPendingUpdate",
     deprecated: false
 end
 
@@ -419,7 +434,11 @@ defmodule Google.Cloud.Networkconnectivity.V1.AutoAccept do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :auto_accept_projects, 1, repeated: true, type: :string, json_name: "autoAcceptProjects"
+  field :auto_accept_projects, 1,
+    repeated: true,
+    type: :string,
+    json_name: "autoAcceptProjects",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkconnectivity.V1.ListHubsRequest do
@@ -667,6 +686,45 @@ defmodule Google.Cloud.Networkconnectivity.V1.RejectHubSpokeResponse do
   field :spoke, 1, type: Google.Cloud.Networkconnectivity.V1.Spoke
 end
 
+defmodule Google.Cloud.Networkconnectivity.V1.AcceptSpokeUpdateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :spoke_uri, 2, type: :string, json_name: "spokeUri", deprecated: false
+  field :spoke_etag, 3, type: :string, json_name: "spokeEtag", deprecated: false
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.AcceptSpokeUpdateResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :spoke, 1, type: Google.Cloud.Networkconnectivity.V1.Spoke
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.RejectSpokeUpdateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :spoke_uri, 2, type: :string, json_name: "spokeUri", deprecated: false
+  field :spoke_etag, 3, type: :string, json_name: "spokeEtag", deprecated: false
+  field :details, 4, type: :string, deprecated: false
+  field :request_id, 5, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Networkconnectivity.V1.RejectSpokeUpdateResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :spoke, 1, type: Google.Cloud.Networkconnectivity.V1.Spoke
+end
+
 defmodule Google.Cloud.Networkconnectivity.V1.GetRouteTableRequest do
   @moduledoc false
 
@@ -823,6 +881,18 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedVpcNetwork do
     json_name: "includeExportRanges",
     deprecated: false
 
+  field :proposed_include_export_ranges, 5,
+    repeated: true,
+    type: :string,
+    json_name: "proposedIncludeExportRanges",
+    deprecated: false
+
+  field :proposed_exclude_export_ranges, 6,
+    repeated: true,
+    type: :string,
+    json_name: "proposedExcludeExportRanges",
+    deprecated: false
+
   field :producer_vpc_spokes, 4,
     repeated: true,
     type: :string,
@@ -855,6 +925,18 @@ defmodule Google.Cloud.Networkconnectivity.V1.LinkedProducerVpcNetwork do
     repeated: true,
     type: :string,
     json_name: "includeExportRanges",
+    deprecated: false
+
+  field :proposed_include_export_ranges, 7,
+    repeated: true,
+    type: :string,
+    json_name: "proposedIncludeExportRanges",
+    deprecated: false
+
+  field :proposed_exclude_export_ranges, 8,
+    repeated: true,
+    type: :string,
+    json_name: "proposedExcludeExportRanges",
     deprecated: false
 end
 
@@ -1057,6 +1139,14 @@ defmodule Google.Cloud.Networkconnectivity.V1.HubService.Service do
 
   rpc :AcceptHubSpoke,
       Google.Cloud.Networkconnectivity.V1.AcceptHubSpokeRequest,
+      Google.Longrunning.Operation
+
+  rpc :AcceptSpokeUpdate,
+      Google.Cloud.Networkconnectivity.V1.AcceptSpokeUpdateRequest,
+      Google.Longrunning.Operation
+
+  rpc :RejectSpokeUpdate,
+      Google.Cloud.Networkconnectivity.V1.RejectSpokeUpdateRequest,
       Google.Longrunning.Operation
 
   rpc :DeleteSpoke,
