@@ -359,6 +359,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesRequest do
     json_name: "trajectorySingleToolUseInput",
     oneof: 0
 
+  field :rubric_based_instruction_following_input, 40,
+    type: Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingInput,
+    json_name: "rubricBasedInstructionFollowingInput",
+    oneof: 0
+
   field :location, 1, type: :string, deprecated: false
 
   field :autorater_config, 30,
@@ -527,6 +532,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateInstancesResponse do
   field :trajectory_single_tool_use_results, 37,
     type: Google.Cloud.Aiplatform.V1beta1.TrajectorySingleToolUseResults,
     json_name: "trajectorySingleToolUseResults",
+    oneof: 0
+
+  field :rubric_based_instruction_following_result, 38,
+    type: Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingResult,
+    json_name: "rubricBasedInstructionFollowingResult",
     oneof: 0
 end
 
@@ -1340,6 +1350,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricInstance do
   oneof :instance, 0
 
   field :json_instance, 1, type: :string, json_name: "jsonInstance", oneof: 0
+
+  field :content_map_instance, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ContentMap,
+    json_name: "contentMapInstance",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec do
@@ -1358,6 +1373,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricSpec do
     type: :string,
     json_name: "systemInstruction",
     deprecated: false
+
+  field :custom_output_format_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CustomOutputFormatConfig,
+    json_name: "customOutputFormatConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CustomOutputFormatConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :custom_output_format_config, 0
+
+  field :return_raw_output, 1,
+    type: :bool,
+    json_name: "returnRawOutput",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult do
@@ -1367,6 +1401,33 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult do
 
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
   field :explanation, 2, type: :string, deprecated: false
+
+  field :custom_output, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CustomOutput,
+    json_name: "customOutput",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.CustomOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :custom_output, 0
+
+  field :raw_outputs, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RawOutput,
+    json_name: "rawOutputs",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RawOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :raw_output, 1, repeated: true, type: :string, json_name: "rawOutput", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInput do
@@ -1392,6 +1453,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricInstance do
   oneof :instance, 0
 
   field :json_instance, 1, type: :string, json_name: "jsonInstance", oneof: 0
+
+  field :content_map_instance, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ContentMap,
+    json_name: "contentMapInstance",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec do
@@ -1420,6 +1486,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricSpec do
     type: :string,
     json_name: "systemInstruction",
     deprecated: false
+
+  field :custom_output_format_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.CustomOutputFormatConfig,
+    json_name: "customOutputFormatConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult do
@@ -1434,6 +1505,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult do
     deprecated: false
 
   field :explanation, 2, type: :string, deprecated: false
+
+  field :custom_output, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.CustomOutput,
+    json_name: "customOutput",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolCallValidInput do
@@ -1735,6 +1811,60 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MetricxResult do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :score, 1, proto3_optional: true, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :metric_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingSpec,
+    json_name: "metricSpec",
+    deprecated: false
+
+  field :instance, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingInstance,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :instance, 0
+
+  field :json_instance, 1, type: :string, json_name: "jsonInstance", oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RubricBasedInstructionFollowingResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :score, 1, proto3_optional: true, type: :float, deprecated: false
+
+  field :rubric_critique_results, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.RubricCritiqueResult,
+    json_name: "rubricCritiqueResults",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RubricCritiqueResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :rubric, 1, type: :string, deprecated: false
+  field :verdict, 2, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TrajectoryExactMatchInput do
@@ -2124,6 +2254,38 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ToolCall do
     proto3_optional: true,
     type: :string,
     json_name: "toolInput",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ContentMap.Contents do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :contents, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Content,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ContentMap.ValuesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1beta1.ContentMap.Contents
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ContentMap do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ContentMap.ValuesEntry,
+    map: true,
     deprecated: false
 end
 
