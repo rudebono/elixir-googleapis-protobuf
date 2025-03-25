@@ -57,6 +57,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig.AutoRou
   field :PRIORITIZE_COST, 3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ModelConfig.FeatureSelectionPreference do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :FEATURE_SELECTION_PREFERENCE_UNSPECIFIED, 0
+  field :PRIORITIZE_QUALITY, 1
+  field :BALANCED, 2
+  field :PRIORITIZE_COST, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.SafetySetting.HarmBlockThreshold do
   @moduledoc false
 
@@ -287,6 +298,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig do
     oneof: 0
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ModelConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :feature_selection_preference, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ModelConfig.FeatureSelectionPreference,
+    json_name: "featureSelectionPreference",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
   @moduledoc false
 
@@ -373,6 +396,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1beta1.SpeechConfig,
     json_name: "speechConfig",
+    deprecated: false
+
+  field :model_config, 27,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ModelConfig,
+    json_name: "modelConfig",
     deprecated: false
 end
 
