@@ -17,6 +17,16 @@ defmodule Google.Protobuf.Edition do
   field :EDITION_MAX, 2_147_483_647
 end
 
+defmodule Google.Protobuf.SymbolVisibility do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
+
+  field :VISIBILITY_UNSET, 0
+  field :VISIBILITY_LOCAL, 1
+  field :VISIBILITY_EXPORT, 2
+end
+
 defmodule Google.Protobuf.ExtensionRangeOptions.VerificationState do
   @moduledoc false
 
@@ -199,6 +209,18 @@ defmodule Google.Protobuf.FeatureSet.EnforceNamingStyle do
   field :STYLE_LEGACY, 2
 end
 
+defmodule Google.Protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
+
+  field :DEFAULT_SYMBOL_VISIBILITY_UNKNOWN, 0
+  field :EXPORT_ALL, 1
+  field :EXPORT_TOP_LEVEL, 2
+  field :LOCAL_ALL, 3
+  field :STRICT, 4
+end
+
 defmodule Google.Protobuf.GeneratedCodeInfo.Annotation.Semantic do
   @moduledoc false
 
@@ -229,6 +251,7 @@ defmodule Google.Protobuf.FileDescriptorProto do
   field :dependency, 3, repeated: true, type: :string
   field :public_dependency, 10, repeated: true, type: :int32, json_name: "publicDependency"
   field :weak_dependency, 11, repeated: true, type: :int32, json_name: "weakDependency"
+  field :option_dependency, 15, repeated: true, type: :string, json_name: "optionDependency"
 
   field :message_type, 4,
     repeated: true,
@@ -785,6 +808,12 @@ defmodule Google.Protobuf.UninterpretedOption do
   field :aggregate_value, 8, optional: true, type: :string, json_name: "aggregateValue"
 end
 
+defmodule Google.Protobuf.FeatureSet.VisibilityFeature do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto2
+end
+
 defmodule Google.Protobuf.FeatureSet do
   @moduledoc false
 
@@ -836,6 +865,13 @@ defmodule Google.Protobuf.FeatureSet do
     optional: true,
     type: Google.Protobuf.FeatureSet.EnforceNamingStyle,
     json_name: "enforceNamingStyle",
+    enum: true,
+    deprecated: false
+
+  field :default_symbol_visibility, 8,
+    optional: true,
+    type: Google.Protobuf.FeatureSet.VisibilityFeature.DefaultSymbolVisibility,
+    json_name: "defaultSymbolVisibility",
     enum: true,
     deprecated: false
 
