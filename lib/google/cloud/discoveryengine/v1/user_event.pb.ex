@@ -13,6 +13,7 @@ defmodule Google.Cloud.Discoveryengine.V1.UserEvent do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :event_type, 1, type: :string, json_name: "eventType", deprecated: false
+  field :conversion_type, 21, type: :string, json_name: "conversionType", deprecated: false
   field :user_pseudo_id, 2, type: :string, json_name: "userPseudoId", deprecated: false
   field :engine, 19, type: :string, deprecated: false
   field :data_store, 20, type: :string, json_name: "dataStore", deprecated: false
@@ -47,6 +48,11 @@ defmodule Google.Cloud.Discoveryengine.V1.UserEvent do
     map: true
 
   field :media_info, 18, type: Google.Cloud.Discoveryengine.V1.MediaInfo, json_name: "mediaInfo"
+
+  field :panels, 22,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.PanelInfo,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.PageInfo do
@@ -105,6 +111,12 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentInfo do
   field :quantity, 3, proto3_optional: true, type: :int32
   field :promotion_ids, 4, repeated: true, type: :string, json_name: "promotionIds"
   field :joined, 5, type: :bool, deprecated: false
+
+  field :conversion_value, 7,
+    proto3_optional: true,
+    type: :float,
+    json_name: "conversionValue",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.PanelInfo do
@@ -116,6 +128,11 @@ defmodule Google.Cloud.Discoveryengine.V1.PanelInfo do
   field :display_name, 3, type: :string, json_name: "displayName"
   field :panel_position, 4, proto3_optional: true, type: :int32, json_name: "panelPosition"
   field :total_panels, 5, proto3_optional: true, type: :int32, json_name: "totalPanels"
+
+  field :documents, 6,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.DocumentInfo,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.MediaInfo do

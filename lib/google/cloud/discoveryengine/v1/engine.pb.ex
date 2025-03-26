@@ -36,6 +36,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Engine.ChatEngineConfig do
     json_name: "agentCreationConfig"
 
   field :dialogflow_agent_to_link, 2, type: :string, json_name: "dialogflowAgentToLink"
+  field :allow_cross_region, 3, type: :bool, json_name: "allowCrossRegion", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Engine.CommonConfig do

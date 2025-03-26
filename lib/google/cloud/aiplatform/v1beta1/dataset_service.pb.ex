@@ -415,6 +415,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningResourceUsageA
   field :model_name, 1, type: :string, json_name: "modelName", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.BatchPredictionValidationAssessmentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.BatchPredictionResourceUsageAssessmentConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
   @moduledoc false
 
@@ -436,9 +452,29 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
     oneof: 0,
     deprecated: false
 
+  field :batch_prediction_validation_assessment_config, 6,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.BatchPredictionValidationAssessmentConfig,
+    json_name: "batchPredictionValidationAssessmentConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :batch_prediction_resource_usage_assessment_config, 7,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.BatchPredictionResourceUsageAssessmentConfig,
+    json_name: "batchPredictionResourceUsageAssessmentConfig",
+    oneof: 0,
+    deprecated: false
+
   field :gemini_template_config, 4,
     type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
     json_name: "geminiTemplateConfig",
+    oneof: 1,
+    deprecated: false
+
+  field :request_column_name, 5,
+    type: :string,
+    json_name: "requestColumnName",
     oneof: 1,
     deprecated: false
 
@@ -462,6 +498,21 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningResourceUsage
   field :billable_character_count, 2, type: :int64, json_name: "billableCharacterCount"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.BatchPredictionValidationAssessmentResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.BatchPredictionResourceUsageAssessmentResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :token_count, 1, type: :int64, json_name: "tokenCount"
+  field :audio_token_count, 2, type: :int64, json_name: "audioTokenCount"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse do
   @moduledoc false
 
@@ -478,6 +529,20 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse do
   field :tuning_resource_usage_assessment_result, 2,
     type: Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningResourceUsageAssessmentResult,
     json_name: "tuningResourceUsageAssessmentResult",
+    oneof: 0,
+    deprecated: false
+
+  field :batch_prediction_validation_assessment_result, 3,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.BatchPredictionValidationAssessmentResult,
+    json_name: "batchPredictionValidationAssessmentResult",
+    oneof: 0,
+    deprecated: false
+
+  field :batch_prediction_resource_usage_assessment_result, 4,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.BatchPredictionResourceUsageAssessmentResult,
+    json_name: "batchPredictionResourceUsageAssessmentResult",
     oneof: 0,
     deprecated: false
 end
@@ -582,6 +647,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataRequest do
   field :gemini_template_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
     json_name: "geminiTemplateConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :request_column_name, 5,
+    type: :string,
+    json_name: "requestColumnName",
     oneof: 0,
     deprecated: false
 

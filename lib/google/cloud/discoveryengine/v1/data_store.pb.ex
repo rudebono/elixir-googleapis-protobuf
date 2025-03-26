@@ -23,6 +23,7 @@ defmodule Google.Cloud.Discoveryengine.V1.WorkspaceConfig.Type do
   field :GOOGLE_CHAT, 5
   field :GOOGLE_GROUPS, 6
   field :GOOGLE_KEEP, 7
+  field :GOOGLE_PEOPLE, 8
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.DataStore.BillingEstimation do
@@ -80,6 +81,11 @@ defmodule Google.Cloud.Discoveryengine.V1.DataStore do
     json_name: "createTime",
     deprecated: false
 
+  field :advanced_site_search_config, 12,
+    type: Google.Cloud.Discoveryengine.V1.AdvancedSiteSearchConfig,
+    json_name: "advancedSiteSearchConfig",
+    deprecated: false
+
   field :billing_estimation, 23,
     type: Google.Cloud.Discoveryengine.V1.DataStore.BillingEstimation,
     json_name: "billingEstimation",
@@ -96,6 +102,22 @@ defmodule Google.Cloud.Discoveryengine.V1.DataStore do
   field :starting_schema, 28,
     type: Google.Cloud.Discoveryengine.V1.Schema,
     json_name: "startingSchema"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AdvancedSiteSearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :disable_initial_index, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "disableInitialIndex"
+
+  field :disable_automatic_refresh, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "disableAutomaticRefresh"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.WorkspaceConfig do

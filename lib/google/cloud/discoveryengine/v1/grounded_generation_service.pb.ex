@@ -61,6 +61,7 @@ defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.Generat
   field :top_p, 5, proto3_optional: true, type: :float, json_name: "topP"
   field :top_k, 7, proto3_optional: true, type: :int32, json_name: "topK"
   field :frequency_penalty, 8, proto3_optional: true, type: :float, json_name: "frequencyPenalty"
+  field :seed, 12, proto3_optional: true, type: :int32
   field :presence_penalty, 9, proto3_optional: true, type: :float, json_name: "presencePenalty"
   field :max_output_tokens, 10, proto3_optional: true, type: :int32, json_name: "maxOutputTokens"
 end
@@ -137,6 +138,12 @@ defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.Groundi
     deprecated: false
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.EnterpriseWebRetrievalSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource do
   @moduledoc false
 
@@ -160,6 +167,12 @@ defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.Groundi
     type:
       Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.GoogleSearchSource,
     json_name: "googleSearchSource",
+    oneof: 0
+
+  field :enterprise_web_retrieval_source, 8,
+    type:
+      Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.EnterpriseWebRetrievalSource,
+    json_name: "enterpriseWebRetrievalSource",
     oneof: 0
 end
 
@@ -272,6 +285,43 @@ defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candid
   field :support_score, 2, proto3_optional: true, type: :float, json_name: "supportScore"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.WebsiteInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :title, 2, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.Image do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :width, 2, type: :int32
+  field :height, 3, type: :int32
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :image, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.Image
+
+  field :thumbnail, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.Image
+
+  field :source, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.WebsiteInfo
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata do
   @moduledoc false
 
@@ -300,6 +350,11 @@ defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candid
     type:
       Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.GroundingSupport,
     json_name: "groundingSupport"
+
+  field :images, 9,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate do
@@ -367,6 +422,14 @@ defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingRequest do
     map: true
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.CheckGroundingFactChunk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :chunk_text, 1, type: :string, json_name: "chunkText"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.Claim do
   @moduledoc false
 
@@ -394,6 +457,11 @@ defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse do
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.FactChunk,
     json_name: "citedChunks"
+
+  field :cited_facts, 6,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.CheckGroundingFactChunk,
+    json_name: "citedFacts"
 
   field :claims, 4,
     repeated: true,

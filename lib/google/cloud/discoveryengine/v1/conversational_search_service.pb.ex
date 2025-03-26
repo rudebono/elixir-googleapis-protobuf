@@ -1,3 +1,26 @@
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SafetySpec.SafetySetting.HarmBlockThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :HARM_BLOCK_THRESHOLD_UNSPECIFIED, 0
+  field :BLOCK_LOW_AND_ABOVE, 1
+  field :BLOCK_MEDIUM_AND_ABOVE, 2
+  field :BLOCK_ONLY_HIGH, 3
+  field :BLOCK_NONE, 4
+  field :OFF, 5
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.GroundingSpec.FilteringLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :FILTERING_LEVEL_UNSPECIFIED, 0
+  field :FILTERING_LEVEL_LOW, 1
+  field :FILTERING_LEVEL_HIGH, 2
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryClassificationSpec.Type do
   @moduledoc false
 
@@ -8,6 +31,16 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
   field :NON_ANSWER_SEEKING_QUERY_V2, 4
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec.ModelSpec.ModelType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :MODEL_TYPE_UNSPECIFIED, 0
+  field :SMALL, 1
+  field :LARGE, 2
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.ConverseConversationRequest.UserLabelsEntry do
@@ -116,12 +149,35 @@ defmodule Google.Cloud.Discoveryengine.V1.ListConversationsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SafetySpec.SafetySetting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :category, 1,
+    type: Google.Cloud.Discoveryengine.V1.HarmCategory,
+    enum: true,
+    deprecated: false
+
+  field :threshold, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SafetySpec.SafetySetting.HarmBlockThreshold,
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SafetySpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable, 1, type: :bool
+
+  field :safety_settings, 2,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.SafetySpec.SafetySetting,
+    json_name: "safetySettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.RelatedQuestionsSpec do
@@ -130,6 +186,23 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.RelatedQuestionsSpe
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable, 1, type: :bool
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.GroundingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :include_grounding_supports, 2,
+    type: :bool,
+    json_name: "includeGroundingSupports",
+    deprecated: false
+
+  field :filtering_level, 3,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.GroundingSpec.FilteringLevel,
+    json_name: "filteringLevel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.AnswerGenerationSpec.ModelSpec do
@@ -343,6 +416,19 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
     enum: true
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec.ModelSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_type, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec.ModelSpec.ModelType,
+    json_name: "modelType",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec do
   @moduledoc false
 
@@ -350,6 +436,12 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
 
   field :disable, 1, type: :bool
   field :max_rephrase_steps, 2, type: :int32, json_name: "maxRephraseSteps"
+
+  field :model_spec, 3,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec.ModelSpec,
+    json_name: "modelSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec do
@@ -366,6 +458,58 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
     type:
       Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec,
     json_name: "queryRephraserSpec"
+
+  field :disable_spell_correction, 3,
+    type: :bool,
+    json_name: "disableSpellCorrection",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData.ChunkInfo.DocumentMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :title, 1, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData.ChunkInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :content, 1, type: :string
+
+  field :document_metadata, 2,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData.ChunkInfo.DocumentMetadata,
+    json_name: "documentMetadata"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :content, 0
+
+  field :chunk_info, 1,
+    type:
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData.ChunkInfo,
+    json_name: "chunkInfo",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :end_user_metadata, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec.EndUserMetaData,
+    json_name: "endUserMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.UserLabelsEntry do
@@ -394,6 +538,11 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest do
     type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.RelatedQuestionsSpec,
     json_name: "relatedQuestionsSpec"
 
+  field :grounding_spec, 6,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.GroundingSpec,
+    json_name: "groundingSpec",
+    deprecated: false
+
   field :answer_generation_spec, 7,
     type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.AnswerGenerationSpec,
     json_name: "answerGenerationSpec"
@@ -414,6 +563,11 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest do
     type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.UserLabelsEntry,
     json_name: "userLabels",
     map: true
+
+  field :end_user_spec, 14,
+    type: Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.EndUserSpec,
+    json_name: "endUserSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryResponse do
@@ -466,6 +620,11 @@ defmodule Google.Cloud.Discoveryengine.V1.GetSessionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :include_answer_details, 2,
+    type: :bool,
+    json_name: "includeAnswerDetails",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.ListSessionsRequest do
@@ -523,6 +682,10 @@ defmodule Google.Cloud.Discoveryengine.V1.ConversationalSearchService.Service do
   rpc :AnswerQuery,
       Google.Cloud.Discoveryengine.V1.AnswerQueryRequest,
       Google.Cloud.Discoveryengine.V1.AnswerQueryResponse
+
+  rpc :StreamAnswerQuery,
+      Google.Cloud.Discoveryengine.V1.AnswerQueryRequest,
+      stream(Google.Cloud.Discoveryengine.V1.AnswerQueryResponse)
 
   rpc :GetAnswer,
       Google.Cloud.Discoveryengine.V1.GetAnswerRequest,

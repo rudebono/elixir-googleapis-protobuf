@@ -82,3 +82,23 @@ defmodule Google.Cloud.Discoveryengine.V1.UserInfo do
   field :user_id, 1, type: :string, json_name: "userId"
   field :user_agent, 2, type: :string, json_name: "userAgent"
 end
+
+defmodule Google.Cloud.Discoveryengine.V1.DoubleList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :double
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchLinkPromotion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :title, 1, type: :string, deprecated: false
+  field :uri, 2, type: :string, deprecated: false
+  field :image_uri, 3, type: :string, json_name: "imageUri", deprecated: false
+  field :description, 4, type: :string, deprecated: false
+  field :enabled, 5, type: :bool, deprecated: false
+end

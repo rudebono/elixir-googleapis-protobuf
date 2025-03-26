@@ -17,6 +17,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Document.IndexStatus do
 
   field :index_time, 1, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :error_samples, 2, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
+  field :pending_message, 3, type: :string, json_name: "pendingMessage", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Document do

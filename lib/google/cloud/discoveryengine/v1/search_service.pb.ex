@@ -1,3 +1,15 @@
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.RelevanceThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :RELEVANCE_THRESHOLD_UNSPECIFIED, 0
+  field :LOWEST, 1
+  field :LOW, 2
+  field :MEDIUM, 3
+  field :HIGH, 4
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
   @moduledoc false
 
@@ -55,6 +67,17 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec.Cond
   field :CONDITION_UNSPECIFIED, 0
   field :DISABLED, 1
   field :ENABLED, 2
+  field :AUTO, 3
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DisplaySpec.MatchHighlightingCondition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :MATCH_HIGHLIGHTING_CONDITION_UNSPECIFIED, 0
+  field :MATCH_HIGHLIGHTING_DISABLED, 1
+  field :MATCH_HIGHLIGHTING_ENABLED, 2
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummarySkippedReason do
@@ -72,6 +95,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Summary.SummarySkippedR
   field :JAIL_BREAKING_QUERY_IGNORED, 7
   field :CUSTOMER_POLICY_VIOLATION, 8
   field :NON_SUMMARY_SEEKING_QUERY_IGNORED_V2, 9
+  field :TIME_OUT, 10
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ImageQuery do
@@ -91,6 +115,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec do
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
   field :filter, 5, type: :string, deprecated: false
+
+  field :boost_spec, 6,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec,
+    json_name: "boostSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.FacetSpec.FacetKey do
@@ -326,6 +355,17 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec do
     enum: true
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DisplaySpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :match_highlighting_condition, 1,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.DisplaySpec.MatchHighlightingCondition,
+    json_name: "matchHighlightingCondition",
+    enum: true
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SessionSpec do
   @moduledoc false
 
@@ -337,6 +377,17 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.SessionSpec do
     proto3_optional: true,
     type: :int32,
     json_name: "searchResultPersistenceCount"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.RelevanceScoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :return_relevance_score, 1,
+    type: :bool,
+    json_name: "returnRelevanceScore",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.ParamsEntry do
@@ -426,11 +477,35 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest do
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.SearchAsYouTypeSpec,
     json_name: "searchAsYouTypeSpec"
 
+  field :display_spec, 38,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.DisplaySpec,
+    json_name: "displaySpec",
+    deprecated: false
+
   field :session, 41, type: :string, deprecated: false
 
   field :session_spec, 42,
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.SessionSpec,
     json_name: "sessionSpec"
+
+  field :relevance_threshold, 44,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.RelevanceThreshold,
+    json_name: "relevanceThreshold",
+    enum: true
+
+  field :relevance_score_spec, 52,
+    type: Google.Cloud.Discoveryengine.V1.SearchRequest.RelevanceScoreSpec,
+    json_name: "relevanceScoreSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult.ModelScoresEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Discoveryengine.V1.DoubleList
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult do
@@ -441,6 +516,13 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult do
   field :id, 1, type: :string
   field :document, 2, type: Google.Cloud.Discoveryengine.V1.Document
   field :chunk, 18, type: Google.Cloud.Discoveryengine.V1.Chunk
+
+  field :model_scores, 4,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SearchResponse.SearchResult.ModelScoresEntry,
+    json_name: "modelScores",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchResponse.Facet.FacetValue do
@@ -613,6 +695,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchResponse do
   field :session_info, 19,
     type: Google.Cloud.Discoveryengine.V1.SearchResponse.SessionInfo,
     json_name: "sessionInfo"
+
+  field :search_link_promotions, 23,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SearchLinkPromotion,
+    json_name: "searchLinkPromotions"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchService.Service do

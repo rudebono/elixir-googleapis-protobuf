@@ -7,6 +7,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.State do
   field :IN_PROGRESS, 1
   field :FAILED, 2
   field :SUCCEEDED, 3
+  field :STREAMING, 4
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.AnswerSkippedReason do
@@ -65,6 +66,26 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.CitationSource do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.Answer.GroundingSupport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_index, 1, type: :int64, json_name: "startIndex", deprecated: false
+  field :end_index, 2, type: :int64, json_name: "endIndex", deprecated: false
+  field :grounding_score, 3, proto3_optional: true, type: :double, json_name: "groundingScore"
+
+  field :grounding_check_required, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "groundingCheckRequired"
+
+  field :sources, 5,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.Answer.CitationSource,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Reference.UnstructuredDocumentInfo.ChunkContent do
@@ -127,6 +148,8 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.Reference.StructuredDocumentInf
 
   field :document, 1, type: :string, deprecated: false
   field :struct_data, 2, type: Google.Protobuf.Struct, json_name: "structData"
+  field :title, 3, type: :string, deprecated: false
+  field :uri, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Reference do
@@ -270,7 +293,15 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer do
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Discoveryengine.V1.Answer.State, enum: true
   field :answer_text, 3, type: :string, json_name: "answerText"
+  field :grounding_score, 12, proto3_optional: true, type: :double, json_name: "groundingScore"
   field :citations, 4, repeated: true, type: Google.Cloud.Discoveryengine.V1.Answer.Citation
+
+  field :grounding_supports, 13,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.Answer.GroundingSupport,
+    json_name: "groundingSupports",
+    deprecated: false
+
   field :references, 5, repeated: true, type: Google.Cloud.Discoveryengine.V1.Answer.Reference
   field :related_questions, 6, repeated: true, type: :string, json_name: "relatedQuestions"
   field :steps, 7, repeated: true, type: Google.Cloud.Discoveryengine.V1.Answer.Step
@@ -293,5 +324,11 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer do
   field :complete_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "completeTime",
+    deprecated: false
+
+  field :safety_ratings, 14,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.SafetyRating,
+    json_name: "safetyRatings",
     deprecated: false
 end
