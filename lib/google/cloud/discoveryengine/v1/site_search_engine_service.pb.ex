@@ -140,6 +140,93 @@ defmodule Google.Cloud.Discoveryengine.V1.BatchCreateTargetSitesResponse do
     json_name: "targetSites"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.CreateSitemapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :sitemap, 2, type: Google.Cloud.Discoveryengine.V1.Sitemap, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.DeleteSitemapRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest.UrisMatcher do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :uris, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest.Matcher do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :matcher, 0
+
+  field :uris_matcher, 1,
+    type: Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest.UrisMatcher,
+    json_name: "urisMatcher",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :matcher, 2,
+    type: Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest.Matcher,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.CreateSitemapMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.DeleteSitemapMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
+  field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.FetchSitemapsResponse.SitemapMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :sitemap, 1, type: Google.Cloud.Discoveryengine.V1.Sitemap
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.FetchSitemapsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :sitemaps_metadata, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.FetchSitemapsResponse.SitemapMetadata,
+    json_name: "sitemapsMetadata"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.EnableAdvancedSiteSearchRequest do
   @moduledoc false
 
@@ -244,6 +331,19 @@ defmodule Google.Cloud.Discoveryengine.V1.RecrawlUrisMetadata do
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
   field :invalid_uris, 3, repeated: true, type: :string, json_name: "invalidUris"
+  field :invalid_uris_count, 8, type: :int32, json_name: "invalidUrisCount"
+  field :noindex_uris, 11, repeated: true, type: :string, json_name: "noindexUris"
+  field :noindex_uris_count, 12, type: :int32, json_name: "noindexUrisCount"
+
+  field :uris_not_matching_target_sites, 9,
+    repeated: true,
+    type: :string,
+    json_name: "urisNotMatchingTargetSites"
+
+  field :uris_not_matching_target_sites_count, 10,
+    type: :int32,
+    json_name: "urisNotMatchingTargetSitesCount"
+
   field :valid_uris_count, 4, type: :int32, json_name: "validUrisCount"
   field :success_count, 5, type: :int32, json_name: "successCount"
   field :pending_count, 6, type: :int32, json_name: "pendingCount"
@@ -331,6 +431,18 @@ defmodule Google.Cloud.Discoveryengine.V1.SiteSearchEngineService.Service do
   rpc :ListTargetSites,
       Google.Cloud.Discoveryengine.V1.ListTargetSitesRequest,
       Google.Cloud.Discoveryengine.V1.ListTargetSitesResponse
+
+  rpc :CreateSitemap,
+      Google.Cloud.Discoveryengine.V1.CreateSitemapRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteSitemap,
+      Google.Cloud.Discoveryengine.V1.DeleteSitemapRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchSitemaps,
+      Google.Cloud.Discoveryengine.V1.FetchSitemapsRequest,
+      Google.Cloud.Discoveryengine.V1.FetchSitemapsResponse
 
   rpc :EnableAdvancedSiteSearch,
       Google.Cloud.Discoveryengine.V1.EnableAdvancedSiteSearchRequest,

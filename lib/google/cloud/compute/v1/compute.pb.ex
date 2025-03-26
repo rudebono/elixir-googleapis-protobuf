@@ -473,6 +473,16 @@ defmodule Google.Cloud.Compute.V1.BackendServiceConnectionTrackingPolicy.Trackin
   field :PER_SESSION, 182_099_252
 end
 
+defmodule Google.Cloud.Compute.V1.BackendServiceHAPolicy.FastIPMove do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_FAST_I_P_MOVE, 0
+  field :DISABLED, 516_696_700
+  field :GARP_RA, 527_352_630
+end
+
 defmodule Google.Cloud.Compute.V1.BackendServiceLocalityLoadBalancingPolicyConfigPolicy.Name do
   @moduledoc false
 
@@ -1443,6 +1453,7 @@ defmodule Google.Cloud.Compute.V1.Interconnect.LinkType do
   field :UNDEFINED_LINK_TYPE, 0
   field :LINK_TYPE_ETHERNET_100G_LR, 337_672_551
   field :LINK_TYPE_ETHERNET_10G_LR, 236_739_749
+  field :LINK_TYPE_ETHERNET_400G_LR4, 127_023_690
 end
 
 defmodule Google.Cloud.Compute.V1.Interconnect.OperationalStatus do
@@ -1642,6 +1653,7 @@ defmodule Google.Cloud.Compute.V1.InterconnectLocation.AvailableLinkTypes do
   field :UNDEFINED_AVAILABLE_LINK_TYPES, 0
   field :LINK_TYPE_ETHERNET_100G_LR, 337_672_551
   field :LINK_TYPE_ETHERNET_10G_LR, 236_739_749
+  field :LINK_TYPE_ETHERNET_400G_LR4, 127_023_690
 end
 
 defmodule Google.Cloud.Compute.V1.InterconnectLocation.Continent do
@@ -7467,6 +7479,12 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     json_name: "failoverPolicy"
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+
+  field :ha_policy, 519_879_480,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BackendServiceHAPolicy,
+    json_name: "haPolicy"
+
   field :health_checks, 448_370_606, repeated: true, type: :string, json_name: "healthChecks"
   field :iap, 104_024, proto3_optional: true, type: Google.Cloud.Compute.V1.BackendServiceIAP
   field :id, 3355, proto3_optional: true, type: :uint64
@@ -7744,6 +7762,14 @@ defmodule Google.Cloud.Compute.V1.BackendServiceGroupHealth do
     json_name: "healthStatus"
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceHAPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :fast_i_p_move, 222_633_817, proto3_optional: true, type: :string, json_name: "fastIPMove"
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceHttpCookie do

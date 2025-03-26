@@ -139,6 +139,11 @@ defmodule Google.Cloud.Discoveryengine.V1.FhirStoreSource do
   field :fhir_store, 1, type: :string, json_name: "fhirStore", deprecated: false
   field :gcs_staging_dir, 2, type: :string, json_name: "gcsStagingDir"
   field :resource_types, 3, repeated: true, type: :string, json_name: "resourceTypes"
+
+  field :update_from_latest_predefined_schema, 4,
+    type: :bool,
+    json_name: "updateFromLatestPredefinedSchema",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.CloudSqlSource do
@@ -344,6 +349,11 @@ defmodule Google.Cloud.Discoveryengine.V1.ImportDocumentsRequest do
   field :update_mask, 7, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :auto_generate_ids, 8, type: :bool, json_name: "autoGenerateIds"
   field :id_field, 9, type: :string, json_name: "idField"
+
+  field :force_refresh_content, 16,
+    type: :bool,
+    json_name: "forceRefreshContent",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.ImportDocumentsResponse do

@@ -16,6 +16,7 @@ defmodule Google.Cloud.Apphub.V1.Scope.Type do
 
   field :TYPE_UNSPECIFIED, 0
   field :REGIONAL, 1
+  field :GLOBAL, 2
 end
 
 defmodule Google.Cloud.Apphub.V1.Application do

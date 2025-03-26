@@ -31,6 +31,24 @@ defmodule Google.Cloud.Datastream.V1.JsonFileFormat.JsonCompression do
   field :GZIP, 2
 end
 
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.FileFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :FILE_FORMAT_UNSPECIFIED, 0
+  field :PARQUET, 1
+end
+
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.TableFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :TABLE_FORMAT_UNSPECIFIED, 0
+  field :ICEBERG, 1
+end
+
 defmodule Google.Cloud.Datastream.V1.Stream.State do
   @moduledoc false
 
@@ -167,6 +185,11 @@ defmodule Google.Cloud.Datastream.V1.OracleAsmConfig do
     type: Google.Cloud.Datastream.V1.OracleSslConfig,
     json_name: "oracleSslConfig",
     deprecated: false
+
+  field :secret_manager_stored_password, 8,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlProfile do
@@ -179,6 +202,11 @@ defmodule Google.Cloud.Datastream.V1.MysqlProfile do
   field :username, 3, type: :string, deprecated: false
   field :password, 4, type: :string, deprecated: false
   field :ssl_config, 5, type: Google.Cloud.Datastream.V1.MysqlSslConfig, json_name: "sslConfig"
+
+  field :secret_manager_stored_password, 6,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
@@ -191,6 +219,11 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
   field :username, 3, type: :string, deprecated: false
   field :password, 4, type: :string, deprecated: false
   field :database, 5, type: :string, deprecated: false
+
+  field :secret_manager_stored_password, 6,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
 
   field :ssl_config, 7,
     type: Google.Cloud.Datastream.V1.PostgresqlSslConfig,
@@ -208,6 +241,65 @@ defmodule Google.Cloud.Datastream.V1.SqlServerProfile do
   field :username, 3, type: :string, deprecated: false
   field :password, 4, type: :string, deprecated: false
   field :database, 5, type: :string, deprecated: false
+
+  field :secret_manager_stored_password, 7,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceProfile.UserCredentials do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :username, 1, type: :string, deprecated: false
+  field :password, 2, type: :string, deprecated: false
+  field :security_token, 3, type: :string, json_name: "securityToken", deprecated: false
+
+  field :secret_manager_stored_password, 4,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
+
+  field :secret_manager_stored_security_token, 5,
+    type: :string,
+    json_name: "secretManagerStoredSecurityToken",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceProfile.Oauth2ClientCredentials do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
+  field :client_secret, 2, type: :string, json_name: "clientSecret", deprecated: false
+
+  field :secret_manager_stored_client_secret, 3,
+    type: :string,
+    json_name: "secretManagerStoredClientSecret",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :credentials, 0
+
+  field :domain, 1, type: :string, deprecated: false
+
+  field :user_credentials, 2,
+    type: Google.Cloud.Datastream.V1.SalesforceProfile.UserCredentials,
+    json_name: "userCredentials",
+    oneof: 0
+
+  field :oauth2_client_credentials, 3,
+    type: Google.Cloud.Datastream.V1.SalesforceProfile.Oauth2ClientCredentials,
+    json_name: "oauth2ClientCredentials",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Datastream.V1.GcsProfile do
@@ -293,6 +385,18 @@ defmodule Google.Cloud.Datastream.V1.PrivateConnection do
     deprecated: false
 
   field :error, 7, type: Google.Cloud.Datastream.V1.Error, deprecated: false
+
+  field :satisfies_pzs, 8,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 9,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 
   field :vpc_peering_config, 100,
     type: Google.Cloud.Datastream.V1.VpcPeeringConfig,
@@ -439,6 +543,18 @@ defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
 
   field :display_name, 5, type: :string, json_name: "displayName", deprecated: false
 
+  field :satisfies_pzs, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
+
   field :oracle_profile, 100,
     type: Google.Cloud.Datastream.V1.OracleProfile,
     json_name: "oracleProfile",
@@ -467,6 +583,11 @@ defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
   field :sql_server_profile, 105,
     type: Google.Cloud.Datastream.V1.SqlServerProfile,
     json_name: "sqlServerProfile",
+    oneof: 0
+
+  field :salesforce_profile, 107,
+    type: Google.Cloud.Datastream.V1.SalesforceProfile,
+    json_name: "salesforceProfile",
     oneof: 0
 
   field :static_service_ip_connectivity, 200,
@@ -880,6 +1001,52 @@ defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
   field :gtid, 102, type: Google.Cloud.Datastream.V1.MysqlSourceConfig.Gtid, oneof: 0
 end
 
+defmodule Google.Cloud.Datastream.V1.SalesforceSourceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :include_objects, 1,
+    type: Google.Cloud.Datastream.V1.SalesforceOrg,
+    json_name: "includeObjects"
+
+  field :exclude_objects, 2,
+    type: Google.Cloud.Datastream.V1.SalesforceOrg,
+    json_name: "excludeObjects"
+
+  field :polling_interval, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "pollingInterval",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceOrg do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :objects, 1, repeated: true, type: Google.Cloud.Datastream.V1.SalesforceObject
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceObject do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :object_name, 1, type: :string, json_name: "objectName"
+  field :fields, 2, repeated: true, type: Google.Cloud.Datastream.V1.SalesforceField
+end
+
+defmodule Google.Cloud.Datastream.V1.SalesforceField do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :data_type, 2, type: :string, json_name: "dataType"
+  field :nillable, 3, type: :bool
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
   @moduledoc false
 
@@ -910,6 +1077,11 @@ defmodule Google.Cloud.Datastream.V1.SourceConfig do
   field :sql_server_source_config, 103,
     type: Google.Cloud.Datastream.V1.SqlServerSourceConfig,
     json_name: "sqlServerSourceConfig",
+    oneof: 0
+
+  field :salesforce_source_config, 104,
+    type: Google.Cloud.Datastream.V1.SalesforceSourceConfig,
+    json_name: "salesforceSourceConfig",
     oneof: 0
 end
 
@@ -988,6 +1160,28 @@ defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDa
     json_name: "datasetTemplate"
 end
 
+defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bucket, 1, type: :string, deprecated: false
+  field :root_path, 2, type: :string, json_name: "rootPath"
+  field :connection_name, 3, type: :string, json_name: "connectionName", deprecated: false
+
+  field :file_format, 4,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.FileFormat,
+    json_name: "fileFormat",
+    enum: true,
+    deprecated: false
+
+  field :table_format, 5,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.TableFormat,
+    json_name: "tableFormat",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.AppendOnly do
   @moduledoc false
 
@@ -1020,6 +1214,12 @@ defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig do
     oneof: 0
 
   field :data_freshness, 300, type: Google.Protobuf.Duration, json_name: "dataFreshness"
+
+  field :blmt_config, 1,
+    type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig,
+    json_name: "blmtConfig",
+    deprecated: false
+
   field :merge, 301, type: Google.Cloud.Datastream.V1.BigQueryDestinationConfig.Merge, oneof: 1
 
   field :append_only, 302,
@@ -1076,6 +1276,11 @@ defmodule Google.Cloud.Datastream.V1.Stream.BackfillAllStrategy do
   field :sql_server_excluded_objects, 4,
     type: Google.Cloud.Datastream.V1.SqlServerRdbms,
     json_name: "sqlServerExcludedObjects",
+    oneof: 0
+
+  field :salesforce_excluded_objects, 5,
+    type: Google.Cloud.Datastream.V1.SalesforceOrg,
+    json_name: "salesforceExcludedObjects",
     oneof: 0
 end
 
@@ -1150,6 +1355,18 @@ defmodule Google.Cloud.Datastream.V1.Stream do
     type: Google.Protobuf.Timestamp,
     json_name: "lastRecoveryTime",
     deprecated: false
+
+  field :satisfies_pzs, 15,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 16,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.StreamObject do
@@ -1214,6 +1431,14 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SqlServerObjectIdent
   field :table, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SalesforceObjectIdentifier do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :object_name, 1, type: :string, json_name: "objectName", deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   @moduledoc false
 
@@ -1239,6 +1464,11 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   field :sql_server_identifier, 4,
     type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.SqlServerObjectIdentifier,
     json_name: "sqlServerIdentifier",
+    oneof: 0
+
+  field :salesforce_identifier, 5,
+    type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.SalesforceObjectIdentifier,
+    json_name: "salesforceIdentifier",
     oneof: 0
 end
 
@@ -1374,6 +1604,11 @@ defmodule Google.Cloud.Datastream.V1.CdcStrategy.SpecificStartPosition do
     type: Google.Cloud.Datastream.V1.SqlServerLsnPosition,
     json_name: "sqlServerLsnPosition",
     oneof: 0
+
+  field :mysql_gtid_position, 104,
+    type: Google.Cloud.Datastream.V1.MysqlGtidPosition,
+    json_name: "mysqlGtidPosition",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Datastream.V1.CdcStrategy do
@@ -1430,4 +1665,12 @@ defmodule Google.Cloud.Datastream.V1.MysqlLogPosition do
     type: :int32,
     json_name: "logPosition",
     deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.MysqlGtidPosition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :gtid_set, 1, type: :string, json_name: "gtidSet", deprecated: false
 end
