@@ -105,6 +105,14 @@ defmodule Google.Cloud.Aiplatform.V1.FileStatus do
   field :error_status, 2, type: :string, json_name: "errorStatus", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.VertexAiSearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :serving_config, 1, type: :string, json_name: "servingConfig"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.CorpusStatus do
   @moduledoc false
 
@@ -147,6 +155,12 @@ defmodule Google.Cloud.Aiplatform.V1.RagCorpus do
   field :vector_db_config, 9,
     type: Google.Cloud.Aiplatform.V1.RagVectorDbConfig,
     json_name: "vectorDbConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :vertex_ai_search_config, 10,
+    type: Google.Cloud.Aiplatform.V1.VertexAiSearchConfig,
+    json_name: "vertexAiSearchConfig",
     oneof: 0,
     deprecated: false
 end

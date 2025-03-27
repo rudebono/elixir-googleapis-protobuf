@@ -81,6 +81,7 @@ defmodule Google.Cloud.Discoveryengine.V1.UserInfo do
 
   field :user_id, 1, type: :string, json_name: "userId"
   field :user_agent, 2, type: :string, json_name: "userAgent"
+  field :time_zone, 3, type: :string, json_name: "timeZone", deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.DoubleList do
