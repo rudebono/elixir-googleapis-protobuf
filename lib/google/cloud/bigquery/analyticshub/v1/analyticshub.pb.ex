@@ -8,6 +8,16 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType do
   field :DISCOVERY_TYPE_PUBLIC, 2
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharedResourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :SHARED_RESOURCE_TYPE_UNSPECIFIED, 0
+  field :BIGQUERY_DATASET, 1
+  field :PUBSUB_TOPIC, 2
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.State do
   @moduledoc false
 
@@ -78,6 +88,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
     type: Google.Cloud.Bigquery.Analyticshub.V1.DiscoveryType,
     json_name: "discoveryType",
     enum: true,
+    deprecated: false
+
+  field :log_linked_dataset_query_user_email, 10,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "logLinkedDatasetQueryUserEmail",
     deprecated: false
 end
 
@@ -185,6 +201,17 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset do
   field :location, 5, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationPubSubSubscription do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :pubsub_subscription, 1,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.PubSubSubscription,
+    json_name: "pubsubSubscription",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.SelectedResource do
   @moduledoc false
 
@@ -233,6 +260,20 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
     deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.PubSubTopicSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :topic, 1, type: :string, deprecated: false
+
+  field :data_affinity_regions, 2,
+    repeated: true,
+    type: :string,
+    json_name: "dataAffinityRegions",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig do
   @moduledoc false
 
@@ -261,8 +302,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
   field :bigquery_dataset, 6,
     type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource,
     json_name: "bigqueryDataset",
-    oneof: 0,
-    deprecated: false
+    oneof: 0
+
+  field :pubsub_topic, 16,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.PubSubTopicSource,
+    json_name: "pubsubTopic",
+    oneof: 0
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -302,6 +347,18 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
     json_name: "discoveryType",
     enum: true,
     deprecated: false
+
+  field :resource_type, 15,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.SharedResourceType,
+    json_name: "resourceType",
+    enum: true,
+    deprecated: false
+
+  field :log_linked_dataset_query_user_email, 18,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "logLinkedDatasetQueryUserEmail",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource do
@@ -312,6 +369,14 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource do
   oneof :reference, 0
 
   field :linked_dataset, 1, type: :string, json_name: "linkedDataset", oneof: 0, deprecated: false
+
+  field :linked_pubsub_subscription, 3,
+    type: :string,
+    json_name: "linkedPubsubSubscription",
+    oneof: 0,
+    deprecated: false
+
+  field :listing, 2, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedDatasetMapEntry do
@@ -364,6 +429,24 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription do
     deprecated: false
 
   field :subscriber_contact, 9, type: :string, json_name: "subscriberContact", deprecated: false
+
+  field :linked_resources, 11,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource,
+    json_name: "linkedResources",
+    deprecated: false
+
+  field :resource_type, 12,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.SharedResourceType,
+    json_name: "resourceType",
+    enum: true,
+    deprecated: false
+
+  field :log_linked_dataset_query_user_email, 14,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "logLinkedDatasetQueryUserEmail",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListDataExchangesRequest do
@@ -529,6 +612,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingRequest do
     oneof: 0,
     deprecated: false
 
+  field :destination_pubsub_subscription, 5,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.DestinationPubSubSubscription,
+    json_name: "destinationPubsubSubscription",
+    oneof: 0,
+    deprecated: false
+
   field :name, 1, type: :string, deprecated: false
 end
 
@@ -547,6 +636,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeDataExchangeRequest do
 
   field :name, 1, type: :string, deprecated: false
   field :destination, 2, type: :string, deprecated: false
+
+  field :destination_dataset, 5,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset,
+    json_name: "destinationDataset",
+    deprecated: false
+
   field :subscription, 4, type: :string, deprecated: false
   field :subscriber_contact, 3, type: :string, json_name: "subscriberContact"
 end
