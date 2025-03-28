@@ -583,6 +583,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingChunk.RetrievedContext do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  oneof :context_details, 0
+
+  field :rag_chunk, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.RagChunk,
+    json_name: "ragChunk",
+    oneof: 0
+
   field :uri, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
   field :text, 3, proto3_optional: true, type: :string
