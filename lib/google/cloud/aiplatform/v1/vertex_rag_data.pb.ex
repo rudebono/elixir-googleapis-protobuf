@@ -133,6 +133,18 @@ defmodule Google.Cloud.Aiplatform.V1.RagCorpus do
 
   oneof :backend_config, 0
 
+  field :vector_db_config, 9,
+    type: Google.Cloud.Aiplatform.V1.RagVectorDbConfig,
+    json_name: "vectorDbConfig",
+    oneof: 0,
+    deprecated: false
+
+  field :vertex_ai_search_config, 10,
+    type: Google.Cloud.Aiplatform.V1.VertexAiSearchConfig,
+    json_name: "vertexAiSearchConfig",
+    oneof: 0,
+    deprecated: false
+
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
   field :description, 3, type: :string, deprecated: false
@@ -150,18 +162,6 @@ defmodule Google.Cloud.Aiplatform.V1.RagCorpus do
   field :corpus_status, 8,
     type: Google.Cloud.Aiplatform.V1.CorpusStatus,
     json_name: "corpusStatus",
-    deprecated: false
-
-  field :vector_db_config, 9,
-    type: Google.Cloud.Aiplatform.V1.RagVectorDbConfig,
-    json_name: "vectorDbConfig",
-    oneof: 0,
-    deprecated: false
-
-  field :vertex_ai_search_config, 10,
-    type: Google.Cloud.Aiplatform.V1.VertexAiSearchConfig,
-    json_name: "vertexAiSearchConfig",
-    oneof: 0,
     deprecated: false
 end
 
@@ -223,6 +223,28 @@ defmodule Google.Cloud.Aiplatform.V1.RagFile do
     type: Google.Cloud.Aiplatform.V1.FileStatus,
     json_name: "fileStatus",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagChunk.PageSpan do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :first_page, 1, type: :int32, json_name: "firstPage"
+  field :last_page, 2, type: :int32, json_name: "lastPage"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagChunk do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :text, 1, type: :string
+
+  field :page_span, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.RagChunk.PageSpan,
+    json_name: "pageSpan"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagFileChunkingConfig.FixedLengthChunking do

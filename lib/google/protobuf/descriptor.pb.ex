@@ -332,6 +332,7 @@ defmodule Google.Protobuf.DescriptorProto do
     json_name: "reservedRange"
 
   field :reserved_name, 10, repeated: true, type: :string, json_name: "reservedName"
+  field :visibility, 11, optional: true, type: Google.Protobuf.SymbolVisibility, enum: true
 end
 
 defmodule Google.Protobuf.ExtensionRangeOptions.Declaration do
@@ -424,6 +425,7 @@ defmodule Google.Protobuf.EnumDescriptorProto do
     json_name: "reservedRange"
 
   field :reserved_name, 5, repeated: true, type: :string, json_name: "reservedName"
+  field :visibility, 6, optional: true, type: Google.Protobuf.SymbolVisibility, enum: true
 end
 
 defmodule Google.Protobuf.EnumValueDescriptorProto do

@@ -70,6 +70,7 @@ defmodule Google.Cloud.Aiplatform.V1.RagContexts.Context do
   field :source_display_name, 5, type: :string, json_name: "sourceDisplayName"
   field :text, 2, type: :string
   field :score, 6, proto3_optional: true, type: :double
+  field :chunk, 7, type: Google.Cloud.Aiplatform.V1.RagChunk
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagContexts do
@@ -185,6 +186,7 @@ defmodule Google.Cloud.Aiplatform.V1.Fact do
     deprecated: true
 
   field :score, 6, proto3_optional: true, type: :double
+  field :chunk, 7, proto3_optional: true, type: Google.Cloud.Aiplatform.V1.RagChunk
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Claim do

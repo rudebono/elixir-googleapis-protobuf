@@ -84,6 +84,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts.Context do
   field :distance, 3, type: :double, deprecated: true
   field :sparse_distance, 4, type: :double, json_name: "sparseDistance", deprecated: true
   field :score, 6, proto3_optional: true, type: :double
+  field :chunk, 7, type: Google.Cloud.Aiplatform.V1beta1.RagChunk
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagContexts do
@@ -206,6 +207,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Fact do
     deprecated: true
 
   field :score, 6, proto3_optional: true, type: :double
+  field :chunk, 7, proto3_optional: true, type: Google.Cloud.Aiplatform.V1beta1.RagChunk
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Claim do
