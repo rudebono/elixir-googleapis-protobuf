@@ -260,6 +260,7 @@ defmodule Google.Cloud.Texttospeech.V1.StreamingAudioConfig do
     deprecated: false
 
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz", deprecated: false
+  field :speaking_rate, 3, type: :double, json_name: "speakingRate", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesizeConfig do
@@ -272,6 +273,11 @@ defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesizeConfig do
   field :streaming_audio_config, 4,
     type: Google.Cloud.Texttospeech.V1.StreamingAudioConfig,
     json_name: "streamingAudioConfig",
+    deprecated: false
+
+  field :custom_pronunciations, 5,
+    type: Google.Cloud.Texttospeech.V1.CustomPronunciations,
+    json_name: "customPronunciations",
     deprecated: false
 end
 
