@@ -70,6 +70,80 @@ defmodule Google.Firestore.Admin.V1.DeleteDatabaseMetadata do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Firestore.Admin.V1.CreateUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :user_creds, 2,
+    type: Google.Firestore.Admin.V1.UserCreds,
+    json_name: "userCreds",
+    deprecated: false
+
+  field :user_creds_id, 3, type: :string, json_name: "userCredsId", deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.GetUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ListUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ListUserCredsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :user_creds, 1,
+    repeated: true,
+    type: Google.Firestore.Admin.V1.UserCreds,
+    json_name: "userCreds"
+end
+
+defmodule Google.Firestore.Admin.V1.EnableUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.DisableUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.ResetUserPasswordRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Firestore.Admin.V1.DeleteUserCredsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Firestore.Admin.V1.CreateBackupScheduleRequest do
   @moduledoc false
 
@@ -367,6 +441,32 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
   rpc :DeleteDatabase,
       Google.Firestore.Admin.V1.DeleteDatabaseRequest,
       Google.Longrunning.Operation
+
+  rpc :CreateUserCreds,
+      Google.Firestore.Admin.V1.CreateUserCredsRequest,
+      Google.Firestore.Admin.V1.UserCreds
+
+  rpc :GetUserCreds,
+      Google.Firestore.Admin.V1.GetUserCredsRequest,
+      Google.Firestore.Admin.V1.UserCreds
+
+  rpc :ListUserCreds,
+      Google.Firestore.Admin.V1.ListUserCredsRequest,
+      Google.Firestore.Admin.V1.ListUserCredsResponse
+
+  rpc :EnableUserCreds,
+      Google.Firestore.Admin.V1.EnableUserCredsRequest,
+      Google.Firestore.Admin.V1.UserCreds
+
+  rpc :DisableUserCreds,
+      Google.Firestore.Admin.V1.DisableUserCredsRequest,
+      Google.Firestore.Admin.V1.UserCreds
+
+  rpc :ResetUserPassword,
+      Google.Firestore.Admin.V1.ResetUserPasswordRequest,
+      Google.Firestore.Admin.V1.UserCreds
+
+  rpc :DeleteUserCreds, Google.Firestore.Admin.V1.DeleteUserCredsRequest, Google.Protobuf.Empty
 
   rpc :GetBackup, Google.Firestore.Admin.V1.GetBackupRequest, Google.Firestore.Admin.V1.Backup
 

@@ -658,6 +658,7 @@ defmodule Google.Devtools.Artifactregistry.V1.Repository do
     deprecated: false
 
   field :satisfies_pzi, 22, type: :bool, json_name: "satisfiesPzi", deprecated: false
+  field :registry_uri, 26, type: :string, json_name: "registryUri", deprecated: false
 end
 
 defmodule Google.Devtools.Artifactregistry.V1.ListRepositoriesRequest do

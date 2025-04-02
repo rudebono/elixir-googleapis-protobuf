@@ -245,6 +245,17 @@ defmodule Google.Cloud.Bigquery.V2.QueryRequest do
     json_name: "timeoutMs",
     deprecated: false
 
+  field :job_timeout_ms, 26,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "jobTimeoutMs",
+    deprecated: false
+
+  field :destination_encryption_configuration, 27,
+    type: Google.Cloud.Bigquery.V2.EncryptionConfiguration,
+    json_name: "destinationEncryptionConfiguration",
+    deprecated: false
+
   field :dry_run, 7, type: :bool, json_name: "dryRun", deprecated: false
 
   field :use_query_cache, 9,
@@ -296,6 +307,8 @@ defmodule Google.Cloud.Bigquery.V2.QueryRequest do
     json_name: "jobCreationMode",
     enum: true,
     deprecated: false
+
+  field :reservation, 24, proto3_optional: true, type: :string, deprecated: false
 
   field :write_incremental_results, 25,
     type: :bool,
