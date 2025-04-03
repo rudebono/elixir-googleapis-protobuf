@@ -19,6 +19,16 @@ defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad.ColumnNameCharacterMap d
   field :V2, 3
 end
 
+defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad.SourceColumnMatch do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :SOURCE_COLUMN_MATCH_UNSPECIFIED, 0
+  field :POSITION, 1
+  field :NAME, 2
+end
+
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationTableCopy.OperationType do
   @moduledoc false
 
@@ -347,6 +357,47 @@ defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad do
     type: Google.Protobuf.BoolValue,
     json_name: "copyFilesOnly",
     deprecated: false
+
+  field :time_zone, 52,
+    type: Google.Protobuf.StringValue,
+    json_name: "timeZone",
+    deprecated: false
+
+  field :null_markers, 53,
+    repeated: true,
+    type: :string,
+    json_name: "nullMarkers",
+    deprecated: false
+
+  field :date_format, 54,
+    proto3_optional: true,
+    type: :string,
+    json_name: "dateFormat",
+    deprecated: false
+
+  field :datetime_format, 55,
+    proto3_optional: true,
+    type: :string,
+    json_name: "datetimeFormat",
+    deprecated: false
+
+  field :time_format, 56,
+    proto3_optional: true,
+    type: :string,
+    json_name: "timeFormat",
+    deprecated: false
+
+  field :timestamp_format, 57,
+    proto3_optional: true,
+    type: :string,
+    json_name: "timestampFormat",
+    deprecated: false
+
+  field :source_column_match, 58,
+    type: Google.Cloud.Bigquery.V2.JobConfigurationLoad.SourceColumnMatch,
+    json_name: "sourceColumnMatch",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationTableCopy do
@@ -460,4 +511,6 @@ defmodule Google.Cloud.Bigquery.V2.JobConfiguration do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.JobConfiguration.LabelsEntry,
     map: true
+
+  field :reservation, 11, proto3_optional: true, type: :string, deprecated: false
 end

@@ -86,6 +86,14 @@ defmodule Google.Cloud.Bigquery.V2.CsvOptions do
     type: Google.Protobuf.StringValue,
     json_name: "nullMarker",
     deprecated: false
+
+  field :null_markers, 9,
+    repeated: true,
+    type: :string,
+    json_name: "nullMarkers",
+    deprecated: false
+
+  field :source_column_match, 10, type: :string, json_name: "sourceColumnMatch", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.JsonOptions do
@@ -268,5 +276,35 @@ defmodule Google.Cloud.Bigquery.V2.ExternalDataConfiguration do
     type: Google.Cloud.Bigquery.V2.ExternalDataConfiguration.MetadataCacheMode,
     json_name: "metadataCacheMode",
     enum: true,
+    deprecated: false
+
+  field :time_zone, 27,
+    proto3_optional: true,
+    type: :string,
+    json_name: "timeZone",
+    deprecated: false
+
+  field :date_format, 28,
+    proto3_optional: true,
+    type: :string,
+    json_name: "dateFormat",
+    deprecated: false
+
+  field :datetime_format, 29,
+    proto3_optional: true,
+    type: :string,
+    json_name: "datetimeFormat",
+    deprecated: false
+
+  field :time_format, 30,
+    proto3_optional: true,
+    type: :string,
+    json_name: "timeFormat",
+    deprecated: false
+
+  field :timestamp_format, 31,
+    proto3_optional: true,
+    type: :string,
+    json_name: "timestampFormat",
     deprecated: false
 end

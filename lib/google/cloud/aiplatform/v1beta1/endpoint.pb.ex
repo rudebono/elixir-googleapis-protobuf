@@ -207,6 +207,23 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig do
   field :bigquery_destination, 3,
     type: Google.Cloud.Aiplatform.V1beta1.BigQueryDestination,
     json_name: "bigqueryDestination"
+
+  field :request_response_logging_schema_version, 4,
+    type: :string,
+    json_name: "requestResponseLoggingSchemaVersion",
+    deprecated: false
+
+  field :enable_otel_logging, 6, type: :bool, json_name: "enableOtelLogging"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModelConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :logging_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig,
+    json_name: "loggingConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ClientConnectionConfig do

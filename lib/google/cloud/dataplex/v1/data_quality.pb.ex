@@ -146,18 +146,30 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :passed, 5, type: :bool
+  field :passed, 5, type: :bool, deprecated: false
   field :score, 9, proto3_optional: true, type: :float, deprecated: false
-  field :dimensions, 2, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityDimensionResult
+
+  field :dimensions, 2,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataQualityDimensionResult,
+    deprecated: false
 
   field :columns, 10,
     repeated: true,
     type: Google.Cloud.Dataplex.V1.DataQualityColumnResult,
     deprecated: false
 
-  field :rules, 3, repeated: true, type: Google.Cloud.Dataplex.V1.DataQualityRuleResult
-  field :row_count, 4, type: :int64, json_name: "rowCount"
-  field :scanned_data, 7, type: Google.Cloud.Dataplex.V1.ScannedData, json_name: "scannedData"
+  field :rules, 3,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataQualityRuleResult,
+    deprecated: false
+
+  field :row_count, 4, type: :int64, json_name: "rowCount", deprecated: false
+
+  field :scanned_data, 7,
+    type: Google.Cloud.Dataplex.V1.ScannedData,
+    json_name: "scannedData",
+    deprecated: false
 
   field :post_scan_actions_result, 8,
     type: Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult,
@@ -170,13 +182,13 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityRuleResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :rule, 1, type: Google.Cloud.Dataplex.V1.DataQualityRule
-  field :passed, 7, type: :bool
-  field :evaluated_count, 9, type: :int64, json_name: "evaluatedCount"
-  field :passed_count, 8, type: :int64, json_name: "passedCount"
-  field :null_count, 5, type: :int64, json_name: "nullCount"
-  field :pass_ratio, 6, type: :double, json_name: "passRatio"
-  field :failing_rows_query, 10, type: :string, json_name: "failingRowsQuery"
+  field :rule, 1, type: Google.Cloud.Dataplex.V1.DataQualityRule, deprecated: false
+  field :passed, 7, type: :bool, deprecated: false
+  field :evaluated_count, 9, type: :int64, json_name: "evaluatedCount", deprecated: false
+  field :passed_count, 8, type: :int64, json_name: "passedCount", deprecated: false
+  field :null_count, 5, type: :int64, json_name: "nullCount", deprecated: false
+  field :pass_ratio, 6, type: :double, json_name: "passRatio", deprecated: false
+  field :failing_rows_query, 10, type: :string, json_name: "failingRowsQuery", deprecated: false
   field :assertion_row_count, 11, type: :int64, json_name: "assertionRowCount", deprecated: false
 end
 
@@ -186,7 +198,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityDimensionResult do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dimension, 1, type: Google.Cloud.Dataplex.V1.DataQualityDimension, deprecated: false
-  field :passed, 3, type: :bool
+  field :passed, 3, type: :bool, deprecated: false
   field :score, 4, proto3_optional: true, type: :float, deprecated: false
 end
 
@@ -195,7 +207,7 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityDimension do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityRule.RangeExpectation do

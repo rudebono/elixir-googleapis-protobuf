@@ -45,6 +45,15 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest.Environmen
   field :DEVICE_IP_BLOCKS, 6
 end
 
+defmodule Google.Devtools.Testing.V1.AndroidModel.AccessDeniedReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ACCESS_DENIED_REASON_UNSPECIFIED, 0
+  field :EULA_NOT_ACCEPTED, 1
+end
+
 defmodule Google.Devtools.Testing.V1.DeviceIpBlock do
   @moduledoc false
 
@@ -66,6 +75,11 @@ defmodule Google.Devtools.Testing.V1.GetTestEnvironmentCatalogRequest do
     enum: true
 
   field :project_id, 2, type: :string, json_name: "projectId"
+
+  field :include_viewable_models, 4,
+    type: :bool,
+    json_name: "includeViewableModels",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Testing.V1.TestEnvironmentCatalog do
@@ -169,6 +183,12 @@ defmodule Google.Devtools.Testing.V1.AndroidModel do
     type: Google.Devtools.Testing.V1.LabInfo,
     json_name: "labInfo",
     deprecated: false
+
+  field :access_denied_reasons, 33,
+    repeated: true,
+    type: Google.Devtools.Testing.V1.AndroidModel.AccessDeniedReason,
+    json_name: "accessDeniedReasons",
+    enum: true
 end
 
 defmodule Google.Devtools.Testing.V1.AndroidVersion do
