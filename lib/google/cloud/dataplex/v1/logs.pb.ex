@@ -244,6 +244,16 @@ defmodule Google.Cloud.Dataplex.V1.BusinessGlossaryEvent.EventType do
   field :GLOSSARY_TERM_DELETE, 9
 end
 
+defmodule Google.Cloud.Dataplex.V1.EntryLinkEvent.EventType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EVENT_TYPE_UNSPECIFIED, 0
+  field :ENTRY_LINK_CREATE, 1
+  field :ENTRY_LINK_DELETE, 2
+end
+
 defmodule Google.Cloud.Dataplex.V1.DiscoveryEvent.ConfigDetails.ParametersEntry do
   @moduledoc false
 
@@ -595,6 +605,21 @@ defmodule Google.Cloud.Dataplex.V1.BusinessGlossaryEvent do
 
   field :event_type, 2,
     type: Google.Cloud.Dataplex.V1.BusinessGlossaryEvent.EventType,
+    json_name: "eventType",
+    enum: true
+
+  field :resource, 3, type: :string
+end
+
+defmodule Google.Cloud.Dataplex.V1.EntryLinkEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :message, 1, type: :string
+
+  field :event_type, 2,
+    type: Google.Cloud.Dataplex.V1.EntryLinkEvent.EventType,
     json_name: "eventType",
     enum: true
 

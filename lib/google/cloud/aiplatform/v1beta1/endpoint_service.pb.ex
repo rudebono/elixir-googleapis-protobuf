@@ -164,6 +164,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelResponse do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.SetPublisherModelConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :publisher_model_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.PublisherModelConfig,
+    json_name: "publisherModelConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SetPublisherModelConfigOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FetchPublisherModelConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployModelOperationMetadata do
   @moduledoc false
 
@@ -254,6 +285,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Service do
   rpc :MutateDeployedModel,
       Google.Cloud.Aiplatform.V1beta1.MutateDeployedModelRequest,
       Google.Longrunning.Operation
+
+  rpc :SetPublisherModelConfig,
+      Google.Cloud.Aiplatform.V1beta1.SetPublisherModelConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :FetchPublisherModelConfig,
+      Google.Cloud.Aiplatform.V1beta1.FetchPublisherModelConfigRequest,
+      Google.Cloud.Aiplatform.V1beta1.PublisherModelConfig
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EndpointService.Stub do

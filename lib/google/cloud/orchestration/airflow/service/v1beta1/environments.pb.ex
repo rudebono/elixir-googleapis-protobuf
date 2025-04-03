@@ -1130,7 +1130,7 @@ defmodule Google.Cloud.Orchestration.Airflow.Service.V1beta1.MasterAuthorizedNet
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :enabled, 1, type: :bool
+  field :enabled, 1, type: :bool, deprecated: false
 
   field :cidr_blocks, 2,
     repeated: true,
