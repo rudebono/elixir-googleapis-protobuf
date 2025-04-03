@@ -19,6 +19,16 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ExecutionMethod do
   field :POST_TO_QUEUE, 3
 end
 
+defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ReplayInfo.ReplayMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :REPLAY_MODE_UNSPECIFIED, 0
+  field :REPLAY_MODE_FROM_BEGINNING, 1
+  field :REPLAY_MODE_POINT_OF_FAILURE, 2
+end
+
 defmodule Google.Cloud.Integrations.V1alpha.IntegrationExecutionDetails.IntegrationExecutionState do
   @moduledoc false
 
@@ -67,6 +77,12 @@ defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.ReplayInfo do
     json_name: "replayedExecutionInfoIds"
 
   field :replay_reason, 3, type: :string, json_name: "replayReason"
+
+  field :replay_mode, 4,
+    type: Google.Cloud.Integrations.V1alpha.ExecutionInfo.ReplayInfo.ReplayMode,
+    json_name: "replayMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Integrations.V1alpha.ExecutionInfo.RequestParamsEntry do
