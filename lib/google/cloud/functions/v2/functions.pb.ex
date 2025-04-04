@@ -305,7 +305,8 @@ defmodule Google.Cloud.Functions.V2.BuildConfig do
   field :docker_registry, 10,
     type: Google.Cloud.Functions.V2.BuildConfig.DockerRegistry,
     json_name: "dockerRegistry",
-    enum: true
+    enum: true,
+    deprecated: true
 
   field :docker_repository, 7, type: :string, json_name: "dockerRepository", deprecated: false
   field :service_account, 27, type: :string, json_name: "serviceAccount"
