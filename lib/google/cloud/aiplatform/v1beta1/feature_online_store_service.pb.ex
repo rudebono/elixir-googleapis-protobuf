@@ -295,6 +295,87 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesResponse do
     json_name: "nearestNeighbors"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues.Feature.FeatureValueAndTimestamp do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :value, 1, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue
+  field :timestamp, 2, type: Google.Protobuf.Timestamp
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues.Feature do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :data_oneof, 0
+
+  field :value_and_timestamp, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues.Feature.FeatureValueAndTimestamp,
+    json_name: "valueAndTimestamp",
+    oneof: 0
+
+  field :name, 1, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :data_key, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKey"
+
+  field :features, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues.Feature
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
+
+  field :data_key_and_feature_values, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues,
+    json_name: "dataKeyAndFeatureValues",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteResponse.WriteResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :data_key, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDataKey,
+    json_name: "dataKey"
+
+  field :online_store_write_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "onlineStoreWriteTime"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :status, 1, type: Google.Rpc.Status
+
+  field :write_responses, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteResponse.WriteResponse,
+    json_name: "writeResponses"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStoreService.Service do
   @moduledoc false
 
@@ -313,6 +394,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStoreService.Service do
   rpc :SearchNearestEntities,
       Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesRequest,
       Google.Cloud.Aiplatform.V1beta1.SearchNearestEntitiesResponse
+
+  rpc :FeatureViewDirectWrite,
+      stream(Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest),
+      stream(Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteResponse)
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStoreService.Stub do
