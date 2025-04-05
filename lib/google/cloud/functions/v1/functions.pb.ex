@@ -196,7 +196,8 @@ defmodule Google.Cloud.Functions.V1.CloudFunction do
   field :docker_registry, 35,
     type: Google.Cloud.Functions.V1.CloudFunction.DockerRegistry,
     json_name: "dockerRegistry",
-    enum: true
+    enum: true,
+    deprecated: true
 
   field :automatic_update_policy, 40,
     type: Google.Cloud.Functions.V1.CloudFunction.AutomaticUpdatePolicy,
