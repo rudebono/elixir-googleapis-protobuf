@@ -392,6 +392,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LayoutParser do
 
   field :processor_name, 1, type: :string, json_name: "processorName"
   field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
+
+  field :global_max_parsing_requests_per_min, 3,
+    type: :int32,
+    json_name: "globalMaxParsingRequestsPerMin"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LlmParser do
@@ -401,6 +405,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LlmParser do
 
   field :model_name, 1, type: :string, json_name: "modelName"
   field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
+
+  field :global_max_parsing_requests_per_min, 4,
+    type: :int32,
+    json_name: "globalMaxParsingRequestsPerMin"
+
   field :custom_parsing_prompt, 3, type: :string, json_name: "customParsingPrompt"
 end
 
@@ -522,5 +531,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
   field :max_embedding_requests_per_min, 5,
     type: :int32,
     json_name: "maxEmbeddingRequestsPerMin",
+    deprecated: false
+
+  field :global_max_embedding_requests_per_min, 18,
+    type: :int32,
+    json_name: "globalMaxEmbeddingRequestsPerMin",
     deprecated: false
 end

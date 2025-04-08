@@ -48,6 +48,8 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :ARRIVE_AT_VPN_GATEWAY, 12
   field :ARRIVE_AT_VPN_TUNNEL, 13
   field :ARRIVE_AT_VPC_CONNECTOR, 24
+  field :DIRECT_VPC_EGRESS_CONNECTION, 35
+  field :SERVERLESS_EXTERNAL_CONNECTION, 36
   field :NAT, 14
   field :PROXY_CONNECTION, 15
   field :DELIVER, 16
@@ -71,6 +73,7 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   field :NETWORK_REGIONAL_FIREWALL_POLICY_RULE, 6
   field :UNSUPPORTED_FIREWALL_POLICY_RULE, 100
   field :TRACKING_STATE, 101
+  field :ANALYSIS_SKIPPED, 102
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
@@ -131,6 +134,7 @@ defmodule Google.Cloud.Networkmanagement.V1.GoogleServiceInfo.GoogleServiceType 
   field :GOOGLE_API, 4
   field :GOOGLE_API_PSC, 5
   field :GOOGLE_API_VPC_SC, 6
+  field :SERVERLESS_VPC_ACCESS, 7
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerInfo.LoadBalancerType do
@@ -261,6 +265,7 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :NON_ROUTABLE_IP_ADDRESS, 22
   field :UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT, 30
   field :UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG, 31
+  field :NO_SERVERLESS_IP_RANGES, 37
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
@@ -293,6 +298,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :FORWARDING_RULE_MISMATCH, 11
   field :FORWARDING_RULE_NO_INSTANCES, 12
   field :FIREWALL_BLOCKING_LOAD_BALANCER_BACKEND_HEALTH_CHECK, 13
+  field :INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS, 85
   field :INSTANCE_NOT_RUNNING, 14
   field :GKE_CLUSTER_NOT_RUNNING, 27
   field :CLOUD_SQL_INSTANCE_NOT_RUNNING, 28
@@ -352,6 +358,9 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION, 81
   field :NO_KNOWN_ROUTE_FROM_PEERED_NETWORK_TO_DESTINATION, 82
   field :PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED, 83
+  field :PSC_PORT_MAPPING_PORT_MISMATCH, 86
+  field :PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED, 87
+  field :UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION, 88
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
@@ -430,6 +439,16 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
   field :vpc_connector, 21,
     type: Google.Cloud.Networkmanagement.V1.VpcConnectorInfo,
     json_name: "vpcConnector",
+    oneof: 0
+
+  field :direct_vpc_egress_connection, 33,
+    type: Google.Cloud.Networkmanagement.V1.DirectVpcEgressConnectionInfo,
+    json_name: "directVpcEgressConnection",
+    oneof: 0
+
+  field :serverless_external_connection, 34,
+    type: Google.Cloud.Networkmanagement.V1.ServerlessExternalConnectionInfo,
+    json_name: "serverlessExternalConnection",
     oneof: 0
 
   field :deliver, 12, type: Google.Cloud.Networkmanagement.V1.DeliverInfo, oneof: 0
@@ -576,13 +595,14 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
   field :route_scope, 14,
     type: Google.Cloud.Networkmanagement.V1.RouteInfo.RouteScope,
     json_name: "routeScope",
-    enum: true
+    enum: true,
+    deprecated: true
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
   field :region, 19, type: :string
   field :dest_ip_range, 3, type: :string, json_name: "destIpRange"
-  field :next_hop, 4, type: :string, json_name: "nextHop"
+  field :next_hop, 4, type: :string, json_name: "nextHop", deprecated: true
   field :network_uri, 5, type: :string, json_name: "networkUri"
   field :priority, 6, type: :int32
   field :instance_tags, 7, repeated: true, type: :string, json_name: "instanceTags"
@@ -601,7 +621,18 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo do
   field :advertised_route_next_hop_uri, 18,
     proto3_optional: true,
     type: :string,
-    json_name: "advertisedRouteNextHopUri"
+    json_name: "advertisedRouteNextHopUri",
+    deprecated: true
+
+  field :next_hop_uri, 20, type: :string, json_name: "nextHopUri"
+  field :next_hop_network_uri, 21, type: :string, json_name: "nextHopNetworkUri"
+  field :originating_route_uri, 22, type: :string, json_name: "originatingRouteUri"
+
+  field :originating_route_display_name, 23,
+    type: :string,
+    json_name: "originatingRouteDisplayName"
+
+  field :ncc_hub_route_uri, 24, type: :string, json_name: "nccHubRouteUri"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.GoogleServiceInfo do
@@ -878,6 +909,26 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcConnectorInfo do
   field :display_name, 1, type: :string, json_name: "displayName"
   field :uri, 2, type: :string
   field :location, 3, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.DirectVpcEgressConnectionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :network_uri, 1, type: :string, json_name: "networkUri"
+  field :subnetwork_uri, 2, type: :string, json_name: "subnetworkUri"
+  field :selected_ip_range, 3, type: :string, json_name: "selectedIpRange", deprecated: false
+  field :selected_ip_address, 4, type: :string, json_name: "selectedIpAddress", deprecated: false
+  field :region, 5, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ServerlessExternalConnectionInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :selected_ip_address, 1, type: :string, json_name: "selectedIpAddress", deprecated: false
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo do
