@@ -30,6 +30,11 @@ defmodule Google.Shopping.Merchant.Products.V1beta.Product do
     type: Google.Shopping.Merchant.Products.V1beta.ProductStatus,
     json_name: "productStatus",
     deprecated: false
+
+  field :automated_discounts, 12,
+    type: Google.Shopping.Merchant.Products.V1beta.AutomatedDiscounts,
+    json_name: "automatedDiscounts",
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Products.V1beta.GetProductRequest do
