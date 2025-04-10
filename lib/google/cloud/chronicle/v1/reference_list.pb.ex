@@ -132,10 +132,7 @@ defmodule Google.Cloud.Chronicle.V1.ReferenceList do
     json_name: "ruleAssociationsCount",
     deprecated: false
 
-  field :scope_info, 11,
-    type: Google.Cloud.Chronicle.V1.ScopeInfo,
-    json_name: "scopeInfo",
-    deprecated: false
+  field :scope_info, 11, type: Google.Cloud.Chronicle.V1.ScopeInfo, json_name: "scopeInfo"
 end
 
 defmodule Google.Cloud.Chronicle.V1.ReferenceListEntry do

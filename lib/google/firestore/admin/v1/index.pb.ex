@@ -16,6 +16,7 @@ defmodule Google.Firestore.Admin.V1.Index.ApiScope do
 
   field :ANY_API, 0
   field :DATASTORE_MODE_API, 1
+  field :MONGODB_COMPATIBLE_API, 2
 end
 
 defmodule Google.Firestore.Admin.V1.Index.State do
@@ -27,6 +28,17 @@ defmodule Google.Firestore.Admin.V1.Index.State do
   field :CREATING, 1
   field :READY, 2
   field :NEEDS_REPAIR, 3
+end
+
+defmodule Google.Firestore.Admin.V1.Index.Density do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DENSITY_UNSPECIFIED, 0
+  field :SPARSE_ALL, 1
+  field :SPARSE_ANY, 2
+  field :DENSE, 3
 end
 
 defmodule Google.Firestore.Admin.V1.Index.IndexField.Order do
@@ -109,4 +121,7 @@ defmodule Google.Firestore.Admin.V1.Index do
 
   field :fields, 3, repeated: true, type: Google.Firestore.Admin.V1.Index.IndexField
   field :state, 4, type: Google.Firestore.Admin.V1.Index.State, enum: true
+  field :density, 6, type: Google.Firestore.Admin.V1.Index.Density, enum: true, deprecated: false
+  field :multikey, 7, type: :bool, deprecated: false
+  field :shard_count, 8, type: :int32, json_name: "shardCount", deprecated: false
 end

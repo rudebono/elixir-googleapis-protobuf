@@ -49,6 +49,16 @@ defmodule Google.Firestore.Admin.V1.Database.DeleteProtectionState do
   field :DELETE_PROTECTION_ENABLED, 2
 end
 
+defmodule Google.Firestore.Admin.V1.Database.DatabaseEdition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DATABASE_EDITION_UNSPECIFIED, 0
+  field :STANDARD, 1
+  field :ENTERPRISE, 2
+end
+
 defmodule Google.Firestore.Admin.V1.Database.CmekConfig do
   @moduledoc false
 
@@ -195,5 +205,17 @@ defmodule Google.Firestore.Admin.V1.Database do
     json_name: "sourceInfo",
     deprecated: false
 
+  field :free_tier, 30,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "freeTier",
+    deprecated: false
+
   field :etag, 99, type: :string
+
+  field :database_edition, 28,
+    type: Google.Firestore.Admin.V1.Database.DatabaseEdition,
+    json_name: "databaseEdition",
+    enum: true,
+    deprecated: false
 end

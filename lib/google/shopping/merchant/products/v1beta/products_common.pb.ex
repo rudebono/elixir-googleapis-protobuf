@@ -585,3 +585,17 @@ defmodule Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentiv
     type: Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive.Type,
     enum: true
 end
+
+defmodule Google.Shopping.Merchant.Products.V1beta.AutomatedDiscounts do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :prior_price, 1, type: Google.Shopping.Type.Price, json_name: "priorPrice"
+
+  field :prior_price_progressive, 2,
+    type: Google.Shopping.Type.Price,
+    json_name: "priorPriceProgressive"
+
+  field :gad_price, 3, type: Google.Shopping.Type.Price, json_name: "gadPrice"
+end
