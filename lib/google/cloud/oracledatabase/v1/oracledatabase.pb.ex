@@ -327,6 +327,30 @@ defmodule Google.Cloud.Oracledatabase.V1.RestoreAutonomousDatabaseRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Oracledatabase.V1.StopAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.StartAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.RestartAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Oracledatabase.V1.GenerateAutonomousDatabaseWalletRequest do
   @moduledoc false
 
@@ -511,6 +535,18 @@ defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
   rpc :ListAutonomousDatabaseBackups,
       Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseBackupsRequest,
       Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseBackupsResponse
+
+  rpc :StopAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.StopAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :StartAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.StartAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :RestartAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.RestartAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Stub do

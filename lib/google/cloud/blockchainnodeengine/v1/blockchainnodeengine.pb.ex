@@ -146,7 +146,7 @@ defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.Va
   field :managed_validator_client, 2,
     type: :bool,
     json_name: "managedValidatorClient",
-    deprecated: false
+    deprecated: true
 
   field :beacon_fee_recipient, 3,
     proto3_optional: true,
@@ -275,7 +275,7 @@ defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode do
   field :private_service_connect_enabled, 12,
     type: :bool,
     json_name: "privateServiceConnectEnabled",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Blockchainnodeengine.V1.ListBlockchainNodesRequest do

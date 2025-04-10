@@ -128,7 +128,10 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildResponse do
     type: Google.Chromeos.Moblab.V1beta1.BuildArtifact,
     json_name: "stagedBuildArtifact"
 
-  field :cloud_build, 2, type: Google.Chromeos.Moblab.V1beta1.CloudBuild, json_name: "cloudBuild"
+  field :cloud_build, 2,
+    type: Google.Chromeos.Moblab.V1beta1.CloudBuild,
+    json_name: "cloudBuild",
+    deprecated: true
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
@@ -139,6 +142,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.StageBuildMetadata do
   field :progress_percent, 1, type: :float, json_name: "progressPercent"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :cloud_build, 4, type: Google.Chromeos.Moblab.V1beta1.CloudBuild, json_name: "cloudBuild"
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.BuildService.Service do

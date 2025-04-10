@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Iap.V1.AccessSettings.IdentitySource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :IDENTITY_SOURCE_UNSPECIFIED, 0
+  field :WORKFORCE_IDENTITY_FEDERATION, 3
+end
+
 defmodule Google.Cloud.Iap.V1.ReauthSettings.Method do
   @moduledoc false
 
@@ -135,11 +144,16 @@ defmodule Google.Cloud.Iap.V1.IapSettings do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :access_settings, 5, type: Google.Cloud.Iap.V1.AccessSettings, json_name: "accessSettings"
+
+  field :access_settings, 5,
+    type: Google.Cloud.Iap.V1.AccessSettings,
+    json_name: "accessSettings",
+    deprecated: false
 
   field :application_settings, 6,
     type: Google.Cloud.Iap.V1.ApplicationSettings,
-    json_name: "applicationSettings"
+    json_name: "applicationSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.AccessSettings do
@@ -147,14 +161,42 @@ defmodule Google.Cloud.Iap.V1.AccessSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :gcip_settings, 1, type: Google.Cloud.Iap.V1.GcipSettings, json_name: "gcipSettings"
-  field :cors_settings, 2, type: Google.Cloud.Iap.V1.CorsSettings, json_name: "corsSettings"
-  field :oauth_settings, 3, type: Google.Cloud.Iap.V1.OAuthSettings, json_name: "oauthSettings"
-  field :reauth_settings, 6, type: Google.Cloud.Iap.V1.ReauthSettings, json_name: "reauthSettings"
+  field :gcip_settings, 1,
+    type: Google.Cloud.Iap.V1.GcipSettings,
+    json_name: "gcipSettings",
+    deprecated: false
+
+  field :cors_settings, 2,
+    type: Google.Cloud.Iap.V1.CorsSettings,
+    json_name: "corsSettings",
+    deprecated: false
+
+  field :oauth_settings, 3,
+    type: Google.Cloud.Iap.V1.OAuthSettings,
+    json_name: "oauthSettings",
+    deprecated: false
+
+  field :reauth_settings, 6,
+    type: Google.Cloud.Iap.V1.ReauthSettings,
+    json_name: "reauthSettings",
+    deprecated: false
 
   field :allowed_domains_settings, 7,
     type: Google.Cloud.Iap.V1.AllowedDomainsSettings,
-    json_name: "allowedDomainsSettings"
+    json_name: "allowedDomainsSettings",
+    deprecated: false
+
+  field :workforce_identity_settings, 9,
+    type: Google.Cloud.Iap.V1.WorkforceIdentitySettings,
+    json_name: "workforceIdentitySettings",
+    deprecated: false
+
+  field :identity_sources, 10,
+    repeated: true,
+    type: Google.Cloud.Iap.V1.AccessSettings.IdentitySource,
+    json_name: "identitySources",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.GcipSettings do
@@ -162,7 +204,7 @@ defmodule Google.Cloud.Iap.V1.GcipSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :tenant_ids, 1, repeated: true, type: :string, json_name: "tenantIds"
+  field :tenant_ids, 1, repeated: true, type: :string, json_name: "tenantIds", deprecated: false
   field :login_page_uri, 2, type: Google.Protobuf.StringValue, json_name: "loginPageUri"
 end
 
@@ -180,7 +222,35 @@ defmodule Google.Cloud.Iap.V1.OAuthSettings do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :login_hint, 2, type: Google.Protobuf.StringValue, json_name: "loginHint"
-  field :programmatic_clients, 5, repeated: true, type: :string, json_name: "programmaticClients"
+
+  field :programmatic_clients, 5,
+    repeated: true,
+    type: :string,
+    json_name: "programmaticClients",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Iap.V1.WorkforceIdentitySettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :workforce_pools, 1, repeated: true, type: :string, json_name: "workforcePools"
+  field :oauth2, 2, type: Google.Cloud.Iap.V1.OAuth2
+end
+
+defmodule Google.Cloud.Iap.V1.OAuth2 do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :client_id, 1, type: :string, json_name: "clientId"
+  field :client_secret, 2, type: :string, json_name: "clientSecret", deprecated: false
+
+  field :client_secret_sha256, 3,
+    type: :string,
+    json_name: "clientSecretSha256",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.ReauthSettings do
@@ -188,13 +258,14 @@ defmodule Google.Cloud.Iap.V1.ReauthSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :method, 1, type: Google.Cloud.Iap.V1.ReauthSettings.Method, enum: true
-  field :max_age, 2, type: Google.Protobuf.Duration, json_name: "maxAge"
+  field :method, 1, type: Google.Cloud.Iap.V1.ReauthSettings.Method, enum: true, deprecated: false
+  field :max_age, 2, type: Google.Protobuf.Duration, json_name: "maxAge", deprecated: false
 
   field :policy_type, 3,
     type: Google.Cloud.Iap.V1.ReauthSettings.PolicyType,
     json_name: "policyType",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.AllowedDomainsSettings do
@@ -202,8 +273,8 @@ defmodule Google.Cloud.Iap.V1.AllowedDomainsSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :enable, 1, proto3_optional: true, type: :bool
-  field :domains, 2, repeated: true, type: :string
+  field :enable, 1, proto3_optional: true, type: :bool, deprecated: false
+  field :domains, 2, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.ApplicationSettings do
@@ -211,17 +282,22 @@ defmodule Google.Cloud.Iap.V1.ApplicationSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :csm_settings, 1, type: Google.Cloud.Iap.V1.CsmSettings, json_name: "csmSettings"
+  field :csm_settings, 1,
+    type: Google.Cloud.Iap.V1.CsmSettings,
+    json_name: "csmSettings",
+    deprecated: false
 
   field :access_denied_page_settings, 2,
     type: Google.Cloud.Iap.V1.AccessDeniedPageSettings,
-    json_name: "accessDeniedPageSettings"
+    json_name: "accessDeniedPageSettings",
+    deprecated: false
 
   field :cookie_domain, 3, type: Google.Protobuf.StringValue, json_name: "cookieDomain"
 
   field :attribute_propagation_settings, 4,
     type: Google.Cloud.Iap.V1.AttributePropagationSettings,
-    json_name: "attributePropagationSettings"
+    json_name: "attributePropagationSettings",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Iap.V1.CsmSettings do
@@ -256,15 +332,31 @@ defmodule Google.Cloud.Iap.V1.AttributePropagationSettings do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :expression, 1, proto3_optional: true, type: :string
+  field :expression, 1, proto3_optional: true, type: :string, deprecated: false
 
   field :output_credentials, 2,
     repeated: true,
     type: Google.Cloud.Iap.V1.AttributePropagationSettings.OutputCredentials,
     json_name: "outputCredentials",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :enable, 3, proto3_optional: true, type: :bool
+  field :enable, 3, proto3_optional: true, type: :bool, deprecated: false
+end
+
+defmodule Google.Cloud.Iap.V1.ValidateIapAttributeExpressionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :expression, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Iap.V1.ValidateIapAttributeExpressionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Iap.V1.ListBrandsRequest do
@@ -401,6 +493,10 @@ defmodule Google.Cloud.Iap.V1.IdentityAwareProxyAdminService.Service do
   rpc :UpdateIapSettings,
       Google.Cloud.Iap.V1.UpdateIapSettingsRequest,
       Google.Cloud.Iap.V1.IapSettings
+
+  rpc :ValidateIapAttributeExpression,
+      Google.Cloud.Iap.V1.ValidateIapAttributeExpressionRequest,
+      Google.Cloud.Iap.V1.ValidateIapAttributeExpressionResponse
 
   rpc :ListTunnelDestGroups,
       Google.Cloud.Iap.V1.ListTunnelDestGroupsRequest,
