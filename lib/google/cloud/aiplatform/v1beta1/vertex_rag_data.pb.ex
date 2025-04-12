@@ -538,3 +538,41 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
     json_name: "globalMaxEmbeddingRequestsPerMin",
     deprecated: false
 end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Enterprise do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Basic do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :tier, 0
+
+  field :enterprise, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Enterprise,
+    oneof: 0
+
+  field :basic, 2, type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Basic, oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagEngineConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :rag_managed_db_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig,
+    json_name: "ragManagedDbConfig"
+end

@@ -27,6 +27,7 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.Type do
 
   field :TYPE_UNSPECIFIED, 0
   field :IMPORT, 1
+  field :EXPORT, 2
 end
 
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.SyncMode do
@@ -931,6 +932,15 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ExportJobResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :exported_entries, 1, type: :int64, json_name: "exportedEntries", deprecated: false
+  field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.ImportJobScope do
   @moduledoc false
 
@@ -984,6 +994,41 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec do
     json_name: "logLevel",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ExportJobSpec.ExportJobScope do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :organization_level, 1, type: :bool, json_name: "organizationLevel"
+  field :projects, 2, repeated: true, type: :string, deprecated: false
+
+  field :entry_groups, 3,
+    repeated: true,
+    type: :string,
+    json_name: "entryGroups",
+    deprecated: false
+
+  field :entry_types, 4, repeated: true, type: :string, json_name: "entryTypes", deprecated: false
+
+  field :aspect_types, 5,
+    repeated: true,
+    type: :string,
+    json_name: "aspectTypes",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.MetadataJob.ExportJobSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :scope, 2,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ExportJobSpec.ExportJobScope,
+    deprecated: false
+
+  field :output_path, 3, type: :string, json_name: "outputPath", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status do
@@ -1049,9 +1094,20 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob do
     json_name: "importSpec",
     oneof: 0
 
+  field :export_spec, 101,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ExportJobSpec,
+    json_name: "exportSpec",
+    oneof: 0
+
   field :import_result, 200,
     type: Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult,
     json_name: "importResult",
+    oneof: 1,
+    deprecated: false
+
+  field :export_result, 201,
+    type: Google.Cloud.Dataplex.V1.MetadataJob.ExportJobResult,
+    json_name: "exportResult",
     oneof: 1,
     deprecated: false
 

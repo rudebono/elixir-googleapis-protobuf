@@ -105,6 +105,23 @@ defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult.BigQueryPublishing do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
+  field :location, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult.ScanStatistics do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :scanned_file_count, 1, type: :int32, json_name: "scannedFileCount"
+  field :data_processed_bytes, 2, type: :int64, json_name: "dataProcessedBytes"
+  field :files_excluded, 3, type: :int32, json_name: "filesExcluded"
+  field :tables_created, 4, type: :int32, json_name: "tablesCreated"
+  field :tables_deleted, 5, type: :int32, json_name: "tablesDeleted"
+  field :tables_updated, 6, type: :int32, json_name: "tablesUpdated"
+  field :filesets_created, 7, type: :int32, json_name: "filesetsCreated"
+  field :filesets_deleted, 8, type: :int32, json_name: "filesetsDeleted"
+  field :filesets_updated, 9, type: :int32, json_name: "filesetsUpdated"
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult do
@@ -115,5 +132,10 @@ defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult do
   field :bigquery_publishing, 1,
     type: Google.Cloud.Dataplex.V1.DataDiscoveryResult.BigQueryPublishing,
     json_name: "bigqueryPublishing",
+    deprecated: false
+
+  field :scan_statistics, 2,
+    type: Google.Cloud.Dataplex.V1.DataDiscoveryResult.ScanStatistics,
+    json_name: "scanStatistics",
     deprecated: false
 end
