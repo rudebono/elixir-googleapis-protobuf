@@ -168,6 +168,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CreateRagCorpusOperationMetadata do
     json_name: "genericMetadata"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GetRagEngineConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateRagCorpusRequest do
   @moduledoc false
 
@@ -206,6 +214,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesOperationMetadata do
     deprecated: false
 
   field :progress_percentage, 4, type: :int32, json_name: "progressPercentage"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateRagEngineConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :rag_engine_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagEngineConfig,
+    json_name: "ragEngineConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UpdateRagEngineConfigOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Service do
@@ -254,6 +283,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Service do
   rpc :DeleteRagFile,
       Google.Cloud.Aiplatform.V1beta1.DeleteRagFileRequest,
       Google.Longrunning.Operation
+
+  rpc :UpdateRagEngineConfig,
+      Google.Cloud.Aiplatform.V1beta1.UpdateRagEngineConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetRagEngineConfig,
+      Google.Cloud.Aiplatform.V1beta1.GetRagEngineConfigRequest,
+      Google.Cloud.Aiplatform.V1beta1.RagEngineConfig
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagDataService.Stub do
