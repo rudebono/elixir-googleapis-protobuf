@@ -27,6 +27,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchCreateMetastorePartitionsRe
     type: :bool,
     json_name: "skipExistingPartitions",
     deprecated: false
+
+  field :trace_id, 4, type: :string, json_name: "traceId", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchCreateMetastorePartitionsResponse do
@@ -51,6 +53,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchDeleteMetastorePartitionsRe
     type: Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartitionValues,
     json_name: "partitionValues",
     deprecated: false
+
+  field :trace_id, 4, type: :string, json_name: "traceId", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.UpdateMetastorePartitionRequest do
@@ -80,6 +84,8 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchUpdateMetastorePartitionsRe
     repeated: true,
     type: Google.Cloud.Bigquery.Storage.V1alpha.UpdateMetastorePartitionRequest,
     deprecated: false
+
+  field :trace_id, 4, type: :string, json_name: "traceId", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchUpdateMetastorePartitionsResponse do
@@ -99,6 +105,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.ListMetastorePartitionsRequest d
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
+  field :trace_id, 3, type: :string, json_name: "traceId", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.ListMetastorePartitionsResponse do
