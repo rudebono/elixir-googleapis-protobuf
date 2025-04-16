@@ -351,7 +351,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.Sto
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :risk, 1, type: :float
+  field :risk, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.CardTestingVerdict do
@@ -359,7 +359,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.Car
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :risk, 1, type: :float
+  field :risk, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.BehavioralTrustVerdict do
@@ -367,7 +367,7 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.Beh
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :trust, 1, type: :float
+  field :trust, 1, type: :float, deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment do
@@ -375,21 +375,24 @@ defmodule Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :transaction_risk, 1, type: :float, json_name: "transactionRisk"
+  field :transaction_risk, 1, type: :float, json_name: "transactionRisk", deprecated: false
 
   field :stolen_instrument_verdict, 2,
     type:
       Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.StolenInstrumentVerdict,
-    json_name: "stolenInstrumentVerdict"
+    json_name: "stolenInstrumentVerdict",
+    deprecated: false
 
   field :card_testing_verdict, 3,
     type: Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.CardTestingVerdict,
-    json_name: "cardTestingVerdict"
+    json_name: "cardTestingVerdict",
+    deprecated: false
 
   field :behavioral_trust_verdict, 4,
     type:
       Google.Cloud.Recaptchaenterprise.V1beta1.FraudPreventionAssessment.BehavioralTrustVerdict,
-    json_name: "behavioralTrustVerdict"
+    json_name: "behavioralTrustVerdict",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Recaptchaenterprise.V1beta1.AccountDefenderAssessment do

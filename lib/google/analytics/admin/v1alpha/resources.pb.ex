@@ -94,8 +94,9 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :ADSENSE_LINK, 27
   field :AUDIENCE, 28
   field :EVENT_CREATE_RULE, 29
+  field :KEY_EVENT, 30
   field :CALCULATED_METRIC, 31
-  field :KEY_EVENT, 32
+  field :REPORTING_DATA_ANNOTATION, 32
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -327,6 +328,21 @@ defmodule Google.Analytics.Admin.V1alpha.AttributionSettings.AdsWebConversionDat
   field :GOOGLE_PAID_CHANNELS, 3
 end
 
+defmodule Google.Analytics.Admin.V1alpha.ReportingDataAnnotation.Color do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :COLOR_UNSPECIFIED, 0
+  field :PURPLE, 1
+  field :BROWN, 2
+  field :BLUE, 3
+  field :GREEN, 4
+  field :RED, 5
+  field :CYAN, 6
+  field :ORANGE, 7
+end
+
 defmodule Google.Analytics.Admin.V1alpha.Account do
   @moduledoc false
 
@@ -542,7 +558,8 @@ defmodule Google.Analytics.Admin.V1alpha.DataSharingSettings do
 
   field :sharing_with_google_any_sales_enabled, 4,
     type: :bool,
-    json_name: "sharingWithGoogleAnySalesEnabled"
+    json_name: "sharingWithGoogleAnySalesEnabled",
+    deprecated: true
 
   field :sharing_with_google_products_enabled, 5,
     type: :bool,
@@ -799,14 +816,19 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     json_name: "eventCreateRule",
     oneof: 0
 
+  field :key_event, 30,
+    type: Google.Analytics.Admin.V1alpha.KeyEvent,
+    json_name: "keyEvent",
+    oneof: 0
+
   field :calculated_metric, 31,
     type: Google.Analytics.Admin.V1alpha.CalculatedMetric,
     json_name: "calculatedMetric",
     oneof: 0
 
-  field :key_event, 32,
-    type: Google.Analytics.Admin.V1alpha.KeyEvent,
-    json_name: "keyEvent",
+  field :reporting_data_annotation, 32,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation,
+    json_name: "reportingDataAnnotation",
     oneof: 0
 end
 
@@ -1269,4 +1291,39 @@ defmodule Google.Analytics.Admin.V1alpha.RollupPropertySourceLink do
 
   field :name, 1, type: :string, deprecated: false
   field :source_property, 2, type: :string, json_name: "sourceProperty", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ReportingDataAnnotation.DateRange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_date, 1, type: Google.Type.Date, json_name: "startDate", deprecated: false
+  field :end_date, 2, type: Google.Type.Date, json_name: "endDate", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ReportingDataAnnotation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :target, 0
+
+  field :annotation_date, 4, type: Google.Type.Date, json_name: "annotationDate", oneof: 0
+
+  field :annotation_date_range, 5,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation.DateRange,
+    json_name: "annotationDateRange",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :title, 2, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
+
+  field :color, 6,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation.Color,
+    enum: true,
+    deprecated: false
+
+  field :system_generated, 7, type: :bool, json_name: "systemGenerated", deprecated: false
 end

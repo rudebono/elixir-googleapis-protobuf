@@ -256,6 +256,34 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelRequest do
   field :parent, 3, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.CheckPublisherModelEulaAcceptanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :publisher_model, 2, type: :string, json_name: "publisherModel", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AcceptPublisherModelEulaRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :publisher_model, 2, type: :string, json_name: "publisherModel", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModelEulaAcceptance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :project_number, 1, type: :int64, json_name: "projectNumber"
+  field :publisher_model, 2, type: :string, json_name: "publisherModel"
+  field :publisher_model_eula_acked, 3, type: :bool, json_name: "publisherModelEulaAcked"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
   @moduledoc false
 
@@ -280,6 +308,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Service do
   rpc :ExportPublisherModel,
       Google.Cloud.Aiplatform.V1beta1.ExportPublisherModelRequest,
       Google.Longrunning.Operation
+
+  rpc :CheckPublisherModelEulaAcceptance,
+      Google.Cloud.Aiplatform.V1beta1.CheckPublisherModelEulaAcceptanceRequest,
+      Google.Cloud.Aiplatform.V1beta1.PublisherModelEulaAcceptance
+
+  rpc :AcceptPublisherModelEula,
+      Google.Cloud.Aiplatform.V1beta1.AcceptPublisherModelEulaRequest,
+      Google.Cloud.Aiplatform.V1beta1.PublisherModelEulaAcceptance
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelGardenService.Stub do
