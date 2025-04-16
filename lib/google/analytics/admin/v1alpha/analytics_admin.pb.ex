@@ -2136,6 +2136,99 @@ defmodule Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.CreateReportingDataAnnotationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :reporting_data_annotation, 2,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation,
+    json_name: "reportingDataAnnotation",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetReportingDataAnnotationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListReportingDataAnnotationsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :filter, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListReportingDataAnnotationsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :reporting_data_annotations, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation,
+    json_name: "reportingDataAnnotations"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateReportingDataAnnotationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :reporting_data_annotation, 1,
+    type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation,
+    json_name: "reportingDataAnnotation",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.DeleteReportingDataAnnotationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SubmitUserDeletionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :user, 0
+
+  field :user_id, 2, type: :string, json_name: "userId", oneof: 0
+  field :client_id, 3, type: :string, json_name: "clientId", oneof: 0
+  field :app_instance_id, 4, type: :string, json_name: "appInstanceId", oneof: 0
+  field :user_provided_data, 5, type: :string, json_name: "userProvidedData", oneof: 0
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SubmitUserDeletionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :deletion_request_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "deletionRequestTime"
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
 
@@ -2738,6 +2831,30 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :DeleteSubpropertyEventFilter,
       Google.Analytics.Admin.V1alpha.DeleteSubpropertyEventFilterRequest,
       Google.Protobuf.Empty
+
+  rpc :CreateReportingDataAnnotation,
+      Google.Analytics.Admin.V1alpha.CreateReportingDataAnnotationRequest,
+      Google.Analytics.Admin.V1alpha.ReportingDataAnnotation
+
+  rpc :GetReportingDataAnnotation,
+      Google.Analytics.Admin.V1alpha.GetReportingDataAnnotationRequest,
+      Google.Analytics.Admin.V1alpha.ReportingDataAnnotation
+
+  rpc :ListReportingDataAnnotations,
+      Google.Analytics.Admin.V1alpha.ListReportingDataAnnotationsRequest,
+      Google.Analytics.Admin.V1alpha.ListReportingDataAnnotationsResponse
+
+  rpc :UpdateReportingDataAnnotation,
+      Google.Analytics.Admin.V1alpha.UpdateReportingDataAnnotationRequest,
+      Google.Analytics.Admin.V1alpha.ReportingDataAnnotation
+
+  rpc :DeleteReportingDataAnnotation,
+      Google.Analytics.Admin.V1alpha.DeleteReportingDataAnnotationRequest,
+      Google.Protobuf.Empty
+
+  rpc :SubmitUserDeletion,
+      Google.Analytics.Admin.V1alpha.SubmitUserDeletionRequest,
+      Google.Analytics.Admin.V1alpha.SubmitUserDeletionResponse
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
