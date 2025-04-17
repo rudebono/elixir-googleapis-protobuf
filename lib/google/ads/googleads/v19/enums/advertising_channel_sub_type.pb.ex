@@ -23,6 +23,7 @@ defmodule Google.Ads.Googleads.V19.Enums.AdvertisingChannelSubTypeEnum.Advertisi
   field :APP_CAMPAIGN_FOR_PRE_REGISTRATION, 18
   field :VIDEO_REACH_TARGET_FREQUENCY, 19
   field :TRAVEL_ACTIVITIES, 20
+  field :YOUTUBE_AUDIO, 22
 end
 
 defmodule Google.Ads.Googleads.V19.Enums.AdvertisingChannelSubTypeEnum do

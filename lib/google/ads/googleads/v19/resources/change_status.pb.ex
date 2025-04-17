@@ -63,4 +63,5 @@ defmodule Google.Ads.Googleads.V19.Resources.ChangeStatus do
   field :ad_group_asset, 38, type: :string, json_name: "adGroupAsset", deprecated: false
   field :combined_audience, 40, type: :string, json_name: "combinedAudience", deprecated: false
   field :asset_group, 41, type: :string, json_name: "assetGroup", deprecated: false
+  field :campaign_budget, 42, type: :string, json_name: "campaignBudget", deprecated: false
 end

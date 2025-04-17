@@ -40,6 +40,11 @@ defmodule Google.Ads.Googleads.V19.Resources.LocalServicesLead do
     type: Google.Ads.Googleads.V19.Resources.CreditDetails,
     json_name: "creditDetails",
     deprecated: false
+
+  field :lead_feedback_submitted, 13,
+    type: :bool,
+    json_name: "leadFeedbackSubmitted",
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V19.Resources.ContactDetails do

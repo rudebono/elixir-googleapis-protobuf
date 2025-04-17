@@ -432,6 +432,16 @@ defmodule Google.Ads.Googleads.V19.Common.Segments do
       Google.Ads.Googleads.V19.Enums.ConvertingUserPriorEngagementTypeAndLtvBucketEnum.ConvertingUserPriorEngagementTypeAndLtvBucket,
     json_name: "newVersusReturningCustomers",
     enum: true
+
+  field :adjusted_age_range, 196,
+    type: Google.Ads.Googleads.V19.Enums.AgeRangeTypeEnum.AgeRangeType,
+    json_name: "adjustedAgeRange",
+    enum: true
+
+  field :adjusted_gender, 197,
+    type: Google.Ads.Googleads.V19.Enums.GenderTypeEnum.GenderType,
+    json_name: "adjustedGender",
+    enum: true
 end
 
 defmodule Google.Ads.Googleads.V19.Common.Keyword do

@@ -56,6 +56,8 @@ defmodule Google.Ads.Googleads.V19.Services.ClickConversion do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  oneof :session_attributes, 0
+
   field :gclid, 9, proto3_optional: true, type: :string
   field :gbraid, 18, type: :string
   field :wbraid, 19, type: :string
@@ -96,6 +98,21 @@ defmodule Google.Ads.Googleads.V19.Services.ClickConversion do
     enum: true
 
   field :consent, 23, type: Google.Ads.Googleads.V19.Common.Consent
+
+  field :customer_type, 26,
+    type: Google.Ads.Googleads.V19.Enums.ConversionCustomerTypeEnum.ConversionCustomerType,
+    json_name: "customerType",
+    enum: true
+
+  field :session_attributes_encoded, 24,
+    type: :bytes,
+    json_name: "sessionAttributesEncoded",
+    oneof: 0
+
+  field :session_attributes_key_value_pairs, 25,
+    type: Google.Ads.Googleads.V19.Services.SessionAttributesKeyValuePairs,
+    json_name: "sessionAttributesKeyValuePairs",
+    oneof: 0
 end
 
 defmodule Google.Ads.Googleads.V19.Services.CallConversion do
@@ -218,6 +235,34 @@ defmodule Google.Ads.Googleads.V19.Services.CartData do
   field :feed_language_code, 3, type: :string, json_name: "feedLanguageCode"
   field :local_transaction_cost, 4, type: :double, json_name: "localTransactionCost"
   field :items, 5, repeated: true, type: Google.Ads.Googleads.V19.Services.CartData.Item
+end
+
+defmodule Google.Ads.Googleads.V19.Services.SessionAttributeKeyValuePair do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :session_attribute_key, 1,
+    type: :string,
+    json_name: "sessionAttributeKey",
+    deprecated: false
+
+  field :session_attribute_value, 2,
+    type: :string,
+    json_name: "sessionAttributeValue",
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V19.Services.SessionAttributesKeyValuePairs do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key_value_pairs, 1,
+    repeated: true,
+    type: Google.Ads.Googleads.V19.Services.SessionAttributeKeyValuePair,
+    json_name: "keyValuePairs",
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V19.Services.ConversionUploadService.Service do

@@ -36,4 +36,67 @@ defmodule Google.Ads.Googleads.V19.Resources.AssetGroup do
     json_name: "adStrength",
     enum: true,
     deprecated: false
+
+  field :asset_coverage, 13,
+    type: Google.Ads.Googleads.V19.Resources.AssetCoverage,
+    json_name: "assetCoverage",
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.AssetCoverage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ad_strength_action_items, 1,
+    repeated: true,
+    type: Google.Ads.Googleads.V19.Resources.AdStrengthActionItem,
+    json_name: "adStrengthActionItems",
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.AdStrengthActionItem.AddAssetDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :asset_field_type, 1,
+    type: Google.Ads.Googleads.V19.Enums.AssetFieldTypeEnum.AssetFieldType,
+    json_name: "assetFieldType",
+    enum: true,
+    deprecated: false
+
+  field :asset_count, 2,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "assetCount",
+    deprecated: false
+
+  field :video_aspect_ratio_requirement, 3,
+    proto3_optional: true,
+    type:
+      Google.Ads.Googleads.V19.Enums.AssetCoverageVideoAspectRatioRequirementEnum.AssetCoverageVideoAspectRatioRequirement,
+    json_name: "videoAspectRatioRequirement",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.AdStrengthActionItem do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :action_details, 0
+
+  field :action_item_type, 1,
+    type: Google.Ads.Googleads.V19.Enums.AdStrengthActionItemTypeEnum.AdStrengthActionItemType,
+    json_name: "actionItemType",
+    enum: true,
+    deprecated: false
+
+  field :add_asset_details, 2,
+    type: Google.Ads.Googleads.V19.Resources.AdStrengthActionItem.AddAssetDetails,
+    json_name: "addAssetDetails",
+    oneof: 0,
+    deprecated: false
 end

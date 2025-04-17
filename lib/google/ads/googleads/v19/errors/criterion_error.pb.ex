@@ -153,6 +153,7 @@ defmodule Google.Ads.Googleads.V19.Errors.CriterionErrorEnum.CriterionError do
   field :BRAND_SHARED_SET_DOES_NOT_EXIST, 156
   field :CANNOT_ADD_REMOVED_BRAND_SHARED_SET, 157
   field :ONLY_EXCLUSION_BRAND_LIST_ALLOWED_FOR_CAMPAIGN_TYPE, 158
+  field :LOCATION_TARGETING_NOT_ELIGIBLE_FOR_RESTRICTED_CAMPAIGN, 166
 end
 
 defmodule Google.Ads.Googleads.V19.Errors.CriterionErrorEnum do

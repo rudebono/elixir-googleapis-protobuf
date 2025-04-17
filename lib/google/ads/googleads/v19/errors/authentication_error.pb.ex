@@ -26,6 +26,7 @@ defmodule Google.Ads.Googleads.V19.Errors.AuthenticationErrorEnum.Authentication
   field :ORGANIZATION_NOT_RECOGNIZED, 26
   field :ORGANIZATION_NOT_APPROVED, 27
   field :ORGANIZATION_NOT_ASSOCIATED_WITH_DEVELOPER_TOKEN, 28
+  field :DEVELOPER_TOKEN_INVALID, 29
 end
 
 defmodule Google.Ads.Googleads.V19.Errors.AuthenticationErrorEnum do

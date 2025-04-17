@@ -629,6 +629,12 @@ defmodule Google.Ads.Googleads.V19.Resources.Recommendation.ImprovePerformanceMa
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :asset_group, 1, type: :string, json_name: "assetGroup", deprecated: false
+
+  field :ad_strength, 2,
+    type: Google.Ads.Googleads.V19.Enums.AdStrengthEnum.AdStrength,
+    json_name: "adStrength",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Ads.Googleads.V19.Resources.Recommendation.MigrateDynamicSearchAdsCampaignToPerformanceMaxRecommendation do

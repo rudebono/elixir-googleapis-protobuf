@@ -164,6 +164,12 @@ defmodule Google.Ads.Googleads.V19.Common.InFeedVideoAdInfo do
     enum: true
 end
 
+defmodule Google.Ads.Googleads.V19.Common.YouTubeAudioAdInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Ads.Googleads.V19.Common.VideoAdInfo do
   @moduledoc false
 
@@ -194,6 +200,8 @@ defmodule Google.Ads.Googleads.V19.Common.VideoAdInfo do
     type: Google.Ads.Googleads.V19.Common.InFeedVideoAdInfo,
     json_name: "inFeed",
     oneof: 0
+
+  field :audio, 10, type: Google.Ads.Googleads.V19.Common.YouTubeAudioAdInfo, oneof: 0
 end
 
 defmodule Google.Ads.Googleads.V19.Common.VideoResponsiveAdInfo do

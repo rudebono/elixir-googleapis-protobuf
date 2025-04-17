@@ -6,6 +6,56 @@ defmodule Google.Ads.Googleads.V19.Resources.AdGroup.AudienceSetting do
   field :use_audience_grouped, 1, type: :bool, json_name: "useAudienceGrouped", deprecated: false
 end
 
+defmodule Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls.DemandGenSelectedChannels do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :youtube_in_stream, 1, type: :bool, json_name: "youtubeInStream"
+  field :youtube_in_feed, 2, type: :bool, json_name: "youtubeInFeed"
+  field :youtube_shorts, 3, type: :bool, json_name: "youtubeShorts"
+  field :discover, 4, type: :bool
+  field :gmail, 5, type: :bool
+  field :display, 6, type: :bool
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :channel_configuration, 0
+
+  field :channel_config, 1,
+    type: Google.Ads.Googleads.V19.Enums.DemandGenChannelConfigEnum.DemandGenChannelConfig,
+    json_name: "channelConfig",
+    enum: true,
+    deprecated: false
+
+  field :channel_strategy, 2,
+    type: Google.Ads.Googleads.V19.Enums.DemandGenChannelStrategyEnum.DemandGenChannelStrategy,
+    json_name: "channelStrategy",
+    enum: true,
+    oneof: 0
+
+  field :selected_channels, 3,
+    type:
+      Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls.DemandGenSelectedChannels,
+    json_name: "selectedChannels",
+    oneof: 0
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :channel_controls, 1,
+    type:
+      Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls,
+    json_name: "channelControls"
+end
+
 defmodule Google.Ads.Googleads.V19.Resources.AdGroup do
   @moduledoc false
 
@@ -137,4 +187,8 @@ defmodule Google.Ads.Googleads.V19.Resources.AdGroup do
     json_name: "primaryStatusReasons",
     enum: true,
     deprecated: false
+
+  field :demand_gen_ad_group_settings, 91,
+    type: Google.Ads.Googleads.V19.Resources.AdGroup.DemandGenAdGroupSettings,
+    json_name: "demandGenAdGroupSettings"
 end
