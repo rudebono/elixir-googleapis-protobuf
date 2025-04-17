@@ -10,6 +10,7 @@ defmodule Google.Ads.Googleads.V19.Enums.ChangeStatusResourceTypeEnum.ChangeStat
   field :AD_GROUP_CRITERION, 5
   field :CAMPAIGN, 6
   field :CAMPAIGN_CRITERION, 7
+  field :CAMPAIGN_BUDGET, 8
   field :FEED, 9
   field :FEED_ITEM, 10
   field :AD_GROUP_FEED, 11
@@ -23,6 +24,8 @@ defmodule Google.Ads.Googleads.V19.Enums.ChangeStatusResourceTypeEnum.ChangeStat
   field :AD_GROUP_ASSET, 19
   field :COMBINED_AUDIENCE, 20
   field :ASSET_GROUP, 21
+  field :ASSET_SET, 22
+  field :CAMPAIGN_ASSET_SET, 23
 end
 
 defmodule Google.Ads.Googleads.V19.Enums.ChangeStatusResourceTypeEnum do

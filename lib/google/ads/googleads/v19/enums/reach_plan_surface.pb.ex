@@ -5,6 +5,8 @@ defmodule Google.Ads.Googleads.V19.Enums.ReachPlanSurfaceEnum.ReachPlanSurface d
 
   field :UNSPECIFIED, 0
   field :UNKNOWN, 1
+  field :DISCOVER_FEED, 7
+  field :GMAIL, 8
   field :IN_FEED, 2
   field :IN_STREAM_BUMPER, 3
   field :IN_STREAM_NON_SKIPPABLE, 4

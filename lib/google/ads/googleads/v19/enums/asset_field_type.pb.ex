@@ -34,6 +34,7 @@ defmodule Google.Ads.Googleads.V19.Enums.AssetFieldTypeEnum.AssetFieldType do
   field :HOTEL_PROPERTY, 28
   field :DEMAND_GEN_CAROUSEL_CARD, 30
   field :BUSINESS_MESSAGE, 31
+  field :TALL_PORTRAIT_MARKETING_IMAGE, 32
 end
 
 defmodule Google.Ads.Googleads.V19.Enums.AssetFieldTypeEnum do

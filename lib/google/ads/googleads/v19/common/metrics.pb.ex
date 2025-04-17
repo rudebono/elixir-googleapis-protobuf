@@ -169,6 +169,11 @@ defmodule Google.Ads.Googleads.V19.Common.Metrics do
     type: :double,
     json_name: "biddableAppPostInstallConversions"
 
+  field :biddable_cohort_app_post_install_conversions, 378,
+    proto3_optional: true,
+    type: :double,
+    json_name: "biddableCohortAppPostInstallConversions"
+
   field :benchmark_ctr, 211, proto3_optional: true, type: :double, json_name: "benchmarkCtr"
   field :bounce_rate, 212, proto3_optional: true, type: :double, json_name: "bounceRate"
   field :clicks, 131, proto3_optional: true, type: :int64
@@ -882,6 +887,16 @@ defmodule Google.Ads.Googleads.V19.Common.Metrics do
     proto3_optional: true,
     type: :double,
     json_name: "videoViewRateShorts"
+
+  field :coviewed_impressions, 380,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "coviewedImpressions"
+
+  field :primary_impressions, 381,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "primaryImpressions"
 end
 
 defmodule Google.Ads.Googleads.V19.Common.SearchVolumeRange do

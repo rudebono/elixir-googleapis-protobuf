@@ -36,6 +36,7 @@ defmodule Google.Ads.Googleads.V19.Enums.AdTypeEnum.AdType do
   field :TRAVEL_AD, 37
   field :DEMAND_GEN_VIDEO_RESPONSIVE_AD, 42
   field :DEMAND_GEN_PRODUCT_AD, 39
+  field :YOUTUBE_AUDIO_AD, 44
 end
 
 defmodule Google.Ads.Googleads.V19.Enums.AdTypeEnum do

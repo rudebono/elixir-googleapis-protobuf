@@ -1,3 +1,42 @@
+defmodule Google.Ads.Googleads.V19.Services.GenerateConversionRatesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
+
+  field :customer_reach_group, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "customerReachGroup"
+end
+
+defmodule Google.Ads.Googleads.V19.Services.GenerateConversionRatesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :conversion_rate_suggestions, 1,
+    repeated: true,
+    type: Google.Ads.Googleads.V19.Services.ConversionRateSuggestion,
+    json_name: "conversionRateSuggestions"
+end
+
+defmodule Google.Ads.Googleads.V19.Services.ConversionRateSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :conversion_rate_model, 1,
+    type:
+      Google.Ads.Googleads.V19.Enums.ReachPlanConversionRateModelEnum.ReachPlanConversionRateModel,
+    json_name: "conversionRateModel",
+    enum: true
+
+  field :plannable_product_code, 2, type: :string, json_name: "plannableProductCode"
+  field :conversion_rate, 3, type: :double, json_name: "conversionRate"
+end
+
 defmodule Google.Ads.Googleads.V19.Services.ListPlannableLocationsRequest do
   @moduledoc false
 
@@ -227,6 +266,8 @@ defmodule Google.Ads.Googleads.V19.Services.PlannedProduct do
     json_name: "budgetMicros",
     deprecated: false
 
+  field :conversion_rate, 6, proto3_optional: true, type: :double, json_name: "conversionRate"
+
   field :advanced_product_targeting, 5,
     type: Google.Ads.Googleads.V19.Services.AdvancedProductTargeting,
     json_name: "advancedProductTargeting"
@@ -317,6 +358,7 @@ defmodule Google.Ads.Googleads.V19.Services.Forecast do
     json_name: "totalCoviewImpressions"
 
   field :views, 15, proto3_optional: true, type: :int64
+  field :conversions, 16, proto3_optional: true, type: :double
 end
 
 defmodule Google.Ads.Googleads.V19.Services.PlannedProductReachForecast do
@@ -370,6 +412,7 @@ defmodule Google.Ads.Googleads.V19.Services.PlannedProductForecast do
     json_name: "averageFrequency"
 
   field :views, 11, proto3_optional: true, type: :int64
+  field :conversions, 12, proto3_optional: true, type: :double
 end
 
 defmodule Google.Ads.Googleads.V19.Services.OnTargetAudienceMetrics do
@@ -511,6 +554,10 @@ defmodule Google.Ads.Googleads.V19.Services.ReachPlanService.Service do
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.ReachPlanService",
     protoc_gen_elixir_version: "0.14.1"
+
+  rpc :GenerateConversionRates,
+      Google.Ads.Googleads.V19.Services.GenerateConversionRatesRequest,
+      Google.Ads.Googleads.V19.Services.GenerateConversionRatesResponse
 
   rpc :ListPlannableLocations,
       Google.Ads.Googleads.V19.Services.ListPlannableLocationsRequest,

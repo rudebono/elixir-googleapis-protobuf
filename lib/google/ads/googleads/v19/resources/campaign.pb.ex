@@ -292,6 +292,28 @@ defmodule Google.Ads.Googleads.V19.Resources.Campaign.VideoCampaignSettings do
     json_name: "videoAdInventoryControl"
 end
 
+defmodule Google.Ads.Googleads.V19.Resources.Campaign.PmaxCampaignSettings.BrandTargetingOverrides do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ignore_exclusions_for_shopping_ads, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "ignoreExclusionsForShoppingAds"
+end
+
+defmodule Google.Ads.Googleads.V19.Resources.Campaign.PmaxCampaignSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :brand_targeting_overrides, 1,
+    type:
+      Google.Ads.Googleads.V19.Resources.Campaign.PmaxCampaignSettings.BrandTargetingOverrides,
+    json_name: "brandTargetingOverrides"
+end
+
 defmodule Google.Ads.Googleads.V19.Resources.Campaign.AssetAutomationSetting do
   @moduledoc false
 
@@ -405,6 +427,10 @@ defmodule Google.Ads.Googleads.V19.Resources.Campaign do
   field :video_campaign_settings, 94,
     type: Google.Ads.Googleads.V19.Resources.Campaign.VideoCampaignSettings,
     json_name: "videoCampaignSettings"
+
+  field :pmax_campaign_settings, 97,
+    type: Google.Ads.Googleads.V19.Resources.Campaign.PmaxCampaignSettings,
+    json_name: "pmaxCampaignSettings"
 
   field :real_time_bidding_setting, 39,
     type: Google.Ads.Googleads.V19.Common.RealTimeBiddingSetting,

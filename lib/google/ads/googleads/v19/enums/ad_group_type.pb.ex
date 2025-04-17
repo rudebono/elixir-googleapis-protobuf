@@ -21,6 +21,7 @@ defmodule Google.Ads.Googleads.V19.Enums.AdGroupTypeEnum.AdGroupType do
   field :VIDEO_EFFICIENT_REACH, 17
   field :SMART_CAMPAIGN_ADS, 18
   field :TRAVEL_ADS, 19
+  field :YOUTUBE_AUDIO, 20
 end
 
 defmodule Google.Ads.Googleads.V19.Enums.AdGroupTypeEnum do
