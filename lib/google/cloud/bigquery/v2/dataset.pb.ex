@@ -39,6 +39,17 @@ defmodule Google.Cloud.Bigquery.V2.GetDatasetRequest.DatasetView do
   field :FULL, 3
 end
 
+defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest.UpdateMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UPDATE_MODE_UNSPECIFIED, 0
+  field :UPDATE_METADATA, 1
+  field :UPDATE_ACL, 2
+  field :UPDATE_FULL, 3
+end
+
 defmodule Google.Cloud.Bigquery.V2.DatasetAccessEntry do
   @moduledoc false
 
@@ -273,6 +284,12 @@ defmodule Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 2, type: :string, json_name: "datasetId", deprecated: false
   field :dataset, 3, type: Google.Cloud.Bigquery.V2.Dataset, deprecated: false
+
+  field :update_mode, 4,
+    type: Google.Cloud.Bigquery.V2.UpdateOrPatchDatasetRequest.UpdateMode,
+    json_name: "updateMode",
+    enum: true,
+    deprecated: false
 
   field :access_policy_version, 5,
     type: :int32,
