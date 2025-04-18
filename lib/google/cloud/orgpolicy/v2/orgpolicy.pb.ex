@@ -40,6 +40,7 @@ defmodule Google.Cloud.Orgpolicy.V2.PolicySpec.PolicyRule do
   field :deny_all, 3, type: :bool, json_name: "denyAll", oneof: 0
   field :enforce, 4, type: :bool, oneof: 0
   field :condition, 5, type: Google.Type.Expr
+  field :parameters, 6, type: Google.Protobuf.Struct, deprecated: false
 end
 
 defmodule Google.Cloud.Orgpolicy.V2.PolicySpec do
