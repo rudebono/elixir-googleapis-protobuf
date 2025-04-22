@@ -47,6 +47,19 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.Type do
   field :TYPE_UNSPECIFIED, 0
   field :PAID, 1
   field :POC, 2
+  field :UNPAID, 2
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order.DeploymentType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DEPLOYMENT_TYPE_UNSPECIFIED, 0
+  field :FULL_PRODUCTION, 1
+  field :PROOF_OF_CONCEPT, 2
+  field :INTERNAL, 3
+  field :CUSTOMER_LAB, 4
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup.State do
@@ -108,6 +121,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.State do
   field :ADDITIONAL_INFO_NEEDED, 1
   field :PREPARING, 2
   field :READY_FOR_CUSTOMER_FACTORY_TURNUP_CHECKS, 5
+  field :CUSTOMER_FACTORY_TURNUP_CHECKS_STARTED, 8
   field :READY_FOR_SITE_TURNUP, 6
   field :CUSTOMER_FACTORY_TURNUP_CHECKS_FAILED, 7
   field :ACTIVE, 3
@@ -262,6 +276,22 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order do
     repeated: true,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareLocation,
     json_name: "existingHardware",
+    deprecated: false
+
+  field :deployment_type, 18,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Order.DeploymentType,
+    json_name: "deploymentType",
+    enum: true,
+    deprecated: false
+
+  field :actual_installation_date, 19,
+    type: Google.Type.Date,
+    json_name: "actualInstallationDate",
+    deprecated: false
+
+  field :estimated_installation_date, 20,
+    type: Google.Type.Date,
+    json_name: "estimatedInstallationDate",
     deprecated: false
 end
 
@@ -573,6 +603,15 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ChangeLogEntry do
   field :log, 4, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku.Range do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :min, 1, type: :int32
+  field :max, 2, type: :int32
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku do
   @moduledoc false
 
@@ -608,6 +647,12 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Sku do
     deprecated: false
 
   field :vcpu_count, 12, type: :int32, json_name: "vcpuCount", deprecated: false
+
+  field :hardware_count_ranges, 13,
+    repeated: true,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.Sku.Range,
+    json_name: "hardwareCountRanges",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.LabelsEntry do
