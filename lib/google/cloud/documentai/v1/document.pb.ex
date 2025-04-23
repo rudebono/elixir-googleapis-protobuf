@@ -733,6 +733,8 @@ defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock
   field :page_span, 5,
     type: Google.Cloud.Documentai.V1.Document.DocumentLayout.DocumentLayoutBlock.LayoutPageSpan,
     json_name: "pageSpan"
+
+  field :bounding_box, 6, type: Google.Cloud.Documentai.V1.BoundingPoly, json_name: "boundingBox"
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.DocumentLayout do
@@ -821,6 +823,7 @@ defmodule Google.Cloud.Documentai.V1.Document do
 
   field :uri, 1, type: :string, oneof: 0, deprecated: false
   field :content, 2, type: :bytes, oneof: 0, deprecated: false
+  field :docid, 15, type: :string, deprecated: false
   field :mime_type, 3, type: :string, json_name: "mimeType"
   field :text, 4, type: :string, deprecated: false
 

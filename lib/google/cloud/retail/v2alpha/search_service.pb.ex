@@ -339,6 +339,10 @@ defmodule Google.Cloud.Retail.V2alpha.SearchRequest do
     type: Google.Cloud.Retail.V2alpha.SearchRequest.TileNavigationSpec,
     json_name: "tileNavigationSpec",
     deprecated: false
+
+  field :language_code, 43, type: :string, json_name: "languageCode", deprecated: false
+  field :region_code, 44, type: :string, json_name: "regionCode", deprecated: false
+  field :place_id, 46, type: :string, json_name: "placeId", deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
@@ -492,6 +496,10 @@ defmodule Google.Cloud.Retail.V2alpha.SearchResponse do
 
   field :redirect_uri, 10, type: :string, json_name: "redirectUri"
   field :applied_controls, 12, repeated: true, type: :string, json_name: "appliedControls"
+
+  field :pin_control_metadata, 22,
+    type: Google.Cloud.Retail.V2alpha.PinControlMetadata,
+    json_name: "pinControlMetadata"
 
   field :invalid_condition_boost_specs, 14,
     repeated: true,

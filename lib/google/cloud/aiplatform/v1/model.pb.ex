@@ -210,6 +210,11 @@ defmodule Google.Cloud.Aiplatform.V1.Model do
 
   field :satisfies_pzs, 51, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 52, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :checkpoints, 57,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Checkpoint,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.LargeModelReference do
@@ -399,4 +404,14 @@ defmodule Google.Cloud.Aiplatform.V1.Probe do
   field :failure_threshold, 7, type: :int32, json_name: "failureThreshold"
   field :success_threshold, 8, type: :int32, json_name: "successThreshold"
   field :initial_delay_seconds, 9, type: :int32, json_name: "initialDelaySeconds"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.Checkpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :checkpoint_id, 1, type: :string, json_name: "checkpointId"
+  field :epoch, 2, type: :int64
+  field :step, 3, type: :int64
 end

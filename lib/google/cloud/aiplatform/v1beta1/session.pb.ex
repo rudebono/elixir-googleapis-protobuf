@@ -92,11 +92,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EventActions do
     map: true,
     deprecated: false
 
-  field :transfer_to_agent, 5, type: :bool, json_name: "transferToAgent", deprecated: false
+  field :transfer_to_agent, 5, type: :bool, json_name: "transferToAgent", deprecated: true
   field :escalate, 6, type: :bool, deprecated: false
 
   field :requested_auth_configs, 7,
     type: Google.Protobuf.Struct,
     json_name: "requestedAuthConfigs",
     deprecated: false
+
+  field :transfer_agent, 8, type: :string, json_name: "transferAgent", deprecated: false
 end
