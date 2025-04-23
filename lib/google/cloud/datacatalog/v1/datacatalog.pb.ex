@@ -1133,6 +1133,10 @@ defmodule Google.Cloud.Datacatalog.V1.MigrationConfig do
     type: Google.Cloud.Datacatalog.V1.CatalogUIExperience,
     json_name: "catalogUiExperience",
     enum: true
+
+  field :template_migration_enabled_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "templateMigrationEnabledTime"
 end
 
 defmodule Google.Cloud.Datacatalog.V1.DataCatalog.Service do
