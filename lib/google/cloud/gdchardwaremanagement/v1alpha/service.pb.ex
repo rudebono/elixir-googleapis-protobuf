@@ -24,6 +24,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.Stat
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :STATE_SIGNAL_UNSPECIFIED, 0
+  field :FACTORY_TURNUP_CHECKS_STARTED, 3
   field :FACTORY_TURNUP_CHECKS_PASSED, 1
   field :READY_FOR_SITE_TURNUP, 1
   field :FACTORY_TURNUP_CHECKS_FAILED, 2
@@ -525,6 +526,9 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest do
     json_name: "provisioningStateSignal",
     enum: true,
     deprecated: false
+
+  field :step, 5, type: :string, deprecated: false
+  field :details, 6, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OperationMetadata do
