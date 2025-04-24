@@ -662,6 +662,14 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.TextChange do
     deprecated: true
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.Annotations do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :description, 1, type: :string
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutPageSpan do
   @moduledoc false
 
@@ -752,6 +760,21 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayout
     type: Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutImageBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :image_source, 0
+
+  field :blob_asset_id, 4, type: :string, json_name: "blobAssetId", oneof: 0, deprecated: false
+  field :gcs_uri, 5, type: :string, json_name: "gcsUri", oneof: 0, deprecated: false
+  field :data_uri, 6, type: :string, json_name: "dataUri", oneof: 0, deprecated: false
+  field :mime_type, 1, type: :string, json_name: "mimeType"
+  field :image_text, 2, type: :string, json_name: "imageText"
+  field :annotations, 3, type: Google.Cloud.Documentai.V1beta3.Document.Annotations
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock do
   @moduledoc false
 
@@ -777,12 +800,22 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayout
     json_name: "listBlock",
     oneof: 0
 
+  field :image_block, 7,
+    type:
+      Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutImageBlock,
+    json_name: "imageBlock",
+    oneof: 0
+
   field :block_id, 1, type: :string, json_name: "blockId"
 
   field :page_span, 5,
     type:
       Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutPageSpan,
     json_name: "pageSpan"
+
+  field :bounding_box, 6,
+    type: Google.Cloud.Documentai.V1beta3.BoundingPoly,
+    json_name: "boundingBox"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout do
@@ -828,6 +861,45 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPa
     json_name: "pageSpan"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ImageChunkField do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :image_source, 0
+
+  field :blob_asset_id, 1, type: :string, json_name: "blobAssetId", oneof: 0, deprecated: false
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri", oneof: 0, deprecated: false
+  field :data_uri, 3, type: :string, json_name: "dataUri", oneof: 0, deprecated: false
+  field :annotations, 4, type: Google.Cloud.Documentai.V1beta3.Document.Annotations
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.TableChunkField do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :annotations, 1, type: Google.Cloud.Documentai.V1beta3.Document.Annotations
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkField do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :field_type, 0
+
+  field :image_chunk_field, 1,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ImageChunkField,
+    json_name: "imageChunkField",
+    oneof: 0
+
+  field :table_chunk_field, 2,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.TableChunkField,
+    json_name: "tableChunkField",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk do
   @moduledoc false
 
@@ -850,6 +922,11 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk do
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkPageFooter,
     json_name: "pageFooters"
+
+  field :chunk_fields, 7,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk.ChunkField,
+    json_name: "chunkFields"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument do
@@ -862,6 +939,16 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument do
     type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument.Chunk
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.BlobAsset do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :asset_id, 1, type: :string, json_name: "assetId", deprecated: false
+  field :content, 2, type: :bytes, deprecated: false
+  field :mime_type, 3, type: :string, json_name: "mimeType"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document do
   @moduledoc false
 
@@ -871,6 +958,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Document do
 
   field :uri, 1, type: :string, oneof: 0, deprecated: false
   field :content, 2, type: :bytes, oneof: 0, deprecated: false
+  field :docid, 15, type: :string, deprecated: false
   field :mime_type, 3, type: :string, json_name: "mimeType"
   field :text, 4, type: :string, deprecated: false
 
@@ -907,6 +995,12 @@ defmodule Google.Cloud.Documentai.V1beta3.Document do
   field :chunked_document, 18,
     type: Google.Cloud.Documentai.V1beta3.Document.ChunkedDocument,
     json_name: "chunkedDocument"
+
+  field :blob_assets, 19,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.BlobAsset,
+    json_name: "blobAssets",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.RevisionRef do

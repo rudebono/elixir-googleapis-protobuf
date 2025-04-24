@@ -9,6 +9,7 @@ defmodule Google.Cloud.Gkebackup.V1.Restore.State do
   field :SUCCEEDED, 3
   field :FAILED, 4
   field :DELETING, 5
+  field :VALIDATING, 6
 end
 
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicy do
@@ -104,7 +105,7 @@ defmodule Google.Cloud.Gkebackup.V1.Restore do
     json_name: "updateTime",
     deprecated: false
 
-  field :description, 5, type: :string
+  field :description, 5, type: :string, deprecated: false
   field :backup, 6, type: :string, deprecated: false
   field :cluster, 7, type: :string, deprecated: false
 

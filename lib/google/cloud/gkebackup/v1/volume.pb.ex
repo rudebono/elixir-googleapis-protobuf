@@ -19,6 +19,7 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup.State do
   field :SUCCEEDED, 4
   field :FAILED, 5
   field :DELETING, 6
+  field :CLEANED_UP, 7
 end
 
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore.VolumeType do
@@ -91,6 +92,8 @@ defmodule Google.Cloud.Gkebackup.V1.VolumeBackup do
 
   field :state_message, 12, type: :string, json_name: "stateMessage", deprecated: false
   field :etag, 13, type: :string, deprecated: false
+  field :satisfies_pzs, 14, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 15, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Gkebackup.V1.VolumeRestore do

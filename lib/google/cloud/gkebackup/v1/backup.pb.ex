@@ -140,4 +140,6 @@ defmodule Google.Cloud.Gkebackup.V1.Backup do
     deprecated: false
 
   field :permissive_mode, 28, type: :bool, json_name: "permissiveMode", deprecated: false
+  field :satisfies_pzs, 29, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 30, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
