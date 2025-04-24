@@ -304,6 +304,7 @@ defmodule Google.Bigtable.Admin.V2.LogicalView do
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
   field :etag, 3, type: :string, deprecated: false
+  field :deletion_protection, 6, type: :bool, json_name: "deletionProtection", deprecated: false
 end
 
 defmodule Google.Bigtable.Admin.V2.MaterializedView do
