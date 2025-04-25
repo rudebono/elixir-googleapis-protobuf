@@ -60,6 +60,8 @@ defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.Met
   field :CREATE, 1
   field :UPDATE, 2
   field :DELETE, 3
+  field :REMOVE_GRANT, 4
+  field :GOVERN_TAGS, 5
 end
 
 defmodule Google.Cloud.Asset.V1.AnalyzerOrgPolicyConstraint.CustomConstraint.ActionType do

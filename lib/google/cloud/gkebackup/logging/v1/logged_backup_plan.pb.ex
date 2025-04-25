@@ -80,5 +80,5 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan do
     type: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlan.BackupConfig,
     json_name: "backupConfig"
 
-  field :rpo_risk_level, 8, type: :int32, json_name: "rpoRiskLevel"
+  field :rpo_risk_level, 8, type: :int32, json_name: "rpoRiskLevel", deprecated: true
 end
