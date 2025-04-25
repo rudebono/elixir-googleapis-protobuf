@@ -106,6 +106,11 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig do
     json_name: "returnBoundingBoxes",
     deprecated: false
 
+  field :enable_image_annotation, 4,
+    type: :bool,
+    json_name: "enableImageAnnotation",
+    deprecated: false
+
   field :enable_llm_layout_parsing, 5,
     type: :bool,
     json_name: "enableLlmLayoutParsing",

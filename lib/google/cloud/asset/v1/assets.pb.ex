@@ -47,6 +47,19 @@ defmodule Google.Cloud.Asset.V1.TimeWindow do
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
 end
 
+defmodule Google.Cloud.Asset.V1.AssetEnrichment do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :EnrichmentData, 0
+
+  field :resource_owners, 7,
+    type: Google.Cloud.Asset.V1.ResourceOwners,
+    json_name: "resourceOwners",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Asset.V1.Asset do
   @moduledoc false
 
@@ -249,6 +262,7 @@ defmodule Google.Cloud.Asset.V1.ResourceSearchResult do
     type: Google.Cloud.Asset.V1.EffectiveTagDetails,
     json_name: "effectiveTags"
 
+  field :enrichments, 31, repeated: true, type: Google.Cloud.Asset.V1.AssetEnrichment
   field :parent_asset_type, 103, type: :string, json_name: "parentAssetType"
 
   field :scc_security_marks, 32,

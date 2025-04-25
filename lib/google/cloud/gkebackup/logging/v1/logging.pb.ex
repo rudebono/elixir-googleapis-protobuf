@@ -28,6 +28,10 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.BackupPlanChange do
     json_name: "inputBackupPlan"
 
   field :error, 5, type: Google.Rpc.Status
+
+  field :backup_plan_metadata, 6,
+    type: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupPlanMetadata,
+    json_name: "backupPlanMetadata"
 end
 
 defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChange do
@@ -71,6 +75,10 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestorePlanChange do
     json_name: "inputRestorePlan"
 
   field :error, 5, type: Google.Rpc.Status
+
+  field :restore_plan_metadata, 6,
+    type: Google.Cloud.Gkebackup.Logging.V1.LoggedRestorePlanMetadata,
+    json_name: "restorePlanMetadata"
 end
 
 defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
@@ -90,6 +98,48 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChange do
   field :input_restore, 4,
     type: Google.Cloud.Gkebackup.Logging.V1.LoggedRestore,
     json_name: "inputRestore"
+
+  field :error, 5, type: Google.Rpc.Status
+end
+
+defmodule Google.Cloud.Gkebackup.Logging.V1.BackupChannelChange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :backup_channel, 1, type: :string, json_name: "backupChannel"
+
+  field :change_type, 2,
+    type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
+    json_name: "changeType",
+    enum: true
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :input_backup_channel, 4,
+    type: Google.Cloud.Gkebackup.Logging.V1.LoggedBackupChannel,
+    json_name: "inputBackupChannel"
+
+  field :error, 5, type: Google.Rpc.Status
+end
+
+defmodule Google.Cloud.Gkebackup.Logging.V1.RestoreChannelChange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :restore_channel, 1, type: :string, json_name: "restoreChannel"
+
+  field :change_type, 2,
+    type: Google.Cloud.Gkebackup.Logging.V1.ChangeType,
+    json_name: "changeType",
+    enum: true
+
+  field :update_mask, 3, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+
+  field :input_restore_channel, 4,
+    type: Google.Cloud.Gkebackup.Logging.V1.LoggedRestoreChannel,
+    json_name: "inputRestoreChannel"
 
   field :error, 5, type: Google.Rpc.Status
 end

@@ -9,6 +9,7 @@ defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.State do
   field :SUCCEEDED, 3
   field :FAILED, 4
   field :DELETING, 5
+  field :VALIDATING, 6
 end
 
 defmodule Google.Cloud.Gkebackup.Logging.V1.LoggedRestore.LabelsEntry do
