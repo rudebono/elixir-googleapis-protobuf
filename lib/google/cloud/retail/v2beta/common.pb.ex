@@ -178,6 +178,28 @@ defmodule Google.Cloud.Retail.V2beta.Rule.RemoveFacetAction do
   field :attribute_names, 1, repeated: true, type: :string, json_name: "attributeNames"
 end
 
+defmodule Google.Cloud.Retail.V2beta.Rule.PinAction.PinMapEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :int64
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2beta.Rule.PinAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :pin_map, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.Rule.PinAction.PinMapEntry,
+    json_name: "pinMap",
+    map: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Retail.V2beta.Rule do
   @moduledoc false
 
@@ -233,6 +255,11 @@ defmodule Google.Cloud.Retail.V2beta.Rule do
   field :remove_facet_action, 13,
     type: Google.Cloud.Retail.V2beta.Rule.RemoveFacetAction,
     json_name: "removeFacetAction",
+    oneof: 0
+
+  field :pin_action, 14,
+    type: Google.Cloud.Retail.V2beta.Rule.PinAction,
+    json_name: "pinAction",
     oneof: 0
 
   field :condition, 1, type: Google.Cloud.Retail.V2beta.Condition, deprecated: false
@@ -363,17 +390,66 @@ defmodule Google.Cloud.Retail.V2beta.LocalInventory do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :place_id, 1, type: :string, json_name: "placeId"
-  field :price_info, 2, type: Google.Cloud.Retail.V2beta.PriceInfo, json_name: "priceInfo"
+  field :place_id, 1, type: :string, json_name: "placeId", deprecated: false
+
+  field :price_info, 2,
+    type: Google.Cloud.Retail.V2beta.PriceInfo,
+    json_name: "priceInfo",
+    deprecated: false
 
   field :attributes, 3,
     repeated: true,
     type: Google.Cloud.Retail.V2beta.LocalInventory.AttributesEntry,
-    map: true
+    map: true,
+    deprecated: false
 
   field :fulfillment_types, 4,
     repeated: true,
     type: :string,
     json_name: "fulfillmentTypes",
     deprecated: false
+end
+
+defmodule Google.Cloud.Retail.V2beta.PinControlMetadata.ProductPins do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :product_id, 1, repeated: true, type: :string, json_name: "productId"
+end
+
+defmodule Google.Cloud.Retail.V2beta.PinControlMetadata.AllMatchedPinsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :int64
+  field :value, 2, type: Google.Cloud.Retail.V2beta.PinControlMetadata.ProductPins
+end
+
+defmodule Google.Cloud.Retail.V2beta.PinControlMetadata.DroppedPinsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :int64
+  field :value, 2, type: Google.Cloud.Retail.V2beta.PinControlMetadata.ProductPins
+end
+
+defmodule Google.Cloud.Retail.V2beta.PinControlMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :all_matched_pins, 1,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.PinControlMetadata.AllMatchedPinsEntry,
+    json_name: "allMatchedPins",
+    map: true
+
+  field :dropped_pins, 2,
+    repeated: true,
+    type: Google.Cloud.Retail.V2beta.PinControlMetadata.DroppedPinsEntry,
+    json_name: "droppedPins",
+    map: true
 end
