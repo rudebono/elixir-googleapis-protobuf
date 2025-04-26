@@ -232,6 +232,18 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig do
     oneof: 0
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.ThinkingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :thinking_budget, 3,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "thinkingBudget",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
   @moduledoc false
 
@@ -292,6 +304,11 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig,
     json_name: "routingConfig",
+    deprecated: false
+
+  field :thinking_config, 25,
+    type: Google.Cloud.Aiplatform.V1.GenerationConfig.ThinkingConfig,
+    json_name: "thinkingConfig",
     deprecated: false
 end
 
