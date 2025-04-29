@@ -48,6 +48,20 @@ defmodule Google.Ai.Generativelanguage.V1beta.DeleteFileRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.DownloadFileRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.DownloadFileResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.FileService.Service do
   @moduledoc false
 
@@ -68,6 +82,10 @@ defmodule Google.Ai.Generativelanguage.V1beta.FileService.Service do
       Google.Ai.Generativelanguage.V1beta.File
 
   rpc :DeleteFile, Google.Ai.Generativelanguage.V1beta.DeleteFileRequest, Google.Protobuf.Empty
+
+  rpc :DownloadFile,
+      Google.Ai.Generativelanguage.V1beta.DownloadFileRequest,
+      Google.Ai.Generativelanguage.V1beta.DownloadFileResponse
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.FileService.Stub do

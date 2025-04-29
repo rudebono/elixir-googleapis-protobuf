@@ -11,6 +11,7 @@ defmodule Google.Ai.Generativelanguage.V1.TaskType do
   field :CLUSTERING, 5
   field :QUESTION_ANSWERING, 6
   field :FACT_VERIFICATION, 7
+  field :CODE_RETRIEVAL_QUERY, 8
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.PromptFeedback.BlockReason do
@@ -96,6 +97,7 @@ defmodule Google.Ai.Generativelanguage.V1.GenerationConfig do
   field :temperature, 5, proto3_optional: true, type: :float, deprecated: false
   field :top_p, 6, proto3_optional: true, type: :float, json_name: "topP", deprecated: false
   field :top_k, 7, proto3_optional: true, type: :int32, json_name: "topK", deprecated: false
+  field :seed, 8, proto3_optional: true, type: :int32, deprecated: false
 
   field :presence_penalty, 15,
     proto3_optional: true,
@@ -148,7 +150,42 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse.UsageMetadata 
 
   field :prompt_token_count, 1, type: :int32, json_name: "promptTokenCount"
   field :candidates_token_count, 2, type: :int32, json_name: "candidatesTokenCount"
+
+  field :tool_use_prompt_token_count, 8,
+    type: :int32,
+    json_name: "toolUsePromptTokenCount",
+    deprecated: false
+
+  field :thoughts_token_count, 10,
+    type: :int32,
+    json_name: "thoughtsTokenCount",
+    deprecated: false
+
   field :total_token_count, 3, type: :int32, json_name: "totalTokenCount"
+
+  field :prompt_tokens_details, 5,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "promptTokensDetails",
+    deprecated: false
+
+  field :cache_tokens_details, 6,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "cacheTokensDetails",
+    deprecated: false
+
+  field :candidates_tokens_details, 7,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "candidatesTokensDetails",
+    deprecated: false
+
+  field :tool_use_prompt_tokens_details, 9,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "toolUsePromptTokensDetails",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse do
@@ -427,6 +464,18 @@ defmodule Google.Ai.Generativelanguage.V1.CountTokensResponse do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :total_tokens, 1, type: :int32, json_name: "totalTokens"
+
+  field :prompt_tokens_details, 6,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "promptTokensDetails",
+    deprecated: false
+
+  field :cache_tokens_details, 7,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.ModalityTokenCount,
+    json_name: "cacheTokensDetails",
+    deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerativeService.Service do

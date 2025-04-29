@@ -10,6 +10,20 @@ defmodule Google.Ai.Generativelanguage.V1beta.Type do
   field :BOOLEAN, 4
   field :ARRAY, 5
   field :OBJECT, 6
+  field :NULL, 7
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.Modality do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :MODALITY_UNSPECIFIED, 0
+  field :TEXT, 1
+  field :IMAGE, 2
+  field :VIDEO, 3
+  field :AUDIO, 4
+  field :DOCUMENT, 5
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.ExecutableCode.Language do
@@ -50,6 +64,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.FunctionCallingConfig.Mode do
   field :AUTO, 1
   field :ANY, 2
   field :NONE, 3
+  field :VALIDATED, 4
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Content do
@@ -99,6 +114,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.Part do
     type: Google.Ai.Generativelanguage.V1beta.CodeExecutionResult,
     json_name: "codeExecutionResult",
     oneof: 0
+
+  field :thought, 11, type: :bool, deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Blob do
@@ -289,6 +306,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.Schema do
 
   field :type, 1, type: Google.Ai.Generativelanguage.V1beta.Type, enum: true, deprecated: false
   field :format, 2, type: :string, deprecated: false
+  field :title, 24, type: :string, deprecated: false
   field :description, 3, type: :string, deprecated: false
   field :nullable, 4, type: :bool, deprecated: false
   field :enum, 5, repeated: true, type: :string, deprecated: false
@@ -308,6 +326,22 @@ defmodule Google.Ai.Generativelanguage.V1beta.Schema do
     deprecated: false
 
   field :required, 8, repeated: true, type: :string, deprecated: false
+  field :minimum, 11, proto3_optional: true, type: :double, deprecated: false
+  field :maximum, 12, proto3_optional: true, type: :double, deprecated: false
+
+  field :any_of, 18,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1beta.Schema,
+    json_name: "anyOf",
+    deprecated: false
+
+  field :property_ordering, 23,
+    repeated: true,
+    type: :string,
+    json_name: "propertyOrdering",
+    deprecated: false
+
+  field :default, 25, type: Google.Protobuf.Value, deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.GroundingPassage do
@@ -325,4 +359,13 @@ defmodule Google.Ai.Generativelanguage.V1beta.GroundingPassages do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :passages, 1, repeated: true, type: Google.Ai.Generativelanguage.V1beta.GroundingPassage
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.ModalityTokenCount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :modality, 1, type: Google.Ai.Generativelanguage.V1beta.Modality, enum: true
+  field :token_count, 2, type: :int32, json_name: "tokenCount"
 end
