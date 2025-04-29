@@ -111,9 +111,19 @@ defmodule Google.Cloud.Documentai.V1beta3.ProcessOptions.LayoutConfig do
     json_name: "enableImageAnnotation",
     deprecated: false
 
+  field :enable_image_extraction, 7,
+    type: :bool,
+    json_name: "enableImageExtraction",
+    deprecated: false
+
   field :enable_llm_layout_parsing, 5,
     type: :bool,
     json_name: "enableLlmLayoutParsing",
+    deprecated: false
+
+  field :enable_table_annotation, 6,
+    type: :bool,
+    json_name: "enableTableAnnotation",
     deprecated: false
 end
 

@@ -1,3 +1,16 @@
+defmodule Google.Ai.Generativelanguage.V1.Modality do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :MODALITY_UNSPECIFIED, 0
+  field :TEXT, 1
+  field :IMAGE, 2
+  field :VIDEO, 3
+  field :AUDIO, 4
+  field :DOCUMENT, 5
+end
+
 defmodule Google.Ai.Generativelanguage.V1.Content do
   @moduledoc false
 
@@ -29,4 +42,13 @@ defmodule Google.Ai.Generativelanguage.V1.Blob do
 
   field :mime_type, 1, type: :string, json_name: "mimeType"
   field :data, 2, type: :bytes
+end
+
+defmodule Google.Ai.Generativelanguage.V1.ModalityTokenCount do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :modality, 1, type: Google.Ai.Generativelanguage.V1.Modality, enum: true
+  field :token_count, 2, type: :int32, json_name: "tokenCount"
 end
