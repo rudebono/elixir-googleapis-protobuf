@@ -50,4 +50,9 @@ defmodule Google.Cloud.Aiplatform.V1.CachedContent do
     type: Google.Cloud.Aiplatform.V1.CachedContent.UsageMetadata,
     json_name: "usageMetadata",
     deprecated: false
+
+  field :encryption_spec, 13,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end

@@ -479,6 +479,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
     deprecated: false
 
   field :name, 1, type: :string, deprecated: false
+
+  field :gemini_request_read_config, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiRequestReadConfig,
+    json_name: "geminiRequestReadConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataResponse.TuningValidationAssessmentResult do
@@ -584,6 +589,25 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GeminiRequestReadConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :read_config, 0
+
+  field :template_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
+    json_name: "templateConfig",
+    oneof: 0
+
+  field :assembled_request_column_name, 4,
+    type: :string,
+    json_name: "assembledRequestColumnName",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GeminiExample.LabelsEntry do
   @moduledoc false
 
@@ -657,6 +681,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataRequest do
     deprecated: false
 
   field :name, 1, type: :string, deprecated: false
+
+  field :gemini_request_read_config, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.GeminiRequestReadConfig,
+    json_name: "geminiRequestReadConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataResponse do

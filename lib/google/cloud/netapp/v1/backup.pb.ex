@@ -64,6 +64,8 @@ defmodule Google.Cloud.Netapp.V1.Backup do
   field :chain_storage_bytes, 10, type: :int64, json_name: "chainStorageBytes", deprecated: false
   field :satisfies_pzs, 11, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 12, type: :bool, json_name: "satisfiesPzi", deprecated: false
+  field :volume_region, 13, type: :string, json_name: "volumeRegion", deprecated: false
+  field :backup_region, 14, type: :string, json_name: "backupRegion", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListBackupsRequest do
