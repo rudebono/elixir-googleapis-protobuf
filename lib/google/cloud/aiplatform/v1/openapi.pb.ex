@@ -21,6 +21,15 @@ defmodule Google.Cloud.Aiplatform.V1.Schema.PropertiesEntry do
   field :value, 2, type: Google.Cloud.Aiplatform.V1.Schema
 end
 
+defmodule Google.Cloud.Aiplatform.V1.Schema.DefsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Aiplatform.V1.Schema
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Schema do
   @moduledoc false
 
@@ -63,5 +72,13 @@ defmodule Google.Cloud.Aiplatform.V1.Schema do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.Schema,
     json_name: "anyOf",
+    deprecated: false
+
+  field :ref, 27, type: :string, deprecated: false
+
+  field :defs, 28,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.Schema.DefsEntry,
+    map: true,
     deprecated: false
 end

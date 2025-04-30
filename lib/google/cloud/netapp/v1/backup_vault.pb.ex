@@ -11,6 +11,16 @@ defmodule Google.Cloud.Netapp.V1.BackupVault.State do
   field :UPDATING, 5
 end
 
+defmodule Google.Cloud.Netapp.V1.BackupVault.BackupVaultType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :BACKUP_VAULT_TYPE_UNSPECIFIED, 0
+  field :IN_REGION, 1
+  field :CROSS_REGION, 2
+end
+
 defmodule Google.Cloud.Netapp.V1.BackupVault.LabelsEntry do
   @moduledoc false
 
@@ -39,6 +49,21 @@ defmodule Google.Cloud.Netapp.V1.BackupVault do
     repeated: true,
     type: Google.Cloud.Netapp.V1.BackupVault.LabelsEntry,
     map: true
+
+  field :backup_vault_type, 6,
+    type: Google.Cloud.Netapp.V1.BackupVault.BackupVaultType,
+    json_name: "backupVaultType",
+    enum: true,
+    deprecated: false
+
+  field :source_region, 7, type: :string, json_name: "sourceRegion", deprecated: false
+  field :backup_region, 8, type: :string, json_name: "backupRegion", deprecated: false
+  field :source_backup_vault, 9, type: :string, json_name: "sourceBackupVault", deprecated: false
+
+  field :destination_backup_vault, 10,
+    type: :string,
+    json_name: "destinationBackupVault",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.GetBackupVaultRequest do
