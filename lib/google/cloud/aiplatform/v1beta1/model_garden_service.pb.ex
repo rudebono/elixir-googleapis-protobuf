@@ -105,6 +105,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.EndpointConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.DeployConfig.SystemLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.DeployConfig do
   @moduledoc false
 
@@ -116,6 +125,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.DeployConfig do
     deprecated: false
 
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled", deprecated: false
+
+  field :system_labels, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployRequest.DeployConfig.SystemLabelsEntry,
+    json_name: "systemLabels",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest do
