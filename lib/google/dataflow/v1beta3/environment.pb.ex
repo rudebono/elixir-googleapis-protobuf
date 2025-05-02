@@ -70,6 +70,27 @@ defmodule Google.Dataflow.V1beta3.ShuffleMode do
   field :SERVICE_BASED, 2
 end
 
+defmodule Google.Dataflow.V1beta3.StreamingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STREAMING_MODE_UNSPECIFIED, 0
+  field :STREAMING_MODE_EXACTLY_ONCE, 1
+  field :STREAMING_MODE_AT_LEAST_ONCE, 2
+end
+
+defmodule Google.Dataflow.V1beta3.DataSamplingConfig.DataSamplingBehavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :DATA_SAMPLING_BEHAVIOR_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ALWAYS_ON, 2
+  field :EXCEPTIONS, 3
+end
+
 defmodule Google.Dataflow.V1beta3.Environment do
   @moduledoc false
 
@@ -78,8 +99,17 @@ defmodule Google.Dataflow.V1beta3.Environment do
   field :temp_storage_prefix, 1, type: :string, json_name: "tempStoragePrefix"
   field :cluster_manager_api_service, 2, type: :string, json_name: "clusterManagerApiService"
   field :experiments, 3, repeated: true, type: :string
-  field :service_options, 16, repeated: true, type: :string, json_name: "serviceOptions"
-  field :service_kms_key_name, 12, type: :string, json_name: "serviceKmsKeyName"
+
+  field :service_options, 16,
+    repeated: true,
+    type: :string,
+    json_name: "serviceOptions",
+    deprecated: false
+
+  field :service_kms_key_name, 12,
+    type: :string,
+    json_name: "serviceKmsKeyName",
+    deprecated: false
 
   field :worker_pools, 4,
     repeated: true,
@@ -88,18 +118,23 @@ defmodule Google.Dataflow.V1beta3.Environment do
 
   field :user_agent, 5, type: Google.Protobuf.Struct, json_name: "userAgent"
   field :version, 6, type: Google.Protobuf.Struct
-  field :dataset, 7, type: :string
+  field :dataset, 7, type: :string, deprecated: false
   field :sdk_pipeline_options, 8, type: Google.Protobuf.Struct, json_name: "sdkPipelineOptions"
   field :internal_experiments, 9, type: Google.Protobuf.Any, json_name: "internalExperiments"
-  field :service_account_email, 10, type: :string, json_name: "serviceAccountEmail"
+
+  field :service_account_email, 10,
+    type: :string,
+    json_name: "serviceAccountEmail",
+    deprecated: false
 
   field :flex_resource_scheduling_goal, 11,
     type: Google.Dataflow.V1beta3.FlexResourceSchedulingGoal,
     json_name: "flexResourceSchedulingGoal",
-    enum: true
+    enum: true,
+    deprecated: false
 
-  field :worker_region, 13, type: :string, json_name: "workerRegion"
-  field :worker_zone, 14, type: :string, json_name: "workerZone"
+  field :worker_region, 13, type: :string, json_name: "workerRegion", deprecated: false
+  field :worker_zone, 14, type: :string, json_name: "workerZone", deprecated: false
 
   field :shuffle_mode, 15,
     type: Google.Dataflow.V1beta3.ShuffleMode,
@@ -107,7 +142,21 @@ defmodule Google.Dataflow.V1beta3.Environment do
     enum: true,
     deprecated: false
 
-  field :debug_options, 17, type: Google.Dataflow.V1beta3.DebugOptions, json_name: "debugOptions"
+  field :debug_options, 17,
+    type: Google.Dataflow.V1beta3.DebugOptions,
+    json_name: "debugOptions",
+    deprecated: false
+
+  field :use_streaming_engine_resource_based_billing, 18,
+    type: :bool,
+    json_name: "useStreamingEngineResourceBasedBilling",
+    deprecated: false
+
+  field :streaming_mode, 19,
+    type: Google.Dataflow.V1beta3.StreamingMode,
+    json_name: "streamingMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Dataflow.V1beta3.Package do
@@ -268,10 +317,28 @@ defmodule Google.Dataflow.V1beta3.WorkerPool do
     json_name: "sdkHarnessContainerImages"
 end
 
+defmodule Google.Dataflow.V1beta3.DataSamplingConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :behaviors, 1,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.DataSamplingConfig.DataSamplingBehavior,
+    enum: true
+end
+
 defmodule Google.Dataflow.V1beta3.DebugOptions do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :enable_hot_key_logging, 1, type: :bool, json_name: "enableHotKeyLogging"
+  field :enable_hot_key_logging, 1,
+    type: :bool,
+    json_name: "enableHotKeyLogging",
+    deprecated: false
+
+  field :data_sampling, 2,
+    type: Google.Dataflow.V1beta3.DataSamplingConfig,
+    json_name: "dataSampling"
 end

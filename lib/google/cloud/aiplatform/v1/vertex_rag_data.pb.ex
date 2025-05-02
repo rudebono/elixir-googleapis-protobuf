@@ -288,6 +288,16 @@ defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LayoutParser do
   field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LlmParser do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model_name, 1, type: :string, json_name: "modelName"
+  field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
+  field :custom_parsing_prompt, 3, type: :string, json_name: "customParsingPrompt"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig do
   @moduledoc false
 
@@ -298,6 +308,11 @@ defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig do
   field :layout_parser, 4,
     type: Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LayoutParser,
     json_name: "layoutParser",
+    oneof: 0
+
+  field :llm_parser, 5,
+    type: Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LlmParser,
+    json_name: "llmParser",
     oneof: 0
 end
 
