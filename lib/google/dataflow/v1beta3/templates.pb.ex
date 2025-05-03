@@ -13,6 +13,19 @@ defmodule Google.Dataflow.V1beta3.ParameterType do
   field :GCS_WRITE_FOLDER, 7
   field :PUBSUB_TOPIC, 8
   field :PUBSUB_SUBSCRIPTION, 9
+  field :BIGQUERY_TABLE, 10
+  field :JAVASCRIPT_UDF_FILE, 11
+  field :SERVICE_ACCOUNT, 12
+  field :MACHINE_TYPE, 13
+  field :KMS_KEY_NAME, 14
+  field :WORKER_REGION, 15
+  field :WORKER_ZONE, 16
+  field :BOOLEAN, 17
+  field :ENUM, 18
+  field :NUMBER, 19
+  field :KAFKA_TOPIC, 20
+  field :KAFKA_READ_TOPIC, 21
+  field :KAFKA_WRITE_TOPIC, 22
 end
 
 defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
@@ -23,6 +36,7 @@ defmodule Google.Dataflow.V1beta3.SDKInfo.Language do
   field :UNKNOWN, 0
   field :JAVA, 1
   field :PYTHON, 2
+  field :GO, 3
 end
 
 defmodule Google.Dataflow.V1beta3.GetTemplateRequest.TemplateView do
@@ -63,6 +77,16 @@ defmodule Google.Dataflow.V1beta3.ContainerSpec do
   field :default_environment, 4,
     type: Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment,
     json_name: "defaultEnvironment"
+
+  field :image_repository_username_secret_id, 5,
+    type: :string,
+    json_name: "imageRepositoryUsernameSecretId"
+
+  field :image_repository_password_secret_id, 6,
+    type: :string,
+    json_name: "imageRepositoryPasswordSecretId"
+
+  field :image_repository_cert_path, 7, type: :string, json_name: "imageRepositoryCertPath"
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateParameter.ParametersEntry do
@@ -192,6 +216,17 @@ defmodule Google.Dataflow.V1beta3.FlexTemplateRuntimeEnvironment do
   field :dump_heap_on_oom, 22, type: :bool, json_name: "dumpHeapOnOom"
   field :save_heap_dumps_to_gcs_path, 23, type: :string, json_name: "saveHeapDumpsToGcsPath"
   field :launcher_machine_type, 24, type: :string, json_name: "launcherMachineType"
+
+  field :enable_launcher_vm_serial_port_logging, 25,
+    type: :bool,
+    json_name: "enableLauncherVmSerialPortLogging"
+
+  field :streaming_mode, 26,
+    proto3_optional: true,
+    type: Google.Dataflow.V1beta3.StreamingMode,
+    json_name: "streamingMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Dataflow.V1beta3.LaunchFlexTemplateRequest do
@@ -255,6 +290,24 @@ defmodule Google.Dataflow.V1beta3.RuntimeEnvironment do
   field :worker_region, 15, type: :string, json_name: "workerRegion"
   field :worker_zone, 16, type: :string, json_name: "workerZone"
   field :enable_streaming_engine, 17, type: :bool, json_name: "enableStreamingEngine"
+  field :disk_size_gb, 18, type: :int32, json_name: "diskSizeGb"
+
+  field :streaming_mode, 19,
+    proto3_optional: true,
+    type: Google.Dataflow.V1beta3.StreamingMode,
+    json_name: "streamingMode",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Dataflow.V1beta3.ParameterMetadataEnumOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :value, 1, type: :string, deprecated: false
+  field :label, 2, type: :string, deprecated: false
+  field :description, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry do
@@ -287,6 +340,22 @@ defmodule Google.Dataflow.V1beta3.ParameterMetadata do
     type: Google.Dataflow.V1beta3.ParameterMetadata.CustomMetadataEntry,
     json_name: "customMetadata",
     map: true
+
+  field :group_name, 8, type: :string, json_name: "groupName"
+  field :parent_name, 9, type: :string, json_name: "parentName"
+
+  field :parent_trigger_values, 10,
+    repeated: true,
+    type: :string,
+    json_name: "parentTriggerValues"
+
+  field :enum_options, 11,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.ParameterMetadataEnumOption,
+    json_name: "enumOptions"
+
+  field :default_value, 12, type: :string, json_name: "defaultValue"
+  field :hidden_ui, 13, type: :bool, json_name: "hiddenUi"
 end
 
 defmodule Google.Dataflow.V1beta3.TemplateMetadata do
@@ -297,6 +366,10 @@ defmodule Google.Dataflow.V1beta3.TemplateMetadata do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :parameters, 3, repeated: true, type: Google.Dataflow.V1beta3.ParameterMetadata
+  field :streaming, 5, type: :bool
+  field :supports_at_least_once, 6, type: :bool, json_name: "supportsAtLeastOnce"
+  field :supports_exactly_once, 7, type: :bool, json_name: "supportsExactlyOnce"
+  field :default_streaming_mode, 8, type: :string, json_name: "defaultStreamingMode"
 end
 
 defmodule Google.Dataflow.V1beta3.SDKInfo do

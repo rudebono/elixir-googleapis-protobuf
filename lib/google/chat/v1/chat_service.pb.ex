@@ -57,6 +57,16 @@ defmodule Google.Chat.V1.ChatService.Service do
 
   rpc :DeleteReaction, Google.Chat.V1.DeleteReactionRequest, Google.Protobuf.Empty
 
+  rpc :CreateCustomEmoji, Google.Chat.V1.CreateCustomEmojiRequest, Google.Chat.V1.CustomEmoji
+
+  rpc :GetCustomEmoji, Google.Chat.V1.GetCustomEmojiRequest, Google.Chat.V1.CustomEmoji
+
+  rpc :ListCustomEmojis,
+      Google.Chat.V1.ListCustomEmojisRequest,
+      Google.Chat.V1.ListCustomEmojisResponse
+
+  rpc :DeleteCustomEmoji, Google.Chat.V1.DeleteCustomEmojiRequest, Google.Protobuf.Empty
+
   rpc :GetSpaceReadState, Google.Chat.V1.GetSpaceReadStateRequest, Google.Chat.V1.SpaceReadState
 
   rpc :UpdateSpaceReadState,
