@@ -57,6 +57,28 @@ defmodule Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus do
   field :UNSUPPORTED, 4
 end
 
+defmodule Google.Dataflow.V1beta3.SdkBug.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :GENERAL, 1
+  field :PERFORMANCE, 2
+  field :DATALOSS, 3
+end
+
+defmodule Google.Dataflow.V1beta3.SdkBug.Severity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :SEVERITY_UNSPECIFIED, 0
+  field :NOTICE, 1
+  field :WARNING, 2
+  field :SEVERE, 3
+end
+
 defmodule Google.Dataflow.V1beta3.ListJobsRequest.Filter do
   @moduledoc false
 
@@ -93,9 +115,9 @@ defmodule Google.Dataflow.V1beta3.Job do
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
-  field :name, 3, type: :string
-  field :type, 4, type: Google.Dataflow.V1beta3.JobType, enum: true
-  field :environment, 5, type: Google.Dataflow.V1beta3.Environment
+  field :name, 3, type: :string, deprecated: false
+  field :type, 4, type: Google.Dataflow.V1beta3.JobType, enum: true, deprecated: false
+  field :environment, 5, type: Google.Dataflow.V1beta3.Environment, deprecated: false
   field :steps, 6, repeated: true, type: Google.Dataflow.V1beta3.Step
   field :steps_location, 24, type: :string, json_name: "stepsLocation"
 
@@ -122,13 +144,14 @@ defmodule Google.Dataflow.V1beta3.Job do
     repeated: true,
     type: Google.Dataflow.V1beta3.Job.TransformNameMappingEntry,
     json_name: "transformNameMapping",
-    map: true
+    map: true,
+    deprecated: false
 
   field :client_request_id, 14, type: :string, json_name: "clientRequestId"
   field :replaced_by_job_id, 15, type: :string, json_name: "replacedByJobId"
   field :temp_files, 16, repeated: true, type: :string, json_name: "tempFiles"
   field :labels, 17, repeated: true, type: Google.Dataflow.V1beta3.Job.LabelsEntry, map: true
-  field :location, 18, type: :string
+  field :location, 18, type: :string, deprecated: false
 
   field :pipeline_description, 19,
     type: Google.Dataflow.V1beta3.PipelineDescription,
@@ -143,6 +166,45 @@ defmodule Google.Dataflow.V1beta3.Job do
   field :start_time, 22, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :created_from_snapshot_id, 23, type: :string, json_name: "createdFromSnapshotId"
   field :satisfies_pzs, 25, type: :bool, json_name: "satisfiesPzs"
+
+  field :runtime_updatable_params, 26,
+    proto3_optional: true,
+    type: Google.Dataflow.V1beta3.RuntimeUpdatableParams,
+    json_name: "runtimeUpdatableParams"
+
+  field :satisfies_pzi, 27,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
+
+  field :service_resources, 28,
+    proto3_optional: true,
+    type: Google.Dataflow.V1beta3.ServiceResources,
+    json_name: "serviceResources",
+    deprecated: false
+end
+
+defmodule Google.Dataflow.V1beta3.ServiceResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :zones, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Dataflow.V1beta3.RuntimeUpdatableParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :max_num_workers, 1, proto3_optional: true, type: :int32, json_name: "maxNumWorkers"
+  field :min_num_workers, 2, proto3_optional: true, type: :int32, json_name: "minNumWorkers"
+
+  field :worker_utilization_hint, 3,
+    proto3_optional: true,
+    type: :double,
+    json_name: "workerUtilizationHint"
 end
 
 defmodule Google.Dataflow.V1beta3.DatastoreIODetails do
@@ -214,6 +276,27 @@ defmodule Google.Dataflow.V1beta3.SdkVersion do
     type: Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus,
     json_name: "sdkSupportStatus",
     enum: true
+
+  field :bugs, 4, repeated: true, type: Google.Dataflow.V1beta3.SdkBug, deprecated: false
+end
+
+defmodule Google.Dataflow.V1beta3.SdkBug do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :type, 1, type: Google.Dataflow.V1beta3.SdkBug.Type, enum: true, deprecated: false
+  field :severity, 2, type: Google.Dataflow.V1beta3.SdkBug.Severity, enum: true, deprecated: false
+  field :uri, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Dataflow.V1beta3.JobMetadata.UserDisplayPropertiesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Dataflow.V1beta3.JobMetadata do
@@ -252,6 +335,12 @@ defmodule Google.Dataflow.V1beta3.JobMetadata do
     repeated: true,
     type: Google.Dataflow.V1beta3.DatastoreIODetails,
     json_name: "datastoreDetails"
+
+  field :user_display_properties, 8,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.JobMetadata.UserDisplayPropertiesEntry,
+    json_name: "userDisplayProperties",
+    map: true
 end
 
 defmodule Google.Dataflow.V1beta3.ExecutionStageState do
@@ -288,6 +377,8 @@ defmodule Google.Dataflow.V1beta3.PipelineDescription do
     repeated: true,
     type: Google.Dataflow.V1beta3.DisplayData,
     json_name: "displayData"
+
+  field :step_names_hash, 4, type: :string, json_name: "stepNamesHash"
 end
 
 defmodule Google.Dataflow.V1beta3.TransformSummary do
@@ -478,6 +569,11 @@ defmodule Google.Dataflow.V1beta3.UpdateJobRequest do
   field :job_id, 2, type: :string, json_name: "jobId"
   field :job, 3, type: Google.Dataflow.V1beta3.Job
   field :location, 4, type: :string
+
+  field :update_mask, 5,
+    proto3_optional: true,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask"
 end
 
 defmodule Google.Dataflow.V1beta3.ListJobsRequest do
@@ -491,6 +587,7 @@ defmodule Google.Dataflow.V1beta3.ListJobsRequest do
   field :page_size, 3, type: :int32, json_name: "pageSize"
   field :page_token, 4, type: :string, json_name: "pageToken"
   field :location, 17, type: :string
+  field :name, 11, proto3_optional: true, type: :string, deprecated: false
 end
 
 defmodule Google.Dataflow.V1beta3.FailedLocation do

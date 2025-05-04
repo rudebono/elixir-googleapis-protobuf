@@ -41,6 +41,7 @@ defmodule Google.Dataflow.V1beta3.PubsubLocation do
   field :drop_late_data, 5, type: :bool, json_name: "dropLateData"
   field :tracking_subscription, 6, type: :string, json_name: "trackingSubscription"
   field :with_attributes, 7, type: :bool, json_name: "withAttributes"
+  field :dynamic_destinations, 8, type: :bool, json_name: "dynamicDestinations"
 end
 
 defmodule Google.Dataflow.V1beta3.StreamingStageLocation do

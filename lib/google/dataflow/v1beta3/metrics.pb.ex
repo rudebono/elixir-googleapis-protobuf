@@ -46,6 +46,7 @@ defmodule Google.Dataflow.V1beta3.MetricUpdate do
   field :mean_sum, 5, type: Google.Protobuf.Value, json_name: "meanSum"
   field :mean_count, 6, type: Google.Protobuf.Value, json_name: "meanCount"
   field :set, 7, type: Google.Protobuf.Value
+  field :trie, 13, type: Google.Protobuf.Value
   field :distribution, 11, type: Google.Protobuf.Value
   field :gauge, 12, type: Google.Protobuf.Value
   field :internal, 8, type: Google.Protobuf.Value
@@ -106,6 +107,130 @@ defmodule Google.Dataflow.V1beta3.ProgressTimeseries do
     json_name: "dataPoints"
 end
 
+defmodule Google.Dataflow.V1beta3.StragglerInfo.StragglerDebuggingInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :straggler_debugging_info_value, 0
+
+  field :hot_key, 1,
+    type: Google.Dataflow.V1beta3.HotKeyDebuggingInfo,
+    json_name: "hotKey",
+    oneof: 0
+end
+
+defmodule Google.Dataflow.V1beta3.StragglerInfo.CausesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Dataflow.V1beta3.StragglerInfo.StragglerDebuggingInfo
+end
+
+defmodule Google.Dataflow.V1beta3.StragglerInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+
+  field :causes, 2,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.StragglerInfo.CausesEntry,
+    map: true
+end
+
+defmodule Google.Dataflow.V1beta3.StreamingStragglerInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :worker_name, 3, type: :string, json_name: "workerName"
+  field :data_watermark_lag, 4, type: Google.Protobuf.Duration, json_name: "dataWatermarkLag"
+  field :system_watermark_lag, 5, type: Google.Protobuf.Duration, json_name: "systemWatermarkLag"
+end
+
+defmodule Google.Dataflow.V1beta3.Straggler do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :straggler_info, 0
+
+  field :batch_straggler, 1,
+    type: Google.Dataflow.V1beta3.StragglerInfo,
+    json_name: "batchStraggler",
+    oneof: 0
+
+  field :streaming_straggler, 2,
+    type: Google.Dataflow.V1beta3.StreamingStragglerInfo,
+    json_name: "streamingStraggler",
+    oneof: 0
+end
+
+defmodule Google.Dataflow.V1beta3.HotKeyDebuggingInfo.HotKeyInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :hot_key_age, 1, type: Google.Protobuf.Duration, json_name: "hotKeyAge"
+  field :key, 2, type: :string
+  field :key_truncated, 3, type: :bool, json_name: "keyTruncated"
+end
+
+defmodule Google.Dataflow.V1beta3.HotKeyDebuggingInfo.DetectedHotKeysEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :uint64
+  field :value, 2, type: Google.Dataflow.V1beta3.HotKeyDebuggingInfo.HotKeyInfo
+end
+
+defmodule Google.Dataflow.V1beta3.HotKeyDebuggingInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :detected_hot_keys, 1,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.HotKeyDebuggingInfo.DetectedHotKeysEntry,
+    json_name: "detectedHotKeys",
+    map: true
+end
+
+defmodule Google.Dataflow.V1beta3.StragglerSummary.StragglerCauseCountEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :int64
+end
+
+defmodule Google.Dataflow.V1beta3.StragglerSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :total_straggler_count, 1, type: :int64, json_name: "totalStragglerCount"
+
+  field :straggler_cause_count, 2,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.StragglerSummary.StragglerCauseCountEntry,
+    json_name: "stragglerCauseCount",
+    map: true
+
+  field :recent_stragglers, 3,
+    repeated: true,
+    type: Google.Dataflow.V1beta3.Straggler,
+    json_name: "recentStragglers"
+end
+
 defmodule Google.Dataflow.V1beta3.StageSummary do
   @moduledoc false
 
@@ -117,6 +242,10 @@ defmodule Google.Dataflow.V1beta3.StageSummary do
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :progress, 5, type: Google.Dataflow.V1beta3.ProgressTimeseries
   field :metrics, 6, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
+
+  field :straggler_summary, 7,
+    type: Google.Dataflow.V1beta3.StragglerSummary,
+    json_name: "stragglerSummary"
 end
 
 defmodule Google.Dataflow.V1beta3.JobExecutionDetails do
@@ -155,6 +284,10 @@ defmodule Google.Dataflow.V1beta3.WorkItemDetails do
   field :state, 5, type: Google.Dataflow.V1beta3.ExecutionState, enum: true
   field :progress, 6, type: Google.Dataflow.V1beta3.ProgressTimeseries
   field :metrics, 7, repeated: true, type: Google.Dataflow.V1beta3.MetricUpdate
+
+  field :straggler_info, 8,
+    type: Google.Dataflow.V1beta3.StragglerInfo,
+    json_name: "stragglerInfo"
 end
 
 defmodule Google.Dataflow.V1beta3.WorkerDetails do
