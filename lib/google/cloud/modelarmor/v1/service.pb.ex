@@ -103,6 +103,9 @@ defmodule Google.Cloud.Modelarmor.V1.ByteDataItem.ByteItemType do
   field :BYTE_ITEM_TYPE_UNSPECIFIED, 0
   field :PLAINTEXT_UTF8, 1
   field :PDF, 2
+  field :WORD_DOCUMENT, 3
+  field :EXCEL_DOCUMENT, 4
+  field :POWERPOINT_DOCUMENT, 5
 end
 
 defmodule Google.Cloud.Modelarmor.V1.VirusScanFilterResult.ScannedContentType do
@@ -525,6 +528,10 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizationResult.SanitizationMetadata do
 
   field :error_code, 1, type: :int64, json_name: "errorCode"
   field :error_message, 2, type: :string, json_name: "errorMessage"
+
+  field :ignore_partial_invocation_failures, 3,
+    type: :bool,
+    json_name: "ignorePartialInvocationFailures"
 end
 
 defmodule Google.Cloud.Modelarmor.V1.SanitizationResult.FilterResultsEntry do

@@ -16,6 +16,7 @@ defmodule Grafeas.V1.NoteKind do
   field :DSSE_ATTESTATION, 10
   field :VULNERABILITY_ASSESSMENT, 11
   field :SBOM_REFERENCE, 12
+  field :SECRET, 13
 end
 
 defmodule Grafeas.V1.RelatedUrl do
@@ -61,6 +62,29 @@ defmodule Grafeas.V1.FileLocation do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :file_path, 1, type: :string, json_name: "filePath"
+  field :layer_details, 2, type: Grafeas.V1.LayerDetails, json_name: "layerDetails"
+end
+
+defmodule Grafeas.V1.BaseImage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :repository, 2, type: :string
+  field :layer_count, 3, type: :int32, json_name: "layerCount"
+end
+
+defmodule Grafeas.V1.LayerDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :index, 1, type: :int32
+  field :diff_id, 2, type: :string, json_name: "diffId"
+  field :chain_id, 5, type: :string, json_name: "chainId"
+  field :command, 3, type: :string
+  field :base_images, 4, repeated: true, type: Grafeas.V1.BaseImage, json_name: "baseImages"
 end
 
 defmodule Grafeas.V1.License do

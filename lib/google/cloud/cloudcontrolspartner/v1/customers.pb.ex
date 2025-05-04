@@ -22,6 +22,7 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.Customer do
     deprecated: false
 
   field :is_onboarded, 4, type: :bool, json_name: "isOnboarded", deprecated: false
+  field :organization_domain, 5, type: :string, json_name: "organizationDomain", deprecated: false
 end
 
 defmodule Google.Cloud.Cloudcontrolspartner.V1.ListCustomersRequest do
@@ -44,6 +45,16 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.ListCustomersResponse do
   field :customers, 1, repeated: true, type: Google.Cloud.Cloudcontrolspartner.V1.Customer
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
   field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Cloudcontrolspartner.V1.CreateCustomerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :customer, 2, type: Google.Cloud.Cloudcontrolspartner.V1.Customer, deprecated: false
+  field :customer_id, 3, type: :string, json_name: "customerId", deprecated: false
 end
 
 defmodule Google.Cloud.Cloudcontrolspartner.V1.GetCustomerRequest do
@@ -82,4 +93,25 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.CustomerOnboardingStep do
     json_name: "completionState",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Cloudcontrolspartner.V1.UpdateCustomerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :customer, 1, type: Google.Cloud.Cloudcontrolspartner.V1.Customer, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Cloudcontrolspartner.V1.DeleteCustomerRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
