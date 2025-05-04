@@ -32,6 +32,7 @@ defmodule Grafeas.V1.Occurrence do
     json_name: "sbomReference",
     oneof: 0
 
+  field :secret, 20, type: Grafeas.V1.SecretOccurrence, oneof: 0
   field :envelope, 18, type: Grafeas.V1.Envelope
 end
 
@@ -75,6 +76,8 @@ defmodule Grafeas.V1.Note do
     type: Grafeas.V1.SBOMReferenceNote,
     json_name: "sbomReference",
     oneof: 0
+
+  field :secret, 22, type: Grafeas.V1.SecretNote, oneof: 0
 end
 
 defmodule Grafeas.V1.GetOccurrenceRequest do

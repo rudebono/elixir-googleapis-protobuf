@@ -59,6 +59,18 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1.CloudControlsPartnerCore.Service 
   rpc :GetPartner,
       Google.Cloud.Cloudcontrolspartner.V1.GetPartnerRequest,
       Google.Cloud.Cloudcontrolspartner.V1.Partner
+
+  rpc :CreateCustomer,
+      Google.Cloud.Cloudcontrolspartner.V1.CreateCustomerRequest,
+      Google.Cloud.Cloudcontrolspartner.V1.Customer
+
+  rpc :UpdateCustomer,
+      Google.Cloud.Cloudcontrolspartner.V1.UpdateCustomerRequest,
+      Google.Cloud.Cloudcontrolspartner.V1.Customer
+
+  rpc :DeleteCustomer,
+      Google.Cloud.Cloudcontrolspartner.V1.DeleteCustomerRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Cloud.Cloudcontrolspartner.V1.CloudControlsPartnerCore.Stub do
