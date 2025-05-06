@@ -31,6 +31,8 @@ defmodule Google.Cloud.Texttospeech.V1.CustomPronunciationParams.PhoneticEncodin
   field :PHONETIC_ENCODING_UNSPECIFIED, 0
   field :PHONETIC_ENCODING_IPA, 1
   field :PHONETIC_ENCODING_X_SAMPA, 2
+  field :PHONETIC_ENCODING_JAPANESE_YOMIGANA, 3
+  field :PHONETIC_ENCODING_PINYIN, 4
 end
 
 defmodule Google.Cloud.Texttospeech.V1.CustomVoiceParams.ReportedUsage do
@@ -159,6 +161,7 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesisInput do
   oneof :input_source, 0
 
   field :text, 1, type: :string, oneof: 0
+  field :markup, 5, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
 
   field :multi_speaker_markup, 4,
@@ -289,6 +292,7 @@ defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesisInput do
   oneof :input_source, 0
 
   field :text, 1, type: :string, oneof: 0
+  field :markup, 5, type: :string, oneof: 0
 end
 
 defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesizeRequest do
