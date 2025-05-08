@@ -3,33 +3,13 @@ defmodule Google.Api.PbExtension do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1"
 
-  extend Google.Protobuf.EnumOptions, :enum_visibility, 72_295_727,
+  extend Google.Protobuf.FieldOptions, :field_policy, 158_361_448,
     optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "enumVisibility"
+    type: Google.Api.FieldPolicy,
+    json_name: "fieldPolicy"
 
-  extend Google.Protobuf.EnumValueOptions, :value_visibility, 72_295_727,
+  extend Google.Protobuf.MethodOptions, :method_policy, 161_893_301,
     optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "valueVisibility"
-
-  extend Google.Protobuf.FieldOptions, :field_visibility, 72_295_727,
-    optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "fieldVisibility"
-
-  extend Google.Protobuf.MessageOptions, :message_visibility, 72_295_727,
-    optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "messageVisibility"
-
-  extend Google.Protobuf.MethodOptions, :method_visibility, 72_295_727,
-    optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "methodVisibility"
-
-  extend Google.Protobuf.ServiceOptions, :api_visibility, 72_295_727,
-    optional: true,
-    type: Google.Api.VisibilityRule,
-    json_name: "apiVisibility"
+    type: Google.Api.MethodPolicy,
+    json_name: "methodPolicy"
 end
