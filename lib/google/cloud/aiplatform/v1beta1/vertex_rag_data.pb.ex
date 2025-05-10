@@ -251,6 +251,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
     deprecated: false
 
   field :rag_files_count, 11, type: :int32, json_name: "ragFilesCount", deprecated: false
+
+  field :encryption_spec, 12,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
