@@ -190,6 +190,16 @@ defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.ValueType do
   field :NONE, 4
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.Scope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :SCOPE_UNSPECIFIED, 0
+  field :DATABASE, 1
+  field :CONNECTION_POOL, 2
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.User.UserType do
   @moduledoc false
 
@@ -468,6 +478,11 @@ defmodule Google.Cloud.Alloydb.V1beta.Cluster.PscConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :psc_enabled, 1, type: :bool, json_name: "pscEnabled", deprecated: false
+
+  field :service_owned_project_number, 3,
+    type: :int64,
+    json_name: "serviceOwnedProjectNumber",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Cluster.TrialMetadata do
@@ -675,6 +690,7 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.MachineConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :cpu_count, 1, type: :int32, json_name: "cpuCount"
+  field :machine_type, 4, type: :string, json_name: "machineType"
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.Node do
@@ -781,6 +797,30 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.ClientConnectionConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :network_attachment_resource, 1, type: :string, json_name: "networkAttachmentResource"
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.Instance.PscAutoConnectionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :consumer_project, 1, type: :string, json_name: "consumerProject"
+  field :consumer_network, 2, type: :string, json_name: "consumerNetwork"
+  field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
+  field :status, 4, type: :string, deprecated: false
+
+  field :consumer_network_status, 5,
+    type: :string,
+    json_name: "consumerNetworkStatus",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig do
   @moduledoc false
 
@@ -798,6 +838,18 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance.PscInstanceConfig do
     deprecated: false
 
   field :psc_dns_name, 7, type: :string, json_name: "pscDnsName", deprecated: false
+
+  field :psc_interface_configs, 8,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Instance.PscInterfaceConfig,
+    json_name: "pscInterfaceConfigs",
+    deprecated: false
+
+  field :psc_auto_connections, 9,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1beta.Instance.PscAutoConnectionConfig,
+    json_name: "pscAutoConnections",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.Instance.InstanceNetworkConfig.AuthorizedNetwork do
@@ -971,6 +1023,11 @@ defmodule Google.Cloud.Alloydb.V1beta.Instance do
     type: :string,
     json_name: "outboundPublicIpAddresses",
     deprecated: false
+
+  field :gca_config, 38,
+    type: Google.Cloud.Alloydb.V1beta.GCAInstanceConfig,
+    json_name: "gcaConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.ConnectionInfo do
@@ -1136,6 +1193,8 @@ defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag do
 
   oneof :restrictions, 0
 
+  oneof :recommended_value, 1
+
   field :string_restrictions, 7,
     type: Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.StringRestrictions,
     json_name: "stringRestrictions",
@@ -1145,6 +1204,16 @@ defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag do
     type: Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.IntegerRestrictions,
     json_name: "integerRestrictions",
     oneof: 0
+
+  field :recommended_string_value, 10,
+    type: :string,
+    json_name: "recommendedStringValue",
+    oneof: 1
+
+  field :recommended_integer_value, 11,
+    type: Google.Protobuf.Int64Value,
+    json_name: "recommendedIntegerValue",
+    oneof: 1
 
   field :name, 1, type: :string
   field :flag_name, 2, type: :string, json_name: "flagName"
@@ -1163,6 +1232,7 @@ defmodule Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag do
     enum: true
 
   field :requires_db_restart, 6, type: :bool, json_name: "requiresDbRestart"
+  field :scope, 9, type: Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.Scope, enum: true
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.User do

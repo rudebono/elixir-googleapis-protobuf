@@ -95,10 +95,35 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagEmbeddingModelConfig do
     oneof: 0
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb.KNN do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb.ANN do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :tree_depth, 1, type: :int32, json_name: "treeDepth"
+  field :leaf_count, 2, type: :int32, json_name: "leafCount"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :retrieval_strategy, 0
+
+  field :knn, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb.KNN,
+    oneof: 0
+
+  field :ann, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.RagManagedDb.ANN,
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagVectorDbConfig.Weaviate do
@@ -542,6 +567,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
     type: :int32,
     json_name: "globalMaxEmbeddingRequestsPerMin",
     deprecated: false
+
+  field :rebuild_ann_index, 19, type: :bool, json_name: "rebuildAnnIndex"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Enterprise do

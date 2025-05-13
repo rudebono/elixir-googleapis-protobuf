@@ -1,3 +1,33 @@
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATUS_UNSPECIFIED, 0
+  field :NOT_STARTED, 4
+  field :IN_PROGRESS, 5
+  field :SUCCESS, 1
+  field :FAILED, 2
+  field :PARTIAL_SUCCESS, 3
+  field :CANCEL_IN_PROGRESS, 6
+  field :CANCELLED, 7
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Stage do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STAGE_UNSPECIFIED, 0
+  field :ALLOYDB_PRECHECK, 1
+  field :PG_UPGRADE_CHECK, 2
+  field :PREPARE_FOR_UPGRADE, 5
+  field :PRIMARY_INSTANCE_UPGRADE, 3
+  field :READ_POOL_INSTANCES_UPGRADE, 4
+  field :ROLLBACK, 6
+  field :CLEANUP, 7
+end
+
 defmodule Google.Cloud.Alloydb.V1.BatchCreateInstanceStatus.State do
   @moduledoc false
 
@@ -101,6 +131,230 @@ defmodule Google.Cloud.Alloydb.V1.UpdateClusterRequest do
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
   field :allow_missing, 5, type: :bool, json_name: "allowMissing", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.GcsDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExportClusterRequest.CsvExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :select_query, 1, type: :string, json_name: "selectQuery", deprecated: false
+  field :field_delimiter, 2, type: :string, json_name: "fieldDelimiter", deprecated: false
+  field :quote_character, 3, type: :string, json_name: "quoteCharacter", deprecated: false
+  field :escape_character, 4, type: :string, json_name: "escapeCharacter", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExportClusterRequest.SqlExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :tables, 1, repeated: true, type: :string, deprecated: false
+
+  field :schema_only, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "schemaOnly",
+    deprecated: false
+
+  field :clean_target_objects, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "cleanTargetObjects",
+    deprecated: false
+
+  field :if_exist_target_objects, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "ifExistTargetObjects",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExportClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :destination, 0
+
+  oneof :export_options, 1
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Alloydb.V1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0,
+    deprecated: false
+
+  field :csv_export_options, 4,
+    type: Google.Cloud.Alloydb.V1.ExportClusterRequest.CsvExportOptions,
+    json_name: "csvExportOptions",
+    oneof: 1
+
+  field :sql_export_options, 5,
+    type: Google.Cloud.Alloydb.V1.ExportClusterRequest.SqlExportOptions,
+    json_name: "sqlExportOptions",
+    oneof: 1
+
+  field :name, 1, type: :string, deprecated: false
+  field :database, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ExportClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Alloydb.V1.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ImportClusterRequest.SqlImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Alloydb.V1.ImportClusterRequest.CsvImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :table, 1, type: :string, deprecated: false
+  field :columns, 2, repeated: true, type: :string, deprecated: false
+  field :field_delimiter, 3, type: :string, json_name: "fieldDelimiter", deprecated: false
+  field :quote_character, 4, type: :string, json_name: "quoteCharacter", deprecated: false
+  field :escape_character, 5, type: :string, json_name: "escapeCharacter", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ImportClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :import_options, 0
+
+  field :sql_import_options, 4,
+    type: Google.Cloud.Alloydb.V1.ImportClusterRequest.SqlImportOptions,
+    json_name: "sqlImportOptions",
+    oneof: 0
+
+  field :csv_import_options, 7,
+    type: Google.Cloud.Alloydb.V1.ImportClusterRequest.CsvImportOptions,
+    json_name: "csvImportOptions",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri", deprecated: false
+  field :database, 3, type: :string, deprecated: false
+  field :user, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.ImportClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bytes_downloaded, 1, type: :int64, json_name: "bytesDownloaded", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :version, 2, type: Google.Cloud.Alloydb.V1.DatabaseVersion, enum: true, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
+  field :etag, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse.StageInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :stage, 1, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Stage, enum: true
+  field :status, 2, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status, enum: true
+  field :logs_url, 3, type: :string, json_name: "logsUrl"
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse.InstanceUpgradeDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :upgrade_status, 2,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status,
+    json_name: "upgradeStatus",
+    enum: true
+
+  field :instance_type, 3,
+    type: Google.Cloud.Alloydb.V1.Instance.InstanceType,
+    json_name: "instanceType",
+    enum: true
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse.ClusterUpgradeDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+
+  field :upgrade_status, 2,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status,
+    json_name: "upgradeStatus",
+    enum: true
+
+  field :cluster_type, 3,
+    type: Google.Cloud.Alloydb.V1.Cluster.ClusterType,
+    json_name: "clusterType",
+    enum: true
+
+  field :database_version, 4,
+    type: Google.Cloud.Alloydb.V1.DatabaseVersion,
+    json_name: "databaseVersion",
+    enum: true
+
+  field :stage_info, 5,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.StageInfo,
+    json_name: "stageInfo"
+
+  field :instance_upgrade_details, 6,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.InstanceUpgradeDetails,
+    json_name: "instanceUpgradeDetails"
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :status, 1, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status, enum: true
+  field :message, 2, type: :string
+
+  field :cluster_upgrade_details, 3,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.ClusterUpgradeDetails,
+    json_name: "clusterUpgradeDetails"
 end
 
 defmodule Google.Cloud.Alloydb.V1.DeleteClusterRequest do
@@ -462,6 +716,11 @@ defmodule Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :scope, 6,
+    type: Google.Cloud.Alloydb.V1.SupportedDatabaseFlag.Scope,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.ListSupportedDatabaseFlagsResponse do
@@ -534,6 +793,12 @@ defmodule Google.Cloud.Alloydb.V1.OperationMetadata do
     oneof: 0,
     deprecated: false
 
+  field :upgrade_cluster_status, 10,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterStatus,
+    json_name: "upgradeClusterStatus",
+    oneof: 0,
+    deprecated: false
+
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
@@ -550,6 +815,64 @@ defmodule Google.Cloud.Alloydb.V1.OperationMetadata do
     deprecated: false
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :stage_specific_status, 0
+
+  field :read_pool_instances_upgrade, 11,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus,
+    json_name: "readPoolInstancesUpgrade",
+    oneof: 0
+
+  field :stage, 1, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Stage, enum: true
+  field :state, 2, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status, enum: true
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus.Stats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :not_started, 1, type: :int32, json_name: "notStarted"
+  field :ongoing, 2, type: :int32
+  field :success, 3, type: :int32
+  field :failed, 4, type: :int32
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :upgrade_stats, 1,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus.Stats,
+    json_name: "upgradeStats"
+end
+
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :state, 1, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status, enum: true
+  field :cancellable, 2, type: :bool
+
+  field :source_version, 3,
+    type: Google.Cloud.Alloydb.V1.DatabaseVersion,
+    json_name: "sourceVersion",
+    enum: true
+
+  field :target_version, 4,
+    type: Google.Cloud.Alloydb.V1.DatabaseVersion,
+    json_name: "targetVersion",
+    enum: true
+
+  field :stages, 5, repeated: true, type: Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus
 end
 
 defmodule Google.Cloud.Alloydb.V1.ListUsersRequest do
@@ -656,6 +979,12 @@ defmodule Google.Cloud.Alloydb.V1.AlloyDBAdmin.Service do
   rpc :CreateCluster, Google.Cloud.Alloydb.V1.CreateClusterRequest, Google.Longrunning.Operation
 
   rpc :UpdateCluster, Google.Cloud.Alloydb.V1.UpdateClusterRequest, Google.Longrunning.Operation
+
+  rpc :ExportCluster, Google.Cloud.Alloydb.V1.ExportClusterRequest, Google.Longrunning.Operation
+
+  rpc :ImportCluster, Google.Cloud.Alloydb.V1.ImportClusterRequest, Google.Longrunning.Operation
+
+  rpc :UpgradeCluster, Google.Cloud.Alloydb.V1.UpgradeClusterRequest, Google.Longrunning.Operation
 
   rpc :DeleteCluster, Google.Cloud.Alloydb.V1.DeleteClusterRequest, Google.Longrunning.Operation
 
