@@ -232,6 +232,55 @@ defmodule Google.Cloud.Alloydb.V1beta.ExportClusterResponse do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1beta.ImportClusterRequest.SqlImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.ImportClusterRequest.CsvImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :table, 1, type: :string, deprecated: false
+  field :columns, 2, repeated: true, type: :string, deprecated: false
+  field :field_delimiter, 3, type: :string, json_name: "fieldDelimiter", deprecated: false
+  field :quote_character, 4, type: :string, json_name: "quoteCharacter", deprecated: false
+  field :escape_character, 5, type: :string, json_name: "escapeCharacter", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.ImportClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :import_options, 0
+
+  field :sql_import_options, 4,
+    type: Google.Cloud.Alloydb.V1beta.ImportClusterRequest.SqlImportOptions,
+    json_name: "sqlImportOptions",
+    oneof: 0
+
+  field :csv_import_options, 7,
+    type: Google.Cloud.Alloydb.V1beta.ImportClusterRequest.CsvImportOptions,
+    json_name: "csvImportOptions",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri", deprecated: false
+  field :database, 3, type: :string, deprecated: false
+  field :user, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1beta.ImportClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bytes_downloaded, 1, type: :int64, json_name: "bytesDownloaded", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1beta.UpgradeClusterRequest do
   @moduledoc false
 
@@ -683,6 +732,11 @@ defmodule Google.Cloud.Alloydb.V1beta.ListSupportedDatabaseFlagsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :scope, 6,
+    type: Google.Cloud.Alloydb.V1beta.SupportedDatabaseFlag.Scope,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1beta.ListSupportedDatabaseFlagsResponse do
@@ -973,6 +1027,10 @@ defmodule Google.Cloud.Alloydb.V1beta.AlloyDBAdmin.Service do
 
   rpc :ExportCluster,
       Google.Cloud.Alloydb.V1beta.ExportClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportCluster,
+      Google.Cloud.Alloydb.V1beta.ImportClusterRequest,
       Google.Longrunning.Operation
 
   rpc :UpgradeCluster,

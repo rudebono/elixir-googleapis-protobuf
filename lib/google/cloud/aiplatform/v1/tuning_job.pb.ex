@@ -5,9 +5,11 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedHyperParameters.AdapterSize do
 
   field :ADAPTER_SIZE_UNSPECIFIED, 0
   field :ADAPTER_SIZE_ONE, 1
+  field :ADAPTER_SIZE_TWO, 6
   field :ADAPTER_SIZE_FOUR, 2
   field :ADAPTER_SIZE_EIGHT, 3
   field :ADAPTER_SIZE_SIXTEEN, 4
+  field :ADAPTER_SIZE_THIRTY_TWO, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1.TuningJob.LabelsEntry do
@@ -92,6 +94,11 @@ defmodule Google.Cloud.Aiplatform.V1.TunedModel do
 
   field :model, 1, type: :string, deprecated: false
   field :endpoint, 2, type: :string, deprecated: false
+
+  field :checkpoints, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.TunedModelCheckpoint,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDatasetDistribution.DatasetBucket do
@@ -172,12 +179,22 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDataStats do
     json_name: "userDatasetExamples",
     deprecated: false
 
-  field :total_truncated_example_count, 10, type: :int64, json_name: "totalTruncatedExampleCount"
+  field :total_truncated_example_count, 10,
+    type: :int64,
+    json_name: "totalTruncatedExampleCount",
+    deprecated: false
 
   field :truncated_example_indices, 11,
     repeated: true,
     type: :int64,
-    json_name: "truncatedExampleIndices"
+    json_name: "truncatedExampleIndices",
+    deprecated: false
+
+  field :dropped_example_reasons, 12,
+    repeated: true,
+    type: :string,
+    json_name: "droppedExampleReasons",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.TuningDataStats do
@@ -231,6 +248,11 @@ defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningSpec do
     type: Google.Cloud.Aiplatform.V1.SupervisedHyperParameters,
     json_name: "hyperParameters",
     deprecated: false
+
+  field :export_last_checkpoint_only, 6,
+    type: :bool,
+    json_name: "exportLastCheckpointOnly",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.TunedModelRef do
@@ -243,4 +265,15 @@ defmodule Google.Cloud.Aiplatform.V1.TunedModelRef do
   field :tuned_model, 1, type: :string, json_name: "tunedModel", oneof: 0, deprecated: false
   field :tuning_job, 2, type: :string, json_name: "tuningJob", oneof: 0, deprecated: false
   field :pipeline_job, 3, type: :string, json_name: "pipelineJob", oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.TunedModelCheckpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :checkpoint_id, 1, type: :string, json_name: "checkpointId"
+  field :epoch, 2, type: :int64
+  field :step, 3, type: :int64
+  field :endpoint, 4, type: :string
 end

@@ -74,6 +74,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Schema do
     json_name: "anyOf",
     deprecated: false
 
+  field :additional_properties, 26,
+    type: Google.Protobuf.Value,
+    json_name: "additionalProperties",
+    deprecated: false
+
   field :ref, 27, type: :string, deprecated: false
 
   field :defs, 28,
