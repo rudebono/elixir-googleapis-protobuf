@@ -87,4 +87,10 @@ defmodule Google.Cloud.Run.V2.RevisionTemplate do
     type: Google.Cloud.Run.V2.NodeSelector,
     json_name: "nodeSelector",
     deprecated: false
+
+  field :gpu_zonal_redundancy_disabled, 24,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "gpuZonalRedundancyDisabled",
+    deprecated: false
 end

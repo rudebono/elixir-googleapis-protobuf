@@ -11,4 +11,7 @@ defmodule Google.Maps.Places.V1.Photo do
     repeated: true,
     type: Google.Maps.Places.V1.AuthorAttribution,
     json_name: "authorAttributions"
+
+  field :flag_content_uri, 5, type: :string, json_name: "flagContentUri"
+  field :google_maps_uri, 6, type: :string, json_name: "googleMapsUri"
 end

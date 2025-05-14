@@ -139,6 +139,14 @@ defmodule Google.Cloud.Run.V2.Revision do
     deprecated: false
 
   field :node_selector, 40, type: Google.Cloud.Run.V2.NodeSelector, json_name: "nodeSelector"
+
+  field :gpu_zonal_redundancy_disabled, 48,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "gpuZonalRedundancyDisabled",
+    deprecated: false
+
+  field :creator, 49, type: :string, deprecated: false
   field :etag, 99, type: :string, deprecated: false
 end
 

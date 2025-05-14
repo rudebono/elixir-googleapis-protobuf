@@ -41,6 +41,7 @@ defmodule Google.Cloud.Run.V2.Condition.CommonReason do
   field :IMMEDIATE_RETRY, 14
   field :POSTPONED_RETRY, 15
   field :INTERNAL, 16
+  field :VPC_NETWORK_NOT_FOUND, 17
 end
 
 defmodule Google.Cloud.Run.V2.Condition.RevisionReason do
