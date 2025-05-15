@@ -180,6 +180,8 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedModel do
     json_name: "systemLabels",
     map: true
 
+  field :checkpoint_id, 29, type: :string, json_name: "checkpointId"
+
   field :speculative_decoding_spec, 30,
     type: Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec,
     json_name: "speculativeDecodingSpec",

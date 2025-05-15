@@ -60,4 +60,5 @@ defmodule Google.Cloud.Gkebackup.V1.RestorePlan do
     deprecated: false
 
   field :state_reason, 12, type: :string, json_name: "stateReason", deprecated: false
+  field :restore_channel, 13, type: :string, json_name: "restoreChannel", deprecated: false
 end

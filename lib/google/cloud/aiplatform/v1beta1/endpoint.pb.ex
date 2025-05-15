@@ -183,6 +183,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     type: Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry,
     json_name: "systemLabels",
     map: true
+
+  field :checkpoint_id, 29, type: :string, json_name: "checkpointId"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do

@@ -139,6 +139,7 @@ defmodule Google.Cloud.Gkebackup.V1.BackupPlan do
   field :state_reason, 15, type: :string, json_name: "stateReason", deprecated: false
   field :rpo_risk_level, 16, type: :int32, json_name: "rpoRiskLevel", deprecated: false
   field :rpo_risk_reason, 17, type: :string, json_name: "rpoRiskReason", deprecated: false
+  field :backup_channel, 18, type: :string, json_name: "backupChannel", deprecated: false
 
   field :last_successful_backup_time, 19,
     type: Google.Protobuf.Timestamp,

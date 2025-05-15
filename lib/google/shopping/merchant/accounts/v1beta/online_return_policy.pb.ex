@@ -19,6 +19,17 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ItemCondit
   field :USED, 2
 end
 
+defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnLabelSource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :RETURN_LABEL_SOURCE_UNSPECIFIED, 0
+  field :DOWNLOAD_AND_PRINT, 1
+  field :IN_THE_PACKAGE, 2
+  field :CUSTOMER_RESPONSIBILITY, 3
+end
+
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee.Type do
   @moduledoc false
 
@@ -56,6 +67,40 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesReque
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateOnlineReturnPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :online_return_policy, 2,
+    type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy,
+    json_name: "onlineReturnPolicy",
+    deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateOnlineReturnPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :online_return_policy, 1,
+    type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy,
+    json_name: "onlineReturnPolicy",
+    deprecated: false
+
+  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteOnlineReturnPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesResponse do
@@ -130,7 +175,10 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
   field :return_policy_id, 2, type: :string, json_name: "returnPolicyId", deprecated: false
   field :label, 3, type: :string, deprecated: false
   field :countries, 4, repeated: true, type: :string, deprecated: false
-  field :policy, 5, type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy
+
+  field :policy, 5,
+    type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.Policy,
+    deprecated: false
 
   field :seasonal_overrides, 14,
     repeated: true,
@@ -140,23 +188,27 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
 
   field :restocking_fee, 6,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.RestockingFee,
-    json_name: "restockingFee"
+    json_name: "restockingFee",
+    deprecated: false
 
   field :return_methods, 7,
     repeated: true,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnMethod,
     json_name: "returnMethods",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :item_conditions, 8,
     repeated: true,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ItemCondition,
     json_name: "itemConditions",
-    enum: true
+    enum: true,
+    deprecated: false
 
   field :return_shipping_fee, 9,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnShippingFee,
-    json_name: "returnShippingFee"
+    json_name: "returnShippingFee",
+    deprecated: false
 
   field :return_policy_uri, 10, type: :string, json_name: "returnPolicyUri", deprecated: false
 
@@ -171,6 +223,12 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
     json_name: "processRefundDays"
 
   field :accept_exchange, 13, proto3_optional: true, type: :bool, json_name: "acceptExchange"
+
+  field :return_label_source, 15,
+    proto3_optional: true,
+    type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnLabelSource,
+    json_name: "returnLabelSource",
+    enum: true
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicyService.Service do
@@ -187,6 +245,18 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicyService.Ser
   rpc :ListOnlineReturnPolicies,
       Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesRequest,
       Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesResponse
+
+  rpc :CreateOnlineReturnPolicy,
+      Google.Shopping.Merchant.Accounts.V1beta.CreateOnlineReturnPolicyRequest,
+      Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy
+
+  rpc :UpdateOnlineReturnPolicy,
+      Google.Shopping.Merchant.Accounts.V1beta.UpdateOnlineReturnPolicyRequest,
+      Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy
+
+  rpc :DeleteOnlineReturnPolicy,
+      Google.Shopping.Merchant.Accounts.V1beta.DeleteOnlineReturnPolicyRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicyService.Stub do
