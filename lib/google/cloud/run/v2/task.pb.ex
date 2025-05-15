@@ -133,6 +133,12 @@ defmodule Google.Cloud.Run.V2.Task do
 
   field :log_uri, 32, type: :string, json_name: "logUri", deprecated: false
   field :satisfies_pzs, 33, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :node_selector, 36,
+    type: Google.Cloud.Run.V2.NodeSelector,
+    json_name: "nodeSelector",
+    deprecated: false
+
   field :etag, 99, type: :string, deprecated: false
 end
 

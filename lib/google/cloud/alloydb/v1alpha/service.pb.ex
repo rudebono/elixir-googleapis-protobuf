@@ -144,6 +144,143 @@ defmodule Google.Cloud.Alloydb.V1alpha.UpdateClusterRequest do
   field :allow_missing, 5, type: :bool, json_name: "allowMissing", deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1alpha.GcsDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ExportClusterRequest.CsvExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :select_query, 1, type: :string, json_name: "selectQuery", deprecated: false
+  field :field_delimiter, 2, type: :string, json_name: "fieldDelimiter", deprecated: false
+  field :quote_character, 3, type: :string, json_name: "quoteCharacter", deprecated: false
+  field :escape_character, 4, type: :string, json_name: "escapeCharacter", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ExportClusterRequest.SqlExportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :tables, 1, repeated: true, type: :string, deprecated: false
+
+  field :schema_only, 2,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "schemaOnly",
+    deprecated: false
+
+  field :clean_target_objects, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "cleanTargetObjects",
+    deprecated: false
+
+  field :if_exist_target_objects, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "ifExistTargetObjects",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ExportClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :destination, 0
+
+  oneof :export_options, 1
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Alloydb.V1alpha.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0,
+    deprecated: false
+
+  field :csv_export_options, 4,
+    type: Google.Cloud.Alloydb.V1alpha.ExportClusterRequest.CsvExportOptions,
+    json_name: "csvExportOptions",
+    oneof: 1
+
+  field :sql_export_options, 5,
+    type: Google.Cloud.Alloydb.V1alpha.ExportClusterRequest.SqlExportOptions,
+    json_name: "sqlExportOptions",
+    oneof: 1
+
+  field :name, 1, type: :string, deprecated: false
+  field :database, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ExportClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :gcs_destination, 2,
+    type: Google.Cloud.Alloydb.V1alpha.GcsDestination,
+    json_name: "gcsDestination",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ImportClusterRequest.SqlImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ImportClusterRequest.CsvImportOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :table, 1, type: :string, deprecated: false
+  field :columns, 2, repeated: true, type: :string, deprecated: false
+  field :field_delimiter, 3, type: :string, json_name: "fieldDelimiter", deprecated: false
+  field :quote_character, 4, type: :string, json_name: "quoteCharacter", deprecated: false
+  field :escape_character, 5, type: :string, json_name: "escapeCharacter", deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ImportClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :import_options, 0
+
+  field :sql_import_options, 4,
+    type: Google.Cloud.Alloydb.V1alpha.ImportClusterRequest.SqlImportOptions,
+    json_name: "sqlImportOptions",
+    oneof: 0
+
+  field :csv_import_options, 7,
+    type: Google.Cloud.Alloydb.V1alpha.ImportClusterRequest.CsvImportOptions,
+    json_name: "csvImportOptions",
+    oneof: 0
+
+  field :name, 1, type: :string, deprecated: false
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri", deprecated: false
+  field :database, 3, type: :string, deprecated: false
+  field :user, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.ImportClusterResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bytes_downloaded, 1, type: :int64, json_name: "bytesDownloaded", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1alpha.UpgradeClusterRequest do
   @moduledoc false
 
@@ -595,6 +732,11 @@ defmodule Google.Cloud.Alloydb.V1alpha.ListSupportedDatabaseFlagsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :scope, 6,
+    type: Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.Scope,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.ListSupportedDatabaseFlagsResponse do
@@ -881,6 +1023,14 @@ defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Service do
 
   rpc :UpdateCluster,
       Google.Cloud.Alloydb.V1alpha.UpdateClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :ExportCluster,
+      Google.Cloud.Alloydb.V1alpha.ExportClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportCluster,
+      Google.Cloud.Alloydb.V1alpha.ImportClusterRequest,
       Google.Longrunning.Operation
 
   rpc :UpgradeCluster,

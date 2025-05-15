@@ -31,7 +31,7 @@ defmodule Google.Cloud.Run.V2.ExecutionTemplate do
     type: Google.Cloud.Run.V2.ExecutionTemplate.AnnotationsEntry,
     map: true
 
-  field :parallelism, 3, type: :int32
+  field :parallelism, 3, type: :int32, deprecated: false
   field :task_count, 4, type: :int32, json_name: "taskCount"
   field :template, 5, type: Google.Cloud.Run.V2.TaskTemplate, deprecated: false
 end

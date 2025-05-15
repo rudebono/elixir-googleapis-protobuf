@@ -54,6 +54,16 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.Category do
   field :CATEGORY_TRAVEL_AND_TOURISM, 19
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo.GoogleCloudMarketplaceInfo.CommercialState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :COMMERCIAL_STATE_UNSPECIFIED, 0
+  field :ONBOARDING, 1
+  field :ACTIVE, 2
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.State do
   @moduledoc false
 
@@ -220,6 +230,7 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Se
   oneof :resource, 0
 
   field :table, 1, type: :string, oneof: 0, deprecated: false
+  field :routine, 2, type: :string, oneof: 0, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.RestrictedExportPolicy do
@@ -292,6 +303,34 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.RestrictedExportConfig d
     deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo.GoogleCloudMarketplaceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :service, 1, proto3_optional: true, type: :string, deprecated: false
+
+  field :commercial_state, 3,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo.GoogleCloudMarketplaceInfo.CommercialState,
+    json_name: "commercialState",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cloud_marketplace, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo.GoogleCloudMarketplaceInfo,
+    json_name: "cloudMarketplace",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
   @moduledoc false
 
@@ -354,10 +393,22 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing do
     enum: true,
     deprecated: false
 
+  field :commercial_info, 17,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo,
+    json_name: "commercialInfo",
+    deprecated: false
+
   field :log_linked_dataset_query_user_email, 18,
     proto3_optional: true,
     type: :bool,
     json_name: "logLinkedDatasetQueryUserEmail",
+    deprecated: false
+
+  field :allow_only_metadata_sharing, 19,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "allowOnlyMetadataSharing",
     deprecated: false
 end
 
@@ -377,6 +428,26 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedResource do
     deprecated: false
 
   field :listing, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.CommercialInfo.GoogleCloudMarketplaceInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :order, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.CommercialInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cloud_marketplace, 1,
+    type:
+      Google.Cloud.Bigquery.Analyticshub.V1.Subscription.CommercialInfo.GoogleCloudMarketplaceInfo,
+    json_name: "cloudMarketplace",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription.LinkedDatasetMapEntry do
@@ -442,10 +513,20 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Subscription do
     enum: true,
     deprecated: false
 
+  field :commercial_info, 13,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Subscription.CommercialInfo,
+    json_name: "commercialInfo",
+    deprecated: false
+
   field :log_linked_dataset_query_user_email, 14,
     proto3_optional: true,
     type: :bool,
     json_name: "logLinkedDatasetQueryUserEmail",
+    deprecated: false
+
+  field :destination_dataset, 15,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset,
+    json_name: "destinationDataset",
     deprecated: false
 end
 
@@ -597,6 +678,7 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteListingRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :delete_commercial, 2, type: :bool, json_name: "deleteCommercial", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubscribeListingRequest do
@@ -731,6 +813,7 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :revoke_commercial, 2, type: :bool, json_name: "revokeCommercial", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RevokeSubscriptionResponse do
