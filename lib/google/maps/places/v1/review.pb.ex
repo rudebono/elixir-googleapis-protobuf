@@ -18,4 +18,6 @@ defmodule Google.Maps.Places.V1.Review do
     json_name: "authorAttribution"
 
   field :publish_time, 14, type: Google.Protobuf.Timestamp, json_name: "publishTime"
+  field :flag_content_uri, 15, type: :string, json_name: "flagContentUri"
+  field :google_maps_uri, 16, type: :string, json_name: "googleMapsUri"
 end

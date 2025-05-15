@@ -83,6 +83,34 @@ defmodule Google.Cloud.Video.Livestream.V1.Clip.State do
   field :FAILED, 4
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Clip.OutputType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :OUTPUT_TYPE_UNSPECIFIED, 0
+  field :MANIFEST, 1
+  field :MP4, 2
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DvrSession.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :PENDING, 1
+  field :UPDATING, 2
+  field :SCHEDULED, 3
+  field :LIVE, 4
+  field :FINISHED, 5
+  field :FAILED, 6
+  field :DELETING, 7
+  field :POST_PROCESSING, 8
+  field :COOLDOWN, 9
+  field :STOPPING, 10
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Asset.State do
   @moduledoc false
 
@@ -587,6 +615,95 @@ defmodule Google.Cloud.Video.Livestream.V1.Clip do
     repeated: true,
     type: Google.Cloud.Video.Livestream.V1.Clip.ClipManifest,
     json_name: "clipManifests",
+    deprecated: false
+
+  field :output_type, 13,
+    type: Google.Cloud.Video.Livestream.V1.Clip.OutputType,
+    json_name: "outputType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.TimeInterval do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DvrSession.DvrManifest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :manifest_key, 1, type: :string, json_name: "manifestKey", deprecated: false
+  field :output_uri, 2, type: :string, json_name: "outputUri", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DvrSession.DvrWindow do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :kind, 0
+
+  field :time_interval, 1,
+    type: Google.Cloud.Video.Livestream.V1.TimeInterval,
+    json_name: "timeInterval",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DvrSession.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DvrSession do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession.State,
+    enum: true,
+    deprecated: false
+
+  field :error, 6, type: Google.Rpc.Status, deprecated: false
+
+  field :dvr_manifests, 7,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession.DvrManifest,
+    json_name: "dvrManifests",
+    deprecated: false
+
+  field :dvr_windows, 8,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession.DvrWindow,
+    json_name: "dvrWindows",
     deprecated: false
 end
 

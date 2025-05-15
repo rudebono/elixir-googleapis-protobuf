@@ -1,3 +1,25 @@
+defmodule Google.Storage.Control.V2.IntelligenceConfig.EditionConfig do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EDITION_CONFIG_UNSPECIFIED, 0
+  field :INHERIT, 1
+  field :DISABLED, 2
+  field :STANDARD, 3
+  field :TRIAL, 5
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig.EffectiveIntelligenceConfig.EffectiveEdition do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EFFECTIVE_EDITION_UNSPECIFIED, 0
+  field :NONE, 1
+  field :STANDARD, 2
+end
+
 defmodule Google.Storage.Control.V2.PendingRenameInfo do
   @moduledoc false
 
@@ -465,6 +487,190 @@ defmodule Google.Storage.Control.V2.ListAnywhereCachesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageLocations do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :locations, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageBuckets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :bucket_id_regexes, 1,
+    repeated: true,
+    type: :string,
+    json_name: "bucketIdRegexes",
+    deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig.Filter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :cloud_storage_locations, 0
+
+  oneof :cloud_storage_buckets, 1
+
+  field :included_cloud_storage_locations, 1,
+    type: Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageLocations,
+    json_name: "includedCloudStorageLocations",
+    oneof: 0
+
+  field :excluded_cloud_storage_locations, 2,
+    type: Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageLocations,
+    json_name: "excludedCloudStorageLocations",
+    oneof: 0
+
+  field :included_cloud_storage_buckets, 3,
+    type: Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageBuckets,
+    json_name: "includedCloudStorageBuckets",
+    oneof: 1
+
+  field :excluded_cloud_storage_buckets, 4,
+    type: Google.Storage.Control.V2.IntelligenceConfig.Filter.CloudStorageBuckets,
+    json_name: "excludedCloudStorageBuckets",
+    oneof: 1
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig.EffectiveIntelligenceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :effective_edition, 1,
+    type:
+      Google.Storage.Control.V2.IntelligenceConfig.EffectiveIntelligenceConfig.EffectiveEdition,
+    json_name: "effectiveEdition",
+    enum: true,
+    deprecated: false
+
+  field :intelligence_config, 2, type: :string, json_name: "intelligenceConfig", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig.TrialConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :expire_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.IntelligenceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :edition_config, 2,
+    type: Google.Storage.Control.V2.IntelligenceConfig.EditionConfig,
+    json_name: "editionConfig",
+    enum: true,
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :filter, 4, type: Google.Storage.Control.V2.IntelligenceConfig.Filter, deprecated: false
+
+  field :effective_intelligence_config, 5,
+    type: Google.Storage.Control.V2.IntelligenceConfig.EffectiveIntelligenceConfig,
+    json_name: "effectiveIntelligenceConfig",
+    deprecated: false
+
+  field :trial_config, 7,
+    type: Google.Storage.Control.V2.IntelligenceConfig.TrialConfig,
+    json_name: "trialConfig"
+end
+
+defmodule Google.Storage.Control.V2.UpdateOrganizationIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :intelligence_config, 1,
+    type: Google.Storage.Control.V2.IntelligenceConfig,
+    json_name: "intelligenceConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.UpdateFolderIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :intelligence_config, 1,
+    type: Google.Storage.Control.V2.IntelligenceConfig,
+    json_name: "intelligenceConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.UpdateProjectIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :intelligence_config, 1,
+    type: Google.Storage.Control.V2.IntelligenceConfig,
+    json_name: "intelligenceConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.GetOrganizationIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.GetFolderIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Storage.Control.V2.GetProjectIntelligenceConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Storage.Control.V2.StorageControl.Service do
   @moduledoc false
 
@@ -533,6 +739,30 @@ defmodule Google.Storage.Control.V2.StorageControl.Service do
   rpc :ListAnywhereCaches,
       Google.Storage.Control.V2.ListAnywhereCachesRequest,
       Google.Storage.Control.V2.ListAnywhereCachesResponse
+
+  rpc :GetProjectIntelligenceConfig,
+      Google.Storage.Control.V2.GetProjectIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :UpdateProjectIntelligenceConfig,
+      Google.Storage.Control.V2.UpdateProjectIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :GetFolderIntelligenceConfig,
+      Google.Storage.Control.V2.GetFolderIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :UpdateFolderIntelligenceConfig,
+      Google.Storage.Control.V2.UpdateFolderIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :GetOrganizationIntelligenceConfig,
+      Google.Storage.Control.V2.GetOrganizationIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :UpdateOrganizationIntelligenceConfig,
+      Google.Storage.Control.V2.UpdateOrganizationIntelligenceConfigRequest,
+      Google.Storage.Control.V2.IntelligenceConfig
 end
 
 defmodule Google.Storage.Control.V2.StorageControl.Stub do

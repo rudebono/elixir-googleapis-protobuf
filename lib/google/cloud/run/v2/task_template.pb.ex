@@ -23,4 +23,9 @@ defmodule Google.Cloud.Run.V2.TaskTemplate do
     type: Google.Cloud.Run.V2.VpcAccess,
     json_name: "vpcAccess",
     deprecated: false
+
+  field :node_selector, 11,
+    type: Google.Cloud.Run.V2.NodeSelector,
+    json_name: "nodeSelector",
+    deprecated: false
 end

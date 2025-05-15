@@ -293,6 +293,83 @@ defmodule Google.Cloud.Video.Livestream.V1.DeleteClipRequest do
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.ListDvrSessionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.ListDvrSessionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dvr_sessions, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession,
+    json_name: "dvrSessions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.GetDvrSessionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.CreateDvrSessionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :dvr_session_id, 2, type: :string, json_name: "dvrSessionId", deprecated: false
+
+  field :dvr_session, 3,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession,
+    json_name: "dvrSession",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DeleteDvrSessionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.UpdateDvrSessionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :dvr_session, 2,
+    type: Google.Cloud.Video.Livestream.V1.DvrSession,
+    json_name: "dvrSession",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.OperationMetadata do
   @moduledoc false
 
@@ -416,6 +493,26 @@ defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
 
   rpc :DeleteClip,
       Google.Cloud.Video.Livestream.V1.DeleteClipRequest,
+      Google.Longrunning.Operation
+
+  rpc :CreateDvrSession,
+      Google.Cloud.Video.Livestream.V1.CreateDvrSessionRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListDvrSessions,
+      Google.Cloud.Video.Livestream.V1.ListDvrSessionsRequest,
+      Google.Cloud.Video.Livestream.V1.ListDvrSessionsResponse
+
+  rpc :GetDvrSession,
+      Google.Cloud.Video.Livestream.V1.GetDvrSessionRequest,
+      Google.Cloud.Video.Livestream.V1.DvrSession
+
+  rpc :DeleteDvrSession,
+      Google.Cloud.Video.Livestream.V1.DeleteDvrSessionRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateDvrSession,
+      Google.Cloud.Video.Livestream.V1.UpdateDvrSessionRequest,
       Google.Longrunning.Operation
 
   rpc :CreateAsset,

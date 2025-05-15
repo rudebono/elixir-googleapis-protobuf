@@ -215,19 +215,8 @@ defmodule Google.Maps.Places.V1.Place.GenerativeSummary do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :overview, 1, type: Google.Type.LocalizedText
-  field :description, 2, type: Google.Type.LocalizedText
-  field :references, 3, type: Google.Maps.Places.V1.References
-end
-
-defmodule Google.Maps.Places.V1.Place.AreaSummary do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
-
-  field :content_blocks, 4,
-    repeated: true,
-    type: Google.Maps.Places.V1.ContentBlock,
-    json_name: "contentBlocks"
+  field :overview_flag_content_uri, 4, type: :string, json_name: "overviewFlagContentUri"
+  field :disclosure_text, 6, type: Google.Type.LocalizedText, json_name: "disclosureText"
 end
 
 defmodule Google.Maps.Places.V1.Place.ContainingPlace do
@@ -237,6 +226,40 @@ defmodule Google.Maps.Places.V1.Place.ContainingPlace do
 
   field :name, 1, type: :string, deprecated: false
   field :id, 2, type: :string
+end
+
+defmodule Google.Maps.Places.V1.Place.ReviewSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :text, 1, type: Google.Type.LocalizedText
+  field :flag_content_uri, 2, type: :string, json_name: "flagContentUri"
+  field :disclosure_text, 3, type: Google.Type.LocalizedText, json_name: "disclosureText"
+end
+
+defmodule Google.Maps.Places.V1.Place.EvChargeAmenitySummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :overview, 1, type: Google.Maps.Places.V1.ContentBlock
+  field :coffee, 2, type: Google.Maps.Places.V1.ContentBlock
+  field :restaurant, 3, type: Google.Maps.Places.V1.ContentBlock
+  field :store, 4, type: Google.Maps.Places.V1.ContentBlock
+  field :flag_content_uri, 5, type: :string, json_name: "flagContentUri"
+  field :disclosure_text, 6, type: Google.Type.LocalizedText, json_name: "disclosureText"
+end
+
+defmodule Google.Maps.Places.V1.Place.NeighborhoodSummary do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :overview, 1, type: Google.Maps.Places.V1.ContentBlock
+  field :description, 2, type: Google.Maps.Places.V1.ContentBlock
+  field :flag_content_uri, 3, type: :string, json_name: "flagContentUri"
+  field :disclosure_text, 4, type: Google.Type.LocalizedText, json_name: "disclosureText"
 end
 
 defmodule Google.Maps.Places.V1.Place do
@@ -376,8 +399,6 @@ defmodule Google.Maps.Places.V1.Place do
     type: Google.Maps.Places.V1.Place.GenerativeSummary,
     json_name: "generativeSummary"
 
-  field :area_summary, 81, type: Google.Maps.Places.V1.Place.AreaSummary, json_name: "areaSummary"
-
   field :containing_places, 82,
     repeated: true,
     type: Google.Maps.Places.V1.Place.ContainingPlace,
@@ -388,5 +409,21 @@ defmodule Google.Maps.Places.V1.Place do
     type: :bool,
     json_name: "pureServiceAreaBusiness"
 
+  field :address_descriptor, 84,
+    type: Google.Maps.Places.V1.AddressDescriptor,
+    json_name: "addressDescriptor"
+
   field :price_range, 86, type: Google.Maps.Places.V1.PriceRange, json_name: "priceRange"
+
+  field :review_summary, 87,
+    type: Google.Maps.Places.V1.Place.ReviewSummary,
+    json_name: "reviewSummary"
+
+  field :ev_charge_amenity_summary, 89,
+    type: Google.Maps.Places.V1.Place.EvChargeAmenitySummary,
+    json_name: "evChargeAmenitySummary"
+
+  field :neighborhood_summary, 91,
+    type: Google.Maps.Places.V1.Place.NeighborhoodSummary,
+    json_name: "neighborhoodSummary"
 end
