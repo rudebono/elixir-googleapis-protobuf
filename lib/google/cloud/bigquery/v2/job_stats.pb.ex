@@ -244,6 +244,10 @@ defmodule Google.Cloud.Bigquery.V2.QueryTimelineSample do
   field :completed_units, 4, type: Google.Protobuf.Int64Value, json_name: "completedUnits"
   field :active_units, 5, type: Google.Protobuf.Int64Value, json_name: "activeUnits"
 
+  field :shuffle_ram_usage_ratio, 6,
+    type: Google.Protobuf.DoubleValue,
+    json_name: "shuffleRamUsageRatio"
+
   field :estimated_runnable_units, 7,
     type: Google.Protobuf.Int64Value,
     json_name: "estimatedRunnableUnits"

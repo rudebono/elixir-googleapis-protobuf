@@ -157,6 +157,18 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
   field :zone, 21, type: :string, deprecated: false
   field :satisfies_pzs, 23, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 24, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :custom_performance_enabled, 25,
+    type: :bool,
+    json_name: "customPerformanceEnabled",
+    deprecated: false
+
+  field :total_throughput_mibps, 26,
+    type: :int64,
+    json_name: "totalThroughputMibps",
+    deprecated: false
+
+  field :total_iops, 27, type: :int64, json_name: "totalIops", deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ValidateDirectoryServiceRequest do
