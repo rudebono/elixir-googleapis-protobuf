@@ -347,6 +347,11 @@ defmodule Google.Cloud.Bigquery.V2.ListFormatDataset do
 
   field :friendly_name, 5, type: Google.Protobuf.StringValue, json_name: "friendlyName"
   field :location, 6, type: :string
+
+  field :external_dataset_reference, 11,
+    type: Google.Cloud.Bigquery.V2.ExternalDatasetReference,
+    json_name: "externalDatasetReference",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.DatasetList do

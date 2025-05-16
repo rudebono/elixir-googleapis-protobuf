@@ -66,6 +66,11 @@ defmodule Google.Cloud.Netapp.V1.Backup do
   field :satisfies_pzi, 12, type: :bool, json_name: "satisfiesPzi", deprecated: false
   field :volume_region, 13, type: :string, json_name: "volumeRegion", deprecated: false
   field :backup_region, 14, type: :string, json_name: "backupRegion", deprecated: false
+
+  field :enforced_retention_end_time, 15,
+    type: Google.Protobuf.Timestamp,
+    json_name: "enforcedRetentionEndTime",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ListBackupsRequest do

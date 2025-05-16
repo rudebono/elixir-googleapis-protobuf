@@ -41,6 +41,7 @@ defmodule Google.Cloud.Kms.V1.AutokeyConfig do
   field :name, 1, type: :string, deprecated: false
   field :key_project, 2, type: :string, json_name: "keyProject", deprecated: false
   field :state, 4, type: Google.Cloud.Kms.V1.AutokeyConfig.State, enum: true, deprecated: false
+  field :etag, 6, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Kms.V1.ShowEffectiveAutokeyConfigRequest do

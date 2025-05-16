@@ -21,6 +21,37 @@ defmodule Google.Cloud.Netapp.V1.BackupVault.BackupVaultType do
   field :CROSS_REGION, 2
 end
 
+defmodule Google.Cloud.Netapp.V1.BackupVault.BackupRetentionPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :backup_minimum_enforced_retention_days, 1,
+    type: :int32,
+    json_name: "backupMinimumEnforcedRetentionDays",
+    deprecated: false
+
+  field :daily_backup_immutable, 2,
+    type: :bool,
+    json_name: "dailyBackupImmutable",
+    deprecated: false
+
+  field :weekly_backup_immutable, 3,
+    type: :bool,
+    json_name: "weeklyBackupImmutable",
+    deprecated: false
+
+  field :monthly_backup_immutable, 4,
+    type: :bool,
+    json_name: "monthlyBackupImmutable",
+    deprecated: false
+
+  field :manual_backup_immutable, 5,
+    type: :bool,
+    json_name: "manualBackupImmutable",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Netapp.V1.BackupVault.LabelsEntry do
   @moduledoc false
 
@@ -63,6 +94,11 @@ defmodule Google.Cloud.Netapp.V1.BackupVault do
   field :destination_backup_vault, 10,
     type: :string,
     json_name: "destinationBackupVault",
+    deprecated: false
+
+  field :backup_retention_policy, 11,
+    type: Google.Cloud.Netapp.V1.BackupVault.BackupRetentionPolicy,
+    json_name: "backupRetentionPolicy",
     deprecated: false
 end
 
