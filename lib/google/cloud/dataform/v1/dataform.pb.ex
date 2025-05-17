@@ -1089,6 +1089,11 @@ defmodule Google.Cloud.Dataform.V1.CodeCompilationConfig do
   field :schema_suffix, 6, type: :string, json_name: "schemaSuffix", deprecated: false
   field :table_prefix, 7, type: :string, json_name: "tablePrefix", deprecated: false
 
+  field :builtin_assertion_name_prefix, 10,
+    type: :string,
+    json_name: "builtinAssertionNamePrefix",
+    deprecated: false
+
   field :default_notebook_runtime_options, 9,
     type: Google.Cloud.Dataform.V1.NotebookRuntimeOptions,
     json_name: "defaultNotebookRuntimeOptions",
@@ -1106,6 +1111,11 @@ defmodule Google.Cloud.Dataform.V1.NotebookRuntimeOptions do
     type: :string,
     json_name: "gcsOutputBucket",
     oneof: 0,
+    deprecated: false
+
+  field :ai_platform_notebook_runtime_template, 2,
+    type: :string,
+    json_name: "aiPlatformNotebookRuntimeTemplate",
     deprecated: false
 end
 
@@ -1341,6 +1351,90 @@ defmodule Google.Cloud.Dataform.V1.CompilationResultAction.Notebook do
   field :tags, 4, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation.SqlDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :query, 1, type: :string
+
+  field :error_table, 2,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation.ErrorTable,
+    json_name: "errorTable"
+
+  field :load, 3, type: Google.Cloud.Dataform.V1.CompilationResultAction.LoadConfig
+end
+
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation.ErrorTable do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :target, 1, type: Google.Cloud.Dataform.V1.Target
+  field :retention_days, 2, type: :int32, json_name: "retentionDays"
+end
+
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :definition, 0
+
+  field :contents_yaml, 5, type: :string, json_name: "contentsYaml", oneof: 0
+
+  field :contents_sql, 6,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation.SqlDefinition,
+    json_name: "contentsSql",
+    oneof: 0
+
+  field :dependency_targets, 1,
+    repeated: true,
+    type: Google.Cloud.Dataform.V1.Target,
+    json_name: "dependencyTargets"
+
+  field :disabled, 2, type: :bool
+  field :tags, 4, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.LoadConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :mode, 0
+
+  field :replace, 1,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.SimpleLoadMode,
+    oneof: 0
+
+  field :append, 2,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.SimpleLoadMode,
+    oneof: 0
+
+  field :maximum, 3,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.IncrementalLoadMode,
+    oneof: 0
+
+  field :unique, 4,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.IncrementalLoadMode,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.SimpleLoadMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dataform.V1.CompilationResultAction.IncrementalLoadMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :column, 1, type: :string
+end
+
 defmodule Google.Cloud.Dataform.V1.CompilationResultAction do
   @moduledoc false
 
@@ -1361,6 +1455,12 @@ defmodule Google.Cloud.Dataform.V1.CompilationResultAction do
     oneof: 0
 
   field :notebook, 8, type: Google.Cloud.Dataform.V1.CompilationResultAction.Notebook, oneof: 0
+
+  field :data_preparation, 9,
+    type: Google.Cloud.Dataform.V1.CompilationResultAction.DataPreparation,
+    json_name: "dataPreparation",
+    oneof: 0
+
   field :target, 1, type: Google.Cloud.Dataform.V1.Target
   field :canonical_target, 2, type: Google.Cloud.Dataform.V1.Target, json_name: "canonicalTarget"
   field :file_path, 3, type: :string, json_name: "filePath"
@@ -1438,6 +1538,8 @@ defmodule Google.Cloud.Dataform.V1.WorkflowConfig do
     type: Google.Cloud.Dataform.V1.WorkflowConfig.ScheduledExecutionRecord,
     json_name: "recentScheduledExecutionRecords",
     deprecated: false
+
+  field :disabled, 8, type: :bool, deprecated: false
 
   field :create_time, 9,
     type: Google.Protobuf.Timestamp,
@@ -1702,6 +1804,94 @@ defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.NotebookAction do
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
 end
 
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionSqlDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :query, 1, type: :string
+
+  field :error_table, 2,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionErrorTable,
+    json_name: "errorTable"
+
+  field :load_config, 3,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionLoadConfig,
+    json_name: "loadConfig"
+end
+
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionErrorTable do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :target, 1, type: Google.Cloud.Dataform.V1.Target
+  field :retention_days, 2, type: :int32, json_name: "retentionDays"
+end
+
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionLoadConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :mode, 0
+
+  field :replace, 1,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionSimpleLoadMode,
+    oneof: 0
+
+  field :append, 2,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionSimpleLoadMode,
+    oneof: 0
+
+  field :maximum, 3,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionIncrementalLoadMode,
+    oneof: 0
+
+  field :unique, 4,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionIncrementalLoadMode,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionSimpleLoadMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionIncrementalLoadMode do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :column, 1, type: :string
+end
+
+defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :definition, 0
+
+  field :contents_yaml, 2, type: :string, json_name: "contentsYaml", oneof: 0, deprecated: false
+
+  field :contents_sql, 6,
+    type:
+      Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction.ActionSqlDefinition,
+    json_name: "contentsSql",
+    oneof: 0
+
+  field :generated_sql, 3, type: :string, json_name: "generatedSql", deprecated: false
+  field :job_id, 4, type: :string, json_name: "jobId", deprecated: false
+end
+
 defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction do
   @moduledoc false
 
@@ -1718,6 +1908,12 @@ defmodule Google.Cloud.Dataform.V1.WorkflowInvocationAction do
   field :notebook_action, 8,
     type: Google.Cloud.Dataform.V1.WorkflowInvocationAction.NotebookAction,
     json_name: "notebookAction",
+    oneof: 0,
+    deprecated: false
+
+  field :data_preparation_action, 9,
+    type: Google.Cloud.Dataform.V1.WorkflowInvocationAction.DataPreparationAction,
+    json_name: "dataPreparationAction",
     oneof: 0,
     deprecated: false
 

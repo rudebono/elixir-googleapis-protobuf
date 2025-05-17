@@ -197,6 +197,7 @@ defmodule Google.Spanner.Admin.Database.V1.UpdateDatabaseDdlRequest do
   field :statements, 2, repeated: true, type: :string, deprecated: false
   field :operation_id, 3, type: :string, json_name: "operationId"
   field :proto_descriptors, 4, type: :bytes, json_name: "protoDescriptors", deprecated: false
+  field :throughput_mode, 5, type: :bool, json_name: "throughputMode", deprecated: false
 end
 
 defmodule Google.Spanner.Admin.Database.V1.DdlStatementActionInfo do
