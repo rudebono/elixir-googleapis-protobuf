@@ -59,6 +59,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitor do
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitoringSchema,
     json_name: "modelMonitoringSchema"
 
+  field :encryption_spec, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
+
   field :create_time, 6,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
