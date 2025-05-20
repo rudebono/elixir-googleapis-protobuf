@@ -235,6 +235,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagStore do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch.DataStoreSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :data_store, 1, type: :string, json_name: "dataStore"
+  field :filter, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch do
   @moduledoc false
 
@@ -242,6 +251,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch do
 
   field :datastore, 1, type: :string, deprecated: false
   field :engine, 2, type: :string, deprecated: false
+  field :max_results, 3, type: :int32, json_name: "maxResults", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+
+  field :data_store_specs, 5,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.VertexAISearch.DataStoreSpec,
+    json_name: "dataStoreSpecs"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
