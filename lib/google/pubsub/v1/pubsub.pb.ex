@@ -344,6 +344,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AvroFailureReason do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
   @moduledoc false
 
@@ -366,6 +372,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
     json_name: "apiViolationReason",
     oneof: 0,
     deprecated: false
+
+  field :schema_violation_reason, 7,
+    type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
+    json_name: "schemaViolationReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
@@ -383,6 +395,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
   field :api_violation_reason, 5,
     type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
     json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+
+  field :schema_violation_reason, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
+    json_name: "schemaViolationReason",
     oneof: 0,
     deprecated: false
 end
@@ -404,6 +422,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AzureEventHubsFailureReason do
     json_name: "apiViolationReason",
     oneof: 0,
     deprecated: false
+
+  field :schema_violation_reason, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
+    json_name: "schemaViolationReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
@@ -421,6 +445,30 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
   field :api_violation_reason, 5,
     type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
     json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
+
+  field :schema_violation_reason, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
+    json_name: "schemaViolationReason",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :reason, 0
+
+  field :stream_arn, 1, type: :string, json_name: "streamArn", deprecated: false
+  field :partition_key, 2, type: :string, json_name: "partitionKey", deprecated: false
+  field :sequence_number, 3, type: :string, json_name: "sequenceNumber", deprecated: false
+
+  field :schema_violation_reason, 4,
+    type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
+    json_name: "schemaViolationReason",
     oneof: 0,
     deprecated: false
 end
@@ -456,6 +504,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent do
   field :confluent_cloud_failure, 6,
     type: Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason,
     json_name: "confluentCloudFailure",
+    oneof: 0,
+    deprecated: false
+
+  field :aws_kinesis_failure, 7,
+    type: Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason,
+    json_name: "awsKinesisFailure",
     oneof: 0,
     deprecated: false
 end

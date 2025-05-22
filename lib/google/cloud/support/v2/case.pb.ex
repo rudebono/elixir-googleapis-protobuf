@@ -29,7 +29,7 @@ defmodule Google.Cloud.Support.V2.Case do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
   field :description, 3, type: :string
   field :classification, 4, type: Google.Cloud.Support.V2.CaseClassification

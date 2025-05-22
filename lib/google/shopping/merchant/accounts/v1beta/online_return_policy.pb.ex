@@ -59,16 +59,6 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.GetOnlineReturnPolicyRequest 
   field :name, 1, type: :string, deprecated: false
 end
 
-defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
-
-  field :parent, 1, type: :string, deprecated: false
-  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
-  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
-end
-
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateOnlineReturnPolicyRequest do
   @moduledoc false
 
@@ -92,7 +82,10 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateOnlineReturnPolicyReque
     json_name: "onlineReturnPolicy",
     deprecated: false
 
-  field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteOnlineReturnPolicyRequest do
@@ -101,6 +94,16 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteOnlineReturnPolicyReque
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOnlineReturnPoliciesResponse do
@@ -215,20 +218,27 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy do
   field :accept_defective_only, 11,
     proto3_optional: true,
     type: :bool,
-    json_name: "acceptDefectiveOnly"
+    json_name: "acceptDefectiveOnly",
+    deprecated: false
 
   field :process_refund_days, 12,
     proto3_optional: true,
     type: :int32,
-    json_name: "processRefundDays"
+    json_name: "processRefundDays",
+    deprecated: false
 
-  field :accept_exchange, 13, proto3_optional: true, type: :bool, json_name: "acceptExchange"
+  field :accept_exchange, 13,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "acceptExchange",
+    deprecated: false
 
   field :return_label_source, 15,
     proto3_optional: true,
     type: Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicy.ReturnLabelSource,
     json_name: "returnLabelSource",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnlineReturnPolicyService.Service do
