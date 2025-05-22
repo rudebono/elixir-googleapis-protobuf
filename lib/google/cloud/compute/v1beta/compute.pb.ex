@@ -726,6 +726,7 @@ defmodule Google.Cloud.Compute.V1beta.Commitment.Type do
   field :MEMORY_OPTIMIZED, 281_753_417
   field :MEMORY_OPTIMIZED_M3, 276_301_372
   field :MEMORY_OPTIMIZED_M4, 276_301_373
+  field :MEMORY_OPTIMIZED_M4_6TB, 210_543_650
   field :MEMORY_OPTIMIZED_X4_16TB, 183_089_120
   field :MEMORY_OPTIMIZED_X4_24TB, 183_116_989
   field :MEMORY_OPTIMIZED_X4_32TB, 183_144_858
@@ -937,12 +938,28 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.DestNetworkScope
   field :UNDEFINED_DEST_NETWORK_SCOPE, 0
 end
 
+defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.DestNetworkType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_DEST_NETWORK_TYPE, 0
+end
+
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.SrcNetworkScope do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :UNDEFINED_SRC_NETWORK_SCOPE, 0
+end
+
+defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.SrcNetworkType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_SRC_NETWORK_TYPE, 0
 end
 
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleSecureTag.State do
@@ -1638,6 +1655,17 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStandbyPolicy.Mode do
   field :UNDEFINED_MODE, 0
   field :MANUAL, 119_397_318
   field :SCALE_OUT_POOL, 635_394
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerTargetSizePolicy.Mode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_MODE, 0
+  field :BULK, 2_050_322
+  field :INDIVIDUAL, 438_800_025
+  field :UNSPECIFIED_MODE, 53_715_403
 end
 
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
@@ -2706,6 +2734,16 @@ defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsListEndpointsRequest.
   field :UNDEFINED_HEALTH_STATUS, 0
   field :SHOW, 2_544_381
   field :SKIP, 2_547_071
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkInterface.IgmpQuery do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_IGMP_QUERY, 0
+  field :IGMP_QUERY_DISABLED, 28_285_169
+  field :IGMP_QUERY_V2, 333_493_457
 end
 
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface.Ipv6AccessType do
@@ -13059,6 +13097,11 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher do
     type: :string,
     json_name: "destNetworkScope"
 
+  field :dest_network_type, 409_853_224,
+    proto3_optional: true,
+    type: :string,
+    json_name: "destNetworkType"
+
   field :dest_region_codes, 199_120_280,
     repeated: true,
     type: :string,
@@ -13086,6 +13129,11 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher do
     proto3_optional: true,
     type: :string,
     json_name: "srcNetworkScope"
+
+  field :src_network_type, 309_819_686,
+    proto3_optional: true,
+    type: :string,
+    json_name: "srcNetworkType"
 
   field :src_networks, 247_119_872, repeated: true, type: :string, json_name: "srcNetworks"
   field :src_region_codes, 99_086_742, repeated: true, type: :string, json_name: "srcRegionCodes"
@@ -18872,6 +18920,11 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManager do
   field :target_pools, 336_072_617, repeated: true, type: :string, json_name: "targetPools"
   field :target_size, 62_880_239, proto3_optional: true, type: :int32, json_name: "targetSize"
 
+  field :target_size_policy, 128_773_506,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.InstanceGroupManagerTargetSizePolicy,
+    json_name: "targetSizePolicy"
+
   field :target_stopped_size, 2_419_489,
     proto3_optional: true,
     type: :int32,
@@ -19218,6 +19271,12 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatus do
     json_name: "allInstancesConfig"
 
   field :autoscaler, 517_258_967, proto3_optional: true, type: :string
+
+  field :bulk_instance_operation, 501_667_466,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperation,
+    json_name: "bulkInstanceOperation"
+
   field :is_stable, 108_410_864, proto3_optional: true, type: :bool, json_name: "isStable"
 
   field :stateful, 244_462_412,
@@ -19241,6 +19300,29 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusAllInstancesConf
     json_name: "currentRevision"
 
   field :effective, 141_961_639, proto3_optional: true, type: :bool
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :in_progress, 320_200_711, proto3_optional: true, type: :bool, json_name: "inProgress"
+
+  field :last_progress_check, 208_638_271,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperationLastProgressCheck,
+    json_name: "lastProgressCheck"
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperationLastProgressCheck do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Error
+  field :timestamp, 55_126_294, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusStateful do
@@ -19275,6 +19357,14 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusVersionTarget do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :is_reached, 433_209_149, proto3_optional: true, type: :bool, json_name: "isReached"
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerTargetSizePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :mode, 3_357_091, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy do
@@ -25955,6 +26045,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkInterface do
     json_name: "aliasIpRanges"
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
+  field :igmp_query, 30_249_546, proto3_optional: true, type: :string, json_name: "igmpQuery"
 
   field :internal_ipv6_prefix_length, 203_833_757,
     proto3_optional: true,
