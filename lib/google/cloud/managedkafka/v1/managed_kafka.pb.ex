@@ -175,6 +175,110 @@ defmodule Google.Cloud.Managedkafka.V1.DeleteConsumerGroupRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Managedkafka.V1.ListAclsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.ListAclsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :acls, 1, repeated: true, type: Google.Cloud.Managedkafka.V1.Acl
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Managedkafka.V1.GetAclRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.CreateAclRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :acl_id, 2, type: :string, json_name: "aclId", deprecated: false
+  field :acl, 3, type: Google.Cloud.Managedkafka.V1.Acl, deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.UpdateAclRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :acl, 1, type: Google.Cloud.Managedkafka.V1.Acl, deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.DeleteAclRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.AddAclEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :acl, 1, type: :string, deprecated: false
+
+  field :acl_entry, 2,
+    type: Google.Cloud.Managedkafka.V1.AclEntry,
+    json_name: "aclEntry",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.AddAclEntryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :acl, 1, type: Google.Cloud.Managedkafka.V1.Acl
+  field :acl_created, 2, type: :bool, json_name: "aclCreated"
+end
+
+defmodule Google.Cloud.Managedkafka.V1.RemoveAclEntryRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :acl, 1, type: :string, deprecated: false
+
+  field :acl_entry, 2,
+    type: Google.Cloud.Managedkafka.V1.AclEntry,
+    json_name: "aclEntry",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.RemoveAclEntryResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :result, 0
+
+  field :acl, 1, type: Google.Cloud.Managedkafka.V1.Acl, oneof: 0
+  field :acl_deleted, 2, type: :bool, json_name: "aclDeleted", oneof: 0
+end
+
 defmodule Google.Cloud.Managedkafka.V1.ManagedKafka.Service do
   @moduledoc false
 
@@ -233,6 +337,26 @@ defmodule Google.Cloud.Managedkafka.V1.ManagedKafka.Service do
   rpc :DeleteConsumerGroup,
       Google.Cloud.Managedkafka.V1.DeleteConsumerGroupRequest,
       Google.Protobuf.Empty
+
+  rpc :ListAcls,
+      Google.Cloud.Managedkafka.V1.ListAclsRequest,
+      Google.Cloud.Managedkafka.V1.ListAclsResponse
+
+  rpc :GetAcl, Google.Cloud.Managedkafka.V1.GetAclRequest, Google.Cloud.Managedkafka.V1.Acl
+
+  rpc :CreateAcl, Google.Cloud.Managedkafka.V1.CreateAclRequest, Google.Cloud.Managedkafka.V1.Acl
+
+  rpc :UpdateAcl, Google.Cloud.Managedkafka.V1.UpdateAclRequest, Google.Cloud.Managedkafka.V1.Acl
+
+  rpc :DeleteAcl, Google.Cloud.Managedkafka.V1.DeleteAclRequest, Google.Protobuf.Empty
+
+  rpc :AddAclEntry,
+      Google.Cloud.Managedkafka.V1.AddAclEntryRequest,
+      Google.Cloud.Managedkafka.V1.AddAclEntryResponse
+
+  rpc :RemoveAclEntry,
+      Google.Cloud.Managedkafka.V1.RemoveAclEntryRequest,
+      Google.Cloud.Managedkafka.V1.RemoveAclEntryResponse
 end
 
 defmodule Google.Cloud.Managedkafka.V1.ManagedKafka.Stub do
