@@ -653,7 +653,7 @@ defmodule Google.Protobuf.FieldOptions do
     default: false
 
   field :deprecated, 3, optional: true, type: :bool, default: false
-  field :weak, 10, optional: true, type: :bool, default: false
+  field :weak, 10, optional: true, type: :bool, default: false, deprecated: true
   field :debug_redact, 16, optional: true, type: :bool, json_name: "debugRedact", default: false
 
   field :retention, 17,

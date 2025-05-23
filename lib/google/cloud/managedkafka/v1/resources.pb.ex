@@ -433,3 +433,33 @@ defmodule Google.Cloud.Managedkafka.V1.TaskRetryPolicy do
     json_name: "maximumBackoff",
     deprecated: false
 end
+
+defmodule Google.Cloud.Managedkafka.V1.Acl do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :acl_entries, 2,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.AclEntry,
+    json_name: "aclEntries",
+    deprecated: false
+
+  field :etag, 3, type: :string, deprecated: false
+  field :resource_type, 4, type: :string, json_name: "resourceType", deprecated: false
+  field :resource_name, 5, type: :string, json_name: "resourceName", deprecated: false
+  field :pattern_type, 6, type: :string, json_name: "patternType", deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.AclEntry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :principal, 4, type: :string, deprecated: false
+  field :permission_type, 5, type: :string, json_name: "permissionType", deprecated: false
+  field :operation, 6, type: :string, deprecated: false
+  field :host, 7, type: :string, deprecated: false
+end
