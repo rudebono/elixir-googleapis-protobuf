@@ -205,6 +205,7 @@ defmodule Google.Storagetransfer.V1.LoggingConfig.LoggableActionState do
   field :LOGGABLE_ACTION_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
   field :FAILED, 2
+  field :SKIPPED, 3
 end
 
 defmodule Google.Storagetransfer.V1.TransferOperation.Status do
@@ -301,6 +302,15 @@ defmodule Google.Storagetransfer.V1.AwsS3Data do
   field :managed_private_network, 8, type: :bool, json_name: "managedPrivateNetwork", oneof: 0
 end
 
+defmodule Google.Storagetransfer.V1.AzureBlobStorageData.FederatedIdentityConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
+  field :tenant_id, 2, type: :string, json_name: "tenantId", deprecated: false
+end
+
 defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
   @moduledoc false
 
@@ -316,6 +326,11 @@ defmodule Google.Storagetransfer.V1.AzureBlobStorageData do
   field :container, 4, type: :string, deprecated: false
   field :path, 5, type: :string
   field :credentials_secret, 7, type: :string, json_name: "credentialsSecret", deprecated: false
+
+  field :federated_identity_config, 8,
+    type: Google.Storagetransfer.V1.AzureBlobStorageData.FederatedIdentityConfig,
+    json_name: "federatedIdentityConfig",
+    deprecated: false
 end
 
 defmodule Google.Storagetransfer.V1.HttpData do
@@ -617,6 +632,7 @@ defmodule Google.Storagetransfer.V1.TransferJob do
   field :name, 1, type: :string
   field :description, 2, type: :string
   field :project_id, 3, type: :string, json_name: "projectId"
+  field :service_account, 18, type: :string, json_name: "serviceAccount", deprecated: false
   field :transfer_spec, 4, type: Google.Storagetransfer.V1.TransferSpec, json_name: "transferSpec"
 
   field :replication_spec, 17,
