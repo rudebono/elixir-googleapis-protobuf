@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.NumericRestrict.ValueType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :VALUE_TYPE_UNSPECIFIED, 0
+  field :INT, 1
+  field :FLOAT, 2
+  field :DOUBLE, 3
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata.RecordError.RecordErrorType do
   @moduledoc false
 
@@ -21,6 +32,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata
   field :INVALID_TOKEN_VALUE, 15
   field :INVALID_SPARSE_EMBEDDING, 16
   field :INVALID_EMBEDDING, 17
+  field :INVALID_EMBEDDING_METADATA, 18
+  field :EMBEDDING_METADATA_EXCEEDS_SIZE_LIMIT, 19
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexRequest do
@@ -96,6 +109,120 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UpdateIndexOperationMetadata do
   field :nearest_neighbor_search_operation_metadata, 2,
     type: Google.Cloud.Aiplatform.V1beta1.NearestNeighborSearchOperationMetadata,
     json_name: "nearestNeighborSearchOperationMetadata"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.Restrict do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :namespace, 1, type: :string, deprecated: false
+
+  field :allow_column, 2,
+    repeated: true,
+    type: :string,
+    json_name: "allowColumn",
+    deprecated: false
+
+  field :deny_column, 3, repeated: true, type: :string, json_name: "denyColumn", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.NumericRestrict do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :namespace, 1, type: :string, deprecated: false
+  field :value_column, 2, type: :string, json_name: "valueColumn", deprecated: false
+
+  field :value_type, 3,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.NumericRestrict.ValueType,
+    json_name: "valueType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :id_column, 1, type: :string, json_name: "idColumn", deprecated: false
+  field :embedding_column, 2, type: :string, json_name: "embeddingColumn", deprecated: false
+
+  field :restricts, 3,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.Restrict,
+    deprecated: false
+
+  field :numeric_restricts, 4,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping.NumericRestrict,
+    json_name: "numericRestricts",
+    deprecated: false
+
+  field :metadata_columns, 5,
+    repeated: true,
+    type: :string,
+    json_name: "metadataColumns",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.BigQuerySourceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :table_path, 1, type: :string, json_name: "tablePath", deprecated: false
+
+  field :datapoint_field_mapping, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.DatapointFieldMapping,
+    json_name: "datapointFieldMapping",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :source, 0
+
+  field :big_query_source_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig.BigQuerySourceConfig,
+    json_name: "bigQuerySourceConfig",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :is_complete_overwrite, 2,
+    type: :bool,
+    json_name: "isCompleteOverwrite",
+    deprecated: false
+
+  field :config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest.ConnectorConfig,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ImportIndexOperationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generic_metadata, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
+    json_name: "genericMetadata"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteIndexRequest do
@@ -204,6 +331,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexService.Service do
   rpc :GetIndex,
       Google.Cloud.Aiplatform.V1beta1.GetIndexRequest,
       Google.Cloud.Aiplatform.V1beta1.Index
+
+  rpc :ImportIndex,
+      Google.Cloud.Aiplatform.V1beta1.ImportIndexRequest,
+      Google.Longrunning.Operation
 
   rpc :ListIndexes,
       Google.Cloud.Aiplatform.V1beta1.ListIndexesRequest,
