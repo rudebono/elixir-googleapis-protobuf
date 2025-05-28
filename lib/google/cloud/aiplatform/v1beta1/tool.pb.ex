@@ -233,6 +233,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagStore do
     type: Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig,
     json_name: "ragRetrievalConfig",
     deprecated: false
+
+  field :store_context, 7, type: :bool, json_name: "storeContext", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch.DataStoreSpec do

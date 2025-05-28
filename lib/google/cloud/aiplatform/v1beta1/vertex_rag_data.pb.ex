@@ -227,6 +227,42 @@ defmodule Google.Cloud.Aiplatform.V1beta1.CorpusStatus do
   field :error_status, 2, type: :string, json_name: "errorStatus", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig.DocumentCorpus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig.MemoryCorpus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :llm_parser, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig.LlmParser,
+    json_name: "llmParser"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :corpus_type_config, 0
+
+  field :document_corpus, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig.DocumentCorpus,
+    json_name: "documentCorpus",
+    oneof: 0,
+    deprecated: false
+
+  field :memory_corpus, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig.MemoryCorpus,
+    json_name: "memoryCorpus",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   @moduledoc false
 
@@ -280,6 +316,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagCorpus do
   field :encryption_spec, 12,
     type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
     json_name: "encryptionSpec",
+    deprecated: false
+
+  field :corpus_type_config, 13,
+    type: Google.Cloud.Aiplatform.V1beta1.RagCorpus.CorpusTypeConfig,
+    json_name: "corpusTypeConfig",
     deprecated: false
 end
 

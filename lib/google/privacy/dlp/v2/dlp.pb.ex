@@ -3198,6 +3198,14 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction.PublishToSecurityCommandCenter
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Privacy.Dlp.V2.DataProfileAction.PublishToDataplexCatalog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :lower_data_risk_to_low, 1, type: :bool, json_name: "lowerDataRiskToLow"
+end
+
 defmodule Google.Privacy.Dlp.V2.DataProfileAction.TagResources.TagCondition do
   @moduledoc false
 
@@ -3273,6 +3281,11 @@ defmodule Google.Privacy.Dlp.V2.DataProfileAction do
     type: Google.Privacy.Dlp.V2.DataProfileAction.TagResources,
     json_name: "tagResources",
     oneof: 0
+
+  field :publish_to_dataplex_catalog, 9,
+    type: Google.Privacy.Dlp.V2.DataProfileAction.PublishToDataplexCatalog,
+    json_name: "publishToDataplexCatalog",
+    oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileFinding do
@@ -3292,6 +3305,12 @@ defmodule Google.Privacy.Dlp.V2.DataProfileFinding do
     type: Google.Privacy.Dlp.V2.ResourceVisibility,
     json_name: "resourceVisibility",
     enum: true
+
+  field :full_resource_name, 9, type: :string, json_name: "fullResourceName"
+
+  field :data_source_type, 10,
+    type: Google.Privacy.Dlp.V2.DataSourceType,
+    json_name: "dataSourceType"
 end
 
 defmodule Google.Privacy.Dlp.V2.DataProfileFindingLocation do
