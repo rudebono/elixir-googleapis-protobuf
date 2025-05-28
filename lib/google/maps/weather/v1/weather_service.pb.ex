@@ -192,6 +192,18 @@ defmodule Google.Maps.Weather.V1.LookupHistoryHoursResponse do
   field :next_page_token, 3, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Maps.Weather.V1.LookupPublicAlertsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Maps.Weather.V1.LookupPublicAlertsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Maps.Weather.V1.Weather.Service do
   @moduledoc false
 
@@ -212,6 +224,10 @@ defmodule Google.Maps.Weather.V1.Weather.Service do
   rpc :LookupHistoryHours,
       Google.Maps.Weather.V1.LookupHistoryHoursRequest,
       Google.Maps.Weather.V1.LookupHistoryHoursResponse
+
+  rpc :LookupPublicAlerts,
+      Google.Maps.Weather.V1.LookupPublicAlertsRequest,
+      Google.Maps.Weather.V1.LookupPublicAlertsResponse
 end
 
 defmodule Google.Maps.Weather.V1.Weather.Stub do

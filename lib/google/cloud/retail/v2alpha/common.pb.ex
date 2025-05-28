@@ -470,3 +470,19 @@ defmodule Google.Cloud.Retail.V2alpha.PinControlMetadata do
     json_name: "droppedPins",
     map: true
 end
+
+defmodule Google.Cloud.Retail.V2alpha.StringList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Retail.V2alpha.DoubleList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :double
+end

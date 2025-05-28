@@ -276,7 +276,8 @@ defmodule Google.Cloud.Retail.V2alpha.MerchantCenterFeedFilter do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :primary_feed_id, 1, type: :int64, json_name: "primaryFeedId"
+  field :primary_feed_id, 1, type: :int64, json_name: "primaryFeedId", deprecated: true
+  field :data_source_id, 3, type: :int64, json_name: "dataSourceId"
   field :primary_feed_name, 2, type: :string, json_name: "primaryFeedName"
 end
 

@@ -513,6 +513,7 @@ defmodule Google.Privacy.Dlp.V2.TableReference do
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :table_id, 2, type: :string, json_name: "tableId"
+  field :project_id, 3, type: :string, json_name: "projectId"
 end
 
 defmodule Google.Privacy.Dlp.V2.BigQueryField do
