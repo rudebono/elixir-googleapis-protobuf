@@ -155,6 +155,14 @@ defmodule Google.Cloud.Aiplatform.V1.Part do
     oneof: 0,
     deprecated: false
 
+  field :thought, 10, type: :bool, oneof: 0, deprecated: false
+
+  field :thought_signature, 11,
+    type: :bytes,
+    json_name: "thoughtSignature",
+    oneof: 0,
+    deprecated: false
+
   field :video_metadata, 4,
     type: Google.Cloud.Aiplatform.V1.VideoMetadata,
     json_name: "videoMetadata",
@@ -236,6 +244,12 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.ThinkingConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :include_thoughts, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeThoughts",
+    deprecated: false
 
   field :thinking_budget, 3,
     proto3_optional: true,
