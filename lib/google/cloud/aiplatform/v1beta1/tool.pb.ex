@@ -82,6 +82,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
     type: Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution,
     json_name: "codeExecution",
     deprecated: false
+
+  field :url_context, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.UrlContext,
+    json_name: "urlContext",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.UrlContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolUseExample.ExtensionOperation do

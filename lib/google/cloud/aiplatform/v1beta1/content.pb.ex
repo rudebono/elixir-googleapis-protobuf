@@ -195,6 +195,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Part do
     deprecated: false
 
   field :thought, 10, type: :bool, deprecated: false
+  field :thought_signature, 11, type: :bytes, json_name: "thoughtSignature", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Blob do
@@ -302,6 +303,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ThinkingConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :include_thoughts, 1,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "includeThoughts",
+    deprecated: false
 
   field :thinking_budget, 3,
     proto3_optional: true,
