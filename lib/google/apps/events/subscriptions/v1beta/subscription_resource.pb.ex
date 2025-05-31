@@ -24,20 +24,36 @@ defmodule Google.Apps.Events.Subscriptions.V1beta.Subscription.ErrorType do
   field :OTHER, 5
 end
 
+defmodule Google.Apps.Events.Subscriptions.V1beta.Subscription.DriveOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :include_descendants, 1, type: :bool, json_name: "includeDescendants", deprecated: false
+end
+
 defmodule Google.Apps.Events.Subscriptions.V1beta.Subscription do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  oneof :expiration, 0
+  oneof :subscription_options, 0
+
+  oneof :expiration, 1
+
+  field :drive_options, 20,
+    type: Google.Apps.Events.Subscriptions.V1beta.Subscription.DriveOptions,
+    json_name: "driveOptions",
+    oneof: 0,
+    deprecated: false
 
   field :expire_time, 13,
     type: Google.Protobuf.Timestamp,
     json_name: "expireTime",
-    oneof: 0,
+    oneof: 1,
     deprecated: false
 
-  field :ttl, 14, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
+  field :ttl, 14, type: Google.Protobuf.Duration, oneof: 1, deprecated: false
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
   field :target_resource, 4, type: :string, json_name: "targetResource", deprecated: false

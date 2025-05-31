@@ -62,6 +62,11 @@ defmodule Google.Cloud.Aiplatform.V1.PersistentResource do
 
   field :network, 11, type: :string, deprecated: false
 
+  field :psc_interface_config, 17,
+    type: Google.Cloud.Aiplatform.V1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
   field :encryption_spec, 12,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec",
