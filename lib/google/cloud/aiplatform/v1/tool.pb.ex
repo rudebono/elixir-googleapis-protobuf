@@ -103,7 +103,18 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionDeclaration do
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
   field :parameters, 3, type: Google.Cloud.Aiplatform.V1.Schema, deprecated: false
+
+  field :parameters_json_schema, 5,
+    type: Google.Protobuf.Value,
+    json_name: "parametersJsonSchema",
+    deprecated: false
+
   field :response, 4, type: Google.Cloud.Aiplatform.V1.Schema, deprecated: false
+
+  field :response_json_schema, 6,
+    type: Google.Protobuf.Value,
+    json_name: "responseJsonSchema",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FunctionCall do
