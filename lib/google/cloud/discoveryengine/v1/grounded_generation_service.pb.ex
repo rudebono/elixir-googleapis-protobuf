@@ -391,6 +391,11 @@ defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingSpec do
     proto3_optional: true,
     type: :double,
     json_name: "citationThreshold"
+
+  field :enable_claim_level_score, 4,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableClaimLevelScore"
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingRequest.UserLabelsEntry do
@@ -444,6 +449,8 @@ defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.Claim do
     proto3_optional: true,
     type: :bool,
     json_name: "groundingCheckRequired"
+
+  field :score, 7, proto3_optional: true, type: :double
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse do

@@ -18,6 +18,8 @@ defmodule Google.Cloud.Discoveryengine.V1.TargetSite.IndexingStatus do
   field :FAILED, 2
   field :SUCCEEDED, 3
   field :DELETING, 4
+  field :CANCELLABLE, 5
+  field :CANCELLED, 6
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SiteVerificationInfo.SiteVerificationState do

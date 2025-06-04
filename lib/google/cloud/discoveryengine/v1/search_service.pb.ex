@@ -120,6 +120,11 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.DataStoreSpec do
     type: Google.Cloud.Discoveryengine.V1.SearchRequest.BoostSpec,
     json_name: "boostSpec",
     deprecated: false
+
+  field :custom_search_operators, 7,
+    type: :string,
+    json_name: "customSearchOperators",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.SearchRequest.FacetSpec.FacetKey do

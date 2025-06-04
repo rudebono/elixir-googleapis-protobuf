@@ -86,10 +86,19 @@ defmodule Google.Cloud.Discoveryengine.V1.DataStore do
     json_name: "advancedSiteSearchConfig",
     deprecated: false
 
+  field :kms_key_name, 32, type: :string, json_name: "kmsKeyName", deprecated: false
+
+  field :cmek_config, 18,
+    type: Google.Cloud.Discoveryengine.V1.CmekConfig,
+    json_name: "cmekConfig",
+    deprecated: false
+
   field :billing_estimation, 23,
     type: Google.Cloud.Discoveryengine.V1.DataStore.BillingEstimation,
     json_name: "billingEstimation",
     deprecated: false
+
+  field :acl_enabled, 24, type: :bool, json_name: "aclEnabled", deprecated: false
 
   field :workspace_config, 25,
     type: Google.Cloud.Discoveryengine.V1.WorkspaceConfig,
@@ -102,6 +111,16 @@ defmodule Google.Cloud.Discoveryengine.V1.DataStore do
   field :starting_schema, 28,
     type: Google.Cloud.Discoveryengine.V1.Schema,
     json_name: "startingSchema"
+
+  field :healthcare_fhir_config, 29,
+    type: Google.Cloud.Discoveryengine.V1.HealthcareFhirConfig,
+    json_name: "healthcareFhirConfig",
+    deprecated: false
+
+  field :identity_mapping_store, 31,
+    type: :string,
+    json_name: "identityMappingStore",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AdvancedSiteSearchConfig do

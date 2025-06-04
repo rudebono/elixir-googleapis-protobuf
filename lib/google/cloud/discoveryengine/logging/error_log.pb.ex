@@ -50,6 +50,20 @@ defmodule Google.Cloud.Discoveryengine.Logging.ImportErrorContext do
   field :user_event, 5, type: :string, json_name: "userEvent", oneof: 0
 end
 
+defmodule Google.Cloud.Discoveryengine.Logging.ConnectorRunErrorContext do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :operation, 1, type: :string
+  field :data_connector, 2, type: :string, json_name: "dataConnector"
+  field :connector_run, 3, type: :string, json_name: "connectorRun"
+  field :entity, 4, type: :string
+  field :sync_type, 5, type: :string, json_name: "syncType"
+  field :start_time, 6, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 7, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
 defmodule Google.Cloud.Discoveryengine.Logging.ErrorLog do
   @moduledoc false
 
@@ -68,4 +82,8 @@ defmodule Google.Cloud.Discoveryengine.Logging.ErrorLog do
   field :import_payload, 7,
     type: Google.Cloud.Discoveryengine.Logging.ImportErrorContext,
     json_name: "importPayload"
+
+  field :connector_run_payload, 8,
+    type: Google.Cloud.Discoveryengine.Logging.ConnectorRunErrorContext,
+    json_name: "connectorRunPayload"
 end
