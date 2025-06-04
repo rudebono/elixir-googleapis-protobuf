@@ -3,6 +3,15 @@ defmodule Google.Cloud.Discoveryengine.V1.CreateDataStoreRequest do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  oneof :cmek_options, 0
+
+  field :cmek_config_name, 5,
+    type: :string,
+    json_name: "cmekConfigName",
+    oneof: 0,
+    deprecated: false
+
+  field :disable_cmek, 6, type: :bool, json_name: "disableCmek", oneof: 0
   field :parent, 1, type: :string, deprecated: false
 
   field :data_store, 2,

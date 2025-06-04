@@ -920,6 +920,16 @@ defmodule Google.Cloud.Compute.V1beta.FirewallLogConfig.Metadata do
   field :INCLUDE_ALL_METADATA, 164_619_908
 end
 
+defmodule Google.Cloud.Compute.V1beta.FirewallPolicy.PolicyType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_POLICY_TYPE, 0
+  field :RDMA_ROCE_POLICY, 148_757_145
+  field :VPC_POLICY, 74_319_208
+end
+
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule.Direction do
   @moduledoc false
 
@@ -1630,6 +1640,16 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolic
 
   field :UNDEFINED_ON_FAILED_HEALTH_CHECK, 0
   field :DEFAULT_ACTION, 463_967_764
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicyOnRepair.AllowChangingZone do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_ALLOW_CHANGING_ZONE, 0
+  field :NO, 2497
+  field :YES, 87751
 end
 
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequest.State do
@@ -3967,6 +3987,18 @@ defmodule Google.Cloud.Compute.V1beta.ReservationAffinity.ConsumeReservationType
 end
 
 defmodule Google.Cloud.Compute.V1beta.ReservationBlock.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_STATUS, 0
+  field :CREATING, 455_564_985
+  field :DELETING, 528_602_024
+  field :INVALID, 530_283_991
+  field :READY, 77_848_963
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock.Status do
   @moduledoc false
 
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -12970,6 +13002,7 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicy do
     json_name: "packetMirroringRules"
 
   field :parent, 78_317_738, proto3_optional: true, type: :string
+  field :policy_type, 18_158_119, proto3_optional: true, type: :string, json_name: "policyType"
   field :region, 138_946_292, proto3_optional: true, type: :string
 
   field :rule_tuple_count, 388_342_037,
@@ -13327,6 +13360,11 @@ defmodule Google.Cloud.Compute.V1beta.ForwardingRule do
 
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
 
   field :service_directory_registrations, 223_549_694,
     repeated: true,
@@ -15641,6 +15679,22 @@ defmodule Google.Cloud.Compute.V1beta.GetReservationRequest do
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :reservation, 47_530_956, type: :string, deprecated: false
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1beta.GetReservationSubBlockRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :reservation_sub_block, 22_750_491,
+    type: :string,
+    json_name: "reservationSubBlock",
+    deprecated: false
+
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
@@ -19103,6 +19157,22 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolic
     proto3_optional: true,
     type: :string,
     json_name: "onFailedHealthCheck"
+
+  field :on_repair, 371_820_013,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicyOnRepair,
+    json_name: "onRepair"
+end
+
+defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicyOnRepair do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :allow_changing_zone, 426_055_112,
+    proto3_optional: true,
+    type: :string,
+    json_name: "allowChangingZone"
 end
 
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerList do
@@ -24147,6 +24217,26 @@ defmodule Google.Cloud.Compute.V1beta.ListReservationBlocksRequest do
   field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
   field :project, 227_560_217, type: :string, deprecated: false
   field :reservation, 47_530_956, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1beta.ListReservationSubBlocksRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
 
   field :return_partial_success, 517_198_390,
     proto3_optional: true,
@@ -30777,6 +30867,16 @@ defmodule Google.Cloud.Compute.V1beta.ReservationBlock do
     type: Google.Cloud.Compute.V1beta.GroupMaintenanceInfo,
     json_name: "reservationMaintenance"
 
+  field :reservation_sub_block_count, 330_782_955,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "reservationSubBlockCount"
+
+  field :reservation_sub_block_in_use_count, 186_007_137,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "reservationSubBlockInUseCount"
+
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :self_link_with_id, 44_520_962,
@@ -30832,6 +30932,77 @@ defmodule Google.Cloud.Compute.V1beta.ReservationList do
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Reservation
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :count, 94_851_343, proto3_optional: true, type: :int32
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :in_use_count, 493_458_877, proto3_optional: true, type: :int32, json_name: "inUseCount"
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :physical_topology, 279_778_519,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.ReservationSubBlockPhysicalTopology,
+    json_name: "physicalTopology"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :self_link_with_id, 44_520_962,
+    proto3_optional: true,
+    type: :string,
+    json_name: "selfLinkWithId"
+
+  field :status, 181_260_274, proto3_optional: true, type: :string
+  field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlockPhysicalTopology do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :block, 93_832_333, proto3_optional: true, type: :string
+  field :cluster, 335_221_242, proto3_optional: true, type: :string
+  field :sub_block, 478_033_358, proto3_optional: true, type: :string, json_name: "subBlock"
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocksGetResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :resource, 195_806_222,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.ReservationSubBlock
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocksListResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.ReservationSubBlock
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
   field :next_page_token, 79_797_525,
@@ -31748,6 +31919,7 @@ defmodule Google.Cloud.Compute.V1beta.Router do
   field :nats, 3_373_938, repeated: true, type: Google.Cloud.Compute.V1beta.RouterNat
   field :ncc_gateway, 174_876_755, proto3_optional: true, type: :string, json_name: "nccGateway"
   field :network, 232_872_494, proto3_optional: true, type: :string
+  field :params, 78_313_862, proto3_optional: true, type: Google.Cloud.Compute.V1beta.RouterParams
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 end
@@ -32188,6 +32360,27 @@ defmodule Google.Cloud.Compute.V1beta.RouterNatSubnetworkToNat64 do
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1beta.RouterParams.ResourceManagerTagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1beta.RouterParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1beta.RouterParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
+end
+
 defmodule Google.Cloud.Compute.V1beta.RouterStatus do
   @moduledoc false
 
@@ -32623,6 +32816,11 @@ defmodule Google.Cloud.Compute.V1beta.Scheduling do
     proto3_optional: true,
     type: :string,
     json_name: "provisioningModel"
+
+  field :skip_guest_os_shutdown, 201_662_378,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "skipGuestOsShutdown"
 
   field :termination_time, 428_082_984,
     proto3_optional: true,
@@ -40580,6 +40778,11 @@ defmodule Google.Cloud.Compute.V1beta.VpnTunnel do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :cipher_suite, 443_788_228,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.VpnTunnelCipherSuite,
+    json_name: "cipherSuite"
+
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
     type: :string,
@@ -40697,6 +40900,20 @@ defmodule Google.Cloud.Compute.V1beta.VpnTunnelAggregatedList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
 end
 
+defmodule Google.Cloud.Compute.V1beta.VpnTunnelCipherSuite do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :phase1, 84_289_046,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.VpnTunnelPhase1Algorithms
+
+  field :phase2, 84_289_047,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.VpnTunnelPhase2Algorithms
+end
+
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelList do
   @moduledoc false
 
@@ -40713,6 +40930,27 @@ defmodule Google.Cloud.Compute.V1beta.VpnTunnelList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
+end
+
+defmodule Google.Cloud.Compute.V1beta.VpnTunnelPhase1Algorithms do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dh, 3204, repeated: true, type: :string
+  field :encryption, 97_980_291, repeated: true, type: :string
+  field :integrity, 492_830_541, repeated: true, type: :string
+  field :prf, 111_268, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1beta.VpnTunnelPhase2Algorithms do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :encryption, 97_980_291, repeated: true, type: :string
+  field :integrity, 492_830_541, repeated: true, type: :string
+  field :pfs, 110_909, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelsScopedList do
@@ -40873,6 +41111,7 @@ defmodule Google.Cloud.Compute.V1beta.WireGroup do
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+  field :reconciling, 432_155_787, proto3_optional: true, type: :bool
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :topology, 122_274_415,
@@ -45179,6 +45418,28 @@ defmodule Google.Cloud.Compute.V1beta.ReservationBlocks.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Compute.V1beta.ReservationBlocks.Service
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocks.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1beta.ReservationSubBlocks",
+    protoc_gen_elixir_version: "0.14.1"
+
+  rpc :Get,
+      Google.Cloud.Compute.V1beta.GetReservationSubBlockRequest,
+      Google.Cloud.Compute.V1beta.ReservationSubBlocksGetResponse
+
+  rpc :List,
+      Google.Cloud.Compute.V1beta.ListReservationSubBlocksRequest,
+      Google.Cloud.Compute.V1beta.ReservationSubBlocksListResponse
+end
+
+defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocks.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1beta.ReservationSubBlocks.Service
 end
 
 defmodule Google.Cloud.Compute.V1beta.Reservations.Service do

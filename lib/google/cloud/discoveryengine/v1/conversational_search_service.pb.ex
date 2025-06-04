@@ -31,6 +31,7 @@ defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingS
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
   field :NON_ANSWER_SEEKING_QUERY_V2, 4
+  field :USER_DEFINED_CLASSIFICATION_QUERY, 5
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.AnswerQueryRequest.QueryUnderstandingSpec.QueryRephraserSpec.ModelSpec.ModelType do

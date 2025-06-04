@@ -43,4 +43,8 @@ defmodule Google.Cloud.Discoveryengine.V1.FactChunk do
     type: Google.Cloud.Discoveryengine.V1.FactChunk.SourceMetadataEntry,
     json_name: "sourceMetadata",
     map: true
+
+  field :uri, 5, type: :string
+  field :title, 6, type: :string
+  field :domain, 7, type: :string
 end

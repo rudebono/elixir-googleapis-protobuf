@@ -61,6 +61,8 @@ defmodule Google.Cloud.Dataproc.V1.AutotuningConfig.Scenario do
   field :SCALING, 2
   field :BROADCAST_HASH_JOIN, 3
   field :MEMORY, 4
+  field :NONE, 5
+  field :AUTO, 6
 end
 
 defmodule Google.Cloud.Dataproc.V1.RuntimeConfig.PropertiesEntry do

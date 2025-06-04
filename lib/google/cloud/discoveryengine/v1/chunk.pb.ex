@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Discoveryengine.V1.Chunk.StructureType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STRUCTURE_TYPE_UNSPECIFIED, 0
+  field :SHAREHOLDER_STRUCTURE, 1
+  field :SIGNATURE_STRUCTURE, 2
+  field :CHECKBOX_STRUCTURE, 3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.Chunk.DocumentMetadata do
   @moduledoc false
 
@@ -33,6 +44,33 @@ defmodule Google.Cloud.Discoveryengine.V1.Chunk.ChunkMetadata do
     json_name: "nextChunks"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.Chunk.StructuredContent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :structure_type, 1,
+    type: Google.Cloud.Discoveryengine.V1.Chunk.StructureType,
+    json_name: "structureType",
+    enum: true,
+    deprecated: false
+
+  field :content, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.Chunk.AnnotationMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :structured_content, 1,
+    type: Google.Cloud.Discoveryengine.V1.Chunk.StructuredContent,
+    json_name: "structuredContent",
+    deprecated: false
+
+  field :image_id, 2, type: :string, json_name: "imageId", deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.Chunk do
   @moduledoc false
 
@@ -62,5 +100,19 @@ defmodule Google.Cloud.Discoveryengine.V1.Chunk do
   field :chunk_metadata, 7,
     type: Google.Cloud.Discoveryengine.V1.Chunk.ChunkMetadata,
     json_name: "chunkMetadata",
+    deprecated: false
+
+  field :data_urls, 9, repeated: true, type: :string, json_name: "dataUrls", deprecated: false
+
+  field :annotation_contents, 11,
+    repeated: true,
+    type: :string,
+    json_name: "annotationContents",
+    deprecated: false
+
+  field :annotation_metadata, 12,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.Chunk.AnnotationMetadata,
+    json_name: "annotationMetadata",
     deprecated: false
 end

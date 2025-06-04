@@ -25,6 +25,8 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.AnswerSkippedReason do
   field :CUSTOMER_POLICY_VIOLATION, 7
   field :NON_ANSWER_SEEKING_QUERY_IGNORED_V2, 8
   field :LOW_GROUNDED_ANSWER, 9
+  field :USER_DEFINED_CLASSIFICATION_QUERY_IGNORED, 10
+  field :UNHELPFUL_ANSWER, 11
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Step.State do
@@ -48,6 +50,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Answer.QueryUnderstandingInfo.QueryCla
   field :NON_ANSWER_SEEKING_QUERY, 2
   field :JAIL_BREAKING_QUERY, 3
   field :NON_ANSWER_SEEKING_QUERY_V2, 4
+  field :USER_DEFINED_CLASSIFICATION_QUERY, 5
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.Answer.Citation do

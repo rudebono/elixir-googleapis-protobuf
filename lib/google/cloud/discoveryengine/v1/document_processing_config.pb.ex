@@ -45,6 +45,40 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_table_annotation, 1,
+    type: :bool,
+    json_name: "enableTableAnnotation",
+    deprecated: false
+
+  field :enable_image_annotation, 2,
+    type: :bool,
+    json_name: "enableImageAnnotation",
+    deprecated: false
+
+  field :structured_content_types, 9,
+    repeated: true,
+    type: :string,
+    json_name: "structuredContentTypes",
+    deprecated: false
+
+  field :exclude_html_elements, 10,
+    repeated: true,
+    type: :string,
+    json_name: "excludeHtmlElements",
+    deprecated: false
+
+  field :exclude_html_classes, 11,
+    repeated: true,
+    type: :string,
+    json_name: "excludeHtmlClasses",
+    deprecated: false
+
+  field :exclude_html_ids, 12,
+    repeated: true,
+    type: :string,
+    json_name: "excludeHtmlIds",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig do

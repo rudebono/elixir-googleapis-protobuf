@@ -10,6 +10,25 @@ defmodule Google.Cloud.Discoveryengine.V1.Document.Content do
   field :mime_type, 1, type: :string, json_name: "mimeType"
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.Document.AclInfo.AccessRestriction do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :principals, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1.Principal
+  field :idp_wide, 2, type: :bool, json_name: "idpWide"
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.Document.AclInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :readers, 1,
+    repeated: true,
+    type: Google.Cloud.Discoveryengine.V1.Document.AclInfo.AccessRestriction
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.Document.IndexStatus do
   @moduledoc false
 
@@ -39,6 +58,10 @@ defmodule Google.Cloud.Discoveryengine.V1.Document do
     type: Google.Protobuf.Struct,
     json_name: "derivedStructData",
     deprecated: false
+
+  field :acl_info, 11,
+    type: Google.Cloud.Discoveryengine.V1.Document.AclInfo,
+    json_name: "aclInfo"
 
   field :index_time, 13,
     type: Google.Protobuf.Timestamp,

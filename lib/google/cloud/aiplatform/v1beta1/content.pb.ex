@@ -385,6 +385,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
     json_name: "responseSchema",
     deprecated: false
 
+  field :response_json_schema, 28,
+    proto3_optional: true,
+    type: Google.Protobuf.Value,
+    json_name: "responseJsonSchema",
+    deprecated: false
+
   field :routing_config, 17,
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig,

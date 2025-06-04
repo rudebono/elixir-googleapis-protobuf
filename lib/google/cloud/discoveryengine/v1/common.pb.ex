@@ -92,6 +92,30 @@ defmodule Google.Cloud.Discoveryengine.V1.DoubleList do
   field :values, 1, repeated: true, type: :double
 end
 
+defmodule Google.Cloud.Discoveryengine.V1.Principal do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :principal, 0
+
+  field :user_id, 1, type: :string, json_name: "userId", oneof: 0
+  field :group_id, 2, type: :string, json_name: "groupId", oneof: 0
+  field :external_entity_id, 3, type: :string, json_name: "externalEntityId", oneof: 0
+end
+
+defmodule Google.Cloud.Discoveryengine.V1.HealthcareFhirConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_configurable_schema, 1, type: :bool, json_name: "enableConfigurableSchema"
+
+  field :enable_static_indexing_for_batch_ingestion, 2,
+    type: :bool,
+    json_name: "enableStaticIndexingForBatchIngestion"
+end
+
 defmodule Google.Cloud.Discoveryengine.V1.SearchLinkPromotion do
   @moduledoc false
 
@@ -99,6 +123,7 @@ defmodule Google.Cloud.Discoveryengine.V1.SearchLinkPromotion do
 
   field :title, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
+  field :document, 6, type: :string, deprecated: false
   field :image_uri, 3, type: :string, json_name: "imageUri", deprecated: false
   field :description, 4, type: :string, deprecated: false
   field :enabled, 5, type: :bool, deprecated: false
