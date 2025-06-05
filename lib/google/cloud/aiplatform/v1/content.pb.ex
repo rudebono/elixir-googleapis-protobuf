@@ -99,6 +99,16 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate.FinishReason do
   field :MALFORMED_FUNCTION_CALL, 9
 end
 
+defmodule Google.Cloud.Aiplatform.V1.UrlMetadata.UrlRetrievalStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :URL_RETRIEVAL_STATUS_UNSPECIFIED, 0
+  field :URL_RETRIEVAL_STATUS_SUCCESS, 1
+  field :URL_RETRIEVAL_STATUS_ERROR, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1.Content do
   @moduledoc false
 
@@ -443,6 +453,36 @@ defmodule Google.Cloud.Aiplatform.V1.Candidate do
     type: Google.Cloud.Aiplatform.V1.GroundingMetadata,
     json_name: "groundingMetadata",
     deprecated: false
+
+  field :url_context_metadata, 11,
+    type: Google.Cloud.Aiplatform.V1.UrlContextMetadata,
+    json_name: "urlContextMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UrlContextMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :url_metadata, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.UrlMetadata,
+    json_name: "urlMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.UrlMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :retrieved_url, 1, type: :string, json_name: "retrievedUrl"
+
+  field :url_retrieval_status, 2,
+    type: Google.Cloud.Aiplatform.V1.UrlMetadata.UrlRetrievalStatus,
+    json_name: "urlRetrievalStatus",
+    enum: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1.LogprobsResult.Candidate do
