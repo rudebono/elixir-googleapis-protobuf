@@ -36,6 +36,15 @@ defmodule Google.Cloud.Secretmanager.V1.Secret.AnnotationsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Secretmanager.V1.Secret.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Secretmanager.V1.Secret do
   @moduledoc false
 
@@ -89,6 +98,12 @@ defmodule Google.Cloud.Secretmanager.V1.Secret do
   field :customer_managed_encryption, 15,
     type: Google.Cloud.Secretmanager.V1.CustomerManagedEncryption,
     json_name: "customerManagedEncryption",
+    deprecated: false
+
+  field :tags, 16,
+    repeated: true,
+    type: Google.Cloud.Secretmanager.V1.Secret.TagsEntry,
+    map: true,
     deprecated: false
 end
 
