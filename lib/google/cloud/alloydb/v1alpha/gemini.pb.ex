@@ -12,7 +12,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.GeminiClusterConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :entitled, 1, type: :bool, deprecated: false
+  field :entitled, 1, type: :bool, deprecated: true
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.GeminiInstanceConfig do
@@ -20,7 +20,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.GeminiInstanceConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :entitled, 1, type: :bool, deprecated: false
+  field :entitled, 1, type: :bool, deprecated: true
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.GCAInstanceConfig do

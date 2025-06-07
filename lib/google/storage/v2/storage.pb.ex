@@ -88,6 +88,11 @@ defmodule Google.Storage.V2.CreateBucketRequest do
     type: :string,
     json_name: "predefinedDefaultObjectAcl",
     deprecated: false
+
+  field :enable_object_retention, 9,
+    type: :bool,
+    json_name: "enableObjectRetention",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.ListBucketsRequest do
@@ -1030,6 +1035,11 @@ defmodule Google.Storage.V2.UpdateObjectRequest do
     type: Google.Storage.V2.CommonObjectRequestParams,
     json_name: "commonObjectRequestParams",
     deprecated: false
+
+  field :override_unlocked_retention, 11,
+    type: :bool,
+    json_name: "overrideUnlockedRetention",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.CommonObjectRequestParams do
@@ -1081,12 +1091,69 @@ defmodule Google.Storage.V2.Bucket.Cors do
   field :max_age_seconds, 4, type: :int32, json_name: "maxAgeSeconds", deprecated: false
 end
 
+defmodule Google.Storage.V2.Bucket.Encryption.GoogleManagedEncryptionEnforcementConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :restricted, 1, proto3_optional: true, type: :bool
+
+  field :effective_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "effectiveTime"
+end
+
+defmodule Google.Storage.V2.Bucket.Encryption.CustomerManagedEncryptionEnforcementConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :restricted, 1, proto3_optional: true, type: :bool
+
+  field :effective_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "effectiveTime"
+end
+
+defmodule Google.Storage.V2.Bucket.Encryption.CustomerSuppliedEncryptionEnforcementConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :restricted, 1, proto3_optional: true, type: :bool
+
+  field :effective_time, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "effectiveTime"
+end
+
 defmodule Google.Storage.V2.Bucket.Encryption do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :default_kms_key, 1, type: :string, json_name: "defaultKmsKey", deprecated: false
+
+  field :google_managed_encryption_enforcement_config, 2,
+    proto3_optional: true,
+    type: Google.Storage.V2.Bucket.Encryption.GoogleManagedEncryptionEnforcementConfig,
+    json_name: "googleManagedEncryptionEnforcementConfig",
+    deprecated: false
+
+  field :customer_managed_encryption_enforcement_config, 3,
+    proto3_optional: true,
+    type: Google.Storage.V2.Bucket.Encryption.CustomerManagedEncryptionEnforcementConfig,
+    json_name: "customerManagedEncryptionEnforcementConfig",
+    deprecated: false
+
+  field :customer_supplied_encryption_enforcement_config, 4,
+    proto3_optional: true,
+    type: Google.Storage.V2.Bucket.Encryption.CustomerSuppliedEncryptionEnforcementConfig,
+    json_name: "customerSuppliedEncryptionEnforcementConfig",
+    deprecated: false
 end
 
 defmodule Google.Storage.V2.Bucket.IamConfig.UniformBucketLevelAccess do
@@ -1196,6 +1263,14 @@ defmodule Google.Storage.V2.Bucket.Logging do
 
   field :log_bucket, 1, type: :string, json_name: "logBucket", deprecated: false
   field :log_object_prefix, 2, type: :string, json_name: "logObjectPrefix", deprecated: false
+end
+
+defmodule Google.Storage.V2.Bucket.ObjectRetention do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enabled, 1, type: :bool, deprecated: false
 end
 
 defmodule Google.Storage.V2.Bucket.RetentionPolicy do
@@ -1330,6 +1405,11 @@ defmodule Google.Storage.V2.Bucket.IpFilter do
     deprecated: false
 
   field :allow_cross_org_vpcs, 4, type: :bool, json_name: "allowCrossOrgVpcs", deprecated: false
+
+  field :allow_all_service_agent_access, 5,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "allowAllServiceAgentAccess"
 end
 
 defmodule Google.Storage.V2.Bucket.HierarchicalNamespace do
@@ -1430,6 +1510,11 @@ defmodule Google.Storage.V2.Bucket do
   field :soft_delete_policy, 31,
     type: Google.Storage.V2.Bucket.SoftDeletePolicy,
     json_name: "softDeletePolicy",
+    deprecated: false
+
+  field :object_retention, 33,
+    type: Google.Storage.V2.Bucket.ObjectRetention,
+    json_name: "objectRetention",
     deprecated: false
 
   field :ip_filter, 38,
