@@ -5,5 +5,5 @@ defmodule Google.Cloud.Bigquery.V2.ManagedTableType do
 
   field :MANAGED_TABLE_TYPE_UNSPECIFIED, 0
   field :NATIVE, 1
-  field :ICEBERG, 2
+  field :BIGLAKE, 2
 end

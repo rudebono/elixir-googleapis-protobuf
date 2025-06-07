@@ -52,6 +52,8 @@ defmodule Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettings do
     deprecated: false
 
   field :etag, 6, type: :string, deprecated: false
+  field :inherited, 7, type: :bool, deprecated: false
+  field :inherited_from, 8, type: :string, json_name: "inheritedFrom", deprecated: false
 end
 
 defmodule Google.Api.Cloudquotas.V1beta.QuotaAdjusterSettingsManager.Service do
