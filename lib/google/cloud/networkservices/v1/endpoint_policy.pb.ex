@@ -73,6 +73,11 @@ defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesResponse do
@@ -86,6 +91,7 @@ defmodule Google.Cloud.Networkservices.V1.ListEndpointPoliciesResponse do
     json_name: "endpointPolicies"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetEndpointPolicyRequest do

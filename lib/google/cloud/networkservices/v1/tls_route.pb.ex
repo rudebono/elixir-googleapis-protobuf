@@ -29,6 +29,11 @@ defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteAction do
     repeated: true,
     type: Google.Cloud.Networkservices.V1.TlsRoute.RouteDestination,
     deprecated: false
+
+  field :idle_timeout, 4,
+    type: Google.Protobuf.Duration,
+    json_name: "idleTimeout",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteDestination do
@@ -38,6 +43,15 @@ defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteDestination do
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :weight, 2, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.TlsRoute.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.TlsRoute do
@@ -67,6 +81,12 @@ defmodule Google.Cloud.Networkservices.V1.TlsRoute do
 
   field :meshes, 6, repeated: true, type: :string, deprecated: false
   field :gateways, 7, repeated: true, type: :string, deprecated: false
+
+  field :labels, 11,
+    repeated: true,
+    type: Google.Cloud.Networkservices.V1.TlsRoute.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesRequest do
@@ -77,6 +97,11 @@ defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesResponse do
@@ -90,6 +115,7 @@ defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesResponse do
     json_name: "tlsRoutes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetTlsRouteRequest do

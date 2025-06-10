@@ -115,6 +115,14 @@ defmodule Google.Cloud.Networkservices.V1.GrpcRoute.FaultInjectionPolicy do
     type: Google.Cloud.Networkservices.V1.GrpcRoute.FaultInjectionPolicy.Abort
 end
 
+defmodule Google.Cloud.Networkservices.V1.GrpcRoute.StatefulSessionAffinityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cookie_ttl, 1, type: Google.Protobuf.Duration, json_name: "cookieTtl", deprecated: false
+end
+
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RetryPolicy do
   @moduledoc false
 
@@ -144,6 +152,16 @@ defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RouteAction do
   field :retry_policy, 8,
     type: Google.Cloud.Networkservices.V1.GrpcRoute.RetryPolicy,
     json_name: "retryPolicy",
+    deprecated: false
+
+  field :stateful_session_affinity, 11,
+    type: Google.Cloud.Networkservices.V1.GrpcRoute.StatefulSessionAffinityPolicy,
+    json_name: "statefulSessionAffinity",
+    deprecated: false
+
+  field :idle_timeout, 12,
+    type: Google.Protobuf.Duration,
+    json_name: "idleTimeout",
     deprecated: false
 end
 
@@ -212,6 +230,11 @@ defmodule Google.Cloud.Networkservices.V1.ListGrpcRoutesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListGrpcRoutesResponse do
@@ -225,6 +248,7 @@ defmodule Google.Cloud.Networkservices.V1.ListGrpcRoutesResponse do
     json_name: "grpcRoutes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetGrpcRouteRequest do

@@ -8,6 +8,25 @@ defmodule Google.Cloud.Networkservices.V1.Gateway.Type do
   field :SECURE_WEB_GATEWAY, 2
 end
 
+defmodule Google.Cloud.Networkservices.V1.Gateway.IpVersion do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :IP_VERSION_UNSPECIFIED, 0
+  field :IPV4, 1
+  field :IPV6, 2
+end
+
+defmodule Google.Cloud.Networkservices.V1.Gateway.RoutingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :EXPLICIT_ROUTING_MODE, 0
+  field :NEXT_HOP_ROUTING_MODE, 1
+end
+
 defmodule Google.Cloud.Networkservices.V1.Gateway.LabelsEntry do
   @moduledoc false
 
@@ -48,9 +67,43 @@ defmodule Google.Cloud.Networkservices.V1.Gateway do
     enum: true,
     deprecated: false
 
+  field :addresses, 7, repeated: true, type: :string, deprecated: false
   field :ports, 11, repeated: true, type: :int32, deprecated: false
   field :scope, 8, type: :string, deprecated: false
   field :server_tls_policy, 9, type: :string, json_name: "serverTlsPolicy", deprecated: false
+
+  field :certificate_urls, 14,
+    repeated: true,
+    type: :string,
+    json_name: "certificateUrls",
+    deprecated: false
+
+  field :gateway_security_policy, 18,
+    type: :string,
+    json_name: "gatewaySecurityPolicy",
+    deprecated: false
+
+  field :network, 16, type: :string, deprecated: false
+  field :subnetwork, 17, type: :string, deprecated: false
+
+  field :ip_version, 21,
+    type: Google.Cloud.Networkservices.V1.Gateway.IpVersion,
+    json_name: "ipVersion",
+    enum: true,
+    deprecated: false
+
+  field :envoy_headers, 28,
+    proto3_optional: true,
+    type: Google.Cloud.Networkservices.V1.EnvoyHeaders,
+    json_name: "envoyHeaders",
+    enum: true,
+    deprecated: false
+
+  field :routing_mode, 32,
+    type: Google.Cloud.Networkservices.V1.Gateway.RoutingMode,
+    json_name: "routingMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListGatewaysRequest do
@@ -70,6 +123,7 @@ defmodule Google.Cloud.Networkservices.V1.ListGatewaysResponse do
 
   field :gateways, 1, repeated: true, type: Google.Cloud.Networkservices.V1.Gateway
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetGatewayRequest do

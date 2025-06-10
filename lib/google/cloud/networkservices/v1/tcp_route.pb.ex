@@ -31,6 +31,11 @@ defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteAction do
     deprecated: false
 
   field :original_destination, 3, type: :bool, json_name: "originalDestination", deprecated: false
+
+  field :idle_timeout, 5,
+    type: Google.Protobuf.Duration,
+    json_name: "idleTimeout",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.TcpRoute.RouteDestination do
@@ -94,6 +99,11 @@ defmodule Google.Cloud.Networkservices.V1.ListTcpRoutesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListTcpRoutesResponse do
@@ -107,6 +117,7 @@ defmodule Google.Cloud.Networkservices.V1.ListTcpRoutesResponse do
     json_name: "tcpRoutes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetTcpRouteRequest do

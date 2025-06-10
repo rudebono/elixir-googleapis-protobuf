@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Networkservices.V1.EnvoyHeaders do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ENVOY_HEADERS_UNSPECIFIED, 0
+  field :NONE, 1
+  field :DEBUG_HEADERS, 2
+end
+
 defmodule Google.Cloud.Networkservices.V1.EndpointMatcher.MetadataLabelMatcher.MetadataLabelMatchCriteria do
   @moduledoc false
 

@@ -137,6 +137,10 @@ defmodule Google.Cloud.Networkservices.V1.NetworkServices.Service do
       Google.Cloud.Networkservices.V1.CreateServiceBindingRequest,
       Google.Longrunning.Operation
 
+  rpc :UpdateServiceBinding,
+      Google.Cloud.Networkservices.V1.UpdateServiceBindingRequest,
+      Google.Longrunning.Operation
+
   rpc :DeleteServiceBinding,
       Google.Cloud.Networkservices.V1.DeleteServiceBindingRequest,
       Google.Longrunning.Operation
@@ -154,6 +158,42 @@ defmodule Google.Cloud.Networkservices.V1.NetworkServices.Service do
   rpc :UpdateMesh, Google.Cloud.Networkservices.V1.UpdateMeshRequest, Google.Longrunning.Operation
 
   rpc :DeleteMesh, Google.Cloud.Networkservices.V1.DeleteMeshRequest, Google.Longrunning.Operation
+
+  rpc :ListServiceLbPolicies,
+      Google.Cloud.Networkservices.V1.ListServiceLbPoliciesRequest,
+      Google.Cloud.Networkservices.V1.ListServiceLbPoliciesResponse
+
+  rpc :GetServiceLbPolicy,
+      Google.Cloud.Networkservices.V1.GetServiceLbPolicyRequest,
+      Google.Cloud.Networkservices.V1.ServiceLbPolicy
+
+  rpc :CreateServiceLbPolicy,
+      Google.Cloud.Networkservices.V1.CreateServiceLbPolicyRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateServiceLbPolicy,
+      Google.Cloud.Networkservices.V1.UpdateServiceLbPolicyRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteServiceLbPolicy,
+      Google.Cloud.Networkservices.V1.DeleteServiceLbPolicyRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetGatewayRouteView,
+      Google.Cloud.Networkservices.V1.GetGatewayRouteViewRequest,
+      Google.Cloud.Networkservices.V1.GatewayRouteView
+
+  rpc :GetMeshRouteView,
+      Google.Cloud.Networkservices.V1.GetMeshRouteViewRequest,
+      Google.Cloud.Networkservices.V1.MeshRouteView
+
+  rpc :ListGatewayRouteViews,
+      Google.Cloud.Networkservices.V1.ListGatewayRouteViewsRequest,
+      Google.Cloud.Networkservices.V1.ListGatewayRouteViewsResponse
+
+  rpc :ListMeshRouteViews,
+      Google.Cloud.Networkservices.V1.ListMeshRouteViewsRequest,
+      Google.Cloud.Networkservices.V1.ListMeshRouteViewsResponse
 end
 
 defmodule Google.Cloud.Networkservices.V1.NetworkServices.Stub do

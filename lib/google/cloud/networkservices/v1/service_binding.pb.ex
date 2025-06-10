@@ -25,7 +25,8 @@ defmodule Google.Cloud.Networkservices.V1.ServiceBinding do
     json_name: "updateTime",
     deprecated: false
 
-  field :service, 5, type: :string, deprecated: false
+  field :service, 5, type: :string, deprecated: true
+  field :service_id, 8, type: :string, json_name: "serviceId", deprecated: true
 
   field :labels, 7,
     repeated: true,
@@ -55,6 +56,7 @@ defmodule Google.Cloud.Networkservices.V1.ListServiceBindingsResponse do
     json_name: "serviceBindings"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetServiceBindingRequest do
@@ -74,6 +76,22 @@ defmodule Google.Cloud.Networkservices.V1.CreateServiceBindingRequest do
   field :service_binding_id, 2, type: :string, json_name: "serviceBindingId", deprecated: false
 
   field :service_binding, 3,
+    type: Google.Cloud.Networkservices.V1.ServiceBinding,
+    json_name: "serviceBinding",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.UpdateServiceBindingRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :service_binding, 2,
     type: Google.Cloud.Networkservices.V1.ServiceBinding,
     json_name: "serviceBinding",
     deprecated: false
