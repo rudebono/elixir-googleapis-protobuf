@@ -5,13 +5,16 @@ defmodule Google.Cloud.Dataproc.V1.Component do
 
   field :COMPONENT_UNSPECIFIED, 0
   field :ANACONDA, 5
+  field :DELTA, 20
   field :DOCKER, 13
   field :DRUID, 9
   field :FLINK, 14
   field :HBASE, 11
   field :HIVE_WEBHCAT, 3
   field :HUDI, 18
+  field :ICEBERG, 19
   field :JUPYTER, 1
+  field :PIG, 21
   field :PRESTO, 6
   field :TRINO, 17
   field :RANGER, 12

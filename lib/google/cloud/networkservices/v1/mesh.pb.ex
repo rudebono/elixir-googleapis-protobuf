@@ -33,6 +33,13 @@ defmodule Google.Cloud.Networkservices.V1.Mesh do
 
   field :description, 5, type: :string, deprecated: false
   field :interception_port, 8, type: :int32, json_name: "interceptionPort", deprecated: false
+
+  field :envoy_headers, 16,
+    proto3_optional: true,
+    type: Google.Cloud.Networkservices.V1.EnvoyHeaders,
+    json_name: "envoyHeaders",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListMeshesRequest do
@@ -43,6 +50,11 @@ defmodule Google.Cloud.Networkservices.V1.ListMeshesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListMeshesResponse do
@@ -52,6 +64,7 @@ defmodule Google.Cloud.Networkservices.V1.ListMeshesResponse do
 
   field :meshes, 1, repeated: true, type: Google.Cloud.Networkservices.V1.Mesh
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetMeshRequest do

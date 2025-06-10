@@ -81,6 +81,16 @@ defmodule Google.Cloud.Networkservices.V1.HttpRoute.Destination do
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :weight, 2, type: :int32
+
+  field :request_header_modifier, 3,
+    type: Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier,
+    json_name: "requestHeaderModifier",
+    deprecated: false
+
+  field :response_header_modifier, 4,
+    type: Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier,
+    json_name: "responseHeaderModifier",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.Redirect do
@@ -127,6 +137,14 @@ defmodule Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy do
 
   field :delay, 1, type: Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Delay
   field :abort, 2, type: Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Abort
+end
+
+defmodule Google.Cloud.Networkservices.V1.HttpRoute.StatefulSessionAffinityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cookie_ttl, 1, type: Google.Protobuf.Duration, json_name: "cookieTtl", deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier.SetEntry do
@@ -190,6 +208,7 @@ defmodule Google.Cloud.Networkservices.V1.HttpRoute.RequestMirrorPolicy do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :destination, 1, type: Google.Cloud.Networkservices.V1.HttpRoute.Destination
+  field :mirror_percent, 2, type: :float, json_name: "mirrorPercent", deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.CorsPolicy do
@@ -205,6 +224,18 @@ defmodule Google.Cloud.Networkservices.V1.HttpRoute.CorsPolicy do
   field :max_age, 6, type: :string, json_name: "maxAge"
   field :allow_credentials, 7, type: :bool, json_name: "allowCredentials"
   field :disabled, 8, type: :bool
+end
+
+defmodule Google.Cloud.Networkservices.V1.HttpRoute.HttpDirectResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :HttpBody, 0
+
+  field :string_body, 2, type: :string, json_name: "stringBody", oneof: 0, deprecated: false
+  field :bytes_body, 3, type: :bytes, json_name: "bytesBody", oneof: 0, deprecated: false
+  field :status, 1, type: :int32, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteAction do
@@ -247,6 +278,21 @@ defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteAction do
   field :cors_policy, 11,
     type: Google.Cloud.Networkservices.V1.HttpRoute.CorsPolicy,
     json_name: "corsPolicy"
+
+  field :stateful_session_affinity, 12,
+    type: Google.Cloud.Networkservices.V1.HttpRoute.StatefulSessionAffinityPolicy,
+    json_name: "statefulSessionAffinity",
+    deprecated: false
+
+  field :direct_response, 13,
+    type: Google.Cloud.Networkservices.V1.HttpRoute.HttpDirectResponse,
+    json_name: "directResponse",
+    deprecated: false
+
+  field :idle_timeout, 14,
+    type: Google.Protobuf.Duration,
+    json_name: "idleTimeout",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteRule do
@@ -310,6 +356,11 @@ defmodule Google.Cloud.Networkservices.V1.ListHttpRoutesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+
+  field :return_partial_success, 4,
+    type: :bool,
+    json_name: "returnPartialSuccess",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ListHttpRoutesResponse do
@@ -323,6 +374,7 @@ defmodule Google.Cloud.Networkservices.V1.ListHttpRoutesResponse do
     json_name: "httpRoutes"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
 end
 
 defmodule Google.Cloud.Networkservices.V1.GetHttpRouteRequest do
