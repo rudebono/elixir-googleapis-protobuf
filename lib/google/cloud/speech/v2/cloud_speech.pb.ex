@@ -418,6 +418,15 @@ defmodule Google.Cloud.Speech.V2.SpeechAdaptation do
     json_name: "customClasses"
 end
 
+defmodule Google.Cloud.Speech.V2.DenoiserConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :denoise_audio, 1, type: :bool, json_name: "denoiseAudio"
+  field :snr_threshold, 2, type: :float, json_name: "snrThreshold"
+end
+
 defmodule Google.Cloud.Speech.V2.RecognitionConfig do
   @moduledoc false
 
@@ -454,6 +463,11 @@ defmodule Google.Cloud.Speech.V2.RecognitionConfig do
   field :translation_config, 15,
     type: Google.Cloud.Speech.V2.TranslationConfig,
     json_name: "translationConfig",
+    deprecated: false
+
+  field :denoiser_config, 16,
+    type: Google.Cloud.Speech.V2.DenoiserConfig,
+    json_name: "denoiserConfig",
     deprecated: false
 end
 

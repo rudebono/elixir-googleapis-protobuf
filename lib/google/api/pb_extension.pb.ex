@@ -3,7 +3,11 @@ defmodule Google.Api.PbExtension do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1"
 
-  extend Google.Protobuf.MethodOptions, :routing, 72_295_729,
-    optional: true,
-    type: Google.Api.RoutingRule
+  extend Google.Protobuf.FieldOptions, :field_behavior, 1052,
+    repeated: true,
+    type: Google.Api.FieldBehavior,
+    json_name: "fieldBehavior",
+    enum: true,
+    packed: false,
+    deprecated: false
 end
