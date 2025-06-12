@@ -389,6 +389,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFile do
     type: Google.Cloud.Aiplatform.V1beta1.FileStatus,
     json_name: "fileStatus",
     deprecated: false
+
+  field :user_metadata, 15, type: :string, json_name: "userMetadata", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagChunk.PageSpan do
@@ -512,6 +514,43 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig do
     deprecated: true
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RagFileMetadataConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :metadata_schema_source, 0
+
+  oneof :metadata_source, 1
+
+  field :gcs_metadata_schema_source, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsSource,
+    json_name: "gcsMetadataSchemaSource",
+    oneof: 0
+
+  field :google_drive_metadata_schema_source, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.GoogleDriveSource,
+    json_name: "googleDriveMetadataSchemaSource",
+    oneof: 0
+
+  field :inline_metadata_schema_source, 3,
+    type: :string,
+    json_name: "inlineMetadataSchemaSource",
+    oneof: 0
+
+  field :gcs_metadata_source, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.GcsSource,
+    json_name: "gcsMetadataSource",
+    oneof: 1
+
+  field :google_drive_metadata_source, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.GoogleDriveSource,
+    json_name: "googleDriveMetadataSource",
+    oneof: 1
+
+  field :inline_metadata_source, 6, type: :string, json_name: "inlineMetadataSource", oneof: 1
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadRagFileConfig do
   @moduledoc false
 
@@ -525,6 +564,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.UploadRagFileConfig do
   field :rag_file_transformation_config, 3,
     type: Google.Cloud.Aiplatform.V1beta1.RagFileTransformationConfig,
     json_name: "ragFileTransformationConfig"
+
+  field :rag_file_metadata_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileMetadataConfig,
+    json_name: "ragFileMetadataConfig"
+
+  field :rag_file_parsing_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig,
+    json_name: "ragFileParsingConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
@@ -598,6 +646,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ImportRagFilesConfig do
     type: Google.Cloud.Aiplatform.V1beta1.RagFileParsingConfig,
     json_name: "ragFileParsingConfig",
     deprecated: false
+
+  field :rag_file_metadata_config, 17,
+    type: Google.Cloud.Aiplatform.V1beta1.RagFileMetadataConfig,
+    json_name: "ragFileMetadataConfig"
 
   field :max_embedding_requests_per_min, 5,
     type: :int32,
