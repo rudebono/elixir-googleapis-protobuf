@@ -183,6 +183,11 @@ defmodule Google.Cloud.Aiplatform.V1.RagCorpus do
     type: Google.Cloud.Aiplatform.V1.CorpusStatus,
     json_name: "corpusStatus",
     deprecated: false
+
+  field :encryption_spec, 12,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagFile do

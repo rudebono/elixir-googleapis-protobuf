@@ -64,6 +64,35 @@ defmodule Google.Ads.Searchads360.V0.Resources.Customer do
     deprecated: false
 
   field :creation_time, 42, type: :string, json_name: "creationTime", deprecated: false
+  field :manager_id, 47, type: :int64, json_name: "managerId", deprecated: false
+
+  field :manager_descriptive_name, 48,
+    type: :string,
+    json_name: "managerDescriptiveName",
+    deprecated: false
+
+  field :sub_manager_id, 49, type: :int64, json_name: "subManagerId", deprecated: false
+
+  field :sub_manager_descriptive_name, 50,
+    type: :string,
+    json_name: "subManagerDescriptiveName",
+    deprecated: false
+
+  field :associate_manager_id, 51,
+    type: :int64,
+    json_name: "associateManagerId",
+    deprecated: false
+
+  field :associate_manager_descriptive_name, 52,
+    type: :string,
+    json_name: "associateManagerDescriptiveName",
+    deprecated: false
+
+  field :account_level, 53,
+    type: Google.Ads.Searchads360.V0.Enums.AccountLevelTypeEnum.AccountLevelType,
+    json_name: "accountLevel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Ads.Searchads360.V0.Resources.ConversionTrackingSetting do
