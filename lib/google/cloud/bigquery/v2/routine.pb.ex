@@ -194,6 +194,37 @@ defmodule Google.Cloud.Bigquery.V2.Routine do
     json_name: "dataGovernanceType",
     enum: true,
     deprecated: false
+
+  field :python_options, 20,
+    type: Google.Cloud.Bigquery.V2.PythonOptions,
+    json_name: "pythonOptions",
+    deprecated: false
+
+  field :external_runtime_options, 21,
+    type: Google.Cloud.Bigquery.V2.ExternalRuntimeOptions,
+    json_name: "externalRuntimeOptions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.PythonOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :entry_point, 1, type: :string, json_name: "entryPoint", deprecated: false
+  field :packages, 2, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.ExternalRuntimeOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :container_memory, 1, type: :string, json_name: "containerMemory", deprecated: false
+  field :container_cpu, 2, type: :double, json_name: "containerCpu", deprecated: false
+  field :runtime_connection, 3, type: :string, json_name: "runtimeConnection", deprecated: false
+  field :max_batching_rows, 4, type: :int64, json_name: "maxBatchingRows", deprecated: false
+  field :runtime_version, 5, type: :string, json_name: "runtimeVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.V2.SparkOptions.PropertiesEntry do
