@@ -97,6 +97,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :KEY_EVENT, 30
   field :CALCULATED_METRIC, 31
   field :REPORTING_DATA_ANNOTATION, 32
+  field :SUBPROPERTY_SYNC_CONFIG, 33
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -341,6 +342,16 @@ defmodule Google.Analytics.Admin.V1alpha.ReportingDataAnnotation.Color do
   field :RED, 5
   field :CYAN, 6
   field :ORANGE, 7
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SubpropertySyncConfig.SynchronizationMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :SYNCHRONIZATION_MODE_UNSPECIFIED, 0
+  field :NONE, 1
+  field :ALL, 2
 end
 
 defmodule Google.Analytics.Admin.V1alpha.Account do
@@ -829,6 +840,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
   field :reporting_data_annotation, 32,
     type: Google.Analytics.Admin.V1alpha.ReportingDataAnnotation,
     json_name: "reportingDataAnnotation",
+    oneof: 0
+
+  field :subproperty_sync_config, 33,
+    type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig,
+    json_name: "subpropertySyncConfig",
     oneof: 0
 end
 
@@ -1326,4 +1342,19 @@ defmodule Google.Analytics.Admin.V1alpha.ReportingDataAnnotation do
     deprecated: false
 
   field :system_generated, 7, type: :bool, json_name: "systemGenerated", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.SubpropertySyncConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :apply_to_property, 2, type: :string, json_name: "applyToProperty", deprecated: false
+
+  field :custom_dimension_and_metric_sync_mode, 3,
+    type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig.SynchronizationMode,
+    json_name: "customDimensionAndMetricSyncMode",
+    enum: true,
+    deprecated: false
 end
