@@ -2054,6 +2054,12 @@ defmodule Google.Analytics.Admin.V1alpha.ProvisionSubpropertyRequest do
     type: Google.Analytics.Admin.V1alpha.SubpropertyEventFilter,
     json_name: "subpropertyEventFilter",
     deprecated: false
+
+  field :custom_dimension_and_metric_synchronization_mode, 4,
+    type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig.SynchronizationMode,
+    json_name: "customDimensionAndMetricSynchronizationMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ProvisionSubpropertyResponse do
@@ -2227,6 +2233,53 @@ defmodule Google.Analytics.Admin.V1alpha.SubmitUserDeletionResponse do
   field :deletion_request_time, 1,
     type: Google.Protobuf.Timestamp,
     json_name: "deletionRequestTime"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.GetSubpropertySyncConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSubpropertySyncConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ListSubpropertySyncConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :subproperty_sync_configs, 1,
+    repeated: true,
+    type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig,
+    json_name: "subpropertySyncConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Analytics.Admin.V1alpha.UpdateSubpropertySyncConfigRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :subproperty_sync_config, 1,
+    type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig,
+    json_name: "subpropertySyncConfig",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
@@ -2855,6 +2908,18 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :SubmitUserDeletion,
       Google.Analytics.Admin.V1alpha.SubmitUserDeletionRequest,
       Google.Analytics.Admin.V1alpha.SubmitUserDeletionResponse
+
+  rpc :ListSubpropertySyncConfigs,
+      Google.Analytics.Admin.V1alpha.ListSubpropertySyncConfigsRequest,
+      Google.Analytics.Admin.V1alpha.ListSubpropertySyncConfigsResponse
+
+  rpc :UpdateSubpropertySyncConfig,
+      Google.Analytics.Admin.V1alpha.UpdateSubpropertySyncConfigRequest,
+      Google.Analytics.Admin.V1alpha.SubpropertySyncConfig
+
+  rpc :GetSubpropertySyncConfig,
+      Google.Analytics.Admin.V1alpha.GetSubpropertySyncConfigRequest,
+      Google.Analytics.Admin.V1alpha.SubpropertySyncConfig
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
