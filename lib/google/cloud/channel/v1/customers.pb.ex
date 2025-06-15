@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Channel.V1.Customer.CustomerAttestationState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :CUSTOMER_ATTESTATION_STATE_UNSPECIFIED, 0
+  field :EXEMPT, 1
+  field :NON_EXEMPT_AND_INFO_VERIFIED, 2
+end
+
 defmodule Google.Cloud.Channel.V1.Customer do
   @moduledoc false
 
@@ -38,6 +48,12 @@ defmodule Google.Cloud.Channel.V1.Customer do
 
   field :channel_partner_id, 13, type: :string, json_name: "channelPartnerId"
   field :correlation_id, 14, type: :string, json_name: "correlationId", deprecated: false
+
+  field :customer_attestation_state, 16,
+    type: Google.Cloud.Channel.V1.Customer.CustomerAttestationState,
+    json_name: "customerAttestationState",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Channel.V1.ContactInfo do
