@@ -667,10 +667,22 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Enterprise do
   @moduledoc false
 
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Scaled do
+  @moduledoc false
+
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Basic do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Unprovisioned do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -685,9 +697,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig do
 
   field :enterprise, 1,
     type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Enterprise,
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
+  field :scaled, 4, type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Scaled, oneof: 0
   field :basic, 2, type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Basic, oneof: 0
+
+  field :unprovisioned, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.RagManagedDbConfig.Unprovisioned,
+    oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.RagEngineConfig do
