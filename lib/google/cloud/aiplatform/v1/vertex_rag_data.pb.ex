@@ -425,3 +425,48 @@ defmodule Google.Cloud.Aiplatform.V1.ImportRagFilesConfig do
 
   field :rebuild_ann_index, 19, type: :bool, json_name: "rebuildAnnIndex"
 end
+
+defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Scaled do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Basic do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Unprovisioned do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :tier, 0
+
+  field :scaled, 4, type: Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Scaled, oneof: 0
+  field :basic, 2, type: Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Basic, oneof: 0
+
+  field :unprovisioned, 3,
+    type: Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Unprovisioned,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1.RagEngineConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :rag_managed_db_config, 2,
+    type: Google.Cloud.Aiplatform.V1.RagManagedDbConfig,
+    json_name: "ragManagedDbConfig"
+end

@@ -37,4 +37,20 @@ defmodule Google.Cloud.Aiplatform.V1.PscInterfaceConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :network_attachment, 1, type: :string, json_name: "networkAttachment", deprecated: false
+
+  field :dns_peering_configs, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.DnsPeeringConfig,
+    json_name: "dnsPeeringConfigs",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.DnsPeeringConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :domain, 1, type: :string, deprecated: false
+  field :target_project, 2, type: :string, json_name: "targetProject", deprecated: false
+  field :target_network, 3, type: :string, json_name: "targetNetwork", deprecated: false
 end
