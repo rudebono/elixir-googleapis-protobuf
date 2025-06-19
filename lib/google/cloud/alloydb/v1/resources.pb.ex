@@ -145,6 +145,16 @@ defmodule Google.Cloud.Alloydb.V1.Instance.AvailabilityType do
   field :REGIONAL, 2
 end
 
+defmodule Google.Cloud.Alloydb.V1.Instance.ActivationPolicy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ACTIVATION_POLICY_UNSPECIFIED, 0
+  field :ALWAYS, 1
+  field :NEVER, 2
+end
+
 defmodule Google.Cloud.Alloydb.V1.Backup.State do
   @moduledoc false
 
@@ -414,6 +424,16 @@ defmodule Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy.MaintenanceWindow do
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime"
 end
 
+defmodule Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy.DenyMaintenancePeriod do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
+  field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
+  field :time, 3, type: Google.Type.TimeOfDay
+end
+
 defmodule Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy do
   @moduledoc false
 
@@ -423,6 +443,11 @@ defmodule Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy do
     repeated: true,
     type: Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy.MaintenanceWindow,
     json_name: "maintenanceWindows"
+
+  field :deny_maintenance_periods, 2,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.MaintenanceUpdatePolicy.DenyMaintenancePeriod,
+    json_name: "denyMaintenancePeriods"
 end
 
 defmodule Google.Cloud.Alloydb.V1.MaintenanceSchedule do
@@ -845,6 +870,13 @@ defmodule Google.Cloud.Alloydb.V1.Instance.InstanceNetworkConfig do
     type: :bool,
     json_name: "enableOutboundPublicIp",
     deprecated: false
+
+  field :network, 4, type: :string, deprecated: false
+
+  field :allocated_ip_range_override, 5,
+    type: :string,
+    json_name: "allocatedIpRangeOverride",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.Instance.LabelsEntry do
@@ -975,6 +1007,12 @@ defmodule Google.Cloud.Alloydb.V1.Instance do
     type: :string,
     json_name: "outboundPublicIpAddresses",
     deprecated: false
+
+  field :activation_policy, 35,
+    type: Google.Cloud.Alloydb.V1.Instance.ActivationPolicy,
+    json_name: "activationPolicy",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.ConnectionInfo do
@@ -1050,6 +1088,11 @@ defmodule Google.Cloud.Alloydb.V1.Backup do
   field :delete_time, 15,
     type: Google.Protobuf.Timestamp,
     json_name: "deleteTime",
+    deprecated: false
+
+  field :create_completion_time, 26,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createCompletionTime",
     deprecated: false
 
   field :labels, 6, repeated: true, type: Google.Cloud.Alloydb.V1.Backup.LabelsEntry, map: true
