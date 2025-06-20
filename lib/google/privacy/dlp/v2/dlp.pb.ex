@@ -5436,6 +5436,14 @@ defmodule Google.Privacy.Dlp.V2.ProcessingLocation do
     json_name: "imageFallbackLocation"
 end
 
+defmodule Google.Privacy.Dlp.V2.SaveToGcsFindingsOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :findings, 1, repeated: true, type: Google.Privacy.Dlp.V2.Finding
+end
+
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
   @moduledoc false
 
