@@ -80,4 +80,54 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngine do
     deprecated: false
 
   field :etag, 6, type: :string, deprecated: false
+
+  field :context_spec, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec,
+    json_name: "contextSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.GenerationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :model, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.SimilaritySearchConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :embedding_model, 1, type: :string, json_name: "embeddingModel", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :generation_config, 1,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.GenerationConfig,
+    json_name: "generationConfig",
+    deprecated: false
+
+  field :similarity_search_config, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.SimilaritySearchConfig,
+    json_name: "similaritySearchConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :memory_bank_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig,
+    json_name: "memoryBankConfig",
+    deprecated: false
 end
