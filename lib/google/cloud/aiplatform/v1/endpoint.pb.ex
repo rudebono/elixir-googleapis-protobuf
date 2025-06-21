@@ -92,6 +92,11 @@ defmodule Google.Cloud.Aiplatform.V1.Endpoint do
 
   field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :gen_ai_advanced_features_config, 29,
+    type: Google.Cloud.Aiplatform.V1.GenAiAdvancedFeaturesConfig,
+    json_name: "genAiAdvancedFeaturesConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.DeployedModel.Status do
@@ -226,6 +231,24 @@ defmodule Google.Cloud.Aiplatform.V1.FasterDeploymentConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenAiAdvancedFeaturesConfig.RagConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_rag, 1, type: :bool, json_name: "enableRag"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenAiAdvancedFeaturesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :rag_config, 1,
+    type: Google.Cloud.Aiplatform.V1.GenAiAdvancedFeaturesConfig.RagConfig,
+    json_name: "ragConfig"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SpeculativeDecodingSpec.DraftModelSpeculation do
