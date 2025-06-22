@@ -92,6 +92,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
 
   field :satisfies_pzs, 27, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 28, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :gen_ai_advanced_features_config, 29,
+    type: Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig,
+    json_name: "genAiAdvancedFeaturesConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status do
@@ -185,6 +190,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
     map: true
 
   field :checkpoint_id, 29, type: :string, json_name: "checkpointId"
+
+  field :speculative_decoding_spec, 30,
+    type: Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec,
+    json_name: "speculativeDecodingSpec",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
@@ -264,4 +274,58 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RolloutOptions do
   field :max_surge_percentage, 6, type: :int32, json_name: "maxSurgePercentage", oneof: 1
   field :previous_deployed_model, 1, type: :string, json_name: "previousDeployedModel"
   field :revision_number, 2, type: :int32, json_name: "revisionNumber", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig.RagConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_rag, 1, type: :bool, json_name: "enableRag"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :rag_config, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig.RagConfig,
+    json_name: "ragConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.DraftModelSpeculation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :draft_model, 1, type: :string, json_name: "draftModel", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.NgramSpeculation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ngram_size, 1, type: :int32, json_name: "ngramSize"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :speculation, 0
+
+  field :draft_model_speculation, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.DraftModelSpeculation,
+    json_name: "draftModelSpeculation",
+    oneof: 0
+
+  field :ngram_speculation, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.NgramSpeculation,
+    json_name: "ngramSpeculation",
+    oneof: 0
+
+  field :speculative_token_count, 1, type: :int32, json_name: "speculativeTokenCount"
 end
