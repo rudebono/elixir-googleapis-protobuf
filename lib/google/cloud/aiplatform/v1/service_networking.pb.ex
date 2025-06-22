@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1.PSCAutomationState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :PSC_AUTOMATION_STATE_UNSPECIFIED, 0
+  field :PSC_AUTOMATION_STATE_SUCCESSFUL, 1
+  field :PSC_AUTOMATION_STATE_FAILED, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1.PSCAutomationConfig do
   @moduledoc false
 
@@ -5,6 +15,15 @@ defmodule Google.Cloud.Aiplatform.V1.PSCAutomationConfig do
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :network, 2, type: :string, deprecated: false
+  field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
+  field :forwarding_rule, 4, type: :string, json_name: "forwardingRule", deprecated: false
+
+  field :state, 5,
+    type: Google.Cloud.Aiplatform.V1.PSCAutomationState,
+    enum: true,
+    deprecated: false
+
+  field :error_message, 6, type: :string, json_name: "errorMessage", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig do
@@ -18,6 +37,13 @@ defmodule Google.Cloud.Aiplatform.V1.PrivateServiceConnectConfig do
     deprecated: false
 
   field :project_allowlist, 2, repeated: true, type: :string, json_name: "projectAllowlist"
+
+  field :psc_automation_configs, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.PSCAutomationConfig,
+    json_name: "pscAutomationConfigs",
+    deprecated: false
+
   field :service_attachment, 5, type: :string, json_name: "serviceAttachment", deprecated: false
 end
 
