@@ -538,6 +538,98 @@ defmodule Google.Bigtable.Admin.V2.DeleteAuthorizedViewRequest do
   field :etag, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Bigtable.Admin.V2.CreateSchemaBundleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :schema_bundle_id, 2, type: :string, json_name: "schemaBundleId", deprecated: false
+
+  field :schema_bundle, 3,
+    type: Google.Bigtable.Admin.V2.SchemaBundle,
+    json_name: "schemaBundle",
+    deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.CreateSchemaBundleMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateSchemaBundleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :schema_bundle, 1,
+    type: Google.Bigtable.Admin.V2.SchemaBundle,
+    json_name: "schemaBundle",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :ignore_warnings, 3, type: :bool, json_name: "ignoreWarnings", deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.UpdateSchemaBundleMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 3, type: Google.Protobuf.Timestamp, json_name: "endTime"
+end
+
+defmodule Google.Bigtable.Admin.V2.GetSchemaBundleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.ListSchemaBundlesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize"
+  field :page_token, 3, type: :string, json_name: "pageToken"
+end
+
+defmodule Google.Bigtable.Admin.V2.ListSchemaBundlesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :schema_bundles, 1,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.SchemaBundle,
+    json_name: "schemaBundles"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Bigtable.Admin.V2.DeleteSchemaBundleRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :etag, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   @moduledoc false
 
@@ -630,6 +722,26 @@ defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :CreateSchemaBundle,
+      Google.Bigtable.Admin.V2.CreateSchemaBundleRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateSchemaBundle,
+      Google.Bigtable.Admin.V2.UpdateSchemaBundleRequest,
+      Google.Longrunning.Operation
+
+  rpc :GetSchemaBundle,
+      Google.Bigtable.Admin.V2.GetSchemaBundleRequest,
+      Google.Bigtable.Admin.V2.SchemaBundle
+
+  rpc :ListSchemaBundles,
+      Google.Bigtable.Admin.V2.ListSchemaBundlesRequest,
+      Google.Bigtable.Admin.V2.ListSchemaBundlesResponse
+
+  rpc :DeleteSchemaBundle,
+      Google.Bigtable.Admin.V2.DeleteSchemaBundleRequest,
+      Google.Protobuf.Empty
 end
 
 defmodule Google.Bigtable.Admin.V2.BigtableTableAdmin.Stub do
