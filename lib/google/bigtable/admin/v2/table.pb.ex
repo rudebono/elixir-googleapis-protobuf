@@ -388,3 +388,28 @@ defmodule Google.Bigtable.Admin.V2.BackupInfo do
   field :source_table, 4, type: :string, json_name: "sourceTable", deprecated: false
   field :source_backup, 10, type: :string, json_name: "sourceBackup", deprecated: false
 end
+
+defmodule Google.Bigtable.Admin.V2.ProtoSchema do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :proto_descriptors, 2, type: :bytes, json_name: "protoDescriptors", deprecated: false
+end
+
+defmodule Google.Bigtable.Admin.V2.SchemaBundle do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :type, 0
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :proto_schema, 2,
+    type: Google.Bigtable.Admin.V2.ProtoSchema,
+    json_name: "protoSchema",
+    oneof: 0
+
+  field :etag, 3, type: :string, deprecated: false
+end
