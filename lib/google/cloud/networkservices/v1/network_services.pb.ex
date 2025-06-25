@@ -25,6 +25,42 @@ defmodule Google.Cloud.Networkservices.V1.NetworkServices.Service do
       Google.Cloud.Networkservices.V1.DeleteEndpointPolicyRequest,
       Google.Longrunning.Operation
 
+  rpc :ListWasmPluginVersions,
+      Google.Cloud.Networkservices.V1.ListWasmPluginVersionsRequest,
+      Google.Cloud.Networkservices.V1.ListWasmPluginVersionsResponse
+
+  rpc :GetWasmPluginVersion,
+      Google.Cloud.Networkservices.V1.GetWasmPluginVersionRequest,
+      Google.Cloud.Networkservices.V1.WasmPluginVersion
+
+  rpc :CreateWasmPluginVersion,
+      Google.Cloud.Networkservices.V1.CreateWasmPluginVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWasmPluginVersion,
+      Google.Cloud.Networkservices.V1.DeleteWasmPluginVersionRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListWasmPlugins,
+      Google.Cloud.Networkservices.V1.ListWasmPluginsRequest,
+      Google.Cloud.Networkservices.V1.ListWasmPluginsResponse
+
+  rpc :GetWasmPlugin,
+      Google.Cloud.Networkservices.V1.GetWasmPluginRequest,
+      Google.Cloud.Networkservices.V1.WasmPlugin
+
+  rpc :CreateWasmPlugin,
+      Google.Cloud.Networkservices.V1.CreateWasmPluginRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateWasmPlugin,
+      Google.Cloud.Networkservices.V1.UpdateWasmPluginRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteWasmPlugin,
+      Google.Cloud.Networkservices.V1.DeleteWasmPluginRequest,
+      Google.Longrunning.Operation
+
   rpc :ListGateways,
       Google.Cloud.Networkservices.V1.ListGatewaysRequest,
       Google.Cloud.Networkservices.V1.ListGatewaysResponse

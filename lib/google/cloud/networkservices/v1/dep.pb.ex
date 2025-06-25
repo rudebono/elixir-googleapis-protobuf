@@ -22,6 +22,15 @@ defmodule Google.Cloud.Networkservices.V1.LoadBalancingScheme do
   field :EXTERNAL_MANAGED, 2
 end
 
+defmodule Google.Cloud.Networkservices.V1.WireFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :WIRE_FORMAT_UNSPECIFIED, 0
+  field :EXT_PROC_GRPC, 1
+end
+
 defmodule Google.Cloud.Networkservices.V1.ExtensionChain.MatchCondition do
   @moduledoc false
 
@@ -54,6 +63,8 @@ defmodule Google.Cloud.Networkservices.V1.ExtensionChain.Extension do
     type: :string,
     json_name: "forwardHeaders",
     deprecated: false
+
+  field :metadata, 9, type: Google.Protobuf.Struct, deprecated: false
 end
 
 defmodule Google.Cloud.Networkservices.V1.ExtensionChain do
@@ -346,6 +357,142 @@ defmodule Google.Cloud.Networkservices.V1.DeleteLbRouteExtensionRequest do
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Networkservices.V1.AuthzExtension.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Networkservices.V1.AuthzExtension do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :description, 4, type: :string, deprecated: false
+
+  field :labels, 5,
+    repeated: true,
+    type: Google.Cloud.Networkservices.V1.AuthzExtension.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :load_balancing_scheme, 6,
+    type: Google.Cloud.Networkservices.V1.LoadBalancingScheme,
+    json_name: "loadBalancingScheme",
+    enum: true,
+    deprecated: false
+
+  field :authority, 7, type: :string, deprecated: false
+  field :service, 8, type: :string, deprecated: false
+  field :timeout, 9, type: Google.Protobuf.Duration, deprecated: false
+  field :fail_open, 10, type: :bool, json_name: "failOpen", deprecated: false
+  field :metadata, 11, type: Google.Protobuf.Struct, deprecated: false
+
+  field :forward_headers, 12,
+    repeated: true,
+    type: :string,
+    json_name: "forwardHeaders",
+    deprecated: false
+
+  field :wire_format, 14,
+    type: Google.Cloud.Networkservices.V1.WireFormat,
+    json_name: "wireFormat",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.ListAuthzExtensionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.ListAuthzExtensionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :authz_extensions, 1,
+    repeated: true,
+    type: Google.Cloud.Networkservices.V1.AuthzExtension,
+    json_name: "authzExtensions"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Networkservices.V1.GetAuthzExtensionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.CreateAuthzExtensionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :authz_extension_id, 2, type: :string, json_name: "authzExtensionId", deprecated: false
+
+  field :authz_extension, 3,
+    type: Google.Cloud.Networkservices.V1.AuthzExtension,
+    json_name: "authzExtension",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.UpdateAuthzExtensionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :authz_extension, 2,
+    type: Google.Cloud.Networkservices.V1.AuthzExtension,
+    json_name: "authzExtension",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.DeleteAuthzExtensionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Networkservices.V1.DepService.Service do
   @moduledoc false
 
@@ -391,6 +538,26 @@ defmodule Google.Cloud.Networkservices.V1.DepService.Service do
 
   rpc :DeleteLbRouteExtension,
       Google.Cloud.Networkservices.V1.DeleteLbRouteExtensionRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListAuthzExtensions,
+      Google.Cloud.Networkservices.V1.ListAuthzExtensionsRequest,
+      Google.Cloud.Networkservices.V1.ListAuthzExtensionsResponse
+
+  rpc :GetAuthzExtension,
+      Google.Cloud.Networkservices.V1.GetAuthzExtensionRequest,
+      Google.Cloud.Networkservices.V1.AuthzExtension
+
+  rpc :CreateAuthzExtension,
+      Google.Cloud.Networkservices.V1.CreateAuthzExtensionRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateAuthzExtension,
+      Google.Cloud.Networkservices.V1.UpdateAuthzExtensionRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteAuthzExtension,
+      Google.Cloud.Networkservices.V1.DeleteAuthzExtensionRequest,
       Google.Longrunning.Operation
 end
 

@@ -247,6 +247,15 @@ defmodule Google.Cloud.Retail.V2.SearchRequest.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Retail.V2.SearchRequest.UserAttributesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Retail.V2.StringList
+end
+
 defmodule Google.Cloud.Retail.V2.SearchRequest do
   @moduledoc false
 
@@ -319,6 +328,13 @@ defmodule Google.Cloud.Retail.V2.SearchRequest do
   field :language_code, 43, type: :string, json_name: "languageCode", deprecated: false
   field :region_code, 44, type: :string, json_name: "regionCode", deprecated: false
   field :place_id, 46, type: :string, json_name: "placeId", deprecated: false
+
+  field :user_attributes, 47,
+    repeated: true,
+    type: Google.Cloud.Retail.V2.SearchRequest.UserAttributesEntry,
+    json_name: "userAttributes",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult.MatchingVariantFieldsEntry do
@@ -337,6 +353,15 @@ defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult.VariantRollupValues
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
+end
+
+defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult.ModelScoresEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Retail.V2.DoubleList
 end
 
 defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult do
@@ -361,6 +386,12 @@ defmodule Google.Cloud.Retail.V2.SearchResponse.SearchResult do
     map: true
 
   field :personal_labels, 7, repeated: true, type: :string, json_name: "personalLabels"
+
+  field :model_scores, 8,
+    repeated: true,
+    type: Google.Cloud.Retail.V2.SearchResponse.SearchResult.ModelScoresEntry,
+    json_name: "modelScores",
+    map: true
 end
 
 defmodule Google.Cloud.Retail.V2.SearchResponse.Facet.FacetValue do
