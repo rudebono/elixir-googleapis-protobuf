@@ -273,6 +273,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelContainerSpec do
   field :ports, 5, repeated: true, type: Google.Cloud.Aiplatform.V1.Port, deprecated: false
   field :predict_route, 6, type: :string, json_name: "predictRoute", deprecated: false
   field :health_route, 7, type: :string, json_name: "healthRoute", deprecated: false
+  field :invoke_route_prefix, 15, type: :string, json_name: "invokeRoutePrefix", deprecated: false
 
   field :grpc_ports, 9,
     repeated: true,
