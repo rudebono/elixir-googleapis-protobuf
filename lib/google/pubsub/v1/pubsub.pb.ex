@@ -350,6 +350,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
   @moduledoc false
 
@@ -378,6 +384,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
     json_name: "schemaViolationReason",
     oneof: 0,
     deprecated: false
+
+  field :message_transformation_failure_reason, 8,
+    type: Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason,
+    json_name: "messageTransformationFailureReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
@@ -401,6 +413,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
   field :schema_violation_reason, 6,
     type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
     json_name: "schemaViolationReason",
+    oneof: 0,
+    deprecated: false
+
+  field :message_transformation_failure_reason, 7,
+    type: Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason,
+    json_name: "messageTransformationFailureReason",
     oneof: 0,
     deprecated: false
 end
@@ -428,6 +446,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AzureEventHubsFailureReason do
     json_name: "schemaViolationReason",
     oneof: 0,
     deprecated: false
+
+  field :message_transformation_failure_reason, 7,
+    type: Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason,
+    json_name: "messageTransformationFailureReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
@@ -453,6 +477,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
     json_name: "schemaViolationReason",
     oneof: 0,
     deprecated: false
+
+  field :message_transformation_failure_reason, 7,
+    type: Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason,
+    json_name: "messageTransformationFailureReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason do
@@ -469,6 +499,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason do
   field :schema_violation_reason, 4,
     type: Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason,
     json_name: "schemaViolationReason",
+    oneof: 0,
+    deprecated: false
+
+  field :message_transformation_failure_reason, 5,
+    type: Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason,
+    json_name: "messageTransformationFailureReason",
     oneof: 0,
     deprecated: false
 end
