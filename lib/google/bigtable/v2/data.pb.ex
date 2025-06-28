@@ -412,3 +412,12 @@ defmodule Google.Bigtable.V2.PartialResultSet do
   field :reset, 7, type: :bool
   field :estimated_batch_size, 4, type: :int32, json_name: "estimatedBatchSize"
 end
+
+defmodule Google.Bigtable.V2.Idempotency do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :token, 1, type: :bytes
+  field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
+end

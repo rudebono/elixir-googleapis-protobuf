@@ -121,6 +121,7 @@ defmodule Google.Bigtable.V2.MutateRowRequest do
   field :app_profile_id, 4, type: :string, json_name: "appProfileId"
   field :row_key, 2, type: :bytes, json_name: "rowKey", deprecated: false
   field :mutations, 3, repeated: true, type: Google.Bigtable.V2.Mutation, deprecated: false
+  field :idempotency, 8, type: Google.Bigtable.V2.Idempotency
 end
 
 defmodule Google.Bigtable.V2.MutateRowResponse do
