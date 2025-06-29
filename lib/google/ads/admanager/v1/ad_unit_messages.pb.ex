@@ -5,7 +5,12 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
 
   field :name, 1, type: :string, deprecated: false
   field :ad_unit_id, 15, type: :int64, json_name: "adUnitId", deprecated: false
-  field :parent_ad_unit, 10, type: :string, json_name: "parentAdUnit", deprecated: false
+
+  field :parent_ad_unit, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "parentAdUnit",
+    deprecated: false
 
   field :parent_path, 11,
     repeated: true,
@@ -13,21 +18,33 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
     json_name: "parentPath",
     deprecated: false
 
-  field :display_name, 9, type: :string, json_name: "displayName", deprecated: false
-  field :ad_unit_code, 2, type: :string, json_name: "adUnitCode", deprecated: false
+  field :display_name, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "displayName",
+    deprecated: false
+
+  field :ad_unit_code, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "adUnitCode",
+    deprecated: false
 
   field :status, 13,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.AdUnitStatusEnum.AdUnitStatus,
     enum: true,
     deprecated: false
 
   field :applied_target_window, 44,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.TargetWindowEnum.TargetWindow,
     json_name: "appliedTargetWindow",
     enum: true,
     deprecated: false
 
   field :effective_target_window, 45,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.TargetWindowEnum.TargetWindow,
     json_name: "effectiveTargetWindow",
     enum: true,
@@ -40,11 +57,22 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
     deprecated: false
 
   field :teams, 4, repeated: true, type: :string, deprecated: false
-  field :description, 5, type: :string, deprecated: false
-  field :explicitly_targeted, 6, type: :bool, json_name: "explicitlyTargeted", deprecated: false
-  field :has_children, 7, type: :bool, json_name: "hasChildren", deprecated: false
+  field :description, 5, proto3_optional: true, type: :string, deprecated: false
+
+  field :explicitly_targeted, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "explicitlyTargeted",
+    deprecated: false
+
+  field :has_children, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "hasChildren",
+    deprecated: false
 
   field :update_time, 8,
+    proto3_optional: true,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
@@ -56,11 +84,13 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
     deprecated: false
 
   field :external_set_top_box_channel_id, 17,
+    proto3_optional: true,
     type: :string,
     json_name: "externalSetTopBoxChannelId",
-    deprecated: false
+    deprecated: true
 
   field :refresh_delay, 19,
+    proto3_optional: true,
     type: Google.Protobuf.Duration,
     json_name: "refreshDelay",
     deprecated: false
@@ -90,6 +120,7 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
     deprecated: false
 
   field :smart_size_mode, 25,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.SmartSizeModeEnum.SmartSizeMode,
     json_name: "smartSizeMode",
     enum: true,
@@ -102,6 +133,7 @@ defmodule Google.Ads.Admanager.V1.AdUnit do
     deprecated: false
 
   field :effective_adsense_enabled, 27,
+    proto3_optional: true,
     type: :bool,
     json_name: "effectiveAdsenseEnabled",
     deprecated: false

@@ -43,13 +43,13 @@ defmodule Google.Ads.Admanager.V1.Company do
     json_name: "appliedTeams",
     deprecated: false
 
-  field :update_time, 15,
-    type: Google.Protobuf.Timestamp,
-    json_name: "updateTime",
-    deprecated: false
-
   field :third_party_company_id, 16,
     type: :int64,
     json_name: "thirdPartyCompanyId",
+    deprecated: false
+
+  field :update_time, 15,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
     deprecated: false
 end

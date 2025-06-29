@@ -11,6 +11,7 @@ defmodule Google.Ads.Admanager.V1.EntitySignalsMapping do
   field :name, 1, type: :string, deprecated: false
 
   field :entity_signals_mapping_id, 2,
+    proto3_optional: true,
     type: :int64,
     json_name: "entitySignalsMappingId",
     deprecated: false
