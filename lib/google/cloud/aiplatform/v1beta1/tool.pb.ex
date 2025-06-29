@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse.Environment do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ENVIRONMENT_UNSPECIFIED, 0
+  field :ENVIRONMENT_BROWSER, 1
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ExecutableCode.Language do
   @moduledoc false
 
@@ -50,6 +59,17 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :environment, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse.Environment,
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
   @moduledoc false
 
@@ -86,6 +106,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
   field :url_context, 8,
     type: Google.Cloud.Aiplatform.V1beta1.UrlContext,
     json_name: "urlContext",
+    deprecated: false
+
+  field :computer_use, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse,
+    json_name: "computerUse",
     deprecated: false
 end
 

@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Dataproc.V1.ClusterConfig.ClusterTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :CLUSTER_TIER_UNSPECIFIED, 0
+  field :CLUSTER_TIER_STANDARD, 1
+  field :CLUSTER_TIER_PREMIUM, 2
+end
+
 defmodule Google.Cloud.Dataproc.V1.GceClusterConfig.PrivateIpv6GoogleAccess do
   @moduledoc false
 
@@ -139,6 +149,12 @@ defmodule Google.Cloud.Dataproc.V1.ClusterConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cluster_tier, 29,
+    type: Google.Cloud.Dataproc.V1.ClusterConfig.ClusterTier,
+    json_name: "clusterTier",
+    enum: true,
+    deprecated: false
 
   field :config_bucket, 1, type: :string, json_name: "configBucket", deprecated: false
   field :temp_bucket, 2, type: :string, json_name: "tempBucket", deprecated: false
