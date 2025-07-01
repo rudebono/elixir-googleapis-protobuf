@@ -161,6 +161,39 @@ defmodule Google.Cloud.Securitycenter.V2.DeleteResourceValueConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Securitycenter.V2.BigQueryDestination do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dataset, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V2.ExportFindingsMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :destination, 0
+
+  field :export_start_time, 1,
+    type: Google.Protobuf.Timestamp,
+    json_name: "exportStartTime",
+    deprecated: false
+
+  field :big_query_destination, 2,
+    type: Google.Cloud.Securitycenter.V2.BigQueryDestination,
+    json_name: "bigQueryDestination",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Securitycenter.V2.ExportFindingsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Securitycenter.V2.GetBigQueryExportRequest do
   @moduledoc false
 

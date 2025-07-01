@@ -22,4 +22,9 @@ defmodule Google.Cloud.Securitycenter.V2.NotificationConfig do
     type: Google.Cloud.Securitycenter.V2.NotificationConfig.StreamingConfig,
     json_name: "streamingConfig",
     oneof: 0
+
+  field :update_time, 7,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
 end
