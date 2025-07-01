@@ -45,6 +45,7 @@ defmodule Google.Cloud.Securitycenter.V2.Finding.FindingClass do
   field :POSTURE_VIOLATION, 6
   field :TOXIC_COMBINATION, 7
   field :SENSITIVE_DATA_RISK, 8
+  field :CHOKEPOINT, 9
 end
 
 defmodule Google.Cloud.Securitycenter.V2.Finding.MuteInfo.StaticMute do
@@ -112,7 +113,7 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
   field :canonical_name, 2, type: :string, json_name: "canonicalName", deprecated: false
   field :parent, 3, type: :string
   field :resource_name, 4, type: :string, json_name: "resourceName", deprecated: false
@@ -225,7 +226,9 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
     type: Google.Cloud.Securitycenter.V2.OrgPolicy,
     json_name: "orgPolicies"
 
+  field :job, 44, type: Google.Cloud.Securitycenter.V2.Job
   field :application, 45, type: Google.Cloud.Securitycenter.V2.Application
+  field :ip_rules, 46, type: Google.Cloud.Securitycenter.V2.IpRules, json_name: "ipRules"
 
   field :backup_disaster_recovery, 47,
     type: Google.Cloud.Securitycenter.V2.BackupDisasterRecovery,
@@ -269,8 +272,18 @@ defmodule Google.Cloud.Securitycenter.V2.Finding do
     type: Google.Cloud.Securitycenter.V2.DataFlowEvent,
     json_name: "dataFlowEvents"
 
+  field :networks, 63, repeated: true, type: Google.Cloud.Securitycenter.V2.Network
+
   field :data_retention_deletion_events, 64,
     repeated: true,
     type: Google.Cloud.Securitycenter.V2.DataRetentionDeletionEvent,
     json_name: "dataRetentionDeletionEvents"
+
+  field :affected_resources, 65,
+    type: Google.Cloud.Securitycenter.V2.AffectedResources,
+    json_name: "affectedResources"
+
+  field :ai_model, 66, type: Google.Cloud.Securitycenter.V2.AiModel, json_name: "aiModel"
+  field :chokepoint, 69, type: Google.Cloud.Securitycenter.V2.Chokepoint
+  field :vertex_ai, 72, type: Google.Cloud.Securitycenter.V2.VertexAi, json_name: "vertexAi"
 end

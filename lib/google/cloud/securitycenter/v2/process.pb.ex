@@ -18,6 +18,7 @@ defmodule Google.Cloud.Securitycenter.V2.Process do
   field :env_variables_truncated, 8, type: :bool, json_name: "envVariablesTruncated"
   field :pid, 9, type: :int64
   field :parent_pid, 10, type: :int64, json_name: "parentPid"
+  field :user_id, 11, type: :int64, json_name: "userId"
 end
 
 defmodule Google.Cloud.Securitycenter.V2.EnvironmentVariable do

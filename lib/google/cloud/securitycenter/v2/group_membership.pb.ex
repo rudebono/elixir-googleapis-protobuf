@@ -5,6 +5,7 @@ defmodule Google.Cloud.Securitycenter.V2.GroupMembership.GroupType do
 
   field :GROUP_TYPE_UNSPECIFIED, 0
   field :GROUP_TYPE_TOXIC_COMBINATION, 1
+  field :GROUP_TYPE_CHOKEPOINT, 3
 end
 
 defmodule Google.Cloud.Securitycenter.V2.GroupMembership do
