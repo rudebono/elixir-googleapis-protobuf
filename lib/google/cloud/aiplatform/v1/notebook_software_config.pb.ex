@@ -28,10 +28,27 @@ defmodule Google.Cloud.Aiplatform.V1.PostStartupScriptConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ColabImage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :release_name, 1, type: :string, json_name: "releaseName", deprecated: false
+  field :description, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.NotebookSoftwareConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :runtime_image, 0
+
+  field :colab_image, 5,
+    type: Google.Cloud.Aiplatform.V1.ColabImage,
+    json_name: "colabImage",
+    oneof: 0,
+    deprecated: false
 
   field :env, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar, deprecated: false
 
