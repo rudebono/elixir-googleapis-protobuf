@@ -106,6 +106,8 @@ defmodule Google.Cloud.Modelarmor.V1.ByteDataItem.ByteItemType do
   field :WORD_DOCUMENT, 3
   field :EXCEL_DOCUMENT, 4
   field :POWERPOINT_DOCUMENT, 5
+  field :TXT, 6
+  field :CSV, 7
 end
 
 defmodule Google.Cloud.Modelarmor.V1.VirusScanFilterResult.ScannedContentType do
@@ -141,6 +143,17 @@ defmodule Google.Cloud.Modelarmor.V1.MessageItem.MessageType do
   field :INFO, 1
   field :WARNING, 2
   field :ERROR, 3
+end
+
+defmodule Google.Cloud.Modelarmor.V1.Template.TemplateMetadata.MultiLanguageDetection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :enable_multi_language_detection, 1,
+    type: :bool,
+    json_name: "enableMultiLanguageDetection",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1.Template.TemplateMetadata do
@@ -181,6 +194,11 @@ defmodule Google.Cloud.Modelarmor.V1.Template.TemplateMetadata do
   field :log_sanitize_operations, 7,
     type: :bool,
     json_name: "logSanitizeOperations",
+    deprecated: false
+
+  field :multi_language_detection, 9,
+    type: Google.Cloud.Modelarmor.V1.Template.TemplateMetadata.MultiLanguageDetection,
+    json_name: "multiLanguageDetection",
     deprecated: false
 end
 
@@ -482,6 +500,11 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizeUserPromptRequest do
     type: Google.Cloud.Modelarmor.V1.DataItem,
     json_name: "userPromptData",
     deprecated: false
+
+  field :multi_language_detection_metadata, 6,
+    type: Google.Cloud.Modelarmor.V1.MultiLanguageDetectionMetadata,
+    json_name: "multiLanguageDetectionMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseRequest do
@@ -497,6 +520,11 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseRequest do
     deprecated: false
 
   field :user_prompt, 4, type: :string, json_name: "userPrompt", deprecated: false
+
+  field :multi_language_detection_metadata, 7,
+    type: Google.Cloud.Modelarmor.V1.MultiLanguageDetectionMetadata,
+    json_name: "multiLanguageDetectionMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1.SanitizeUserPromptResponse do
@@ -570,6 +598,19 @@ defmodule Google.Cloud.Modelarmor.V1.SanitizationResult do
   field :sanitization_metadata, 3,
     type: Google.Cloud.Modelarmor.V1.SanitizationResult.SanitizationMetadata,
     json_name: "sanitizationMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Modelarmor.V1.MultiLanguageDetectionMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :source_language, 1, type: :string, json_name: "sourceLanguage", deprecated: false
+
+  field :enable_multi_language_detection, 2,
+    type: :bool,
+    json_name: "enableMultiLanguageDetection",
     deprecated: false
 end
 
