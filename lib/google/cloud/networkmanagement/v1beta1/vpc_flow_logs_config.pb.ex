@@ -33,6 +33,26 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.Metadata do
   field :CUSTOM_METADATA, 3
 end
 
+defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.CrossProjectMetadata do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :CROSS_PROJECT_METADATA_UNSPECIFIED, 0
+  field :CROSS_PROJECT_METADATA_ENABLED, 1
+  field :CROSS_PROJECT_METADATA_DISABLED, 2
+end
+
+defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.TargetResourceState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :TARGET_RESOURCE_STATE_UNSPECIFIED, 0
+  field :TARGET_RESOURCE_EXISTS, 1
+  field :TARGET_RESOURCE_DOES_NOT_EXIST, 2
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.LabelsEntry do
   @moduledoc false
 
@@ -88,6 +108,23 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig do
     type: :string,
     json_name: "filterExpr",
     deprecated: false
+
+  field :cross_project_metadata, 13,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.CrossProjectMetadata,
+    json_name: "crossProjectMetadata",
+    enum: true,
+    deprecated: false
+
+  field :target_resource_state, 12,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1beta1.VpcFlowLogsConfig.TargetResourceState,
+    json_name: "targetResourceState",
+    enum: true,
+    deprecated: false
+
+  field :network, 100, type: :string, oneof: 0
+  field :subnet, 101, type: :string, oneof: 0
 
   field :interconnect_attachment, 102,
     type: :string,

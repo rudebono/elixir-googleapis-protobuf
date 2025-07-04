@@ -806,6 +806,7 @@ defmodule Google.Cloud.Dataplex.V1.SearchEntriesRequest do
   field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
   field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
   field :scope, 7, type: :string, deprecated: false
+  field :semantic_search, 11, type: :bool, json_name: "semanticSearch", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.SearchEntriesResult.Snippets do

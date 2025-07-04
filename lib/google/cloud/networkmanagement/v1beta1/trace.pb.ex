@@ -59,6 +59,16 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.Step.State do
   field :VIEWER_PERMISSION_MISSING, 20
 end
 
+defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :STATUS_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :NOT_RUNNING, 2
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType do
   @moduledoc false
 
@@ -110,6 +120,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.NextHopType do
   field :NEXT_HOP_ILB, 10
   field :NEXT_HOP_ROUTER_APPLIANCE, 11
   field :NEXT_HOP_NCC_HUB, 12
+  field :SECURE_WEB_PROXY_GATEWAY, 13
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo.RouteScope do
@@ -207,6 +218,19 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.Target do
   field :REDIS_CLUSTER, 17
 end
 
+defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.GoogleServiceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :GOOGLE_SERVICE_TYPE_UNSPECIFIED, 0
+  field :IAP, 1
+  field :GFE_PROXY_OR_HEALTH_CHECK_PROBER, 2
+  field :CLOUD_DNS, 3
+  field :PRIVATE_GOOGLE_ACCESS, 4
+  field :SERVERLESS_VPC_ACCESS, 5
+end
+
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   @moduledoc false
 
@@ -222,6 +246,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo.Target do
   field :ANOTHER_PROJECT, 7
   field :NCC_HUB, 8
   field :ROUTER_APPLIANCE, 9
+  field :SECURE_WEB_PROXY_GATEWAY, 10
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
@@ -258,6 +283,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.AbortInfo.Cause do
   field :FIREWALL_CONFIG_NOT_FOUND, 26
   field :ROUTE_CONFIG_NOT_FOUND, 27
   field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT, 19
+  field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_ENDPOINT, 39
   field :SOURCE_PSC_CLOUD_SQL_UNSUPPORTED, 20
   field :SOURCE_REDIS_CLUSTER_UNSUPPORTED, 34
   field :SOURCE_REDIS_INSTANCE_UNSUPPORTED, 35
@@ -288,6 +314,7 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED, 52
   field :ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID, 53
   field :NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS, 44
+  field :NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS, 98
   field :VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH, 45
   field :VPN_TUNNEL_REMOTE_SELECTOR_MISMATCH, 46
   field :PRIVATE_TRAFFIC_TO_INTERNET, 7
@@ -361,6 +388,10 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DropInfo.Cause do
   field :PSC_PORT_MAPPING_PORT_MISMATCH, 86
   field :PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED, 87
   field :UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION, 88
+  field :TRAFFIC_FROM_HYBRID_ENDPOINT_TO_INTERNET_DISALLOWED, 89
+  field :NO_MATCHING_NAT64_GATEWAY, 90
+  field :LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH, 96
+  field :NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION, 97
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.NatInfo.Type do
@@ -536,6 +567,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.InstanceInfo do
   field :network_tags, 7, repeated: true, type: :string, json_name: "networkTags"
   field :service_account, 8, type: :string, json_name: "serviceAccount", deprecated: true
   field :psc_network_attachment_uri, 9, type: :string, json_name: "pscNetworkAttachmentUri"
+  field :running, 10, type: :bool, deprecated: true
+  field :status, 11, type: Google.Cloud.Networkmanagement.V1beta1.InstanceInfo.Status, enum: true
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.NetworkInfo do
@@ -575,6 +608,8 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.FirewallInfo do
     type: Google.Cloud.Networkmanagement.V1beta1.FirewallInfo.FirewallRuleType,
     json_name: "firewallRuleType",
     enum: true
+
+  field :policy_priority, 12, type: :int32, json_name: "policyPriority"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.RouteInfo do
@@ -772,6 +807,11 @@ defmodule Google.Cloud.Networkmanagement.V1beta1.DeliverInfo do
   field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
   field :storage_bucket, 4, type: :string, json_name: "storageBucket"
   field :psc_google_api_target, 5, type: :string, json_name: "pscGoogleApiTarget"
+
+  field :google_service_type, 6,
+    type: Google.Cloud.Networkmanagement.V1beta1.DeliverInfo.GoogleServiceType,
+    json_name: "googleServiceType",
+    enum: true
 end
 
 defmodule Google.Cloud.Networkmanagement.V1beta1.ForwardInfo do
