@@ -10,6 +10,25 @@ defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.LoadBalancingAlgorithm
   field :WATERFALL_BY_ZONE, 6
 end
 
+defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationGranularity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ISOLATION_GRANULARITY_UNSPECIFIED, 0
+  field :REGION, 1
+end
+
+defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ISOLATION_MODE_UNSPECIFIED, 0
+  field :NEAREST, 1
+  field :STRICT, 2
+end
+
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.AutoCapacityDrain do
   @moduledoc false
 
@@ -26,6 +45,24 @@ defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.FailoverConfig do
   field :failover_health_threshold, 1,
     type: :int32,
     json_name: "failoverHealthThreshold",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :isolation_granularity, 1,
+    type: Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationGranularity,
+    json_name: "isolationGranularity",
+    enum: true,
+    deprecated: false
+
+  field :isolation_mode, 2,
+    type: Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationMode,
+    json_name: "isolationMode",
+    enum: true,
     deprecated: false
 end
 
@@ -77,6 +114,11 @@ defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy do
   field :failover_config, 10,
     type: Google.Cloud.Networkservices.V1.ServiceLbPolicy.FailoverConfig,
     json_name: "failoverConfig",
+    deprecated: false
+
+  field :isolation_config, 11,
+    type: Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationConfig,
+    json_name: "isolationConfig",
     deprecated: false
 end
 

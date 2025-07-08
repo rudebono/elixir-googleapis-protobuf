@@ -8008,6 +8008,11 @@ defmodule Google.Cloud.Compute.V1.BackendService do
   field :subsetting, 450_283_536, proto3_optional: true, type: Google.Cloud.Compute.V1.Subsetting
   field :timeout_sec, 79_994_995, proto3_optional: true, type: :int32, json_name: "timeoutSec"
 
+  field :tls_settings, 81_794_791,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BackendServiceTlsSettings,
+    json_name: "tlsSettings"
+
   field :used_by, 389_320_729,
     repeated: true,
     type: Google.Cloud.Compute.V1.BackendServiceUsedBy,
@@ -8360,6 +8365,37 @@ defmodule Google.Cloud.Compute.V1.BackendServiceReference do
     proto3_optional: true,
     type: :string,
     json_name: "backendService"
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceTlsSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :authentication_config, 408_053_481,
+    proto3_optional: true,
+    type: :string,
+    json_name: "authenticationConfig"
+
+  field :sni, 114_030, proto3_optional: true, type: :string
+
+  field :subject_alt_names, 330_029_535,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendServiceTlsSettingsSubjectAltName,
+    json_name: "subjectAltNames"
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceTlsSettingsSubjectAltName do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dns_name, 411_992_033, proto3_optional: true, type: :string, json_name: "dnsName"
+
+  field :uniform_resource_identifier, 491_409_007,
+    proto3_optional: true,
+    type: :string,
+    json_name: "uniformResourceIdentifier"
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceUsedBy do
@@ -14080,6 +14116,16 @@ defmodule Google.Cloud.Compute.V1.GroupMaintenanceInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :instance_maintenance_ongoing_count, 137_611_253,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "instanceMaintenanceOngoingCount"
+
+  field :instance_maintenance_pending_count, 76_612_881,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "instanceMaintenancePendingCount"
+
   field :maintenance_ongoing_count, 219_781_919,
     proto3_optional: true,
     type: :int32,
@@ -14094,6 +14140,16 @@ defmodule Google.Cloud.Compute.V1.GroupMaintenanceInfo do
     proto3_optional: true,
     type: :string,
     json_name: "schedulingType"
+
+  field :subblock_infra_maintenance_ongoing_count, 366_161_790,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "subblockInfraMaintenanceOngoingCount"
+
+  field :subblock_infra_maintenance_pending_count, 305_163_418,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "subblockInfraMaintenancePendingCount"
 
   field :upcoming_group_maintenance, 393_438_448,
     proto3_optional: true,
@@ -25557,6 +25613,23 @@ defmodule Google.Cloud.Compute.V1.PerformMaintenanceReservationRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.PerformMaintenanceReservationSubBlockRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :reservation_sub_block, 22_750_491,
+    type: :string,
+    json_name: "reservationSubBlock",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.Policy do
   @moduledoc false
 
@@ -27213,6 +27286,11 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlock do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.ReservationSubBlockPhysicalTopology,
     json_name: "physicalTopology"
+
+  field :reservation_sub_block_maintenance, 377_005_551,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.GroupMaintenanceInfo,
+    json_name: "reservationSubBlockMaintenance"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
@@ -39370,6 +39448,10 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlocks.Service do
   rpc :List,
       Google.Cloud.Compute.V1.ListReservationSubBlocksRequest,
       Google.Cloud.Compute.V1.ReservationSubBlocksListResponse
+
+  rpc :PerformMaintenance,
+      Google.Cloud.Compute.V1.PerformMaintenanceReservationSubBlockRequest,
+      Google.Cloud.Compute.V1.Operation
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationSubBlocks.Stub do

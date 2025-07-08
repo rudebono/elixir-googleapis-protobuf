@@ -16265,6 +16265,16 @@ defmodule Google.Cloud.Compute.V1beta.GroupMaintenanceInfo do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :instance_maintenance_ongoing_count, 137_611_253,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "instanceMaintenanceOngoingCount"
+
+  field :instance_maintenance_pending_count, 76_612_881,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "instanceMaintenancePendingCount"
+
   field :maintenance_ongoing_count, 219_781_919,
     proto3_optional: true,
     type: :int32,
@@ -16279,6 +16289,16 @@ defmodule Google.Cloud.Compute.V1beta.GroupMaintenanceInfo do
     proto3_optional: true,
     type: :string,
     json_name: "schedulingType"
+
+  field :subblock_infra_maintenance_ongoing_count, 366_161_790,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "subblockInfraMaintenanceOngoingCount"
+
+  field :subblock_infra_maintenance_pending_count, 305_163_418,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "subblockInfraMaintenancePendingCount"
 
   field :upcoming_group_maintenance, 393_438_448,
     proto3_optional: true,
@@ -29012,6 +29032,23 @@ defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceReservationRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceReservationSubBlockRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :reservation_sub_block, 22_750_491,
+    type: :string,
+    json_name: "reservationSubBlock",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1beta.Policy do
   @moduledoc false
 
@@ -30964,6 +31001,11 @@ defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1beta.ReservationSubBlockPhysicalTopology,
     json_name: "physicalTopology"
+
+  field :reservation_sub_block_maintenance, 377_005_551,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.GroupMaintenanceInfo,
+    json_name: "reservationSubBlockMaintenance"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
@@ -45434,6 +45476,10 @@ defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocks.Service do
   rpc :List,
       Google.Cloud.Compute.V1beta.ListReservationSubBlocksRequest,
       Google.Cloud.Compute.V1beta.ReservationSubBlocksListResponse
+
+  rpc :PerformMaintenance,
+      Google.Cloud.Compute.V1beta.PerformMaintenanceReservationSubBlockRequest,
+      Google.Cloud.Compute.V1beta.Operation
 end
 
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocks.Stub do
