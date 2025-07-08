@@ -1,3 +1,19 @@
+defmodule Google.Cloud.Security.Privateca.V1.AttributeType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
+  field :COMMON_NAME, 1
+  field :COUNTRY_CODE, 2
+  field :ORGANIZATION, 3
+  field :ORGANIZATIONAL_UNIT, 4
+  field :LOCALITY, 5
+  field :PROVINCE, 6
+  field :STREET_ADDRESS, 7
+  field :POSTAL_CODE, 8
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.RevocationReason do
   @moduledoc false
 
@@ -21,6 +37,7 @@ defmodule Google.Cloud.Security.Privateca.V1.SubjectRequestMode do
 
   field :SUBJECT_REQUEST_MODE_UNSPECIFIED, 0
   field :DEFAULT, 1
+  field :RDN_SEQUENCE, 3
   field :REFLECTED_SPIFFE, 2
 end
 
@@ -151,6 +168,24 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.KeyVersionSpec
     oneof: 0
 end
 
+defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.UserDefinedAccessUrls do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :aia_issuing_certificate_urls, 1,
+    repeated: true,
+    type: :string,
+    json_name: "aiaIssuingCertificateUrls",
+    deprecated: false
+
+  field :crl_access_urls, 2,
+    repeated: true,
+    type: :string,
+    json_name: "crlAccessUrls",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority.LabelsEntry do
   @moduledoc false
 
@@ -239,6 +274,14 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateAuthority do
     type: Google.Cloud.Security.Privateca.V1.CertificateAuthority.LabelsEntry,
     map: true,
     deprecated: false
+
+  field :user_defined_access_urls, 18,
+    type: Google.Cloud.Security.Privateca.V1.CertificateAuthority.UserDefinedAccessUrls,
+    json_name: "userDefinedAccessUrls",
+    deprecated: false
+
+  field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
+  field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.CaPool.PublishingOptions do
@@ -320,6 +363,11 @@ defmodule Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy do
     repeated: true,
     type: Google.Cloud.Security.Privateca.V1.CaPool.IssuancePolicy.AllowedKeyType,
     json_name: "allowedKeyTypes",
+    deprecated: false
+
+  field :backdate_duration, 7,
+    type: Google.Protobuf.Duration,
+    json_name: "backdateDuration",
     deprecated: false
 
   field :maximum_lifetime, 2,
@@ -834,6 +882,8 @@ defmodule Google.Cloud.Security.Privateca.V1.CertificateDescription do
   field :cert_fingerprint, 8,
     type: Google.Cloud.Security.Privateca.V1.CertificateDescription.CertificateFingerprint,
     json_name: "certFingerprint"
+
+  field :tbs_certificate_digest, 9, type: :string, json_name: "tbsCertificateDigest"
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.ObjectId do
@@ -910,6 +960,33 @@ defmodule Google.Cloud.Security.Privateca.V1.KeyUsage do
     json_name: "unknownExtendedKeyUsages"
 end
 
+defmodule Google.Cloud.Security.Privateca.V1.AttributeTypeAndValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :attribute_type, 0
+
+  field :type, 1, type: Google.Cloud.Security.Privateca.V1.AttributeType, enum: true, oneof: 0
+
+  field :object_id, 2,
+    type: Google.Cloud.Security.Privateca.V1.ObjectId,
+    json_name: "objectId",
+    oneof: 0
+
+  field :value, 3, type: :string
+end
+
+defmodule Google.Cloud.Security.Privateca.V1.RelativeDistinguishedName do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :attributes, 1,
+    repeated: true,
+    type: Google.Cloud.Security.Privateca.V1.AttributeTypeAndValue
+end
+
 defmodule Google.Cloud.Security.Privateca.V1.Subject do
   @moduledoc false
 
@@ -923,6 +1000,11 @@ defmodule Google.Cloud.Security.Privateca.V1.Subject do
   field :province, 6, type: :string
   field :street_address, 7, type: :string, json_name: "streetAddress"
   field :postal_code, 8, type: :string, json_name: "postalCode"
+
+  field :rdn_sequence, 9,
+    repeated: true,
+    type: Google.Cloud.Security.Privateca.V1.RelativeDistinguishedName,
+    json_name: "rdnSequence"
 end
 
 defmodule Google.Cloud.Security.Privateca.V1.SubjectAltNames do

@@ -10,6 +10,7 @@ defmodule Google.Protobuf.Api do
   field :source_context, 5, type: Google.Protobuf.SourceContext, json_name: "sourceContext"
   field :mixins, 6, repeated: true, type: Google.Protobuf.Mixin
   field :syntax, 7, type: Google.Protobuf.Syntax, enum: true
+  field :edition, 8, type: :string
 end
 
 defmodule Google.Protobuf.Method do
@@ -24,6 +25,7 @@ defmodule Google.Protobuf.Method do
   field :response_streaming, 5, type: :bool, json_name: "responseStreaming"
   field :options, 6, repeated: true, type: Google.Protobuf.Option
   field :syntax, 7, type: Google.Protobuf.Syntax, enum: true
+  field :edition, 8, type: :string
 end
 
 defmodule Google.Protobuf.Mixin do

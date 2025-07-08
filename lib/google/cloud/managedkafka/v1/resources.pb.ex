@@ -110,6 +110,11 @@ defmodule Google.Cloud.Managedkafka.V1.Cluster do
     type: :bool,
     json_name: "satisfiesPzs",
     deprecated: false
+
+  field :tls_config, 13,
+    type: Google.Cloud.Managedkafka.V1.TlsConfig,
+    json_name: "tlsConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Managedkafka.V1.CapacityConfig do
@@ -163,6 +168,42 @@ defmodule Google.Cloud.Managedkafka.V1.GcpConfig do
     deprecated: false
 
   field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.TlsConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :trust_config, 1,
+    type: Google.Cloud.Managedkafka.V1.TrustConfig,
+    json_name: "trustConfig",
+    deprecated: false
+
+  field :ssl_principal_mapping_rules, 2,
+    type: :string,
+    json_name: "sslPrincipalMappingRules",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.TrustConfig.CertificateAuthorityServiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :ca_pool, 1, type: :string, json_name: "caPool", deprecated: false
+end
+
+defmodule Google.Cloud.Managedkafka.V1.TrustConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :cas_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Managedkafka.V1.TrustConfig.CertificateAuthorityServiceConfig,
+    json_name: "casConfigs",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Managedkafka.V1.Topic.ConfigsEntry do

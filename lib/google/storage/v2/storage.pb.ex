@@ -1096,7 +1096,7 @@ defmodule Google.Storage.V2.Bucket.Encryption.GoogleManagedEncryptionEnforcement
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :restricted, 1, proto3_optional: true, type: :bool
+  field :restriction_mode, 3, proto3_optional: true, type: :string, json_name: "restrictionMode"
 
   field :effective_time, 2,
     proto3_optional: true,
@@ -1109,7 +1109,7 @@ defmodule Google.Storage.V2.Bucket.Encryption.CustomerManagedEncryptionEnforceme
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :restricted, 1, proto3_optional: true, type: :bool
+  field :restriction_mode, 3, proto3_optional: true, type: :string, json_name: "restrictionMode"
 
   field :effective_time, 2,
     proto3_optional: true,
@@ -1122,7 +1122,7 @@ defmodule Google.Storage.V2.Bucket.Encryption.CustomerSuppliedEncryptionEnforcem
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :restricted, 1, proto3_optional: true, type: :bool
+  field :restriction_mode, 3, proto3_optional: true, type: :string, json_name: "restrictionMode"
 
   field :effective_time, 2,
     proto3_optional: true,
