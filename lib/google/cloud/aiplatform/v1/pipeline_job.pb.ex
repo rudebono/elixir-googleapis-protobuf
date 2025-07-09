@@ -287,6 +287,8 @@ defmodule Google.Cloud.Aiplatform.V1.PipelineTaskDetail do
     type: Google.Cloud.Aiplatform.V1.PipelineTaskDetail.OutputsEntry,
     map: true,
     deprecated: false
+
+  field :task_unique_name, 14, type: :string, json_name: "taskUniqueName", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PipelineTaskExecutorDetail.ContainerDetail do
