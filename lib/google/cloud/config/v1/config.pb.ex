@@ -208,6 +208,19 @@ defmodule Google.Cloud.Config.V1.TerraformVersion.State do
   field :OBSOLETE, 3
 end
 
+defmodule Google.Cloud.Config.V1.ResourceChange.Intent do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :INTENT_UNSPECIFIED, 0
+  field :CREATE, 1
+  field :UPDATE, 2
+  field :DELETE, 3
+  field :RECREATE, 4
+  field :UNCHANGED, 5
+end
+
 defmodule Google.Cloud.Config.V1.Deployment.LabelsEntry do
   @moduledoc false
 
@@ -238,7 +251,7 @@ defmodule Google.Cloud.Config.V1.Deployment do
     json_name: "terraformBlueprint",
     oneof: 0
 
-  field :name, 1, type: :string
+  field :name, 1, type: :string, deprecated: false
 
   field :create_time, 2,
     type: Google.Protobuf.Timestamp,
@@ -250,7 +263,12 @@ defmodule Google.Cloud.Config.V1.Deployment do
     json_name: "updateTime",
     deprecated: false
 
-  field :labels, 4, repeated: true, type: Google.Cloud.Config.V1.Deployment.LabelsEntry, map: true
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Config.V1.Deployment.LabelsEntry,
+    map: true,
+    deprecated: false
+
   field :state, 5, type: Google.Cloud.Config.V1.Deployment.State, enum: true, deprecated: false
   field :latest_revision, 7, type: :string, json_name: "latestRevision", deprecated: false
   field :state_detail, 9, type: :string, json_name: "stateDetail", deprecated: false
@@ -350,7 +368,8 @@ defmodule Google.Cloud.Config.V1.TerraformBlueprint do
     repeated: true,
     type: Google.Cloud.Config.V1.TerraformBlueprint.InputValuesEntry,
     json_name: "inputValues",
-    map: true
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.TerraformVariable do
@@ -358,7 +377,7 @@ defmodule Google.Cloud.Config.V1.TerraformVariable do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
-  field :input_value, 5, type: Google.Protobuf.Value, json_name: "inputValue"
+  field :input_value, 5, type: Google.Protobuf.Value, json_name: "inputValue", deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.ApplyResults.OutputsEntry do
@@ -618,7 +637,7 @@ defmodule Google.Cloud.Config.V1.TerraformError do
   field :resource_address, 1, type: :string, json_name: "resourceAddress"
   field :http_response_code, 2, type: :int32, json_name: "httpResponseCode"
   field :error_description, 3, type: :string, json_name: "errorDescription"
-  field :error, 4, type: Google.Rpc.Status
+  field :error, 4, type: Google.Rpc.Status, deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.GitSource do
@@ -1074,6 +1093,188 @@ defmodule Google.Cloud.Config.V1.TerraformVersion do
     deprecated: false
 end
 
+defmodule Google.Cloud.Config.V1.ResourceChangeTerraformInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :address, 1, type: :string, deprecated: false
+  field :type, 2, type: :string, deprecated: false
+  field :resource_name, 3, type: :string, json_name: "resourceName", deprecated: false
+  field :provider, 4, type: :string, deprecated: false
+  field :actions, 5, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ResourceChange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :terraform_info, 2,
+    type: Google.Cloud.Config.V1.ResourceChangeTerraformInfo,
+    json_name: "terraformInfo",
+    deprecated: false
+
+  field :intent, 3,
+    type: Google.Cloud.Config.V1.ResourceChange.Intent,
+    enum: true,
+    deprecated: false
+
+  field :property_changes, 4,
+    repeated: true,
+    type: Google.Cloud.Config.V1.PropertyChange,
+    json_name: "propertyChanges",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.PropertyChange do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :path, 1, type: :string, deprecated: false
+
+  field :before_sensitive_paths, 2,
+    repeated: true,
+    type: :string,
+    json_name: "beforeSensitivePaths",
+    deprecated: false
+
+  field :before, 3, type: Google.Protobuf.Value, deprecated: false
+
+  field :after_sensitive_paths, 4,
+    repeated: true,
+    type: :string,
+    json_name: "afterSensitivePaths",
+    deprecated: false
+
+  field :after, 5, type: Google.Protobuf.Value, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListResourceChangesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListResourceChangesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :resource_changes, 1,
+    repeated: true,
+    type: Google.Cloud.Config.V1.ResourceChange,
+    json_name: "resourceChanges"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Config.V1.GetResourceChangeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ResourceDriftTerraformInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :address, 1, type: :string, deprecated: false
+  field :type, 2, type: :string, deprecated: false
+  field :resource_name, 3, type: :string, json_name: "resourceName", deprecated: false
+  field :provider, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ResourceDrift do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :terraform_info, 2,
+    type: Google.Cloud.Config.V1.ResourceDriftTerraformInfo,
+    json_name: "terraformInfo",
+    deprecated: false
+
+  field :property_drifts, 3,
+    repeated: true,
+    type: Google.Cloud.Config.V1.PropertyDrift,
+    json_name: "propertyDrifts",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.PropertyDrift do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :path, 1, type: :string, deprecated: false
+
+  field :before_sensitive_paths, 2,
+    repeated: true,
+    type: :string,
+    json_name: "beforeSensitivePaths",
+    deprecated: false
+
+  field :before, 3, type: Google.Protobuf.Value, deprecated: false
+
+  field :after_sensitive_paths, 4,
+    repeated: true,
+    type: :string,
+    json_name: "afterSensitivePaths",
+    deprecated: false
+
+  field :after, 5, type: Google.Protobuf.Value, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListResourceDriftsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ListResourceDriftsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :resource_drifts, 1,
+    repeated: true,
+    type: Google.Cloud.Config.V1.ResourceDrift,
+    json_name: "resourceDrifts"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Config.V1.GetResourceDriftRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Config.V1.Config.Service do
   @moduledoc false
 
@@ -1156,6 +1357,22 @@ defmodule Google.Cloud.Config.V1.Config.Service do
   rpc :GetTerraformVersion,
       Google.Cloud.Config.V1.GetTerraformVersionRequest,
       Google.Cloud.Config.V1.TerraformVersion
+
+  rpc :ListResourceChanges,
+      Google.Cloud.Config.V1.ListResourceChangesRequest,
+      Google.Cloud.Config.V1.ListResourceChangesResponse
+
+  rpc :GetResourceChange,
+      Google.Cloud.Config.V1.GetResourceChangeRequest,
+      Google.Cloud.Config.V1.ResourceChange
+
+  rpc :ListResourceDrifts,
+      Google.Cloud.Config.V1.ListResourceDriftsRequest,
+      Google.Cloud.Config.V1.ListResourceDriftsResponse
+
+  rpc :GetResourceDrift,
+      Google.Cloud.Config.V1.GetResourceDriftRequest,
+      Google.Cloud.Config.V1.ResourceDrift
 end
 
 defmodule Google.Cloud.Config.V1.Config.Stub do
