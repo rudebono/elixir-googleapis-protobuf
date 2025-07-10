@@ -50,6 +50,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
     deprecated: false
 
   field :spot, 5, type: :bool, deprecated: false
+
+  field :flex_start, 10,
+    type: Google.Cloud.Aiplatform.V1beta1.FlexStart,
+    json_name: "flexStart",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.AutomaticResources do
@@ -130,4 +135,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ShieldedVmConfig do
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
   field :enable_secure_boot, 1, type: :bool, json_name: "enableSecureBoot"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.FlexStart do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :max_runtime_duration, 1, type: Google.Protobuf.Duration, json_name: "maxRuntimeDuration"
 end

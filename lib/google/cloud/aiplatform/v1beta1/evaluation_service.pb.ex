@@ -62,6 +62,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 
+  field :aggregation_output, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.AggregationOutput,
+    json_name: "aggregationOutput",
+    deprecated: false
+
   field :output_info, 3,
     type: Google.Cloud.Aiplatform.V1beta1.OutputInfo,
     json_name: "outputInfo",
@@ -80,6 +85,57 @@ defmodule Google.Cloud.Aiplatform.V1beta1.OutputInfo do
     json_name: "gcsOutputDirectory",
     oneof: 0,
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AggregationOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :dataset, 1, type: Google.Cloud.Aiplatform.V1beta1.EvaluationDataset
+
+  field :aggregation_results, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.AggregationResult,
+    json_name: "aggregationResults"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.AggregationResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :aggregation_result, 0
+
+  field :pointwise_metric_result, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.PointwiseMetricResult,
+    json_name: "pointwiseMetricResult",
+    oneof: 0
+
+  field :pairwise_metric_result, 6,
+    type: Google.Cloud.Aiplatform.V1beta1.PairwiseMetricResult,
+    json_name: "pairwiseMetricResult",
+    oneof: 0
+
+  field :exact_match_metric_value, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.ExactMatchMetricValue,
+    json_name: "exactMatchMetricValue",
+    oneof: 0
+
+  field :bleu_metric_value, 8,
+    type: Google.Cloud.Aiplatform.V1beta1.BleuMetricValue,
+    json_name: "bleuMetricValue",
+    oneof: 0
+
+  field :rouge_metric_value, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.RougeMetricValue,
+    json_name: "rougeMetricValue",
+    oneof: 0
+
+  field :aggregation_metric, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.Metric.AggregationMetric,
+    json_name: "aggregationMetric",
+    enum: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRequest do

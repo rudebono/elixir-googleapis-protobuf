@@ -179,6 +179,7 @@ defmodule Maps.Fleetengine.V1.Trip do
     deprecated: false
 
   field :view, 31, type: Maps.Fleetengine.V1.TripView, enum: true
+  field :attributes, 35, repeated: true, type: Maps.Fleetengine.V1.TripAttribute
 end
 
 defmodule Maps.Fleetengine.V1.StopLocation do
