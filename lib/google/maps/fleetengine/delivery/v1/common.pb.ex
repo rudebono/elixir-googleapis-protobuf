@@ -113,6 +113,14 @@ defmodule Maps.Fleetengine.Delivery.V1.DeliveryVehicleLocation do
     type: Google.Protobuf.DoubleValue,
     json_name: "rawLocationAccuracy"
 
+  field :flp_location, 29, type: Google.Type.LatLng, json_name: "flpLocation"
+  field :flp_update_time, 30, type: Google.Protobuf.Timestamp, json_name: "flpUpdateTime"
+
+  field :flp_latlng_accuracy_meters, 31,
+    type: Google.Protobuf.DoubleValue,
+    json_name: "flpLatlngAccuracyMeters"
+
+  field :flp_heading_degrees, 32, type: Google.Protobuf.Int32Value, json_name: "flpHeadingDegrees"
   field :supplemental_location, 18, type: Google.Type.LatLng, json_name: "supplementalLocation"
 
   field :supplemental_location_time, 19,

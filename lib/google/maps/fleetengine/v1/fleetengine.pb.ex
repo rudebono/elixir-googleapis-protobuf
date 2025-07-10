@@ -207,6 +207,14 @@ defmodule Maps.Fleetengine.V1.VehicleLocation do
     type: Google.Protobuf.DoubleValue,
     json_name: "rawLocationAccuracy"
 
+  field :flp_location, 29, type: Google.Type.LatLng, json_name: "flpLocation"
+  field :flp_update_time, 30, type: Google.Protobuf.Timestamp, json_name: "flpUpdateTime"
+
+  field :flp_latlng_accuracy_meters, 31,
+    type: Google.Protobuf.DoubleValue,
+    json_name: "flpLatlngAccuracyMeters"
+
+  field :flp_heading_degrees, 32, type: Google.Protobuf.Int32Value, json_name: "flpHeadingDegrees"
   field :supplemental_location, 18, type: Google.Type.LatLng, json_name: "supplementalLocation"
 
   field :supplemental_location_time, 19,
@@ -223,4 +231,17 @@ defmodule Maps.Fleetengine.V1.VehicleLocation do
     json_name: "supplementalLocationAccuracy"
 
   field :road_snapped, 26, type: :bool, json_name: "roadSnapped", deprecated: true
+end
+
+defmodule Maps.Fleetengine.V1.TripAttribute do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :trip_attribute_value, 0
+
+  field :key, 1, type: :string
+  field :string_value, 2, type: :string, json_name: "stringValue", oneof: 0
+  field :bool_value, 3, type: :bool, json_name: "boolValue", oneof: 0
+  field :number_value, 4, type: :double, json_name: "numberValue", oneof: 0
 end

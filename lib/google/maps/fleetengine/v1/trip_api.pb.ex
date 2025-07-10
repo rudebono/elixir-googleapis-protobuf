@@ -33,7 +33,8 @@ defmodule Maps.Fleetengine.V1.GetTripRequest do
 
   field :remaining_waypoints_version, 7,
     type: Google.Protobuf.Timestamp,
-    json_name: "remainingWaypointsVersion"
+    json_name: "remainingWaypointsVersion",
+    deprecated: true
 
   field :route_format_type, 8,
     type: Maps.Fleetengine.V1.PolylineFormatType,
