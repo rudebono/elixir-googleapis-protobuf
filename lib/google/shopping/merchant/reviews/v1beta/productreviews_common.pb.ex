@@ -154,6 +154,18 @@ defmodule Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes do
   field :brands, 26, repeated: true, type: :string, deprecated: false
   field :is_spam, 27, proto3_optional: true, type: :bool, json_name: "isSpam", deprecated: false
 
+  field :is_verified_purchase, 30,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "isVerifiedPurchase",
+    deprecated: false
+
+  field :is_incentivized_review, 31,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "isIncentivizedReview",
+    deprecated: false
+
   field :collection_method, 28,
     type: Google.Shopping.Merchant.Reviews.V1beta.ProductReviewAttributes.CollectionMethod,
     json_name: "collectionMethod",
