@@ -64,12 +64,18 @@ defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
     type: :string,
     json_name: "googleProductCategory"
 
-  field :gtin, 26, repeated: true, type: :string
+  field :gtin, 26, repeated: true, type: :string, deprecated: true
+  field :gtins, 140, repeated: true, type: :string
   field :item_group_id, 27, proto3_optional: true, type: :string, json_name: "itemGroupId"
   field :material, 28, proto3_optional: true, type: :string
   field :mpn, 29, proto3_optional: true, type: :string
   field :pattern, 30, proto3_optional: true, type: :string
   field :price, 31, type: Google.Shopping.Type.Price
+
+  field :maximum_retail_price, 139,
+    type: Google.Shopping.Type.Price,
+    json_name: "maximumRetailPrice"
+
   field :installment, 32, type: Google.Shopping.Merchant.Products.V1beta.Installment
 
   field :subscription_cost, 33,
@@ -148,8 +154,17 @@ defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
   field :size, 48, proto3_optional: true, type: :string
   field :size_system, 49, proto3_optional: true, type: :string, json_name: "sizeSystem"
   field :size_types, 50, repeated: true, type: :string, json_name: "sizeTypes"
-  field :taxes, 51, repeated: true, type: Google.Shopping.Merchant.Products.V1beta.Tax
-  field :tax_category, 52, proto3_optional: true, type: :string, json_name: "taxCategory"
+
+  field :taxes, 51,
+    repeated: true,
+    type: Google.Shopping.Merchant.Products.V1beta.Tax,
+    deprecated: true
+
+  field :tax_category, 52,
+    proto3_optional: true,
+    type: :string,
+    json_name: "taxCategory",
+    deprecated: true
 
   field :energy_efficiency_class, 53,
     proto3_optional: true,
