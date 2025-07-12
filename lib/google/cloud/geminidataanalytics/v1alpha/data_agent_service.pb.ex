@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest.CreatorFilter do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :CREATOR_FILTER_UNSPECIFIED, 0
+  field :NONE, 1
+  field :CREATOR_ONLY, 2
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest do
   @moduledoc false
 
@@ -12,6 +22,39 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest do
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :data_agents, 1,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.DataAgent,
+    json_name: "dataAgents"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+  field :show_deleted, 6, type: :bool, json_name: "showDeleted", deprecated: false
+
+  field :creator_filter, 7,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest.CreatorFilter,
+    json_name: "creatorFilter",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
@@ -110,6 +153,10 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataAgentService.Service do
       Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsResponse
 
+  rpc :ListAccessibleDataAgents,
+      Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest,
+      Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsResponse
+
   rpc :GetDataAgent,
       Google.Cloud.Geminidataanalytics.V1alpha.GetDataAgentRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.DataAgent
@@ -125,6 +172,10 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataAgentService.Service do
   rpc :DeleteDataAgent,
       Google.Cloud.Geminidataanalytics.V1alpha.DeleteDataAgentRequest,
       Google.Longrunning.Operation
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataAgentService.Stub do
