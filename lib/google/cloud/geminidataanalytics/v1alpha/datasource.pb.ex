@@ -80,11 +80,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.LookerExploreReference do
 
   oneof :instance, 0
 
-  field :looker_instance_uri, 9,
-    type: :string,
-    json_name: "lookerInstanceUri",
-    oneof: 0,
-    deprecated: false
+  field :looker_instance_uri, 9, type: :string, json_name: "lookerInstanceUri", oneof: 0
 
   field :private_looker_instance_info, 10,
     type: Google.Cloud.Geminidataanalytics.V1alpha.PrivateLookerInstanceInfo,
@@ -155,4 +151,6 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.Field do
     repeated: true,
     type: Google.Cloud.Geminidataanalytics.V1alpha.Field,
     deprecated: false
+
+  field :category, 10, type: :string, deprecated: false
 end

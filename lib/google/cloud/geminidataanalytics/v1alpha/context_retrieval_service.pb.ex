@@ -39,6 +39,32 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextR
     json_name: "tableCandidates"
 end
 
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :query, 2, type: :string, deprecated: false
+
+  field :direct_lookups, 3,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.DirectLookup,
+    json_name: "directLookups",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :table_candidates, 1,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.TableCandidate,
+    json_name: "tableCandidates"
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsFromRecentTablesRequest do
   @moduledoc false
 
@@ -82,6 +108,46 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggeste
     repeated: true,
     type: Google.Cloud.Geminidataanalytics.V1alpha.TableCandidate,
     json_name: "tableCandidates"
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :direct_lookup, 2,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.DirectLookup,
+    json_name: "directLookup",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse.ExampleSuggestion do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :nl_query, 1, type: :string, json_name: "nlQuery"
+  field :sql, 2, type: :string
+
+  field :linked_bigquery_tables, 3,
+    repeated: true,
+    type: :string,
+    json_name: "linkedBigqueryTables"
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :example_suggestions, 2,
+    repeated: true,
+    type:
+      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse.ExampleSuggestion,
+    json_name: "exampleSuggestions"
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryRecentRelevantTablesRequest do
@@ -150,6 +216,10 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ContextRetrievalService.Servi
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse
 
+  rpc :RetrieveBigQueryTableContexts,
+      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsRequest,
+      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsResponse
+
   rpc :RetrieveBigQueryTableContextsFromRecentTables,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsFromRecentTablesRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsFromRecentTablesResponse
@@ -157,6 +227,10 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ContextRetrievalService.Servi
   rpc :RetrieveBigQueryTableSuggestedDescriptions,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedDescriptionsRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedDescriptionsResponse
+
+  rpc :RetrieveBigQueryTableSuggestedExamples,
+      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesRequest,
+      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse
 
   rpc :RetrieveBigQueryRecentRelevantTables,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryRecentRelevantTablesRequest,

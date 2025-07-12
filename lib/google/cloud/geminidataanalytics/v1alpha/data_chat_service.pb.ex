@@ -149,6 +149,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.SystemMessage do
   field :analysis, 4, type: Google.Cloud.Geminidataanalytics.V1alpha.AnalysisMessage, oneof: 0
   field :chart, 5, type: Google.Cloud.Geminidataanalytics.V1alpha.ChartMessage, oneof: 0
   field :error, 6, type: Google.Cloud.Geminidataanalytics.V1alpha.ErrorMessage, oneof: 0
+  field :group_id, 12, proto3_optional: true, type: :int32, json_name: "groupId"
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.TextMessage do

@@ -12,6 +12,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedHyperParameters.AdapterSize 
   field :ADAPTER_SIZE_THIRTY_TWO, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec.TuningMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :TUNING_MODE_UNSPECIFIED, 0
+  field :TUNING_MODE_FULL, 1
+  field :TUNING_MODE_PEFT_ADAPTER, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob.LabelsEntry do
   @moduledoc false
 
@@ -55,6 +65,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
     deprecated: false
 
   field :description, 3, type: :string, deprecated: false
+  field :custom_base_model, 26, type: :string, json_name: "customBaseModel", deprecated: false
   field :state, 6, type: Google.Cloud.Aiplatform.V1beta1.JobState, enum: true, deprecated: false
 
   field :create_time, 7,
@@ -97,6 +108,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
     json_name: "encryptionSpec"
 
   field :service_account, 22, type: :string, json_name: "serviceAccount"
+  field :output_uri, 25, type: :string, json_name: "outputUri", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModel do
@@ -325,11 +337,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedHyperParameters do
     json_name: "learningRateMultiplier",
     deprecated: false
 
+  field :learning_rate, 6, type: :double, json_name: "learningRate", deprecated: false
+
   field :adapter_size, 3,
     type: Google.Cloud.Aiplatform.V1beta1.SupervisedHyperParameters.AdapterSize,
     json_name: "adapterSize",
     enum: true,
     deprecated: false
+
+  field :batch_size, 5, type: :int64, json_name: "batchSize", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec do
@@ -356,6 +372,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec do
     type: :bool,
     json_name: "exportLastCheckpointOnly",
     deprecated: false
+
+  field :tuning_mode, 7,
+    type: Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec.TuningMode,
+    json_name: "tuningMode",
+    enum: true
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DistillationSpec do

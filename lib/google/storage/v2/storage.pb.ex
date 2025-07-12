@@ -782,6 +782,7 @@ defmodule Google.Storage.V2.ListObjectsRequest do
     deprecated: false
 
   field :match_glob, 14, type: :string, json_name: "matchGlob", deprecated: false
+  field :filter, 15, type: :string, deprecated: false
 end
 
 defmodule Google.Storage.V2.QueryWriteStatusRequest do
@@ -1562,6 +1563,45 @@ defmodule Google.Storage.V2.ObjectChecksums do
   field :md5_hash, 2, type: :bytes, json_name: "md5Hash", deprecated: false
 end
 
+defmodule Google.Storage.V2.ObjectCustomContextPayload do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :value, 1, type: :string, deprecated: false
+
+  field :create_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Storage.V2.ObjectContexts.CustomEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Storage.V2.ObjectCustomContextPayload
+end
+
+defmodule Google.Storage.V2.ObjectContexts do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :custom, 1,
+    repeated: true,
+    type: Google.Storage.V2.ObjectContexts.CustomEntry,
+    map: true,
+    deprecated: false
+end
+
 defmodule Google.Storage.V2.CustomerEncryption do
   @moduledoc false
 
@@ -1667,6 +1707,7 @@ defmodule Google.Storage.V2.Object do
     map: true,
     deprecated: false
 
+  field :contexts, 38, type: Google.Storage.V2.ObjectContexts, deprecated: false
   field :event_based_hold, 23, proto3_optional: true, type: :bool, json_name: "eventBasedHold"
   field :owner, 24, type: Google.Storage.V2.Owner, deprecated: false
 
