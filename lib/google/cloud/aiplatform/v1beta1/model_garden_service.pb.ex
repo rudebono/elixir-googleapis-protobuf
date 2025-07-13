@@ -64,6 +64,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListPublisherModelsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.CustomModel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :model_source, 0
+
+  field :gcs_uri, 2, type: :string, json_name: "gcsUri", oneof: 0, deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.ModelConfig do
   @moduledoc false
 
@@ -148,6 +158,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest do
     deprecated: false
 
   field :hugging_face_model_id, 2, type: :string, json_name: "huggingFaceModelId", oneof: 0
+
+  field :custom_model, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.DeployRequest.CustomModel,
+    json_name: "customModel",
+    oneof: 0
+
   field :destination, 4, type: :string, deprecated: false
 
   field :model_config, 5,
