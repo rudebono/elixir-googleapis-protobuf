@@ -99,6 +99,7 @@ defmodule Google.Maps.Addressvalidation.V1.Verdict do
   field :has_unconfirmed_components, 5, type: :bool, json_name: "hasUnconfirmedComponents"
   field :has_inferred_components, 6, type: :bool, json_name: "hasInferredComponents"
   field :has_replaced_components, 7, type: :bool, json_name: "hasReplacedComponents"
+  field :has_spell_corrected_components, 9, type: :bool, json_name: "hasSpellCorrectedComponents"
 end
 
 defmodule Google.Maps.Addressvalidation.V1.AddressValidation.Service do
