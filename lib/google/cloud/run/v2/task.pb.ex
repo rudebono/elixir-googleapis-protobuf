@@ -139,6 +139,12 @@ defmodule Google.Cloud.Run.V2.Task do
     json_name: "nodeSelector",
     deprecated: false
 
+  field :gpu_zonal_redundancy_disabled, 37,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "gpuZonalRedundancyDisabled",
+    deprecated: false
+
   field :etag, 99, type: :string, deprecated: false
 end
 
@@ -149,6 +155,7 @@ defmodule Google.Cloud.Run.V2.TaskAttemptResult do
 
   field :status, 1, type: Google.Rpc.Status, deprecated: false
   field :exit_code, 2, type: :int32, json_name: "exitCode", deprecated: false
+  field :term_signal, 3, type: :int32, json_name: "termSignal", deprecated: false
 end
 
 defmodule Google.Cloud.Run.V2.Tasks.Service do

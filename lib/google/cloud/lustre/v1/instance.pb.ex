@@ -10,6 +10,7 @@ defmodule Google.Cloud.Lustre.V1.Instance.State do
   field :UPGRADING, 4
   field :REPAIRING, 5
   field :STOPPED, 6
+  field :UPDATING, 7
 end
 
 defmodule Google.Cloud.Lustre.V1.Instance.LabelsEntry do
@@ -56,7 +57,7 @@ defmodule Google.Cloud.Lustre.V1.Instance do
     json_name: "perUnitStorageThroughput",
     deprecated: false
 
-  field :gke_support_enabled, 12, type: :bool, json_name: "gkeSupportEnabled", deprecated: false
+  field :gke_support_enabled, 12, type: :bool, json_name: "gkeSupportEnabled", deprecated: true
 end
 
 defmodule Google.Cloud.Lustre.V1.ListInstancesRequest do

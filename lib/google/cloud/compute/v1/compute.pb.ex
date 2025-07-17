@@ -989,6 +989,17 @@ defmodule Google.Cloud.Compute.V1.GRPCHealthCheck.PortSpecification do
   field :USE_SERVING_PORT, 362_637_516
 end
 
+defmodule Google.Cloud.Compute.V1.GetReservationBlockRequest.View do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :UNDEFINED_VIEW, 0
+  field :BASIC, 62_970_894
+  field :BLOCK_VIEW_UNSPECIFIED, 275_070_479
+  field :FULL, 2_169_487
+end
+
 defmodule Google.Cloud.Compute.V1.GroupMaintenanceInfo.SchedulingType do
   @moduledoc false
 
@@ -13557,6 +13568,7 @@ defmodule Google.Cloud.Compute.V1.GetReservationBlockRequest do
     json_name: "reservationBlock",
     deprecated: false
 
+  field :view, 3_619_493, proto3_optional: true, type: :string
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
@@ -27217,6 +27229,34 @@ defmodule Google.Cloud.Compute.V1.ReservationBlockPhysicalTopology do
 
   field :block, 93_832_333, proto3_optional: true, type: :string
   field :cluster, 335_221_242, proto3_optional: true, type: :string
+
+  field :instances, 29_097_598,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.ReservationBlockPhysicalTopologyInstance
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationBlockPhysicalTopologyInstance do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :instance_id, 45_488_389, proto3_optional: true, type: :uint64, json_name: "instanceId"
+
+  field :physical_host_topology, 390_842_814,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ReservationBlockPhysicalTopologyInstancePhysicalHostTopology,
+    json_name: "physicalHostTopology"
+
+  field :project_id, 177_513_473, proto3_optional: true, type: :uint64, json_name: "projectId"
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationBlockPhysicalTopologyInstancePhysicalHostTopology do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :host, 3_208_616, proto3_optional: true, type: :string
+  field :sub_block, 478_033_358, proto3_optional: true, type: :string, json_name: "subBlock"
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationBlocksGetResponse do

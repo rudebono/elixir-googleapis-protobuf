@@ -370,6 +370,15 @@ defmodule Google.Firestore.Admin.V1.DeleteBackupRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest do
   @moduledoc false
 
@@ -382,6 +391,12 @@ defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest do
   field :encryption_config, 9,
     type: Google.Firestore.Admin.V1.Database.EncryptionConfig,
     json_name: "encryptionConfig",
+    deprecated: false
+
+  field :tags, 10,
+    repeated: true,
+    type: Google.Firestore.Admin.V1.RestoreDatabaseRequest.TagsEntry,
+    map: true,
     deprecated: false
 end
 

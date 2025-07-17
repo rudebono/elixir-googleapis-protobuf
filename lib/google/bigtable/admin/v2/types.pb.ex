@@ -207,6 +207,24 @@ defmodule Google.Bigtable.Admin.V2.Type.Struct do
   field :encoding, 2, type: Google.Bigtable.Admin.V2.Type.Struct.Encoding
 end
 
+defmodule Google.Bigtable.Admin.V2.Type.Proto do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :schema_bundle_id, 1, type: :string, json_name: "schemaBundleId"
+  field :message_name, 2, type: :string, json_name: "messageName"
+end
+
+defmodule Google.Bigtable.Admin.V2.Type.Enum do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :schema_bundle_id, 1, type: :string, json_name: "schemaBundleId"
+  field :enum_name, 2, type: :string, json_name: "enumName"
+end
+
 defmodule Google.Bigtable.Admin.V2.Type.Array do
   @moduledoc false
 
@@ -330,4 +348,11 @@ defmodule Google.Bigtable.Admin.V2.Type do
     oneof: 0
 
   field :map_type, 4, type: Google.Bigtable.Admin.V2.Type.Map, json_name: "mapType", oneof: 0
+
+  field :proto_type, 13,
+    type: Google.Bigtable.Admin.V2.Type.Proto,
+    json_name: "protoType",
+    oneof: 0
+
+  field :enum_type, 14, type: Google.Bigtable.Admin.V2.Type.Enum, json_name: "enumType", oneof: 0
 end
