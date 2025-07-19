@@ -23,4 +23,6 @@ defmodule Google.Spanner.V1.CommitResponse do
     type: Google.Spanner.V1.MultiplexedSessionPrecommitToken,
     json_name: "precommitToken",
     oneof: 0
+
+  field :snapshot_timestamp, 5, type: Google.Protobuf.Timestamp, json_name: "snapshotTimestamp"
 end
