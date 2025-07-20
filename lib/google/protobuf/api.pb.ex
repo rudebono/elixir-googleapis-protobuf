@@ -24,8 +24,8 @@ defmodule Google.Protobuf.Method do
   field :response_type_url, 4, type: :string, json_name: "responseTypeUrl"
   field :response_streaming, 5, type: :bool, json_name: "responseStreaming"
   field :options, 6, repeated: true, type: Google.Protobuf.Option
-  field :syntax, 7, type: Google.Protobuf.Syntax, enum: true
-  field :edition, 8, type: :string
+  field :syntax, 7, type: Google.Protobuf.Syntax, enum: true, deprecated: true
+  field :edition, 8, type: :string, deprecated: true
 end
 
 defmodule Google.Protobuf.Mixin do
