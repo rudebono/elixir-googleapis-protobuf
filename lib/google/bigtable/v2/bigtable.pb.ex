@@ -137,6 +137,7 @@ defmodule Google.Bigtable.V2.MutateRowsRequest.Entry do
 
   field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :mutations, 2, repeated: true, type: Google.Bigtable.V2.Mutation, deprecated: false
+  field :idempotency, 3, type: Google.Bigtable.V2.Idempotency
 end
 
 defmodule Google.Bigtable.V2.MutateRowsRequest do
