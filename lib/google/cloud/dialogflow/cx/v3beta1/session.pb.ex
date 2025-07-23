@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AnswerFeedback.Rating do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RATING_UNSPECIFIED, 0
   field :THUMBS_UP, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse.ResponseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESPONSE_TYPE_UNSPECIFIED, 0
   field :PARTIAL, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult.MessageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
   field :TRANSCRIPT, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
   field :NUMERICAL, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec.ConditionBoostSpec.BoostControlSpec.InterpolationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INTERPOLATION_TYPE_UNSPECIFIED, 0
   field :LINEAR, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Match.MatchType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MATCH_TYPE_UNSPECIFIED, 0
   field :INTENT, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AnswerFeedback.RatingReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reason_labels, 3,
     repeated: true,
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AnswerFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rating, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.AnswerFeedback.Rating,
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SubmitAnswerFeedbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :response_id, 2, type: :string, json_name: "responseId", deprecated: false
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -187,7 +187,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CloudConversationDebuggingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audio_data_chunks, 1, type: :int32, json_name: "audioDataChunks"
 
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingDetectIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -269,7 +269,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.StreamingRecognitionResult.MessageType,
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters.WebhookHeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :time_zone, 1, type: :string, json_name: "timeZone"
   field :geo_location, 2, type: Google.Type.LatLng, json_name: "geoLocation"
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SearchConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :boost_specs, 1,
     repeated: true,
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec.ConditionBoostSpec.BoostControlSpec.ControlPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attribute_value, 1, type: :string, json_name: "attributeValue", deprecated: false
   field :boost_amount, 2, type: :float, json_name: "boostAmount", deprecated: false
@@ -390,7 +390,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec.ConditionBoostSpec.BoostControlSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName", deprecated: false
 
@@ -419,7 +419,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec.ConditionBoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :condition, 1, type: :string, deprecated: false
   field :boost, 2, type: :float, deprecated: false
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :condition_boost_specs, 1,
     repeated: true,
@@ -445,7 +445,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.BoostSpecs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
 
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FilterSpecs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_stores, 1, repeated: true, type: :string, json_name: "dataStores", deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -467,7 +467,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :input, 0
 
@@ -488,7 +488,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :current_playbooks, 1, repeated: true, type: :string, json_name: "currentPlaybooks"
 
@@ -500,7 +500,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -582,7 +582,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 end
@@ -590,7 +590,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.IntentInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :intent, 1, type: :string, deprecated: false
 end
@@ -598,7 +598,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AudioInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.InputAudioConfig, deprecated: false
   field :audio, 2, type: :bytes
@@ -607,7 +607,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :event, 1, type: :string
 end
@@ -615,7 +615,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DtmfInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :digits, 1, type: :string
   field :finish_digit, 2, type: :string, json_name: "finishDigit"
@@ -624,7 +624,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Match do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :intent, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Intent
   field :event, 6, type: :string
@@ -642,7 +642,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -661,7 +661,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -676,7 +676,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FulfillIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :match_intent_request, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.MatchIntentRequest,
@@ -692,7 +692,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.FulfillIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -710,7 +710,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SentimentAnalysisResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
@@ -721,7 +721,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Sessions.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Sessions",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :DetectIntent,
       Google.Cloud.Dialogflow.Cx.V3beta1.DetectIntentRequest,

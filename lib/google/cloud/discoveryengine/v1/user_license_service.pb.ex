@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.ListUserLicensesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListUserLicensesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_licenses, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchUpdateUserLicensesRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_licenses, 1,
     repeated: true,
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchUpdateUserLicensesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchUpdateUserLicensesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchUpdateUserLicensesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_licenses, 1,
     repeated: true,
@@ -88,7 +88,7 @@ defmodule Google.Cloud.Discoveryengine.V1.UserLicenseService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.UserLicenseService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListUserLicenses,
       Google.Cloud.Discoveryengine.V1.ListUserLicensesRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Maps.Mapsplatformdatasets.V1.Usage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :USAGE_UNSPECIFIED, 0
   field :USAGE_DATA_DRIVEN_STYLING, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Maps.Mapsplatformdatasets.V1.Status.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_IMPORTING, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Maps.Mapsplatformdatasets.V1.Dataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data_source, 0
 
@@ -75,7 +75,7 @@ end
 defmodule Google.Maps.Mapsplatformdatasets.V1.Status do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1, type: Google.Maps.Mapsplatformdatasets.V1.Status.State, enum: true
   field :error_message, 2, type: :string, json_name: "errorMessage"

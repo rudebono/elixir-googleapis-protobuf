@@ -1,7 +1,7 @@
 defmodule Google.Security.Safebrowsing.V5alpha1.ThreatType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :THREAT_TYPE_UNSPECIFIED, 0
   field :MALWARE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.LikelySafeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LIKELY_SAFE_TYPE_UNSPECIFIED, 0
   field :GENERAL_BROWSING, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.ThreatAttribute do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :THREAT_ATTRIBUTE_UNSPECIFIED, 0
   field :CANARY, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.HashListMetadata.HashLength do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HASH_LENGTH_UNSPECIFIED, 0
   field :FOUR_BYTES, 2
@@ -46,7 +46,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.SearchHashesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hash_prefixes, 1,
     repeated: true,
@@ -60,7 +60,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.SearchHashesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :full_hashes, 1,
     repeated: true,
@@ -74,7 +74,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.FullHash.FullHashDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :threat_type, 1,
     type: Google.Security.Safebrowsing.V5alpha1.ThreatType,
@@ -91,7 +91,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.FullHash do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :full_hash, 1, type: :bytes, json_name: "fullHash"
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.GetHashListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :bytes
@@ -118,7 +118,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.SizeConstraints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_update_entries, 1, type: :int32, json_name: "maxUpdateEntries"
   field :max_database_entries, 2, type: :int32, json_name: "maxDatabaseEntries"
@@ -127,7 +127,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.RiceDeltaEncoded32Bit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_value, 1, type: :uint32, json_name: "firstValue"
   field :rice_parameter, 2, type: :int32, json_name: "riceParameter"
@@ -138,7 +138,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.RiceDeltaEncoded64Bit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_value, 1, type: :uint64, json_name: "firstValue"
   field :rice_parameter, 2, type: :int32, json_name: "riceParameter"
@@ -149,7 +149,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.RiceDeltaEncoded128Bit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_value_hi, 1, type: :uint64, json_name: "firstValueHi"
   field :first_value_lo, 2, type: :fixed64, json_name: "firstValueLo"
@@ -161,7 +161,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.RiceDeltaEncoded256Bit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_value_first_part, 1, type: :uint64, json_name: "firstValueFirstPart"
   field :first_value_second_part, 2, type: :fixed64, json_name: "firstValueSecondPart"
@@ -175,7 +175,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.HashListMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :threat_types, 1,
     repeated: true,
@@ -202,7 +202,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.HashList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :compressed_additions, 0
 
@@ -245,7 +245,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.BatchGetHashListsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :names, 1, repeated: true, type: :string, deprecated: false
   field :version, 2, repeated: true, type: :bytes
@@ -258,7 +258,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.BatchGetHashListsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hash_lists, 1,
     repeated: true,
@@ -269,7 +269,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.ListHashListsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize"
   field :page_token, 2, type: :string, json_name: "pageToken"
@@ -278,7 +278,7 @@ end
 defmodule Google.Security.Safebrowsing.V5alpha1.ListHashListsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hash_lists, 1,
     repeated: true,
@@ -293,7 +293,7 @@ defmodule Google.Security.Safebrowsing.V5alpha1.SafeBrowsing.Service do
 
   use GRPC.Service,
     name: "google.security.safebrowsing.v5alpha1.SafeBrowsing",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SearchHashes,
       Google.Security.Safebrowsing.V5alpha1.SearchHashesRequest,

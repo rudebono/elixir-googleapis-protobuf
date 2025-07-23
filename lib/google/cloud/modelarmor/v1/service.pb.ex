@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Modelarmor.V1.FilterMatchState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FILTER_MATCH_STATE_UNSPECIFIED, 0
   field :NO_MATCH_FOUND, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.FilterExecutionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FILTER_EXECUTION_STATE_UNSPECIFIED, 0
   field :EXECUTION_SUCCESS, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RAI_FILTER_TYPE_UNSPECIFIED, 0
   field :SEXUALLY_EXPLICIT, 2
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.DetectionConfidenceLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DETECTION_CONFIDENCE_LEVEL_UNSPECIFIED, 0
   field :LOW_AND_ABOVE, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpFindingLikelihood do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SDP_FINDING_LIKELIHOOD_UNSPECIFIED, 0
   field :VERY_UNLIKELY, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.InvocationResult do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INVOCATION_RESULT_UNSPECIFIED, 0
   field :SUCCESS, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.PiAndJailbreakFilterSettings.PiAndJailbreakFilterEnforcement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PI_AND_JAILBREAK_FILTER_ENFORCEMENT_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MaliciousUriFilterSettings.MaliciousUriFilterEnforcement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MALICIOUS_URI_FILTER_ENFORCEMENT_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpBasicConfig.SdpBasicConfigEnforcement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SDP_BASIC_CONFIG_ENFORCEMENT_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.ByteDataItem.ByteItemType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BYTE_ITEM_TYPE_UNSPECIFIED, 0
   field :PLAINTEXT_UTF8, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.VirusScanFilterResult.ScannedContentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SCANNED_CONTENT_TYPE_UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.VirusDetail.ThreatType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :THREAT_TYPE_UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MessageItem.MessageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
   field :INFO, 1
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.Template.TemplateMetadata.MultiLanguageDetection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_multi_language_detection, 1,
     type: :bool,
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.Template.TemplateMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ignore_partial_invocation_failures, 1,
     type: :bool,
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.Template.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.Template do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.FloorSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.ListTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.ListTemplatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :templates, 1, repeated: true, type: Google.Cloud.Modelarmor.V1.Template
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.GetTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.CreateTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :template_id, 2, type: :string, json_name: "templateId", deprecated: false
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.UpdateTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.DeleteTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.GetFloorSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.UpdateFloorSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :floor_setting, 1,
     type: Google.Cloud.Modelarmor.V1.FloorSetting,
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.FilterConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rai_settings, 1,
     type: Google.Cloud.Modelarmor.V1.RaiFilterSettings,
@@ -391,7 +391,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.PiAndJailbreakFilterSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_enforcement, 1,
     type: Google.Cloud.Modelarmor.V1.PiAndJailbreakFilterSettings.PiAndJailbreakFilterEnforcement,
@@ -409,7 +409,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MaliciousUriFilterSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_enforcement, 1,
     type: Google.Cloud.Modelarmor.V1.MaliciousUriFilterSettings.MaliciousUriFilterEnforcement,
@@ -421,7 +421,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterSettings.RaiFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_type, 1,
     type: Google.Cloud.Modelarmor.V1.RaiFilterType,
@@ -439,7 +439,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rai_filters, 1,
     repeated: true,
@@ -451,7 +451,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpFilterSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :sdp_configuration, 0
 
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpBasicConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_enforcement, 3,
     type: Google.Cloud.Modelarmor.V1.SdpBasicConfig.SdpBasicConfigEnforcement,
@@ -483,7 +483,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpAdvancedConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inspect_template, 1, type: :string, json_name: "inspectTemplate", deprecated: false
   field :deidentify_template, 2, type: :string, json_name: "deidentifyTemplate", deprecated: false
@@ -492,7 +492,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizeUserPromptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizeUserPromptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sanitization_result, 1,
     type: Google.Cloud.Modelarmor.V1.SanitizationResult,
@@ -541,7 +541,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizeModelResponseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sanitization_result, 1,
     type: Google.Cloud.Modelarmor.V1.SanitizationResult,
@@ -552,7 +552,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizationResult.SanitizationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1, type: :int64, json_name: "errorCode"
   field :error_message, 2, type: :string, json_name: "errorMessage"
@@ -565,7 +565,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizationResult.FilterResultsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Modelarmor.V1.FilterResult
@@ -574,7 +574,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SanitizationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_match_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterMatchState,
@@ -604,7 +604,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MultiLanguageDetectionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_language, 1, type: :string, json_name: "sourceLanguage", deprecated: false
 
@@ -617,7 +617,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.FilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :filter_result, 0
 
@@ -655,7 +655,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterResult.RaiFilterTypeResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_type, 1,
     type: Google.Cloud.Modelarmor.V1.RaiFilterType,
@@ -677,7 +677,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterResult.RaiFilterTypeResultsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Modelarmor.V1.RaiFilterResult.RaiFilterTypeResult
@@ -686,7 +686,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RaiFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -715,7 +715,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -733,7 +733,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpInspectResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -759,7 +759,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.DataItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data_item, 0
 
@@ -774,7 +774,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.ByteDataItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :byte_data_type, 1,
     type: Google.Cloud.Modelarmor.V1.ByteDataItem.ByteItemType,
@@ -788,7 +788,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpDeidentifyResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -815,7 +815,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpFinding.SdpFindingLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :byte_range, 1, type: Google.Cloud.Modelarmor.V1.RangeInfo, json_name: "byteRange"
 
@@ -827,7 +827,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.SdpFinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :info_type, 1, type: :string, json_name: "infoType"
   field :likelihood, 2, type: Google.Cloud.Modelarmor.V1.SdpFindingLikelihood, enum: true
@@ -837,7 +837,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.PiAndJailbreakFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -865,7 +865,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MaliciousUriFilterResult.MaliciousUriMatchedItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :locations, 2, repeated: true, type: Google.Cloud.Modelarmor.V1.RangeInfo
@@ -874,7 +874,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MaliciousUriFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -902,7 +902,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.VirusScanFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -937,7 +937,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.VirusDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vendor, 1, type: :string
   field :names, 2, repeated: true, type: :string
@@ -951,7 +951,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.CsamFilterResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_state, 1,
     type: Google.Cloud.Modelarmor.V1.FilterExecutionState,
@@ -974,7 +974,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.MessageItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message_type, 1,
     type: Google.Cloud.Modelarmor.V1.MessageItem.MessageType,
@@ -987,7 +987,7 @@ end
 defmodule Google.Cloud.Modelarmor.V1.RangeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start, 1, proto3_optional: true, type: :int64
   field :end, 2, proto3_optional: true, type: :int64
@@ -998,7 +998,7 @@ defmodule Google.Cloud.Modelarmor.V1.ModelArmor.Service do
 
   use GRPC.Service,
     name: "google.cloud.modelarmor.v1.ModelArmor",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListTemplates,
       Google.Cloud.Modelarmor.V1.ListTemplatesRequest,

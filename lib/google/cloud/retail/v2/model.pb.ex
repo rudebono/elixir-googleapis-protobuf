@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2.Model.ServingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SERVING_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.TrainingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRAINING_STATE_UNSPECIFIED, 0
   field :PAUSED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.PeriodicTuningState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PERIODIC_TUNING_STATE_UNSPECIFIED, 0
   field :PERIODIC_TUNING_DISABLED, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.DataState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATA_STATE_UNSPECIFIED, 0
   field :DATA_OK, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.ContextProductsType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTEXT_PRODUCTS_TYPE_UNSPECIFIED, 0
   field :SINGLE_CONTEXT_PRODUCT, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.ServingConfigList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :serving_config_ids, 1,
     repeated: true,
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.FrequentlyBoughtTogetherFeaturesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :context_products_type, 2,
     type: Google.Cloud.Retail.V2.Model.ContextProductsType,
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model.ModelFeaturesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type_dedicated_config, 0
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Retail.V2.Model do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

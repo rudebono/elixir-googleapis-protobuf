@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Session do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SessionEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :author, 3, type: :string, deprecated: false
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EventMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grounding_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GroundingMetadata,
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EventActions.ArtifactDeltaEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EventActions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :skip_summarization, 1, type: :bool, json_name: "skipSummarization", deprecated: false
   field :state_delta, 2, type: Google.Protobuf.Struct, json_name: "stateDelta", deprecated: false

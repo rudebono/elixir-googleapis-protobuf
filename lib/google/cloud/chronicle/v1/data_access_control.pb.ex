@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Chronicle.V1.CreateDataAccessLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetDataAccessLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListDataAccessLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListDataAccessLabelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_access_labels, 1,
     repeated: true,
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateDataAccessLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_access_label, 1,
     type: Google.Cloud.Chronicle.V1.DataAccessLabel,
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DeleteDataAccessLabelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CreateDataAccessScopeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetDataAccessScopeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListDataAccessScopesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListDataAccessScopesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_access_scopes, 1,
     repeated: true,
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateDataAccessScopeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_access_scope, 1,
     type: Google.Cloud.Chronicle.V1.DataAccessScope,
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DeleteDataAccessScopeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DataAccessLabel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :definition, 0
 
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DataAccessScope do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DataAccessLabelReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :label, 0
 
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.IngestionLabel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ingestion_label_key, 1, type: :string, json_name: "ingestionLabelKey", deprecated: false
 
@@ -239,7 +239,7 @@ defmodule Google.Cloud.Chronicle.V1.DataAccessControlService.Service do
 
   use GRPC.Service,
     name: "google.cloud.chronicle.v1.DataAccessControlService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateDataAccessLabel,
       Google.Cloud.Chronicle.V1.CreateDataAccessLabelRequest,

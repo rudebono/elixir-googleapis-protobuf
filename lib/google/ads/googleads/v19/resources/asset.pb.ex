@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Resources.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :asset_data, 0
 
@@ -203,7 +203,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.AssetFieldTypePolicySummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset_field_type, 1,
     proto3_optional: true,
@@ -229,7 +229,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.AssetPolicySummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy_topic_entries, 1,
     repeated: true,

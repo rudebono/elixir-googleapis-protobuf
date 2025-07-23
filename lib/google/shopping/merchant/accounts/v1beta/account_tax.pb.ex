@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountTax do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account, 2, type: :int64, deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetAccountTaxRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateAccountTaxRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_tax, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.AccountTax,
@@ -36,7 +36,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountTaxRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -46,7 +46,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountTaxResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_taxes, 1,
     repeated: true,
@@ -61,7 +61,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountTaxService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.AccountTaxService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetAccountTax,
       Google.Shopping.Merchant.Accounts.V1beta.GetAccountTaxRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Storage.Platformlogs.V1.RelocateBucketError.CustomPlacementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_locations, 1, repeated: true, type: :string, json_name: "dataLocations"
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Storage.Platformlogs.V1.RelocateBucketError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :object_id, 2, type: :string, json_name: "objectId"

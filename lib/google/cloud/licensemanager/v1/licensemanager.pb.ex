@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Licensemanager.V1.ListConfigurationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ListConfigurationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :configurations, 1, repeated: true, type: Google.Cloud.Licensemanager.V1.Configuration
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.GetConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.CreateConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :configuration_id, 2, type: :string, json_name: "configurationId", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.UpdateConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.DeleteConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Licensemanager.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.QueryConfigurationLicenseUsageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.QueryConfigurationLicenseUsageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.DeactivateConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ReactivateConfigurationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.AggregateUsageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.AggregateUsageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :usages, 1, repeated: true, type: Google.Cloud.Licensemanager.V1.Usage
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ListProductsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ListProductsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :products, 1, repeated: true, type: Google.Cloud.Licensemanager.V1.Product
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.GetProductRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -215,7 +215,7 @@ defmodule Google.Cloud.Licensemanager.V1.LicenseManager.Service do
 
   use GRPC.Service,
     name: "google.cloud.licensemanager.v1.LicenseManager",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListConfigurations,
       Google.Cloud.Licensemanager.V1.ListConfigurationsRequest,

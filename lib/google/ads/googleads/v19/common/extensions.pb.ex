@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Common.CallFeedItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :phone_number, 7, proto3_optional: true, type: :string, json_name: "phoneNumber"
   field :country_code, 8, proto3_optional: true, type: :string, json_name: "countryCode"
@@ -31,7 +31,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CalloutFeedItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :callout_text, 2, proto3_optional: true, type: :string, json_name: "calloutText"
 end
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.SitelinkFeedItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :link_text, 9, proto3_optional: true, type: :string, json_name: "linkText"
   field :line1, 10, proto3_optional: true, type: :string

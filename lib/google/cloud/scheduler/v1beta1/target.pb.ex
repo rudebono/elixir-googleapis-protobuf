@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Scheduler.V1beta1.HttpMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HTTP_METHOD_UNSPECIFIED, 0
   field :POST, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.HttpTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :authorization_header, 0
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineHttpTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_method, 1,
     type: Google.Cloud.Scheduler.V1beta1.HttpMethod,
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.PubsubTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic_name, 1, type: :string, json_name: "topicName", deprecated: false
   field :data, 3, type: :bytes
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.AppEngineRouting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service, 1, type: :string
   field :version, 2, type: :string
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.OAuthToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :scope, 2, type: :string
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Scheduler.V1beta1.OidcToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account_email, 1, type: :string, json_name: "serviceAccountEmail"
   field :audience, 2, type: :string

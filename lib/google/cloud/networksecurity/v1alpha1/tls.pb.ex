@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networksecurity.V1alpha1.GrpcEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_uri, 1, type: :string, json_name: "targetUri", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Networksecurity.V1alpha1.ValidationCA do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Networksecurity.V1alpha1.CertificateProviderInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plugin_instance, 1, type: :string, json_name: "pluginInstance", deprecated: false
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Networksecurity.V1alpha1.CertificateProvider.TlsCertificateFiles do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate_path, 1, type: :string, json_name: "certificatePath", deprecated: false
   field :private_key_path, 2, type: :string, json_name: "privateKeyPath", deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Networksecurity.V1alpha1.CertificateProvider do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 

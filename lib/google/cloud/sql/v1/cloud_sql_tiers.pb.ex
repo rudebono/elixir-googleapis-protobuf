@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Sql.V1.SqlTiersListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Sql.V1.TiersListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :items, 2, repeated: true, type: Google.Cloud.Sql.V1.Tier
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Sql.V1.Tier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tier, 1, type: :string
   field :RAM, 2, type: :int64
@@ -32,7 +32,7 @@ defmodule Google.Cloud.Sql.V1.SqlTiersService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlTiersService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :List, Google.Cloud.Sql.V1.SqlTiersListRequest, Google.Cloud.Sql.V1.TiersListResponse
 end

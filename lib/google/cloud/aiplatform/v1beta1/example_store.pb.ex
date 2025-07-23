@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ExamplesArrayFilter.ArrayOperator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ARRAY_OPERATOR_UNSPECIFIED, 0
   field :CONTAINS_ANY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExampleStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExampleStoreConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vertex_embedding_model, 1,
     type: :string,
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExampleFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_keys, 1, repeated: true, type: :string, json_name: "searchKeys", deprecated: false
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExampleParameters.ContentSearchKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 1,
     repeated: true,
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExampleParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :query, 0
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExamplesArrayFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string, deprecated: false
 

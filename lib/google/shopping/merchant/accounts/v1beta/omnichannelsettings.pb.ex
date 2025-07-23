@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OmnichannelSetting.LsfType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LSF_TYPE_UNSPECIFIED, 0
   field :GHLSF, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ReviewState.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.InventoryVerification.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTION_REQUIRED, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OmnichannelSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :region_code, 2, type: :string, json_name: "regionCode", deprecated: false
@@ -75,13 +75,13 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ReviewState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1beta.InStock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Pickup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -107,7 +107,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.LfpLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lfp_provider, 1, type: :string, json_name: "lfpProvider", deprecated: false
   field :external_account_id, 2, type: :string, json_name: "externalAccountId", deprecated: false
@@ -121,7 +121,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.OnDisplayToOrder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -134,7 +134,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.About do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 
@@ -147,7 +147,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.InventoryVerification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.InventoryVerification.State,
@@ -167,7 +167,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetOmnichannelSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -175,7 +175,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOmnichannelSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -185,7 +185,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListOmnichannelSettingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :omnichannel_settings, 1,
     repeated: true,
@@ -198,7 +198,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateOmnichannelSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -211,7 +211,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateOmnichannelSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :omnichannel_setting, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.OmnichannelSetting,
@@ -227,7 +227,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.RequestInventoryVerificationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -235,7 +235,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.RequestInventoryVerificationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :omnichannel_setting, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.OmnichannelSetting,
@@ -247,7 +247,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.OmnichannelSettingsService.Se
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.OmnichannelSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetOmnichannelSetting,
       Google.Shopping.Merchant.Accounts.V1beta.GetOmnichannelSettingRequest,

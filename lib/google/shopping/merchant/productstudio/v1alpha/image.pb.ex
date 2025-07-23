@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductImageBackgroundRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductImageBackgroundResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generated_image, 1,
     type: Google.Shopping.Merchant.Productstudio.V1alpha.GeneratedImage,
@@ -33,7 +33,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.RemoveProductImageBackgroundRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -55,7 +55,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.RemoveProductImageBackgroundResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generated_image, 1,
     type: Google.Shopping.Merchant.Productstudio.V1alpha.GeneratedImage,
@@ -65,7 +65,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.UpscaleProductImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.UpscaleProductImageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generated_image, 1,
     type: Google.Shopping.Merchant.Productstudio.V1alpha.GeneratedImage,
@@ -93,7 +93,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GeneratedImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.OutputImageConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :return_image_uri, 1, type: :bool, json_name: "returnImageUri", deprecated: false
 end
@@ -114,7 +114,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateImageBackgroundConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_description, 1, type: :string, json_name: "productDescription", deprecated: false
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.RemoveImageBackgroundConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :background_color, 1,
     type: Google.Shopping.Merchant.Productstudio.V1alpha.RgbColor,
@@ -138,7 +138,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.RgbColor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :red, 1, type: :int32, deprecated: false
   field :green, 2, type: :int32, deprecated: false
@@ -150,7 +150,7 @@ defmodule Google.Shopping.Merchant.Productstudio.V1alpha.ImageService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.productstudio.v1alpha.ImageService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateProductImageBackground,
       Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductImageBackgroundRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Managedkafka.V1.GetConnectClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CreateConnectClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connect_cluster_id, 2, type: :string, json_name: "connectClusterId", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateConnectClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteConnectClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConnectClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConnectClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connect_clusters, 1,
     repeated: true,
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GetConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CreateConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :connector_id, 2, type: :string, json_name: "connectorId", deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConnectorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConnectorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connectors, 1, repeated: true, type: Google.Cloud.Managedkafka.V1.Connector
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.PauseConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -144,13 +144,13 @@ end
 defmodule Google.Cloud.Managedkafka.V1.PauseConnectorResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Managedkafka.V1.ResumeConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -158,13 +158,13 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ResumeConnectorResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Managedkafka.V1.RestartConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -172,13 +172,13 @@ end
 defmodule Google.Cloud.Managedkafka.V1.RestartConnectorResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Managedkafka.V1.StopConnectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.StopConnectorResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Managedkafka.V1.ManagedKafkaConnect.Service do
@@ -194,7 +194,7 @@ defmodule Google.Cloud.Managedkafka.V1.ManagedKafkaConnect.Service do
 
   use GRPC.Service,
     name: "google.cloud.managedkafka.v1.ManagedKafkaConnect",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListConnectClusters,
       Google.Cloud.Managedkafka.V1.ListConnectClustersRequest,

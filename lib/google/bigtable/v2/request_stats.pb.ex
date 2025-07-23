@@ -1,7 +1,7 @@
 defmodule Google.Bigtable.V2.ReadIterationStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rows_seen_count, 1, type: :int64, json_name: "rowsSeenCount"
   field :rows_returned_count, 2, type: :int64, json_name: "rowsReturnedCount"
@@ -12,7 +12,7 @@ end
 defmodule Google.Bigtable.V2.RequestLatencyStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :frontend_server_latency, 1,
     type: Google.Protobuf.Duration,
@@ -22,7 +22,7 @@ end
 defmodule Google.Bigtable.V2.FullReadStatsView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :read_iteration_stats, 1,
     type: Google.Bigtable.V2.ReadIterationStats,
@@ -36,7 +36,7 @@ end
 defmodule Google.Bigtable.V2.RequestStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :stats_view, 0
 

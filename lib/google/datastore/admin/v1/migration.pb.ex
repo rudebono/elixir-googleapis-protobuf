@@ -1,7 +1,7 @@
 defmodule Google.Datastore.Admin.V1.MigrationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MIGRATION_STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationStep do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MIGRATION_STEP_UNSPECIFIED, 0
   field :PREPARE, 6
@@ -27,7 +27,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :PESSIMISTIC, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationStateEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1, type: Google.Datastore.Admin.V1.MigrationState, enum: true
 end
@@ -46,7 +46,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.PrepareStepDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
@@ -57,7 +57,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent.RedirectWritesStepDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :concurrency_mode, 1,
     type: Google.Datastore.Admin.V1.MigrationProgressEvent.ConcurrencyMode,
@@ -68,7 +68,7 @@ end
 defmodule Google.Datastore.Admin.V1.MigrationProgressEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :step_details, 0
 

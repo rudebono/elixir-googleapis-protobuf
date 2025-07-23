@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Servicehealth.V1.EventView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EVENT_VIEW_UNSPECIFIED, 0
   field :EVENT_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEventView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ORGANIZATION_EVENT_VIEW_UNSPECIFIED, 0
   field :ORGANIZATION_EVENT_VIEW_BASIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event.EventCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EVENT_CATEGORY_UNSPECIFIED, 0
   field :INCIDENT, 2
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event.DetailedCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DETAILED_CATEGORY_UNSPECIFIED, 0
   field :CONFIRMED_INCIDENT, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event.DetailedState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DETAILED_STATE_UNSPECIFIED, 0
   field :EMERGING, 1
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event.Relevance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RELEVANCE_UNSPECIFIED, 0
   field :UNKNOWN, 2
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEvent.EventCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EVENT_CATEGORY_UNSPECIFIED, 0
   field :INCIDENT, 2
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEvent.DetailedCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DETAILED_CATEGORY_UNSPECIFIED, 0
   field :CONFIRMED_INCIDENT, 1
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEvent.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEvent.DetailedState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DETAILED_STATE_UNSPECIFIED, 0
   field :EMERGING, 1
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :title, 2, type: :string, deprecated: false
@@ -183,7 +183,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :title, 2, type: :string, deprecated: false
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.EventUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :location_name, 1, type: :string, json_name: "locationName"
 end
@@ -269,7 +269,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Product do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_name, 1, type: :string, json_name: "productName"
   field :id, 2, type: :string
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.EventImpact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product, 1, type: Google.Cloud.Servicehealth.V1.Product
   field :location, 2, type: Google.Cloud.Servicehealth.V1.Location
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.OrganizationImpact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :events, 2, repeated: true, type: :string, deprecated: false
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.Asset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset_name, 1, type: :string, json_name: "assetName", deprecated: false
   field :asset_type, 2, type: :string, json_name: "assetType", deprecated: false
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :events, 1, repeated: true, type: Google.Cloud.Servicehealth.V1.Event, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -333,7 +333,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.GetEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListOrganizationEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -357,7 +357,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListOrganizationEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :organization_events, 1,
     repeated: true,
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.GetOrganizationEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListOrganizationImpactsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -391,7 +391,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.ListOrganizationImpactsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :organization_impacts, 1,
     repeated: true,
@@ -406,7 +406,7 @@ end
 defmodule Google.Cloud.Servicehealth.V1.GetOrganizationImpactRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

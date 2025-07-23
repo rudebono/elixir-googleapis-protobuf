@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Visionai.V1.RunMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RUN_MODE_UNSPECIFIED, 0
   field :LIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Visionai.V1.RunStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INITIALIZING, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Visionai.V1.OperatorDefinition.ArgumentDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :argument, 1, type: :string
   field :type, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Visionai.V1.OperatorDefinition.AttributeDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attribute, 1, type: :string
   field :type, 2, type: :string
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Visionai.V1.OperatorDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operator, 1, type: :string
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ResourceSpecification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpu, 1, type: :string
   field :cpu_limits, 5, type: :string, json_name: "cpuLimits"
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AttributeValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.StreamInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input, 1, type: :string
 end
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.DebugOptions.EnvironmentVariablesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.DebugOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :environment_variables, 1,
     repeated: true,
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.OperatorOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tag, 1, type: :string
   field :registry, 2, type: :string
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition.AttrsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Visionai.V1.AttributeValue
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalyzerDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :analyzer, 1, type: :string
   field :operator, 2, type: :string
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Visionai.V1.AnalysisDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :analyzers, 1, repeated: true, type: Google.Cloud.Visionai.V1.AnalyzerDefinition
 end
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Visionai.V1.RunStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Visionai.V1.RunStatus.State, enum: true
   field :reason, 2, type: :string

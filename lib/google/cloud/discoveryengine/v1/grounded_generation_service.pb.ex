@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.DynamicRetrievalConfiguration.DynamicRetrievalPredictor.Version do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V1_INDEPENDENT, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.RetrievalMetadata.Source do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SOURCE_UNSPECIFIED, 0
   field :VERTEX_AI_SEARCH, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.DynamicRetrievalPredictorMetadata.Version do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V1_INDEPENDENT, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GroundedGenerationContent.Part do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GroundedGenerationContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :role, 1, type: :string
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GenerationSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_id, 3, type: :string, json_name: "modelId"
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.DynamicRetrievalConfiguration.DynamicRetrievalPredictor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :version, 1,
     type:
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.DynamicRetrievalConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predictor, 1,
     type:
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.InlineSource.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grounding_facts, 1,
     repeated: true,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.SearchSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig", deprecated: false
   field :max_result_count, 2, type: :int32, json_name: "maxResultCount"
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.GoogleSearchSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dynamic_retrieval_config, 2,
     type:
@@ -141,13 +141,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource.EnterpriseWebRetrievalSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.GroundingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grounding_sources, 1,
     repeated: true,
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
 
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.RetrievalMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source, 1,
     type:
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.DynamicRetrievalMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predictor_metadata, 1,
     type:
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.DynamicRetrievalPredictorMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :version, 1,
     type:
@@ -269,7 +269,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.SearchEntryPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rendered_content, 1, type: :string, json_name: "renderedContent"
   field :sdk_blob, 2, type: :bytes, json_name: "sdkBlob"
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.GroundingSupport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :claim_text, 1, type: :string, json_name: "claimText"
   field :support_chunk_indices, 3, repeated: true, type: :int32, json_name: "supportChunkIndices"
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.WebsiteInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :title, 2, type: :string
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :width, 2, type: :int32
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata.ImageMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 1,
     type:
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate.GroundingMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retrieval_metadata, 5,
     repeated: true,
@@ -360,7 +360,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse.Candidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index, 1, type: :int32
   field :content, 2, type: Google.Cloud.Discoveryengine.V1.GroundedGenerationContent
@@ -375,7 +375,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GenerateGroundedContentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :candidates, 1,
     repeated: true,
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :citation_threshold, 1,
     proto3_optional: true,
@@ -401,7 +401,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -410,7 +410,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grounding_config, 1, type: :string, json_name: "groundingConfig", deprecated: false
   field :answer_candidate, 2, type: :string, json_name: "answerCandidate"
@@ -430,7 +430,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.CheckGroundingFactChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk_text, 1, type: :string, json_name: "chunkText"
 end
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse.Claim do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_pos, 1, proto3_optional: true, type: :int32, json_name: "startPos"
   field :end_pos, 2, proto3_optional: true, type: :int32, json_name: "endPos"
@@ -456,7 +456,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CheckGroundingResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :support_score, 1, proto3_optional: true, type: :float, json_name: "supportScore"
 
@@ -480,7 +480,7 @@ defmodule Google.Cloud.Discoveryengine.V1.GroundedGenerationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.GroundedGenerationService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :StreamGenerateGroundedContent,
       stream(Google.Cloud.Discoveryengine.V1.GenerateGroundedContentRequest),

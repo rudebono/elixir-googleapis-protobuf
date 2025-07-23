@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.GenerateConversionRatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.GenerateConversionRatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :conversion_rate_suggestions, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ConversionRateSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :conversion_rate_model, 1,
     type:
@@ -40,13 +40,13 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ListPlannableLocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V19.Services.ListPlannableLocationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_locations, 1,
     repeated: true,
@@ -57,7 +57,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.PlannableLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 4, proto3_optional: true, type: :string
   field :name, 5, proto3_optional: true, type: :string
@@ -69,7 +69,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ListPlannableProductsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_location_id, 2,
     type: :string,
@@ -80,7 +80,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ListPlannableProductsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_metadata, 1,
     repeated: true,
@@ -91,7 +91,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ProductMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_product_code, 4,
     proto3_optional: true,
@@ -108,7 +108,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.PlannableTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :age_ranges, 1,
     repeated: true,
@@ -137,7 +137,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.GenerateReachForecastRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :currency_code, 9, proto3_optional: true, type: :string, json_name: "currencyCode"
@@ -187,7 +187,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.EffectiveFrequencyLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :effective_frequency_breakdown_limit, 1,
     type: :int32,
@@ -197,7 +197,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.FrequencyCap do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :impressions, 3, type: :int32, deprecated: false
 
@@ -211,7 +211,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.Targeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_location_id, 6,
     proto3_optional: true,
@@ -243,7 +243,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CampaignDuration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :duration_in_days, 2, proto3_optional: true, type: :int32, json_name: "durationInDays"
   field :date_range, 3, type: Google.Ads.Googleads.V19.Common.DateRange, json_name: "dateRange"
@@ -252,7 +252,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.PlannedProduct do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_product_code, 3,
     proto3_optional: true,
@@ -276,7 +276,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.GenerateReachForecastResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :on_target_audience_metrics, 1,
     type: Google.Ads.Googleads.V19.Services.OnTargetAudienceMetrics,
@@ -290,7 +290,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ReachCurve do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reach_forecasts, 1,
     repeated: true,
@@ -301,7 +301,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ReachForecast do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cost_micros, 5, type: :int64, json_name: "costMicros"
   field :forecast, 2, type: Google.Ads.Googleads.V19.Services.Forecast
@@ -315,7 +315,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.Forecast do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :on_target_reach, 5, proto3_optional: true, type: :int64, json_name: "onTargetReach"
   field :total_reach, 6, proto3_optional: true, type: :int64, json_name: "totalReach"
@@ -364,7 +364,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.PlannedProductReachForecast do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plannable_product_code, 1, type: :string, json_name: "plannableProductCode"
   field :cost_micros, 2, type: :int64, json_name: "costMicros"
@@ -377,7 +377,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.PlannedProductForecast do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :on_target_reach, 1, type: :int64, json_name: "onTargetReach"
   field :total_reach, 2, type: :int64, json_name: "totalReach"
@@ -418,7 +418,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.OnTargetAudienceMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_audience_size, 3,
     proto3_optional: true,
@@ -434,7 +434,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.EffectiveFrequencyBreakdown do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :effective_frequency, 1, type: :int32, json_name: "effectiveFrequency"
   field :on_target_reach, 2, type: :int64, json_name: "onTargetReach"
@@ -454,7 +454,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ForecastMetricOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_coview, 1, type: :bool, json_name: "includeCoview"
 end
@@ -462,7 +462,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.AudienceTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_interest, 1,
     repeated: true,
@@ -473,7 +473,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.AdvancedProductTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :advanced_targeting, 0
 
@@ -494,7 +494,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.YouTubeSelectSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lineup_id, 1, type: :int64, json_name: "lineupId"
 end
@@ -502,7 +502,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.YouTubeSelectLineUp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lineup_id, 1, type: :int64, json_name: "lineupId"
   field :lineup_name, 2, type: :string, json_name: "lineupName"
@@ -511,7 +511,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SurfaceTargetingCombinations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_targeting, 1,
     type: Google.Ads.Googleads.V19.Services.SurfaceTargeting,
@@ -526,7 +526,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SurfaceTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :surfaces, 1,
     repeated: true,
@@ -537,7 +537,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.TargetFrequencySettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :time_unit, 1,
     type: Google.Ads.Googleads.V19.Enums.TargetFrequencyTimeUnitEnum.TargetFrequencyTimeUnit,
@@ -553,7 +553,7 @@ defmodule Google.Ads.Googleads.V19.Services.ReachPlanService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.ReachPlanService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateConversionRates,
       Google.Ads.Googleads.V19.Services.GenerateConversionRatesRequest,

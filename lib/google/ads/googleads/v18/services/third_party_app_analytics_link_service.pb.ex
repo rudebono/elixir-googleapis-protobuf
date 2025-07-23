@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Services.RegenerateShareableLinkIdRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.RegenerateShareableLinkIdResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V18.Services.ThirdPartyAppAnalyticsLinkService.Service do
@@ -17,7 +17,7 @@ defmodule Google.Ads.Googleads.V18.Services.ThirdPartyAppAnalyticsLinkService.Se
 
   use GRPC.Service,
     name: "google.ads.googleads.v18.services.ThirdPartyAppAnalyticsLinkService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :RegenerateShareableLinkId,
       Google.Ads.Googleads.V18.Services.RegenerateShareableLinkIdRequest,

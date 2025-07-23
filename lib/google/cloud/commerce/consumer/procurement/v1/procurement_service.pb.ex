@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.AutoRenewalBehavior do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTO_RENEWAL_BEHAVIOR_UNSPECIFIED, 0
   field :AUTO_RENEWAL_BEHAVIOR_ENABLE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.CancelOrderRequest.CancellationPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CANCELLATION_POLICY_UNSPECIFIED, 0
   field :CANCELLATION_POLICY_CANCEL_IMMEDIATELY, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.PlaceOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :display_name, 6, type: :string, json_name: "displayName", deprecated: false
@@ -38,13 +38,13 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.PlaceOrderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.GetOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ListOrdersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ListOrdersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :orders, 1, repeated: true, type: Google.Cloud.Commerce.Consumer.Procurement.V1.Order
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ModifyOrderRequest.Modification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :line_item_id, 1, type: :string, json_name: "lineItemId", deprecated: false
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ModifyOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -113,13 +113,13 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ModifyOrderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.CancelOrderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.CancelOrderMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ConsumerProcurementService.Service do
@@ -142,7 +142,7 @@ defmodule Google.Cloud.Commerce.Consumer.Procurement.V1.ConsumerProcurementServi
 
   use GRPC.Service,
     name: "google.cloud.commerce.consumer.procurement.v1.ConsumerProcurementService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :PlaceOrder,
       Google.Cloud.Commerce.Consumer.Procurement.V1.PlaceOrderRequest,

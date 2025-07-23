@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Resources.LeadFormSubmissionData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -33,7 +33,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.LeadFormSubmissionField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_type, 1,
     type:
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.CustomLeadFormSubmissionField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :question_text, 1, type: :string, json_name: "questionText", deprecated: false
   field :field_value, 2, type: :string, json_name: "fieldValue", deprecated: false
