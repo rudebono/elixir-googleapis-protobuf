@@ -1,7 +1,7 @@
 defmodule Google.Bigtable.Admin.V2.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Instance.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRODUCTION, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_NOT_KNOWN, 0
   field :READY, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster.NodeScalingFactor do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NODE_SCALING_FACTOR_UNSPECIFIED, 0
   field :NODE_SCALING_FACTOR_1X, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.Priority do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PRIORITY_UNSPECIFIED, 0
   field :PRIORITY_LOW, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly.ComputeBillingOwner do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :COMPUTE_BILLING_OWNER_UNSPECIFIED, 0
   field :HOST_PAYS, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -72,7 +72,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -101,7 +101,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AutoscalingTargets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpu_utilization_percent, 2, type: :int32, json_name: "cpuUtilizationPercent"
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AutoscalingLimits do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_serve_nodes, 1, type: :int32, json_name: "minServeNodes", deprecated: false
   field :max_serve_nodes, 2, type: :int32, json_name: "maxServeNodes", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaling_limits, 1,
     type: Google.Bigtable.Admin.V2.AutoscalingLimits,
@@ -138,7 +138,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster.ClusterConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster_autoscaling_config, 1,
     type: Google.Bigtable.Admin.V2.Cluster.ClusterAutoscalingConfig,
@@ -148,7 +148,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
@@ -156,7 +156,7 @@ end
 defmodule Google.Bigtable.Admin.V2.Cluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -191,13 +191,13 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny.RowAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.Admin.V2.AppProfile.MultiClusterRoutingUseAny do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :affinity, 0
 
@@ -212,7 +212,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.SingleClusterRouting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster_id, 1, type: :string, json_name: "clusterId"
   field :allow_transactional_writes, 2, type: :bool, json_name: "allowTransactionalWrites"
@@ -221,7 +221,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.StandardIsolation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 1, type: Google.Bigtable.Admin.V2.AppProfile.Priority, enum: true
 end
@@ -229,7 +229,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile.DataBoostIsolationReadOnly do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :compute_billing_owner, 1,
     proto3_optional: true,
@@ -241,7 +241,7 @@ end
 defmodule Google.Bigtable.Admin.V2.AppProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :routing_policy, 0
 
@@ -281,7 +281,7 @@ end
 defmodule Google.Bigtable.Admin.V2.HotTablet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :table_name, 2, type: :string, json_name: "tableName", deprecated: false
@@ -299,7 +299,7 @@ end
 defmodule Google.Bigtable.Admin.V2.LogicalView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -310,7 +310,7 @@ end
 defmodule Google.Bigtable.Admin.V2.MaterializedView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false

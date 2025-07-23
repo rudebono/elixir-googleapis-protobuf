@@ -1,7 +1,7 @@
 defmodule Google.Firestore.Admin.V1.Index.QueryScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :QUERY_SCOPE_UNSPECIFIED, 0
   field :COLLECTION, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.ApiScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ANY_API, 0
   field :DATASTORE_MODE_API, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.Density do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DENSITY_UNSPECIFIED, 0
   field :SPARSE_ALL, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.IndexField.Order do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ORDER_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.IndexField.ArrayConfig do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ARRAY_CONFIG_UNSPECIFIED, 0
   field :CONTAINS, 1
@@ -63,13 +63,13 @@ end
 defmodule Google.Firestore.Admin.V1.Index.IndexField.VectorConfig.FlatIndex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Firestore.Admin.V1.Index.IndexField.VectorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index.IndexField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value_mode, 0
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Firestore.Admin.V1.Index do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 

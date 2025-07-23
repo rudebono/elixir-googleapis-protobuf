@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.WasmPluginView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :WASM_PLUGIN_VIEW_UNSPECIFIED, 0
   field :WASM_PLUGIN_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.LogConfig.LogLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOG_LEVEL_UNSPECIFIED, 0
   field :TRACE, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.VersionDetails.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.VersionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :plugin_config_source, 0
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.LogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 1, type: :bool, deprecated: false
   field :sample_rate, 2, type: :float, json_name: "sampleRate", deprecated: false
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.UsedBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin.VersionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Networkservices.V1.WasmPlugin.VersionDetails
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPlugin do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPluginVersion.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.WasmPluginVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :plugin_config_source, 0
 
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListWasmPluginsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListWasmPluginsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :wasm_plugins, 1,
     repeated: true,
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetWasmPluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Networkservices.V1.WasmPluginView, enum: true
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateWasmPluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :wasm_plugin_id, 2, type: :string, json_name: "wasmPluginId", deprecated: false
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateWasmPluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteWasmPluginRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListWasmPluginVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListWasmPluginVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :wasm_plugin_versions, 1,
     repeated: true,
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetWasmPluginVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateWasmPluginVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteWasmPluginVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

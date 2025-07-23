@@ -1,7 +1,7 @@
 defmodule Google.Api.Http do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Api.HttpRule
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Api.HttpRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :pattern, 0
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Api.CustomHttpPattern do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :path, 2, type: :string

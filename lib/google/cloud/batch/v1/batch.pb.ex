@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Batch.V1.CreateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Batch.V1.GetJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Batch.V1.DeleteJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :reason, 2, type: :string, deprecated: false
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Batch.V1.CancelJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
@@ -39,13 +39,13 @@ end
 defmodule Google.Cloud.Batch.V1.CancelJobResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Batch.V1.ListJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :filter, 4, type: :string
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Batch.V1.ListJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Cloud.Batch.V1.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Batch.V1.ListTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Batch.V1.ListTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Batch.V1.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Batch.V1.GetTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Batch.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -121,7 +121,7 @@ defmodule Google.Cloud.Batch.V1.BatchService.Service do
 
   use GRPC.Service,
     name: "google.cloud.batch.v1.BatchService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateJob, Google.Cloud.Batch.V1.CreateJobRequest, Google.Cloud.Batch.V1.Job
 

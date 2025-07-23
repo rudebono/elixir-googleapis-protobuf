@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Notebooks.V1.DiagnosticConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gcs_bucket, 1, type: :string, json_name: "gcsBucket", deprecated: false
   field :relative_path, 2, type: :string, json_name: "relativePath", deprecated: false

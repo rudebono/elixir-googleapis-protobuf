@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.AssetGroupListingGroupFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :asset_group, 2, type: :string, json_name: "assetGroup", deprecated: false
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimensionPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 1,
     repeated: true,
@@ -47,7 +47,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductCategory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category_id, 1, proto3_optional: true, type: :int64, json_name: "categoryId"
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductBrand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductChannel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel, 1,
     type:
@@ -79,7 +79,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :condition, 1,
     type:
@@ -90,7 +90,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductCustomAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductItemId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.ProductType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.Webpage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :conditions, 1,
     repeated: true,
@@ -134,7 +134,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension.WebpageCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :condition, 0
 
@@ -145,7 +145,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.ListingGroupFilterDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dimension, 0
 

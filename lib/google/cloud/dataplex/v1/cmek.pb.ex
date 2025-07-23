@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.EncryptionConfig.EncryptionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENCRYPTION_STATE_UNSPECIFIED, 0
   field :ENCRYPTING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EncryptionConfig.FailureDetails.ErrorCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :INTERNAL_ERROR, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EncryptionConfig.FailureDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Cloud.Dataplex.V1.EncryptionConfig.FailureDetails.ErrorCode,
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :key, 2, type: :string, deprecated: false
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.CreateEncryptionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.GetEncryptionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.UpdateEncryptionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_config, 1,
     type: Google.Cloud.Dataplex.V1.EncryptionConfig,
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DeleteEncryptionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEncryptionConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.ListEncryptionConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_configs, 1,
     repeated: true,
@@ -152,7 +152,7 @@ defmodule Google.Cloud.Dataplex.V1.CmekService.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataplex.v1.CmekService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateEncryptionConfig,
       Google.Cloud.Dataplex.V1.CreateEncryptionConfigRequest,

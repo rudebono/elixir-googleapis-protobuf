@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.SpeechSettings.ModelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.SpeechSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpointer_sensitivity, 1, type: :int32, json_name: "endpointerSensitivity"
   field :no_speech_timeout, 2, type: Google.Protobuf.Duration, json_name: "noSpeechTimeout"
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.DtmfSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :max_digits, 2, type: :int32, json_name: "maxDigits"
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings.LoggingSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_stackdriver_logging, 2, type: :bool, json_name: "enableStackdriverLogging"
   field :enable_interaction_logging, 3, type: :bool, json_name: "enableInteractionLogging"
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.AdvancedSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audio_export_gcs_destination, 2,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.GcsDestination,

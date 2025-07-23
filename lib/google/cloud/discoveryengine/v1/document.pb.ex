@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.Document.Content do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Document.AclInfo.AccessRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :principals, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1.Principal
   field :idp_wide, 2, type: :bool, json_name: "idpWide"
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Document.AclInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :readers, 1,
     repeated: true,
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Document.IndexStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_time, 1, type: Google.Protobuf.Timestamp, json_name: "indexTime"
   field :error_samples, 2, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 

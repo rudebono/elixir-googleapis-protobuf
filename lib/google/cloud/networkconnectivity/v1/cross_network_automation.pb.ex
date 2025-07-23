@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkconnectivity.V1.Infrastructure do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INFRASTRUCTURE_UNSPECIFIED, 0
   field :PSC, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ConnectionErrorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONNECTION_ERROR_TYPE_UNSPECIFIED, 0
   field :ERROR_INTERNAL, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.IPVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :IP_VERSION_UNSPECIFIED, 0
   field :IPV4, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :VALID, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConnection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.PscConfig.ProducerInstanceLocation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PRODUCER_INSTANCE_LOCATION_UNSPECIFIED, 0
   field :CUSTOM_RESOURCE_HIERARCHY_LEVELS, 1
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ProducerPscConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachment_uri, 1,
     type: :string,
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConfig.ServiceAttachmentIpAddressMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConfig.ProducerInstanceMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string
   field :network, 2, type: :string, deprecated: false
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConnection.ProducerInstanceMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.ConsumerPscConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachment_uri, 1, type: :string, json_name: "serviceAttachmentUri"
 
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionMap do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionMapsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -286,7 +286,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionMapsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_connection_maps, 1,
     repeated: true,
@@ -300,7 +300,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetServiceConnectionMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateServiceConnectionMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateServiceConnectionMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteServiceConnectionMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -356,7 +356,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.PscConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subnetworks, 1, repeated: true, type: :string, deprecated: false
   field :limit, 2, proto3_optional: true, type: :int64, deprecated: false
@@ -378,7 +378,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.PscConnection.ProducerInstanceMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.PscConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.State,
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -447,7 +447,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -503,7 +503,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_connection_policies, 1,
     repeated: true,
@@ -517,7 +517,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetServiceConnectionPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -525,7 +525,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateServiceConnectionPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -545,7 +545,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateServiceConnectionPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -563,7 +563,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteServiceConnectionPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -573,7 +573,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceClass.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -582,7 +582,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceClass do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :service_class, 7, type: :string, json_name: "serviceClass", deprecated: false
@@ -609,7 +609,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceClassesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -621,7 +621,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceClassesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_classes, 1,
     repeated: true,
@@ -635,7 +635,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetServiceClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -643,7 +643,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateServiceClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -661,7 +661,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteServiceClassRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -671,7 +671,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionToken.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -680,7 +680,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ServiceConnectionToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -714,7 +714,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionTokensRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -726,7 +726,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListServiceConnectionTokensResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_connection_tokens, 1,
     repeated: true,
@@ -740,7 +740,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetServiceConnectionTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -748,7 +748,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateServiceConnectionTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -768,7 +768,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteServiceConnectionTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -780,7 +780,7 @@ defmodule Google.Cloud.Networkconnectivity.V1.CrossNetworkAutomationService.Serv
 
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1.CrossNetworkAutomationService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListServiceConnectionMaps,
       Google.Cloud.Networkconnectivity.V1.ListServiceConnectionMapsRequest,

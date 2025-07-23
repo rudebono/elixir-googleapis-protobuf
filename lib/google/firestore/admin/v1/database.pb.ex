@@ -1,7 +1,7 @@
 defmodule Google.Firestore.Admin.V1.Database.DatabaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_TYPE_UNSPECIFIED, 0
   field :FIRESTORE_NATIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.ConcurrencyMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONCURRENCY_MODE_UNSPECIFIED, 0
   field :OPTIMISTIC, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.PointInTimeRecoveryEnablement do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED, 0
   field :POINT_IN_TIME_RECOVERY_ENABLED, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.AppEngineIntegrationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :APP_ENGINE_INTEGRATION_MODE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.DeleteProtectionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DELETE_PROTECTION_STATE_UNSPECIFIED, 0
   field :DELETE_PROTECTION_DISABLED, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.DatabaseEdition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_EDITION_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.CmekConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 
@@ -76,7 +76,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.SourceInfo.BackupSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: :string, deprecated: false
 end
@@ -84,7 +84,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.SourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -95,19 +95,19 @@ end
 defmodule Google.Firestore.Admin.V1.Database.EncryptionConfig.GoogleDefaultEncryptionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Firestore.Admin.V1.Database.EncryptionConfig.SourceEncryptionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Firestore.Admin.V1.Database.EncryptionConfig.CustomerManagedEncryptionOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
@@ -115,7 +115,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :encryption_type, 0
 
@@ -138,7 +138,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database.TagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -147,7 +147,7 @@ end
 defmodule Google.Firestore.Admin.V1.Database do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :uid, 3, type: :string, deprecated: false

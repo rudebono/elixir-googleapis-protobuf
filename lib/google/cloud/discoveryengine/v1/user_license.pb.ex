@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.UserLicense.LicenseAssignmentState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LICENSE_ASSIGNMENT_STATE_UNSPECIFIED, 0
   field :ASSIGNED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UserLicense do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_principal, 1, type: :string, json_name: "userPrincipal", deprecated: false
   field :user_profile, 3, type: :string, json_name: "userProfile", deprecated: false

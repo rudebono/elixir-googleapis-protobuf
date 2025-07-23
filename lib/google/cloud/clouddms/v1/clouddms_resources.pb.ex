@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Clouddms.V1.NetworkArchitecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NETWORK_ARCHITECTURE_UNSPECIFIED, 0
   field :NETWORK_ARCHITECTURE_OLD_CSQL_PRODUCER, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.DatabaseEngine do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_ENGINE_UNSPECIFIED, 0
   field :MYSQL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.DatabaseProvider do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_PROVIDER_UNSPECIFIED, 0
   field :CLOUDSQL, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.SslConfig.SslType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SSL_TYPE_UNSPECIFIED, 0
   field :SERVER_ONLY, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlActivationPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SQL_ACTIVATION_POLICY_UNSPECIFIED, 0
   field :ALWAYS, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDataDiskType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SQL_DATA_DISK_TYPE_UNSPECIFIED, 0
   field :PD_SSD, 1
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SQL_DATABASE_VERSION_UNSPECIFIED, 0
   field :MYSQL_5_6, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlAvailabilityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SQL_AVAILABILITY_TYPE_UNSPECIFIED, 0
   field :ZONAL, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.Edition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EDITION_UNSPECIFIED, 0
   field :ENTERPRISE, 2
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :MAINTENANCE, 1
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.Phase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PHASE_UNSPECIFIED, 0
   field :FULL_DUMP, 1
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ONE_TIME, 1
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig.DumpParallelLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DUMP_PARALLEL_LEVEL_UNSPECIFIED, 0
   field :MIN, 1
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ERROR_CODE_UNSPECIFIED, 0
   field :CONNECTION_FAILURE, 1
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.PrivateConnection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.SslConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Clouddms.V1.SslConfig.SslType, enum: true, deprecated: false
   field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MySqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host, 1, type: :string, deprecated: false
   field :port, 2, type: :int32, deprecated: false
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.PostgreSqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connectivity, 0
 
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.OracleConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connectivity, 0
 
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cloud_sql_id, 1, type: :string, json_name: "cloudSqlId", deprecated: false
   field :settings, 2, type: Google.Cloud.Clouddms.V1.CloudSqlSettings, deprecated: false
@@ -327,7 +327,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster_id, 1, type: :string, json_name: "clusterId", deprecated: false
   field :settings, 2, type: Google.Cloud.Clouddms.V1.AlloyDbSettings, deprecated: false
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.SqlAclEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.SqlIpConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_ipv4, 1, type: Google.Protobuf.BoolValue, json_name: "enableIpv4"
   field :private_network, 2, type: :string, json_name: "privateNetwork"
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -374,7 +374,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings.DatabaseFlagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -383,7 +383,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.CloudSqlSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :database_version, 1,
     type: Google.Cloud.Clouddms.V1.CloudSqlSettings.SqlDatabaseVersion,
@@ -448,7 +448,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.UserPassword do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user, 1, type: :string
   field :password, 2, type: :string
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.PrimaryInstanceSettings.MachineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpu_count, 1, type: :int32, json_name: "cpuCount"
 end
@@ -466,7 +466,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.PrimaryInstanceSettings.DatabaseFlagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.PrimaryInstanceSettings.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -484,7 +484,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.PrimaryInstanceSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
 
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end
@@ -517,7 +517,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -526,7 +526,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.AlloyDbSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :initial_user, 1,
     type: Google.Cloud.Clouddms.V1.AlloyDbSettings.UserPassword,
@@ -553,13 +553,13 @@ end
 defmodule Google.Cloud.Clouddms.V1.StaticIpConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Clouddms.V1.PrivateServiceConnectConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachment, 1, type: :string, json_name: "serviceAttachment", deprecated: false
 end
@@ -567,7 +567,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ReverseSshConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vm_ip, 1, type: :string, json_name: "vmIp", deprecated: false
   field :vm_port, 2, type: :int32, json_name: "vmPort", deprecated: false
@@ -578,7 +578,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.VpcPeeringConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpc, 1, type: :string
 end
@@ -586,7 +586,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ForwardSshTunnelConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -600,13 +600,13 @@ end
 defmodule Google.Cloud.Clouddms.V1.StaticServiceIpConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Clouddms.V1.PrivateConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :private_connection, 1, type: :string, json_name: "privateConnection", deprecated: false
 end
@@ -614,7 +614,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.DatabaseType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :provider, 1, type: Google.Cloud.Clouddms.V1.DatabaseProvider, enum: true
   field :engine, 2, type: Google.Cloud.Clouddms.V1.DatabaseEngine, enum: true
@@ -623,7 +623,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.DumpFlag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -632,7 +632,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.DumpFlags do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dump_flags, 1,
     repeated: true,
@@ -643,7 +643,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dump_parallel_level, 1,
     type: Google.Cloud.Clouddms.V1.MigrationJob.PerformanceConfig.DumpParallelLevel,
@@ -654,7 +654,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -663,7 +663,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connectivity, 0
 
@@ -746,7 +746,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ConversionWorkspaceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :commit_id, 2, type: :string, json_name: "commitId"
@@ -755,7 +755,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -764,7 +764,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.ConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connection_profile, 0
 
@@ -799,7 +799,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.MigrationJobVerificationError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Cloud.Clouddms.V1.MigrationJobVerificationError.ErrorCode,
@@ -818,7 +818,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.PrivateConnection.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -827,7 +827,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.PrivateConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connectivity, 0
 
@@ -866,7 +866,7 @@ end
 defmodule Google.Cloud.Clouddms.V1.VpcPeeringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpc_name, 1, type: :string, json_name: "vpcName", deprecated: false
   field :subnet, 2, type: :string, deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :INDEXED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :documents, 1, repeated: true, type: Google.Cloud.Discoveryengine.V1.Document
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CreateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :document, 2, type: Google.Cloud.Discoveryengine.V1.Document, deprecated: false
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Discoveryengine.V1.Document, deprecated: false
   field :allow_missing, 2, type: :bool, json_name: "allowMissing"
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.UrisMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string
 end
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.FhirMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fhir_resources, 1,
     repeated: true,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest.Matcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :matcher, 0
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse.DocumentMetadata.MatcherValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :matcher_value, 0
 
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse.DocumentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :matcher_value, 2,
     type:
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.BatchGetDocumentsMetadataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :documents_metadata, 1,
     repeated: true,
@@ -159,7 +159,7 @@ defmodule Google.Cloud.Discoveryengine.V1.DocumentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.DocumentService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetDocument,
       Google.Cloud.Discoveryengine.V1.GetDocumentRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.PublisherModelView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PUBLISHER_MODEL_VIEW_UNSPECIFIED, 0
   field :PUBLISHER_MODEL_VIEW_BASIC, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.GetPublisherModelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployRequest.ModelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accept_eula, 1, type: :bool, json_name: "acceptEula", deprecated: false
 
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployRequest.EndpointConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoint_display_name, 1,
     type: :string,
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployRequest.DeployConfig.SystemLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployRequest.DeployConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dedicated_resources, 1,
     type: Google.Cloud.Aiplatform.V1.DedicatedResources,
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :artifacts, 0
 
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :publisher_model, 1, type: :string, json_name: "publisherModel", deprecated: false
   field :endpoint, 2, type: :string, deprecated: false
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.DeployOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
@@ -158,7 +158,7 @@ defmodule Google.Cloud.Aiplatform.V1.ModelGardenService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1.ModelGardenService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetPublisherModel,
       Google.Cloud.Aiplatform.V1.GetPublisherModelRequest,

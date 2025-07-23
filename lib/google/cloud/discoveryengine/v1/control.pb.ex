@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction.InterpolationBoostSpec.AttributeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ATTRIBUTE_TYPE_UNSPECIFIED, 0
   field :NUMERICAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction.InterpolationBoostSpec.InterpolationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INTERPOLATION_TYPE_UNSPECIFIED, 0
   field :LINEAR, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Condition.QueryTerm do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :full_match, 2, type: :bool, json_name: "fullMatch"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Condition.TimeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query_terms, 2,
     repeated: true,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction.InterpolationBoostSpec.ControlPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attribute_value, 1, type: :string, json_name: "attributeValue", deprecated: false
   field :boost_amount, 2, type: :float, json_name: "boostAmount", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction.InterpolationBoostSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName", deprecated: false
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.BoostAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :boost_spec, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.FilterAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 1, type: :string, deprecated: false
   field :data_store, 2, type: :string, json_name: "dataStore", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.RedirectAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :redirect_uri, 1, type: :string, json_name: "redirectUri", deprecated: false
 end
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.SynonymsAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :synonyms, 1, repeated: true, type: :string
 end
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control.PromoteAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore", deprecated: false
 
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.Control do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 

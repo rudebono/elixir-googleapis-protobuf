@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Rapidmigrationassessment.V1.CreateAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.GetAnnotationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.CreateCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :collector_id, 2, type: :string, json_name: "collectorId", deprecated: false
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.ListCollectorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.ListCollectorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :collectors, 1, repeated: true, type: Google.Cloud.Rapidmigrationassessment.V1.Collector
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.GetCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.DeleteCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.UpdateCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.ResumeCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.RegisterCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.PauseCollectorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Rapidmigrationassessment.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -139,7 +139,7 @@ defmodule Google.Cloud.Rapidmigrationassessment.V1.RapidMigrationAssessment.Serv
 
   use GRPC.Service,
     name: "google.cloud.rapidmigrationassessment.v1.RapidMigrationAssessment",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateCollector,
       Google.Cloud.Rapidmigrationassessment.V1.CreateCollectorRequest,

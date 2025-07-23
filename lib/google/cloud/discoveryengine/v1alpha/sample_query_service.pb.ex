@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetSampleQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListSampleQueriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ListSampleQueriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sample_queries, 1,
     repeated: true,
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CreateSampleQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateSampleQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sample_query, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.SampleQuery,
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.DeleteSampleQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.SampleQueryService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.SampleQueryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetSampleQuery,
       Google.Cloud.Discoveryengine.V1alpha.GetSampleQueryRequest,

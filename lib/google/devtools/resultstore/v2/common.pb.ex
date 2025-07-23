@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Resultstore.V2.Language do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :NONE, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :BUILDING, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.UploadStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UPLOAD_STATUS_UNSPECIFIED, 0
   field :UPLOADING, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.StatusAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :status, 1, type: Google.Devtools.Resultstore.V2.Status, enum: true
   field :description, 2, type: :string
@@ -71,7 +71,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -80,7 +80,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.Timing do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -89,7 +89,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.Dependency.Id do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_id, 2, type: :string, json_name: "targetId"
   field :configuration_id, 3, type: :string, json_name: "configurationId"
@@ -99,7 +99,7 @@ end
 defmodule Google.Devtools.Resultstore.V2.Dependency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :resource, 0
 

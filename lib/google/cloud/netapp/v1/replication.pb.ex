@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Netapp.V1.Replication.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication.ReplicationRole do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPLICATION_ROLE_UNSPECIFIED, 0
   field :SOURCE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication.ReplicationSchedule do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPLICATION_SCHEDULE_UNSPECIFIED, 0
   field :EVERY_10_MINUTES, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication.MirrorState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MIRROR_STATE_UNSPECIFIED, 0
   field :PREPARING, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication.HybridReplicationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HYBRID_REPLICATION_TYPE_UNSPECIFIED, 0
   field :MIGRATION, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Netapp.V1.TransferStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :transfer_bytes, 1, proto3_optional: true, type: :int64, json_name: "transferBytes"
 
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Netapp.V1.Replication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Netapp.V1.Replication.State, enum: true, deprecated: false
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Netapp.V1.HybridPeeringDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subnet_ip, 1, type: :string, json_name: "subnetIp", deprecated: false
   field :command, 2, type: :string, deprecated: false
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListReplicationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListReplicationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :replications, 1, repeated: true, type: Google.Cloud.Netapp.V1.Replication
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Netapp.V1.GetReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DestinationVolumeParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :storage_pool, 1, type: :string, json_name: "storagePool", deprecated: false
   field :volume_id, 2, type: :string, json_name: "volumeId"
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Netapp.V1.CreateReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :replication, 2, type: Google.Cloud.Netapp.V1.Replication, deprecated: false
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DeleteReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Netapp.V1.UpdateReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Netapp.V1.StopReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ResumeReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ReverseReplicationDirectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -303,7 +303,7 @@ end
 defmodule Google.Cloud.Netapp.V1.EstablishPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :peer_cluster_name, 2, type: :string, json_name: "peerClusterName", deprecated: false
@@ -321,7 +321,7 @@ end
 defmodule Google.Cloud.Netapp.V1.SyncReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

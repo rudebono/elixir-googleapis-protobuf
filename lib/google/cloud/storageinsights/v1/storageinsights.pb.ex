@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Storageinsights.V1.FrequencyOptions.Frequency do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FREQUENCY_UNSPECIFIED, 0
   field :DAILY, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.Identity.IdentityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :IDENTITY_TYPE_UNSPECIFIED, 0
   field :IDENTITY_TYPE_PER_CONFIG, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.ConfigState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONFIG_STATE_UNSPECIFIED, 0
   field :CONFIG_STATE_ACTIVE, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListReportConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListReportConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_configs, 1,
     repeated: true,
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.GetReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.CreateReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.UpdateReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DeleteReportConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ReportDetail.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :processed_records_count, 1, type: :int64, json_name: "processedRecordsCount"
 end
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ReportDetail.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ReportDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :snapshot_time, 2, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListReportDetailsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListReportDetailsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_details, 1,
     repeated: true,
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.GetReportDetailRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.FrequencyOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :frequency, 1,
     type: Google.Cloud.Storageinsights.V1.FrequencyOptions.Frequency,
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.CSVOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :record_separator, 1, type: :string, json_name: "recordSeparator"
   field :delimiter, 2, type: :string
@@ -230,13 +230,13 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ParquetOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Storageinsights.V1.CloudStorageFilters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket, 1, type: :string
 end
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.CloudStorageDestinationOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket, 1, type: :string
   field :destination_path, 2, type: :string, json_name: "destinationPath"
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ObjectMetadataReportOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :filter, 0
 
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ReportConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -284,7 +284,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ReportConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :report_format, 0
 
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.Identity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: Google.Cloud.Storageinsights.V1.Identity.IdentityType, enum: true
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.SourceProjects do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_numbers, 1, repeated: true, type: :int64, json_name: "projectNumbers"
 end
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.SourceFolders do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :folder_numbers, 1,
     repeated: true,
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.CloudStorageLocations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 1, repeated: true, type: :string
 end
@@ -369,7 +369,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.CloudStorageBuckets.CloudStorageBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :cloud_storage_bucket, 0
 
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.CloudStorageBuckets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cloud_storage_buckets, 1,
     repeated: true,
@@ -391,7 +391,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.Link do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :linked, 2, type: :bool, deprecated: false
@@ -400,7 +400,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.BucketErrors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :validated_count, 1, type: :int64, json_name: "validatedCount", deprecated: false
 
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.ProjectErrors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination_project_check_result, 0
 
@@ -505,7 +505,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.ValidationErrorsBeforeIngestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket_errors, 1,
     type: Google.Cloud.Storageinsights.V1.DatasetConfig.BucketErrors,
@@ -521,7 +521,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DatasetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_options, 0
 
@@ -620,7 +620,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListDatasetConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -632,7 +632,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.ListDatasetConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_configs, 1,
     repeated: true,
@@ -646,7 +646,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.GetDatasetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -654,7 +654,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.CreateDatasetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset_config_id, 2, type: :string, json_name: "datasetConfigId", deprecated: false
@@ -670,7 +670,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.UpdateDatasetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -688,7 +688,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.DeleteDatasetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -697,7 +697,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.LinkDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -705,13 +705,13 @@ end
 defmodule Google.Cloud.Storageinsights.V1.LinkDatasetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Storageinsights.V1.UnlinkDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -719,7 +719,7 @@ end
 defmodule Google.Cloud.Storageinsights.V1.LocationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_config_available, 1, type: :bool, json_name: "reportConfigAvailable"
   field :dataset_config_available, 2, type: :bool, json_name: "datasetConfigAvailable"
@@ -730,7 +730,7 @@ defmodule Google.Cloud.Storageinsights.V1.StorageInsights.Service do
 
   use GRPC.Service,
     name: "google.cloud.storageinsights.v1.StorageInsights",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListReportConfigs,
       Google.Cloud.Storageinsights.V1.ListReportConfigsRequest,

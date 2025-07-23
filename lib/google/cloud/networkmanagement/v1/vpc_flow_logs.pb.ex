@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkmanagement.V1.ListVpcFlowLogsConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.ListVpcFlowLogsConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpc_flow_logs_configs, 1,
     repeated: true,
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.GetVpcFlowLogsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.CreateVpcFlowLogsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.UpdateVpcFlowLogsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Networkmanagement.V1.DeleteVpcFlowLogsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -79,7 +79,7 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkmanagement.v1.VpcFlowLogsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListVpcFlowLogsConfigs,
       Google.Cloud.Networkmanagement.V1.ListVpcFlowLogsConfigsRequest,

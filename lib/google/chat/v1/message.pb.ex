@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.ActionResponse.ResponseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :NEW_MESSAGE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Chat.V1.CreateMessageRequest.MessageReplyOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MESSAGE_REPLY_OPTION_UNSPECIFIED, 0
   field :REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Chat.V1.Message do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :sender, 2, type: Google.Chat.V1.User, deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Chat.V1.AttachedGif do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -135,7 +135,7 @@ end
 defmodule Google.Chat.V1.QuotedMessageMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -148,7 +148,7 @@ end
 defmodule Google.Chat.V1.Thread do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :thread_key, 3, type: :string, json_name: "threadKey", deprecated: false
@@ -157,7 +157,7 @@ end
 defmodule Google.Chat.V1.ActionResponse.SelectionItems do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 1, repeated: true, type: Google.Apps.Card.V1.SelectionInput.SelectionItem
 end
@@ -165,7 +165,7 @@ end
 defmodule Google.Chat.V1.ActionResponse.UpdatedWidget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :updated_widget, 0
 
@@ -176,7 +176,7 @@ end
 defmodule Google.Chat.V1.ActionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Chat.V1.ActionResponse.ResponseType, enum: true, deprecated: false
   field :url, 2, type: :string, deprecated: false
@@ -195,7 +195,7 @@ end
 defmodule Google.Chat.V1.AccessoryWidget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -205,7 +205,7 @@ end
 defmodule Google.Chat.V1.GetMessageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -213,7 +213,7 @@ end
 defmodule Google.Chat.V1.DeleteMessageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -222,7 +222,7 @@ end
 defmodule Google.Chat.V1.UpdateMessageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: Google.Chat.V1.Message, deprecated: false
 
@@ -237,7 +237,7 @@ end
 defmodule Google.Chat.V1.CreateMessageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :message, 4, type: Google.Chat.V1.Message, deprecated: false
@@ -256,7 +256,7 @@ end
 defmodule Google.Chat.V1.ListMessagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -269,7 +269,7 @@ end
 defmodule Google.Chat.V1.ListMessagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Chat.V1.Message
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -278,7 +278,7 @@ end
 defmodule Google.Chat.V1.DialogAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -293,7 +293,7 @@ end
 defmodule Google.Chat.V1.Dialog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :body, 1, type: Google.Apps.Card.V1.Card, deprecated: false
 end
@@ -301,7 +301,7 @@ end
 defmodule Google.Chat.V1.CardWithId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :card_id, 1, type: :string, json_name: "cardId"
   field :card, 2, type: Google.Apps.Card.V1.Card

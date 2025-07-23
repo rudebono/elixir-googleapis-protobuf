@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkebackup.V1.BackupPlanBinding.BackupPlanDetails.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CLUSTER_PENDING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.BackupPlanBinding.BackupPlanDetails.BackupConfigDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :backup_scope, 0
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.BackupPlanBinding.BackupPlanDetails.RetentionPolicyDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_delete_lock_days, 1,
     type: :int32,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.BackupPlanBinding.BackupPlanDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :protected_pod_count, 1, type: :int32, json_name: "protectedPodCount", deprecated: false
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.BackupPlanBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
