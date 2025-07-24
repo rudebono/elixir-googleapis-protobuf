@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.Targeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :geo_targeting, 2,
     type: Google.Ads.Admanager.V1.GeoTargeting,
@@ -47,7 +47,7 @@ end
 defmodule Google.Ads.Admanager.V1.GeoTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_geos, 3,
     repeated: true,
@@ -65,7 +65,7 @@ end
 defmodule Google.Ads.Admanager.V1.TechnologyTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bandwidth_targeting, 3,
     type: Google.Ads.Admanager.V1.BandwidthTargeting,
@@ -86,7 +86,7 @@ end
 defmodule Google.Ads.Admanager.V1.BandwidthTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_bandwidth_groups, 3,
     repeated: true,
@@ -104,7 +104,7 @@ end
 defmodule Google.Ads.Admanager.V1.DeviceCategoryTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_categories, 3,
     repeated: true,
@@ -122,7 +122,7 @@ end
 defmodule Google.Ads.Admanager.V1.OperatingSystemTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_operating_systems, 5,
     repeated: true,
@@ -152,7 +152,7 @@ end
 defmodule Google.Ads.Admanager.V1.InventoryTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_ad_units, 1,
     repeated: true,
@@ -176,7 +176,7 @@ end
 defmodule Google.Ads.Admanager.V1.AdUnitTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_descendants, 1,
     proto3_optional: true,
@@ -189,7 +189,7 @@ end
 defmodule Google.Ads.Admanager.V1.RequestPlatformTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_platforms, 1,
     repeated: true,
@@ -202,7 +202,7 @@ end
 defmodule Google.Ads.Admanager.V1.CustomTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_targeting_clauses, 1,
     repeated: true,
@@ -214,7 +214,7 @@ end
 defmodule Google.Ads.Admanager.V1.CustomTargetingClause do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_targeting_literals, 1,
     repeated: true,
@@ -226,7 +226,7 @@ end
 defmodule Google.Ads.Admanager.V1.CustomTargetingLiteral do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :negative, 1, proto3_optional: true, type: :bool
 
@@ -246,7 +246,7 @@ end
 defmodule Google.Ads.Admanager.V1.UserDomainTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_user_domains, 1,
     repeated: true,
@@ -264,7 +264,7 @@ end
 defmodule Google.Ads.Admanager.V1.VideoPositionTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :video_positions, 1,
     repeated: true,
@@ -276,7 +276,7 @@ end
 defmodule Google.Ads.Admanager.V1.VideoPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :midroll_index, 1,
     proto3_optional: true,
@@ -314,7 +314,7 @@ end
 defmodule Google.Ads.Admanager.V1.DataSegmentTargeting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :has_data_segment_targeting, 2,
     type: :bool,

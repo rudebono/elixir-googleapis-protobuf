@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :migratable_resources, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateMlEngineModelVersionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :model_version, 2, type: :string, json_name: "modelVersion", deprecated: false
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlModelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :model_display_name, 2, type: :string, json_name: "modelDisplayName", deprecated: false
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateAutomlDatasetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig.MigrateDataLabelingAnnotatedDatasetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :annotated_dataset, 1, type: :string, json_name: "annotatedDataset", deprecated: false
 end
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest.MigrateDataLabelingDatasetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :migrate_resource_responses, 1,
     repeated: true,
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MigrateResourceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :migrated_resource, 0
 
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata.PartialResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.BatchMigrateResourcesOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -184,7 +184,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MigrationService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.MigrationService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SearchMigratableResources,
       Google.Cloud.Aiplatform.V1beta1.SearchMigratableResourcesRequest,

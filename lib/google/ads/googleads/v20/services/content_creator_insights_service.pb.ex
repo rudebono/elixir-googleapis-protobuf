@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsRequest.SearchAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience_attributes, 1,
     repeated: true,
@@ -19,7 +19,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsRequest.SearchBrand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :brand_entities, 1,
     repeated: true,
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsRequest.YouTubeChannels do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_channels, 1,
     repeated: true,
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :criteria, 0
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creator_insights, 1,
     repeated: true,
@@ -105,7 +105,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateTrendingInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :criteria, 0
 
@@ -140,7 +140,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.GenerateTrendingInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :trend_insights, 1,
     repeated: true,
@@ -151,7 +151,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.YouTubeCreatorInsights do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creator_name, 1, type: :string, json_name: "creatorName"
 
@@ -164,7 +164,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.YouTubeMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriber_count, 1, type: :int64, json_name: "subscriberCount"
   field :views_count, 2, type: :int64, json_name: "viewsCount"
@@ -186,7 +186,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.YouTubeChannelInsights do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 
@@ -222,7 +222,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.SearchAudience do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience_attributes, 1,
     repeated: true,
@@ -234,7 +234,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.SearchTopics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entities, 1,
     repeated: true,
@@ -245,7 +245,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.TrendInsight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :trend_attribute, 1,
     type: Google.Ads.Googleads.V20.Common.AudienceInsightsAttributeMetadata,
@@ -263,7 +263,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.TrendInsightMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :views_count, 1, type: :int64, json_name: "viewsCount"
 end
@@ -273,7 +273,7 @@ defmodule Google.Ads.Googleads.V20.Services.ContentCreatorInsightsService.Servic
 
   use GRPC.Service,
     name: "google.ads.googleads.v20.services.ContentCreatorInsightsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateCreatorInsights,
       Google.Ads.Googleads.V20.Services.GenerateCreatorInsightsRequest,

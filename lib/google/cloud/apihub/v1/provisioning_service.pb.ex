@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apihub.V1.CreateApiHubInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_hub_instance_id, 2, type: :string, json_name: "apiHubInstanceId", deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetApiHubInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Apihub.V1.LookupApiHubInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Apihub.V1.LookupApiHubInstanceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :api_hub_instance, 1,
     type: Google.Cloud.Apihub.V1.ApiHubInstance,
@@ -43,7 +43,7 @@ defmodule Google.Cloud.Apihub.V1.Provisioning.Service do
 
   use GRPC.Service,
     name: "google.cloud.apihub.v1.Provisioning",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateApiHubInstance,
       Google.Cloud.Apihub.V1.CreateApiHubInstanceRequest,

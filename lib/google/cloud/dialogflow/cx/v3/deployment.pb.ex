@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment.Result do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployment_test_results, 1,
     repeated: true,
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.Deployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :flow_version, 2, type: :string, json_name: "flowVersion", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3.GetDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -68,7 +68,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3.Deployments.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3.Deployments",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListDeployments,
       Google.Cloud.Dialogflow.Cx.V3.ListDeploymentsRequest,

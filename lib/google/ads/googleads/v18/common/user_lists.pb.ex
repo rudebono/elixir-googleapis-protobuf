@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.LookalikeUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :seed_user_list_ids, 1, repeated: true, type: :int64, json_name: "seedUserListIds"
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.SimilarUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :seed_user_list, 2, proto3_optional: true, type: :string, json_name: "seedUserList"
 end
@@ -24,7 +24,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CrmBasedUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :app_id, 4, proto3_optional: true, type: :string, json_name: "appId"
 
@@ -43,7 +43,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListRuleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule_type, 1,
     type: Google.Ads.Googleads.V18.Enums.UserListRuleTypeEnum.UserListRuleType,
@@ -59,7 +59,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListRuleItemGroupInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule_items, 1,
     repeated: true,
@@ -70,7 +70,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListRuleItemInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :rule_item, 0
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListDateRuleItemInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operator, 1,
     type:
@@ -109,7 +109,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListNumberRuleItemInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operator, 1,
     type:
@@ -122,7 +122,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListStringRuleItemInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operator, 1,
     type:
@@ -135,7 +135,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.FlexibleRuleOperandInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule, 1, type: Google.Ads.Googleads.V18.Common.UserListRuleInfo
 
@@ -148,7 +148,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.FlexibleRuleUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inclusive_rule_operator, 1,
     type:
@@ -170,7 +170,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.RuleBasedUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :prepopulation_status, 1,
     type:
@@ -186,7 +186,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LogicalUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Ads.Googleads.V18.Common.UserListLogicalRuleInfo
 end
@@ -194,7 +194,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListLogicalRuleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operator, 1,
     type:
@@ -210,7 +210,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LogicalUserListOperandInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_list, 2, proto3_optional: true, type: :string, json_name: "userList"
 end
@@ -218,7 +218,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.BasicUserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :actions, 1, repeated: true, type: Google.Ads.Googleads.V18.Common.UserListActionInfo
 end
@@ -226,7 +226,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.UserListActionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :user_list_action, 0
 

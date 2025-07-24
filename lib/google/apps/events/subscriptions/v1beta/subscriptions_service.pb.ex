@@ -1,7 +1,7 @@
 defmodule Google.Apps.Events.Subscriptions.V1beta.CreateSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1,
     type: Google.Apps.Events.Subscriptions.V1beta.Subscription,
@@ -13,7 +13,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.DeleteSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :validate_only, 2, type: :bool, json_name: "validateOnly", deprecated: false
@@ -24,7 +24,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.GetSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.UpdateSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1,
     type: Google.Apps.Events.Subscriptions.V1beta.Subscription,
@@ -49,7 +49,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.ReactivateSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -57,7 +57,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.ListSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -67,7 +67,7 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.ListSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriptions, 1,
     repeated: true,
@@ -79,25 +79,25 @@ end
 defmodule Google.Apps.Events.Subscriptions.V1beta.UpdateSubscriptionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Events.Subscriptions.V1beta.CreateSubscriptionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Events.Subscriptions.V1beta.DeleteSubscriptionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Events.Subscriptions.V1beta.ReactivateSubscriptionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Apps.Events.Subscriptions.V1beta.SubscriptionsService.Service do
@@ -105,7 +105,7 @@ defmodule Google.Apps.Events.Subscriptions.V1beta.SubscriptionsService.Service d
 
   use GRPC.Service,
     name: "google.apps.events.subscriptions.v1beta.SubscriptionsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateSubscription,
       Google.Apps.Events.Subscriptions.V1beta.CreateSubscriptionRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyComplianceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OS_POLICY_COMPLIANCE_STATE_UNSPECIFIED, 0
   field :COMPLIANT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Outcome do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OUTCOME_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceConfigStep.Type,
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance.ExecResourceOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enforcement_output, 2, type: :bytes, json_name: "enforcementOutput"
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Osconfig.Agentendpoint.V1.OSPolicyResourceCompliance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :output, 0
 

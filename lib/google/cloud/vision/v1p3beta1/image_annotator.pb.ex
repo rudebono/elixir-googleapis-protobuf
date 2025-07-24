@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Vision.V1p3beta1.Likelihood do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :VERY_UNLIKELY, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Feature.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :FACE_DETECTION, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN_LANDMARK, 0
   field :LEFT_EYE, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Feature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Vision.V1p3beta1.Feature.Type, enum: true
   field :max_results, 2, type: :int32, json_name: "maxResults"
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImageSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gcs_image_uri, 1, type: :string, json_name: "gcsImageUri"
   field :image_uri, 2, type: :string, json_name: "imageUri"
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 1, type: :bytes
   field :source, 2, type: Google.Cloud.Vision.V1p3beta1.ImageSource
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 3, type: Google.Cloud.Vision.V1p3beta1.FaceAnnotation.Landmark.Type, enum: true
   field :position, 4, type: Google.Cloud.Vision.V1p3beta1.Position
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.FaceAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bounding_poly, 1,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.LocationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lat_lng, 1, type: Google.Type.LatLng, json_name: "latLng"
 end
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :value, 2, type: :string
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.EntityAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mid, 1, type: :string
   field :locale, 2, type: :string
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.LocalizedObjectAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mid, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.SafeSearchAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adult, 1, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
   field :spoof, 2, type: Google.Cloud.Vision.V1p3beta1.Likelihood, enum: true
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.LatLongRect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_lat_lng, 1, type: Google.Type.LatLng, json_name: "minLatLng"
   field :max_lat_lng, 2, type: Google.Type.LatLng, json_name: "maxLatLng"
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ColorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :color, 1, type: Google.Type.Color
   field :score, 2, type: :float
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :colors, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.ColorInfo
 end
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImageProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dominant_colors, 1,
     type: Google.Cloud.Vision.V1p3beta1.DominantColorsAnnotation,
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CropHint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bounding_poly, 1,
     type: Google.Cloud.Vision.V1p3beta1.BoundingPoly,
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CropHintsAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crop_hints, 1,
     repeated: true,
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.CropHintsParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aspect_ratios, 1, repeated: true, type: :float, json_name: "aspectRatios"
 end
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.WebDetectionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_geo_results, 2, type: :bool, json_name: "includeGeoResults"
 end
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.TextDetectionParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_text_detection_confidence_score, 9,
     type: :bool,
@@ -335,7 +335,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImageContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lat_long_rect, 1,
     type: Google.Cloud.Vision.V1p3beta1.LatLongRect,
@@ -363,7 +363,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 1, type: Google.Cloud.Vision.V1p3beta1.Image
   field :features, 2, repeated: true, type: Google.Cloud.Vision.V1p3beta1.Feature
@@ -376,7 +376,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.ImageAnnotationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :page_number, 2, type: :int32, json_name: "pageNumber"
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :face_annotations, 1,
     repeated: true,
@@ -448,7 +448,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AnnotateFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.InputConfig,
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :requests, 1,
     repeated: true,
@@ -471,7 +471,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :responses, 1, repeated: true, type: Google.Cloud.Vision.V1p3beta1.AnnotateImageResponse
 end
@@ -479,7 +479,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.InputConfig,
@@ -499,7 +499,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncAnnotateFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :output_config, 1,
     type: Google.Cloud.Vision.V1p3beta1.OutputConfig,
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :requests, 1,
     repeated: true,
@@ -520,7 +520,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.AsyncBatchAnnotateFilesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.InputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gcs_source, 1, type: Google.Cloud.Vision.V1p3beta1.GcsSource, json_name: "gcsSource"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -539,7 +539,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.OutputConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gcs_destination, 1,
     type: Google.Cloud.Vision.V1p3beta1.GcsDestination,
@@ -551,7 +551,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -559,7 +559,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.GcsDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
 end
@@ -567,7 +567,7 @@ end
 defmodule Google.Cloud.Vision.V1p3beta1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Vision.V1p3beta1.OperationMetadata.State, enum: true
   field :create_time, 5, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -579,7 +579,7 @@ defmodule Google.Cloud.Vision.V1p3beta1.ImageAnnotator.Service do
 
   use GRPC.Service,
     name: "google.cloud.vision.v1p3beta1.ImageAnnotator",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :BatchAnnotateImages,
       Google.Cloud.Vision.V1p3beta1.BatchAnnotateImagesRequest,

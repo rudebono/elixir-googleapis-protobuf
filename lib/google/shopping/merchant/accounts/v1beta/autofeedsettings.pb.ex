@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutofeedSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :enable_products, 2, type: :bool, json_name: "enableProducts", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetAutofeedSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -19,7 +19,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateAutofeedSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autofeed_settings, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.AutofeedSettings,
@@ -37,7 +37,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.AutofeedSettingsService.Servi
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.AutofeedSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetAutofeedSettings,
       Google.Shopping.Merchant.Accounts.V1beta.GetAutofeedSettingsRequest,

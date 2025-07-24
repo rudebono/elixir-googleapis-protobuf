@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Confidentialcomputing.V1.SigningAlgorithm do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SIGNING_ALGORITHM_UNSPECIFIED, 0
   field :RSASSA_PSS_SHA256, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TOKEN_TYPE_UNSPECIFIED, 0
   field :TOKEN_TYPE_OIDC, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.CreateChallengeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :challenge, 2, type: Google.Cloud.Confidentialcomputing.V1.Challenge, deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :tee_attestation, 0
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TdxCcelAttestation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ccel_acpi_table, 1, type: :bytes, json_name: "ccelAcpiTable", deprecated: false
   field :ccel_data, 2, type: :bytes, json_name: "ccelData", deprecated: false
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.SevSnpAttestation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report, 1, type: :bytes, deprecated: false
   field :aux_blob, 2, type: :bytes, json_name: "auxBlob", deprecated: false
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :oidc_claims_token, 2, type: :string, json_name: "oidcClaimsToken", deprecated: false
 
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account_id_tokens, 2,
     repeated: true,
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_ids, 1, repeated: true, type: :string, json_name: "keyIds", deprecated: false
 end
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :container_image_signatures, 1,
     type:
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed_principal_tags, 1,
     type:
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :token_type_options, 0
 
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote.PcrValuesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :int32
   field :value, 2, type: :bytes
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation.Quote do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hash_algo, 1, type: :int32, json_name: "hashAlgo"
 
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.TpmAttestation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :quotes, 1,
     repeated: true,
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialSpaceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :signed_entities, 1,
     repeated: true,
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.SignedEntity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :container_image_signatures, 1,
     repeated: true,
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Confidentialcomputing.V1.ContainerImageSignature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :payload, 1, type: :bytes, deprecated: false
   field :signature, 2, type: :bytes, deprecated: false
@@ -281,7 +281,7 @@ defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service do
 
   use GRPC.Service,
     name: "google.cloud.confidentialcomputing.v1.ConfidentialComputing",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateChallenge,
       Google.Cloud.Confidentialcomputing.V1.CreateChallengeRequest,

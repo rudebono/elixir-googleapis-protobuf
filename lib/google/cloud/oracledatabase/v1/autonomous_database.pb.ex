@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Oracledatabase.V1.GenerateType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :GENERATE_TYPE_UNSPECIFIED, 0
   field :ALL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.OperationsInsightsState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPERATIONS_INSIGHTS_STATE_UNSPECIFIED, 0
   field :ENABLING, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DBWorkload do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DB_WORKLOAD_UNSPECIFIED, 0
   field :OLTP, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.DatabaseEdition do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_EDITION_UNSPECIFIED, 0
   field :STANDARD_EDITION, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.LicenseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LICENSE_TYPE_UNSPECIFIED, 0
   field :LICENSE_INCLUDED, 1
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.MaintenanceScheduleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MAINTENANCE_SCHEDULE_TYPE_UNSPECIFIED, 0
   field :EARLY, 1
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.LocalDisasterRecoveryType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOCAL_DISASTER_RECOVERY_TYPE_UNSPECIFIED, 0
   field :ADG, 1
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.DataSafeState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATA_SAFE_STATE_UNSPECIFIED, 0
   field :REGISTERING, 1
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.DatabaseManagementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_MANAGEMENT_STATE_UNSPECIFIED, 0
   field :ENABLING, 1
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.OpenMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPEN_MODE_UNSPECIFIED, 0
   field :READ_ONLY, 1
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.PermissionLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PERMISSION_LEVEL_UNSPECIFIED, 0
   field :RESTRICTED, 1
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.RefreshableMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REFRESHABLE_MODE_UNSPECIFIED, 0
   field :AUTOMATIC, 1
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.RefreshableState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REFRESHABLE_STATE_UNSPECIFIED, 0
   field :REFRESHING, 1
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.ConsumerGroup do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONSUMER_GROUP_UNSPECIFIED, 0
   field :HIGH, 1
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.HostFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HOST_FORMAT_UNSPECIFIED, 0
   field :FQDN, 1
@@ -209,7 +209,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.Protocol do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PROTOCOL_UNSPECIFIED, 0
   field :TCP, 1
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.SessionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SESSION_MODE_UNSPECIFIED, 0
   field :DIRECT, 1
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.SyntaxFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SYNTAX_FORMAT_UNSPECIFIED, 0
   field :LONG, 1
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.TLSAuthentication do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TLS_AUTHENTICATION_UNSPECIFIED, 0
   field :SERVER, 1
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabase.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -259,7 +259,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :database, 2, type: :string, deprecated: false
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ocid, 1, type: :string, deprecated: false
   field :compute_count, 2, type: :float, json_name: "computeCount", deprecated: false
@@ -538,7 +538,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseApex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :apex_version, 1, type: :string, json_name: "apexVersion", deprecated: false
   field :ords_version, 2, type: :string, json_name: "ordsVersion", deprecated: false
@@ -547,7 +547,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseConnectionStrings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_connection_strings, 1,
     type: Google.Cloud.Oracledatabase.V1.AllConnectionStrings,
@@ -568,7 +568,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumer_group, 1,
     type: Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.ConsumerGroup,
@@ -615,7 +615,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AllConnectionStrings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :high, 1, type: :string, deprecated: false
   field :low, 2, type: :string, deprecated: false
@@ -625,7 +625,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseConnectionUrls do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :apex_uri, 1, type: :string, json_name: "apexUri", deprecated: false
 
@@ -654,7 +654,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseStandbySummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lag_time_duration, 1,
     type: Google.Protobuf.Duration,
@@ -678,7 +678,7 @@ end
 defmodule Google.Cloud.Oracledatabase.V1.ScheduledOperationDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day_of_week, 1,
     type: Google.Type.DayOfWeek,

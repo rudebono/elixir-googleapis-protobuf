@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Visionai.V1alpha1.LeaseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LEASE_TYPE_UNSPECIFIED, 0
   field :LEASE_TYPE_READER, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceiveEventsRequest.SetupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster, 1, type: :string
   field :stream, 2, type: :string
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceiveEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.EventUpdate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream, 1, type: :string
   field :event, 2, type: :string
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceiveEventsControlResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :control, 0
 
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceiveEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.Lease do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :series, 2, type: :string
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.AcquireLeaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :series, 1, type: :string
   field :owner, 2, type: :string
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.RenewLeaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :series, 2, type: :string
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReleaseLeaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :series, 2, type: :string
@@ -139,13 +139,13 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReleaseLeaseResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1alpha1.RequestMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream, 1, type: :string
   field :event, 2, type: :string
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.SendPacketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -169,13 +169,13 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.SendPacketsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1alpha1.ReceivePacketsRequest.SetupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :consumer_mode, 0
 
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceivePacketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :request, 0
 
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceivePacketsControlResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :control, 0
 
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.ReceivePacketsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -241,13 +241,13 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.EagerMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1alpha1.ControlledMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :starting_offset, 0
 
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Visionai.V1alpha1.CommitRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :offset, 1, type: :int64
 end
@@ -268,7 +268,7 @@ defmodule Google.Cloud.Visionai.V1alpha1.StreamingService.Service do
 
   use GRPC.Service,
     name: "google.cloud.visionai.v1alpha1.StreamingService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SendPackets,
       stream(Google.Cloud.Visionai.V1alpha1.SendPacketsRequest),

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.MutateAdsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.AdOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateAdsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V19.Services.MutateAdResult
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateAdResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :ad, 2, type: Google.Ads.Googleads.V19.Resources.Ad
@@ -59,7 +59,7 @@ defmodule Google.Ads.Googleads.V19.Services.AdService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.AdService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :MutateAds,
       Google.Ads.Googleads.V19.Services.MutateAdsRequest,

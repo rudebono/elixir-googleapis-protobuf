@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.BigQueryPublishingConfig.TableType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TABLE_TYPE_UNSPECIFIED, 0
   field :EXTERNAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.BigQueryPublishingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_type, 2,
     type: Google.Cloud.Dataplex.V1.DataDiscoverySpec.BigQueryPublishingConfig.TableType,
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.StorageConfig.CsvOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header_rows, 1, type: :int32, json_name: "headerRows", deprecated: false
   field :delimiter, 2, type: :string, deprecated: false
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.StorageConfig.JsonOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encoding, 1, type: :string, deprecated: false
 
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec.StorageConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_patterns, 1,
     repeated: true,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoverySpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :resource_config, 0
 
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult.BigQueryPublishing do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult.ScanStatistics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scanned_file_count, 1, type: :int32, json_name: "scannedFileCount"
   field :data_processed_bytes, 2, type: :int64, json_name: "dataProcessedBytes"
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Dataplex.V1.DataDiscoveryResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bigquery_publishing, 1,
     type: Google.Cloud.Dataplex.V1.DataDiscoveryResult.BigQueryPublishing,

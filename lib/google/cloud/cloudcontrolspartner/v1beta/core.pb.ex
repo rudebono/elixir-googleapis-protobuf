@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -26,7 +26,7 @@ defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CloudControlsPartnerCore.Serv
 
   use GRPC.Service,
     name: "google.cloud.cloudcontrolspartner.v1beta.CloudControlsPartnerCore",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetWorkload,
       Google.Cloud.Cloudcontrolspartner.V1beta.GetWorkloadRequest,

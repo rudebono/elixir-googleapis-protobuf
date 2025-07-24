@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Lustre.V1.TransferType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRANSFER_TYPE_UNSPECIFIED, 0
   field :IMPORT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Lustre.V1.ImportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Lustre.V1.ExportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -52,19 +52,19 @@ end
 defmodule Google.Cloud.Lustre.V1.ExportDataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Lustre.V1.ImportDataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Lustre.V1.ExportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Lustre.V1.TransferOperationMetadata,
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Lustre.V1.ImportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Lustre.V1.TransferOperationMetadata,
@@ -117,7 +117,7 @@ end
 defmodule Google.Cloud.Lustre.V1.GcsPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Lustre.V1.LustrePath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 end
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Lustre.V1.TransferCounters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :found_objects_count, 1, type: :int64, json_name: "foundObjectsCount"
   field :bytes_found_count, 2, type: :int64, json_name: "bytesFoundCount"
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Lustre.V1.ErrorLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :error_details, 2, repeated: true, type: :string, json_name: "errorDetails"
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Lustre.V1.ErrorSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Rpc.Code,
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Lustre.V1.TransferOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.SupervisedHyperParameters.AdapterSize do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ADAPTER_SIZE_UNSPECIFIED, 0
   field :ADAPTER_SIZE_ONE, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TuningJob.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TuningJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_model, 0
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TunedModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :endpoint, 2, type: :string, deprecated: false
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDatasetDistribution.DatasetBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 1, type: :double, deprecated: false
   field :left, 2, type: :double, deprecated: false
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDatasetDistribution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sum, 1, type: :int64, deprecated: false
   field :billable_sum, 9, type: :int64, json_name: "billableSum", deprecated: false
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningDataStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tuning_dataset_example_count, 1,
     type: :int64,
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TuningDataStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :tuning_data_stats, 0
 
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SupervisedHyperParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :epoch_count, 1, type: :int64, json_name: "epochCount", deprecated: false
 
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.SupervisedTuningSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :training_dataset_uri, 1,
     type: :string,
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TunedModelRef do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :tuned_model_ref, 0
 
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.TunedModelCheckpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :checkpoint_id, 1, type: :string, json_name: "checkpointId"
   field :epoch, 2, type: :int64

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Page do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter.FillBehavior do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :initial_prompt_fulfillment, 3,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :required, 2, type: :bool
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Form do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parameters, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Form.Parameter
 end
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.EventHandler do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.TransitionRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pages, 1, repeated: true, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, deprecated: false
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page, 1, type: Google.Cloud.Dialogflow.Cx.V3beta1.Page, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode"
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.KnowledgeConnectorSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -216,7 +216,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Pages.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.cx.v3beta1.Pages",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListPages,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListPagesRequest,

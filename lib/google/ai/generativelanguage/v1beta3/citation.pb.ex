@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1beta3.CitationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :citation_sources, 1,
     repeated: true,
@@ -12,7 +12,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1beta3.CitationSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_index, 1,
     proto3_optional: true,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore.ContentConfig do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTENT_CONFIG_UNSPECIFIED, 0
   field :NO_CONTENT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GOOGLE_DRIVE, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.DataStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.LanguageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Discoveryengine.V1alpha.WorkspaceConfig.Type, enum: true
   field :dasher_customer_id, 2, type: :string, json_name: "dasherCustomerId"

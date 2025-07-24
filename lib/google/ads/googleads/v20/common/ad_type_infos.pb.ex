@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Common.TextAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline, 4, proto3_optional: true, type: :string
   field :description1, 5, proto3_optional: true, type: :string
@@ -11,7 +11,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ExpandedTextAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline_part1, 8, proto3_optional: true, type: :string, json_name: "headlinePart1"
   field :headline_part2, 9, proto3_optional: true, type: :string, json_name: "headlinePart2"
@@ -25,7 +25,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ExpandedDynamicSearchAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 3, proto3_optional: true, type: :string
   field :description2, 4, proto3_optional: true, type: :string
@@ -34,31 +34,31 @@ end
 defmodule Google.Ads.Googleads.V20.Common.HotelAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V20.Common.TravelAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V20.Common.ShoppingSmartAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V20.Common.ShoppingProductAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V20.Common.ShoppingComparisonListingAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline, 2, proto3_optional: true, type: :string
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ImageAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.VideoBumperInStreamAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :companion_banner, 3,
     type: Google.Ads.Googleads.V20.Common.AdImageAsset,
@@ -118,7 +118,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.VideoNonSkippableInStreamAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :companion_banner, 5,
     type: Google.Ads.Googleads.V20.Common.AdImageAsset,
@@ -131,7 +131,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.VideoTrueViewInStreamAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action_button_label, 4, type: :string, json_name: "actionButtonLabel"
   field :action_headline, 5, type: :string, json_name: "actionHeadline"
@@ -144,7 +144,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.VideoOutstreamAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline, 3, type: :string
   field :description, 4, type: :string
@@ -153,7 +153,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.InFeedVideoAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline, 1, type: :string
   field :description1, 2, type: :string
@@ -167,13 +167,13 @@ end
 defmodule Google.Ads.Googleads.V20.Common.YouTubeAudioAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V20.Common.VideoAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :format, 0
 
@@ -207,7 +207,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.VideoResponsiveAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
 
@@ -237,7 +237,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ResponsiveSearchAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
   field :descriptions, 2, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
@@ -248,7 +248,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LegacyResponsiveDisplayAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :short_headline, 16, proto3_optional: true, type: :string, json_name: "shortHeadline"
   field :long_headline, 17, proto3_optional: true, type: :string, json_name: "longHeadline"
@@ -289,7 +289,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AppAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mandatory_ad_text, 1,
     type: Google.Ads.Googleads.V20.Common.AdTextAsset,
@@ -317,7 +317,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AppEngagementAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
   field :descriptions, 2, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
@@ -328,7 +328,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AppPreRegistrationAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
   field :descriptions, 2, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
@@ -343,7 +343,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LegacyAppInstallAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :app_id, 6, proto3_optional: true, type: :string, json_name: "appId"
 
@@ -361,7 +361,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ResponsiveDisplayAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :marketing_images, 1,
     repeated: true,
@@ -426,7 +426,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LocalAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
   field :descriptions, 2, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
@@ -454,7 +454,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.DisplayUploadAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :media_asset, 0
 
@@ -472,7 +472,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.ResponsiveDisplayAdControlSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_asset_enhancements, 1, type: :bool, json_name: "enableAssetEnhancements"
   field :enable_autogen_video, 2, type: :bool, json_name: "enableAutogenVideo"
@@ -481,7 +481,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.SmartCampaignAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
   field :descriptions, 2, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
@@ -490,7 +490,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.CallAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_code, 1, type: :string, json_name: "countryCode"
   field :phone_number, 2, type: :string, json_name: "phoneNumber"
@@ -517,7 +517,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.DemandGenMultiAssetAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :marketing_images, 1,
     repeated: true,
@@ -559,7 +559,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.DemandGenCarouselAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :business_name, 1, type: :string, json_name: "businessName", deprecated: false
 
@@ -582,7 +582,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.DemandGenVideoResponsiveAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headlines, 1, repeated: true, type: Google.Ads.Googleads.V20.Common.AdTextAsset
 
@@ -616,7 +616,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.DemandGenProductAdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :headline, 1,
     proto3_optional: true,

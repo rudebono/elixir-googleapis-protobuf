@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Financialservices.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -26,7 +26,7 @@ defmodule Google.Cloud.Financialservices.V1.AML.Service do
 
   use GRPC.Service,
     name: "google.cloud.financialservices.v1.AML",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInstances,
       Google.Cloud.Financialservices.V1.ListInstancesRequest,
