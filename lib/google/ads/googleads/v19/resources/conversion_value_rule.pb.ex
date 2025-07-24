@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 1,
     type: Google.Ads.Googleads.V19.Enums.ValueRuleOperationEnum.ValueRuleOperation,
@@ -13,7 +13,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleGeoLocationCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :excluded_geo_target_constants, 1,
     repeated: true,
@@ -43,7 +43,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleDeviceCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device_types, 1,
     repeated: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleAudienceCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_lists, 1, repeated: true, type: :string, json_name: "userLists", deprecated: false
 
@@ -69,7 +69,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleItineraryCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advance_booking_window, 1,
     type:
@@ -88,7 +88,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleItineraryAdvanceBookingWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_days, 3, proto3_optional: true, type: :int32, json_name: "minDays"
   field :max_days, 4, proto3_optional: true, type: :int32, json_name: "maxDays"
@@ -97,7 +97,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleItineraryTravelLength do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_nights, 1, type: :int32, json_name: "minNights"
   field :max_nights, 2, type: :int32, json_name: "maxNights"
@@ -106,7 +106,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule.ValueRuleItineraryTravelStartDay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :monday, 1, type: :bool
   field :tuesday, 2, type: :bool
@@ -120,7 +120,7 @@ end
 defmodule Google.Ads.Googleads.V19.Resources.ConversionValueRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 2, type: :int64, deprecated: false

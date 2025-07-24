@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.KeywordPlanHistoricalMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :avg_monthly_searches, 7,
     proto3_optional: true,
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.HistoricalMetricsOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :year_month_range, 1,
     proto3_optional: true,
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.MonthlySearchVolume do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :year, 4, proto3_optional: true, type: :int64
   field :month, 2, type: Google.Ads.Googleads.V18.Enums.MonthOfYearEnum.MonthOfYear, enum: true
@@ -62,7 +62,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.KeywordPlanAggregateMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregate_metric_types, 1,
     repeated: true,
@@ -75,7 +75,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.KeywordPlanAggregateMetricResults do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device_searches, 1,
     repeated: true,
@@ -86,7 +86,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.KeywordPlanDeviceSearches do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device, 1, type: Google.Ads.Googleads.V18.Enums.DeviceEnum.Device, enum: true
   field :search_count, 2, proto3_optional: true, type: :int64, json_name: "searchCount"
@@ -95,7 +95,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.KeywordAnnotations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :concepts, 1, repeated: true, type: Google.Ads.Googleads.V18.Common.KeywordConcept
 end
@@ -103,7 +103,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.KeywordConcept do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -115,7 +115,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.ConceptGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 

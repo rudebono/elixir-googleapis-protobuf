@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.MethodMatch.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.HeaderMatch.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EXACT, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.MethodMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Networkservices.V1.GrpcRoute.MethodMatch.Type,
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.HeaderMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Networkservices.V1.GrpcRoute.HeaderMatch.Type,
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RouteMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :method, 1,
     proto3_optional: true,
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.Destination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination_type, 0
 
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.FaultInjectionPolicy.Delay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fixed_delay, 1,
     proto3_optional: true,
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.FaultInjectionPolicy.Abort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_status, 1, proto3_optional: true, type: :int32, json_name: "httpStatus"
   field :percentage, 2, proto3_optional: true, type: :int32
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.FaultInjectionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :delay, 1,
     proto3_optional: true,
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.StatefulSessionAffinityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cookie_ttl, 1, type: Google.Protobuf.Duration, json_name: "cookieTtl", deprecated: false
 end
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retry_conditions, 1, repeated: true, type: :string, json_name: "retryConditions"
   field :num_retries, 2, type: :uint32, json_name: "numRetries"
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RouteAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.RouteRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :matches, 1,
     repeated: true,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GrpcRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 12, type: :string, json_name: "selfLink", deprecated: false
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGrpcRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGrpcRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grpc_routes, 1,
     repeated: true,
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetGrpcRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -262,7 +262,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateGrpcRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :grpc_route_id, 2, type: :string, json_name: "grpcRouteId", deprecated: false
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateGrpcRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -292,7 +292,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteGrpcRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

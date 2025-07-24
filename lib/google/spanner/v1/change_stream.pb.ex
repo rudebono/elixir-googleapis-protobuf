@@ -1,7 +1,7 @@
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord.ModType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MOD_TYPE_UNSPECIFIED, 0
   field :INSERT, 10
@@ -12,7 +12,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord.ValueCaptureType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VALUE_CAPTURE_TYPE_UNSPECIFIED, 0
   field :OLD_AND_NEW_VALUES, 10
@@ -24,7 +24,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord.ColumnMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :type, 2, type: Google.Spanner.V1.Type
@@ -35,7 +35,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord.ModValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column_metadata_index, 1, type: :int32, json_name: "columnMetadataIndex"
   field :value, 2, type: Google.Protobuf.Value
@@ -44,7 +44,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord.Mod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :keys, 1,
     repeated: true,
@@ -64,7 +64,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.DataChangeRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commit_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "commitTimestamp"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -108,7 +108,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.HeartbeatRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :timestamp, 1, type: Google.Protobuf.Timestamp
 end
@@ -116,7 +116,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.PartitionStartRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "startTimestamp"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -126,7 +126,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.PartitionEndRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :end_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "endTimestamp"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -136,7 +136,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.PartitionEventRecord.MoveInEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_partition_token, 1, type: :string, json_name: "sourcePartitionToken"
 end
@@ -144,7 +144,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.PartitionEventRecord.MoveOutEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_partition_token, 1, type: :string, json_name: "destinationPartitionToken"
 end
@@ -152,7 +152,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord.PartitionEventRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commit_timestamp, 1, type: Google.Protobuf.Timestamp, json_name: "commitTimestamp"
   field :record_sequence, 2, type: :string, json_name: "recordSequence"
@@ -172,7 +172,7 @@ end
 defmodule Google.Spanner.V1.ChangeStreamRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :record, 0
 

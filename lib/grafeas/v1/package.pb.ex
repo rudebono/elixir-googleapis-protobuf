@@ -1,7 +1,7 @@
 defmodule Grafeas.V1.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ARCHITECTURE_UNSPECIFIED, 0
   field :X86, 1
@@ -11,7 +11,7 @@ end
 defmodule Grafeas.V1.Version.VersionKind do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VERSION_KIND_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -22,7 +22,7 @@ end
 defmodule Grafeas.V1.Distribution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri", deprecated: false
   field :architecture, 2, type: Grafeas.V1.Architecture, enum: true
@@ -35,7 +35,7 @@ end
 defmodule Grafeas.V1.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpe_uri, 1, type: :string, json_name: "cpeUri"
   field :version, 2, type: Grafeas.V1.Version
@@ -45,7 +45,7 @@ end
 defmodule Grafeas.V1.PackageNote do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :distribution, 10, repeated: true, type: Grafeas.V1.Distribution
@@ -63,7 +63,7 @@ end
 defmodule Grafeas.V1.PackageOccurrence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :location, 2, repeated: true, type: Grafeas.V1.Location
@@ -77,7 +77,7 @@ end
 defmodule Grafeas.V1.Version do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :epoch, 1, type: :int32
   field :name, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1.DocumentSchema.EntityType.Property.OccurrenceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OCCURRENCE_TYPE_UNSPECIFIED, 0
   field :OPTIONAL_ONCE, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Documentai.V1.DocumentSchema.EntityType.EnumValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Documentai.V1.DocumentSchema.EntityType.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 6, type: :string, json_name: "displayName"
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Documentai.V1.DocumentSchema.EntityType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value_source, 0
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Documentai.V1.DocumentSchema.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document_splitter, 1, type: :bool, json_name: "documentSplitter"
   field :document_allow_multiple_labels, 2, type: :bool, json_name: "documentAllowMultipleLabels"
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Documentai.V1.DocumentSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
   field :description, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.SuggestBrandsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestBrandsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :brands, 1, repeated: true, type: Google.Ads.Googleads.V19.Services.BrandSuggestion
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.BrandSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :name, 2, type: :string
@@ -42,7 +42,7 @@ defmodule Google.Ads.Googleads.V19.Services.BrandSuggestionService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.BrandSuggestionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SuggestBrands,
       Google.Ads.Googleads.V19.Services.SuggestBrandsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.OnboardingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ONBOARDING_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentEnablementState,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.ComponentSettingsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Securitycenter.Settings.V1beta1.ComponentSettings
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings.DetectorGroupSettingsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Securitycenter.Settings.V1beta1.Settings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 

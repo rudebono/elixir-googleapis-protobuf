@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Common.AdTextAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 4, proto3_optional: true, type: :string
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdImageAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 2, proto3_optional: true, type: :string
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdVideoAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 2, proto3_optional: true, type: :string
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdVideoAssetInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ad_video_asset_inventory_preferences, 1,
     proto3_optional: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdVideoAssetInventoryPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :in_feed_preference, 1, proto3_optional: true, type: :bool, json_name: "inFeedPreference"
 
@@ -70,7 +70,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdMediaBundleAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 2, proto3_optional: true, type: :string
 end
@@ -78,7 +78,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdDemandGenCarouselCardAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 1, proto3_optional: true, type: :string
 end
@@ -86,7 +86,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdCallToActionAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 1, proto3_optional: true, type: :string
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdAppDeepLinkAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asset, 1, proto3_optional: true, type: :string
 end

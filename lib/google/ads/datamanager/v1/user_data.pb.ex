@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.UserData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_identifiers, 1,
     repeated: true,
@@ -13,7 +13,7 @@ end
 defmodule Google.Ads.Datamanager.V1.UserIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :identifier, 0
 
@@ -25,7 +25,7 @@ end
 defmodule Google.Ads.Datamanager.V1.AddressInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :given_name, 1, type: :string, json_name: "givenName", deprecated: false
   field :family_name, 2, type: :string, json_name: "familyName", deprecated: false

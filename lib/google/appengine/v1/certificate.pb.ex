@@ -1,7 +1,7 @@
 defmodule Google.Appengine.V1.ManagementStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MANAGEMENT_STATUS_UNSPECIFIED, 0
   field :OK, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Appengine.V1.AuthorizedCertificate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -42,7 +42,7 @@ end
 defmodule Google.Appengine.V1.CertificateRawData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_certificate, 1, type: :string, json_name: "publicCertificate"
   field :private_key, 2, type: :string, json_name: "privateKey"
@@ -51,7 +51,7 @@ end
 defmodule Google.Appengine.V1.ManagedCertificate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :last_renewal_time, 1, type: Google.Protobuf.Timestamp, json_name: "lastRenewalTime"
   field :status, 2, type: Google.Appengine.V1.ManagementStatus, enum: true

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.TrafficSplitEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int32
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string, deprecated: false
 
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.SystemLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :prediction_resources, 0
 
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predict_http_uri, 1, type: :string, json_name: "predictHttpUri", deprecated: false
   field :explain_http_uri, 2, type: :string, json_name: "explainHttpUri", deprecated: false
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
   field :sampling_rate, 2, type: :double, json_name: "samplingRate"
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PublisherModelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :logging_config, 3,
     type: Google.Cloud.Aiplatform.V1beta1.PredictRequestResponseLoggingConfig,
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ClientConnectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inference_timeout, 1, type: Google.Protobuf.Duration, json_name: "inferenceTimeout"
 end
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FasterDeploymentConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fast_tryout_enabled, 2, type: :bool, json_name: "fastTryoutEnabled"
 end
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RolloutOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :max_unavailable, 0
 
@@ -279,7 +279,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig.RagConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_rag, 1, type: :bool, json_name: "enableRag"
 end
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rag_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig.RagConfig,
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.DraftModelSpeculation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :draft_model, 1, type: :string, json_name: "draftModel", deprecated: false
 end
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec.NgramSpeculation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ngram_size, 1, type: :int32, json_name: "ngramSize"
 end
@@ -313,7 +313,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SpeculativeDecodingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :speculation, 0
 

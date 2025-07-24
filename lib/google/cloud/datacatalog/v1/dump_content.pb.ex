@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.TaggedEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :entry, 0
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.DumpItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :item, 0
 

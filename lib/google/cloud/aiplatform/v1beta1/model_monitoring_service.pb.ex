@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateModelMonitorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateModelMonitorOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelMonitorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitor, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ModelMonitor,
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateModelMonitorOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelMonitorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelMonitorsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelMonitorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitors, 1,
     repeated: true,
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelMonitorRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateModelMonitoringJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetModelMonitoringJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelMonitoringJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListModelMonitoringJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitoring_jobs, 1,
     repeated: true,
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteModelMonitoringJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringStatsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitor, 1, type: :string, json_name: "modelMonitor", deprecated: false
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringStatsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :monitoring_stats, 1,
     repeated: true,
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringAlertsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitor, 1, type: :string, json_name: "modelMonitor", deprecated: false
   field :model_monitoring_job, 2, type: :string, json_name: "modelMonitoringJob"
@@ -196,7 +196,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchModelMonitoringAlertsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_monitoring_alerts, 1,
     repeated: true,
@@ -212,7 +212,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelMonitoringService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ModelMonitoringService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateModelMonitor,
       Google.Cloud.Aiplatform.V1beta1.CreateModelMonitorRequest,

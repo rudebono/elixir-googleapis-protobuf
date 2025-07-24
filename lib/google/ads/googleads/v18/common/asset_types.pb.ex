@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.YoutubeVideoAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_video_id, 2, proto3_optional: true, type: :string, json_name: "youtubeVideoId"
   field :youtube_video_title, 3, type: :string, json_name: "youtubeVideoTitle"
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.MediaBundleAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data, 2, proto3_optional: true, type: :bytes
 end
@@ -18,7 +18,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.ImageAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data, 5, proto3_optional: true, type: :bytes
   field :file_size, 6, proto3_optional: true, type: :int64, json_name: "fileSize"
@@ -34,7 +34,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.ImageDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :height_pixels, 4, proto3_optional: true, type: :int64, json_name: "heightPixels"
   field :width_pixels, 5, proto3_optional: true, type: :int64, json_name: "widthPixels"
@@ -44,7 +44,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.TextAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 2, proto3_optional: true, type: :string
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LeadFormAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :business_name, 10, type: :string, json_name: "businessName", deprecated: false
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LeadFormField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :answers, 0
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LeadFormCustomQuestionField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :answers, 0
 
@@ -156,7 +156,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LeadFormSingleChoiceAnswers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :answers, 1, repeated: true, type: :string
 end
@@ -164,7 +164,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LeadFormDeliveryMethod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :delivery_details, 0
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.WebhookDelivery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advertiser_webhook_url, 4,
     proto3_optional: true,
@@ -192,13 +192,13 @@ end
 defmodule Google.Ads.Googleads.V18.Common.BookOnGoogleAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V18.Common.PromotionAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :discount_type, 0
 
@@ -247,7 +247,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CalloutAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :callout_text, 1, type: :string, json_name: "calloutText", deprecated: false
   field :start_date, 2, type: :string, json_name: "startDate"
@@ -262,7 +262,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.StructuredSnippetAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
   field :values, 2, repeated: true, type: :string, deprecated: false
@@ -271,7 +271,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.SitelinkAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :link_text, 1, type: :string, json_name: "linkText", deprecated: false
   field :description1, 2, type: :string
@@ -288,7 +288,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.PageFeedAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page_url, 1, type: :string, json_name: "pageUrl", deprecated: false
   field :labels, 2, repeated: true, type: :string
@@ -297,7 +297,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicEducationAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :program_id, 1, type: :string, json_name: "programId", deprecated: false
   field :location_id, 2, type: :string, json_name: "locationId"
@@ -318,7 +318,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.MobileAppAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :app_id, 1, type: :string, json_name: "appId", deprecated: false
 
@@ -336,7 +336,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.HotelCalloutAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -345,7 +345,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CallAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_code, 1, type: :string, json_name: "countryCode", deprecated: false
   field :phone_number, 2, type: :string, json_name: "phoneNumber", deprecated: false
@@ -370,7 +370,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.PriceAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V18.Enums.PriceExtensionTypeEnum.PriceExtensionType,
@@ -394,7 +394,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.PriceOffering do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -411,7 +411,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CallToActionAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :call_to_action, 1,
     type: Google.Ads.Googleads.V18.Enums.CallToActionTypeEnum.CallToActionType,
@@ -422,7 +422,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicRealEstateAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :listing_id, 1, type: :string, json_name: "listingId", deprecated: false
   field :listing_name, 2, type: :string, json_name: "listingName", deprecated: false
@@ -444,7 +444,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicCustomAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :id2, 2, type: :string
@@ -468,7 +468,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicHotelsAndRentalsAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property_id, 1, type: :string, json_name: "propertyId", deprecated: false
   field :property_name, 2, type: :string, json_name: "propertyName", deprecated: false
@@ -492,7 +492,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicFlightsAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_id, 1, type: :string, json_name: "destinationId", deprecated: false
   field :origin_id, 2, type: :string, json_name: "originId"
@@ -519,7 +519,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DemandGenCarouselCardAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :marketing_image_asset, 1, type: :string, json_name: "marketingImageAsset"
   field :square_marketing_image_asset, 2, type: :string, json_name: "squareMarketingImageAsset"
@@ -535,7 +535,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicTravelAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_id, 1, type: :string, json_name: "destinationId", deprecated: false
   field :origin_id, 2, type: :string, json_name: "originId"
@@ -564,7 +564,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicLocalAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deal_id, 1, type: :string, json_name: "dealId", deprecated: false
   field :deal_name, 2, type: :string, json_name: "dealName", deprecated: false
@@ -587,7 +587,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.DynamicJobsAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :job_id, 1, type: :string, json_name: "jobId", deprecated: false
   field :location_id, 2, type: :string, json_name: "locationId"
@@ -608,7 +608,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.LocationAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
 
@@ -626,7 +626,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.BusinessProfileLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :labels, 1, repeated: true, type: :string
   field :store_code, 2, type: :string, json_name: "storeCode"
@@ -636,7 +636,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.HotelPropertyAsset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :place_id, 1, type: :string, json_name: "placeId"
   field :hotel_address, 2, type: :string, json_name: "hotelAddress"

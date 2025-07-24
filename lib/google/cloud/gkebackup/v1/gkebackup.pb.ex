@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkebackup.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateBackupPlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupPlansRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupPlansResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_plans, 1,
     repeated: true,
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupPlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateBackupPlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_plan, 1,
     type: Google.Cloud.Gkebackup.V1.BackupPlan,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteBackupPlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateBackupChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupChannelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupChannelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_channels, 1,
     repeated: true,
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateBackupChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_channel, 1,
     type: Google.Cloud.Gkebackup.V1.BackupChannel,
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteBackupChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupPlanBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupPlanBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_plan_bindings, 1,
     repeated: true,
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupPlanBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup, 2, type: Google.Cloud.Gkebackup.V1.Backup, deprecated: false
@@ -217,7 +217,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Gkebackup.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: Google.Cloud.Gkebackup.V1.Backup, deprecated: false
 
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListVolumeBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListVolumeBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :volume_backups, 1,
     repeated: true,
@@ -300,7 +300,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetVolumeBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateRestorePlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestorePlansRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -335,7 +335,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestorePlansResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore_plans, 1,
     repeated: true,
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetRestorePlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -357,7 +357,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateRestorePlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore_plan, 1,
     type: Google.Cloud.Gkebackup.V1.RestorePlan,
@@ -373,7 +373,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteRestorePlanRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -383,7 +383,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateRestoreChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestoreChannelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -410,7 +410,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestoreChannelsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore_channels, 1,
     repeated: true,
@@ -424,7 +424,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetRestoreChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -432,7 +432,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateRestoreChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore_channel, 1,
     type: Google.Cloud.Gkebackup.V1.RestoreChannel,
@@ -448,7 +448,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteRestoreChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -457,7 +457,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestorePlanBindingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -469,7 +469,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestorePlanBindingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore_plan_bindings, 1,
     repeated: true,
@@ -483,7 +483,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetRestorePlanBindingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.CreateRestoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :restore, 2, type: Google.Cloud.Gkebackup.V1.Restore, deprecated: false
@@ -501,7 +501,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -513,7 +513,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListRestoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restores, 1, repeated: true, type: Google.Cloud.Gkebackup.V1.Restore
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -523,7 +523,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetRestoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -531,7 +531,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.UpdateRestoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :restore, 1, type: Google.Cloud.Gkebackup.V1.Restore, deprecated: false
 
@@ -544,7 +544,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.DeleteRestoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -554,7 +554,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListVolumeRestoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -566,7 +566,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ListVolumeRestoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :volume_restores, 1,
     repeated: true,
@@ -579,7 +579,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetVolumeRestoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -587,7 +587,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupIndexDownloadUrlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: :string, deprecated: false
 end
@@ -595,7 +595,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.GetBackupIndexDownloadUrlResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :signed_url, 1, type: :string, json_name: "signedUrl", deprecated: false
 end
@@ -605,7 +605,7 @@ defmodule Google.Cloud.Gkebackup.V1.BackupForGKE.Service do
 
   use GRPC.Service,
     name: "google.cloud.gkebackup.v1.BackupForGKE",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateBackupPlan,
       Google.Cloud.Gkebackup.V1.CreateBackupPlanRequest,

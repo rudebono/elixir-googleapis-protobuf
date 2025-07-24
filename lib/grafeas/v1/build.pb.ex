@@ -1,7 +1,7 @@
 defmodule Grafeas.V1.BuildNote do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :builder_version, 1, type: :string, json_name: "builderVersion"
 end
@@ -9,7 +9,7 @@ end
 defmodule Grafeas.V1.BuildOccurrence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :provenance, 1, type: Grafeas.V1.BuildProvenance
   field :provenance_bytes, 2, type: :string, json_name: "provenanceBytes"

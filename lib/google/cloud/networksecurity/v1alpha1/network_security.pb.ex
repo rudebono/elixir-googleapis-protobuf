@@ -3,7 +3,7 @@ defmodule Google.Cloud.Networksecurity.V1alpha1.NetworkSecurity.Service do
 
   use GRPC.Service,
     name: "google.cloud.networksecurity.v1alpha1.NetworkSecurity",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListClientTlsPolicies,
       Google.Cloud.Networksecurity.V1alpha1.ListClientTlsPoliciesRequest,

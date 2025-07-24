@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Conversation.List.ListItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Actions.Sdk.V2.Conversation.List do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :subtitle, 2, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Compute.V1beta.AccessConfig.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AccessConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :DIRECT_IPV6, 4_397_213
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.AddressType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADDRESS_TYPE, 0
   field :EXTERNAL, 35_607_499
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.IpVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IP_VERSION, 0
   field :IPV4, 2_254_341
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.Ipv6EndpointType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_ENDPOINT_TYPE, 0
   field :NETLB, 74_173_363
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.Purpose do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PURPOSE, 0
   field :DNS_RESOLVER, 476_114_556
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :IN_USE, 17_393_485
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AdvancedMachineFeatures.PerformanceMonitoringUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PERFORMANCE_MONITORING_UNIT, 0
   field :ARCHITECTURAL, 155_113_693
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservation.VmFamily do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VM_FAMILY, 0
   field :VM_FAMILY_CLOUD_TPU_DEVICE_CT3, 42_845_948
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservation.WorkloadType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_WORKLOAD_TYPE, 0
   field :BATCH, 62_971_674
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationReservationSharingPolicy.ServiceShareType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SERVICE_SHARE_TYPE, 0
   field :ALLOW_ALL, 475_536_235
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.Interface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERFACE, 0
   field :NVME, 2_408_800
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationSpecificSKUAllocationReservedInstanceProperties.MaintenanceInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_INTERVAL, 0
   field :AS_NEEDED, 500_724_834
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk.Interface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERFACE, 0
   field :NVME, 2_408_800
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :READ_ONLY, 91_950_261
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk.SavedState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SAVED_STATE, 0
   field :DISK_SAVED_STATE_UNSPECIFIED, 391_290_831
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :PERSISTENT, 460_683_927
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDiskInitializeParams.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -226,7 +226,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDiskInitializeParams.OnUpdateAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ON_UPDATE_ACTION, 0
   field :RECREATE_DISK, 494_767_853
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AuditLogConfig.LogType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOG_TYPE, 0
   field :ADMIN_READ, 128_951_462
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Autoscaler.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACTIVE, 314_733_318
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalerStatusDetails.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :ALL_INSTANCES_UNHEALTHY, 404_965_477
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :OFF, 78159
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyCpuUtilization.PredictiveMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREDICTIVE_METHOD, 0
   field :NONE, 2_402_104
@@ -312,7 +312,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyCustomMetricUtilization.UtilizationTargetType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UTILIZATION_TARGET_TYPE, 0
   field :DELTA_PER_MINUTE, 87_432_861
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Backend.BalancingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BALANCING_MODE, 0
   field :CONNECTION, 246_311_646
@@ -335,7 +335,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Backend.Preference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREFERENCE, 0
   field :DEFAULT, 115_302_945
@@ -346,7 +346,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucket.CompressionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_COMPRESSION_MODE, 0
   field :AUTOMATIC, 165_298_699
@@ -356,7 +356,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucket.LoadBalancingScheme do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOAD_BALANCING_SCHEME, 0
   field :INTERNAL_MANAGED, 37_350_397
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketCdnPolicy.CacheMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CACHE_MODE, 0
   field :CACHE_ALL_STATIC, 355_027_945
@@ -377,7 +377,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.CompressionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_COMPRESSION_MODE, 0
   field :AUTOMATIC, 165_298_699
@@ -387,7 +387,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.ExternalManagedMigrationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_EXTERNAL_MANAGED_MIGRATION_STATE, 0
   field :PREPARE, 399_612_135
@@ -398,7 +398,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.IpAddressSelectionPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IP_ADDRESS_SELECTION_POLICY, 0
   field :IPV4_ONLY, 22_373_798
@@ -410,7 +410,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.LoadBalancingScheme do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOAD_BALANCING_SCHEME, 0
   field :EXTERNAL, 35_607_499
@@ -424,7 +424,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.LocalityLbPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOCALITY_LB_POLICY, 0
   field :INVALID_LB_POLICY, 323_318_707
@@ -441,7 +441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.Protocol do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROTOCOL, 0
   field :GRPC, 2_196_510
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.SessionAffinity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SESSION_AFFINITY, 0
   field :CLIENT_IP, 345_665_051
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceCdnPolicy.CacheMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CACHE_MODE, 0
   field :CACHE_ALL_STATIC, 355_027_945
@@ -487,7 +487,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceConnectionTrackingPolicy.ConnectionPersistenceOnUnhealthyBackends do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONNECTION_PERSISTENCE_ON_UNHEALTHY_BACKENDS, 0
   field :ALWAYS_PERSIST, 38_400_900
@@ -498,7 +498,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceConnectionTrackingPolicy.TrackingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TRACKING_MODE, 0
   field :INVALID_TRACKING_MODE, 49_234_371
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceHAPolicy.FastIPMove do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FAST_I_P_MOVE, 0
   field :DISABLED, 516_696_700
@@ -519,7 +519,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLocalityLoadBalancingPolicyConfigPolicy.Name do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NAME, 0
   field :INVALID_LB_POLICY, 323_318_707
@@ -536,7 +536,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLogConfig.OptionalMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OPTIONAL_MODE, 0
   field :CUSTOM, 388_595_569
@@ -547,7 +547,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceNetworkPassThroughLbTrafficPolicyZonalAffinity.Spillover do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SPILLOVER, 0
   field :ZONAL_AFFINITY_DISABLED, 230_207_960
@@ -558,7 +558,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdPacket.Diagnostic do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIAGNOSTIC, 0
   field :ADMINISTRATIVELY_DOWN, 121_685_798
@@ -576,7 +576,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdPacket.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ADMIN_DOWN, 128_544_690
@@ -589,7 +589,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdStatus.BfdSessionInitializationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BFD_SESSION_INITIALIZATION_MODE, 0
   field :ACTIVE, 314_733_318
@@ -600,7 +600,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdStatus.LocalDiagnostic do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOCAL_DIAGNOSTIC, 0
   field :ADMINISTRATIVELY_DOWN, 121_685_798
@@ -618,7 +618,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdStatus.LocalState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOCAL_STATE, 0
   field :ADMIN_DOWN, 128_544_690
@@ -631,7 +631,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BgpRoute.Origin do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ORIGIN, 0
   field :BGP_ORIGIN_EGP, 378_906_473
@@ -642,7 +642,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BgpRouteAsPath.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :AS_PATH_TYPE_SEQUENCE, 362_887_609
@@ -652,7 +652,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertOperationStatus.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -664,7 +664,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Commitment.Category do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CATEGORY, 0
   field :CATEGORY_UNSPECIFIED, 509_189_462
@@ -675,7 +675,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Commitment.Plan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PLAN, 0
   field :INVALID, 530_283_991
@@ -686,7 +686,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Commitment.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACTIVE, 314_733_318
@@ -699,7 +699,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Commitment.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :ACCELERATOR_OPTIMIZED, 280_848_403
@@ -737,7 +737,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ConfidentialInstanceConfig.ConfidentialInstanceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONFIDENTIAL_INSTANCE_TYPE, 0
   field :CONFIDENTIAL_INSTANCE_TYPE_UNSPECIFIED, 115_021_829
@@ -749,7 +749,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeprecationStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -761,7 +761,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.AccessMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ACCESS_MODE, 0
   field :READ_ONLY_MANY, 63_460_265
@@ -772,7 +772,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -783,7 +783,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.Interface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERFACE, 0
   field :NVME, 2_408_800
@@ -794,7 +794,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -808,7 +808,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.StorageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STORAGE_TYPE, 0
   field :HDD, 71368
@@ -818,7 +818,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskInstantiationConfig.InstantiateFrom do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANTIATE_FROM, 0
   field :ATTACH_READ_ONLY, 513_775_419
@@ -833,7 +833,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskResourceStatusAsyncReplicationStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -847,7 +847,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskSettingsAccessLocation.Policy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POLICY, 0
   field :ALL_REGIONS, 273_143_585
@@ -858,7 +858,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DistributionPolicy.TargetShape do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TARGET_SHAPE, 0
   field :ANY, 64972
@@ -870,7 +870,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExchangedPeeringRoute.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :DYNAMIC_PEERING_ROUTE, 469_794_858
@@ -881,7 +881,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExternalVpnGateway.RedundancyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_REDUNDANCY_TYPE, 0
   field :FOUR_IPS_REDUNDANCY, 520_087_913
@@ -892,7 +892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FileContentBuffer.FileType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FILE_TYPE, 0
   field :BIN, 65767
@@ -903,7 +903,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Firewall.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIRECTION, 0
   field :EGRESS, 432_880_501
@@ -913,7 +913,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallLogConfig.Metadata do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_METADATA, 0
   field :EXCLUDE_ALL_METADATA, 334_519_954
@@ -923,7 +923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicy.PolicyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POLICY_TYPE, 0
   field :RDMA_ROCE_POLICY, 148_757_145
@@ -933,7 +933,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIRECTION, 0
   field :EGRESS, 432_880_501
@@ -943,7 +943,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.DestNetworkScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEST_NETWORK_SCOPE, 0
 end
@@ -951,7 +951,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.DestNetworkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEST_NETWORK_TYPE, 0
 end
@@ -959,7 +959,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.SrcNetworkScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SRC_NETWORK_SCOPE, 0
 end
@@ -967,7 +967,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.SrcNetworkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SRC_NETWORK_TYPE, 0
 end
@@ -975,7 +975,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleSecureTag.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :EFFECTIVE, 244_201_863
@@ -985,7 +985,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.ExternalManagedBackendBucketMigrationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_EXTERNAL_MANAGED_BACKEND_BUCKET_MIGRATION_STATE, 0
   field :PREPARE, 399_612_135
@@ -996,7 +996,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.IPProtocolEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_I_P_PROTOCOL_ENUM, 0
   field :AH, 2087
@@ -1011,7 +1011,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.IpVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IP_VERSION, 0
   field :IPV4, 2_254_341
@@ -1022,7 +1022,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.LoadBalancingScheme do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOAD_BALANCING_SCHEME, 0
   field :EXTERNAL, 35_607_499
@@ -1036,7 +1036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -1048,7 +1048,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.PscConnectionStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PSC_CONNECTION_STATUS, 0
   field :ACCEPTED, 246_714_279
@@ -1062,7 +1062,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservation.DeploymentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEPLOYMENT_TYPE, 0
   field :DENSE, 64_932_607
@@ -1073,7 +1073,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservation.PlanningStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PLANNING_STATUS, 0
   field :DRAFT, 65_307_009
@@ -1084,7 +1084,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservation.ReservationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_RESERVATION_MODE, 0
   field :CALENDAR, 67_431_230
@@ -1095,7 +1095,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservation.SchedulingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SCHEDULING_TYPE, 0
   field :GROUPED, 474_540_862
@@ -1106,7 +1106,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationCommitmentInfo.CommitmentPlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_COMMITMENT_PLAN, 0
   field :INVALID, 530_283_991
@@ -1117,7 +1117,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationCommitmentInfo.PreviousCommitmentTerms do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREVIOUS_COMMITMENT_TERMS, 0
   field :EXTEND, 448_639_770
@@ -1127,7 +1127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatus.AmendmentStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AMENDMENT_STATUS, 0
   field :AMENDMENT_APPROVED, 150_573_001
@@ -1139,7 +1139,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatus.ProcurementStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROCUREMENT_STATUS, 0
   field :APPROVED, 357_258_935
@@ -1160,7 +1160,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatusLastKnownGoodState.ProcurementStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROCUREMENT_STATUS, 0
   field :APPROVED, 357_258_935
@@ -1181,7 +1181,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesRecommendation.RecommendationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_RECOMMENDATION_TYPE, 0
   field :FUTURE_RESERVATION, 41_036_592
@@ -1191,7 +1191,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesRecommendationOtherLocation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CONDITIONS_NOT_MET, 363_628_457
@@ -1204,7 +1204,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpec.DeploymentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEPLOYMENT_TYPE, 0
   field :DENSE, 64_932_607
@@ -1215,7 +1215,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecAggregateResources.VmFamily do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VM_FAMILY, 0
   field :VM_FAMILY_CLOUD_TPU_DEVICE_CT3, 42_845_948
@@ -1230,7 +1230,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecAggregateResources.WorkloadType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_WORKLOAD_TYPE, 0
   field :BATCH, 62_971_674
@@ -1241,7 +1241,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocalSsdPartition.DiskInterface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DISK_INTERFACE, 0
   field :NVME, 2_408_800
@@ -1251,7 +1251,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocationPolicyLocation.Preference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREFERENCE, 0
   field :ALLOW, 62_368_553
@@ -1262,7 +1262,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GRPCHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -1273,7 +1273,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GRPCTLSHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -1284,7 +1284,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -1295,7 +1295,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceTemplateRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -1306,7 +1306,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstanceTemplateRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -1317,7 +1317,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetReservationBlockRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -1328,7 +1328,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GroupMaintenanceInfo.SchedulingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SCHEDULING_TYPE, 0
   field :GROUPED, 474_540_862
@@ -1339,7 +1339,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GuestOsFeature.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :BARE_METAL_LINUX_COMPATIBLE, 354_232_740
@@ -1362,7 +1362,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTP2HealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -1373,7 +1373,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTP2HealthCheck.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -1383,7 +1383,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -1394,7 +1394,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPHealthCheck.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -1404,7 +1404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPSHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -1415,7 +1415,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPSHealthCheck.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -1425,7 +1425,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheck.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :GRPC, 2_196_510
@@ -1441,7 +1441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckService.HealthStatusAggregationPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_HEALTH_STATUS_AGGREGATION_POLICY, 0
   field :AND, 64951
@@ -1451,7 +1451,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckService.HealthStatusAggregationStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_HEALTH_STATUS_AGGREGATION_STRATEGY, 0
 end
@@ -1459,7 +1459,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatus.HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_HEALTH_STATE, 0
   field :HEALTHY, 439_801_213
@@ -1469,7 +1469,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatus.Ipv6HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_HEALTH_STATE, 0
 end
@@ -1477,7 +1477,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatus.WeightError do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_WEIGHT_ERROR, 0
   field :INVALID_WEIGHT, 383_698_400
@@ -1489,7 +1489,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatusForNetworkEndpoint.HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_HEALTH_STATE, 0
   field :DRAINING, 480_455_402
@@ -1501,7 +1501,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatusForNetworkEndpoint.Ipv6HealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_HEALTH_STATE, 0
 end
@@ -1509,7 +1509,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRedirectAction.RedirectResponseCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_REDIRECT_RESPONSE_CODE, 0
   field :FOUND, 67_084_130
@@ -1522,7 +1522,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Image.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -1533,7 +1533,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Image.SourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SOURCE_TYPE, 0
   field :RAW, 80904
@@ -1542,7 +1542,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Image.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DELETING, 528_602_024
@@ -1554,7 +1554,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.KeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_KEY_REVOCATION_ACTION_TYPE, 0
   field :KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED, 467_110_106
@@ -1565,7 +1565,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.PostKeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POST_KEY_REVOCATION_ACTION_TYPE, 0
   field :NOOP, 2_402_146
@@ -1576,7 +1576,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.PrivateIpv6GoogleAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PRIVATE_IPV6_GOOGLE_ACCESS, 0
   field :ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE, 427_975_994
@@ -1587,7 +1587,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DEPROVISIONING, 428_935_662
@@ -1606,7 +1606,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManager.FailoverAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FAILOVER_ACTION, 0
   field :NO_FAILOVER, 480_957_872
@@ -1616,7 +1616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManager.ListManagedInstancesResults do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LIST_MANAGED_INSTANCES_RESULTS, 0
   field :PAGELESS, 32_183_464
@@ -1626,7 +1626,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicy.DefaultActionOnFailure do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEFAULT_ACTION_ON_FAILURE, 0
   field :DELETE, 402_225_579
@@ -1637,7 +1637,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicy.ForceUpdateOnRepair do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FORCE_UPDATE_ON_REPAIR, 0
   field :NO, 2497
@@ -1647,7 +1647,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicy.OnFailedHealthCheck do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ON_FAILED_HEALTH_CHECK, 0
   field :DEFAULT_ACTION, 463_967_764
@@ -1656,7 +1656,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicyOnRepair.AllowChangingZone do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_CHANGING_ZONE, 0
   field :NO, 2497
@@ -1666,7 +1666,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequest.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACCEPTED, 246_714_279
@@ -1681,7 +1681,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStandbyPolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :MANUAL, 119_397_318
@@ -1691,7 +1691,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerTargetSizePolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :BULK, 2_050_322
@@ -1702,7 +1702,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.InstanceRedistributionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANCE_REDISTRIBUTION_TYPE, 0
 end
@@ -1710,7 +1710,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.MinimalAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MINIMAL_ACTION, 0
 end
@@ -1718,7 +1718,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.MostDisruptiveAllowedAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MOST_DISRUPTIVE_ALLOWED_ACTION, 0
 end
@@ -1726,7 +1726,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.ReplacementMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_REPLACEMENT_METHOD, 0
   field :RECREATE, 522_644_719
@@ -1736,7 +1736,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :OPPORTUNISTIC, 429_530_089
@@ -1745,7 +1745,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersApplyUpdatesRequest.MinimalAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MINIMAL_ACTION, 0
 end
@@ -1753,7 +1753,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersApplyUpdatesRequest.MostDisruptiveAllowedAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MOST_DISRUPTIVE_ALLOWED_ACTION, 0
 end
@@ -1761,7 +1761,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsListInstancesRequest.InstanceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANCE_STATE, 0
   field :ALL, 64897
@@ -1771,7 +1771,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceManagedByIgmErrorInstanceActionDetails.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ACTION, 0
   field :ABANDONING, 388_244_813
@@ -1792,7 +1792,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.KeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_KEY_REVOCATION_ACTION_TYPE, 0
   field :KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED, 467_110_106
@@ -1803,7 +1803,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.PostKeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POST_KEY_REVOCATION_ACTION_TYPE, 0
   field :NOOP, 2_402_146
@@ -1814,7 +1814,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.PrivateIpv6GoogleAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PRIVATE_IPV6_GOOGLE_ACCESS, 0
   field :ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE, 427_975_994
@@ -1825,7 +1825,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceWithNamedPorts.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DEPROVISIONING, 428_935_662
@@ -1844,7 +1844,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :HIERARCHY, 69_902_869
@@ -1858,7 +1858,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesReportHostAsFaultyRequest.DisruptionSchedule do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DISRUPTION_SCHEDULE, 0
   field :DISRUPTION_SCHEDULE_UNSPECIFIED, 332_543_835
@@ -1869,7 +1869,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesReportHostAsFaultyRequestFaultReason.Behavior do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BEHAVIOR, 0
   field :BEHAVIOR_UNSPECIFIED, 85_734_570
@@ -1881,7 +1881,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshot.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -1892,7 +1892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshot.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -1905,7 +1905,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.AvailableFeatures do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AVAILABLE_FEATURES, 0
 end
@@ -1913,7 +1913,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.InterconnectType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERCONNECT_TYPE, 0
   field :DEDICATED, 258_411_983
@@ -1924,7 +1924,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.LinkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LINK_TYPE, 0
   field :LINK_TYPE_ETHERNET_100G_LR, 337_672_551
@@ -1935,7 +1935,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.OperationalStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OPERATIONAL_STATUS, 0
   field :OS_ACTIVE, 55_721_409
@@ -1945,7 +1945,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.RequestedFeatures do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_REQUESTED_FEATURES, 0
 end
@@ -1953,7 +1953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -1963,7 +1963,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectApplicationAwareInterconnectBandwidthPercentage.TrafficClass do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TRAFFIC_CLASS, 0
   field :TC1, 82850
@@ -1977,7 +1977,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.Bandwidth do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BANDWIDTH, 0
   field :BPS_100G, 49_547_952
@@ -1998,7 +1998,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.EdgeAvailabilityDomain do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_EDGE_AVAILABILITY_DOMAIN, 0
   field :AVAILABILITY_DOMAIN_1, 349_552_090
@@ -2009,7 +2009,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.Encryption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENCRYPTION, 0
   field :IPSEC, 69_882_282
@@ -2019,7 +2019,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.OperationalStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OPERATIONAL_STATUS, 0
   field :OS_ACTIVE, 55_721_409
@@ -2029,7 +2029,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -2039,7 +2039,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -2054,7 +2054,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :DEDICATED, 258_411_983
@@ -2065,7 +2065,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentConfigurationConstraints.BgpMd5 do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BGP_MD5, 0
   field :MD5_OPTIONAL, 532_156_673
@@ -2076,7 +2076,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupConfiguredAvailabilitySLA.EffectiveSla do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_EFFECTIVE_SLA, 0
   field :EFFECTIVE_SLA_UNSPECIFIED, 491_000_744
@@ -2088,7 +2088,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers.BlockerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BLOCKER_TYPE, 0
   field :BLOCKER_TYPE_UNSPECIFIED, 429_793_623
@@ -2103,7 +2103,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupIntent.AvailabilitySla do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AVAILABILITY_SLA, 0
   field :AVAILABILITY_SLA_UNSPECIFIED, 11_186_044
@@ -2115,7 +2115,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsOperationalStatus.GroupStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_GROUP_STATUS, 0
   field :DEGRADED, 396_890_926
@@ -2127,7 +2127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsOperationalStatusAttachmentStatus.IsActive do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IS_ACTIVE, 0
   field :ACTIVE, 314_733_318
@@ -2138,7 +2138,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsOperationalStatusAttachmentStatus.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ATTACHMENT_STATUS_UNKNOWN, 472_477_561
@@ -2161,7 +2161,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnostics.BundleAggregationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BUNDLE_AGGREGATION_TYPE, 0
   field :BUNDLE_AGGREGATION_TYPE_LACP, 27_758_925
@@ -2171,7 +2171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnostics.BundleOperationalStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BUNDLE_OPERATIONAL_STATUS, 0
   field :BUNDLE_OPERATIONAL_STATUS_DOWN, 453_842_693
@@ -2181,7 +2181,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkLACPStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -2191,7 +2191,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkOpticalPower.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :HIGH_ALARM, 305_363_284
@@ -2204,7 +2204,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkStatus.OperationalStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OPERATIONAL_STATUS, 0
   field :LINK_OPERATIONAL_STATUS_DOWN, 281_653_885
@@ -2214,7 +2214,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupConfiguredTopologyCapability.SupportedSla do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SUPPORTED_SLA, 0
   field :NO_SLA, 161_460_618
@@ -2226,7 +2226,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers.BlockerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BLOCKER_TYPE, 0
   field :INCOMPATIBLE_METROS, 290_410_432
@@ -2240,7 +2240,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupIntent.TopologyCapability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TOPOLOGY_CAPABILITY, 0
   field :NO_SLA, 161_460_618
@@ -2252,7 +2252,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembers.IntentMismatchBehavior do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTENT_MISMATCH_BEHAVIOR, 0
   field :CREATE, 385_389_820
@@ -2263,7 +2263,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembersInterconnectInput.InterconnectType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERCONNECT_TYPE, 0
   field :DEDICATED, 258_411_983
@@ -2274,7 +2274,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembersInterconnectInput.LinkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LINK_TYPE, 0
   field :LINK_TYPE_ETHERNET_100G_LR, 337_672_551
@@ -2285,7 +2285,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembersInterconnectInput.RequestedFeatures do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_REQUESTED_FEATURES, 0
   field :IF_CROSS_SITE_NETWORK, 469_111_095
@@ -2295,7 +2295,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsOperationalStatus.GroupStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_GROUP_STATUS, 0
   field :DEGRADED, 396_890_926
@@ -2307,7 +2307,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsOperationalStatusInterconnectStatus.IsActive do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IS_ACTIVE, 0
   field :ACTIVE, 314_733_318
@@ -2318,7 +2318,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocation.AvailableFeatures do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AVAILABLE_FEATURES, 0
   field :IF_CROSS_SITE_NETWORK, 469_111_095
@@ -2328,7 +2328,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocation.AvailableLinkTypes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AVAILABLE_LINK_TYPES, 0
   field :LINK_TYPE_ETHERNET_100G_LR, 337_672_551
@@ -2339,7 +2339,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocation.Continent do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONTINENT, 0
   field :AFRICA, 317_443_706
@@ -2357,7 +2357,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :AVAILABLE, 442_079_913
@@ -2367,7 +2367,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocationRegionInfo.LocationPresence do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOCATION_PRESENCE, 0
   field :GLOBAL, 494_663_587
@@ -2379,7 +2379,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectOutageNotification.IssueType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ISSUE_TYPE, 0
   field :IT_OUTAGE, 175_779_973
@@ -2391,7 +2391,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectOutageNotification.Source do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SOURCE, 0
   field :GOOGLE, 497_439_289
@@ -2401,7 +2401,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectOutageNotification.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -2414,7 +2414,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocation.Continent do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONTINENT, 0
   field :AFRICA, 317_443_706
@@ -2427,7 +2427,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocation.Lacp do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LACP, 0
   field :LACP_SUPPORTED, 339_576_113
@@ -2437,7 +2437,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :AVAILABLE, 442_079_913
@@ -2447,7 +2447,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationConstraints.PortPairRemoteLocation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_PAIR_REMOTE_LOCATION, 0
   field :PORT_PAIR_MATCHING_REMOTE_LOCATION, 207_291_859
@@ -2457,7 +2457,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationConstraints.PortPairVlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_PAIR_VLAN, 0
   field :PORT_PAIR_MATCHING_VLAN, 250_295_358
@@ -2467,7 +2467,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicenseCode.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :DISABLED, 516_696_700
@@ -2480,7 +2480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListBgpRoutesRoutersRequest.AddressFamily do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADDRESS_FAMILY, 0
   field :IPV4, 2_254_341
@@ -2491,7 +2491,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListBgpRoutesRoutersRequest.RouteType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROUTE_TYPE, 0
   field :ADVERTISED, 20_302_109
@@ -2502,7 +2502,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstanceTemplatesRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -2513,7 +2513,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstancesRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -2524,7 +2524,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPeeringRoutesNetworksRequest.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIRECTION, 0
   field :INCOMING, 338_552_870
@@ -2534,7 +2534,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstanceTemplatesRequest.View do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VIEW, 0
   field :BASIC, 62_970_894
@@ -2545,7 +2545,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicy.TargetShape do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TARGET_SHAPE, 0
   field :ANY, 64972
@@ -2556,7 +2556,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicyLocation.Preference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREFERENCE, 0
   field :ALLOW, 62_368_553
@@ -2567,7 +2567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineImage.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -2580,7 +2580,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineType.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -2591,7 +2591,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstance.CurrentAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CURRENT_ACTION, 0
   field :ABANDONING, 388_244_813
@@ -2610,7 +2610,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstance.InstanceStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANCE_STATUS, 0
   field :DEPROVISIONING, 428_935_662
@@ -2629,7 +2629,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstance.TargetStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TARGET_STATUS, 0
   field :ABANDONED, 81_797_556
@@ -2639,7 +2639,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceInstanceHealth.DetailedHealthState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DETAILED_HEALTH_STATE, 0
   field :DRAINING, 480_455_402
@@ -2652,7 +2652,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstancePropertiesFromFlexibilityPolicy.ProvisioningModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROVISIONING_MODEL, 0
   field :FLEX_START, 101_746_812
@@ -2664,7 +2664,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MetadataFilter.FilterMatchCriteria do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FILTER_MATCH_CRITERIA, 0
   field :MATCH_ALL, 180_663_271
@@ -2675,7 +2675,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NatIpInfoNatIpInfoMapping.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :AUTO, 2_020_783
@@ -2685,7 +2685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NatIpInfoNatIpInfoMapping.Usage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_USAGE, 0
   field :IN_USE, 17_393_485
@@ -2695,7 +2695,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Network.NetworkFirewallPolicyEnforcementOrder do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_FIREWALL_POLICY_ENFORCEMENT_ORDER, 0
   field :AFTER_CLASSIC_FIREWALL, 154_582_608
@@ -2705,7 +2705,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachment.ConnectionPreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONNECTION_PREFERENCE, 0
   field :ACCEPT_AUTOMATIC, 75_250_580
@@ -2716,7 +2716,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentConnectedEndpoint.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACCEPTED, 246_714_279
@@ -2730,7 +2730,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroup.NetworkEndpointType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_ENDPOINT_TYPE, 0
   field :GCE_VM_IP, 401_880_793
@@ -2746,7 +2746,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupPscData.PscConnectionStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PSC_CONNECTION_STATUS, 0
   field :ACCEPTED, 246_714_279
@@ -2760,7 +2760,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsListEndpointsRequest.HealthStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_HEALTH_STATUS, 0
   field :SHOW, 2_544_381
@@ -2770,7 +2770,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface.IgmpQuery do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IGMP_QUERY, 0
   field :IGMP_QUERY_DISABLED, 28_285_169
@@ -2780,7 +2780,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface.Ipv6AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_ACCESS_TYPE, 0
   field :EXTERNAL, 35_607_499
@@ -2791,7 +2791,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface.NicType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NIC_TYPE, 0
   field :GVNIC, 68_209_305
@@ -2805,7 +2805,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -2817,7 +2817,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeering.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -2827,7 +2827,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeering.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -2837,7 +2837,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeering.UpdateStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UPDATE_STRATEGY, 0
   field :CONSENSUS, 203_373_655
@@ -2848,7 +2848,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatus.UpdateStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UPDATE_STRATEGY, 0
   field :CONSENSUS, 203_373_655
@@ -2859,7 +2859,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatusConsensusState.DeleteStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DELETE_STATUS, 0
   field :DELETE_ACKNOWLEDGED, 325_293_916
@@ -2871,7 +2871,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatusConsensusState.UpdateStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UPDATE_STATUS, 0
   field :IN_SYNC, 2_273_653
@@ -2883,7 +2883,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatusTrafficConfiguration.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -2893,7 +2893,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPerformanceConfig.TotalEgressBandwidthTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TOTAL_EGRESS_BANDWIDTH_TIER, 0
   field :DEFAULT, 115_302_945
@@ -2903,7 +2903,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileLocation.Scope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SCOPE, 0
   field :REGION, 266_017_524
@@ -2913,7 +2913,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AddressPurposes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADDRESS_PURPOSES, 0
   field :DNS_RESOLVER, 476_114_556
@@ -2929,7 +2929,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowAliasIpRanges do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_ALIAS_IP_RANGES, 0
   field :ALIAS_IP_RANGES_ALLOWED, 464_867_048
@@ -2939,7 +2939,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowAutoModeSubnet do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_AUTO_MODE_SUBNET, 0
   field :AUTO_MODE_SUBNET_ALLOWED, 391_042_610
@@ -2949,7 +2949,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowClassDFirewalls do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_CLASS_D_FIREWALLS, 0
   field :CLASS_D_FIREWALLS_ALLOWED, 348_219_386
@@ -2959,7 +2959,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowCloudNat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_CLOUD_NAT, 0
   field :CLOUD_NAT_ALLOWED, 245_931_296
@@ -2969,7 +2969,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowCloudRouter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_CLOUD_ROUTER, 0
   field :CLOUD_ROUTER_ALLOWED, 365_388_284
@@ -2979,7 +2979,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowDefaultNicAttachment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_DEFAULT_NIC_ATTACHMENT, 0
   field :DEFAULT_NIC_ATTACHMENT_ALLOWED, 11_570_689
@@ -2989,7 +2989,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowExternalIpAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_EXTERNAL_IP_ACCESS, 0
   field :EXTERNAL_IP_ACCESS_ALLOWED, 109_530_193
@@ -2999,7 +2999,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowInterconnect do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_INTERCONNECT, 0
   field :INTERCONNECT_ALLOWED, 162_845_399
@@ -3009,7 +3009,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowIpForwarding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_IP_FORWARDING, 0
   field :IP_FORWARDING_ALLOWED, 152_595_550
@@ -3019,7 +3019,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowLoadBalancing do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_LOAD_BALANCING, 0
   field :LOAD_BALANCING_ALLOWED, 28_407_977
@@ -3029,7 +3029,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowMultiNicInSameNetwork do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_MULTI_NIC_IN_SAME_NETWORK, 0
   field :MULTI_NIC_IN_SAME_NETWORK_ALLOWED, 457_555_419
@@ -3039,7 +3039,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowNcc do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_NCC, 0
   field :NCC_ALLOWED, 467_227_511
@@ -3049,7 +3049,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowNetworkMigration do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_NETWORK_MIGRATION, 0
   field :NETWORK_MIGRATION_ALLOWED, 14_389_766
@@ -3059,7 +3059,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowPacketMirroring do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_PACKET_MIRRORING, 0
   field :PACKET_MIRRORING_ALLOWED, 92_416_245
@@ -3069,7 +3069,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowPrivateGoogleAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_PRIVATE_GOOGLE_ACCESS, 0
   field :PRIVATE_GOOGLE_ACCESS_ALLOWED, 220_787_351
@@ -3079,7 +3079,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowPsc do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_PSC, 0
   field :PSC_ALLOWED, 171_559_657
@@ -3089,7 +3089,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowSameNetworkUnicast do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_SAME_NETWORK_UNICAST, 0
   field :SAME_NETWORK_UNICAST_ALLOWED, 159_732_814
@@ -3099,7 +3099,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowStaticRoutes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_STATIC_ROUTES, 0
   field :STATIC_ROUTES_ALLOWED, 409_048_964
@@ -3109,7 +3109,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowSubInterfaces do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_SUB_INTERFACES, 0
   field :SUBINTERFACES_ALLOWED, 158_685_891
@@ -3119,7 +3119,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowVpcPeering do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_VPC_PEERING, 0
   field :VPC_PEERING_ALLOWED, 261_465_075
@@ -3129,7 +3129,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.AllowVpn do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ALLOW_VPN, 0
   field :VPN_ALLOWED, 162_163_997
@@ -3139,7 +3139,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.InterfaceTypes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERFACE_TYPES, 0
   field :GVNIC, 68_209_305
@@ -3153,7 +3153,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.SubnetPurposes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SUBNET_PURPOSES, 0
   field :SUBNET_PURPOSE_CUSTOM_HARDWARE, 283_160_275
@@ -3163,7 +3163,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.SubnetStackTypes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SUBNET_STACK_TYPES, 0
   field :SUBNET_STACK_TYPE_IPV4_IPV6, 41_454_485
@@ -3174,7 +3174,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.SubnetworkPurposes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SUBNETWORK_PURPOSES, 0
   field :GLOBAL_MANAGED_PROXY, 236_463_602
@@ -3189,7 +3189,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.SubnetworkStackTypes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SUBNETWORK_STACK_TYPES, 0
   field :IPV4_IPV6, 22_197_249
@@ -3200,7 +3200,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.Unicast do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UNICAST, 0
   field :UNICAST_SDN, 379_954_157
@@ -3210,7 +3210,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig.BgpBestPathSelectionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BGP_BEST_PATH_SELECTION_MODE, 0
   field :LEGACY, 94_234_569
@@ -3220,7 +3220,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig.BgpInterRegionCost do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BGP_INTER_REGION_COST, 0
   field :ADD_COST_TO_MED, 490_583_004
@@ -3230,7 +3230,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig.EffectiveBgpInterRegionCost do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_EFFECTIVE_BGP_INTER_REGION_COST, 0
 end
@@ -3238,7 +3238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig.RoutingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROUTING_MODE, 0
   field :GLOBAL, 494_663_587
@@ -3248,7 +3248,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :HIERARCHY, 69_902_869
@@ -3260,7 +3260,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroup.MaintenanceInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_INTERVAL, 0
   field :AS_NEEDED, 500_724_834
@@ -3271,7 +3271,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroup.MaintenancePolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_POLICY, 0
   field :DEFAULT, 115_302_945
@@ -3283,7 +3283,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroup.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -3295,7 +3295,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupAutoscalingPolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :MODE_UNSPECIFIED, 371_348_091
@@ -3307,7 +3307,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupNode.CpuOvercommitType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CPU_OVERCOMMIT_TYPE, 0
   field :CPU_OVERCOMMIT_TYPE_UNSPECIFIED, 520_665_615
@@ -3318,7 +3318,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupNode.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -3331,7 +3331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplate.CpuOvercommitType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CPU_OVERCOMMIT_TYPE, 0
   field :CPU_OVERCOMMIT_TYPE_UNSPECIFIED, 520_665_615
@@ -3342,7 +3342,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplate.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -3354,7 +3354,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Operation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DONE, 2_104_194
@@ -3365,7 +3365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketIntervals.Duration do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DURATION, 0
   field :DURATION_UNSPECIFIED, 529_071_340
@@ -3377,7 +3377,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketIntervals.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :LOOPBACK, 356_174_219
@@ -3389,7 +3389,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroring.Enable do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENABLE, 0
   field :FALSE, 66_658_563
@@ -3399,7 +3399,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringFilter.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIRECTION, 0
   field :BOTH, 2_044_801
@@ -3410,7 +3410,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerInstanceConfig.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :APPLYING, 352_003_508
@@ -3424,7 +3424,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedDisk.AutoDelete do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AUTO_DELETE, 0
   field :NEVER, 74_175_084
@@ -3434,7 +3434,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedDisk.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :READ_ONLY, 91_950_261
@@ -3444,7 +3444,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedNetworkIp.AutoDelete do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AUTO_DELETE, 0
   field :NEVER, 74_175_084
@@ -3454,7 +3454,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeature.ActivationStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ACTIVATION_STATUS, 0
   field :ACTIVATION_STATE_UNSPECIFIED, 632_160
@@ -3465,7 +3465,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureRolloutOperationRolloutInput.PredefinedRolloutPlan do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PREDEFINED_ROLLOUT_PLAN, 0
   field :ROLLOUT_PLAN_FAST_ROLLOUT, 167_808_726
@@ -3476,7 +3476,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureStatusReleaseStatus.Stage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STAGE, 0
   field :DEPRECATED, 463_360_435
@@ -3489,7 +3489,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project.CloudArmorTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CLOUD_ARMOR_TIER, 0
   field :CA_ENTERPRISE_ANNUAL, 219_921_116
@@ -3500,7 +3500,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project.DefaultNetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEFAULT_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -3512,7 +3512,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project.ManagedProtectionTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MANAGED_PROTECTION_TIER, 0
   field :CAMP_PLUS_ANNUAL, 406_967_142
@@ -3522,7 +3522,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project.VmDnsSetting do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VM_DNS_SETTING, 0
   field :GLOBAL_DEFAULT, 345_419_141
@@ -3534,7 +3534,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project.XpnProjectStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_XPN_PROJECT_STATUS, 0
   field :HOST, 2_223_528
@@ -3544,7 +3544,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetCloudArmorTierRequest.CloudArmorTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CLOUD_ARMOR_TIER, 0
   field :CA_ENTERPRISE_ANNUAL, 219_921_116
@@ -3555,7 +3555,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetDefaultNetworkTierRequest.NetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -3567,7 +3567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetManagedProtectionTierRequest.ManagedProtectionTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MANAGED_PROTECTION_TIER, 0
   field :CAMP_PLUS_ANNUAL, 406_967_142
@@ -3578,7 +3578,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefix.ByoipApiVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BYOIP_API_VERSION, 0
   field :V1, 2715
@@ -3588,7 +3588,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefix.PdpScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PDP_SCOPE, 0
   field :GLOBAL, 494_663_587
@@ -3599,7 +3599,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefix.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ANNOUNCED_TO_INTERNET, 177_880_897
@@ -3616,7 +3616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefix.ByoipApiVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BYOIP_API_VERSION, 0
   field :V1, 2715
@@ -3626,7 +3626,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefix.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :DELEGATION, 264_149_288
@@ -3637,7 +3637,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefix.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ANNOUNCED, 365_103_355
@@ -3651,7 +3651,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixPublicDelegatedSubPrefix.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :DELEGATION, 264_149_288
@@ -3662,7 +3662,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixPublicDelegatedSubPrefix.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACTIVE, 314_733_318
@@ -3672,7 +3672,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Quota.Metric do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_METRIC, 0
   field :A2_CPUS, 153_206_585
@@ -3845,7 +3845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.QuotaExceededInfo.RolloutStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROLLOUT_STATUS, 0
   field :IN_PROGRESS, 469_193_735
@@ -3855,7 +3855,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.QuotaStatusWarning.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CODE, 0
   field :CLEANUP_FAILED, 150_308_440
@@ -3892,7 +3892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RawDisk.ContainerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONTAINER_TYPE, 0
   field :TAR, 82821
@@ -3901,7 +3901,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Region.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DOWN, 2_104_482
@@ -3911,7 +3911,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersApplyUpdatesRequest.MinimalAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MINIMAL_ACTION, 0
 end
@@ -3919,7 +3919,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersApplyUpdatesRequest.MostDisruptiveAllowedAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MOST_DISRUPTIVE_ALLOWED_ACTION, 0
 end
@@ -3927,7 +3927,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupsListInstancesRequest.InstanceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANCE_STATE, 0
   field :ALL, 64897
@@ -3937,7 +3937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :HIERARCHY, 69_902_869
@@ -3951,7 +3951,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reservation.DeploymentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DEPLOYMENT_TYPE, 0
   field :DENSE, 64_932_607
@@ -3962,7 +3962,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reservation.ReservationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_RESERVATION_MODE, 0
   field :CALENDAR, 67_431_230
@@ -3973,7 +3973,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reservation.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -3986,7 +3986,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationAffinity.ConsumeReservationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONSUME_RESERVATION_TYPE, 0
   field :ANY_RESERVATION, 200_008_121
@@ -4000,7 +4000,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlock.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -4012,7 +4012,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -4024,7 +4024,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsBlocksPerformMaintenanceRequest.MaintenanceScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_SCOPE, 0
   field :ALL, 64897
@@ -4036,7 +4036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsPerformMaintenanceRequest.MaintenanceScope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_SCOPE, 0
   field :ALL, 64897
@@ -4048,7 +4048,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceCommitment.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :ACCELERATOR, 429_815_371
@@ -4061,7 +4061,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicy.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -4074,7 +4074,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyGroupPlacementPolicy.Collocation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_COLLOCATION, 0
   field :COLLOCATED, 103_257_554
@@ -4084,7 +4084,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicyRetentionPolicy.OnSourceDiskDelete do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ON_SOURCE_DISK_DELETE, 0
   field :APPLY_RETENTION_POLICY, 535_071_332
@@ -4095,7 +4095,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWeeklyCycleDayOfWeek.Day do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DAY, 0
   field :FRIDAY, 471_398_751
@@ -4111,7 +4111,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWorkloadPolicy.MaxTopologyDistance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAX_TOPOLOGY_DISTANCE, 0
   field :BLOCK, 63_294_573
@@ -4122,7 +4122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWorkloadPolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :HIGH_AVAILABILITY, 409_487_576
@@ -4132,7 +4132,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatusShutdownDetails.StopState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STOP_STATE, 0
   field :PENDING_STOP, 362_509_770
@@ -4142,7 +4142,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatusShutdownDetails.TargetState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TARGET_STATE, 0
   field :DELETED, 120_962_041
@@ -4152,7 +4152,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Route.NextHopOrigin do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NEXT_HOP_ORIGIN, 0
   field :EGP, 68590
@@ -4163,7 +4163,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Route.RouteStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROUTE_STATUS, 0
   field :ACTIVE, 314_733_318
@@ -4175,7 +4175,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Route.RouteType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROUTE_TYPE, 0
   field :BGP, 65707
@@ -4187,7 +4187,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouteAsPath.PathSegmentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PATH_SEGMENT_TYPE, 0
   field :AS_CONFED_SEQUENCE, 222_152_624
@@ -4199,7 +4199,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutePolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :ROUTE_POLICY_TYPE_EXPORT, 293_086_882
@@ -4209,7 +4209,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgp.AdvertiseMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADVERTISE_MODE, 0
   field :CUSTOM, 388_595_569
@@ -4219,7 +4219,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgp.AdvertisedGroups do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADVERTISED_GROUPS, 0
   field :ALL_SUBNETS, 3_622_872
@@ -4228,7 +4228,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeer.AdvertiseMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADVERTISE_MODE, 0
   field :CUSTOM, 388_595_569
@@ -4238,7 +4238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeer.AdvertisedGroups do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ADVERTISED_GROUPS, 0
   field :ALL_SUBNETS, 3_622_872
@@ -4247,7 +4247,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeer.Enable do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENABLE, 0
   field :FALSE, 66_658_563
@@ -4257,7 +4257,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeer.ManagementType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MANAGEMENT_TYPE, 0
   field :MANAGED_BY_ATTACHMENT, 458_926_411
@@ -4267,7 +4267,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeerBfd.SessionInitializationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SESSION_INITIALIZATION_MODE, 0
   field :ACTIVE, 314_733_318
@@ -4278,7 +4278,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterInterface.IpVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IP_VERSION, 0
   field :IPV4, 2_254_341
@@ -4288,7 +4288,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterInterface.ManagementType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MANAGEMENT_TYPE, 0
   field :MANAGED_BY_ATTACHMENT, 458_926_411
@@ -4298,7 +4298,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.AutoNetworkTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AUTO_NETWORK_TIER, 0
   field :FIXED_STANDARD, 310_464_328
@@ -4310,7 +4310,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.EndpointTypes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENDPOINT_TYPES, 0
   field :ENDPOINT_TYPE_MANAGED_PROXY_LB, 439_196_930
@@ -4321,7 +4321,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.NatIpAllocateOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NAT_IP_ALLOCATE_OPTION, 0
   field :AUTO_ONLY, 182_333_500
@@ -4331,7 +4331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.SourceSubnetworkIpRangesToNat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SOURCE_SUBNETWORK_IP_RANGES_TO_NAT, 0
   field :ALL_SUBNETWORKS_ALL_IP_RANGES, 179_964_376
@@ -4342,7 +4342,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.SourceSubnetworkIpRangesToNat64 do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SOURCE_SUBNETWORK_IP_RANGES_TO_NAT64, 0
   field :ALL_IPV6_SUBNETWORKS, 341_632_747
@@ -4352,7 +4352,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :PRIVATE, 403_485_027
@@ -4362,7 +4362,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatLogConfig.Filter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FILTER, 0
   field :ALL, 64897
@@ -4373,7 +4373,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatSubnetworkToNat.SourceIpRangesToNat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SOURCE_IP_RANGES_TO_NAT, 0
   field :ALL_IP_RANGES, 35_608_496
@@ -4384,7 +4384,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusBgpPeerStatus.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DOWN, 2_104_482
@@ -4395,7 +4395,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusBgpPeerStatus.StatusReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS_REASON, 0
   field :IPV4_PEER_ON_IPV6_ONLY_CONNECTION, 435_936_662
@@ -4407,7 +4407,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SSLHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -4418,7 +4418,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SSLHealthCheck.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -4428,7 +4428,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedAttachedDisk.Interface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INTERFACE, 0
   field :NVME, 2_408_800
@@ -4438,7 +4438,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedAttachedDisk.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MODE, 0
   field :READ_ONLY, 91_950_261
@@ -4448,7 +4448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedAttachedDisk.StorageBytesStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STORAGE_BYTES_STATUS, 0
   field :UPDATING, 494_614_342
@@ -4458,7 +4458,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedAttachedDisk.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :PERSISTENT, 460_683_927
@@ -4468,7 +4468,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedDisk.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -4479,7 +4479,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedDisk.StorageBytesStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STORAGE_BYTES_STATUS, 0
   field :UPDATING, 494_614_342
@@ -4489,7 +4489,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ScalingScheduleStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
@@ -4501,7 +4501,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Scheduling.InstanceTerminationAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_INSTANCE_TERMINATION_ACTION, 0
   field :DELETE, 402_225_579
@@ -4512,7 +4512,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Scheduling.MaintenanceInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_INTERVAL, 0
   field :AS_NEEDED, 500_724_834
@@ -4523,7 +4523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Scheduling.OnHostMaintenance do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ON_HOST_MAINTENANCE, 0
   field :MIGRATE, 165_699_979
@@ -4533,7 +4533,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Scheduling.ProvisioningModel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROVISIONING_MODEL, 0
   field :FLEX_START, 101_746_812
@@ -4545,7 +4545,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SchedulingNodeAffinity.Operator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OPERATOR, 0
   field :IN, 2341
@@ -4556,7 +4556,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicy.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :CLOUD_ARMOR, 260_640_373
@@ -4569,7 +4569,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig.RuleVisibility do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_RULE_VISIBILITY, 0
   field :PREMIUM, 399_530_551
@@ -4579,7 +4579,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :HTTP_HEADER_HOST, 374_321_891
@@ -4590,7 +4590,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdvancedOptionsConfig.JsonParsing do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_JSON_PARSING, 0
   field :DISABLED, 516_696_700
@@ -4601,7 +4601,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdvancedOptionsConfig.LogLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOG_LEVEL, 0
   field :NORMAL, 161_067_239
@@ -4611,7 +4611,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyDdosProtectionConfig.DdosProtection do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DDOS_PROTECTION, 0
   field :ADVANCED, 63_789_090
@@ -4622,7 +4622,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRule.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_DIRECTION, 0
   field :EGRESS, 432_880_501
@@ -4632,7 +4632,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcher.VersionedExpr do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_VERSIONED_EXPR, 0
   field :FIREWALL, 219_901_184
@@ -4642,7 +4642,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams.Op do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_OP, 0
   field :CONTAINS, 215_180_831
@@ -4655,7 +4655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRateLimitOptions.EnforceOnKey do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENFORCE_ON_KEY, 0
   field :ALL, 64897
@@ -4675,7 +4675,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig.EnforceOnKeyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENFORCE_ON_KEY_TYPE, 0
   field :ALL, 64897
@@ -4695,7 +4695,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRedirectOptions.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :EXTERNAL_302, 395_733_761
@@ -4705,7 +4705,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyUserDefinedField.Base do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_BASE, 0
   field :IPV4, 2_254_341
@@ -4717,7 +4717,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServerBinding.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :RESTART_NODE_ON_ANY_SERVER, 502_950_985
@@ -4728,7 +4728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachment.ConnectionPreference do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CONNECTION_PREFERENCE, 0
   field :ACCEPT_AUTOMATIC, 75_250_580
@@ -4739,7 +4739,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentConnectedEndpoint.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACCEPTED, 246_714_279
@@ -4753,7 +4753,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentTunnelingConfig.EncapsulationProfile do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ENCAPSULATION_PROFILE, 0
   field :GENEVE_SECURITY_V1, 374_039_743
@@ -4763,7 +4763,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentTunnelingConfig.RoutingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROUTING_MODE, 0
   field :PACKET_INJECTION, 321_485_248
@@ -4774,7 +4774,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :ABANDONED, 81_797_556
@@ -4788,7 +4788,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShareSettings.ShareType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SHARE_TYPE, 0
   field :LOCAL, 72_607_563
@@ -4800,7 +4800,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot.Architecture do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ARCHITECTURE, 0
   field :ARCHITECTURE_UNSPECIFIED, 394_750_507
@@ -4811,7 +4811,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot.SnapshotType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SNAPSHOT_TYPE, 0
   field :ARCHIVE, 506_752_162
@@ -4821,7 +4821,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -4834,7 +4834,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot.StorageBytesStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STORAGE_BYTES_STATUS, 0
   field :UPDATING, 494_614_342
@@ -4844,7 +4844,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsAccessLocation.Policy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POLICY, 0
   field :ALL_REGIONS, 273_143_585
@@ -4855,7 +4855,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsStorageLocationSettings.Policy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POLICY, 0
   field :LOCAL_REGION, 403_535_464
@@ -4867,7 +4867,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceInstanceProperties.KeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_KEY_REVOCATION_ACTION_TYPE, 0
   field :KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED, 467_110_106
@@ -4878,7 +4878,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceInstanceProperties.PostKeyRevocationActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POST_KEY_REVOCATION_ACTION_TYPE, 0
   field :NOOP, 2_402_146
@@ -4889,7 +4889,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificate.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :MANAGED, 479_501_183
@@ -4900,7 +4900,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateManagedSslCertificate.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ACTIVE, 314_733_318
@@ -4914,7 +4914,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPolicy.MinTlsVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MIN_TLS_VERSION, 0
   field :TLS_1_0, 33_116_734
@@ -4925,7 +4925,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPolicy.Profile do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROFILE, 0
   field :COMPATIBLE, 179_357_396
@@ -4937,7 +4937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateDiskDevice.AutoDelete do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AUTO_DELETE, 0
   field :NEVER, 74_175_084
@@ -4947,7 +4947,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateNetworkIp.AutoDelete do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AUTO_DELETE, 0
   field :NEVER, 74_175_084
@@ -4957,7 +4957,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePool.CapacityProvisioningType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CAPACITY_PROVISIONING_TYPE, 0
 end
@@ -4965,7 +4965,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePool.PerformanceProvisioningType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PERFORMANCE_PROVISIONING_TYPE, 0
 end
@@ -4973,7 +4973,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePool.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :CREATING, 455_564_985
@@ -4985,7 +4985,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolDisk.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -4999,7 +4999,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.Ipv6AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_ACCESS_TYPE, 0
   field :EXTERNAL, 35_607_499
@@ -5010,7 +5010,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.Ipv6GceEndpoint do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_GCE_ENDPOINT, 0
   field :VM_AND_FR, 41_830_108
@@ -5020,7 +5020,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.PrivateIpv6GoogleAccess do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PRIVATE_IPV6_GOOGLE_ACCESS, 0
   field :DISABLE_GOOGLE_ACCESS, 450_958_579
@@ -5031,7 +5031,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.Purpose do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PURPOSE, 0
   field :GLOBAL_MANAGED_PROXY, 236_463_602
@@ -5047,7 +5047,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROLE, 0
   field :ACTIVE, 314_733_318
@@ -5057,7 +5057,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -5069,7 +5069,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :DRAINING, 480_455_402
@@ -5079,7 +5079,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkLogConfig.AggregationInterval do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_AGGREGATION_INTERVAL, 0
   field :INTERVAL_10_MIN, 487_155_916
@@ -5093,7 +5093,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkLogConfig.Metadata do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_METADATA, 0
   field :CUSTOM_METADATA, 62_450_749
@@ -5104,7 +5104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subsetting.Policy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_POLICY, 0
   field :CONSISTENT_HASH_SUBSETTING, 108_989_492
@@ -5114,7 +5114,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TCPHealthCheck.PortSpecification do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PORT_SPECIFICATION, 0
   field :USE_FIXED_PORT, 190_235_748
@@ -5125,7 +5125,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TCPHealthCheck.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -5135,7 +5135,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxiesSetQuicOverrideRequest.QuicOverride do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_QUIC_OVERRIDE, 0
   field :DISABLE, 241_807_048
@@ -5146,7 +5146,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxy.QuicOverride do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_QUIC_OVERRIDE, 0
   field :DISABLE, 241_807_048
@@ -5157,7 +5157,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxy.TlsEarlyData do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TLS_EARLY_DATA, 0
   field :DISABLED, 516_696_700
@@ -5169,7 +5169,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstance.NatPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_NAT_POLICY, 0
   field :NO_NAT, 161_455_491
@@ -5178,7 +5178,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPool.SessionAffinity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_SESSION_AFFINITY, 0
   field :CLIENT_IP, 345_665_051
@@ -5195,7 +5195,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxiesSetProxyHeaderRequest.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -5205,7 +5205,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxy.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -5215,7 +5215,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxiesSetProxyHeaderRequest.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -5225,7 +5225,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxy.ProxyHeader do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PROXY_HEADER, 0
   field :NONE, 2_402_104
@@ -5235,7 +5235,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGateway.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :CREATING, 455_564_985
@@ -5247,7 +5247,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpcomingMaintenance.MaintenanceStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MAINTENANCE_STATUS, 0
   field :ONGOING, 473_158_491
@@ -5258,7 +5258,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpcomingMaintenance.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :SCHEDULED, 478_400_653
@@ -5269,7 +5269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateInstanceRequest.MinimalAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MINIMAL_ACTION, 0
 end
@@ -5277,7 +5277,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateInstanceRequest.MostDisruptiveAllowedAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_MOST_DISRUPTIVE_ALLOWED_ACTION, 0
 end
@@ -5285,7 +5285,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsValidateRequest.LoadBalancingSchemes do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_LOAD_BALANCING_SCHEMES, 0
   field :EXTERNAL, 35_607_499
@@ -5296,7 +5296,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetwork.Ipv6AccessType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_IPV6_ACCESS_TYPE, 0
   field :EXTERNAL, 35_607_499
@@ -5306,7 +5306,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetwork.Purpose do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_PURPOSE, 0
   field :GLOBAL_MANAGED_PROXY, 236_463_602
@@ -5322,7 +5322,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetwork.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_ROLE, 0
   field :ACTIVE, 314_733_318
@@ -5332,7 +5332,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetwork.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -5343,7 +5343,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGateway.GatewayIpVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_GATEWAY_IP_VERSION, 0
   field :IPV4, 2_254_341
@@ -5353,7 +5353,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGateway.StackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STACK_TYPE, 0
   field :IPV4_IPV6, 22_197_249
@@ -5364,7 +5364,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatusHighAvailabilityRequirementState.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATE, 0
   field :CONNECTION_REDUNDANCY_MET, 505_242_907
@@ -5374,7 +5374,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatusHighAvailabilityRequirementState.UnsatisfiedReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_UNSATISFIED_REASON, 0
   field :INCOMPLETE_TUNNELS_COVERAGE, 55_917_437
@@ -5383,7 +5383,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnel.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :ALLOCATING_RESOURCES, 320_922_816
@@ -5404,7 +5404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Warning.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CODE, 0
   field :CLEANUP_FAILED, 150_308_440
@@ -5441,7 +5441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Warnings.Code do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_CODE, 0
   field :CLEANUP_FAILED, 150_308_440
@@ -5478,7 +5478,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupProperties.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :BOX_AND_CROSS, 311_344_644
@@ -5489,7 +5489,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireProperties.FaultResponse do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_FAULT_RESPONSE, 0
   field :DISABLE_PORT, 287_086_488
@@ -5499,7 +5499,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.XpnResourceId.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
   field :PROJECT, 408_671_993
@@ -5509,7 +5509,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Zone.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_STATUS, 0
   field :DOWN, 2_104_482
@@ -5519,7 +5519,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AWSV4Signature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_key, 468_922_628, proto3_optional: true, type: :string, json_name: "accessKey"
 
@@ -5542,7 +5542,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AbandonInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -5562,7 +5562,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AbandonInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -5583,7 +5583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_count, 504_879_675,
     proto3_optional: true,
@@ -5599,7 +5599,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -5627,7 +5627,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorTypeAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.AcceleratorTypesScopedList
@@ -5636,7 +5636,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorTypeAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -5660,7 +5660,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.AcceleratorType
@@ -5678,7 +5678,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AcceleratorTypesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_types, 520_872_357,
     repeated: true,
@@ -5691,7 +5691,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Accelerators do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :guest_accelerator_count, 479_079_316,
     proto3_optional: true,
@@ -5707,7 +5707,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AccessConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_ipv6, 532_703_707,
     proto3_optional: true,
@@ -5745,7 +5745,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddAccessConfigInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_config_resource, 387_825_552,
     type: Google.Cloud.Compute.V1beta.AccessConfig,
@@ -5767,7 +5767,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddAssociationFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -5790,7 +5790,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddAssociationNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -5815,7 +5815,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddAssociationOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :replace_existing_association, 209_541_240,
     proto3_optional: true,
@@ -5838,7 +5838,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :associated_policy_to_be_replaced, 240_901_404,
     proto3_optional: true,
@@ -5869,7 +5869,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddHealthCheckTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -5885,7 +5885,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddInstanceTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -5901,7 +5901,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddInstancesInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
 
@@ -5918,7 +5918,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddNetworkInterfaceInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -5935,7 +5935,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddNodesNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -5952,7 +5952,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddPacketMirroringRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -5970,7 +5970,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddPacketMirroringRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -5991,7 +5991,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddPeeringNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
 
@@ -6007,7 +6007,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddResourcePoliciesDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -6024,7 +6024,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddResourcePoliciesInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -6041,7 +6041,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddResourcePoliciesRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -6058,7 +6058,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -6076,7 +6076,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -6097,7 +6097,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 
@@ -6115,7 +6115,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -6137,7 +6137,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -6158,7 +6158,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddRuleSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -6178,7 +6178,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddSignedUrlKeyBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -6193,7 +6193,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddSignedUrlKeyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -6212,7 +6212,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -6221,7 +6221,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Address do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, proto3_optional: true, type: :string
   field :address_type, 264_307_877, proto3_optional: true, type: :string, json_name: "addressType"
@@ -6272,7 +6272,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddressAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.AddressesScopedList
@@ -6281,7 +6281,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddressAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -6305,7 +6305,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddressList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Address
@@ -6323,7 +6323,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AddressesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :addresses, 337_673_122, repeated: true, type: Google.Cloud.Compute.V1beta.Address
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -6332,7 +6332,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AdvancedMachineFeatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_nested_virtualization, 16_639_365,
     proto3_optional: true,
@@ -6365,7 +6365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListAcceleratorTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6393,7 +6393,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6421,7 +6421,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListAutoscalersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6449,7 +6449,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListBackendServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6477,7 +6477,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListDiskTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6505,7 +6505,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListDisksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6533,7 +6533,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListForwardingRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6561,7 +6561,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListFutureReservationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6589,7 +6589,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListGlobalOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6617,7 +6617,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListHealthChecksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6645,7 +6645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6673,7 +6673,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInstanceGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6701,7 +6701,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInstanceTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6729,7 +6729,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6757,7 +6757,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInstantSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6785,7 +6785,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListInterconnectAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6813,7 +6813,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListMachineTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6841,7 +6841,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNetworkAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6869,7 +6869,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNetworkEdgeSecurityServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6897,7 +6897,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6925,7 +6925,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNetworkFirewallPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6953,7 +6953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNodeGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -6981,7 +6981,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNodeTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7009,7 +7009,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListNodeTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7037,7 +7037,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListPacketMirroringsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7065,7 +7065,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListPublicDelegatedPrefixesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7093,7 +7093,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListRegionCommitmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7121,7 +7121,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListReservationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7149,7 +7149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7177,7 +7177,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListRoutersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7205,7 +7205,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7233,7 +7233,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListServiceAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7261,7 +7261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7289,7 +7289,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7317,7 +7317,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListSslPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7345,7 +7345,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListStoragePoolTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7373,7 +7373,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListStoragePoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7401,7 +7401,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListSubnetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7429,7 +7429,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetHttpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7457,7 +7457,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetHttpsProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7485,7 +7485,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7513,7 +7513,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetPoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7541,7 +7541,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetTcpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7569,7 +7569,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListTargetVpnGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7597,7 +7597,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListUrlMapsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7625,7 +7625,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListVpnGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7653,7 +7653,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AggregatedListVpnTunnelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -7681,7 +7681,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AliasIpRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
 
@@ -7694,7 +7694,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :in_use_resources, 409_009_107,
     repeated: true,
@@ -7717,7 +7717,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservationReservedResourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator, 424_338_027,
     proto3_optional: true,
@@ -7728,7 +7728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservationReservedResourceInfoAccelerator do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_count, 504_879_675,
     proto3_optional: true,
@@ -7744,7 +7744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationReservationSharingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_share_type, 514_508_644,
     proto3_optional: true,
@@ -7755,7 +7755,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reservation_block_count, 161_835_754,
     proto3_optional: true,
@@ -7776,7 +7776,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationResourceStatusSpecificSKUAllocation.UtilizationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :int64
@@ -7785,7 +7785,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationResourceStatusSpecificSKUAllocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_instance_template_id, 111_196_154,
     proto3_optional: true,
@@ -7802,7 +7802,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_size_gb, 316_263_735, proto3_optional: true, type: :int64, json_name: "diskSizeGb"
   field :interface, 502_623_545, proto3_optional: true, type: :string
@@ -7811,7 +7811,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationSpecificSKUAllocationReservedInstanceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :guest_accelerators, 463_595_119,
     repeated: true,
@@ -7850,7 +7850,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AllocationSpecificSKUReservation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :assured_count, 281_197_645,
     proto3_optional: true,
@@ -7874,7 +7874,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Allowed do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :I_p_protocol, 488_094_525, proto3_optional: true, type: :string, json_name: "IPProtocol"
   field :ports, 106_854_418, repeated: true, type: :string
@@ -7883,7 +7883,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AnnouncePublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -7898,7 +7898,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AnnouncePublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -7914,7 +7914,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ApplyUpdatesToInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -7933,7 +7933,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ApplyUpdatesToInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -7952,7 +7952,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachDiskInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attached_disk_resource, 90_605_845,
     type: Google.Cloud.Compute.V1beta.AttachedDisk,
@@ -7969,7 +7969,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachNetworkEndpointsGlobalNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_network_endpoint_groups_attach_endpoints_request_resource, 30_691_563,
     type: Google.Cloud.Compute.V1beta.GlobalNetworkEndpointGroupsAttachEndpointsRequest,
@@ -7988,7 +7988,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachNetworkEndpointsNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -8008,7 +8008,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachNetworkEndpointsRegionNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -8029,7 +8029,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
   field :auto_delete, 464_761_403, proto3_optional: true, type: :bool, json_name: "autoDelete"
@@ -8076,7 +8076,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDiskInitializeParams.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -8085,7 +8085,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDiskInitializeParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -8094,7 +8094,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AttachedDiskInitializeParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
   field :description, 422_937_596, proto3_optional: true, type: :string
@@ -8176,7 +8176,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AuditConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audit_log_configs, 488_420_626,
     repeated: true,
@@ -8194,7 +8194,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AuditLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :exempted_members, 232_615_576,
     repeated: true,
@@ -8212,7 +8212,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Autoscaler.ScalingScheduleStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ScalingScheduleStatus
@@ -8221,7 +8221,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Autoscaler do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaling_policy, 221_950_041,
     proto3_optional: true,
@@ -8266,7 +8266,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalerAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.AutoscalersScopedList
@@ -8275,7 +8275,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalerAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -8299,7 +8299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalerList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Autoscaler
@@ -8317,7 +8317,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalerStatusDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 418_054_151, proto3_optional: true, type: :string
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -8326,7 +8326,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalersScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscalers, 465_771_644, repeated: true, type: Google.Cloud.Compute.V1beta.Autoscaler
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -8335,7 +8335,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicy.ScalingSchedulesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.AutoscalingPolicyScalingSchedule
@@ -8344,7 +8344,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cool_down_period_sec, 107_692_954,
     proto3_optional: true,
@@ -8398,7 +8398,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyCpuUtilization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predictive_method, 390_220_737,
     proto3_optional: true,
@@ -8414,7 +8414,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyCustomMetricUtilization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :metric, 533_067_184, proto3_optional: true, type: :string
@@ -8438,7 +8438,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyLoadBalancingUtilization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :utilization_target, 215_905_870,
     proto3_optional: true,
@@ -8449,7 +8449,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyScaleDownControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_scaled_down_replicas, 47_461_006,
     proto3_optional: true,
@@ -8465,7 +8465,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyScaleInControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_scaled_in_replicas, 180_710_123,
     proto3_optional: true,
@@ -8481,7 +8481,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.AutoscalingPolicyScalingSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :disabled, 270_940_796, proto3_optional: true, type: :bool
@@ -8499,7 +8499,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Backend do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :balancing_mode, 430_286_217,
     proto3_optional: true,
@@ -8558,7 +8558,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket_name, 283_610_048, proto3_optional: true, type: :string, json_name: "bucketName"
 
@@ -8610,7 +8610,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketCdnPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bypass_cache_on_request_headers, 486_203_082,
     repeated: true,
@@ -8661,7 +8661,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketCdnPolicyBypassCacheOnRequestHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header_name, 110_223_613, proto3_optional: true, type: :string, json_name: "headerName"
 end
@@ -8669,7 +8669,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketCdnPolicyCacheKeyPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_http_headers, 2_489_606,
     repeated: true,
@@ -8685,7 +8685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketCdnPolicyNegativeCachingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :int32
   field :ttl, 115_180, proto3_optional: true, type: :int32
@@ -8694,7 +8694,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.BackendBucket
@@ -8712,7 +8712,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketListUsable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.BackendBucket
@@ -8730,7 +8730,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendBucketUsedBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference, 148_586_315, proto3_optional: true, type: :string
 end
@@ -8738,7 +8738,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendCustomMetric do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dry_run, 323_854_839, proto3_optional: true, type: :bool, json_name: "dryRun"
 
@@ -8753,7 +8753,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService.MetadatasEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -8762,7 +8762,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :affinity_cookie_ttl_sec, 369_996_954,
     proto3_optional: true,
@@ -8968,7 +8968,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.BackendServicesScopedList
@@ -8977,7 +8977,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -9001,7 +9001,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceCdnPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bypass_cache_on_request_headers, 486_203_082,
     repeated: true,
@@ -9052,7 +9052,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceCdnPolicyBypassCacheOnRequestHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header_name, 110_223_613, proto3_optional: true, type: :string, json_name: "headerName"
 end
@@ -9060,7 +9060,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceCdnPolicyNegativeCachingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :int32
   field :ttl, 115_180, proto3_optional: true, type: :int32
@@ -9069,7 +9069,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceConnectionTrackingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connection_persistence_on_unhealthy_backends, 152_439_033,
     proto3_optional: true,
@@ -9095,7 +9095,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceCustomMetric do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dry_run, 323_854_839, proto3_optional: true, type: :bool, json_name: "dryRun"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -9104,7 +9104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceDynamicForwarding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_port_selection, 527_934_822,
     proto3_optional: true,
@@ -9115,7 +9115,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceDynamicForwardingIpPortSelection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1_018_689, proto3_optional: true, type: :bool
 end
@@ -9123,7 +9123,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceFailoverPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disable_connection_drain_on_failover, 182_150_753,
     proto3_optional: true,
@@ -9144,7 +9144,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceGroupHealth.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -9153,7 +9153,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceGroupHealth do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :annotations, 112_032_548,
     repeated: true,
@@ -9171,7 +9171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceHAPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fast_i_p_move, 222_633_817, proto3_optional: true, type: :string, json_name: "fastIPMove"
 
@@ -9183,7 +9183,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceHAPolicyLeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_group, 457_777_428,
     proto3_optional: true,
@@ -9199,7 +9199,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceHAPolicyLeaderNetworkEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, proto3_optional: true, type: :string
 end
@@ -9207,7 +9207,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceHttpCookie do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :path, 3_433_509, proto3_optional: true, type: :string
@@ -9217,7 +9217,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceIAP do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1_018_689, proto3_optional: true, type: :bool
 
@@ -9240,7 +9240,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.BackendService
@@ -9258,7 +9258,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceListUsable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.BackendService
@@ -9276,7 +9276,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLocalityLoadBalancingPolicyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_policy, 4_818_368,
     proto3_optional: true,
@@ -9291,7 +9291,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLocalityLoadBalancingPolicyConfigCustomPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data, 3_076_010, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -9300,7 +9300,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLocalityLoadBalancingPolicyConfigPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
@@ -9308,7 +9308,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
   field :optional_fields, 528_589_944, repeated: true, type: :string, json_name: "optionalFields"
@@ -9324,7 +9324,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceNetworkPassThroughLbTrafficPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :zonal_affinity, 536_266_051,
     proto3_optional: true,
@@ -9336,7 +9336,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceNetworkPassThroughLbTrafficPolicyZonalAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :spillover, 505_501_440, proto3_optional: true, type: :string
 
@@ -9349,7 +9349,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     proto3_optional: true,
@@ -9360,7 +9360,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceTlsSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authentication_config, 408_053_481,
     proto3_optional: true,
@@ -9378,7 +9378,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceTlsSettingsSubjectAltName do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dns_name, 411_992_033, proto3_optional: true, type: :string, json_name: "dnsName"
 
@@ -9391,7 +9391,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServiceUsedBy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference, 148_586_315, proto3_optional: true, type: :string
 end
@@ -9399,7 +9399,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServicesGetEffectiveSecurityPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :security_policies, 127_783_791,
     repeated: true,
@@ -9410,7 +9410,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BackendServicesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_services, 388_522_409,
     repeated: true,
@@ -9423,7 +9423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdPacket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authentication_present, 105_974_260,
     proto3_optional: true,
@@ -9476,7 +9476,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bfd_session_initialization_mode, 218_156_954,
     proto3_optional: true,
@@ -9526,7 +9526,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BfdStatusPacketCounts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :num_rx, 39_375_263, proto3_optional: true, type: :uint32, json_name: "numRx"
 
@@ -9546,7 +9546,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BgpRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :as_paths, 137_568_929,
     repeated: true,
@@ -9566,7 +9566,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BgpRouteAsPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asns, 3_003_767, repeated: true, type: :int32
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -9575,7 +9575,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BgpRouteNetworkLayerReachabilityInformation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path_id, 282_287_989, proto3_optional: true, type: :uint32, json_name: "pathId"
   field :prefix, 93_631_122, proto3_optional: true, type: :string
@@ -9584,7 +9584,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Binding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :binding_id, 441_088_277, proto3_optional: true, type: :string, json_name: "bindingId"
   field :condition, 212_430_107, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Expr
@@ -9595,7 +9595,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bulk_insert_disk_resource_resource, 289_799_382,
     type: Google.Cloud.Compute.V1beta.BulkInsertDiskResource,
@@ -9610,7 +9610,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertDiskResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_consistency_group_policy, 19_616_093,
     proto3_optional: true,
@@ -9621,7 +9621,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bulk_insert_instance_resource_resource, 41_427_278,
     type: Google.Cloud.Compute.V1beta.BulkInsertInstanceResource,
@@ -9636,7 +9636,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertInstanceResource.PerInstancePropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -9647,7 +9647,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertInstanceResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int64
 
@@ -9679,7 +9679,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertInstanceResourcePerInstanceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 237_067_315, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -9688,7 +9688,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertOperationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :created_vm_count, 396_924_158,
     proto3_optional: true,
@@ -9716,7 +9716,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bulk_insert_disk_resource_resource, 289_799_382,
     type: Google.Cloud.Compute.V1beta.BulkInsertDiskResource,
@@ -9731,7 +9731,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkInsertRegionInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bulk_insert_instance_resource_resource, 41_427_278,
     type: Google.Cloud.Compute.V1beta.BulkInsertInstanceResource,
@@ -9746,7 +9746,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkSetLabelsDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bulk_zone_set_labels_request_resource, 531_305_115,
     type: Google.Cloud.Compute.V1beta.BulkZoneSetLabelsRequest,
@@ -9762,7 +9762,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkSetLabelsRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -9771,7 +9771,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :label_fingerprint, 178_124_825,
     proto3_optional: true,
@@ -9787,7 +9787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BulkZoneSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :requests, 143_613_892,
     repeated: true,
@@ -9797,7 +9797,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.BundledLocalSsds do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_interface, 17_309_883,
     proto3_optional: true,
@@ -9813,7 +9813,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CacheInvalidationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cache_tags, 29_073_078, repeated: true, type: :string, json_name: "cacheTags"
   field :host, 3_208_616, proto3_optional: true, type: :string
@@ -9823,7 +9823,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CacheKeyPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_host, 486_867_679, proto3_optional: true, type: :bool, json_name: "includeHost"
 
@@ -9861,7 +9861,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeAdviceRequest.FutureResourcesSpecsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FutureResourcesSpec
@@ -9870,7 +9870,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeAdviceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_resources_specs, 255_012_610,
     repeated: true,
@@ -9882,7 +9882,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeAdviceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :recommendations, 324_515_802,
     repeated: true,
@@ -9892,7 +9892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeAdviceRpcRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :calendar_mode_advice_request_resource, 162_098_922,
     type: Google.Cloud.Compute.V1beta.CalendarModeAdviceRequest,
@@ -9906,7 +9906,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeRecommendation.RecommendationsPerSpecEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FutureResourcesRecommendation
@@ -9915,7 +9915,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CalendarModeRecommendation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :recommendations_per_spec, 61_331_554,
     repeated: true,
@@ -9927,7 +9927,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CancelFutureReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservation, 56_206_160,
     type: :string,
@@ -9942,7 +9942,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CancelInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -9958,7 +9958,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CancelRegionInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -9974,7 +9974,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CircuitBreakers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connect_timeout, 495_510_284,
     proto3_optional: true,
@@ -10004,7 +10004,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CloneRulesFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -10022,7 +10022,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CloneRulesNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -10041,7 +10041,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CloneRulesRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -10061,7 +10061,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Commitment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_renew, 495_520_765, proto3_optional: true, type: :bool, json_name: "autoRenew"
   field :category, 50_511_102, proto3_optional: true, type: :string
@@ -10140,7 +10140,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CommitmentAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.CommitmentsScopedList
@@ -10149,7 +10149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CommitmentAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -10173,7 +10173,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CommitmentList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Commitment
@@ -10191,7 +10191,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CommitmentResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_term_eligibility_end_timestamp, 363_976_187,
     proto3_optional: true,
@@ -10202,7 +10202,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CommitmentsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitments, 450_664_446, repeated: true, type: Google.Cloud.Compute.V1beta.Commitment
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -10211,7 +10211,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ConfidentialInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :confidential_instance_type, 43_484_717,
     proto3_optional: true,
@@ -10227,7 +10227,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ConnectionDraining do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :draining_timeout_sec, 225_127_070,
     proto3_optional: true,
@@ -10238,7 +10238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ConsistentHashLoadBalancerSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_cookie, 6_673_915,
     proto3_optional: true,
@@ -10259,7 +10259,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ConsistentHashLoadBalancerSettingsHttpCookie do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :path, 3_433_509, proto3_optional: true, type: :string
@@ -10269,7 +10269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CopyRulesOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 
@@ -10287,7 +10287,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CorsPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_credentials, 481_263_366,
     proto3_optional: true,
@@ -10311,7 +10311,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CreateInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10331,7 +10331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CreateInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10352,7 +10352,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CreateMembersInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group, 388_651_918,
     type: :string,
@@ -10370,7 +10370,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CreateSnapshotDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :guest_flush, 385_550_813, proto3_optional: true, type: :bool, json_name: "guestFlush"
@@ -10388,7 +10388,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CreateSnapshotRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10404,7 +10404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CrossSiteNetwork do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -10421,7 +10421,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CrossSiteNetworkList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -10441,7 +10441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CustomErrorResponsePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_response_rules, 14_620_304,
     repeated: true,
@@ -10457,7 +10457,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CustomErrorResponsePolicyCustomErrorResponseRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :match_response_codes, 104_973_410,
     repeated: true,
@@ -10475,7 +10475,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CustomerEncryptionKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 484_373_913, proto3_optional: true, type: :string, json_name: "kmsKeyName"
 
@@ -10497,7 +10497,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.CustomerEncryptionKeyProtectedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_encryption_key, 271_660_677,
     proto3_optional: true,
@@ -10510,7 +10510,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Data do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
@@ -10519,7 +10519,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Date do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day, 99228, proto3_optional: true, type: :int32
   field :month, 104_080_000, proto3_optional: true, type: :int32
@@ -10529,7 +10529,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteAccessConfigInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_config, 72_856_189, type: :string, json_name: "accessConfig", deprecated: false
   field :instance, 18_257_045, type: :string, deprecated: false
@@ -10547,7 +10547,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10558,7 +10558,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10569,7 +10569,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10579,7 +10579,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -10593,7 +10593,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteCrossSiteNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -10607,7 +10607,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10618,7 +10618,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteExternalVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_vpn_gateway, 109_898_629,
     type: :string,
@@ -10632,7 +10632,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -10645,7 +10645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall, 511_016_192, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10655,7 +10655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -10670,7 +10670,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteFutureReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservation, 56_206_160,
     type: :string,
@@ -10685,7 +10685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10695,7 +10695,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -10709,7 +10709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -10723,7 +10723,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10732,13 +10732,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalOperationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalOrganizationOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :parent_id, 459_714_768, proto3_optional: true, type: :string, json_name: "parentId"
@@ -10747,13 +10747,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalOrganizationOperationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.DeleteGlobalPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -10768,7 +10768,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10778,7 +10778,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 100_313_435, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10788,7 +10788,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10803,7 +10803,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10819,7 +10819,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10830,7 +10830,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -10847,7 +10847,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     type: :string,
@@ -10861,7 +10861,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10881,7 +10881,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -10902,7 +10902,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot, 391_638_626,
     type: :string,
@@ -10917,7 +10917,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_group, 75_905_012,
     type: :string,
@@ -10931,7 +10931,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment, 308_135_284,
     type: :string,
@@ -10946,7 +10946,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group, 388_651_918,
     type: :string,
@@ -10960,7 +10960,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10970,7 +10970,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license, 166_757_441, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10980,7 +10980,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_image, 69_189_475, type: :string, json_name: "machineImage", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -10990,7 +10990,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment, 224_644_052,
     type: :string,
@@ -11005,7 +11005,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkEdgeSecurityServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_edge_security_service, 157_011_879,
     type: :string,
@@ -11020,7 +11020,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -11035,7 +11035,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -11049,7 +11049,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkInterfaceInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -11066,7 +11066,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11076,7 +11076,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11087,7 +11087,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_template, 323_154_455, type: :string, json_name: "nodeTemplate", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11098,7 +11098,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteNodesNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -11115,7 +11115,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 
@@ -11128,7 +11128,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeletePacketMirroringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :packet_mirroring, 22_305_996,
     type: :string,
@@ -11143,7 +11143,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeletePerInstanceConfigsInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -11162,7 +11162,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeletePerInstanceConfigsRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -11181,7 +11181,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeletePublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -11196,7 +11196,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeletePublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -11212,7 +11212,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11223,7 +11223,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -11238,7 +11238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11249,7 +11249,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11260,7 +11260,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionHealthCheckServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_service, 408_374_747,
     type: :string,
@@ -11275,7 +11275,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -11290,7 +11290,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -11306,7 +11306,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     type: :string,
@@ -11321,7 +11321,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot, 391_638_626,
     type: :string,
@@ -11336,7 +11336,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionMultiMigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :multi_mig, 403_990_085, type: :string, json_name: "multiMig", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11347,7 +11347,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -11362,7 +11362,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -11377,7 +11377,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionNotificationEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notification_endpoint, 376_807_017,
     type: :string,
@@ -11392,7 +11392,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11402,13 +11402,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionOperationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11423,7 +11423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11434,7 +11434,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11449,7 +11449,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11460,7 +11460,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11475,7 +11475,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11490,7 +11490,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11505,7 +11505,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11516,7 +11516,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11527,7 +11527,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11542,7 +11542,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRoutePolicyRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy, 91_071_794, proto3_optional: true, type: :string
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11554,7 +11554,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11564,7 +11564,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11575,7 +11575,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11589,7 +11589,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11604,7 +11604,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSignedUrlKeyBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
   field :key_name, 500_938_859, type: :string, json_name: "keyName", deprecated: false
@@ -11615,7 +11615,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSignedUrlKeyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -11630,7 +11630,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11640,7 +11640,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11654,7 +11654,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11664,7 +11664,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11675,7 +11675,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11686,7 +11686,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetGrpcProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11700,7 +11700,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11714,7 +11714,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11728,7 +11728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11744,7 +11744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11755,7 +11755,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11769,7 +11769,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11783,7 +11783,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteTargetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11798,7 +11798,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11808,7 +11808,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11819,7 +11819,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteVpnTunnelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -11830,7 +11830,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteWireGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -11845,7 +11845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteZoneOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -11855,13 +11855,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeleteZoneOperationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.Denied do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :I_p_protocol, 488_094_525, proto3_optional: true, type: :string, json_name: "IPProtocol"
   field :ports, 106_854_418, repeated: true, type: :string
@@ -11870,7 +11870,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeprecateImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deprecation_status_resource, 333_006_064,
     type: Google.Cloud.Compute.V1beta.DeprecationStatus,
@@ -11885,7 +11885,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DeprecationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deleted, 476_721_177, proto3_optional: true, type: :string
   field :deprecated, 515_138_995, proto3_optional: true, type: :string
@@ -11902,7 +11902,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DetachDiskInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device_name, 67_541_716, type: :string, json_name: "deviceName", deprecated: false
   field :instance, 18_257_045, type: :string, deprecated: false
@@ -11914,7 +11914,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DetachNetworkEndpointsGlobalNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_network_endpoint_groups_detach_endpoints_request_resource, 8_898_269,
     type: Google.Cloud.Compute.V1beta.GlobalNetworkEndpointGroupsDetachEndpointsRequest,
@@ -11933,7 +11933,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DetachNetworkEndpointsNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -11953,7 +11953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DetachNetworkEndpointsRegionNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -11974,7 +11974,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisableXpnHostProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -11983,7 +11983,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisableXpnResourceProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -11998,7 +11998,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.AsyncSecondaryDisksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.DiskAsyncReplicationList
@@ -12007,7 +12007,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -12016,7 +12016,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_mode, 41_155_486, proto3_optional: true, type: :string, json_name: "accessMode"
   field :architecture, 302_803_283, proto3_optional: true, type: :string
@@ -12201,7 +12201,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.DisksScopedList
@@ -12210,7 +12210,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -12234,7 +12234,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskAsyncReplication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consistency_group_policy, 1_991_097,
     proto3_optional: true,
@@ -12253,7 +12253,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskAsyncReplicationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :async_replication_disk, 231_794_067,
     proto3_optional: true,
@@ -12264,7 +12264,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskInstantiationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :bool, json_name: "autoDelete"
   field :custom_image, 184_123_149, proto3_optional: true, type: :string, json_name: "customImage"
@@ -12279,7 +12279,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Disk
@@ -12297,7 +12297,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskMoveRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_zone, 131_854_653,
     proto3_optional: true,
@@ -12310,7 +12310,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -12319,7 +12319,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -12331,7 +12331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskResourceStatus.AsyncSecondaryDisksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.DiskResourceStatusAsyncReplicationStatus
@@ -12340,7 +12340,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :async_primary_disk, 180_517_533,
     proto3_optional: true,
@@ -12357,7 +12357,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskResourceStatusAsyncReplicationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 109_757_585, proto3_optional: true, type: :string
 end
@@ -12365,7 +12365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_location, 18_410_544,
     proto3_optional: true,
@@ -12376,7 +12376,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskSettingsAccessLocation.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -12387,7 +12387,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskSettingsAccessLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 413_423_454,
     repeated: true,
@@ -12400,7 +12400,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskSettingsAccessLocationAccessLocationPreference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :region, 138_946_292, proto3_optional: true, type: :string
 end
@@ -12408,7 +12408,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -12442,7 +12442,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskTypeAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.DiskTypesScopedList
@@ -12451,7 +12451,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskTypeAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -12475,7 +12475,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.DiskType
@@ -12493,7 +12493,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DiskTypesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_types, 198_926_167,
     repeated: true,
@@ -12506,7 +12506,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksAddResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -12517,7 +12517,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksRemoveResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -12528,7 +12528,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksResizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :size_gb, 494_929_369, proto3_optional: true, type: :int64, json_name: "sizeGb"
 end
@@ -12536,7 +12536,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks, 95_594_102, repeated: true, type: Google.Cloud.Compute.V1beta.Disk
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -12545,7 +12545,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksStartAsyncReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :async_secondary_disk, 131_645_867,
     proto3_optional: true,
@@ -12556,7 +12556,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisksStopGroupAsyncReplicationResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policy, 159_240_835,
     proto3_optional: true,
@@ -12567,7 +12567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DisplayDevice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_display, 14_266_886,
     proto3_optional: true,
@@ -12578,7 +12578,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DistributionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_shape, 338_621_299, proto3_optional: true, type: :string, json_name: "targetShape"
 
@@ -12590,7 +12590,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.DistributionPolicyZoneConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :zone, 3_744_684, proto3_optional: true, type: :string
 end
@@ -12598,7 +12598,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Duration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nanos, 104_586_303, proto3_optional: true, type: :int32
   field :seconds, 359_484_031, proto3_optional: true, type: :int64
@@ -12607,7 +12607,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.EnableXpnHostProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -12616,7 +12616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.EnableXpnResourceProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -12631,7 +12631,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Error do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :errors, 315_977_579, repeated: true, type: Google.Cloud.Compute.V1beta.Errors
 end
@@ -12639,7 +12639,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_info, 25_251_973,
     proto3_optional: true,
@@ -12662,7 +12662,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ErrorInfo.MetadatasEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -12671,7 +12671,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ErrorInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :domain, 284_415_172, proto3_optional: true, type: :string
 
@@ -12686,7 +12686,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Errors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
 
@@ -12702,7 +12702,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExchangedPeeringRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dest_range, 381_327_712, proto3_optional: true, type: :string, json_name: "destRange"
   field :imported, 114_502_404, proto3_optional: true, type: :bool
@@ -12719,7 +12719,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExchangedPeeringRoutesList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -12741,7 +12741,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExpandIpCidrRangeSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -12757,7 +12757,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Expr do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :expression, 352_031_384, proto3_optional: true, type: :string
@@ -12768,7 +12768,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExternalVpnGateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -12777,7 +12777,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExternalVpnGateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -12816,7 +12816,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExternalVpnGatewayInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :uint32
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
@@ -12826,7 +12826,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ExternalVpnGatewayList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -12845,7 +12845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FileContentBuffer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 414_659_705, proto3_optional: true, type: :string
   field :file_type, 294_346_781, proto3_optional: true, type: :string, json_name: "fileType"
@@ -12854,7 +12854,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Firewall do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed, 162_398_632, repeated: true, type: Google.Cloud.Compute.V1beta.Allowed
 
@@ -12916,7 +12916,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Firewall
@@ -12934,7 +12934,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
   field :metadata, 86_866_735, proto3_optional: true, type: :string
@@ -12943,7 +12943,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -12952,7 +12952,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -12964,7 +12964,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPoliciesListAssociationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :associations, 508_736_530,
     repeated: true,
@@ -12976,7 +12976,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPoliciesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policies, 392_512_943,
     repeated: true,
@@ -12989,7 +12989,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :associations, 508_736_530,
     repeated: true,
@@ -13035,7 +13035,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyAssociation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachment_target, 175_773_741,
     proto3_optional: true,
@@ -13057,7 +13057,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.FirewallPolicy
@@ -13074,7 +13074,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action, 187_661_878, proto3_optional: true, type: :string
   field :description, 422_937_596, proto3_optional: true, type: :string
@@ -13126,7 +13126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dest_address_groups, 468_760_508,
     repeated: true,
@@ -13196,7 +13196,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcherLayer4Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_protocol, 475_958_960, proto3_optional: true, type: :string, json_name: "ipProtocol"
   field :ports, 106_854_418, repeated: true, type: :string
@@ -13205,7 +13205,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleSecureTag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :state, 109_757_585, proto3_optional: true, type: :string
@@ -13214,7 +13214,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FixedOrPercent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :calculated, 472_082_878, proto3_optional: true, type: :int32
   field :fixed, 97_445_748, proto3_optional: true, type: :int32
@@ -13224,7 +13224,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FlexibleTimeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :end_time_not_earlier_than, 83_355_642,
     proto3_optional: true,
@@ -13253,7 +13253,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -13262,7 +13262,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :I_p_address, 42_976_943, proto3_optional: true, type: :string, json_name: "IPAddress"
   field :I_p_protocol, 488_094_525, proto3_optional: true, type: :string, json_name: "IPProtocol"
@@ -13396,7 +13396,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRuleAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ForwardingRulesScopedList
@@ -13405,7 +13405,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRuleAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -13429,7 +13429,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRuleList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.ForwardingRule
@@ -13447,7 +13447,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRuleReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     proto3_optional: true,
@@ -13458,7 +13458,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRuleServiceDirectoryRegistration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :namespace, 178_476_379, proto3_optional: true, type: :string
   field :service, 373_540_533, proto3_optional: true, type: :string
@@ -13472,7 +13472,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ForwardingRulesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rules, 315_821_365,
     repeated: true,
@@ -13485,7 +13485,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregate_reservation, 291_567_948,
     proto3_optional: true,
@@ -13591,7 +13591,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationCommitmentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitment_name, 164_498_805,
     proto3_optional: true,
@@ -13612,7 +13612,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationSpecificSKUProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_properties, 215_355_165,
     proto3_optional: true,
@@ -13630,7 +13630,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :amendment_status, 250_270_052,
     proto3_optional: true,
@@ -13673,7 +13673,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatusExistingMatchingUsageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int64
   field :timestamp, 55_126_294, proto3_optional: true, type: :string
@@ -13682,7 +13682,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatusLastKnownGoodState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -13709,7 +13709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatusLastKnownGoodStateFutureReservationSpecs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :share_settings, 266_668_163,
     proto3_optional: true,
@@ -13730,7 +13730,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationStatusSpecificSKUProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_instance_template_id, 111_196_154,
     proto3_optional: true,
@@ -13741,7 +13741,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationTimeWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :duration, 155_471_252, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Duration
   field :end_time, 114_938_801, proto3_optional: true, type: :string, json_name: "endTime"
@@ -13751,7 +13751,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationsAggregatedListResponse.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FutureReservationsScopedList
@@ -13760,7 +13760,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationsAggregatedListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -13785,7 +13785,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationsListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -13805,7 +13805,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureReservationsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservations, 131_778_339,
     repeated: true,
@@ -13818,7 +13818,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesRecommendation.OtherLocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FutureResourcesRecommendationOtherLocation
@@ -13827,7 +13827,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesRecommendation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :end_time, 114_938_801, proto3_optional: true, type: :string, json_name: "endTime"
   field :location, 290_430_901, proto3_optional: true, type: :string
@@ -13854,7 +13854,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesRecommendationOtherLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :details, 483_979_842, proto3_optional: true, type: :string
   field :status, 181_260_274, proto3_optional: true, type: :string
@@ -13863,7 +13863,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployment_type, 396_722_292,
     proto3_optional: true,
@@ -13889,7 +13889,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecAggregateResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_count, 504_879_675,
     proto3_optional: true,
@@ -13907,7 +13907,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocalSsdPartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_interface, 66_770_199,
     proto3_optional: true,
@@ -13920,7 +13920,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocationPolicy.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FutureResourcesSpecLocationPolicyLocation
@@ -13929,7 +13929,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocationPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 413_423_454,
     repeated: true,
@@ -13940,7 +13940,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecLocationPolicyLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :preference, 150_781_147, proto3_optional: true, type: :string
 end
@@ -13948,7 +13948,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecSpecificSKUResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_count, 77_317_349,
     proto3_optional: true,
@@ -13966,7 +13966,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.FutureResourcesSpecTargetResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregate_resources, 180_868_005,
     proto3_optional: true,
@@ -13982,7 +13982,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GRPCHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grpc_service_name, 136_533_078,
     proto3_optional: true,
@@ -14001,7 +14001,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GRPCTLSHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grpc_service_name, 136_533_078,
     proto3_optional: true,
@@ -14019,7 +14019,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAcceleratorTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_type, 138_031_246,
     type: :string,
@@ -14033,7 +14033,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14043,7 +14043,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAssociationFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -14056,7 +14056,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAssociationNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -14070,7 +14070,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAssociationOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -14083,7 +14083,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -14098,7 +14098,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14108,7 +14108,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14117,7 +14117,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -14130,7 +14130,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetCrossSiteNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -14143,7 +14143,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetDiagnosticsInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14152,7 +14152,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14162,7 +14162,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetDiskSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :zone, 3_744_684, type: :string, deprecated: false
@@ -14171,7 +14171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetDiskTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_type, 93_009_052, type: :string, json_name: "diskType", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14181,7 +14181,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetEffectiveFirewallsInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -14197,7 +14197,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetEffectiveFirewallsNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14206,7 +14206,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetEffectiveFirewallsRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14216,7 +14216,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetEffectiveSecurityPoliciesBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -14229,7 +14229,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetExternalVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_vpn_gateway, 109_898_629,
     type: :string,
@@ -14242,7 +14242,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -14253,7 +14253,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall, 511_016_192, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14262,7 +14262,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -14276,7 +14276,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetFromFamilyImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :family, 328_751_972, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14285,7 +14285,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetFutureReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservation, 56_206_160,
     type: :string,
@@ -14299,7 +14299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14308,7 +14308,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -14321,7 +14321,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -14334,7 +14334,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14343,7 +14343,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalOrganizationOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :parent_id, 459_714_768, proto3_optional: true, type: :string, json_name: "parentId"
@@ -14352,7 +14352,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGlobalPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -14365,7 +14365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetGuestAttributesInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14377,7 +14377,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetHealthBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -14395,7 +14395,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14404,7 +14404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetHealthRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -14423,7 +14423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetHealthTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_reference_resource, 292_926_060,
     type: Google.Cloud.Compute.V1beta.InstanceReference,
@@ -14438,7 +14438,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14452,7 +14452,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14466,7 +14466,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14481,7 +14481,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14494,7 +14494,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14508,7 +14508,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14523,7 +14523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14537,7 +14537,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14552,7 +14552,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14566,7 +14566,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14580,7 +14580,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14594,7 +14594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14608,7 +14608,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14623,7 +14623,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14637,7 +14637,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14652,7 +14652,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14667,7 +14667,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14682,7 +14682,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14697,7 +14697,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14712,7 +14712,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14727,7 +14727,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14742,7 +14742,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14757,7 +14757,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14772,7 +14772,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14787,7 +14787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicySnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14801,7 +14801,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicyStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14816,7 +14816,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetIamPolicySubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options_requested_policy_version, 499_220_029,
     proto3_optional: true,
@@ -14831,7 +14831,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetImageFamilyViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :family, 328_751_972, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14841,7 +14841,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 100_313_435, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14850,7 +14850,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -14864,7 +14864,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -14879,7 +14879,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14889,7 +14889,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -14900,7 +14900,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :zone, 3_744_684, type: :string, deprecated: false
@@ -14909,7 +14909,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     type: :string,
@@ -14923,7 +14923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot, 391_638_626,
     type: :string,
@@ -14937,7 +14937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_group, 75_905_012,
     type: :string,
@@ -14950,7 +14950,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment, 308_135_284,
     type: :string,
@@ -14964,7 +14964,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group, 388_651_918,
     type: :string,
@@ -14977,7 +14977,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectLocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_location, 492_235_846,
     type: :string,
@@ -14990,7 +14990,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectRemoteLocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_remote_location, 290_153_949,
     type: :string,
@@ -15003,7 +15003,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15012,7 +15012,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetLicenseCodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license_code, 1_467_179, type: :string, json_name: "licenseCode", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15021,7 +15021,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license, 166_757_441, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15030,7 +15030,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_image, 69_189_475, type: :string, json_name: "machineImage", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15039,7 +15039,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetMachineTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_type, 227_711_026, type: :string, json_name: "machineType", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15049,7 +15049,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetMacsecConfigInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15058,7 +15058,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNatIpInfoRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nat_name, 425_596_649, proto3_optional: true, type: :string, json_name: "natName"
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15069,7 +15069,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNatMappingInfoRoutersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -15090,7 +15090,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment, 224_644_052,
     type: :string,
@@ -15104,7 +15104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkEdgeSecurityServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_edge_security_service, 157_011_879,
     type: :string,
@@ -15118,7 +15118,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -15132,7 +15132,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15145,7 +15145,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkProfileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_profile, 173_112_472,
     type: :string,
@@ -15158,7 +15158,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15167,7 +15167,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15177,7 +15177,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_template, 323_154_455, type: :string, json_name: "nodeTemplate", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15187,7 +15187,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetNodeTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_type, 465_832_791, type: :string, json_name: "nodeType", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15197,7 +15197,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetOperationalStatusInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_group, 75_905_012,
     type: :string,
@@ -15210,7 +15210,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetOperationalStatusInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group, 388_651_918,
     type: :string,
@@ -15223,7 +15223,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :security_policy, 171_082_513,
     type: :string,
@@ -15234,7 +15234,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPacketMirroringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :packet_mirroring, 22_305_996,
     type: :string,
@@ -15248,7 +15248,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPacketMirroringRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15261,7 +15261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPacketMirroringRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15275,7 +15275,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPartnerMetadataInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :namespaces, 164_058_744, proto3_optional: true, type: :string
@@ -15286,7 +15286,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPreviewFeatureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :preview_feature, 454_999_423,
     type: :string,
@@ -15299,7 +15299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 end
@@ -15307,7 +15307,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -15320,7 +15320,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -15335,7 +15335,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15345,7 +15345,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -15359,7 +15359,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionCommitmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitment, 482_134_805, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15369,7 +15369,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15379,7 +15379,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionDiskSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15388,7 +15388,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionDiskTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_type, 93_009_052, type: :string, json_name: "diskType", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15398,7 +15398,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15408,7 +15408,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionHealthCheckServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_service, 408_374_747,
     type: :string,
@@ -15422,7 +15422,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -15436,7 +15436,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -15451,7 +15451,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15461,7 +15461,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     type: :string,
@@ -15476,7 +15476,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot, 391_638_626,
     type: :string,
@@ -15490,7 +15490,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionMultiMigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :multi_mig, 403_990_085, type: :string, json_name: "multiMig", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15500,7 +15500,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group, 433_907_078,
     type: :string,
@@ -15514,7 +15514,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15528,7 +15528,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionNotificationEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notification_endpoint, 376_807_017,
     type: :string,
@@ -15542,7 +15542,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15552,7 +15552,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15561,7 +15561,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15575,7 +15575,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15585,7 +15585,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionSnapshotSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15594,7 +15594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15608,7 +15608,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15618,7 +15618,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15632,7 +15632,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15646,7 +15646,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15660,7 +15660,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15670,7 +15670,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetReservationBlockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :reservation, 47_530_956, type: :string, deprecated: false
@@ -15687,7 +15687,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :reservation, 47_530_956, type: :string, deprecated: false
@@ -15697,7 +15697,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetReservationSubBlockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15713,7 +15713,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15727,7 +15727,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRoutePolicyRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy, 91_071_794, proto3_optional: true, type: :string
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15738,7 +15738,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :route, 108_704_329, type: :string, deprecated: false
@@ -15747,7 +15747,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15757,7 +15757,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRouterStatusRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15767,7 +15767,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15780,7 +15780,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15794,7 +15794,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
 
@@ -15807,7 +15807,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -15822,7 +15822,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15837,7 +15837,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetRuleSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15851,7 +15851,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetScreenshotInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15861,7 +15861,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -15874,7 +15874,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSerialPortOutputInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :port, 3_446_913, proto3_optional: true, type: :int32
@@ -15886,7 +15886,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15900,7 +15900,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetShieldedInstanceIdentityInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15910,7 +15910,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetShieldedVmIdentityInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -15920,7 +15920,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :snapshot, 284_874_180, type: :string, deprecated: false
@@ -15929,7 +15929,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSnapshotSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 end
@@ -15937,7 +15937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -15950,7 +15950,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :ssl_policy, 295_190_213, type: :string, json_name: "sslPolicy", deprecated: false
@@ -15959,7 +15959,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetStatusVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -15969,7 +15969,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :storage_pool, 360_473_440, type: :string, json_name: "storagePool", deprecated: false
@@ -15979,7 +15979,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetStoragePoolTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -15994,7 +15994,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -16004,7 +16004,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetGrpcProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16017,7 +16017,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16030,7 +16030,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16043,7 +16043,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16058,7 +16058,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -16068,7 +16068,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16081,7 +16081,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -16094,7 +16094,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetTargetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -16108,7 +16108,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :url_map, 367_020_684, type: :string, json_name: "urlMap", deprecated: false
@@ -16117,7 +16117,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -16127,7 +16127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetVpnTunnelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -16137,7 +16137,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetWireGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -16151,7 +16151,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetXpnHostProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 end
@@ -16159,7 +16159,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetXpnResourcesProjectsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -16176,7 +16176,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetZoneOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -16186,7 +16186,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GetZoneRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :zone, 3_744_684, type: :string, deprecated: false
@@ -16195,7 +16195,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalAddressesMoveRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -16208,7 +16208,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalNetworkEndpointGroupsAttachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -16219,7 +16219,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalNetworkEndpointGroupsDetachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -16230,7 +16230,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalOrganizationSetPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bindings, 403_251_854, repeated: true, type: Google.Cloud.Compute.V1beta.Binding
   field :etag, 3_123_477, proto3_optional: true, type: :string
@@ -16240,7 +16240,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16249,7 +16249,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :label_fingerprint, 178_124_825,
     proto3_optional: true,
@@ -16265,7 +16265,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bindings, 403_251_854, repeated: true, type: Google.Cloud.Compute.V1beta.Binding
   field :etag, 3_123_477, proto3_optional: true, type: :string
@@ -16275,7 +16275,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GroupMaintenanceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_maintenance_ongoing_count, 137_611_253,
     proto3_optional: true,
@@ -16321,7 +16321,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GuestAttributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :query_path, 368_591_164, proto3_optional: true, type: :string, json_name: "queryPath"
@@ -16343,7 +16343,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GuestAttributesEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :namespace, 178_476_379, proto3_optional: true, type: :string
@@ -16353,7 +16353,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GuestAttributesValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016,
     repeated: true,
@@ -16363,7 +16363,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.GuestOsFeature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
@@ -16371,7 +16371,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTP2HealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host, 3_208_616, proto3_optional: true, type: :string
   field :port, 3_446_913, proto3_optional: true, type: :int32
@@ -16390,7 +16390,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host, 3_208_616, proto3_optional: true, type: :string
   field :port, 3_446_913, proto3_optional: true, type: :int32
@@ -16409,7 +16409,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HTTPSHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host, 3_208_616, proto3_optional: true, type: :string
   field :port, 3_446_913, proto3_optional: true, type: :int32
@@ -16428,7 +16428,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :check_interval_sec, 345_561_006,
     proto3_optional: true,
@@ -16507,7 +16507,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.HealthCheck
@@ -16525,7 +16525,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
 end
@@ -16533,7 +16533,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, proto3_optional: true, type: :string, json_name: "healthCheck"
 end
@@ -16541,7 +16541,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -16583,7 +16583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckServiceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_service, 408_374_747,
     proto3_optional: true,
@@ -16594,7 +16594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthCheckServicesList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.HealthCheckService
@@ -16612,7 +16612,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthChecksAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.HealthChecksScopedList
@@ -16621,7 +16621,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthChecksAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -16645,7 +16645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthChecksScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_checks, 448_370_606,
     repeated: true,
@@ -16658,7 +16658,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatus.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -16667,7 +16667,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :annotations, 112_032_548,
     repeated: true,
@@ -16702,7 +16702,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HealthStatusForNetworkEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     proto3_optional: true,
@@ -16735,7 +16735,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Help do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :links, 102_977_465, repeated: true, type: Google.Cloud.Compute.V1beta.HelpLink
 end
@@ -16743,7 +16743,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HelpLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :url, 116_079, proto3_optional: true, type: :string
@@ -16752,7 +16752,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HostRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :hosts, 99_467_211, repeated: true, type: :string
@@ -16762,7 +16762,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpFaultAbort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_status, 468_949_897, proto3_optional: true, type: :uint32, json_name: "httpStatus"
   field :percentage, 151_909_018, proto3_optional: true, type: :double
@@ -16771,7 +16771,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpFaultDelay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fixed_delay, 317_037_816,
     proto3_optional: true,
@@ -16784,7 +16784,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpFaultInjection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :abort, 92_611_376,
     proto3_optional: true,
@@ -16798,7 +16798,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpFilterConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 255_820_610, proto3_optional: true, type: :string
 
@@ -16813,7 +16813,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpHeaderAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_headers_to_add, 72_111_974,
     repeated: true,
@@ -16839,7 +16839,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpHeaderMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :exact_match, 457_641_093, proto3_optional: true, type: :string, json_name: "exactMatch"
   field :header_name, 110_223_613, proto3_optional: true, type: :string, json_name: "headerName"
@@ -16859,7 +16859,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpHeaderOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header_name, 110_223_613, proto3_optional: true, type: :string, json_name: "headerName"
   field :header_value, 203_094_335, proto3_optional: true, type: :string, json_name: "headerValue"
@@ -16869,7 +16869,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpQueryParameterMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :exact_match, 457_641_093, proto3_optional: true, type: :string, json_name: "exactMatch"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -16880,7 +16880,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRedirectAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host_redirect, 107_417_747,
     proto3_optional: true,
@@ -16913,7 +16913,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :num_retries, 251_680_141, proto3_optional: true, type: :uint32, json_name: "numRetries"
 
@@ -16928,7 +16928,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRouteAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cors_policy, 398_943_748,
     proto3_optional: true,
@@ -16971,7 +16971,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRouteRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_error_response_policy, 202_816_619,
     proto3_optional: true,
@@ -17018,7 +17018,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.HttpRouteRuleMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :full_path_match, 214_598_875,
     proto3_optional: true,
@@ -17055,7 +17055,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Image.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -17064,7 +17064,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
 
@@ -17193,7 +17193,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ImageFamilyView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 100_313_435, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Image
 end
@@ -17201,7 +17201,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ImageList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Image
@@ -17219,7 +17219,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InitialStateConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dbs, 99253, repeated: true, type: Google.Cloud.Compute.V1beta.FileContentBuffer
   field :dbxs, 3_077_113, repeated: true, type: Google.Cloud.Compute.V1beta.FileContentBuffer
@@ -17230,7 +17230,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address_resource, 483_888_121,
     type: Google.Cloud.Compute.V1beta.Address,
@@ -17245,7 +17245,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler_resource, 207_616_118,
     type: Google.Cloud.Compute.V1beta.Autoscaler,
@@ -17260,7 +17260,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket_resource, 380_757_784,
     type: Google.Cloud.Compute.V1beta.BackendBucket,
@@ -17274,7 +17274,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service_resource, 347_586_723,
     type: Google.Cloud.Compute.V1beta.BackendService,
@@ -17288,7 +17288,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertCrossSiteNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network_resource, 30_896_696,
     type: Google.Cloud.Compute.V1beta.CrossSiteNetwork,
@@ -17303,7 +17303,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_resource, 25_880_688,
     type: Google.Cloud.Compute.V1beta.Disk,
@@ -17319,7 +17319,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertExternalVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_vpn_gateway_resource, 486_813_576,
     type: Google.Cloud.Compute.V1beta.ExternalVpnGateway,
@@ -17333,7 +17333,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy_resource, 495_049_532,
     type: Google.Cloud.Compute.V1beta.FirewallPolicy,
@@ -17347,7 +17347,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_resource, 41_425_005,
     type: Google.Cloud.Compute.V1beta.Firewall,
@@ -17361,7 +17361,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule_resource, 301_211_695,
     type: Google.Cloud.Compute.V1beta.ForwardingRule,
@@ -17376,7 +17376,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertFutureReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservation_resource, 466_750_493,
     type: Google.Cloud.Compute.V1beta.FutureReservation,
@@ -17391,7 +17391,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address_resource, 483_888_121,
     type: Google.Cloud.Compute.V1beta.Address,
@@ -17405,7 +17405,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule_resource, 301_211_695,
     type: Google.Cloud.Compute.V1beta.ForwardingRule,
@@ -17419,7 +17419,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertGlobalNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group_resource, 525_788_839,
     type: Google.Cloud.Compute.V1beta.NetworkEndpointGroup,
@@ -17433,7 +17433,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertGlobalPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -17448,7 +17448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_resource, 201_925_032,
     type: Google.Cloud.Compute.V1beta.HealthCheck,
@@ -17462,7 +17462,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :force_create, 197_723_344, proto3_optional: true, type: :bool, json_name: "forceCreate"
 
@@ -17478,7 +17478,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager_resource, 261_063_946,
     type: Google.Cloud.Compute.V1beta.InstanceGroupManager,
@@ -17493,7 +17493,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -17513,7 +17513,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_resource, 286_612_152,
     type: Google.Cloud.Compute.V1beta.InstanceGroup,
@@ -17528,7 +17528,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_resource, 215_988_344,
     type: Google.Cloud.Compute.V1beta.Instance,
@@ -17554,7 +17554,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template_resource, 10_679_561,
     type: Google.Cloud.Compute.V1beta.InstanceTemplate,
@@ -17568,7 +17568,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot_resource, 383_915_339,
     type: Google.Cloud.Compute.V1beta.InstantSnapshot,
@@ -17583,7 +17583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_group_resource, 9_990_137,
     type: Google.Cloud.Compute.V1beta.InterconnectAttachmentGroup,
@@ -17597,7 +17597,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_resource, 212_341_369,
     type: Google.Cloud.Compute.V1beta.InterconnectAttachment,
@@ -17613,7 +17613,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group_resource, 85_571_999,
     type: Google.Cloud.Compute.V1beta.InterconnectGroup,
@@ -17627,7 +17627,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_resource, 397_611_167,
     type: Google.Cloud.Compute.V1beta.Interconnect,
@@ -17641,7 +17641,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license_resource, 437_955_148,
     type: Google.Cloud.Compute.V1beta.License,
@@ -17655,7 +17655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_image_resource, 60_740_970,
     type: Google.Cloud.Compute.V1beta.MachineImage,
@@ -17674,7 +17674,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment_resource, 210_974_745,
     type: Google.Cloud.Compute.V1beta.NetworkAttachment,
@@ -17689,7 +17689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNetworkEdgeSecurityServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_edge_security_service_resource, 477_548_966,
     type: Google.Cloud.Compute.V1beta.NetworkEdgeSecurityService,
@@ -17705,7 +17705,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group_resource, 525_788_839,
     type: Google.Cloud.Compute.V1beta.NetworkEndpointGroup,
@@ -17720,7 +17720,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy_resource, 495_049_532,
     type: Google.Cloud.Compute.V1beta.FirewallPolicy,
@@ -17734,7 +17734,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_resource, 122_105_599,
     type: Google.Cloud.Compute.V1beta.Network,
@@ -17748,7 +17748,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :initial_node_count, 71_951_469,
     type: :int32,
@@ -17768,7 +17768,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_template_resource, 127_364_406,
     type: Google.Cloud.Compute.V1beta.NodeTemplate,
@@ -17783,7 +17783,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent_id, 459_714_768,
     proto3_optional: true,
@@ -17802,7 +17802,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertPacketMirroringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :packet_mirroring_resource, 493_501_985,
     type: Google.Cloud.Compute.V1beta.PacketMirroring,
@@ -17817,7 +17817,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertPublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -17832,7 +17832,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -17848,7 +17848,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler_resource, 207_616_118,
     type: Google.Cloud.Compute.V1beta.Autoscaler,
@@ -17863,7 +17863,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service_resource, 347_586_723,
     type: Google.Cloud.Compute.V1beta.BackendService,
@@ -17878,7 +17878,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionCommitmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitment_resource, 244_240_888,
     type: Google.Cloud.Compute.V1beta.Commitment,
@@ -17893,7 +17893,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_resource, 25_880_688,
     type: Google.Cloud.Compute.V1beta.Disk,
@@ -17909,7 +17909,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_resource, 201_925_032,
     type: Google.Cloud.Compute.V1beta.HealthCheck,
@@ -17924,7 +17924,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionHealthCheckServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_service_resource, 477_367_794,
     type: Google.Cloud.Compute.V1beta.HealthCheckService,
@@ -17939,7 +17939,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager_resource, 261_063_946,
     type: Google.Cloud.Compute.V1beta.InstanceGroupManager,
@@ -17954,7 +17954,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionInstanceGroupManagerResizeRequestRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -17974,7 +17974,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template_resource, 10_679_561,
     type: Google.Cloud.Compute.V1beta.InstanceTemplate,
@@ -17989,7 +17989,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshot_resource, 383_915_339,
     type: Google.Cloud.Compute.V1beta.InstantSnapshot,
@@ -18004,7 +18004,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionMultiMigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :multi_mig_resource, 173_722_824,
     type: Google.Cloud.Compute.V1beta.MultiMig,
@@ -18019,7 +18019,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_group_resource, 525_788_839,
     type: Google.Cloud.Compute.V1beta.NetworkEndpointGroup,
@@ -18034,7 +18034,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy_resource, 495_049_532,
     type: Google.Cloud.Compute.V1beta.FirewallPolicy,
@@ -18049,7 +18049,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionNotificationEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notification_endpoint_resource, 338_459_940,
     type: Google.Cloud.Compute.V1beta.NotificationEndpoint,
@@ -18064,7 +18064,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18081,7 +18081,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18096,7 +18096,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18111,7 +18111,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18126,7 +18126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18141,7 +18141,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18156,7 +18156,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18171,7 +18171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18186,7 +18186,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18202,7 +18202,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18217,7 +18217,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18231,7 +18231,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18246,7 +18246,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18262,7 +18262,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18277,7 +18277,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18291,7 +18291,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18305,7 +18305,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18319,7 +18319,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18335,7 +18335,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18350,7 +18350,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetGrpcProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18364,7 +18364,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18378,7 +18378,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18392,7 +18392,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18408,7 +18408,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18423,7 +18423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18437,7 +18437,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18451,7 +18451,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertTargetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18466,7 +18466,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -18480,7 +18480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18495,7 +18495,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertVpnTunnelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -18510,7 +18510,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InsertWireGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -18530,7 +18530,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -18539,7 +18539,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance.PartnerMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StructuredEntries
@@ -18548,7 +18548,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advanced_machine_features, 409_646_002,
     proto3_optional: true,
@@ -18755,7 +18755,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InstancesScopedList
@@ -18764,7 +18764,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -18788,7 +18788,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceConsumptionData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumption_info, 146_354_898,
     proto3_optional: true,
@@ -18801,7 +18801,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceConsumptionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :guest_cpus, 393_356_754, proto3_optional: true, type: :int32, json_name: "guestCpus"
   field :local_ssd_gb, 329_237_578, proto3_optional: true, type: :int32, json_name: "localSsdGb"
@@ -18812,7 +18812,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -18841,7 +18841,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InstanceGroupsScopedList
@@ -18850,7 +18850,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -18874,7 +18874,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.InstanceGroup
@@ -18892,7 +18892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManager do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_instances_config, 112_596_737,
     proto3_optional: true,
@@ -19036,7 +19036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerActionsSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :abandoning, 440_023_373, proto3_optional: true, type: :int32
   field :creating, 209_809_081, proto3_optional: true, type: :int32
@@ -19061,7 +19061,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InstanceGroupManagersScopedList
@@ -19070,7 +19070,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -19094,7 +19094,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerAllInstancesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :properties, 147_688_755,
     proto3_optional: true,
@@ -19104,7 +19104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerAutoHealingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, proto3_optional: true, type: :string, json_name: "healthCheck"
 
@@ -19117,7 +19117,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceFlexibilityPolicy.InstanceSelectionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -19129,7 +19129,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceFlexibilityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_selections, 22_954_577,
     repeated: true,
@@ -19148,7 +19148,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceFlexibilityPolicyInstanceSelection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_types, 79_720_065, repeated: true, type: :string, json_name: "machineTypes"
   field :rank, 3_492_908, proto3_optional: true, type: :int32
@@ -19157,7 +19157,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceFlexibilityPolicyProvisioningModelMix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :standard_capacity_base, 388_067_636,
     proto3_optional: true,
@@ -19173,7 +19173,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_action_on_failure, 61_383_253,
     proto3_optional: true,
@@ -19199,7 +19199,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerInstanceLifecyclePolicyOnRepair do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_changing_zone, 426_055_112,
     proto3_optional: true,
@@ -19210,7 +19210,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -19232,7 +19232,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19241,7 +19241,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -19253,7 +19253,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int32
 
@@ -19298,7 +19298,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequestStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Error
 
@@ -19311,7 +19311,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequestStatusLastAttempt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Error
 end
@@ -19319,7 +19319,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequestsListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -19341,7 +19341,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResourcePolicies do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workload_policy, 114_721_530,
     proto3_optional: true,
@@ -19352,7 +19352,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStandbyPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :initial_delay_sec, 263_207_002,
     proto3_optional: true,
@@ -19365,7 +19365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_instances_config, 112_596_737,
     proto3_optional: true,
@@ -19394,7 +19394,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusAllInstancesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :current_revision, 38_355_937,
     proto3_optional: true,
@@ -19407,7 +19407,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :in_progress, 320_200_711, proto3_optional: true, type: :bool, json_name: "inProgress"
 
@@ -19421,7 +19421,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusBulkInstanceOperationLastProgressCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Error
   field :timestamp, 55_126_294, proto3_optional: true, type: :string
@@ -19430,7 +19430,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusStateful do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :has_stateful_config, 110_474_224,
     proto3_optional: true,
@@ -19448,7 +19448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusStatefulPerInstanceConfigs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_effective, 516_540_553, proto3_optional: true, type: :bool, json_name: "allEffective"
 end
@@ -19456,7 +19456,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerStatusVersionTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :is_reached, 433_209_149, proto3_optional: true, type: :bool, json_name: "isReached"
 end
@@ -19464,7 +19464,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerTargetSizePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 3_357_091, proto3_optional: true, type: :string
 end
@@ -19472,7 +19472,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerUpdatePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_redistribution_type, 292_630_424,
     proto3_optional: true,
@@ -19512,7 +19512,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     proto3_optional: true,
@@ -19530,7 +19530,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersAbandonInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -19538,7 +19538,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersApplyUpdatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_instances, 403_676_512, proto3_optional: true, type: :bool, json_name: "allInstances"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -19557,7 +19557,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersCreateInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -19567,7 +19567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersDeleteInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 
@@ -19580,7 +19580,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersDeletePerInstanceConfigsReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :names, 104_585_032, repeated: true, type: :string
 end
@@ -19588,7 +19588,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersListErrorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016,
     repeated: true,
@@ -19603,7 +19603,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersListManagedInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :managed_instances, 336_219_614,
     repeated: true,
@@ -19619,7 +19619,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersListPerInstanceConfigsResp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.PerInstanceConfig
 
@@ -19634,7 +19634,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersPatchPerInstanceConfigsReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :per_instance_configs, 526_265_001,
     repeated: true,
@@ -19645,7 +19645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersRecreateInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -19653,7 +19653,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersResizeAdvancedRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :no_creation_retries, 39_329_444,
     proto3_optional: true,
@@ -19666,7 +19666,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersResumeInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -19674,7 +19674,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_managers, 214_072_592,
     repeated: true,
@@ -19687,7 +19687,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersSetAutoHealingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_healing_policies, 456_799_109,
     repeated: true,
@@ -19698,7 +19698,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersSetInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     proto3_optional: true,
@@ -19709,7 +19709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersSetTargetPoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :target_pools, 336_072_617, repeated: true, type: :string, json_name: "targetPools"
@@ -19718,7 +19718,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersStartInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -19726,7 +19726,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersStopInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :force_stop, 134_762_710, proto3_optional: true, type: :bool, json_name: "forceStop"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -19735,7 +19735,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersSuspendInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :force_suspend, 27_637_480, proto3_optional: true, type: :bool, json_name: "forceSuspend"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -19744,7 +19744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagersUpdatePerInstanceConfigsReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :per_instance_configs, 526_265_001,
     repeated: true,
@@ -19755,7 +19755,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsAddInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -19765,7 +19765,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsListInstances do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -19787,7 +19787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_state, 92_223_591,
     proto3_optional: true,
@@ -19798,7 +19798,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsRemoveInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -19808,7 +19808,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_groups, 366_469_310,
     repeated: true,
@@ -19821,7 +19821,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceGroupsSetNamedPortsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
 
@@ -19834,7 +19834,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Instance
@@ -19852,7 +19852,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceListReferrers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Reference
@@ -19870,7 +19870,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceManagedByIgmError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error, 96_784_904,
     proto3_optional: true,
@@ -19887,7 +19887,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceManagedByIgmErrorInstanceActionDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action, 187_661_878, proto3_optional: true, type: :string
   field :instance, 18_257_045, proto3_optional: true, type: :string
@@ -19900,7 +19900,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceManagedByIgmErrorManagedInstanceError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :message, 418_054_151, proto3_optional: true, type: :string
@@ -19909,7 +19909,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceMoveRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_zone, 131_854_653,
     proto3_optional: true,
@@ -19925,7 +19925,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19934,7 +19934,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -19946,7 +19946,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19955,7 +19955,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.PartnerMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StructuredEntries
@@ -19964,7 +19964,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -19973,7 +19973,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advanced_machine_features, 409_646_002,
     proto3_optional: true,
@@ -20088,7 +20088,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancePropertiesPatch.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20097,7 +20097,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancePropertiesPatch.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20106,7 +20106,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancePropertiesPatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :labels, 500_195_327,
     repeated: true,
@@ -20122,7 +20122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, proto3_optional: true, type: :string
 end
@@ -20130,7 +20130,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -20145,7 +20145,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceSettingsMetadata.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20154,7 +20154,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceSettingsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016,
     repeated: true,
@@ -20167,7 +20167,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -20200,7 +20200,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceTemplateAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InstanceTemplatesScopedList
@@ -20209,7 +20209,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceTemplateAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -20232,7 +20232,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceTemplateList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.InstanceTemplate
@@ -20250,7 +20250,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceTemplatesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_templates, 459_889_679,
     repeated: true,
@@ -20263,7 +20263,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstanceWithNamedPorts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, proto3_optional: true, type: :string
 
@@ -20278,7 +20278,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesAddResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -20289,7 +20289,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesBulkInsertOperationMetadata.PerLocationStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.BulkInsertOperationStatus
@@ -20298,7 +20298,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesBulkInsertOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :per_location_status, 167_851_162,
     repeated: true,
@@ -20310,7 +20310,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesGetEffectiveFirewallsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policys, 410_985_794,
     repeated: true,
@@ -20330,7 +20330,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesGetEffectiveFirewallsResponseEffectiveFirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -20349,7 +20349,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesGetEffectiveFirewallsResponseOrganizationFirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :uint64
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1beta.SecurityPolicyRule
@@ -20358,7 +20358,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesRemoveResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -20369,7 +20369,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesReportHostAsFaultyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disruption_schedule, 95_871_619,
     proto3_optional: true,
@@ -20385,7 +20385,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesReportHostAsFaultyRequestFaultReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :behavior, 437_170_770, proto3_optional: true, type: :string
   field :description, 422_937_596, proto3_optional: true, type: :string
@@ -20394,7 +20394,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesResumeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks, 95_594_102,
     repeated: true,
@@ -20409,7 +20409,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: Google.Cloud.Compute.V1beta.Instance
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -20418,7 +20418,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetLabelsRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20427,7 +20427,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :label_fingerprint, 178_124_825,
     proto3_optional: true,
@@ -20443,7 +20443,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetMachineResourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :guest_accelerators, 463_595_119,
     repeated: true,
@@ -20454,7 +20454,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetMachineTypeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_type, 227_711_026, proto3_optional: true, type: :string, json_name: "machineType"
 end
@@ -20462,7 +20462,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetMinCpuPlatformRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_cpu_platform, 242_912_759,
     proto3_optional: true,
@@ -20473,7 +20473,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetNameRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :current_name, 394_983_825, proto3_optional: true, type: :string, json_name: "currentName"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -20482,7 +20482,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_interfaces, 52_735_243,
     repeated: true,
@@ -20498,7 +20498,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesSetServiceAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :email, 96_619_420, proto3_optional: true, type: :string
   field :scopes, 165_973_151, repeated: true, type: :string
@@ -20507,7 +20507,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstancesStartWithEncryptionKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks, 95_594_102,
     repeated: true,
@@ -20517,7 +20517,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshot.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20526,7 +20526,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
 
@@ -20581,7 +20581,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshotAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InstantSnapshotsScopedList
@@ -20590,7 +20590,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshotAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -20614,7 +20614,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshotList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.InstantSnapshot
@@ -20632,7 +20632,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshotResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :storage_size_bytes, 387_548_913,
     proto3_optional: true,
@@ -20643,7 +20643,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InstantSnapshotsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instant_snapshots, 329_637_457,
     repeated: true,
@@ -20656,7 +20656,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Int64RangeMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :range_end, 322_439_897, proto3_optional: true, type: :int64, json_name: "rangeEnd"
   field :range_start, 103_333_600, proto3_optional: true, type: :int64, json_name: "rangeStart"
@@ -20665,7 +20665,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20674,7 +20674,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Interconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aai_enabled, 388_780_363, proto3_optional: true, type: :bool, json_name: "aaiEnabled"
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
@@ -20804,7 +20804,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectApplicationAwareInterconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bandwidth_percentage_policy, 187_018_857,
     proto3_optional: true,
@@ -20832,7 +20832,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectApplicationAwareInterconnectBandwidthPercentage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :percentage, 151_909_018, proto3_optional: true, type: :uint32
 
@@ -20845,7 +20845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectApplicationAwareInterconnectBandwidthPercentagePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bandwidth_percentages, 233_373_323,
     repeated: true,
@@ -20856,13 +20856,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectApplicationAwareInterconnectStrictPriorityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -20871,7 +20871,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
 
@@ -21041,7 +21041,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InterconnectAttachmentsScopedList
@@ -21050,7 +21050,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -21074,7 +21074,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentConfigurationConstraints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bgp_md5, 373_093_386, proto3_optional: true, type: :string, json_name: "bgpMd5"
 
@@ -21088,7 +21088,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentConfigurationConstraintsBgpPeerASNRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max, 107_876, proto3_optional: true, type: :uint32
   field :min, 108_114, proto3_optional: true, type: :uint32
@@ -21097,7 +21097,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroup.AttachmentsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupAttachment
@@ -21106,7 +21106,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachments, 334_744_496,
     repeated: true,
@@ -21149,7 +21149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachment, 183_982_371, proto3_optional: true, type: :string
 end
@@ -21157,7 +21157,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupConfigured do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_sla, 472_702_020,
     proto3_optional: true,
@@ -21168,7 +21168,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupConfiguredAvailabilitySLA do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :effective_sla, 144_173_712,
     proto3_optional: true,
@@ -21185,7 +21185,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupConfiguredAvailabilitySLAIntendedSlaBlockers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachments, 334_744_496, repeated: true, type: :string
   field :blocker_type, 381_194_847, proto3_optional: true, type: :string, json_name: "blockerType"
@@ -21204,7 +21204,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupIntent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_sla, 472_702_020,
     proto3_optional: true,
@@ -21215,7 +21215,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupLogicalStructure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :regions, 12_367_871,
     repeated: true,
@@ -21225,7 +21225,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupLogicalStructureRegion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metros, 533_067_386,
     repeated: true,
@@ -21237,7 +21237,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupLogicalStructureRegionMetro do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :facilities, 536_683_137,
     repeated: true,
@@ -21250,7 +21250,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupLogicalStructureRegionMetroFacility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :facility, 501_116_579, proto3_optional: true, type: :string
 
@@ -21263,7 +21263,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupLogicalStructureRegionMetroFacilityZone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachments, 334_744_496, repeated: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
@@ -21272,7 +21272,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsGetOperationalStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
 
@@ -21284,7 +21284,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -21308,7 +21308,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsOperationalStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachment_statuses, 491_132_860,
     repeated: true,
@@ -21334,7 +21334,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroupsOperationalStatusAttachmentStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
   field :attachment, 183_982_371, proto3_optional: true, type: :string
@@ -21345,7 +21345,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -21367,7 +21367,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentPartnerMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_name, 514_963_356,
     proto3_optional: true,
@@ -21381,7 +21381,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentPrivateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tag8021q, 271_820_992, proto3_optional: true, type: :uint32
 end
@@ -21389,7 +21389,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachments, 425_388_415,
     repeated: true,
@@ -21402,7 +21402,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectCircuitInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_demarc_id, 28_771_859,
     proto3_optional: true,
@@ -21423,7 +21423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnostics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :arp_caches, 414_591_761,
     repeated: true,
@@ -21450,7 +21450,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsARPEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
   field :mac_address, 332_540_164, proto3_optional: true, type: :string, json_name: "macAddress"
@@ -21459,7 +21459,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkLACPStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :google_system_id, 91_210_405,
     proto3_optional: true,
@@ -21477,7 +21477,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkOpticalPower do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 109_757_585, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :float
@@ -21486,7 +21486,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsLinkStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :arp_caches, 414_591_761,
     repeated: true,
@@ -21524,7 +21524,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectDiagnosticsMacsecStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ckn, 98566, proto3_optional: true, type: :string
   field :operational, 129_704_914, proto3_optional: true, type: :bool
@@ -21533,7 +21533,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroup.InterconnectsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.InterconnectGroupInterconnect
@@ -21542,7 +21542,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :configured, 295_631_422,
     proto3_optional: true,
@@ -21580,7 +21580,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupConfigured do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topology_capability, 144_190_696,
     proto3_optional: true,
@@ -21591,7 +21591,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupConfiguredTopologyCapability do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :intended_capability_blockers, 531_644_140,
     repeated: true,
@@ -21608,7 +21608,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupConfiguredTopologyCapabilityIntendedCapabilityBlockers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blocker_type, 381_194_847, proto3_optional: true, type: :string, json_name: "blockerType"
 
@@ -21627,7 +21627,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupIntent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topology_capability, 144_190_696,
     proto3_optional: true,
@@ -21638,7 +21638,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupInterconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, proto3_optional: true, type: :string
 end
@@ -21646,7 +21646,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupPhysicalStructure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metros, 533_067_386,
     repeated: true,
@@ -21656,7 +21656,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupPhysicalStructureMetros do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :facilities, 536_683_137,
     repeated: true,
@@ -21668,7 +21668,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupPhysicalStructureMetrosFacilities do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :facility, 501_116_579, proto3_optional: true, type: :string
 
@@ -21680,7 +21680,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupPhysicalStructureMetrosFacilitiesZones do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnects, 520_187_301, repeated: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
@@ -21689,7 +21689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :intent_mismatch_behavior, 164_408_000,
     proto3_optional: true,
@@ -21709,7 +21709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembersInterconnectInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
   field :customer_name, 3_665_484, proto3_optional: true, type: :string, json_name: "customerName"
@@ -21748,7 +21748,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsCreateMembersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request, 21_951_119,
     proto3_optional: true,
@@ -21758,7 +21758,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsGetOperationalStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
 
@@ -21770,7 +21770,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -21790,7 +21790,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsOperationalStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :configured, 295_631_422,
     proto3_optional: true,
@@ -21815,7 +21815,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectGroupsOperationalStatusInterconnectStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
 
@@ -21830,7 +21830,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Interconnect
@@ -21848,7 +21848,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, proto3_optional: true, type: :string
 
@@ -21914,7 +21914,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocationCrossSiteInterconnectInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :city, 3_053_931, proto3_optional: true, type: :string
 end
@@ -21922,7 +21922,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -21944,7 +21944,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectLocationRegionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :expected_rtt_ms, 422_543_866,
     proto3_optional: true,
@@ -21962,7 +21962,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectMacsec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fail_open, 532_597_451, proto3_optional: true, type: :bool, json_name: "failOpen"
 
@@ -21975,7 +21975,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectMacsecConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pre_shared_keys, 420_308_466,
     repeated: true,
@@ -21986,7 +21986,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectMacsecConfigPreSharedKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cak, 98253, proto3_optional: true, type: :string
   field :ckn, 98566, proto3_optional: true, type: :string
@@ -21997,7 +21997,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectMacsecPreSharedKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :start_time, 37_467_274, proto3_optional: true, type: :string, json_name: "startTime"
@@ -22006,7 +22006,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectOutageNotification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :affected_circuits, 177_717_013,
     repeated: true,
@@ -22025,7 +22025,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, proto3_optional: true, type: :string
 
@@ -22097,7 +22097,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationConstraints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :port_pair_remote_location, 495_917_351,
     proto3_optional: true,
@@ -22118,7 +22118,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationConstraintsSubnetLengthRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max, 107_876, proto3_optional: true, type: :int32
   field :min, 108_114, proto3_optional: true, type: :int32
@@ -22127,7 +22127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -22149,7 +22149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocationPermittedConnections do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_location, 492_235_846,
     proto3_optional: true,
@@ -22160,7 +22160,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectsGetDiagnosticsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :result, 139_315_229,
     proto3_optional: true,
@@ -22170,7 +22170,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InterconnectsGetMacsecConfigResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
 
@@ -22182,7 +22182,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InvalidateCacheRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cache_invalidation_rule_resource, 312_795_565,
     type: Google.Cloud.Compute.V1beta.CacheInvalidationRule,
@@ -22198,7 +22198,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.InvalidateCacheUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cache_invalidation_rule_resource, 312_795_565,
     type: Google.Cloud.Compute.V1beta.CacheInvalidationRule,
@@ -22213,7 +22213,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Items do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
@@ -22222,7 +22222,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.License do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed_replacement_licenses, 195_677_718,
     repeated: true,
@@ -22306,7 +22306,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicenseCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -22331,7 +22331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicenseCodeLicenseAlias do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
@@ -22340,7 +22340,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicenseResourceCommitment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :amount, 196_759_640, proto3_optional: true, type: :int64
 
@@ -22355,7 +22355,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicenseResourceRequirements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_guest_cpu_count, 477_964_836,
     proto3_optional: true,
@@ -22368,7 +22368,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LicensesListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.License
@@ -22385,7 +22385,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAcceleratorTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22404,7 +22404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22422,7 +22422,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAssociationsFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_resource, 467_318_524,
     proto3_optional: true,
@@ -22433,7 +22433,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAssociationsOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_resource, 467_318_524,
     proto3_optional: true,
@@ -22444,7 +22444,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAutoscalersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22463,7 +22463,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAvailableFeaturesRegionSslPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22481,7 +22481,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListAvailableFeaturesSslPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22498,7 +22498,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListBackendBucketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22515,7 +22515,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListBackendServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22532,7 +22532,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListBgpRoutesRoutersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address_family, 173_744_655,
     proto3_optional: true,
@@ -22570,7 +22570,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListCrossSiteNetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22587,7 +22587,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListDiskTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22606,7 +22606,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListDisksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22625,7 +22625,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListDisksStoragePoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22645,7 +22645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListErrorsInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -22670,7 +22670,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListErrorsRegionInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -22694,7 +22694,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListExternalVpnGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22711,7 +22711,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListFirewallPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22728,7 +22728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListFirewallsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22745,7 +22745,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListForwardingRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22763,7 +22763,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListFutureReservationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22782,7 +22782,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalAddressesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22799,7 +22799,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalForwardingRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22816,7 +22816,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22833,7 +22833,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22850,7 +22850,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalOrganizationOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22867,7 +22867,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListGlobalPublicDelegatedPrefixesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22884,7 +22884,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListHealthChecksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22901,7 +22901,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListImagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22920,7 +22920,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstanceGroupManagerResizeRequestsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -22945,7 +22945,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22964,7 +22964,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstanceGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -22983,7 +22983,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstanceTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23002,7 +23002,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstancesInstanceGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
@@ -23028,7 +23028,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstancesRegionInstanceGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
@@ -23052,7 +23052,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23072,7 +23072,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInstantSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23091,7 +23091,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectAttachmentGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23108,7 +23108,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23126,7 +23126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23143,7 +23143,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectLocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23160,7 +23160,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectRemoteLocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23177,7 +23177,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListInterconnectsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23194,7 +23194,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListLicensesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23211,7 +23211,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListMachineImagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23228,7 +23228,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListMachineTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23247,7 +23247,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListManagedInstancesInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -23272,7 +23272,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListManagedInstancesRegionInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -23296,7 +23296,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23314,7 +23314,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23333,7 +23333,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkEndpointsGlobalNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23356,7 +23356,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkEndpointsNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23386,7 +23386,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkEndpointsRegionNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23410,7 +23410,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkFirewallPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23427,7 +23427,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworkProfilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23444,7 +23444,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23461,7 +23461,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNodeGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23480,7 +23480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNodeTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23498,7 +23498,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNodeTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23517,7 +23517,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListNodesNodeGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23537,7 +23537,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListOrganizationSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23554,7 +23554,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPacketMirroringsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23572,7 +23572,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPeeringRoutesNetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :direction, 111_150_975, proto3_optional: true, type: :string
   field :filter, 336_120_696, proto3_optional: true, type: :string
@@ -23593,7 +23593,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPerInstanceConfigsInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -23618,7 +23618,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPerInstanceConfigsRegionInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -23642,7 +23642,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPreconfiguredExpressionSetsOrganizationSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23659,7 +23659,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPreconfiguredExpressionSetsSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23676,7 +23676,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPreviewFeaturesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23693,7 +23693,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPublicAdvertisedPrefixesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23710,7 +23710,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListPublicDelegatedPrefixesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23728,7 +23728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListReferrersInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :instance, 18_257_045, type: :string, deprecated: false
@@ -23748,7 +23748,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionAutoscalersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23766,7 +23766,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionBackendServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23784,7 +23784,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionCommitmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23802,7 +23802,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionDiskTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23820,7 +23820,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionDisksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23838,7 +23838,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionHealthCheckServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23856,7 +23856,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionHealthChecksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23874,7 +23874,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstanceGroupManagerResizeRequestsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
 
@@ -23898,7 +23898,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstanceGroupManagersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23916,7 +23916,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstanceGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23934,7 +23934,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstanceTemplatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23954,7 +23954,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionInstantSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23972,7 +23972,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionMultiMigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -23990,7 +23990,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionNetworkEndpointGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24008,7 +24008,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionNetworkFirewallPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24026,7 +24026,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionNotificationEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24044,7 +24044,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24062,7 +24062,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24080,7 +24080,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24098,7 +24098,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24116,7 +24116,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionSslPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24134,7 +24134,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionTargetHttpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24152,7 +24152,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionTargetHttpsProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24170,7 +24170,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionTargetTcpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24188,7 +24188,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionUrlMapsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24206,7 +24206,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionZonesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24224,7 +24224,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRegionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24241,7 +24241,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListReservationBlocksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24261,7 +24261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListReservationSubBlocksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24281,7 +24281,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListReservationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24300,7 +24300,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24318,7 +24318,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRoutePoliciesRoutersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24338,7 +24338,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRoutersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24356,7 +24356,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24373,7 +24373,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListSecurityPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24390,7 +24390,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListServiceAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24408,7 +24408,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24425,7 +24425,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24442,7 +24442,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListSslPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24459,7 +24459,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListStoragePoolTypesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24478,7 +24478,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListStoragePoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24497,7 +24497,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListSubnetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24515,7 +24515,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetGrpcProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24532,7 +24532,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetHttpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24549,7 +24549,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetHttpsProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24566,7 +24566,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24585,7 +24585,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetPoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24603,7 +24603,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetSslProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24620,7 +24620,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetTcpProxiesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24637,7 +24637,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListTargetVpnGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24655,7 +24655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListUrlMapsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24672,7 +24672,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListUsableBackendBucketsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24689,7 +24689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListUsableBackendServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24706,7 +24706,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListUsableRegionBackendServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24724,7 +24724,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListUsableSubnetworksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24746,7 +24746,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListVpnGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24764,7 +24764,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListVpnTunnelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24782,7 +24782,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListWireGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -24804,7 +24804,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListXpnHostsProjectsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24826,7 +24826,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListZoneOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24845,7 +24845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ListZonesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 336_120_696, proto3_optional: true, type: :string
   field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
@@ -24862,7 +24862,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocalDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_count, 182_933_485, proto3_optional: true, type: :int32, json_name: "diskCount"
   field :disk_size_gb, 316_263_735, proto3_optional: true, type: :int32, json_name: "diskSizeGb"
@@ -24872,7 +24872,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocalizedMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locale, 513_150_554, proto3_optional: true, type: :string
   field :message, 418_054_151, proto3_optional: true, type: :string
@@ -24881,7 +24881,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicy.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.LocationPolicyLocation
@@ -24890,7 +24890,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 413_423_454,
     repeated: true,
@@ -24903,7 +24903,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicyLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :constraints, 3_909_174,
     proto3_optional: true,
@@ -24915,7 +24915,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.LocationPolicyLocationConstraints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_count, 287_620_724, proto3_optional: true, type: :int32, json_name: "maxCount"
 end
@@ -24923,7 +24923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineImage.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -24932,7 +24932,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -25007,7 +25007,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineImageList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.MachineImage
@@ -25025,7 +25025,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerators, 269_577_064, repeated: true, type: Google.Cloud.Compute.V1beta.Accelerators
   field :architecture, 302_803_283, proto3_optional: true, type: :string
@@ -25075,7 +25075,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineTypeAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.MachineTypesScopedList
@@ -25084,7 +25084,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineTypeAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -25108,7 +25108,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.MachineType
@@ -25126,7 +25126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MachineTypesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_types, 79_720_065,
     repeated: true,
@@ -25139,7 +25139,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_instances_config, 112_596_737,
     proto3_optional: true,
@@ -25199,7 +25199,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceAllInstancesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :revision, 276_084_699, proto3_optional: true, type: :string
 end
@@ -25207,7 +25207,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceInstanceHealth do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :detailed_health_state, 510_470_173,
     proto3_optional: true,
@@ -25220,7 +25220,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceLastAttempt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :errors, 315_977_579,
     proto3_optional: true,
@@ -25230,7 +25230,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceLastAttemptErrors do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :errors, 315_977_579, repeated: true, type: Google.Cloud.Compute.V1beta.Errors
 end
@@ -25238,7 +25238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstancePropertiesFromFlexibilityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :machine_type, 227_711_026, proto3_optional: true, type: :string, json_name: "machineType"
 
@@ -25251,7 +25251,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ManagedInstanceVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     proto3_optional: true,
@@ -25264,7 +25264,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Items
@@ -25274,7 +25274,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MetadataFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter_labels, 307_903_142,
     repeated: true,
@@ -25290,7 +25290,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MetadataFilterLabelMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
@@ -25299,7 +25299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -25316,7 +25316,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveDiskProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_move_request_resource, 313_008_458,
     type: Google.Cloud.Compute.V1beta.DiskMoveRequest,
@@ -25330,7 +25330,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -25344,7 +25344,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, type: :string, deprecated: false
 
@@ -25360,7 +25360,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveInstanceProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_move_request_resource, 311_664_194,
     type: Google.Cloud.Compute.V1beta.InstanceMoveRequest,
@@ -25374,7 +25374,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MoveOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent_id, 459_714_768,
     proto3_optional: true,
@@ -25393,7 +25393,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MultiMig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -25417,7 +25417,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MultiMigResourcePolicies do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workload_policy, 114_721_530,
     proto3_optional: true,
@@ -25428,7 +25428,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.MultiMigsList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -25448,7 +25448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NamedPort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :port, 3_446_913, proto3_optional: true, type: :int32
@@ -25457,7 +25457,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NatIpInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nat_ip_info_mappings, 241_401_884,
     repeated: true,
@@ -25470,7 +25470,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NatIpInfoNatIpInfoMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 3_357_091, proto3_optional: true, type: :string
   field :nat_ip, 21_113_093, proto3_optional: true, type: :string, json_name: "natIp"
@@ -25480,7 +25480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NatIpInfoResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :result, 139_315_229, repeated: true, type: Google.Cloud.Compute.V1beta.NatIpInfo
 end
@@ -25488,7 +25488,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Network do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :I_pv4_range, 59_234_358, proto3_optional: true, type: :string, json_name: "IPv4Range"
 
@@ -25564,7 +25564,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connection_endpoints, 326_078_813,
     repeated: true,
@@ -25612,7 +25612,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NetworkAttachmentsScopedList
@@ -25621,7 +25621,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -25644,7 +25644,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentConnectedEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_address, 406_272_220, proto3_optional: true, type: :string, json_name: "ipAddress"
   field :ipv6_address, 341_563_804, proto3_optional: true, type: :string, json_name: "ipv6Address"
@@ -25671,7 +25671,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.NetworkAttachment
@@ -25689,7 +25689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkAttachmentsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachments, 521_514_783,
     repeated: true,
@@ -25702,7 +25702,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEdgeSecurityService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -25732,7 +25732,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEdgeSecurityServiceAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NetworkEdgeSecurityServicesScopedList
@@ -25741,7 +25741,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEdgeSecurityServiceAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -25766,7 +25766,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEdgeSecurityServicesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_edge_security_services, 35_530_156,
     repeated: true,
@@ -25779,7 +25779,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpoint.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -25788,7 +25788,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :annotations, 112_032_548,
     repeated: true,
@@ -25810,7 +25810,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroup.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -25819,7 +25819,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :annotations, 112_032_548,
     repeated: true,
@@ -25890,7 +25890,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NetworkEndpointGroupsScopedList
@@ -25899,7 +25899,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -25923,7 +25923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupAppEngine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service, 373_540_533, proto3_optional: true, type: :string
   field :url_mask, 103_352_252, proto3_optional: true, type: :string, json_name: "urlMask"
@@ -25933,7 +25933,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupCloudFunction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :function, 307_196_888, proto3_optional: true, type: :string
   field :url_mask, 103_352_252, proto3_optional: true, type: :string, json_name: "urlMask"
@@ -25942,7 +25942,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupCloudRun do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service, 373_540_533, proto3_optional: true, type: :string
   field :tag, 114_586, proto3_optional: true, type: :string
@@ -25952,7 +25952,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupLbNetworkEndpointGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_port, 423_377_855, proto3_optional: true, type: :int32, json_name: "defaultPort"
   field :network, 232_872_494, proto3_optional: true, type: :string
@@ -25963,7 +25963,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -25985,7 +25985,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupPscData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumer_psc_address, 452_646_572,
     proto3_optional: true,
@@ -26011,7 +26011,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupServerlessDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :platform, 264_071_283, proto3_optional: true, type: :string
   field :resource, 195_806_222, proto3_optional: true, type: :string
@@ -26022,7 +26022,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsAttachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -26033,7 +26033,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsDetachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -26044,7 +26044,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsListEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoint_filters, 382_665_553,
     repeated: true,
@@ -26061,7 +26061,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsListEndpointsRequestNetworkEndpointFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint, 56_789_126,
     proto3_optional: true,
@@ -26072,7 +26072,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsListNetworkEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -26093,7 +26093,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroupsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoint_groups, 29_346_733,
     repeated: true,
@@ -26106,7 +26106,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkEndpointWithHealthStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :healths, 258_689_431,
     repeated: true,
@@ -26121,7 +26121,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkFirewallPolicyAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.FirewallPoliciesScopedList
@@ -26130,7 +26130,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkFirewallPolicyAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -26154,7 +26154,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_configs, 111_058_326,
     repeated: true,
@@ -26211,7 +26211,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Network
@@ -26229,7 +26229,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -26238,7 +26238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -26250,7 +26250,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeering do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_create_routes, 57_454_941,
     proto3_optional: true,
@@ -26307,7 +26307,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consensus_state, 379_772_617,
     proto3_optional: true,
@@ -26328,7 +26328,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatusConsensusState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :delete_status, 483_434_758,
     proto3_optional: true,
@@ -26344,7 +26344,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPeeringConnectionStatusTrafficConfiguration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :export_custom_routes_to_peer, 286_428_404,
     proto3_optional: true,
@@ -26372,7 +26372,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkPerformanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :total_egress_bandwidth_tier, 130_109_439,
     proto3_optional: true,
@@ -26383,7 +26383,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -26417,7 +26417,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :scope, 109_264_468, proto3_optional: true, type: :string
@@ -26426,7 +26426,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address_purposes, 433_024_768,
     repeated: true,
@@ -26552,7 +26552,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkProfilesListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -26572,7 +26572,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bgp_always_compare_med, 213_102_902,
     proto3_optional: true,
@@ -26605,7 +26605,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksAddPeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_create_routes, 57_454_941,
     proto3_optional: true,
@@ -26625,7 +26625,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksGetEffectiveFirewallsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policys, 410_985_794,
     repeated: true,
@@ -26645,7 +26645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksGetEffectiveFirewallsResponseEffectiveFirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -26664,7 +26664,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksGetEffectiveFirewallsResponseOrganizationFirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :uint64
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1beta.SecurityPolicyRule
@@ -26673,7 +26673,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksRemovePeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
@@ -26681,7 +26681,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksRequestRemovePeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
@@ -26689,7 +26689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NetworksUpdatePeeringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_peering, 328_926_767,
     proto3_optional: true,
@@ -26700,7 +26700,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaling_policy, 221_950_041,
     proto3_optional: true,
@@ -26759,7 +26759,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NodeGroupsScopedList
@@ -26768,7 +26768,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -26792,7 +26792,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupAutoscalingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_nodes, 297_762_838, proto3_optional: true, type: :int32, json_name: "maxNodes"
   field :min_nodes, 533_370_500, proto3_optional: true, type: :int32, json_name: "minNodes"
@@ -26802,7 +26802,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.NodeGroup
@@ -26820,7 +26820,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupMaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_duration, 525_291_840,
     proto3_optional: true,
@@ -26833,7 +26833,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerators, 269_577_064,
     repeated: true,
@@ -26883,7 +26883,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsAddNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :additional_node_count, 134_997_930,
     proto3_optional: true,
@@ -26894,7 +26894,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsDeleteNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nodes, 104_993_457, repeated: true, type: :string
 end
@@ -26902,7 +26902,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsListNodes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.NodeGroupNode
@@ -26920,7 +26920,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsPerformMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nodes, 104_993_457, repeated: true, type: :string
   field :start_time, 37_467_274, proto3_optional: true, type: :string, json_name: "startTime"
@@ -26929,7 +26929,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_groups, 73_188_017,
     repeated: true,
@@ -26942,7 +26942,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsSetNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_template, 323_154_455,
     proto3_optional: true,
@@ -26953,7 +26953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeGroupsSimulateMaintenanceEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nodes, 104_993_457, repeated: true, type: :string
 end
@@ -26961,7 +26961,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplate.NodeAffinityLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -26970,7 +26970,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerators, 269_577_064,
     repeated: true,
@@ -27024,7 +27024,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplateAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NodeTemplatesScopedList
@@ -27033,7 +27033,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplateAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -27057,7 +27057,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplateList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.NodeTemplate
@@ -27075,7 +27075,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplateNodeTypeFlexibility do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpus, 3_060_683, proto3_optional: true, type: :string
   field :local_ssd, 405_741_360, proto3_optional: true, type: :string, json_name: "localSsd"
@@ -27085,7 +27085,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTemplatesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_templates, 354_111_804,
     repeated: true,
@@ -27098,7 +27098,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpu_platform, 410_285_354, proto3_optional: true, type: :string, json_name: "cpuPlatform"
 
@@ -27126,7 +27126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTypeAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.NodeTypesScopedList
@@ -27135,7 +27135,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTypeAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -27159,7 +27159,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.NodeType
@@ -27177,7 +27177,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NodeTypesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_types, 482_172_924,
     repeated: true,
@@ -27190,7 +27190,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NotificationEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -27214,7 +27214,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NotificationEndpointGrpcSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authority, 401_868_611, proto3_optional: true, type: :string
   field :endpoint, 130_489_749, proto3_optional: true, type: :string
@@ -27234,7 +27234,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.NotificationEndpointList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -27256,7 +27256,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Operation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_operation_id, 297_240_295,
     proto3_optional: true,
@@ -27337,7 +27337,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OperationAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.OperationsScopedList
@@ -27346,7 +27346,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OperationAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -27370,7 +27370,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OperationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Operation
@@ -27388,7 +27388,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OperationsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operations, 4_184_044, repeated: true, type: Google.Cloud.Compute.V1beta.Operation
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -27397,7 +27397,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OrganizationSecurityPoliciesListAssociationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :associations, 508_736_530,
     repeated: true,
@@ -27409,7 +27409,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.OutlierDetection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :base_ejection_time, 80_997_255,
     proto3_optional: true,
@@ -27467,7 +27467,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketIntervals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :avg_ms, 204_811_827, proto3_optional: true, type: :int64, json_name: "avgMs"
   field :duration, 155_471_252, proto3_optional: true, type: :string
@@ -27485,7 +27485,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroring do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :collector_ilb, 426_607_853,
     proto3_optional: true,
@@ -27526,7 +27526,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.PacketMirroringsScopedList
@@ -27535,7 +27535,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -27559,7 +27559,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :I_p_protocols, 98_544_854, repeated: true, type: :string, json_name: "IPProtocols"
   field :cidr_ranges, 487_901_697, repeated: true, type: :string, json_name: "cidrRanges"
@@ -27569,7 +27569,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringForwardingRuleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :canonical_url, 512_294_820,
     proto3_optional: true,
@@ -27582,7 +27582,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.PacketMirroring
@@ -27600,7 +27600,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringMirroredResourceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -27616,7 +27616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringMirroredResourceInfoInstanceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :canonical_url, 512_294_820,
     proto3_optional: true,
@@ -27629,7 +27629,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringMirroredResourceInfoSubnetInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :canonical_url, 512_294_820,
     proto3_optional: true,
@@ -27642,7 +27642,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringNetworkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :canonical_url, 512_294_820,
     proto3_optional: true,
@@ -27655,7 +27655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PacketMirroringsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :packet_mirrorings, 154_615_079,
     repeated: true,
@@ -27668,7 +27668,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PartnerMetadata.PartnerMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StructuredEntries
@@ -27677,7 +27677,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PartnerMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
 
@@ -27691,7 +27691,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -27711,7 +27711,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, proto3_optional: true, type: :string
 
@@ -27728,7 +27728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
 
@@ -27744,7 +27744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -27763,7 +27763,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchCrossSiteNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -27784,7 +27784,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchDiskSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_settings_resource, 267_573_896,
     type: Google.Cloud.Compute.V1beta.DiskSettings,
@@ -27800,7 +27800,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -27818,7 +27818,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall, 511_016_192, type: :string, deprecated: false
 
@@ -27834,7 +27834,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -27854,7 +27854,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -27873,7 +27873,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchGlobalPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -27893,7 +27893,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
 
@@ -27909,7 +27909,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :image, 100_313_435, type: :string, deprecated: false
 
@@ -27925,7 +27925,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -27945,7 +27945,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInstanceSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_settings_resource, 290_689_920,
     type: Google.Cloud.Compute.V1beta.InstanceSettings,
@@ -27961,7 +27961,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment_group, 75_905_012,
     type: :string,
@@ -27981,7 +27981,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_attachment, 308_135_284,
     type: :string,
@@ -28001,7 +28001,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect_group, 388_651_918,
     type: :string,
@@ -28021,7 +28021,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, type: :string, deprecated: false
 
@@ -28037,7 +28037,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment, 224_644_052,
     type: :string,
@@ -28057,7 +28057,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchNetworkEdgeSecurityServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_edge_security_service, 157_011_879,
     type: :string,
@@ -28079,7 +28079,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28098,7 +28098,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
 
@@ -28114,7 +28114,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -28131,7 +28131,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 
@@ -28149,7 +28149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPacketMirroringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :packet_mirroring, 22_305_996,
     type: :string,
@@ -28169,7 +28169,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPacketMirroringRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28188,7 +28188,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPacketMirroringRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28208,7 +28208,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPartnerMetadataInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -28225,7 +28225,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPerInstanceConfigsInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -28245,7 +28245,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPerInstanceConfigsRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -28266,7 +28266,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -28286,7 +28286,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -28307,7 +28307,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, proto3_optional: true, type: :string
 
@@ -28324,7 +28324,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -28344,7 +28344,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionDiskSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_settings_resource, 267_573_896,
     type: Google.Cloud.Compute.V1beta.DiskSettings,
@@ -28360,7 +28360,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
 
@@ -28377,7 +28377,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionHealthCheckServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check_service, 408_374_747,
     type: :string,
@@ -28397,7 +28397,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -28417,7 +28417,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28437,7 +28437,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28459,7 +28459,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionSnapshotSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28476,7 +28476,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28492,7 +28492,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28512,7 +28512,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28528,7 +28528,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28550,7 +28550,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRoutePolicyRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28567,7 +28567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28583,7 +28583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28602,7 +28602,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28622,7 +28622,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28641,7 +28641,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -28662,7 +28662,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -28685,7 +28685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchRuleSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -28707,7 +28707,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28728,7 +28728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -28748,7 +28748,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchSnapshotSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28764,7 +28764,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28779,7 +28779,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :drain_timeout_seconds, 357_707_098,
     proto3_optional: true,
@@ -28800,7 +28800,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchTargetGrpcProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28819,7 +28819,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28838,7 +28838,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28857,7 +28857,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -28872,7 +28872,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PatchWireGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cross_site_network, 108_192_469,
     type: :string,
@@ -28894,7 +28894,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PathMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_custom_error_response_policy, 81_266_089,
     proto3_optional: true,
@@ -28939,7 +28939,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PathRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_error_response_policy, 202_816_619,
     proto3_optional: true,
@@ -28964,7 +28964,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -28980,7 +28980,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -28991,7 +28991,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -29008,7 +29008,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceReservationBlockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -29030,7 +29030,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -29047,7 +29047,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PerformMaintenanceReservationSubBlockRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -29064,7 +29064,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Policy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audit_configs, 328_080_653,
     repeated: true,
@@ -29080,7 +29080,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreconfiguredWafSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :expression_sets, 474_011_032,
     repeated: true,
@@ -29091,7 +29091,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedState.DisksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.PreservedStatePreservedDisk
@@ -29100,7 +29100,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedState.ExternalIPsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.PreservedStatePreservedNetworkIp
@@ -29109,7 +29109,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedState.InternalIPsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.PreservedStatePreservedNetworkIp
@@ -29118,7 +29118,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedState.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -29127,7 +29127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks, 95_594_102,
     repeated: true,
@@ -29155,7 +29155,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :string, json_name: "autoDelete"
   field :mode, 3_357_091, proto3_optional: true, type: :string
@@ -29165,7 +29165,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedNetworkIp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :string, json_name: "autoDelete"
 
@@ -29178,7 +29178,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreservedStatePreservedNetworkIpIpAddress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 462_920_692, proto3_optional: true, type: :string
   field :literal, 182_460_591, proto3_optional: true, type: :string
@@ -29187,7 +29187,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :activation_status, 71_960_379,
     proto3_optional: true,
@@ -29219,7 +29219,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -29238,7 +29238,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureRolloutOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rollout_input, 265_745_340,
     proto3_optional: true,
@@ -29254,7 +29254,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureRolloutOperationRolloutInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -29269,7 +29269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureRolloutOperationRolloutStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ongoing_rollouts, 389_110_054,
     repeated: true,
@@ -29285,7 +29285,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureRolloutOperationRolloutStatusRolloutMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rollout, 303_366_577, proto3_optional: true, type: :string
   field :rollout_plan, 459_057_399, proto3_optional: true, type: :string, json_name: "rolloutPlan"
@@ -29298,7 +29298,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -29311,7 +29311,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewFeatureStatusReleaseStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stage, 109_757_182, proto3_optional: true, type: :string
 
@@ -29324,7 +29324,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PreviewRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -29339,7 +29339,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Project do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cloud_armor_tier, 4_427_052,
     proto3_optional: true,
@@ -29404,7 +29404,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsDisableXpnResourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :xpn_resource, 133_384_631,
     proto3_optional: true,
@@ -29415,7 +29415,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsEnableXpnResourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :xpn_resource, 133_384_631,
     proto3_optional: true,
@@ -29426,7 +29426,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsGetXpnResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
@@ -29441,7 +29441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsListXpnHostsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :organization, 105_180_467, proto3_optional: true, type: :string
 end
@@ -29449,7 +29449,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetCloudArmorTierRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cloud_armor_tier, 4_427_052,
     proto3_optional: true,
@@ -29460,7 +29460,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetDefaultNetworkTierRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_tier, 517_397_843, proto3_optional: true, type: :string, json_name: "networkTier"
 end
@@ -29468,7 +29468,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ProjectsSetManagedProtectionTierRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :managed_protection_tier, 7_804_648,
     proto3_optional: true,
@@ -29479,7 +29479,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :byoip_api_version, 162_683_283,
     proto3_optional: true,
@@ -29523,7 +29523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefixList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -29545,7 +29545,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefixPublicDelegatedPrefix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_range, 145_092_645, proto3_optional: true, type: :string, json_name: "ipRange"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -29557,7 +29557,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allocatable_prefix_length, 38_427_446,
     proto3_optional: true,
@@ -29606,7 +29606,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.PublicDelegatedPrefixesScopedList
@@ -29615,7 +29615,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -29639,7 +29639,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -29661,7 +29661,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixPublicDelegatedSubPrefix do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allocatable_prefix_length, 38_427_446,
     proto3_optional: true,
@@ -29685,7 +29685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_delegated_prefixes, 315_261_206,
     repeated: true,
@@ -29698,7 +29698,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Quota do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :limit, 102_976_443, proto3_optional: true, type: :double
   field :metric, 533_067_184, proto3_optional: true, type: :string
@@ -29709,7 +29709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.QuotaExceededInfo.DimensionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -29718,7 +29718,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.QuotaExceededInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 414_334_925,
     repeated: true,
@@ -29739,7 +29739,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.QuotaStatusWarning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1beta.Data
@@ -29749,7 +29749,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RawDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :container_type, 318_809_144,
     proto3_optional: true,
@@ -29767,7 +29767,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RecreateInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -29787,7 +29787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RecreateInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -29808,7 +29808,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
@@ -29824,7 +29824,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Region do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -29855,7 +29855,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionAddressesMoveRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -29868,7 +29868,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionAutoscalerList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Autoscaler
@@ -29886,7 +29886,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionCommitmentsUpdateReservationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reservations, 399_717_927, repeated: true, type: Google.Cloud.Compute.V1beta.Reservation
 end
@@ -29894,7 +29894,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionDiskTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.DiskType
@@ -29912,7 +29912,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionDisksAddResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -29923,7 +29923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionDisksRemoveResourcePoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -29934,7 +29934,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionDisksResizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :size_gb, 494_929_369, proto3_optional: true, type: :int64, json_name: "sizeGb"
 end
@@ -29942,7 +29942,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionDisksStartAsyncReplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :async_secondary_disk, 131_645_867,
     proto3_optional: true,
@@ -29953,7 +29953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.InstanceGroup
@@ -29971,7 +29971,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerDeleteInstanceConfigReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :names, 104_585_032, repeated: true, type: :string
 end
@@ -29979,7 +29979,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -30001,7 +30001,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerPatchInstanceConfigReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :per_instance_configs, 526_265_001,
     repeated: true,
@@ -30012,7 +30012,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerResizeRequestsListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -30036,7 +30036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerUpdateInstanceConfigReq do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :per_instance_configs, 526_265_001,
     repeated: true,
@@ -30047,7 +30047,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersAbandonInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -30055,7 +30055,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersApplyUpdatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :all_instances, 403_676_512, proto3_optional: true, type: :bool, json_name: "allInstances"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -30074,7 +30074,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersCreateInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -30084,7 +30084,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersDeleteInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 
@@ -30097,7 +30097,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersListErrorsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016,
     repeated: true,
@@ -30112,7 +30112,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersListInstanceConfigsResp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.PerInstanceConfig
 
@@ -30127,7 +30127,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :managed_instances, 336_219_614,
     repeated: true,
@@ -30143,7 +30143,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersRecreateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -30151,7 +30151,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersResizeAdvancedRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :no_creation_retries, 39_329_444,
     proto3_optional: true,
@@ -30164,7 +30164,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersResumeInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -30172,7 +30172,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersSetAutoHealingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_healing_policies, 456_799_109,
     repeated: true,
@@ -30183,7 +30183,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersSetTargetPoolsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :target_pools, 336_072_617, repeated: true, type: :string, json_name: "targetPools"
@@ -30192,7 +30192,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersSetTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_template, 309_248_228,
     proto3_optional: true,
@@ -30203,7 +30203,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersStartInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598, repeated: true, type: :string
 end
@@ -30211,7 +30211,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersStopInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :force_stop, 134_762_710, proto3_optional: true, type: :bool, json_name: "forceStop"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -30220,7 +30220,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagersSuspendInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :force_suspend, 27_637_480, proto3_optional: true, type: :bool, json_name: "forceSuspend"
   field :instances, 29_097_598, repeated: true, type: :string
@@ -30229,7 +30229,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupsListInstances do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -30251,7 +30251,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupsListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_state, 92_223_591,
     proto3_optional: true,
@@ -30264,7 +30264,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupsSetNamedPortsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
 
@@ -30277,7 +30277,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Region
@@ -30295,7 +30295,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionNetworkEndpointGroupsAttachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -30306,7 +30306,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionNetworkEndpointGroupsDetachEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_endpoints, 149_850_285,
     repeated: true,
@@ -30317,7 +30317,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policys, 410_985_794,
     repeated: true,
@@ -30331,7 +30331,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionNetworkFirewallPoliciesGetEffectiveFirewallsResponseEffectiveFirewallPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -30349,7 +30349,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionSetLabelsRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -30358,7 +30358,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :label_fingerprint, 178_124_825,
     proto3_optional: true,
@@ -30374,7 +30374,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionSetPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bindings, 403_251_854, repeated: true, type: Google.Cloud.Compute.V1beta.Binding
   field :etag, 3_123_477, proto3_optional: true, type: :string
@@ -30384,7 +30384,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionTargetHttpsProxiesSetSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_certificates, 366_006_543,
     repeated: true,
@@ -30395,7 +30395,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RegionUrlMapsValidateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222, proto3_optional: true, type: Google.Cloud.Compute.V1beta.UrlMap
 end
@@ -30403,7 +30403,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveAssociationFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30417,7 +30417,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveAssociationNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30432,7 +30432,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveAssociationOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -30446,7 +30446,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30462,7 +30462,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveHealthCheckTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -30478,7 +30478,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveInstanceTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -30494,7 +30494,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveInstancesInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
 
@@ -30511,7 +30511,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemovePacketMirroringRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30525,7 +30525,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemovePacketMirroringRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30540,7 +30540,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemovePeeringNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
 
@@ -30556,7 +30556,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveResourcePoliciesDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -30573,7 +30573,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveResourcePoliciesInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -30590,7 +30590,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveResourcePoliciesRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -30607,7 +30607,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30621,7 +30621,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30636,7 +30636,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleOrganizationSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -30650,7 +30650,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall_policy, 498_173_265,
     type: :string,
@@ -30666,7 +30666,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -30681,7 +30681,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RemoveRuleSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
@@ -30695,7 +30695,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReportHostAsFaultyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -30712,7 +30712,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RequestMirrorPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     proto3_optional: true,
@@ -30728,7 +30728,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RequestRemovePeeringNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
 
@@ -30744,7 +30744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reservation.ResourcePoliciesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -30753,7 +30753,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Reservation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregate_reservation, 291_567_948,
     proto3_optional: true,
@@ -30845,7 +30845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consume_reservation_type, 300_736_944,
     proto3_optional: true,
@@ -30859,7 +30859,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ReservationsScopedList
@@ -30868,7 +30868,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -30892,7 +30892,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int32
 
@@ -30940,7 +30940,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlockPhysicalTopology do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :block, 93_832_333, proto3_optional: true, type: :string
   field :cluster, 335_221_242, proto3_optional: true, type: :string
@@ -30953,7 +30953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlockPhysicalTopologyInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_id, 45_488_389, proto3_optional: true, type: :uint64, json_name: "instanceId"
 
@@ -30969,7 +30969,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlockPhysicalTopologyInstancePhysicalHostTopology do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host, 3_208_616, proto3_optional: true, type: :string
   field :sub_block, 478_033_358, proto3_optional: true, type: :string, json_name: "subBlock"
@@ -30978,7 +30978,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlocksGetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222,
     proto3_optional: true,
@@ -30988,7 +30988,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationBlocksListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.ReservationBlock
@@ -31006,7 +31006,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Reservation
@@ -31024,7 +31024,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int32
 
@@ -31062,7 +31062,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlockPhysicalTopology do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :block, 93_832_333, proto3_optional: true, type: :string
   field :cluster, 335_221_242, proto3_optional: true, type: :string
@@ -31072,7 +31072,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocksGetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222,
     proto3_optional: true,
@@ -31082,7 +31082,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocksListResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.ReservationSubBlock
@@ -31100,7 +31100,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsBlocksPerformMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_scope, 140_687_912,
     proto3_optional: true,
@@ -31111,7 +31111,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsPerformMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_scope, 140_687_912,
     proto3_optional: true,
@@ -31122,7 +31122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsResizeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :specific_sku_count, 13_890_720,
     proto3_optional: true,
@@ -31133,7 +31133,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ReservationsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reservations, 399_717_927, repeated: true, type: Google.Cloud.Compute.V1beta.Reservation
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -31142,7 +31142,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -31153,7 +31153,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeAdvancedInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31173,7 +31173,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeAdvancedRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31194,7 +31194,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -31211,7 +31211,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31227,7 +31227,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -31244,7 +31244,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31260,7 +31260,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResizeReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -31277,7 +31277,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceCommitment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_type, 138_031_246,
     proto3_optional: true,
@@ -31291,7 +31291,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceGroupReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group, 98_629_247, proto3_optional: true, type: :string
 end
@@ -31299,7 +31299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePoliciesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_policies, 22_220_385,
     repeated: true,
@@ -31312,7 +31312,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -31365,7 +31365,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ResourcePoliciesScopedList
@@ -31374,7 +31374,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -31399,7 +31399,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyDailyCycle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :days_in_cycle, 369_790_004, proto3_optional: true, type: :int32, json_name: "daysInCycle"
   field :duration, 155_471_252, proto3_optional: true, type: :string
@@ -31409,13 +31409,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyDiskConsistencyGroupPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyGroupPlacementPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_domain_count, 12_453_432,
     proto3_optional: true,
@@ -31433,7 +31433,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyHourlyCycle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :duration, 155_471_252, proto3_optional: true, type: :string
 
@@ -31448,7 +31448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyInstanceSchedulePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :expiration_time, 230_299_229,
     proto3_optional: true,
@@ -31472,7 +31472,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyInstanceSchedulePolicySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schedule, 375_820_951, proto3_optional: true, type: :string
 end
@@ -31480,7 +31480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -31499,7 +31499,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_schedule_policy, 344_877_104,
     proto3_optional: true,
@@ -31510,7 +31510,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyResourceStatusInstanceSchedulePolicyStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :last_run_start_time, 303_069_063,
     proto3_optional: true,
@@ -31526,7 +31526,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retention_policy, 68_625_779,
     proto3_optional: true,
@@ -31546,7 +31546,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicyRetentionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_retention_days, 324_296_979,
     proto3_optional: true,
@@ -31562,7 +31562,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :daily_schedule, 86_159_869,
     proto3_optional: true,
@@ -31583,7 +31583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicySnapshotProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -31592,7 +31592,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicySnapshotSchedulePolicySnapshotProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chain_name, 68_644_169, proto3_optional: true, type: :string, json_name: "chainName"
   field :guest_flush, 385_550_813, proto3_optional: true, type: :bool, json_name: "guestFlush"
@@ -31614,7 +31614,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWeeklyCycle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day_of_weeks, 257_871_834,
     repeated: true,
@@ -31625,7 +31625,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWeeklyCycleDayOfWeek do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day, 99228, proto3_optional: true, type: :string
   field :duration, 155_471_252, proto3_optional: true, type: :string
@@ -31635,7 +31635,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourcePolicyWorkloadPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accelerator_topology, 389_323_203,
     proto3_optional: true,
@@ -31653,7 +31653,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :physical_host, 464_370_704,
     proto3_optional: true,
@@ -31683,7 +31683,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatusPhysicalHostTopology do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :block, 93_832_333, proto3_optional: true, type: :string
   field :cluster, 335_221_242, proto3_optional: true, type: :string
@@ -31694,7 +31694,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatusScheduling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_domain, 252_514_344,
     proto3_optional: true,
@@ -31710,7 +31710,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResourceStatusShutdownDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_duration, 39_954_959,
     proto3_optional: true,
@@ -31729,7 +31729,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResumeInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -31746,7 +31746,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResumeInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31766,7 +31766,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ResumeInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -31787,7 +31787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RolloutPolicy.LocationRolloutPoliciesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -31796,7 +31796,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RolloutPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_rollout_time, 413_529_561,
     proto3_optional: true,
@@ -31813,7 +31813,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Route do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :as_paths, 137_568_929,
     repeated: true,
@@ -31890,7 +31890,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouteAsPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :as_lists, 134_112_584, repeated: true, type: :uint32, json_name: "asLists"
 
@@ -31903,7 +31903,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouteList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Route
@@ -31921,7 +31921,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouteParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -31930,7 +31930,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouteParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -31942,7 +31942,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
@@ -31958,7 +31958,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutePolicyPolicyTerm do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :actions, 448_809_213, repeated: true, type: Google.Cloud.Compute.V1beta.Expr
   field :match, 103_668_165, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Expr
@@ -31968,7 +31968,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Router do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bgp, 97483, proto3_optional: true, type: Google.Cloud.Compute.V1beta.RouterBgp
 
@@ -32010,7 +32010,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterAdvertisedIpRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
   field :range, 108_280_125, proto3_optional: true, type: :string
@@ -32019,7 +32019,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.RoutersScopedList
@@ -32028,7 +32028,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -32052,7 +32052,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advertise_mode, 312_134_331,
     proto3_optional: true,
@@ -32085,7 +32085,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advertise_mode, 312_134_331,
     proto3_optional: true,
@@ -32179,7 +32179,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeerBfd do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_receive_interval, 186_981_614,
     proto3_optional: true,
@@ -32202,7 +32202,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterBgpPeerCustomLearnedIpRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :range, 108_280_125, proto3_optional: true, type: :string
 end
@@ -32210,7 +32210,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_range, 145_092_645, proto3_optional: true, type: :string, json_name: "ipRange"
   field :ip_version, 294_959_552, proto3_optional: true, type: :string, json_name: "ipVersion"
@@ -32248,7 +32248,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Router
@@ -32266,7 +32266,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterMd5AuthenticationKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
@@ -32275,7 +32275,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_network_tier, 269_770_211,
     proto3_optional: true,
@@ -32371,7 +32371,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
   field :filter, 336_120_696, proto3_optional: true, type: :string
@@ -32380,7 +32380,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action, 187_661_878,
     proto3_optional: true,
@@ -32394,7 +32394,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatRuleAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_nat_active_ips, 210_378_229,
     repeated: true,
@@ -32420,7 +32420,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatSubnetworkToNat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -32438,7 +32438,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterNatSubnetworkToNat64 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
@@ -32446,7 +32446,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -32455,7 +32455,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -32467,7 +32467,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :best_routes, 395_826_693,
     repeated: true,
@@ -32496,7 +32496,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusBgpPeerStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advertised_routes, 333_393_068,
     repeated: true,
@@ -32578,7 +32578,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusNatStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_allocated_nat_ips, 510_794_246,
     repeated: true,
@@ -32626,7 +32626,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusNatStatusNatRuleStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :active_nat_ips, 208_517_077, repeated: true, type: :string, json_name: "activeNatIps"
   field :drain_nat_ips, 504_078_535, repeated: true, type: :string, json_name: "drainNatIps"
@@ -32647,7 +32647,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RouterStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 3_292_052, proto3_optional: true, type: :string
 
@@ -32659,7 +32659,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutersGetRoutePolicyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222,
     proto3_optional: true,
@@ -32669,7 +32669,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutersListBgpRoutes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -32689,7 +32689,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutersListRoutePolicies do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -32709,7 +32709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutersPreviewResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Router
 end
@@ -32717,7 +32717,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.RoutersScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :routers, 311_906_890, repeated: true, type: Google.Cloud.Compute.V1beta.Router
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -32726,7 +32726,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SSLHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :port, 3_446_913, proto3_optional: true, type: :int32
   field :port_name, 41_534_345, proto3_optional: true, type: :string, json_name: "portName"
@@ -32744,7 +32744,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedAttachedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :bool, json_name: "autoDelete"
   field :boot, 3_029_746, proto3_optional: true, type: :bool
@@ -32786,7 +32786,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SavedDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -32806,7 +32806,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ScalingScheduleStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :last_start_time, 34_545_107,
     proto3_optional: true,
@@ -32824,7 +32824,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Scheduling do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :automatic_restart, 350_821_371,
     proto3_optional: true,
@@ -32914,7 +32914,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SchedulingGracefulShutdown do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1_018_689, proto3_optional: true, type: :bool
 
@@ -32927,7 +32927,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SchedulingNodeAffinity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :operator, 36_317_348, proto3_optional: true, type: :string
@@ -32937,7 +32937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SchedulingOnInstanceStopAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discard_local_ssd, 319_517_903,
     proto3_optional: true,
@@ -32948,7 +32948,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Screenshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 506_419_994, proto3_optional: true, type: :string
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -32957,7 +32957,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPoliciesAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.SecurityPoliciesScopedList
@@ -32966,7 +32966,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPoliciesAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -32991,7 +32991,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPoliciesListPreconfiguredExpressionSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :preconfigured_expression_sets, 536_200_826,
     proto3_optional: true,
@@ -33002,7 +33002,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPoliciesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :security_policies, 127_783_791,
     repeated: true,
@@ -33015,7 +33015,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPoliciesWafConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :waf_rules, 74_899_924,
     proto3_optional: true,
@@ -33026,7 +33026,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -33035,7 +33035,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adaptive_protection_config, 150_240_735,
     proto3_optional: true,
@@ -33112,7 +33112,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_deploy_config, 294_330_122,
     proto3_optional: true,
@@ -33129,7 +33129,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigAutoDeployConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :confidence_threshold, 356_194_550,
     proto3_optional: true,
@@ -33155,7 +33155,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 311_764_355, proto3_optional: true, type: :bool
 
@@ -33174,7 +33174,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_deploy_confidence_threshold, 84_309_694,
     proto3_optional: true,
@@ -33223,7 +33223,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdaptiveProtectionConfigLayer7DdosDefenseConfigThresholdConfigTrafficGranularityConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_each_unique_value, 469_206_341,
     proto3_optional: true,
@@ -33237,7 +33237,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdvancedOptionsConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :json_custom_config, 111_570_105,
     proto3_optional: true,
@@ -33261,7 +33261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAdvancedOptionsConfigJsonCustomConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content_types, 17_428_787, repeated: true, type: :string, json_name: "contentTypes"
 end
@@ -33269,7 +33269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyAssociation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attachment_id, 103_768_503,
     proto3_optional: true,
@@ -33301,7 +33301,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyDdosProtectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ddos_protection, 275_173_268,
     proto3_optional: true,
@@ -33312,7 +33312,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.SecurityPolicy
@@ -33329,7 +33329,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRecaptchaOptionsConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :redirect_site_key, 447_677_034,
     proto3_optional: true,
@@ -33340,7 +33340,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :security_policy, 171_082_513,
     proto3_optional: true,
@@ -33351,7 +33351,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action, 187_661_878, proto3_optional: true, type: :string
   field :description, 422_937_596, proto3_optional: true, type: :string
@@ -33417,7 +33417,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleHttpHeaderAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_headers_to_adds, 87_987_661,
     repeated: true,
@@ -33428,7 +33428,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleHttpHeaderActionHttpHeaderOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header_name, 110_223_613, proto3_optional: true, type: :string, json_name: "headerName"
   field :header_value, 203_094_335, proto3_optional: true, type: :string, json_name: "headerValue"
@@ -33437,7 +33437,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 255_820_610,
     proto3_optional: true,
@@ -33459,7 +33459,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcherConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dest_ip_ranges, 337_357_713, repeated: true, type: :string, json_name: "destIpRanges"
 
@@ -33474,7 +33474,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcherConfigLayer4Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_protocol, 475_958_960, proto3_optional: true, type: :string, json_name: "ipProtocol"
   field :ports, 106_854_418, repeated: true, type: :string
@@ -33483,7 +33483,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcherExprOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :recaptcha_options, 389_151_558,
     proto3_optional: true,
@@ -33494,7 +33494,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleMatcherExprOptionsRecaptchaOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action_token_site_keys, 59_929_885,
     repeated: true,
@@ -33510,7 +33510,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleNetworkMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dest_ip_ranges, 337_357_713, repeated: true, type: :string, json_name: "destIpRanges"
   field :dest_ports, 379_902_005, repeated: true, type: :string, json_name: "destPorts"
@@ -33529,7 +33529,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleNetworkMatcherUserDefinedFieldMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :values, 249_928_994, repeated: true, type: :string
@@ -33538,7 +33538,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRulePreconfiguredWafConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :exclusions, 208_665_701,
     repeated: true,
@@ -33548,7 +33548,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRulePreconfiguredWafConfigExclusion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_cookies_to_exclude, 156_757_878,
     repeated: true,
@@ -33585,7 +33585,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRulePreconfiguredWafConfigExclusionFieldParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :op, 3553, proto3_optional: true, type: :string
   field :val, 116_513, proto3_optional: true, type: :string
@@ -33594,7 +33594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRateLimitOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ban_duration_sec, 42_896_726,
     proto3_optional: true,
@@ -33645,7 +33645,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRateLimitOptionsEnforceOnKeyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enforce_on_key_name, 132_555_246,
     proto3_optional: true,
@@ -33661,7 +33661,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRateLimitOptionsThreshold do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 94_851_343, proto3_optional: true, type: :int32
   field :interval_sec, 41_084_375, proto3_optional: true, type: :int32, json_name: "intervalSec"
@@ -33670,7 +33670,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyRuleRedirectOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target, 192_835_985, proto3_optional: true, type: :string
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -33679,7 +33679,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecurityPolicyUserDefinedField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :base, 3_016_401, proto3_optional: true, type: :string
   field :mask, 3_344_108, proto3_optional: true, type: :string
@@ -33691,7 +33691,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SecuritySettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authentication, 430_432_888, proto3_optional: true, type: :string
 
@@ -33714,7 +33714,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SendDiagnosticInterruptInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -33724,13 +33724,13 @@ end
 defmodule Google.Cloud.Compute.V1beta.SendDiagnosticInterruptInstanceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1beta.SerialPortOutput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 506_419_994, proto3_optional: true, type: :string
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -33742,7 +33742,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServerBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
@@ -33750,7 +33750,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :email, 96_619_420, proto3_optional: true, type: :string
   field :scopes, 165_973_151, repeated: true, type: :string
@@ -33759,7 +33759,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connected_endpoints, 72_223_688,
     repeated: true,
@@ -33837,7 +33837,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ServiceAttachmentsScopedList
@@ -33846,7 +33846,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -33870,7 +33870,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentConnectedEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumer_network, 254_357_221,
     proto3_optional: true,
@@ -33895,7 +33895,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentConsumerProjectLimit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connection_limit, 131_403_546,
     proto3_optional: true,
@@ -33913,7 +33913,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.ServiceAttachment
@@ -33931,7 +33931,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentTunnelingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encapsulation_profile, 118_326_494,
     proto3_optional: true,
@@ -33944,7 +33944,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachments, 307_136_806,
     repeated: true,
@@ -33957,7 +33957,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetAutoHealingPoliciesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -33977,7 +33977,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetAutoHealingPoliciesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -33998,7 +33998,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetBackendServiceTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34017,7 +34017,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetBackendServiceTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34036,7 +34036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetBackupTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :failover_ratio, 212_667_006,
     proto3_optional: true,
@@ -34057,7 +34057,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCertificateMapTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34076,7 +34076,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCertificateMapTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34095,7 +34095,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCloudArmorTierProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -34110,7 +34110,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCommonInstanceMetadataOperationMetadata.PerLocationOperationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -34122,7 +34122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCommonInstanceMetadataOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_operation_id, 297_240_295,
     proto3_optional: true,
@@ -34140,7 +34140,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Status
   field :state, 109_757_585, proto3_optional: true, type: :string
@@ -34149,7 +34149,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetCommonInstanceMetadataProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata_resource, 291_086_110,
     type: Google.Cloud.Compute.V1beta.Metadata,
@@ -34163,7 +34163,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetDefaultNetworkTierProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -34178,7 +34178,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetDeletionProtectionInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deletion_protection, 458_014_698,
     proto3_optional: true,
@@ -34194,7 +34194,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetDiskAutoDeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, type: :bool, json_name: "autoDelete", deprecated: false
   field :device_name, 67_541_716, type: :string, json_name: "deviceName", deprecated: false
@@ -34207,7 +34207,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetEdgeSecurityPolicyBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -34222,7 +34222,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetEdgeSecurityPolicyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -34241,7 +34241,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34255,7 +34255,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34269,7 +34269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34284,7 +34284,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_organization_set_policy_request_resource, 177_408_606,
     type: Google.Cloud.Compute.V1beta.GlobalOrganizationSetPolicyRequest,
@@ -34297,7 +34297,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34311,7 +34311,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34326,7 +34326,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34340,7 +34340,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34355,7 +34355,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34369,7 +34369,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34383,7 +34383,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34397,7 +34397,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34411,7 +34411,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34427,7 +34427,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34441,7 +34441,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34456,7 +34456,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34472,7 +34472,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34488,7 +34488,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34504,7 +34504,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34520,7 +34520,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34536,7 +34536,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34552,7 +34552,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34567,7 +34567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34583,7 +34583,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34599,7 +34599,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicySnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_policy_request_resource, 337_048_498,
     type: Google.Cloud.Compute.V1beta.GlobalSetPolicyRequest,
@@ -34613,7 +34613,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicyStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -34628,7 +34628,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetIamPolicySubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34644,7 +34644,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetInstanceTemplateInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -34664,7 +34664,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetInstanceTemplateRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -34685,7 +34685,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34702,7 +34702,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34718,7 +34718,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsExternalVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34732,7 +34732,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34749,7 +34749,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34763,7 +34763,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34777,7 +34777,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34791,7 +34791,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -34808,7 +34808,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -34824,7 +34824,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34841,7 +34841,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34855,7 +34855,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34869,7 +34869,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34886,7 +34886,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34903,7 +34903,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsRegionSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34920,7 +34920,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34937,7 +34937,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34951,7 +34951,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :global_set_labels_request_resource, 319_917_189,
     type: Google.Cloud.Compute.V1beta.GlobalSetLabelsRequest,
@@ -34965,7 +34965,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsTargetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34982,7 +34982,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -34999,7 +34999,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetLabelsVpnTunnelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35016,7 +35016,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetMachineResourcesInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35033,7 +35033,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetMachineTypeInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35050,7 +35050,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetManagedProtectionTierProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -35065,7 +35065,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetMetadataInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35082,7 +35082,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetMinCpuPlatformInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35099,7 +35099,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetNameInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35116,7 +35116,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetNamedPortsInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
 
@@ -35133,7 +35133,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetNamedPortsRegionInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group, 81_095_253, type: :string, json_name: "instanceGroup", deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35150,7 +35150,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetNodeTemplateNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -35167,7 +35167,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetPrivateIpGoogleAccessSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35183,7 +35183,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetProxyHeaderTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35202,7 +35202,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetProxyHeaderTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35221,7 +35221,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetQuicOverrideTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35240,7 +35240,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSchedulingInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35257,7 +35257,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSecurityPolicyBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -35276,7 +35276,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSecurityPolicyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35293,7 +35293,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSecurityPolicyRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -35313,7 +35313,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSecurityPolicyTargetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35334,7 +35334,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSecurityPolicyTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35351,7 +35351,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetServiceAccountInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -35368,7 +35368,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetShieldedInstanceIntegrityPolicyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35385,7 +35385,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetShieldedVmIntegrityPolicyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35402,7 +35402,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSslCertificatesRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35423,7 +35423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSslCertificatesTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35442,7 +35442,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSslCertificatesTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35461,7 +35461,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSslPolicyTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35480,7 +35480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetSslPolicyTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35499,7 +35499,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetTagsInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35516,7 +35516,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetTargetForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -35536,7 +35536,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetTargetGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forwarding_rule, 269_964_030,
     type: :string,
@@ -35555,7 +35555,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetTargetPoolsInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -35575,7 +35575,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetTargetPoolsRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -35596,7 +35596,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetUrlMapRegionTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35616,7 +35616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetUrlMapRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -35636,7 +35636,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetUrlMapTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35655,7 +35655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetUrlMapTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35674,7 +35674,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SetUsageExportBucketProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -35688,7 +35688,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShareSettings.ProjectMapEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.ShareSettingsProjectConfig
@@ -35697,7 +35697,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShareSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_map, 134_212_406,
     repeated: true,
@@ -35712,7 +35712,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShareSettingsProjectConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 177_513_473, proto3_optional: true, type: :string, json_name: "projectId"
 end
@@ -35720,7 +35720,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_integrity_monitoring, 409_071_030,
     proto3_optional: true,
@@ -35738,7 +35738,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedInstanceIdentity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_key, 488_268_707,
     proto3_optional: true,
@@ -35756,7 +35756,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedInstanceIdentityEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ek_cert, 450_178_589, proto3_optional: true, type: :string, json_name: "ekCert"
   field :ek_pub, 308_947_940, proto3_optional: true, type: :string, json_name: "ekPub"
@@ -35765,7 +35765,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedInstanceIntegrityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_auto_learn_policy, 245_490_215,
     proto3_optional: true,
@@ -35776,7 +35776,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedVmConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_integrity_monitoring, 409_071_030,
     proto3_optional: true,
@@ -35794,7 +35794,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedVmIdentity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_key, 488_268_707,
     proto3_optional: true,
@@ -35812,7 +35812,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedVmIdentityEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ek_cert, 450_178_589, proto3_optional: true, type: :string, json_name: "ekCert"
   field :ek_pub, 308_947_940, proto3_optional: true, type: :string, json_name: "ekPub"
@@ -35821,7 +35821,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ShieldedVmIntegrityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_auto_learn_policy, 245_490_215,
     proto3_optional: true,
@@ -35832,7 +35832,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SignedUrlKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_name, 500_938_859, proto3_optional: true, type: :string, json_name: "keyName"
   field :key_value, 504_106_897, proto3_optional: true, type: :string, json_name: "keyValue"
@@ -35841,7 +35841,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SimulateMaintenanceEventInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -35858,7 +35858,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SimulateMaintenanceEventNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_group, 469_958_146, type: :string, json_name: "nodeGroup", deprecated: false
 
@@ -35875,7 +35875,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -35884,7 +35884,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Snapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :architecture, 302_803_283, proto3_optional: true, type: :string
   field :auto_created, 463_922_264, proto3_optional: true, type: :bool, json_name: "autoCreated"
@@ -36022,7 +36022,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.SnapshotsScopedList
@@ -36031,7 +36031,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -36056,7 +36056,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Snapshot
@@ -36074,7 +36074,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_location, 18_410_544,
     proto3_optional: true,
@@ -36090,7 +36090,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsAccessLocation.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -36101,7 +36101,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsAccessLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 413_423_454,
     repeated: true,
@@ -36114,7 +36114,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsAccessLocationAccessLocationPreference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :region, 138_946_292, proto3_optional: true, type: :string
 end
@@ -36122,7 +36122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsStorageLocationSettings.LocationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -36134,7 +36134,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsStorageLocationSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 413_423_454,
     repeated: true,
@@ -36147,7 +36147,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsStorageLocationSettingsStorageLocationPreference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 end
@@ -36155,7 +36155,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SnapshotsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshots, 241_165_103, repeated: true, type: Google.Cloud.Compute.V1beta.Snapshot
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -36164,7 +36164,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceDiskEncryptionKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_encryption_key, 271_660_677,
     proto3_optional: true,
@@ -36177,7 +36177,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceInstanceParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_configs, 235_580_623,
     repeated: true,
@@ -36188,7 +36188,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceInstanceProperties.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36197,7 +36197,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SourceInstanceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :can_ip_forward, 467_731_324,
     proto3_optional: true,
@@ -36260,7 +36260,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate, 341_787_031, proto3_optional: true, type: :string
 
@@ -36299,7 +36299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.SslCertificatesScopedList
@@ -36308,7 +36308,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -36332,7 +36332,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.SslCertificate
@@ -36350,7 +36350,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateManagedSslCertificate.DomainStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36359,7 +36359,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateManagedSslCertificate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :domain_status, 360_305_613,
     repeated: true,
@@ -36374,7 +36374,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificateSelfManagedSslCertificate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate, 341_787_031, proto3_optional: true, type: :string
   field :private_key, 361_331_107, proto3_optional: true, type: :string, json_name: "privateKey"
@@ -36383,7 +36383,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslCertificatesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_certificates, 366_006_543,
     repeated: true,
@@ -36396,7 +36396,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPoliciesAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.SslPoliciesScopedList
@@ -36405,7 +36405,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPoliciesAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -36430,7 +36430,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPoliciesList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.SslPolicy
@@ -36448,7 +36448,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPoliciesListAvailableFeaturesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :features, 246_211_645, repeated: true, type: :string
 end
@@ -36456,7 +36456,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPoliciesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_policies, 209_941_027,
     repeated: true,
@@ -36469,7 +36469,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -36503,7 +36503,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SslPolicyReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_policy, 295_190_213, proto3_optional: true, type: :string, json_name: "sslPolicy"
 end
@@ -36511,7 +36511,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartAsyncReplicationDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -36528,7 +36528,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartAsyncReplicationRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -36545,7 +36545,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -36556,7 +36556,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -36576,7 +36576,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -36597,7 +36597,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StartWithEncryptionKeyInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -36614,7 +36614,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :preserved_state, 2_634_026,
     proto3_optional: true,
@@ -36625,7 +36625,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedState.DisksEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateDiskDevice
@@ -36634,7 +36634,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedState.ExternalIPsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateNetworkIp
@@ -36643,7 +36643,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedState.InternalIPsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateNetworkIp
@@ -36652,7 +36652,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks, 95_594_102,
     repeated: true,
@@ -36675,7 +36675,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateDiskDevice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :string, json_name: "autoDelete"
 end
@@ -36683,7 +36683,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StatefulPolicyPreservedStateNetworkIp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :auto_delete, 464_761_403, proto3_optional: true, type: :string, json_name: "autoDelete"
 end
@@ -36691,7 +36691,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Status do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :int32
   field :details, 483_979_842, repeated: true, type: Google.Protobuf.Any
@@ -36701,7 +36701,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopAsyncReplicationDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -36712,7 +36712,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopAsyncReplicationRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -36723,7 +36723,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopGroupAsyncReplicationDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks_stop_group_async_replication_resource_resource, 346_815_509,
     type: Google.Cloud.Compute.V1beta.DisksStopGroupAsyncReplicationResource,
@@ -36738,7 +36738,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopGroupAsyncReplicationRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disks_stop_group_async_replication_resource_resource, 346_815_509,
     type: Google.Cloud.Compute.V1beta.DisksStopGroupAsyncReplicationResource,
@@ -36753,7 +36753,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discard_local_ssd, 319_517_903,
     proto3_optional: true,
@@ -36775,7 +36775,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -36795,7 +36795,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StopInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -36816,7 +36816,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePool.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -36825,7 +36825,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :capacity_provisioning_type, 251_610_375,
     proto3_optional: true,
@@ -36902,7 +36902,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StoragePoolsScopedList
@@ -36911,7 +36911,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -36936,7 +36936,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolDisk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attached_instances, 65_255_843,
     repeated: true,
@@ -36975,7 +36975,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -36995,7 +36995,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolListDisks do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -37015,7 +37015,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk_count, 182_933_485, proto3_optional: true, type: :int64, json_name: "diskCount"
 
@@ -37068,7 +37068,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -37133,7 +37133,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolTypeAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.StoragePoolTypesScopedList
@@ -37142,7 +37142,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolTypeAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -37165,7 +37165,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolTypeList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.StoragePoolType
@@ -37183,7 +37183,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolTypesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :storage_pool_types, 276_043_482,
     repeated: true,
@@ -37196,7 +37196,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StoragePoolsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :storage_pools, 437_258_515,
     repeated: true,
@@ -37209,7 +37209,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StructuredEntries.EntriesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -37218,7 +37218,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.StructuredEntries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entries, 19_039_376,
     repeated: true,
@@ -37229,7 +37229,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subnetwork do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_subnet_cidr_routes_overlap, 67_856_209,
     proto3_optional: true,
@@ -37346,7 +37346,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.SubnetworksScopedList
@@ -37355,7 +37355,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -37379,7 +37379,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Subnetwork
@@ -37397,7 +37397,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkLogConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregation_interval, 174_919_042,
     proto3_optional: true,
@@ -37419,7 +37419,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkParams.ResourceManagerTagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -37428,7 +37428,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_manager_tags, 377_671_164,
     repeated: true,
@@ -37440,7 +37440,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworkSecondaryRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
   field :range_name, 332_216_397, proto3_optional: true, type: :string, json_name: "rangeName"
@@ -37454,7 +37454,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworksExpandIpCidrRangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
 end
@@ -37462,7 +37462,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworksScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subnetworks, 415_853_125, repeated: true, type: Google.Cloud.Compute.V1beta.Subnetwork
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -37471,7 +37471,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworksScopedWarning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scope_name, 345_557_398, proto3_optional: true, type: :string, json_name: "scopeName"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Warning
@@ -37480,7 +37480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SubnetworksSetPrivateIpGoogleAccessRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :private_ip_google_access, 421_491_790,
     proto3_optional: true,
@@ -37491,7 +37491,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Subsetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy, 91_071_794, proto3_optional: true, type: :string
   field :subset_size, 517_916_670, proto3_optional: true, type: :int32, json_name: "subsetSize"
@@ -37500,7 +37500,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SuspendInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discard_local_ssd, 319_517_903,
     proto3_optional: true,
@@ -37516,7 +37516,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SuspendInstancesInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -37536,7 +37536,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SuspendInstancesRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -37557,7 +37557,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.SwitchToCustomModeNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -37567,7 +37567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TCPHealthCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :port, 3_446_913, proto3_optional: true, type: :int32
   field :port_name, 41_534_345, proto3_optional: true, type: :string, json_name: "portName"
@@ -37585,7 +37585,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Tags do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: :string
@@ -37594,7 +37594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetGrpcProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -37624,7 +37624,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetGrpcProxyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetGrpcProxy
@@ -37642,7 +37642,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpProxiesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_http_proxies, 162_147_011,
     repeated: true,
@@ -37655,7 +37655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -37683,7 +37683,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpProxyAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetHttpProxiesScopedList
@@ -37692,7 +37692,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpProxyAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -37716,7 +37716,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpProxyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetHttpProxy
@@ -37734,7 +37734,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxiesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_https_proxies, 366_607_882,
     repeated: true,
@@ -37747,7 +37747,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxiesSetCertificateMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate_map, 156_463_796,
     proto3_optional: true,
@@ -37758,7 +37758,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxiesSetQuicOverrideRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :quic_override, 456_577_197,
     proto3_optional: true,
@@ -37769,7 +37769,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxiesSetSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_certificates, 366_006_543,
     repeated: true,
@@ -37780,7 +37780,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authentication, 430_432_888, proto3_optional: true, type: :string
   field :authorization, 225_042_553, proto3_optional: true, type: :string
@@ -37845,7 +37845,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxyAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetHttpsProxiesScopedList
@@ -37854,7 +37854,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxyAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -37878,7 +37878,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetHttpsProxy
@@ -37896,7 +37896,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -37923,7 +37923,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstanceAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetInstancesScopedList
@@ -37932,7 +37932,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstanceAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -37956,7 +37956,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstanceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetInstance
@@ -37974,7 +37974,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetInstancesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_instances, 392_915_280,
     repeated: true,
@@ -37987,7 +37987,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_pool, 45_884_537, proto3_optional: true, type: :string, json_name: "backupPool"
 
@@ -38026,7 +38026,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetPoolsScopedList
@@ -38035,7 +38035,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -38059,7 +38059,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolInstanceHealth do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_status, 380_545_845,
     repeated: true,
@@ -38072,7 +38072,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetPool
@@ -38090,7 +38090,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolsAddHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_checks, 448_370_606,
     repeated: true,
@@ -38101,7 +38101,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolsAddInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -38111,7 +38111,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolsRemoveHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_checks, 448_370_606,
     repeated: true,
@@ -38122,7 +38122,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolsRemoveInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 29_097_598,
     repeated: true,
@@ -38132,7 +38132,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetPoolsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_pools, 336_072_617,
     repeated: true,
@@ -38145,7 +38145,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target, 192_835_985, proto3_optional: true, type: :string
 end
@@ -38153,7 +38153,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxiesSetBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service, 373_540_533, proto3_optional: true, type: :string
 end
@@ -38161,7 +38161,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxiesSetCertificateMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate_map, 156_463_796,
     proto3_optional: true,
@@ -38172,7 +38172,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxiesSetProxyHeaderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :proxy_header, 160_374_142, proto3_optional: true, type: :string, json_name: "proxyHeader"
 end
@@ -38180,7 +38180,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxiesSetSslCertificatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_certificates, 366_006_543,
     repeated: true,
@@ -38191,7 +38191,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificate_map, 156_463_796,
     proto3_optional: true,
@@ -38222,7 +38222,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetSslProxyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetSslProxy
@@ -38240,7 +38240,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxiesScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_tcp_proxies, 262_056_832,
     repeated: true,
@@ -38253,7 +38253,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxiesSetBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service, 373_540_533, proto3_optional: true, type: :string
 end
@@ -38261,7 +38261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxiesSetProxyHeaderRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :proxy_header, 160_374_142, proto3_optional: true, type: :string, json_name: "proxyHeader"
 end
@@ -38269,7 +38269,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -38290,7 +38290,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxyAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetTcpProxiesScopedList
@@ -38299,7 +38299,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxyAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -38323,7 +38323,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetTcpProxyList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetTcpProxy
@@ -38341,7 +38341,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -38350,7 +38350,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -38388,7 +38388,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGatewayAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.TargetVpnGatewaysScopedList
@@ -38397,7 +38397,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGatewayAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -38421,7 +38421,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGatewayList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.TargetVpnGateway
@@ -38439,7 +38439,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TargetVpnGatewaysScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_vpn_gateways, 401_770_888,
     repeated: true,
@@ -38452,7 +38452,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :actual_output_url, 287_075_458,
     proto3_optional: true,
@@ -38492,7 +38492,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38507,7 +38507,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38523,7 +38523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38537,7 +38537,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38551,7 +38551,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38567,7 +38567,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsExternalVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38581,7 +38581,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 195_806_222, type: :string, deprecated: false
 
@@ -38594,7 +38594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38608,7 +38608,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38623,7 +38623,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsGlobalAddressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38637,7 +38637,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsGlobalForwardingRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38651,7 +38651,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38665,7 +38665,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38679,7 +38679,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38695,7 +38695,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38711,7 +38711,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38727,7 +38727,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInstanceTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38741,7 +38741,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38757,7 +38757,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInterconnectAttachmentGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38771,7 +38771,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInterconnectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38786,7 +38786,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInterconnectGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38800,7 +38800,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsInterconnectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38814,7 +38814,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsLicenseCodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38828,7 +38828,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38842,7 +38842,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsMachineImageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38856,7 +38856,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNetworkAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38871,7 +38871,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNetworkEndpointGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38887,7 +38887,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38901,7 +38901,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38915,7 +38915,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNodeGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -38931,7 +38931,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsNodeTemplateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38946,7 +38946,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsPacketMirroringRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38961,7 +38961,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38976,7 +38976,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -38991,7 +38991,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionCommitmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39006,7 +39006,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39021,7 +39021,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39036,7 +39036,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionHealthCheckServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39051,7 +39051,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39066,7 +39066,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionInstanceGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39081,7 +39081,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionInstantSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39096,7 +39096,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39111,7 +39111,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionNotificationEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39126,7 +39126,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39141,7 +39141,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39156,7 +39156,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39171,7 +39171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39186,7 +39186,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39201,7 +39201,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39216,7 +39216,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39231,7 +39231,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39247,7 +39247,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsResourcePolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39262,7 +39262,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39276,7 +39276,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39291,7 +39291,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsSecurityPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39305,7 +39305,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsServiceAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39320,7 +39320,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39334,7 +39334,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsSslCertificateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39348,7 +39348,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsSslPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39362,7 +39362,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39378,7 +39378,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsSubnetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39393,7 +39393,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetGrpcProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39407,7 +39407,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetHttpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39421,7 +39421,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetHttpsProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39435,7 +39435,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39451,7 +39451,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetPoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39466,7 +39466,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetSslProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39480,7 +39480,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetTcpProxyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39494,7 +39494,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsTargetVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39509,7 +39509,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :resource, 195_806_222, type: :string, deprecated: false
@@ -39523,7 +39523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsVpnGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39538,7 +39538,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestIamPermissionsVpnTunnelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -39553,7 +39553,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestPermissionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :permissions, 59_962_500, repeated: true, type: :string
 end
@@ -39561,7 +39561,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.TestPermissionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :permissions, 59_962_500, repeated: true, type: :string
 end
@@ -39569,7 +39569,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Uint128 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :high, 3_202_466, proto3_optional: true, type: :uint64
   field :low, 107_348, proto3_optional: true, type: :uint64
@@ -39578,7 +39578,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpcomingMaintenance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :can_reschedule, 95_981_977,
     proto3_optional: true,
@@ -39616,7 +39616,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateAccessConfigInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_config_resource, 387_825_552,
     type: Google.Cloud.Compute.V1beta.AccessConfig,
@@ -39638,7 +39638,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, proto3_optional: true, type: :string
 
@@ -39655,7 +39655,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateBackendBucketRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_bucket, 91_714_037, type: :string, json_name: "backendBucket", deprecated: false
 
@@ -39671,7 +39671,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -39690,7 +39690,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -39709,7 +39709,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateDisplayDeviceInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_device_resource, 289_686_106,
     type: Google.Cloud.Compute.V1beta.DisplayDevice,
@@ -39725,7 +39725,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateFirewallRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :firewall, 511_016_192, type: :string, deprecated: false
 
@@ -39741,7 +39741,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateFutureReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :future_reservation, 56_206_160,
     type: :string,
@@ -39762,7 +39762,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
 
@@ -39778,7 +39778,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -39798,7 +39798,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -39825,7 +39825,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateLicenseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license, 166_757_441, type: :string, deprecated: false
 
@@ -39842,7 +39842,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateNetworkInterfaceInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
 
@@ -39864,7 +39864,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdatePeeringNetworkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 232_872_494, type: :string, deprecated: false
 
@@ -39880,7 +39880,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdatePerInstanceConfigsInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -39900,7 +39900,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdatePerInstanceConfigsRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -39921,7 +39921,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdatePreviewFeatureRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :preview_feature, 454_999_423,
     type: :string,
@@ -39940,7 +39940,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionAutoscalerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :autoscaler, 517_258_967, proto3_optional: true, type: :string
 
@@ -39957,7 +39957,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionBackendServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     type: :string,
@@ -39977,7 +39977,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionCommitmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitment, 482_134_805, type: :string, deprecated: false
 
@@ -39996,7 +39996,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionDiskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disk, 3_083_677, type: :string, deprecated: false
 
@@ -40015,7 +40015,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionHealthCheckRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :health_check, 308_876_645, type: :string, json_name: "healthCheck", deprecated: false
 
@@ -40032,7 +40032,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionInstanceGroupManagerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_group_manager, 249_363_395,
     type: :string,
@@ -40052,7 +40052,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -40068,7 +40068,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateReservationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :paths, 106_438_894, proto3_optional: true, type: :string
   field :project, 227_560_217, type: :string, deprecated: false
@@ -40087,7 +40087,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateReservationsRegionCommitmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commitment, 482_134_805, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -40104,7 +40104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRoutePolicyRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -40121,7 +40121,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateRouterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -40137,7 +40137,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateShieldedInstanceConfigInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -40154,7 +40154,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateShieldedVmConfigInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 18_257_045, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -40171,7 +40171,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateStoragePoolRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -40189,7 +40189,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UpdateUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
@@ -40204,7 +40204,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMap do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -40261,7 +40261,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.UrlMap
@@ -40279,7 +40279,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url_map, 367_020_684, proto3_optional: true, type: :string, json_name: "urlMap"
 end
@@ -40287,7 +40287,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapTest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 422_937_596, proto3_optional: true, type: :string
 
@@ -40310,7 +40310,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapTestHeader do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
@@ -40319,7 +40319,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapValidationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :load_errors, 310_147_300, repeated: true, type: :string, json_name: "loadErrors"
 
@@ -40339,7 +40339,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.UrlMapsScopedList
@@ -40348,7 +40348,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -40372,7 +40372,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url_maps, 103_352_167,
     repeated: true,
@@ -40385,7 +40385,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsValidateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :load_balancing_schemes, 6_308_527,
     repeated: true,
@@ -40398,7 +40398,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlMapsValidateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :result, 139_315_229,
     proto3_optional: true,
@@ -40408,7 +40408,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UrlRewrite do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host_rewrite, 159_819_253, proto3_optional: true, type: :string, json_name: "hostRewrite"
 
@@ -40426,7 +40426,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetwork do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_ipv6_prefix, 139_299_190,
     proto3_optional: true,
@@ -40461,7 +40461,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetworkSecondaryRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_cidr_range, 98_117_322, proto3_optional: true, type: :string, json_name: "ipCidrRange"
   field :range_name, 332_216_397, proto3_optional: true, type: :string, json_name: "rangeName"
@@ -40470,7 +40470,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsableSubnetworksAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.UsableSubnetwork
@@ -40494,7 +40494,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.UsageExportLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket_name, 283_610_048, proto3_optional: true, type: :string, json_name: "bucketName"
 
@@ -40507,7 +40507,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ValidateRegionUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
@@ -40523,7 +40523,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ValidateUrlMapRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :url_map, 367_020_684, type: :string, json_name: "urlMap", deprecated: false
@@ -40537,7 +40537,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VmEndpointNatMappings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_name, 227_947_509,
     proto3_optional: true,
@@ -40553,7 +40553,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VmEndpointNatMappingsInterfaceNatMappings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :drain_nat_ip_port_ranges, 395_440_577,
     repeated: true,
@@ -40594,7 +40594,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VmEndpointNatMappingsInterfaceNatMappingsNatRuleMappings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :drain_nat_ip_port_ranges, 395_440_577,
     repeated: true,
@@ -40622,7 +40622,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VmEndpointNatMappingsList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -40643,7 +40643,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -40652,7 +40652,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
@@ -40694,7 +40694,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.VpnGatewaysScopedList
@@ -40703,7 +40703,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -40727,7 +40727,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.VpnGateway
@@ -40745,7 +40745,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpn_connections, 439_334_538,
     repeated: true,
@@ -40756,7 +40756,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatusHighAvailabilityRequirementState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 109_757_585, proto3_optional: true, type: :string
 
@@ -40769,7 +40769,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatusTunnel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :local_gateway_interface, 158_764_330,
     proto3_optional: true,
@@ -40787,7 +40787,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayStatusVpnConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :peer_external_gateway, 384_956_173,
     proto3_optional: true,
@@ -40811,7 +40811,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewayVpnGatewayInterface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :uint32
 
@@ -40827,7 +40827,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewaysGetStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :result, 139_315_229,
     proto3_optional: true,
@@ -40837,7 +40837,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnGatewaysScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpn_gateways, 259_177_882,
     repeated: true,
@@ -40850,7 +40850,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnel.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -40859,7 +40859,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cipher_suite, 443_788_228,
     proto3_optional: true,
@@ -40953,7 +40953,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelAggregatedList.ItemsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.VpnTunnelsScopedList
@@ -40962,7 +40962,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelAggregatedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
 
@@ -40986,7 +40986,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelCipherSuite do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :phase1, 84_289_046,
     proto3_optional: true,
@@ -41000,7 +41000,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.VpnTunnel
@@ -41018,7 +41018,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelPhase1Algorithms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dh, 3204, repeated: true, type: :string
   field :encryption, 97_980_291, repeated: true, type: :string
@@ -41029,7 +41029,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelPhase2Algorithms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption, 97_980_291, repeated: true, type: :string
   field :integrity, 492_830_541, repeated: true, type: :string
@@ -41039,7 +41039,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.VpnTunnelsScopedList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpn_tunnels, 163_494_080,
     repeated: true,
@@ -41052,7 +41052,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WafExpressionSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aliases, 159_207_166, repeated: true, type: :string
 
@@ -41066,7 +41066,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WafExpressionSetExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :sensitivity, 27_532_959, proto3_optional: true, type: :int32
@@ -41075,7 +41075,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WaitGlobalOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -41084,7 +41084,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WaitRegionOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -41094,7 +41094,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WaitZoneOperationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 52_090_215, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
@@ -41104,7 +41104,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Warning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1beta.Data
@@ -41114,7 +41114,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Warnings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 3_059_181, proto3_optional: true, type: :string
   field :data, 3_076_010, repeated: true, type: Google.Cloud.Compute.V1beta.Data
@@ -41124,7 +41124,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WeightedBackendService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backend_service, 306_946_058,
     proto3_optional: true,
@@ -41142,7 +41142,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Wire do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
   field :endpoints, 287_085_950, repeated: true, type: Google.Cloud.Compute.V1beta.WireEndpoint
@@ -41157,7 +41157,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, proto3_optional: true, type: :string
   field :vlan_tag, 514_640_574, proto3_optional: true, type: :int32, json_name: "vlanTag"
@@ -41166,7 +41166,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroup.EndpointsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.WireGroupEndpoint
@@ -41175,7 +41175,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
 
@@ -41217,7 +41217,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupEndpoint.InterconnectsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Compute.V1beta.WireGroupEndpointInterconnect
@@ -41226,7 +41226,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnects, 520_187_301,
     repeated: true,
@@ -41237,7 +41237,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupEndpointInterconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interconnect, 224_601_230, proto3_optional: true, type: :string
   field :vlan_tags, 384_601_461, repeated: true, type: :int32, json_name: "vlanTags"
@@ -41246,7 +41246,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 3_123_477, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :string
@@ -41266,7 +41266,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
@@ -41274,7 +41274,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupTopology do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoints, 287_085_950,
     repeated: true,
@@ -41284,7 +41284,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireGroupTopologyEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :city, 3_053_931, proto3_optional: true, type: :string
   field :label, 102_727_412, proto3_optional: true, type: :string
@@ -41293,7 +41293,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WireProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bandwidth_unmetered, 272_650_017,
     proto3_optional: true,
@@ -41309,7 +41309,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WithdrawPublicAdvertisedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -41324,7 +41324,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.WithdrawPublicDelegatedPrefixeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 227_560_217, type: :string, deprecated: false
 
@@ -41340,7 +41340,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.XpnHostList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Project
@@ -41358,7 +41358,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.XpnResourceId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :type, 3_575_610, proto3_optional: true, type: :string
@@ -41367,7 +41367,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Zone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :available_cpu_platforms, 175_536_531,
     repeated: true,
@@ -41396,7 +41396,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ZoneList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3355, proto3_optional: true, type: :string
   field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1beta.Zone
@@ -41414,7 +41414,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ZoneSetLabelsRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -41423,7 +41423,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ZoneSetLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :label_fingerprint, 178_124_825,
     proto3_optional: true,
@@ -41439,7 +41439,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.ZoneSetPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bindings, 403_251_854, repeated: true, type: Google.Cloud.Compute.V1beta.Binding
   field :etag, 3_123_477, proto3_optional: true, type: :string
@@ -41451,7 +41451,7 @@ defmodule Google.Cloud.Compute.V1beta.AcceleratorTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.AcceleratorTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListAcceleratorTypesRequest,
@@ -41477,7 +41477,7 @@ defmodule Google.Cloud.Compute.V1beta.Addresses.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Addresses",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListAddressesRequest,
@@ -41519,7 +41519,7 @@ defmodule Google.Cloud.Compute.V1beta.Advice.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Advice",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CalendarMode,
       Google.Cloud.Compute.V1beta.CalendarModeAdviceRpcRequest,
@@ -41537,7 +41537,7 @@ defmodule Google.Cloud.Compute.V1beta.Autoscalers.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Autoscalers",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListAutoscalersRequest,
@@ -41583,7 +41583,7 @@ defmodule Google.Cloud.Compute.V1beta.BackendBuckets.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.BackendBuckets",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddSignedUrlKey,
       Google.Cloud.Compute.V1beta.AddSignedUrlKeyBackendBucketRequest,
@@ -41649,7 +41649,7 @@ defmodule Google.Cloud.Compute.V1beta.BackendServices.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.BackendServices",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddSignedUrlKey,
       Google.Cloud.Compute.V1beta.AddSignedUrlKeyBackendServiceRequest,
@@ -41731,7 +41731,7 @@ defmodule Google.Cloud.Compute.V1beta.CrossSiteNetworks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.CrossSiteNetworks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteCrossSiteNetworkRequest,
@@ -41765,7 +41765,7 @@ defmodule Google.Cloud.Compute.V1beta.DiskSettingsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.DiskSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetDiskSettingRequest,
@@ -41787,7 +41787,7 @@ defmodule Google.Cloud.Compute.V1beta.DiskTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.DiskTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListDiskTypesRequest,
@@ -41809,7 +41809,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Disks.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.compute.v1beta.Disks", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.compute.v1beta.Disks", protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddResourcePolicies,
       Google.Cloud.Compute.V1beta.AddResourcePoliciesDiskRequest,
@@ -41895,7 +41895,7 @@ defmodule Google.Cloud.Compute.V1beta.ExternalVpnGateways.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ExternalVpnGateways",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteExternalVpnGatewayRequest,
@@ -41933,7 +41933,7 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.FirewallPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddAssociation,
       Google.Cloud.Compute.V1beta.AddAssociationFirewallPolicyRequest,
@@ -42035,7 +42035,7 @@ defmodule Google.Cloud.Compute.V1beta.Firewalls.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Firewalls",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteFirewallRequest,
@@ -42075,7 +42075,7 @@ defmodule Google.Cloud.Compute.V1beta.ForwardingRules.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ForwardingRules",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListForwardingRulesRequest,
@@ -42125,7 +42125,7 @@ defmodule Google.Cloud.Compute.V1beta.FutureReservations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.FutureReservations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListFutureReservationsRequest,
@@ -42167,7 +42167,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalAddresses.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalAddresses",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteGlobalAddressRequest,
@@ -42209,7 +42209,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalForwardingRules.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalForwardingRules",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteGlobalForwardingRuleRequest,
@@ -42255,7 +42255,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalNetworkEndpointGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalNetworkEndpointGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AttachNetworkEndpoints,
       Google.Cloud.Compute.V1beta.AttachNetworkEndpointsGlobalNetworkEndpointGroupRequest,
@@ -42297,7 +42297,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalOperations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalOperations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListGlobalOperationsRequest,
@@ -42331,7 +42331,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalOrganizationOperations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalOrganizationOperations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteGlobalOrganizationOperationRequest,
@@ -42357,7 +42357,7 @@ defmodule Google.Cloud.Compute.V1beta.GlobalPublicDelegatedPrefixes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.GlobalPublicDelegatedPrefixes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteGlobalPublicDelegatedPrefixeRequest,
@@ -42391,7 +42391,7 @@ defmodule Google.Cloud.Compute.V1beta.HealthChecks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.HealthChecks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListHealthChecksRequest,
@@ -42437,7 +42437,7 @@ defmodule Google.Cloud.Compute.V1beta.ImageFamilyViews.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ImageFamilyViews",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetImageFamilyViewRequest,
@@ -42455,7 +42455,7 @@ defmodule Google.Cloud.Compute.V1beta.Images.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Images",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteImageRequest,
@@ -42507,7 +42507,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagerResizeRequests.Service
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstanceGroupManagerResizeRequests",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Cancel,
       Google.Cloud.Compute.V1beta.CancelInstanceGroupManagerResizeRequestRequest,
@@ -42541,7 +42541,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroupManagers.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstanceGroupManagers",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AbandonInstances,
       Google.Cloud.Compute.V1beta.AbandonInstancesInstanceGroupManagerRequest,
@@ -42667,7 +42667,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstanceGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddInstances,
       Google.Cloud.Compute.V1beta.AddInstancesInstanceGroupRequest,
@@ -42721,7 +42721,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceSettingsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstanceSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetInstanceSettingRequest,
@@ -42743,7 +42743,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceTemplates.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstanceTemplates",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListInstanceTemplatesRequest,
@@ -42789,7 +42789,7 @@ defmodule Google.Cloud.Compute.V1beta.Instances.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Instances",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddAccessConfig,
       Google.Cloud.Compute.V1beta.AddAccessConfigInstanceRequest,
@@ -43025,7 +43025,7 @@ defmodule Google.Cloud.Compute.V1beta.InstantSnapshots.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InstantSnapshots",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListInstantSnapshotsRequest,
@@ -43075,7 +43075,7 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectAttachmentGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InterconnectAttachmentGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteInterconnectAttachmentGroupRequest,
@@ -43125,7 +43125,7 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectAttachments.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InterconnectAttachments",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListInterconnectAttachmentsRequest,
@@ -43171,7 +43171,7 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InterconnectGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateMembers,
       Google.Cloud.Compute.V1beta.CreateMembersInterconnectGroupRequest,
@@ -43225,7 +43225,7 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectLocations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InterconnectLocations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetInterconnectLocationRequest,
@@ -43247,7 +43247,7 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.InterconnectRemoteLocations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetInterconnectRemoteLocationRequest,
@@ -43269,7 +43269,7 @@ defmodule Google.Cloud.Compute.V1beta.Interconnects.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Interconnects",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteInterconnectRequest,
@@ -43319,7 +43319,7 @@ defmodule Google.Cloud.Compute.V1beta.LicenseCodes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.LicenseCodes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetLicenseCodeRequest,
@@ -43341,7 +43341,7 @@ defmodule Google.Cloud.Compute.V1beta.Licenses.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Licenses",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteLicenseRequest,
@@ -43385,7 +43385,7 @@ defmodule Google.Cloud.Compute.V1beta.MachineImages.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.MachineImages",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteMachineImageRequest,
@@ -43431,7 +43431,7 @@ defmodule Google.Cloud.Compute.V1beta.MachineTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.MachineTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListMachineTypesRequest,
@@ -43457,7 +43457,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkAttachments.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NetworkAttachments",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListNetworkAttachmentsRequest,
@@ -43507,7 +43507,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkEdgeSecurityServices.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NetworkEdgeSecurityServices",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListNetworkEdgeSecurityServicesRequest,
@@ -43541,7 +43541,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkEndpointGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NetworkEndpointGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListNetworkEndpointGroupsRequest,
@@ -43591,7 +43591,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkFirewallPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NetworkFirewallPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddAssociation,
       Google.Cloud.Compute.V1beta.AddAssociationNetworkFirewallPolicyRequest,
@@ -43689,7 +43689,7 @@ defmodule Google.Cloud.Compute.V1beta.NetworkProfiles.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NetworkProfiles",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetNetworkProfileRequest,
@@ -43711,7 +43711,7 @@ defmodule Google.Cloud.Compute.V1beta.Networks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Networks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddPeering,
       Google.Cloud.Compute.V1beta.AddPeeringNetworkRequest,
@@ -43775,7 +43775,7 @@ defmodule Google.Cloud.Compute.V1beta.NodeGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NodeGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddNodes,
       Google.Cloud.Compute.V1beta.AddNodesNodeGroupRequest,
@@ -43847,7 +43847,7 @@ defmodule Google.Cloud.Compute.V1beta.NodeTemplates.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NodeTemplates",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListNodeTemplatesRequest,
@@ -43893,7 +43893,7 @@ defmodule Google.Cloud.Compute.V1beta.NodeTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.NodeTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListNodeTypesRequest,
@@ -43917,7 +43917,7 @@ defmodule Google.Cloud.Compute.V1beta.OrganizationSecurityPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.OrganizationSecurityPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddAssociation,
       Google.Cloud.Compute.V1beta.AddAssociationOrganizationSecurityPolicyRequest,
@@ -43995,7 +43995,7 @@ defmodule Google.Cloud.Compute.V1beta.PacketMirrorings.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.PacketMirrorings",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListPacketMirroringsRequest,
@@ -44037,7 +44037,7 @@ defmodule Google.Cloud.Compute.V1beta.PreviewFeatures.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.PreviewFeatures",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetPreviewFeatureRequest,
@@ -44063,7 +44063,7 @@ defmodule Google.Cloud.Compute.V1beta.Projects.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Projects",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :DisableXpnHost,
       Google.Cloud.Compute.V1beta.DisableXpnHostProjectRequest,
@@ -44135,7 +44135,7 @@ defmodule Google.Cloud.Compute.V1beta.PublicAdvertisedPrefixes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.PublicAdvertisedPrefixes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Announce,
       Google.Cloud.Compute.V1beta.AnnouncePublicAdvertisedPrefixeRequest,
@@ -44177,7 +44177,7 @@ defmodule Google.Cloud.Compute.V1beta.PublicDelegatedPrefixes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.PublicDelegatedPrefixes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListPublicDelegatedPrefixesRequest,
@@ -44223,7 +44223,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionAutoscalers.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionAutoscalers",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionAutoscalerRequest,
@@ -44265,7 +44265,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionBackendServices.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionBackendServices",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionBackendServiceRequest,
@@ -44327,7 +44327,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionCommitments.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionCommitments",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListRegionCommitmentsRequest,
@@ -44369,7 +44369,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionDiskSettings.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionDiskSettings",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetRegionDiskSettingRequest,
@@ -44391,7 +44391,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionDiskTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionDiskTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetRegionDiskTypeRequest,
@@ -44413,7 +44413,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionDisks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionDisks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddResourcePolicies,
       Google.Cloud.Compute.V1beta.AddResourcePoliciesRegionDiskRequest,
@@ -44493,7 +44493,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionHealthCheckServices.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionHealthCheckServices",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionHealthCheckServiceRequest,
@@ -44531,7 +44531,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionHealthChecks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionHealthChecks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionHealthCheckRequest,
@@ -44573,7 +44573,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagerResizeRequests.S
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstanceGroupManagerResizeRequests",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Cancel,
       Google.Cloud.Compute.V1beta.CancelRegionInstanceGroupManagerResizeRequestRequest,
@@ -44608,7 +44608,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroupManagers.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstanceGroupManagers",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AbandonInstances,
       Google.Cloud.Compute.V1beta.AbandonInstancesRegionInstanceGroupManagerRequest,
@@ -44730,7 +44730,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstanceGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstanceGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetRegionInstanceGroupRequest,
@@ -44764,7 +44764,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstanceTemplates.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstanceTemplates",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionInstanceTemplateRequest,
@@ -44794,7 +44794,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstances.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstances",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :BulkInsert,
       Google.Cloud.Compute.V1beta.BulkInsertRegionInstanceRequest,
@@ -44812,7 +44812,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionInstantSnapshots.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionInstantSnapshots",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionInstantSnapshotRequest,
@@ -44858,7 +44858,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionMultiMigs.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionMultiMigs",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionMultiMigRequest,
@@ -44888,7 +44888,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionNetworkEndpointGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionNetworkEndpointGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AttachNetworkEndpoints,
       Google.Cloud.Compute.V1beta.AttachNetworkEndpointsRegionNetworkEndpointGroupRequest,
@@ -44930,7 +44930,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionNetworkFirewallPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionNetworkFirewallPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddAssociation,
       Google.Cloud.Compute.V1beta.AddAssociationRegionNetworkFirewallPolicyRequest,
@@ -45016,7 +45016,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionNotificationEndpoints.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionNotificationEndpoints",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionNotificationEndpointRequest,
@@ -45050,7 +45050,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionOperations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionOperations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionOperationRequest,
@@ -45080,7 +45080,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionSecurityPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionSecurityPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddRule,
       Google.Cloud.Compute.V1beta.AddRuleRegionSecurityPolicyRequest,
@@ -45134,7 +45134,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionSnapshotSettings.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionSnapshotSettings",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetRegionSnapshotSettingRequest,
@@ -45156,7 +45156,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionSnapshots.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionSnapshots",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionSnapshotRequest,
@@ -45202,7 +45202,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionSslCertificates.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionSslCertificates",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionSslCertificateRequest,
@@ -45236,7 +45236,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionSslPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionSslPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionSslPolicyRequest,
@@ -45278,7 +45278,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionTargetHttpProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionTargetHttpProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionTargetHttpProxyRequest,
@@ -45316,7 +45316,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionTargetHttpsProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionTargetHttpsProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionTargetHttpsProxyRequest,
@@ -45362,7 +45362,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionTargetTcpProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionTargetTcpProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionTargetTcpProxyRequest,
@@ -45396,7 +45396,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionUrlMaps.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionUrlMaps",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRegionUrlMapRequest,
@@ -45444,7 +45444,7 @@ defmodule Google.Cloud.Compute.V1beta.RegionZones.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.RegionZones",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :List,
       Google.Cloud.Compute.V1beta.ListRegionZonesRequest,
@@ -45462,7 +45462,7 @@ defmodule Google.Cloud.Compute.V1beta.Regions.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Regions",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get, Google.Cloud.Compute.V1beta.GetRegionRequest, Google.Cloud.Compute.V1beta.Region
 
@@ -45482,7 +45482,7 @@ defmodule Google.Cloud.Compute.V1beta.ReservationBlocks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ReservationBlocks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetReservationBlockRequest,
@@ -45508,7 +45508,7 @@ defmodule Google.Cloud.Compute.V1beta.ReservationSubBlocks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ReservationSubBlocks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetReservationSubBlockRequest,
@@ -45534,7 +45534,7 @@ defmodule Google.Cloud.Compute.V1beta.Reservations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Reservations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListReservationsRequest,
@@ -45592,7 +45592,7 @@ defmodule Google.Cloud.Compute.V1beta.ResourcePolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ResourcePolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListResourcePoliciesRequest,
@@ -45642,7 +45642,7 @@ defmodule Google.Cloud.Compute.V1beta.Routers.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Routers",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListRoutersRequest,
@@ -45726,7 +45726,7 @@ defmodule Google.Cloud.Compute.V1beta.Routes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Routes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteRouteRequest,
@@ -45756,7 +45756,7 @@ defmodule Google.Cloud.Compute.V1beta.SecurityPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.SecurityPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddRule,
       Google.Cloud.Compute.V1beta.AddRuleSecurityPolicyRequest,
@@ -45822,7 +45822,7 @@ defmodule Google.Cloud.Compute.V1beta.ServiceAttachments.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ServiceAttachments",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListServiceAttachmentsRequest,
@@ -45872,7 +45872,7 @@ defmodule Google.Cloud.Compute.V1beta.SnapshotSettingsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.SnapshotSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get,
       Google.Cloud.Compute.V1beta.GetSnapshotSettingRequest,
@@ -45894,7 +45894,7 @@ defmodule Google.Cloud.Compute.V1beta.Snapshots.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Snapshots",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListSnapshotsRequest,
@@ -45942,7 +45942,7 @@ defmodule Google.Cloud.Compute.V1beta.SslCertificates.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.SslCertificates",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListSslCertificatesRequest,
@@ -45980,7 +45980,7 @@ defmodule Google.Cloud.Compute.V1beta.SslPolicies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.SslPolicies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListSslPoliciesRequest,
@@ -46024,7 +46024,7 @@ defmodule Google.Cloud.Compute.V1beta.StoragePoolTypes.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.StoragePoolTypes",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListStoragePoolTypesRequest,
@@ -46050,7 +46050,7 @@ defmodule Google.Cloud.Compute.V1beta.StoragePools.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.StoragePools",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListStoragePoolsRequest,
@@ -46104,7 +46104,7 @@ defmodule Google.Cloud.Compute.V1beta.Subnetworks.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.Subnetworks",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListSubnetworksRequest,
@@ -46166,7 +46166,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetGrpcProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetGrpcProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteTargetGrpcProxyRequest,
@@ -46204,7 +46204,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetHttpProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetHttpProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListTargetHttpProxiesRequest,
@@ -46250,7 +46250,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetHttpsProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetHttpsProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListTargetHttpsProxiesRequest,
@@ -46312,7 +46312,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetInstances.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetInstances",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListTargetInstancesRequest,
@@ -46354,7 +46354,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetPools.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetPools",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AddHealthCheck,
       Google.Cloud.Compute.V1beta.AddHealthCheckTargetPoolRequest,
@@ -46420,7 +46420,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetSslProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetSslProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteTargetSslProxyRequest,
@@ -46474,7 +46474,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetTcpProxies.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetTcpProxies",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListTargetTcpProxiesRequest,
@@ -46520,7 +46520,7 @@ defmodule Google.Cloud.Compute.V1beta.TargetVpnGateways.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.TargetVpnGateways",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListTargetVpnGatewaysRequest,
@@ -46562,7 +46562,7 @@ defmodule Google.Cloud.Compute.V1beta.UrlMaps.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.UrlMaps",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListUrlMapsRequest,
@@ -46614,7 +46614,7 @@ defmodule Google.Cloud.Compute.V1beta.VpnGateways.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.VpnGateways",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListVpnGatewaysRequest,
@@ -46660,7 +46660,7 @@ defmodule Google.Cloud.Compute.V1beta.VpnTunnels.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.VpnTunnels",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AggregatedList,
       Google.Cloud.Compute.V1beta.AggregatedListVpnTunnelsRequest,
@@ -46700,7 +46700,7 @@ defmodule Google.Cloud.Compute.V1beta.WireGroups.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.WireGroups",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteWireGroupRequest,
@@ -46732,7 +46732,7 @@ defmodule Google.Cloud.Compute.V1beta.ZoneOperations.Service do
 
   use GRPC.Service,
     name: "google.cloud.compute.v1beta.ZoneOperations",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Delete,
       Google.Cloud.Compute.V1beta.DeleteZoneOperationRequest,
@@ -46760,7 +46760,7 @@ end
 defmodule Google.Cloud.Compute.V1beta.Zones.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.compute.v1beta.Zones", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.compute.v1beta.Zones", protoc_gen_elixir_version: "0.15.0"
 
   rpc :Get, Google.Cloud.Compute.V1beta.GetZoneRequest, Google.Cloud.Compute.V1beta.Zone
 

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.SecurityPosture.PolicyDriftDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field, 1, type: :string
   field :expected_value, 2, type: :string, json_name: "expectedValue"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.SecurityPosture do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId"

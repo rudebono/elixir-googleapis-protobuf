@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.UpdateGenerativeQuestionsFeatureConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generative_questions_feature_config, 2,
     type: Google.Cloud.Retail.V2alpha.GenerativeQuestionsFeatureConfig,
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetGenerativeQuestionsFeatureConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :catalog, 1, type: :string, deprecated: false
 end
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ListGenerativeQuestionConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ListGenerativeQuestionConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generative_question_configs, 1,
     repeated: true,
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateGenerativeQuestionConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generative_question_config, 3,
     type: Google.Cloud.Retail.V2alpha.GenerativeQuestionConfig,
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.BatchUpdateGenerativeQuestionConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.BatchUpdateGenerativeQuestionConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generative_question_configs, 1,
     repeated: true,
@@ -87,7 +87,7 @@ defmodule Google.Cloud.Retail.V2alpha.GenerativeQuestionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.GenerativeQuestionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :UpdateGenerativeQuestionsFeatureConfig,
       Google.Cloud.Retail.V2alpha.UpdateGenerativeQuestionsFeatureConfigRequest,

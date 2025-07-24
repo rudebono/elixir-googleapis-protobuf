@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.CreateDataLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CreateDataLinkResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.RemoveDataLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :resource_name, 2, type: :string, json_name: "resourceName", deprecated: false
@@ -31,7 +31,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.RemoveDataLinkResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.UpdateDataLinkRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -55,7 +55,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.UpdateDataLinkResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -65,7 +65,7 @@ defmodule Google.Ads.Googleads.V19.Services.DataLinkService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.DataLinkService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateDataLink,
       Google.Ads.Googleads.V19.Services.CreateDataLinkRequest,

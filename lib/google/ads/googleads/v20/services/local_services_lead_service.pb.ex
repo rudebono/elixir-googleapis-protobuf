@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Services.AppendLeadConversationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.AppendLeadConversationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :responses, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.Conversation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :local_services_lead, 1, type: :string, json_name: "localServicesLead", deprecated: false
   field :text, 2, type: :string, deprecated: false
@@ -34,7 +34,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.ConversationOrError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :append_lead_conversation_response, 0
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.SurveySatisfied do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :survey_satisfied_reason, 1,
     type:
@@ -70,7 +70,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.SurveyDissatisfied do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :survey_dissatisfied_reason, 1,
     type:
@@ -88,7 +88,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.ProvideLeadFeedbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :survey_details, 0
 
@@ -114,7 +114,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.ProvideLeadFeedbackResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :credit_issuance_decision, 1,
     type:
@@ -129,7 +129,7 @@ defmodule Google.Ads.Googleads.V20.Services.LocalServicesLeadService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v20.services.LocalServicesLeadService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :AppendLeadConversation,
       Google.Ads.Googleads.V20.Services.AppendLeadConversationRequest,

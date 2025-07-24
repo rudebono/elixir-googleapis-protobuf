@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CheckoutSettings.CheckoutEnrollmentState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CHECKOUT_ENROLLMENT_STATE_UNSPECIFIED, 0
   field :INACTIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CheckoutSettings.CheckoutReviewState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CHECKOUT_REVIEW_STATE_UNSPECIFIED, 0
   field :IN_REVIEW, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetCheckoutSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateCheckoutSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateCheckoutSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :checkout_settings, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.CheckoutSettings,
@@ -60,7 +60,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteCheckoutSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CheckoutSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -121,7 +121,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UriSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :uri_template, 0
 
@@ -134,7 +134,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.CheckoutSettingsService.Servi
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.CheckoutSettingsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetCheckoutSettings,
       Google.Shopping.Merchant.Accounts.V1beta.GetCheckoutSettingsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListIndexEndpointsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoints, 1,
     repeated: true,
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoint, 1,
     type: Google.Cloud.Aiplatform.V1beta1.IndexEndpoint,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteIndexEndpointRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployed_index, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployIndexOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
   field :deployed_index_id, 2, type: :string, json_name: "deployedIndexId", deprecated: false
@@ -125,13 +125,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UndeployIndexOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint", deprecated: false
 
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployed_index, 1,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndex,
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.MutateDeployedIndexOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -178,7 +178,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexEndpointService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.IndexEndpointService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateIndexEndpoint,
       Google.Cloud.Aiplatform.V1beta1.CreateIndexEndpointRequest,

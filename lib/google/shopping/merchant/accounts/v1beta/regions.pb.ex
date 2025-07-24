@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :region_id, 2, type: :string, json_name: "regionId", deprecated: false
@@ -19,7 +19,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :region, 1, type: Google.Shopping.Merchant.Accounts.V1beta.Region, deprecated: false
 
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteRegionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListRegionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -50,7 +50,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListRegionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :regions, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1beta.Region
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -59,7 +59,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Region.PostalCodeArea.PostalCodeRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :begin, 1, type: :string, deprecated: false
   field :end, 2, type: :string, deprecated: false
@@ -68,7 +68,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Region.PostalCodeArea do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :region_code, 1, type: :string, json_name: "regionCode", deprecated: false
 
@@ -82,7 +82,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Region.GeoTargetArea do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :geotarget_criteria_ids, 1,
     repeated: true,
@@ -94,7 +94,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Region do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -130,7 +130,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.RegionsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.RegionsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetRegion,
       Google.Shopping.Merchant.Accounts.V1beta.GetRegionRequest,

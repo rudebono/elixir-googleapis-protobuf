@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATA_STORE_TYPE_UNSPECIFIED, 0
   field :PUBLIC_WEB, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DocumentProcessingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DOCUMENT_PROCESSING_MODE_UNSPECIFIED, 0
   field :DOCUMENTS, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.GroundingSignals.GroundingDecision do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :GROUNDING_DECISION_UNSPECIFIED, 0
   field :ACCEPTED_BY_GROUNDING, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.GroundingSignals.GroundingScoreBucket do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :GROUNDING_SCORE_BUCKET_UNSPECIFIED, 0
   field :VERY_LOW, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SafetySignals.SafetyDecision do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SAFETY_DECISION_UNSPECIFIED, 0
   field :ACCEPTED_BY_SAFETY_CHECK, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SafetySignals.BannedPhraseMatch do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BANNED_PHRASE_MATCH_UNSPECIFIED, 0
   field :BANNED_PHRASE_MATCH_NONE, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_store_type, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreType,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.RewriterModelCallSignals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rendered_prompt, 1, type: :string, json_name: "renderedPrompt"
   field :model_output, 2, type: :string, json_name: "modelOutput"
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SearchSnippet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document_title, 1, type: :string, json_name: "documentTitle"
   field :document_uri, 2, type: :string, json_name: "documentUri"
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.AnswerGenerationModelCallSignals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rendered_prompt, 1, type: :string, json_name: "renderedPrompt"
   field :model_output, 2, type: :string, json_name: "modelOutput"
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.AnswerPart do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :supporting_indices, 2, repeated: true, type: :int32, json_name: "supportingIndices"
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.CitedSnippet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_snippet, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SearchSnippet,
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.GroundingSignals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :decision, 1,
     type:
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SafetySignals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :decision, 1,
     type:
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rewriter_model_call_signals, 1,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.RewriterModelCallSignals,

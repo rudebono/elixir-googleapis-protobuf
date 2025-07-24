@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Functions.V1.OperationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPERATION_UNSPECIFIED, 0
   field :CREATE_FUNCTION, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Functions.V1.OperationMetadataV1 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target, 1, type: :string
   field :type, 2, type: Google.Cloud.Functions.V1.OperationType, enum: true

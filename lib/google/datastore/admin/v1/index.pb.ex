@@ -1,7 +1,7 @@
 defmodule Google.Datastore.Admin.V1.Index.AncestorMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ANCESTOR_MODE_UNSPECIFIED, 0
   field :NONE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Datastore.Admin.V1.Index.Direction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DIRECTION_UNSPECIFIED, 0
   field :ASCENDING, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Datastore.Admin.V1.Index.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Datastore.Admin.V1.Index.IndexedProperty do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Datastore.Admin.V1.Index do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :index_id, 3, type: :string, json_name: "indexId", deprecated: false

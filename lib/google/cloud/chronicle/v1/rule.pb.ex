@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Chronicle.V1.RunFrequency do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RUN_FREQUENCY_UNSPECIFIED, 0
   field :LIVE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.RuleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RULE_TYPE_UNSPECIFIED, 0
   field :SINGLE_EVENT, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.RuleView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RULE_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Rule.CompilationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :COMPILATION_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.RuleDeployment.ExecutionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EXECUTION_STATE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Retrohunt.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CompilationDiagnostic.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :WARNING, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Rule.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Rule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.RuleDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :enabled, 2, type: :bool
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Retrohunt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CreateRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :rule, 2, type: Google.Cloud.Chronicle.V1.Rule, deprecated: false
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Chronicle.V1.RuleView, enum: true
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRulesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRulesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Cloud.Chronicle.V1.Rule
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule, 1, type: Google.Cloud.Chronicle.V1.Rule, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -267,7 +267,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DeleteRuleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRuleRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRuleRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rules, 1, repeated: true, type: Google.Cloud.Chronicle.V1.Rule
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CreateRetrohuntRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :retrohunt, 2, type: Google.Cloud.Chronicle.V1.Retrohunt, deprecated: false
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetRetrohuntRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -313,7 +313,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRetrohuntsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -324,7 +324,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRetrohuntsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retrohunts, 1, repeated: true, type: Google.Cloud.Chronicle.V1.Retrohunt
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -333,7 +333,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetRuleDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRuleDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -352,7 +352,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListRuleDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule_deployments, 1,
     repeated: true,
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateRuleDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule_deployment, 1,
     type: Google.Cloud.Chronicle.V1.RuleDeployment,
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CompilationPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_line, 1, type: :int32, json_name: "startLine", deprecated: false
   field :start_column, 2, type: :int32, json_name: "startColumn", deprecated: false
@@ -392,7 +392,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CompilationDiagnostic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string, deprecated: false
   field :position, 2, type: Google.Cloud.Chronicle.V1.CompilationPosition, deprecated: false
@@ -408,7 +408,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Severity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName"
 end
@@ -416,7 +416,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.RetrohuntMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retrohunt, 1, type: :string, deprecated: false
   field :execution_interval, 2, type: Google.Type.Interval, json_name: "executionInterval"
@@ -426,7 +426,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.InputsUsed do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uses_udm, 1, type: :bool, json_name: "usesUdm", deprecated: false
   field :uses_entity, 2, type: :bool, json_name: "usesEntity", deprecated: false
@@ -438,7 +438,7 @@ defmodule Google.Cloud.Chronicle.V1.RuleService.Service do
 
   use GRPC.Service,
     name: "google.cloud.chronicle.v1.RuleService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateRule, Google.Cloud.Chronicle.V1.CreateRuleRequest, Google.Cloud.Chronicle.V1.Rule
 

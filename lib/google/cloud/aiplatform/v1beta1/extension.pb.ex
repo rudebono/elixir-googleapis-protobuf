@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.HttpElementLocation do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HTTP_IN_UNSPECIFIED, 0
   field :HTTP_IN_QUERY, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTH_TYPE_UNSPECIFIED, 0
   field :NO_AUTH, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Extension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionManifest.ApiSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :api_spec, 0
 
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionManifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation_id, 1, type: :string, json_name: "operationId"
 
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.ApiKeyConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :api_key_secret, 2, type: :string, json_name: "apiKeySecret", deprecated: false
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.HttpBasicAuthConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :credential_secret, 2, type: :string, json_name: "credentialSecret", deprecated: false
 end
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.GoogleServiceAccountConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
 end
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.OauthConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :oauth_config, 0
 
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig.OidcConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :oidc_config, 0
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AuthConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :auth_config, 0
 
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RuntimeConfig.CodeInterpreterRuntimeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_input_gcs_bucket, 1,
     type: :string,
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RuntimeConfig.VertexAISearchRuntimeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :serving_config_name, 1, type: :string, json_name: "servingConfigName", deprecated: false
   field :engine_id, 2, type: :string, json_name: "engineId", deprecated: false
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RuntimeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :GoogleFirstPartyExtensionConfig, 0
 
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionPrivateServiceConnectConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_directory, 1, type: :string, json_name: "serviceDirectory", deprecated: false
 end
