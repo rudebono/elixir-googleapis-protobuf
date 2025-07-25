@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MAINTENANCE_CATEGORY_UNSPECIFIED, 0
   field :INFRASTRUCTURE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SCHEDULED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceControl.Control do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTROL_UNSPECIFIED, 0
   field :APPLY, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.SummarizeMaintenancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 10006, type: :string, deprecated: false
   field :page_size, 10505, type: :int32, json_name: "pageSize"
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.SummarizeMaintenancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenances, 10509,
     repeated: true,
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceSummary.Stats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group_by, 1, type: :string, json_name: "groupBy"
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceSummary.Aggregate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group, 1, type: :string
   field :count, 2, type: :int64
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_name, 1, type: :string, json_name: "maintenanceName", deprecated: false
   field :title, 2, type: :string, deprecated: false
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :location, 2, type: :string, deprecated: false
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance.Maintenance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_name, 1, type: :string, json_name: "maintenanceName"
   field :title, 2, type: :string, deprecated: false
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ResourceMaintenance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.MaintenanceControl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :control, 1,
     type: Google.Cloud.Maintenance.Api.V1beta.MaintenanceControl.Control,
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ListResourceMaintenancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 10006, type: :string, deprecated: false
   field :page_size, 10505, type: :int32, json_name: "pageSize"
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.ListResourceMaintenancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_maintenances, 10509,
     repeated: true,
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Maintenance.Api.V1beta.GetResourceMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 10001, type: :string, deprecated: false
 end
@@ -297,7 +297,7 @@ defmodule Google.Cloud.Maintenance.Api.V1beta.Maintenance.Service do
 
   use GRPC.Service,
     name: "google.cloud.maintenance.api.v1beta.Maintenance",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SummarizeMaintenances,
       Google.Cloud.Maintenance.Api.V1beta.SummarizeMaintenancesRequest,

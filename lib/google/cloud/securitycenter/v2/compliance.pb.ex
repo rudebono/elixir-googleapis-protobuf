@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.Compliance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :standard, 1, type: :string
   field :version, 2, type: :string

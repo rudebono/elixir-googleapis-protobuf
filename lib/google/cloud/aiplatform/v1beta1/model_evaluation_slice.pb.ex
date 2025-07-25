@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec.SliceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec.Range do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :low, 1, type: :float
   field :high, 2, type: :float
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec.ConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice.SliceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :configs, 1,
     repeated: true,
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice.Slice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelEvaluationSlice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

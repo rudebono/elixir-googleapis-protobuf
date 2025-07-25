@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Lustre.V1.Lustre.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.lustre.v1.Lustre", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.lustre.v1.Lustre", protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInstances,
       Google.Cloud.Lustre.V1.ListInstancesRequest,

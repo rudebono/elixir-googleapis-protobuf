@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.AggregatedReportingContextStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AGGREGATED_REPORTING_CONTEXT_STATUS_UNSPECIFIED, 0
   field :NOT_ELIGIBLE_OR_DISAPPROVED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ClickPotential do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CLICK_POTENTIAL_UNSPECIFIED, 0
   field :LOW, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueResolution do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ITEM_ISSUE_RESOLUTION_UNSPECIFIED, 0
   field :MERCHANT_ACTION, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueSeverity.AggregatedIssueSeverity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AGGREGATED_ISSUE_SEVERITY_UNSPECIFIED, 0
   field :DISAPPROVED, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.PriceInsightsProductView.Effectiveness do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EFFECTIVENESS_UNSPECIFIED, 0
   field :LOW, 1
@@ -56,7 +56,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.BestSellersProductClusterView.InventoryStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INVENTORY_STATUS_UNSPECIFIED, 0
   field :IN_STOCK, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.MarketingMethod.MarketingMethodEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MARKETING_METHOD_ENUM_UNSPECIFIED, 0
   field :ORGANIC, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportGranularity.ReportGranularityEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPORT_GRANULARITY_ENUM_UNSPECIFIED, 0
   field :WEEKLY, 1
@@ -87,7 +87,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.RelativeDemand.RelativeDemandEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RELATIVE_DEMAND_ENUM_UNSPECIFIED, 0
   field :VERY_LOW, 10
@@ -100,7 +100,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.RelativeDemandChangeType.RelativeDemandChangeTypeEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RELATIVE_DEMAND_CHANGE_TYPE_ENUM_UNSPECIFIED, 0
   field :SINKER, 1
@@ -111,7 +111,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.TrafficSource.TrafficSourceEnum do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRAFFIC_SOURCE_ENUM_UNSPECIFIED, 0
   field :ORGANIC, 1
@@ -122,7 +122,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.SearchRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.SearchResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Shopping.Merchant.Reports.V1alpha.ReportRow
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -142,7 +142,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportRow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_performance_view, 1,
     type: Google.Shopping.Merchant.Reports.V1alpha.ProductPerformanceView,
@@ -200,7 +200,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductPerformanceView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :marketing_method, 1,
     proto3_optional: true,
@@ -250,7 +250,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 1, proto3_optional: true, type: :string
 
@@ -263,7 +263,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueSeverity.IssueSeverityPerReportingContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reporting_context, 1,
     proto3_optional: true,
@@ -282,7 +282,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueSeverity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :severity_per_reporting_context, 1,
     repeated: true,
@@ -301,7 +301,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Reports.V1alpha.ProductView.ItemIssue.ItemIssueType
@@ -318,7 +318,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ProductView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, proto3_optional: true, type: :string
 
@@ -377,7 +377,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.PriceCompetitivenessProductView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_country_code, 1,
     proto3_optional: true,
@@ -405,7 +405,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.PriceInsightsProductView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, proto3_optional: true, type: :string
   field :offer_id, 2, proto3_optional: true, type: :string, json_name: "offerId"
@@ -447,7 +447,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.BestSellersProductClusterView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_date, 1, type: Google.Type.Date, json_name: "reportDate"
 
@@ -510,7 +510,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.BestSellersBrandView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :report_date, 1, type: Google.Type.Date, json_name: "reportDate"
 
@@ -553,7 +553,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.NonProductPerformanceView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :week, 2, type: Google.Type.Date
@@ -569,7 +569,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.CompetitiveVisibilityCompetitorView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :domain, 2, proto3_optional: true, type: :string
@@ -606,7 +606,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.CompetitiveVisibilityTopMerchantView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :domain, 2, proto3_optional: true, type: :string
@@ -638,7 +638,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.CompetitiveVisibilityBenchmarkView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
 
@@ -669,37 +669,37 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.MarketingMethod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportGranularity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.RelativeDemand do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.RelativeDemandChangeType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.TrafficSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeCreatorPerformanceView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :title, 2, proto3_optional: true, type: :string
@@ -724,7 +724,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeContentPerformanceView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :title, 2, proto3_optional: true, type: :string
@@ -751,7 +751,7 @@ end
 defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeProductPerformanceView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :date, 1, type: Google.Type.Date
   field :title, 2, proto3_optional: true, type: :string
@@ -788,7 +788,7 @@ defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.reports.v1alpha.ReportService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Search,
       Google.Shopping.Merchant.Reports.V1alpha.SearchRequest,

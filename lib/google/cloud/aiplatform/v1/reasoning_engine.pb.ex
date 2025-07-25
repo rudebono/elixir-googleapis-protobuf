@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.PackageSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pickle_object_gcs_uri, 1,
     type: :string,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :env, 1, repeated: true, type: Google.Cloud.Aiplatform.V1.EnvVar, deprecated: false
 
@@ -38,7 +38,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :service_account, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "serviceAccount",
+    deprecated: false
 
   field :package_spec, 2,
     type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.PackageSpec,
@@ -62,7 +68,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

@@ -1,7 +1,7 @@
 defmodule Google.Compute.Logging.Gdnsusage.V1.GdnsVmUsagePlatformLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_vm, 1,
     proto3_optional: true,
@@ -20,7 +20,7 @@ end
 defmodule Google.Compute.Logging.Gdnsusage.V1.VmInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, proto3_optional: true, type: :string, json_name: "projectId"
   field :vm, 2, proto3_optional: true, type: :string

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Netapp.V1.BackupVault.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Netapp.V1.BackupVault.BackupVaultType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_VAULT_TYPE_UNSPECIFIED, 0
   field :IN_REGION, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Netapp.V1.BackupVault.BackupRetentionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_minimum_enforced_retention_days, 1,
     type: :int32,
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Netapp.V1.BackupVault.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -64,7 +64,7 @@ end
 defmodule Google.Cloud.Netapp.V1.BackupVault do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Netapp.V1.BackupVault.State, enum: true, deprecated: false
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Netapp.V1.GetBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListBackupVaultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Netapp.V1.ListBackupVaultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_vaults, 1,
     repeated: true,
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Netapp.V1.CreateBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_vault_id, 2, type: :string, json_name: "backupVaultId", deprecated: false
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Netapp.V1.DeleteBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Netapp.V1.UpdateBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,

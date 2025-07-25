@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpSale do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_account, 2, type: :int64, json_name: "targetAccount", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.InsertLfpSaleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -40,7 +40,7 @@ defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpSaleService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.lfp.v1beta.LfpSaleService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :InsertLfpSale,
       Google.Shopping.Merchant.Lfp.V1beta.InsertLfpSaleRequest,

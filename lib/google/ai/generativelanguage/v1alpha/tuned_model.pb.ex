@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.TunedModel.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TunedModel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_model, 0
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TunedModelSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tuned_model, 1, type: :string, json_name: "tunedModel", deprecated: false
   field :base_model, 2, type: :string, json_name: "baseModel", deprecated: false
@@ -69,7 +69,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningTask do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
 
@@ -96,7 +96,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Hyperparameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :learning_rate_option, 0
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Dataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dataset, 0
 
@@ -137,7 +137,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningExamples do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :examples, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.TuningExample
 
@@ -150,7 +150,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningPart do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -160,7 +160,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parts, 1, repeated: true, type: Google.Ai.Generativelanguage.V1alpha.TuningPart
   field :role, 2, type: :string, deprecated: false
@@ -169,7 +169,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningMultiturnExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :system_instruction, 8,
     proto3_optional: true,
@@ -183,7 +183,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :model_input, 0
 
@@ -194,7 +194,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.TuningSnapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :step, 1, type: :int32, deprecated: false
   field :epoch, 2, type: :int32, deprecated: false

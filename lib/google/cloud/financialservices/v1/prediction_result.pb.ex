@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Financialservices.V1.PredictionResult.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.PredictionResult.Outputs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :prediction_destination, 1,
     type: Google.Cloud.Financialservices.V1.BigQueryDestination,
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.PredictionResult.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.PredictionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ListPredictionResultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ListPredictionResultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :prediction_results, 1,
     repeated: true,
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.GetPredictionResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.CreatePredictionResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -134,7 +134,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.UpdatePredictionResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.DeletePredictionResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ExportPredictionResultMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :prediction_result, 1, type: :string, json_name: "predictionResult", deprecated: false
 
@@ -174,5 +174,5 @@ end
 defmodule Google.Cloud.Financialservices.V1.ExportPredictionResultMetadataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end

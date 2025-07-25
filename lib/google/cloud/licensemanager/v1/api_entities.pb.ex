@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Licensemanager.V1.LicenseType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LICENSE_TYPE_UNSPECIFIED, 0
   field :LICENSE_TYPE_PER_MONTH_PER_USER, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.ActivationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTIVATION_STATE_UNSPECIFIED, 0
   field :ACTIVATION_STATE_KEY_REQUESTED, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Configuration.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_ACTIVE, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Product.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_PROVISIONING, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PROVISIONING, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Configuration.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Configuration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 5, type: :string, json_name: "displayName", deprecated: false
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.BillingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :current_billing_info, 0
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.UserCountBillingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_count, 1, type: :int32, json_name: "userCount", deprecated: false
 end
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.UserCountUsage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :unique_user_count, 1, type: :int32, json_name: "uniqueUserCount", deprecated: false
 end
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Product do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :version, 2, type: :string, deprecated: false
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Instance.ProductActivationEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Licensemanager.V1.ActivationState, enum: true
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -230,7 +230,7 @@ end
 defmodule Google.Cloud.Licensemanager.V1.Usage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lima_instance, 1, type: :string, json_name: "limaInstance", deprecated: false
   field :users, 2, type: :int32

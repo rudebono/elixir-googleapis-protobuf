@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.UploadClickConversionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.UploadClickConversionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V19.Services.ClickConversionResult
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.UploadCallConversionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.UploadCallConversionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V19.Services.CallConversionResult
@@ -54,7 +54,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ClickConversion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :session_attributes, 0
 
@@ -118,7 +118,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CallConversion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :caller_id, 7, proto3_optional: true, type: :string, json_name: "callerId"
 
@@ -148,7 +148,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ExternalAttributionData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :external_attribution_credit, 3,
     proto3_optional: true,
@@ -164,7 +164,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.ClickConversionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gclid, 4, proto3_optional: true, type: :string
   field :gbraid, 8, type: :string
@@ -185,7 +185,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CallConversionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :caller_id, 5, proto3_optional: true, type: :string, json_name: "callerId"
 
@@ -205,7 +205,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CustomVariable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :conversion_custom_variable, 1,
     type: :string,
@@ -218,7 +218,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CartData.Item do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_id, 1, type: :string, json_name: "productId"
   field :quantity, 2, type: :int32
@@ -228,7 +228,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CartData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merchant_id, 6, type: :int64, json_name: "merchantId"
   field :feed_country_code, 2, type: :string, json_name: "feedCountryCode"
@@ -240,7 +240,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SessionAttributeKeyValuePair do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_attribute_key, 1,
     type: :string,
@@ -256,7 +256,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SessionAttributesKeyValuePairs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_value_pairs, 1,
     repeated: true,
@@ -270,7 +270,7 @@ defmodule Google.Ads.Googleads.V19.Services.ConversionUploadService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.ConversionUploadService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :UploadClickConversions,
       Google.Ads.Googleads.V19.Services.UploadClickConversionsRequest,

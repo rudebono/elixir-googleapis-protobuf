@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetAdBreakRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListAdBreaksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListAdBreaksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ad_breaks, 1,
     repeated: true,
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Admanager.V1.CreateAdBreakRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Ads.Admanager.V1.UpdateAdBreakRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ad_break, 1,
     type: Google.Ads.Admanager.V1.AdBreak,
@@ -65,7 +65,7 @@ end
 defmodule Google.Ads.Admanager.V1.DeleteAdBreakRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -75,7 +75,7 @@ defmodule Google.Ads.Admanager.V1.AdBreakService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.AdBreakService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetAdBreak, Google.Ads.Admanager.V1.GetAdBreakRequest, Google.Ads.Admanager.V1.AdBreak
 

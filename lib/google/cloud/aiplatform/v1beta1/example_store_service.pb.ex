@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateExampleStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateExampleStoreOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetExampleStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExampleStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example_store, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ExampleStore,
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExampleStoreOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteExampleStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteExampleStoreOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExampleStoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExampleStoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example_stores, 1,
     repeated: true,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Example do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :example_type, 0
 
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpsertExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example_store, 1, type: :string, json_name: "exampleStore", deprecated: false
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpsertExamplesResponse.UpsertResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpsertExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RemoveExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :metadata_filter, 0
 
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RemoveExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example_ids, 1, repeated: true, type: :string, json_name: "exampleIds"
 end
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :parameters, 0
 
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchExamplesResponse.SimilarExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example, 1, type: Google.Cloud.Aiplatform.V1beta1.Example
   field :similarity_score, 2, type: :float, json_name: "similarityScore"
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.SearchExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 1,
     repeated: true,
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :metadata_filter, 0
 
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FetchExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :examples, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Example
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -245,7 +245,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExampleStoreService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ExampleStoreService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateExampleStore,
       Google.Cloud.Aiplatform.V1beta1.CreateExampleStoreRequest,

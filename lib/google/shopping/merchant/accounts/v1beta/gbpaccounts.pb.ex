@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GbpAccount.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :USER, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GbpAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :gbp_account_id, 2, type: :string, json_name: "gbpAccountId"
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListGbpAccountsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -33,7 +33,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListGbpAccountsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gbp_accounts, 1,
     repeated: true,
@@ -46,7 +46,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.LinkGbpAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gbp_email, 2, type: :string, json_name: "gbpEmail", deprecated: false
@@ -55,7 +55,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.LinkGbpAccountResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response, 1, type: Google.Protobuf.Empty
 end
@@ -65,7 +65,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.GbpAccountsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.GbpAccountsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListGbpAccounts,
       Google.Shopping.Merchant.Accounts.V1beta.ListGbpAccountsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Video.Livestream.V1.Manifest.ManifestType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MANIFEST_TYPE_UNSPECIFIED, 0
   field :HLS, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.TimecodeConfig.TimecodeSource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TIMECODE_SOURCE_UNSPECIFIED, 0
   field :MEDIA_TIMESTAMP, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.ElementaryStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :elementary_stream, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.MuxStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :container, 3, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.Manifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_name, 1, type: :string, json_name: "fileName"
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :format, 1, type: :string
   field :file_prefix, 2, type: :string, json_name: "filePrefix", deprecated: false
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Audio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lufs, 1, type: :double
 end
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
@@ -119,7 +119,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Pad do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :top_pixels, 1, type: :int32, json_name: "topPixels"
   field :bottom_pixels, 2, type: :int32, json_name: "bottomPixels"
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.PreprocessingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audio, 1, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Audio
   field :crop, 2, type: Google.Cloud.Video.Livestream.V1.PreprocessingConfig.Crop
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :gop_mode, 0
 
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.VideoStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :codec_settings, 0
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_key, 6, type: :string, json_name: "inputKey", deprecated: false
   field :input_track, 2, type: :int32, json_name: "inputTrack", deprecated: false
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :transmux, 8, type: :bool
   field :codec, 1, type: :string
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.TextStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :codec, 1, type: :string, deprecated: false
 end
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.SegmentSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :segment_duration, 1, type: Google.Protobuf.Duration, json_name: "segmentDuration"
 end
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Video.Livestream.V1.TimecodeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :time_offset, 0
 

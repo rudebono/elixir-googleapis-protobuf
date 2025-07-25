@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Visionai.V1.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Visionai.V1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListStreamsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListStreamsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :streams, 1, repeated: true, type: Google.Cloud.Visionai.V1.Stream
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :stream_id, 2, type: :string, json_name: "streamId", deprecated: false
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetStreamThumbnailRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream, 1, type: :string, deprecated: false
   field :gcs_object_name, 2, type: :string, json_name: "gcsObjectName", deprecated: false
@@ -140,13 +140,13 @@ end
 defmodule Google.Cloud.Visionai.V1.GetStreamThumbnailResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Visionai.V1.GenerateStreamHlsTokenRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream, 1, type: :string, deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GenerateStreamHlsTokenResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :token, 1, type: :string
   field :expiration_time, 2, type: Google.Protobuf.Timestamp, json_name: "expirationTime"
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -175,7 +175,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :events, 1, repeated: true, type: Google.Cloud.Visionai.V1.Event
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -185,7 +185,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :event_id, 2, type: :string, json_name: "eventId", deprecated: false
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Visionai.V1.ListSeriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :series, 1, repeated: true, type: Google.Cloud.Visionai.V1.Series
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Visionai.V1.GetSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Visionai.V1.CreateSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :series_id, 2, type: :string, json_name: "seriesId", deprecated: false
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Visionai.V1.UpdateSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -282,7 +282,7 @@ end
 defmodule Google.Cloud.Visionai.V1.DeleteSeriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Visionai.V1.MaterializeChannelRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :channel_id, 2, type: :string, json_name: "channelId", deprecated: false
@@ -304,7 +304,7 @@ defmodule Google.Cloud.Visionai.V1.StreamsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.visionai.v1.StreamsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListClusters,
       Google.Cloud.Visionai.V1.ListClustersRequest,

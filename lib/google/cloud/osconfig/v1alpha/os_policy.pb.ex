@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :VALIDATION, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.DesiredState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :INSTALLED, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.AptRepository.ArchiveType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ARCHIVE_TYPE_UNSPECIFIED, 0
   field :DEB, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec.Interpreter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INTERPRETER_UNSPECIFIED, 0
   field :NONE, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource.DesiredState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DESIRED_STATE_UNSPECIFIED, 0
   field :PRESENT, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :os_short_name, 1, type: :string, json_name: "osShortName"
   field :os_version, 2, type: :string, json_name: "osVersion"
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.InventoryFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :os_short_name, 1, type: :string, json_name: "osShortName", deprecated: false
   field :os_version, 2, type: :string, json_name: "osVersion"
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Remote do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
   field :sha256_checksum, 2, type: :string, json_name: "sha256Checksum"
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File.Gcs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :object, 2, type: :string, deprecated: false
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Deb do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :pull_deps, 2, type: :bool, json_name: "pullDeps"
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.APT do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.RPM do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :pull_deps, 2, type: :bool, json_name: "pullDeps"
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.YUM do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.Zypper do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -145,7 +145,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.GooGet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource.MSI do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source, 1, type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.File, deprecated: false
   field :properties, 2, repeated: true, type: :string
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.PackageResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :system_package, 0
 
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.AptRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :archive_type, 1,
     type:
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.YumRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.ZypperRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource.GooRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :url, 2, type: :string, deprecated: false
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.RepositoryResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :repository, 0
 
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :validate, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.ExecResource.Exec,
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource.FileResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -327,7 +327,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.Resource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :resource_type, 0
 
@@ -345,7 +345,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy.ResourceGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :os_filter, 1,
     type: Google.Cloud.Osconfig.V1alpha.OSPolicy.OSFilter,
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Osconfig.V1alpha.OSPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string, deprecated: false
   field :description, 2, type: :string

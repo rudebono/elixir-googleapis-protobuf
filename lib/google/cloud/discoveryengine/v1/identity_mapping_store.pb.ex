@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.IdentityMappingStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key_name, 3, type: :string, json_name: "kmsKeyName", deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.IdentityMappingEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :identity_provider_id, 0
 

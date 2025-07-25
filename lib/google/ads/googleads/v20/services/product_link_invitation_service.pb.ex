@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Services.CreateProductLinkInvitationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.CreateProductLinkInvitationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.UpdateProductLinkInvitationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -39,7 +39,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.UpdateProductLinkInvitationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -47,7 +47,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.RemoveProductLinkInvitationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :resource_name, 2, type: :string, json_name: "resourceName", deprecated: false
@@ -56,7 +56,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.RemoveProductLinkInvitationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -66,7 +66,7 @@ defmodule Google.Ads.Googleads.V20.Services.ProductLinkInvitationService.Service
 
   use GRPC.Service,
     name: "google.ads.googleads.v20.services.ProductLinkInvitationService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateProductLinkInvitation,
       Google.Ads.Googleads.V20.Services.CreateProductLinkInvitationRequest,

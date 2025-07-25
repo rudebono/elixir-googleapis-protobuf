@@ -3,7 +3,7 @@ defmodule Google.Cloud.Servicehealth.V1.ServiceHealth.Service do
 
   use GRPC.Service,
     name: "google.cloud.servicehealth.v1.ServiceHealth",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListEvents,
       Google.Cloud.Servicehealth.V1.ListEventsRequest,

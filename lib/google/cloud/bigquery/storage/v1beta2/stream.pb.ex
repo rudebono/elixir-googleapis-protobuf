@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.DataFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :AVRO, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.WriteStream.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :COMMITTED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableModifiers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshot_time, 1, type: Google.Protobuf.Timestamp, json_name: "snapshotTime"
 end
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession.TableReadOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :selected_fields, 1, repeated: true, type: :string, json_name: "selectedFields"
   field :row_restriction, 2, type: :string, json_name: "rowRestriction"
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadSession do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :schema, 0
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.ReadStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1beta2.WriteStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

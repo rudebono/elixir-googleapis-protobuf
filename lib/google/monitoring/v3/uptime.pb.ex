@@ -1,7 +1,7 @@
 defmodule Google.Monitoring.V3.UptimeCheckRegion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REGION_UNSPECIFIED, 0
   field :USA, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Monitoring.V3.GroupResourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :INSTANCE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Monitoring.V3.InternalChecker.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNSPECIFIED, 0
   field :CREATING, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.CheckerType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CHECKER_TYPE_UNSPECIFIED, 0
   field :STATIC_IP_CHECKERS, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.RequestMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :METHOD_UNSPECIFIED, 0
   field :GET, 1
@@ -56,7 +56,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ContentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :URL_ENCODED, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ResponseStatusCode.StatusClass do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATUS_CLASS_UNSPECIFIED, 0
   field :STATUS_CLASS_1XX, 100
@@ -80,7 +80,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication.ServiceAgentAuthenticationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SERVICE_AGENT_AUTHENTICATION_TYPE_UNSPECIFIED, 0
   field :OIDC_TOKEN, 1
@@ -89,7 +89,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.ContentMatcherOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTENT_MATCHER_OPTION_UNSPECIFIED, 0
   field :CONTAINS_STRING, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.JsonPathMatcher.JsonPathMatcherOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :JSON_PATH_MATCHER_OPTION_UNSPECIFIED, 0
   field :EXACT_MATCH, 1
@@ -113,7 +113,7 @@ end
 defmodule Google.Monitoring.V3.InternalChecker do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -126,7 +126,7 @@ end
 defmodule Google.Monitoring.V3.SyntheticMonitorTarget.CloudFunctionV2Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Monitoring.V3.SyntheticMonitorTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -152,7 +152,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ResourceGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group_id, 1, type: :string, json_name: "groupId"
 
@@ -165,7 +165,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.PingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pings_count, 1, type: :int32, json_name: "pingsCount"
 end
@@ -173,7 +173,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.BasicAuthentication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :username, 1, type: :string
   field :password, 2, type: :string
@@ -182,7 +182,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ResponseStatusCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :status_code, 0
 
@@ -198,7 +198,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.ServiceAgentAuthentication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type:
@@ -209,7 +209,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck.HeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -218,7 +218,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.HttpCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :auth_method, 0
 
@@ -269,7 +269,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.TcpCheck do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :port, 1, type: :int32
 
@@ -281,7 +281,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher.JsonPathMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :json_path, 1, type: :string, json_name: "jsonPath"
 
@@ -295,7 +295,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.ContentMatcher do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :additional_matcher_info, 0
 
@@ -314,7 +314,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -323,7 +323,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :resource, 0
 
@@ -394,7 +394,7 @@ end
 defmodule Google.Monitoring.V3.UptimeCheckIp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :region, 1, type: Google.Monitoring.V3.UptimeCheckRegion, enum: true
   field :location, 2, type: :string

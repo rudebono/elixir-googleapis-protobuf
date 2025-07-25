@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Common.KeywordInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 3, proto3_optional: true, type: :string
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.PlacementInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url, 2, proto3_optional: true, type: :string
 end
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.NegativeKeywordListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :shared_set, 1, proto3_optional: true, type: :string, json_name: "sharedSet"
 end
@@ -30,7 +30,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.MobileAppCategoryInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mobile_app_category_constant, 2,
     proto3_optional: true,
@@ -42,7 +42,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.MobileApplicationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :app_id, 4, proto3_optional: true, type: :string, json_name: "appId"
   field :name, 5, proto3_optional: true, type: :string
@@ -51,7 +51,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.LocationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :geo_target_constant, 2,
     proto3_optional: true,
@@ -62,7 +62,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.DeviceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Ads.Googleads.V19.Enums.DeviceEnum.Device, enum: true
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ListingGroupInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.ListingGroupTypeEnum.ListingGroupType,
@@ -93,7 +93,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ListingDimensionPath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 1, repeated: true, type: Google.Ads.Googleads.V19.Common.ListingDimensionInfo
 end
@@ -101,7 +101,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ListingScopeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 2, repeated: true, type: Google.Ads.Googleads.V19.Common.ListingDimensionInfo
 end
@@ -109,7 +109,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ListingDimensionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dimension, 0
 
@@ -232,7 +232,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelIdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 2, proto3_optional: true, type: :string
 end
@@ -240,7 +240,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelClassInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 2, proto3_optional: true, type: :int64
 end
@@ -248,7 +248,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelCountryRegionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_region_criterion, 2,
     proto3_optional: true,
@@ -259,7 +259,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelStateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state_criterion, 2, proto3_optional: true, type: :string, json_name: "stateCriterion"
 end
@@ -267,7 +267,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelCityInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :city_criterion, 2, proto3_optional: true, type: :string, json_name: "cityCriterion"
 end
@@ -275,7 +275,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductCategoryInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category_id, 1, proto3_optional: true, type: :int64, json_name: "categoryId"
 
@@ -287,7 +287,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductBrandInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 2, proto3_optional: true, type: :string
 end
@@ -295,7 +295,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductChannelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel, 1,
     type: Google.Ads.Googleads.V19.Enums.ProductChannelEnum.ProductChannel,
@@ -305,7 +305,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductChannelExclusivityInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel_exclusivity, 1,
     type: Google.Ads.Googleads.V19.Enums.ProductChannelExclusivityEnum.ProductChannelExclusivity,
@@ -316,7 +316,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductConditionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :condition, 1,
     type: Google.Ads.Googleads.V19.Enums.ProductConditionEnum.ProductCondition,
@@ -326,7 +326,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductCustomAttributeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 3, proto3_optional: true, type: :string
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductItemIdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 2, proto3_optional: true, type: :string
 end
@@ -347,7 +347,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductTypeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 3, proto3_optional: true, type: :string
 
@@ -359,7 +359,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductGroupingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -367,7 +367,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductLabelsInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -375,7 +375,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductLegacyConditionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -383,7 +383,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProductTypeFullInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -391,13 +391,13 @@ end
 defmodule Google.Ads.Googleads.V19.Common.UnknownListingDimensionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V19.Common.HotelDateSelectionTypeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.HotelDateSelectionTypeEnum.HotelDateSelectionType,
@@ -407,7 +407,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelAdvanceBookingWindowInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_days, 3, proto3_optional: true, type: :int64, json_name: "minDays"
   field :max_days, 4, proto3_optional: true, type: :int64, json_name: "maxDays"
@@ -416,7 +416,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelLengthOfStayInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_nights, 3, proto3_optional: true, type: :int64, json_name: "minNights"
   field :max_nights, 4, proto3_optional: true, type: :int64, json_name: "maxNights"
@@ -425,7 +425,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelCheckInDateRangeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_date, 1, type: :string, json_name: "startDate"
   field :end_date, 2, type: :string, json_name: "endDate"
@@ -434,7 +434,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.HotelCheckInDayInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day_of_week, 1,
     type: Google.Ads.Googleads.V19.Enums.DayOfWeekEnum.DayOfWeek,
@@ -445,7 +445,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ActivityIdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -453,7 +453,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ActivityRatingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :int64
 end
@@ -461,7 +461,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ActivityCountryInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -469,7 +469,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ActivityStateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -477,7 +477,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ActivityCityInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :string
 end
@@ -485,7 +485,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.InteractionTypeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.InteractionTypeEnum.InteractionType,
@@ -495,7 +495,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AdScheduleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_minute, 1,
     type: Google.Ads.Googleads.V19.Enums.MinuteOfHourEnum.MinuteOfHour,
@@ -519,7 +519,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AgeRangeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Ads.Googleads.V19.Enums.AgeRangeTypeEnum.AgeRangeType, enum: true
 end
@@ -527,7 +527,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.GenderInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Ads.Googleads.V19.Enums.GenderTypeEnum.GenderType, enum: true
 end
@@ -535,7 +535,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.IncomeRangeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.IncomeRangeTypeEnum.IncomeRangeType,
@@ -545,7 +545,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ParentalStatusInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.ParentalStatusTypeEnum.ParentalStatusType,
@@ -555,7 +555,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.YouTubeVideoInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :video_id, 2, proto3_optional: true, type: :string, json_name: "videoId"
 end
@@ -563,7 +563,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.YouTubeChannelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel_id, 2, proto3_optional: true, type: :string, json_name: "channelId"
 end
@@ -571,7 +571,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.UserListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_list, 2, proto3_optional: true, type: :string, json_name: "userList"
 end
@@ -579,7 +579,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ProximityInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :geo_point, 1, type: Google.Ads.Googleads.V19.Common.GeoPointInfo, json_name: "geoPoint"
   field :radius, 5, proto3_optional: true, type: :double
@@ -595,7 +595,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.GeoPointInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :longitude_in_micro_degrees, 3,
     proto3_optional: true,
@@ -611,7 +611,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AddressInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :postal_code, 8, proto3_optional: true, type: :string, json_name: "postalCode"
   field :province_code, 9, proto3_optional: true, type: :string, json_name: "provinceCode"
@@ -625,7 +625,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.TopicInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic_constant, 3,
     proto3_optional: true,
@@ -639,7 +639,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.LanguageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :language_constant, 2, proto3_optional: true, type: :string, json_name: "languageConstant"
 end
@@ -647,7 +647,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.IpBlockInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ip_address, 2, proto3_optional: true, type: :string, json_name: "ipAddress"
 end
@@ -655,7 +655,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.ContentLabelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.ContentLabelTypeEnum.ContentLabelType,
@@ -665,7 +665,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CarrierInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :carrier_constant, 2,
     proto3_optional: true,
@@ -677,7 +677,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.UserInterestInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_interest_category, 2,
     proto3_optional: true,
@@ -688,7 +688,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.WebpageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :criterion_name, 3, proto3_optional: true, type: :string, json_name: "criterionName"
   field :conditions, 2, repeated: true, type: Google.Ads.Googleads.V19.Common.WebpageConditionInfo
@@ -699,7 +699,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.WebpageConditionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operand, 1,
     type: Google.Ads.Googleads.V19.Enums.WebpageConditionOperandEnum.WebpageConditionOperand,
@@ -715,7 +715,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.WebpageSampleInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sample_urls, 1, repeated: true, type: :string, json_name: "sampleUrls"
 end
@@ -723,7 +723,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.OperatingSystemVersionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operating_system_version_constant, 2,
     proto3_optional: true,
@@ -735,7 +735,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AppPaymentModelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Ads.Googleads.V19.Enums.AppPaymentModelTypeEnum.AppPaymentModelType,
@@ -745,7 +745,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.MobileDeviceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mobile_device_constant, 2,
     proto3_optional: true,
@@ -757,7 +757,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CustomAffinityInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_affinity, 2, proto3_optional: true, type: :string, json_name: "customAffinity"
 end
@@ -765,7 +765,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CustomIntentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_intent, 2, proto3_optional: true, type: :string, json_name: "customIntent"
 end
@@ -773,7 +773,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.LocationGroupInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :geo_target_constants, 6, repeated: true, type: :string, json_name: "geoTargetConstants"
   field :radius, 7, proto3_optional: true, type: :int64
@@ -799,7 +799,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CustomAudienceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_audience, 1, type: :string, json_name: "customAudience"
 end
@@ -807,7 +807,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.CombinedAudienceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :combined_audience, 1, type: :string, json_name: "combinedAudience", deprecated: false
 end
@@ -815,7 +815,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AudienceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience, 1, type: :string
 end
@@ -823,7 +823,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.KeywordThemeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :keyword_theme, 0
 
@@ -839,7 +839,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.LocalServiceIdInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_id, 1, type: :string, json_name: "serviceId"
 end
@@ -847,7 +847,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.SearchThemeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
 end
@@ -855,7 +855,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.BrandInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 2,
     proto3_optional: true,
@@ -889,7 +889,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.BrandListInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :shared_set, 1, proto3_optional: true, type: :string, json_name: "sharedSet"
 end

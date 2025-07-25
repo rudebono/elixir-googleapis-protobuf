@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Timeseriesinsights.V1.DataSet.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :UNKNOWN, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.ForecastParams.Period do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PERIOD_UNSPECIFIED, 0
   field :HOURLY, 5
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesParams.AggregationMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AGGREGATION_METHOD_UNSPECIFIED, 0
   field :SUM, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.BigqueryMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :timestamp_column, 1, type: :string, json_name: "timestampColumn"
   field :group_id_column, 2, type: :string, json_name: "groupIdColumn"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.DataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
 
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.DataSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_names, 2, repeated: true, type: :string, json_name: "dataNames"
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.EventDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 1, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.EventDimension
   field :group_id, 2, type: :int64, json_name: "groupId"
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.AppendEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :events, 1, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.Event
   field :dataset, 2, type: :string, deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.AppendEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dropped_events, 1,
     repeated: true,
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.CreateDataSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: Google.Cloud.Timeseriesinsights.V1.DataSet, deprecated: false
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.DeleteDataSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.ListDataSetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.ListDataSetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :datasets, 1, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.DataSet
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.PinnedDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.ForecastParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :noise_threshold, 12,
     proto3_optional: true,
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesPoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :time, 1, type: Google.Protobuf.Timestamp
   field :value, 2, proto3_optional: true, type: :double
@@ -203,7 +203,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.Timeseries do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :point, 1, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.TimeseriesPoint
 end
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.EvaluatedSlice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimensions, 1, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.PinnedDimension
 
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.SlicingParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_names, 1,
     repeated: true,
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :forecast_history, 1,
     type: Google.Protobuf.Duration,
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.QueryDataSetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -309,7 +309,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.QueryDataSetResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :slices, 3, repeated: true, type: Google.Cloud.Timeseriesinsights.V1.EvaluatedSlice
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.EvaluateSliceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -345,7 +345,7 @@ end
 defmodule Google.Cloud.Timeseriesinsights.V1.EvaluateTimeseriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :timeseries, 2, type: Google.Cloud.Timeseriesinsights.V1.Timeseries
@@ -361,7 +361,7 @@ defmodule Google.Cloud.Timeseriesinsights.V1.TimeseriesInsightsController.Servic
 
   use GRPC.Service,
     name: "google.cloud.timeseriesinsights.v1.TimeseriesInsightsController",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListDataSets,
       Google.Cloud.Timeseriesinsights.V1.ListDataSetsRequest,

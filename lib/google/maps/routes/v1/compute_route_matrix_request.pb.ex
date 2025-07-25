@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routes.V1.ComputeRouteMatrixRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :origins, 1,
     repeated: true,
@@ -34,7 +34,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteMatrixOrigin do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteMatrixDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :waypoint, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
 end

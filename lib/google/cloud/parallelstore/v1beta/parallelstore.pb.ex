@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Parallelstore.V1beta.TransferType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRANSFER_TYPE_UNSPECIFIED, 0
   field :IMPORT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.FileStripeLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FILE_STRIPE_LEVEL_UNSPECIFIED, 0
   field :FILE_STRIPE_LEVEL_MIN, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.DirectoryStripeLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DIRECTORY_STRIPE_LEVEL_UNSPECIFIED, 0
   field :DIRECTORY_STRIPE_LEVEL_MIN, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.DeploymentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DEPLOYMENT_TYPE_UNSPECIFIED, 0
   field :SCRATCH, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferMetadataOptions.Uid do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UID_UNSPECIFIED, 0
   field :UID_SKIP, 1
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferMetadataOptions.Gid do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :GID_UNSPECIFIED, 0
   field :GID_SKIP, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferMetadataOptions.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :MODE_SKIP, 1
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferMetadataOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uid, 1,
     type: Google.Cloud.Parallelstore.V1beta.TransferMetadataOptions.Uid,
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Parallelstore.V1beta.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -237,7 +237,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -269,7 +269,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.SourceGcsBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.DestinationGcsBucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string, deprecated: false
 end
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.SourceParallelstore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 end
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.DestinationParallelstore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
 end
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ImportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -330,7 +330,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ExportDataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -359,13 +359,13 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ImportDataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.TransferErrorLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
   field :error_details, 2, repeated: true, type: :string, json_name: "errorDetails"
@@ -374,7 +374,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferErrorSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1, type: Google.Rpc.Code, json_name: "errorCode", enum: true
   field :error_count, 2, type: :int64, json_name: "errorCount"
@@ -388,7 +388,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ImportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
@@ -415,13 +415,13 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.ExportDataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Parallelstore.V1beta.ExportDataMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation_metadata, 1,
     type: Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata,
@@ -448,7 +448,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -496,7 +496,7 @@ end
 defmodule Google.Cloud.Parallelstore.V1beta.TransferCounters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :objects_found, 1, type: :int64, json_name: "objectsFound"
   field :bytes_found, 2, type: :int64, json_name: "bytesFound"
@@ -513,7 +513,7 @@ defmodule Google.Cloud.Parallelstore.V1beta.Parallelstore.Service do
 
   use GRPC.Service,
     name: "google.cloud.parallelstore.v1beta.Parallelstore",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInstances,
       Google.Cloud.Parallelstore.V1beta.ListInstancesRequest,

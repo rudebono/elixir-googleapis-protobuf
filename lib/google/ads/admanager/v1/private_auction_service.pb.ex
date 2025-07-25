@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetPrivateAuctionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListPrivateAuctionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListPrivateAuctionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :private_auctions, 1,
     repeated: true,
@@ -36,7 +36,7 @@ end
 defmodule Google.Ads.Admanager.V1.CreatePrivateAuctionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Ads.Admanager.V1.UpdatePrivateAuctionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :private_auction, 1,
     type: Google.Ads.Admanager.V1.PrivateAuction,
@@ -67,7 +67,7 @@ defmodule Google.Ads.Admanager.V1.PrivateAuctionService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.PrivateAuctionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetPrivateAuction,
       Google.Ads.Admanager.V1.GetPrivateAuctionRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignBudgetOptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :suggestion_data, 0
 
@@ -18,7 +18,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SmartCampaignSuggestionInfo.LocationList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 1,
     repeated: true,
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SmartCampaignSuggestionInfo.BusinessContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :business_name, 1, type: :string, json_name: "businessName", deprecated: false
 end
@@ -37,7 +37,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SmartCampaignSuggestionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :business_setting, 0
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignBudgetOptionsResponse.Metrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_daily_clicks, 1, type: :int64, json_name: "minDailyClicks"
   field :max_daily_clicks, 2, type: :int64, json_name: "maxDailyClicks"
@@ -94,7 +94,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignBudgetOptionsResponse.BudgetOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :daily_amount_micros, 1, type: :int64, json_name: "dailyAmountMicros"
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignBudgetOptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :low, 1,
     proto3_optional: true,
@@ -129,7 +129,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignAdRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -142,7 +142,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestSmartCampaignAdResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ad_info, 1,
     type: Google.Ads.Googleads.V19.Common.SmartCampaignAdInfo,
@@ -153,7 +153,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestKeywordThemesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -166,7 +166,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestKeywordThemesResponse.KeywordTheme do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :keyword_theme, 0
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.SuggestKeywordThemesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :keyword_themes, 2,
     repeated: true,
@@ -194,7 +194,7 @@ defmodule Google.Ads.Googleads.V19.Services.SmartCampaignSuggestService.Service 
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.SmartCampaignSuggestService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SuggestSmartCampaignBudgetOptions,
       Google.Ads.Googleads.V19.Services.SuggestSmartCampaignBudgetOptionsRequest,

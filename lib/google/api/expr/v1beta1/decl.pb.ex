@@ -1,7 +1,7 @@
 defmodule Google.Api.Expr.V1beta1.Decl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -15,7 +15,7 @@ end
 defmodule Google.Api.Expr.V1beta1.DeclType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :int32
   field :type, 2, type: :string
@@ -29,7 +29,7 @@ end
 defmodule Google.Api.Expr.V1beta1.IdentDecl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 3, type: Google.Api.Expr.V1beta1.DeclType
   field :value, 4, type: Google.Api.Expr.V1beta1.Expr
@@ -38,7 +38,7 @@ end
 defmodule Google.Api.Expr.V1beta1.FunctionDecl do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :args, 1, repeated: true, type: Google.Api.Expr.V1beta1.IdentDecl
   field :return_type, 2, type: Google.Api.Expr.V1beta1.DeclType, json_name: "returnType"

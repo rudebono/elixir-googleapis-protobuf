@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.GcpWrappedKeyInfo.KeyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :KEY_TYPE_UNSPECIFIED, 0
   field :XCHACHA20_POLY1305, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Datamanager.V1.EncryptionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :wrapped_key, 0
 
@@ -23,7 +23,7 @@ end
 defmodule Google.Ads.Datamanager.V1.GcpWrappedKeyInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_type, 1,
     type: Google.Ads.Datamanager.V1.GcpWrappedKeyInfo.KeyType,

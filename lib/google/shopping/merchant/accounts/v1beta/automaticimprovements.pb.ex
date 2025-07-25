@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticImprovements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -24,7 +24,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticItemUpdates.ItemUpdatesAccountLevelSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_price_updates, 1,
     proto3_optional: true,
@@ -50,7 +50,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticItemUpdates do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_item_updates_settings, 1,
     type:
@@ -82,7 +82,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticImageImprovements.ImageImprovementsAccountLevelSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_automatic_image_improvements, 1,
     proto3_optional: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticImageImprovements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_image_improvements_settings, 1,
     proto3_optional: true,
@@ -111,7 +111,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticShippingImprovements do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_shipping_improvements, 1,
     proto3_optional: true,
@@ -122,7 +122,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetAutomaticImprovementsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -130,7 +130,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateAutomaticImprovementsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :automatic_improvements, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.AutomaticImprovements,
@@ -148,7 +148,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.AutomaticImprovementsService.
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.AutomaticImprovementsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetAutomaticImprovements,
       Google.Shopping.Merchant.Accounts.V1beta.GetAutomaticImprovementsRequest,

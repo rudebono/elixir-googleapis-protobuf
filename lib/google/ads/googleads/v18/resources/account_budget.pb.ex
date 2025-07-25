@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Resources.AccountBudget.PendingAccountBudgetProposal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :end_time, 0
 
@@ -67,7 +67,7 @@ end
 defmodule Google.Ads.Googleads.V18.Resources.AccountBudget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :proposed_end_time, 0
 
