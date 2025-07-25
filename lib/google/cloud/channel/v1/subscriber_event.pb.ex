@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Channel.V1.CustomerEvent.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :PRIMARY_DOMAIN_CHANGED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementEvent.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Channel.V1.CustomerEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer, 1, type: :string, deprecated: false
 
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entitlement, 1, type: :string, deprecated: false
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Channel.V1.SubscriberEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :event, 0
 

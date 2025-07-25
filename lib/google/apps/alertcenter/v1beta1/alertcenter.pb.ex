@@ -1,7 +1,7 @@
 defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedbackType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ALERT_FEEDBACK_TYPE_UNSPECIFIED, 0
   field :NOT_USEFUL, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification.PayloadFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PAYLOAD_FORMAT_UNSPECIFIED, 0
   field :JSON, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.Alert do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -45,7 +45,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.AlertFeedback do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -58,7 +58,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.AlertMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -72,7 +72,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification.CloudPubsubTopic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic_name, 1, type: :string, json_name: "topicName"
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.Settings.Notification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.Settings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notifications, 1,
     repeated: true,
@@ -108,7 +108,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, repeated: true, type: :string, json_name: "alertId"
@@ -117,7 +117,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse.FailedAlertStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Rpc.Status
@@ -126,7 +126,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchDeleteAlertsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :success_alert_ids, 1, repeated: true, type: :string, json_name: "successAlertIds"
 
@@ -140,7 +140,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, repeated: true, type: :string, json_name: "alertId"
@@ -149,7 +149,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse.FailedAlertStatusEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Rpc.Status
@@ -158,7 +158,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.BatchUndeleteAlertsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :success_alert_ids, 1, repeated: true, type: :string, json_name: "successAlertIds"
 
@@ -172,7 +172,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -184,7 +184,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :alerts, 1, repeated: true, type: Google.Apps.Alertcenter.V1beta1.Alert
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -193,7 +193,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.GetAlertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -202,7 +202,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.DeleteAlertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -211,7 +211,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.UndeleteAlertRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -220,7 +220,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.CreateAlertFeedbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -230,7 +230,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -240,7 +240,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.ListAlertFeedbackResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :feedback, 1, repeated: true, type: Google.Apps.Alertcenter.V1beta1.AlertFeedback
 end
@@ -248,7 +248,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.GetAlertMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :alert_id, 2, type: :string, json_name: "alertId"
@@ -257,7 +257,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.GetSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Apps.Alertcenter.V1beta1.UpdateSettingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId"
   field :settings, 2, type: Google.Apps.Alertcenter.V1beta1.Settings
@@ -276,7 +276,7 @@ defmodule Google.Apps.Alertcenter.V1beta1.AlertCenterService.Service do
 
   use GRPC.Service,
     name: "google.apps.alertcenter.v1beta1.AlertCenterService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListAlerts,
       Google.Apps.Alertcenter.V1beta1.ListAlertsRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.DeletionMetadata.DeletionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DELETION_TYPE_UNSPECIFIED, 0
   field :CREATOR, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Chat.V1.DeletionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deletion_type, 1,
     type: Google.Chat.V1.DeletionMetadata.DeletionType,

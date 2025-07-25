@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Resources.AdGroup.AudienceSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :use_audience_grouped, 1, type: :bool, json_name: "useAudienceGrouped", deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls.DemandGenSelectedChannels do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_in_stream, 1, type: :bool, json_name: "youtubeInStream"
   field :youtube_in_feed, 2, type: :bool, json_name: "youtubeInFeed"
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.AdGroup.DemandGenAdGroupSettings.DemandGenChannelControls do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :channel_configuration, 0
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.AdGroup.DemandGenAdGroupSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel_controls, 1,
     type:
@@ -59,7 +59,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.AdGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :id, 34, proto3_optional: true, type: :int64, deprecated: false

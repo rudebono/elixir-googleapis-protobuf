@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.CreateMetastorePartitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchCreateMetastorePartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchCreateMetastorePartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partitions, 1,
     repeated: true,
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchDeleteMetastorePartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.UpdateMetastorePartitionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metastore_partition, 1,
     type: Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartition,
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchUpdateMetastorePartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchUpdateMetastorePartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partitions, 1,
     repeated: true,
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.ListMetastorePartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.ListMetastorePartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.StreamMetastorePartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.StreamMetastorePartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :total_partitions_streamed_count, 2,
     type: :int64,
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Bigquery.Storage.V1alpha.BatchSizeTooLargeError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_batch_size, 1, type: :int64, json_name: "maxBatchSize"
   field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
@@ -169,7 +169,7 @@ defmodule Google.Cloud.Bigquery.Storage.V1alpha.MetastorePartitionService.Servic
 
   use GRPC.Service,
     name: "google.cloud.bigquery.storage.v1alpha.MetastorePartitionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :BatchCreateMetastorePartitions,
       Google.Cloud.Bigquery.Storage.V1alpha.BatchCreateMetastorePartitionsRequest,

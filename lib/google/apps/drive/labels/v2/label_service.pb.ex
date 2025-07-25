@@ -3,7 +3,7 @@ defmodule Google.Apps.Drive.Labels.V2.LabelService.Service do
 
   use GRPC.Service,
     name: "google.apps.drive.labels.v2.LabelService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetUserCapabilities,
       Google.Apps.Drive.Labels.V2.GetUserCapabilitiesRequest,

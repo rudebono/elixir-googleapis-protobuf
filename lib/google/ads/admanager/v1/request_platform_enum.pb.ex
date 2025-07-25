@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.RequestPlatformEnum.RequestPlatform do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REQUEST_PLATFORM_UNSPECIFIED, 0
   field :BROWSER, 1
@@ -12,5 +12,5 @@ end
 defmodule Google.Ads.Admanager.V1.RequestPlatformEnum do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end

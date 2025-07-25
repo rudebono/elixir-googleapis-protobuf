@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.Redirect.ResponseCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESPONSE_CODE_UNSPECIFIED, 0
   field :MOVED_PERMANENTLY_DEFAULT, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderMatch.IntegerRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :MatchType, 0
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.QueryParameterMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :MatchType, 0
 
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :PathMatch, 0
 
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.Destination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :weight, 2, type: :int32
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.Redirect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host_redirect, 1, type: :string, json_name: "hostRedirect"
   field :path_redirect, 2, type: :string, json_name: "pathRedirect"
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Delay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fixed_delay, 1, type: Google.Protobuf.Duration, json_name: "fixedDelay"
   field :percentage, 2, type: :int32
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Abort do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_status, 1, type: :int32, json_name: "httpStatus"
   field :percentage, 2, type: :int32
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :delay, 1, type: Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Delay
   field :abort, 2, type: Google.Cloud.Networkservices.V1.HttpRoute.FaultInjectionPolicy.Abort
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.StatefulSessionAffinityPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cookie_ttl, 1, type: Google.Protobuf.Duration, json_name: "cookieTtl", deprecated: false
 end
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier.SetEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier.AddEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HeaderModifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :set, 1,
     repeated: true,
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.URLRewrite do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path_prefix_rewrite, 1, type: :string, json_name: "pathPrefixRewrite"
   field :host_rewrite, 2, type: :string, json_name: "hostRewrite"
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retry_conditions, 1, repeated: true, type: :string, json_name: "retryConditions"
   field :num_retries, 2, type: :int32, json_name: "numRetries"
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RequestMirrorPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination, 1, type: Google.Cloud.Networkservices.V1.HttpRoute.Destination
   field :mirror_percent, 2, type: :float, json_name: "mirrorPercent", deprecated: false
@@ -214,7 +214,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.CorsPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allow_origins, 1, repeated: true, type: :string, json_name: "allowOrigins"
   field :allow_origin_regexes, 2, repeated: true, type: :string, json_name: "allowOriginRegexes"
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.HttpDirectResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :HttpBody, 0
 
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -298,7 +298,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.RouteRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :matches, 1, repeated: true, type: Google.Cloud.Networkservices.V1.HttpRoute.RouteMatch
   field :action, 2, type: Google.Cloud.Networkservices.V1.HttpRoute.RouteAction
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.HttpRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 11, type: :string, json_name: "selfLink", deprecated: false
@@ -351,7 +351,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListHttpRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -366,7 +366,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListHttpRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :http_routes, 1,
     repeated: true,
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetHttpRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -388,7 +388,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateHttpRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :http_route_id, 2, type: :string, json_name: "httpRouteId", deprecated: false
@@ -402,7 +402,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateHttpRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -418,7 +418,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteHttpRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

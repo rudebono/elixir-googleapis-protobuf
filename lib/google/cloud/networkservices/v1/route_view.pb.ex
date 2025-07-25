@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.GatewayRouteView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :route_project_number, 2, type: :int64, json_name: "routeProjectNumber", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.MeshRouteView do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :route_project_number, 2, type: :int64, json_name: "routeProjectNumber", deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetGatewayRouteViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetMeshRouteViewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGatewayRouteViewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListMeshRouteViewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListGatewayRouteViewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gateway_route_views, 1,
     repeated: true,
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListMeshRouteViewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mesh_route_views, 1,
     repeated: true,

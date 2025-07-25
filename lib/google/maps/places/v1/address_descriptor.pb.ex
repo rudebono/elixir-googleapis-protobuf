@@ -1,7 +1,7 @@
 defmodule Google.Maps.Places.V1.AddressDescriptor.Landmark.SpatialRelationship do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NEAR, 0
   field :WITHIN, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Maps.Places.V1.AddressDescriptor.Area.Containment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTAINMENT_UNSPECIFIED, 0
   field :WITHIN, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Maps.Places.V1.AddressDescriptor.Landmark do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :place_id, 2, type: :string, json_name: "placeId"
@@ -49,7 +49,7 @@ end
 defmodule Google.Maps.Places.V1.AddressDescriptor.Area do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :place_id, 2, type: :string, json_name: "placeId"
@@ -63,7 +63,7 @@ end
 defmodule Google.Maps.Places.V1.AddressDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :landmarks, 1, repeated: true, type: Google.Maps.Places.V1.AddressDescriptor.Landmark
   field :areas, 2, repeated: true, type: Google.Maps.Places.V1.AddressDescriptor.Area

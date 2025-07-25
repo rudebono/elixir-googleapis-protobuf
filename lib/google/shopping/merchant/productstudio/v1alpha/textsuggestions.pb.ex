@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductTextSuggestionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductTextSuggestionsResponse.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -35,7 +35,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductTextSuggestionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :title, 1,
     proto3_optional: true,
@@ -59,7 +59,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.TitleExample.ProductInfoEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -68,7 +68,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.TitleExample.FinalProductInfoEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -77,7 +77,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.TitleExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_info, 1,
     repeated: true,
@@ -105,7 +105,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.ProductTextGenerationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
@@ -113,7 +113,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :image, 0
 
@@ -124,7 +124,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.ProductInfo.ProductAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -133,7 +133,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.ProductInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_attributes, 1,
     repeated: true,
@@ -152,7 +152,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.OutputSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workflow_id, 1,
     proto3_optional: true,
@@ -190,7 +190,7 @@ end
 defmodule Google.Shopping.Merchant.Productstudio.V1alpha.ProductTextGenerationSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, proto3_optional: true, type: :string
   field :score, 2, proto3_optional: true, type: :float
@@ -202,7 +202,7 @@ defmodule Google.Shopping.Merchant.Productstudio.V1alpha.TextSuggestionsService.
 
   use GRPC.Service,
     name: "google.shopping.merchant.productstudio.v1alpha.TextSuggestionsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateProductTextSuggestions,
       Google.Shopping.Merchant.Productstudio.V1alpha.GenerateProductTextSuggestionsRequest,

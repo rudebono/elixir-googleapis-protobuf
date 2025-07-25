@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.EmailPreferences.OptInState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPT_IN_STATE_UNSPECIFIED, 0
   field :OPTED_OUT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.EmailPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetEmailPreferencesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateEmailPreferencesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :email_preferences, 1,
     type: Google.Shopping.Merchant.Accounts.V1beta.EmailPreferences,
@@ -52,7 +52,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.EmailPreferencesService.Servi
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.EmailPreferencesService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetEmailPreferences,
       Google.Shopping.Merchant.Accounts.V1beta.GetEmailPreferencesRequest,

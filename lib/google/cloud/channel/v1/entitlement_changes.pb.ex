@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Channel.V1.EntitlementChange.ChangeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CHANGE_TYPE_UNSPECIFIED, 0
   field :CREATED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementChange.OperatorType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPERATOR_TYPE_UNSPECIFIED, 0
   field :CUSTOMER_SERVICE_REPRESENTATIVE, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementChange.CancellationReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CANCELLATION_REASON_UNSPECIFIED, 0
   field :SERVICE_TERMINATED, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementChange.ActivationReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTIVATION_REASON_UNSPECIFIED, 0
   field :RESELLER_REVOKED_SUSPENSION, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Channel.V1.EntitlementChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :change_reason, 0
 

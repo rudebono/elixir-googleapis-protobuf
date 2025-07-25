@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2.StreamingRecognitionResult.MessageType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
   field :TRANSCRIPT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.DetectIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.DetectIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
   field :query_result, 2, type: Google.Cloud.Dialogflow.V2.QueryResult, json_name: "queryResult"
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.QueryParameters.WebhookHeadersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.QueryParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :time_zone, 1, type: :string, json_name: "timeZone"
   field :geo_location, 2, type: Google.Type.LatLng, json_name: "geoLocation"
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.QueryInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :input, 0
 
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.QueryResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query_text, 1, type: :string, json_name: "queryText"
   field :language_code, 15, type: :string, json_name: "languageCode"
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.StreamingDetectIntentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
 
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.CloudConversationDebuggingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audio_data_chunks, 1, type: :int32, json_name: "audioDataChunks"
 
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.StreamingDetectIntentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response_id, 1, type: :string, json_name: "responseId"
 
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.StreamingRecognitionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message_type, 1,
     type: Google.Cloud.Dialogflow.V2.StreamingRecognitionResult.MessageType,
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.EventInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parameters, 2, type: Google.Protobuf.Struct
@@ -300,7 +300,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SentimentAnalysisRequestConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :analyze_query_text_sentiment, 1, type: :bool, json_name: "analyzeQueryTextSentiment"
 end
@@ -308,7 +308,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.SentimentAnalysisResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query_text_sentiment, 1,
     type: Google.Cloud.Dialogflow.V2.Sentiment,
@@ -318,7 +318,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2.Sentiment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :score, 1, type: :float
   field :magnitude, 2, type: :float
@@ -329,7 +329,7 @@ defmodule Google.Cloud.Dialogflow.V2.Sessions.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2.Sessions",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :DetectIntent,
       Google.Cloud.Dialogflow.V2.DetectIntentRequest,

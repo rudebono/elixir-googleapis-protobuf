@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.CmekConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CmekConfig.NotebookLMState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NOTEBOOK_LM_STATE_UNSPECIFIED, 0
   field :NOTEBOOK_LM_NOT_READY, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateCmekConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Discoveryengine.V1.CmekConfig, deprecated: false
   field :set_default, 2, type: :bool, json_name: "setDefault"
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetCmekConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SingleRegionKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key, 1, type: :string, json_name: "kmsKey", deprecated: false
 end
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.CmekConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.UpdateCmekConfigMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListCmekConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListCmekConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cmek_configs, 1,
     repeated: true,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteCmekConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteCmekConfigMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -134,7 +134,7 @@ defmodule Google.Cloud.Discoveryengine.V1.CmekConfigService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.CmekConfigService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :UpdateCmekConfig,
       Google.Cloud.Discoveryengine.V1.UpdateCmekConfigRequest,

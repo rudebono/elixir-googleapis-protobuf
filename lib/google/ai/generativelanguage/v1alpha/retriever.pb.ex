@@ -1,7 +1,7 @@
 defmodule Google.Ai.Generativelanguage.V1alpha.Condition.Operator do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPERATOR_UNSPECIFIED, 0
   field :LESS, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Chunk.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :STATE_PENDING_PROCESSING, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Corpus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -47,7 +47,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.StringList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
 end
@@ -80,7 +80,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.CustomMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.MetadataFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
 
@@ -111,7 +111,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Condition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.Chunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data, 2, type: Google.Ai.Generativelanguage.V1alpha.ChunkData, deprecated: false
@@ -157,7 +157,7 @@ end
 defmodule Google.Ai.Generativelanguage.V1alpha.ChunkData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 

@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.CartData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merchant_id, 1, type: :string, json_name: "merchantId", deprecated: false
   field :merchant_feed_label, 2, type: :string, json_name: "merchantFeedLabel", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Datamanager.V1.Item do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merchant_product_id, 1, type: :string, json_name: "merchantProductId", deprecated: false
   field :quantity, 2, type: :int64, deprecated: false
