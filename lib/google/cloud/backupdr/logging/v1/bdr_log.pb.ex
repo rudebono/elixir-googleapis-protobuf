@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupRestoreJobLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :job_id, 1, proto3_optional: true, type: :string, json_name: "jobId"
   field :job_category, 2, proto3_optional: true, type: :string, json_name: "jobCategory"
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRProtectedResourceLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_resource_name, 1,
     proto3_optional: true,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BackupRuleDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rule_name, 1, proto3_optional: true, type: :string, json_name: "ruleName"
   field :retention_days, 2, proto3_optional: true, type: :int32, json_name: "retentionDays"
@@ -137,7 +137,7 @@ end
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupVaultDetailsLog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_vault_name, 1, proto3_optional: true, type: :string, json_name: "backupVaultName"
 
@@ -174,4 +174,80 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupVaultDetailsLog do
     proto3_optional: true,
     type: :string,
     json_name: "sourceResourceLocation"
+end
+
+defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupPlanAssociationJobLog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :job_id, 1, proto3_optional: true, type: :string, json_name: "jobId"
+  field :job_category, 2, proto3_optional: true, type: :string, json_name: "jobCategory"
+  field :job_status, 3, proto3_optional: true, type: :string, json_name: "jobStatus"
+
+  field :source_resource_name, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceResourceName"
+
+  field :source_resource_id, 5,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceResourceId"
+
+  field :source_resource_location, 6,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceResourceLocation"
+
+  field :resource_type, 7, proto3_optional: true, type: :string, json_name: "resourceType"
+
+  field :backup_plan_association_name, 8,
+    proto3_optional: true,
+    type: :string,
+    json_name: "backupPlanAssociationName"
+
+  field :previous_backup_plan_name, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "previousBackupPlanName"
+
+  field :previous_backup_plan_revision_id, 10,
+    proto3_optional: true,
+    type: :string,
+    json_name: "previousBackupPlanRevisionId"
+
+  field :previous_backup_plan_revision_name, 11,
+    proto3_optional: true,
+    type: :string,
+    json_name: "previousBackupPlanRevisionName"
+
+  field :new_backup_plan_name, 12,
+    proto3_optional: true,
+    type: :string,
+    json_name: "newBackupPlanName"
+
+  field :new_backup_plan_revision_id, 13,
+    proto3_optional: true,
+    type: :string,
+    json_name: "newBackupPlanRevisionId"
+
+  field :new_backup_plan_revision_name, 14,
+    proto3_optional: true,
+    type: :string,
+    json_name: "newBackupPlanRevisionName"
+
+  field :start_time, 15,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "startTime"
+
+  field :end_time, 16,
+    proto3_optional: true,
+    type: Google.Protobuf.Timestamp,
+    json_name: "endTime"
+
+  field :error_code, 17, proto3_optional: true, type: :int32, json_name: "errorCode"
+  field :error_type, 18, proto3_optional: true, type: :string, json_name: "errorType"
+  field :error_message, 19, proto3_optional: true, type: :string, json_name: "errorMessage"
 end

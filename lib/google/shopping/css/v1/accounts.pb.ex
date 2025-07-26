@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Css.V1.Account.AccountType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACCOUNT_TYPE_UNSPECIFIED, 0
   field :CSS_GROUP, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Shopping.Css.V1.ListChildAccountsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :label_id, 2, proto3_optional: true, type: :int64, json_name: "labelId"
@@ -29,7 +29,7 @@ end
 defmodule Google.Shopping.Css.V1.ListChildAccountsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accounts, 1, repeated: true, type: Google.Shopping.Css.V1.Account
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -38,7 +38,7 @@ end
 defmodule Google.Shopping.Css.V1.GetAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :parent, 2, proto3_optional: true, type: :string, deprecated: false
@@ -47,7 +47,7 @@ end
 defmodule Google.Shopping.Css.V1.UpdateAccountLabelsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :label_ids, 2, repeated: true, type: :int64, json_name: "labelIds"
@@ -57,7 +57,7 @@ end
 defmodule Google.Shopping.Css.V1.Account do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :full_name, 2, type: :string, json_name: "fullName", deprecated: false
@@ -85,7 +85,7 @@ defmodule Google.Shopping.Css.V1.AccountsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.css.v1.AccountsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListChildAccounts,
       Google.Shopping.Css.V1.ListChildAccountsRequest,

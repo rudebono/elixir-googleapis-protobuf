@@ -1,7 +1,7 @@
 defmodule Google.Dataflow.V1beta3.KindType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN_KIND, 0
   field :PAR_DO_KIND, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :JOB_STATE_UNKNOWN, 0
   field :JOB_STATE_STOPPED, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :JOB_VIEW_UNKNOWN, 0
   field :JOB_VIEW_SUMMARY, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Dataflow.V1beta3.SdkVersion.SdkSupportStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :SUPPORTED, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Dataflow.V1beta3.SdkBug.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GENERAL, 1
@@ -71,7 +71,7 @@ end
 defmodule Google.Dataflow.V1beta3.SdkBug.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOTICE, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListJobsRequest.Filter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ALL, 1
@@ -93,7 +93,7 @@ end
 defmodule Google.Dataflow.V1beta3.Job.TransformNameMappingEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -102,7 +102,7 @@ end
 defmodule Google.Dataflow.V1beta3.Job.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -111,7 +111,7 @@ end
 defmodule Google.Dataflow.V1beta3.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -188,7 +188,7 @@ end
 defmodule Google.Dataflow.V1beta3.ServiceResources do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :zones, 1, repeated: true, type: :string, deprecated: false
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Dataflow.V1beta3.RuntimeUpdatableParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_num_workers, 1, proto3_optional: true, type: :int32, json_name: "maxNumWorkers"
   field :min_num_workers, 2, proto3_optional: true, type: :int32, json_name: "minNumWorkers"
@@ -210,7 +210,7 @@ end
 defmodule Google.Dataflow.V1beta3.DatastoreIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :namespace, 1, type: :string
   field :project_id, 2, type: :string, json_name: "projectId"
@@ -219,7 +219,7 @@ end
 defmodule Google.Dataflow.V1beta3.PubSubIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string
   field :subscription, 2, type: :string
@@ -228,7 +228,7 @@ end
 defmodule Google.Dataflow.V1beta3.FileIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_pattern, 1, type: :string, json_name: "filePattern"
 end
@@ -236,7 +236,7 @@ end
 defmodule Google.Dataflow.V1beta3.BigTableIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -246,7 +246,7 @@ end
 defmodule Google.Dataflow.V1beta3.BigQueryIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :dataset, 2, type: :string
@@ -257,7 +257,7 @@ end
 defmodule Google.Dataflow.V1beta3.SpannerIODetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId"
@@ -267,7 +267,7 @@ end
 defmodule Google.Dataflow.V1beta3.SdkVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :version, 1, type: :string
   field :version_display_name, 2, type: :string, json_name: "versionDisplayName"
@@ -283,7 +283,7 @@ end
 defmodule Google.Dataflow.V1beta3.SdkBug do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Dataflow.V1beta3.SdkBug.Type, enum: true, deprecated: false
   field :severity, 2, type: Google.Dataflow.V1beta3.SdkBug.Severity, enum: true, deprecated: false
@@ -293,7 +293,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobMetadata.UserDisplayPropertiesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -302,7 +302,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sdk_version, 1, type: Google.Dataflow.V1beta3.SdkVersion, json_name: "sdkVersion"
 
@@ -346,7 +346,7 @@ end
 defmodule Google.Dataflow.V1beta3.ExecutionStageState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :execution_stage_name, 1, type: :string, json_name: "executionStageName"
 
@@ -361,7 +361,7 @@ end
 defmodule Google.Dataflow.V1beta3.PipelineDescription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :original_pipeline_transform, 1,
     repeated: true,
@@ -384,7 +384,7 @@ end
 defmodule Google.Dataflow.V1beta3.TransformSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: Google.Dataflow.V1beta3.KindType, enum: true
   field :id, 2, type: :string
@@ -406,7 +406,7 @@ end
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.StageSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
@@ -421,7 +421,7 @@ end
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentTransform do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
@@ -431,7 +431,7 @@ end
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary.ComponentSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_name, 1, type: :string, json_name: "userName"
   field :name, 2, type: :string
@@ -444,7 +444,7 @@ end
 defmodule Google.Dataflow.V1beta3.ExecutionStageSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :id, 2, type: :string
@@ -476,7 +476,7 @@ end
 defmodule Google.Dataflow.V1beta3.DisplayData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :Value, 0
 
@@ -502,7 +502,7 @@ end
 defmodule Google.Dataflow.V1beta3.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :name, 2, type: :string
@@ -512,7 +512,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobExecutionInfo.StagesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Dataflow.V1beta3.JobExecutionStageInfo
@@ -521,7 +521,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobExecutionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stages, 1,
     repeated: true,
@@ -532,7 +532,7 @@ end
 defmodule Google.Dataflow.V1beta3.JobExecutionStageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :step_name, 1, repeated: true, type: :string, json_name: "stepName"
 end
@@ -540,7 +540,7 @@ end
 defmodule Google.Dataflow.V1beta3.CreateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job, 2, type: Google.Dataflow.V1beta3.Job
@@ -552,7 +552,7 @@ end
 defmodule Google.Dataflow.V1beta3.GetJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -563,7 +563,7 @@ end
 defmodule Google.Dataflow.V1beta3.UpdateJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -579,7 +579,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :filter, 5, type: Google.Dataflow.V1beta3.ListJobsRequest.Filter, enum: true
   field :project_id, 1, type: :string, json_name: "projectId"
@@ -593,7 +593,7 @@ end
 defmodule Google.Dataflow.V1beta3.FailedLocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -601,7 +601,7 @@ end
 defmodule Google.Dataflow.V1beta3.ListJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :jobs, 1, repeated: true, type: Google.Dataflow.V1beta3.Job
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -615,7 +615,7 @@ end
 defmodule Google.Dataflow.V1beta3.SnapshotJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job_id, 2, type: :string, json_name: "jobId"
@@ -628,7 +628,7 @@ end
 defmodule Google.Dataflow.V1beta3.CheckActiveJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
 end
@@ -636,7 +636,7 @@ end
 defmodule Google.Dataflow.V1beta3.CheckActiveJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :active_jobs_exist, 1, type: :bool, json_name: "activeJobsExist"
 end
@@ -646,7 +646,7 @@ defmodule Google.Dataflow.V1beta3.JobsV1Beta3.Service do
 
   use GRPC.Service,
     name: "google.dataflow.v1beta3.JobsV1Beta3",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateJob, Google.Dataflow.V1beta3.CreateJobRequest, Google.Dataflow.V1beta3.Job
 

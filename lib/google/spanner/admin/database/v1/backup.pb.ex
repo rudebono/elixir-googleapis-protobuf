@@ -1,7 +1,7 @@
 defmodule Google.Spanner.Admin.Database.V1.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :USE_DATABASE_ENCRYPTION, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.EncryptionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENCRYPTION_TYPE_UNSPECIFIED, 0
   field :USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :database, 2, type: :string, deprecated: false
   field :version_time, 9, type: Google.Protobuf.Timestamp, json_name: "versionTime"
@@ -118,7 +118,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :database, 2, type: :string, deprecated: false
@@ -144,7 +144,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CopyBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_id, 2, type: :string, json_name: "backupId", deprecated: false
@@ -164,7 +164,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CopyBackupMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_backup, 2, type: :string, json_name: "sourceBackup", deprecated: false
@@ -175,7 +175,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.UpdateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: Google.Spanner.Admin.Database.V1.Backup, deprecated: false
 
@@ -188,7 +188,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -196,7 +196,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -204,7 +204,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -215,7 +215,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Spanner.Admin.Database.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -224,7 +224,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string
@@ -235,7 +235,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.ListBackupOperationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -244,7 +244,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.BackupInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: :string, deprecated: false
   field :version_time, 4, type: Google.Protobuf.Timestamp, json_name: "versionTime"
@@ -255,7 +255,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.CreateBackupEncryptionConfig.EncryptionType,
@@ -275,7 +275,7 @@ end
 defmodule Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_type, 1,
     type: Google.Spanner.Admin.Database.V1.CopyBackupEncryptionConfig.EncryptionType,
@@ -295,19 +295,19 @@ end
 defmodule Google.Spanner.Admin.Database.V1.FullBackupSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Spanner.Admin.Database.V1.IncrementalBackupSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Spanner.Admin.Database.V1.BackupInstancePartition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_partition, 1, type: :string, json_name: "instancePartition", deprecated: false
 end

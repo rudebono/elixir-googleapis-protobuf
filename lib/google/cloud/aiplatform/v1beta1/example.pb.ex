@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ContentsExample.ExpectedContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 1, type: Google.Cloud.Aiplatform.V1beta1.Content, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ContentsExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 1,
     repeated: true,
@@ -26,13 +26,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExample.SearchKeyGenerationMethod.LastEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExample.SearchKeyGenerationMethod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :method, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.StoredContentsExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_key, 1, type: :string, json_name: "searchKey", deprecated: false
 

@@ -1,7 +1,7 @@
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -55,7 +55,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -69,7 +69,7 @@ end
 defmodule Google.Pubsub.V1.PlatformLogsSettings.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Pubsub.V1.Topic.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Pubsub.V1.Subscription.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -102,7 +102,7 @@ end
 defmodule Google.Pubsub.V1.BigQueryConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -115,7 +115,7 @@ end
 defmodule Google.Pubsub.V1.CloudStorageConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -128,7 +128,7 @@ end
 defmodule Google.Pubsub.V1.MessageStoragePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed_persistence_regions, 1,
     repeated: true,
@@ -142,7 +142,7 @@ end
 defmodule Google.Pubsub.V1.SchemaSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string, deprecated: false
   field :encoding, 2, type: Google.Pubsub.V1.Encoding, enum: true, deprecated: false
@@ -153,7 +153,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsKinesis.State,
@@ -169,7 +169,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.TextFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :delimiter, 1, proto3_optional: true, type: :string, deprecated: false
 end
@@ -177,19 +177,19 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.AvroFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage.PubSubAvroFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.CloudStorage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :input_format, 0
 
@@ -229,7 +229,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Pubsub.V1.IngestionDataSourceSettings.AzureEventHubs.State,
@@ -248,7 +248,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Pubsub.V1.IngestionDataSourceSettings.AwsMsk.State,
@@ -264,7 +264,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Pubsub.V1.IngestionDataSourceSettings.ConfluentCloud.State,
@@ -281,7 +281,7 @@ end
 defmodule Google.Pubsub.V1.IngestionDataSourceSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -324,7 +324,7 @@ end
 defmodule Google.Pubsub.V1.PlatformLogsSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :severity, 1,
     type: Google.Pubsub.V1.PlatformLogsSettings.Severity,
@@ -335,31 +335,31 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AvroFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.SchemaViolationReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.MessageTransformationFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent.CloudStorageFailure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -395,7 +395,7 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsMskFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -426,7 +426,7 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AzureEventHubsFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -457,7 +457,7 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent.ConfluentCloudFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -488,7 +488,7 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reason, 0
 
@@ -512,7 +512,7 @@ end
 defmodule Google.Pubsub.V1.IngestionFailureEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :failure, 0
 
@@ -553,7 +553,7 @@ end
 defmodule Google.Pubsub.V1.JavaScriptUDF do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :function_name, 1, type: :string, json_name: "functionName", deprecated: false
   field :code, 2, type: :string, deprecated: false
@@ -562,7 +562,7 @@ end
 defmodule Google.Pubsub.V1.MessageTransform do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :transform, 0
 
@@ -579,7 +579,7 @@ end
 defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -588,7 +588,7 @@ end
 defmodule Google.Pubsub.V1.Topic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -634,7 +634,7 @@ end
 defmodule Google.Pubsub.V1.PubsubMessage.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -643,7 +643,7 @@ end
 defmodule Google.Pubsub.V1.PubsubMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data, 1, type: :bytes, deprecated: false
 
@@ -661,7 +661,7 @@ end
 defmodule Google.Pubsub.V1.GetTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
 end
@@ -669,7 +669,7 @@ end
 defmodule Google.Pubsub.V1.UpdateTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: Google.Pubsub.V1.Topic, deprecated: false
 
@@ -682,7 +682,7 @@ end
 defmodule Google.Pubsub.V1.PublishRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :messages, 2, repeated: true, type: Google.Pubsub.V1.PubsubMessage, deprecated: false
@@ -691,7 +691,7 @@ end
 defmodule Google.Pubsub.V1.PublishResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message_ids, 1, repeated: true, type: :string, json_name: "messageIds", deprecated: false
 end
@@ -699,7 +699,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -709,7 +709,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topics, 1, repeated: true, type: Google.Pubsub.V1.Topic, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -718,7 +718,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -728,7 +728,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: :string, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -737,7 +737,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -747,7 +747,7 @@ end
 defmodule Google.Pubsub.V1.ListTopicSnapshotsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshots, 1, repeated: true, type: :string, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -756,7 +756,7 @@ end
 defmodule Google.Pubsub.V1.DeleteTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topic, 1, type: :string, deprecated: false
 end
@@ -764,7 +764,7 @@ end
 defmodule Google.Pubsub.V1.DetachSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
 end
@@ -772,13 +772,13 @@ end
 defmodule Google.Pubsub.V1.DetachSubscriptionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.Subscription.AnalyticsHubSubscriptionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :listing, 1, type: :string, deprecated: false
   field :subscription, 2, type: :string, deprecated: false
@@ -787,7 +787,7 @@ end
 defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -796,7 +796,7 @@ end
 defmodule Google.Pubsub.V1.Subscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
@@ -885,7 +885,7 @@ end
 defmodule Google.Pubsub.V1.RetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :minimum_backoff, 1,
     type: Google.Protobuf.Duration,
@@ -901,7 +901,7 @@ end
 defmodule Google.Pubsub.V1.DeadLetterPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic", deprecated: false
 
@@ -914,7 +914,7 @@ end
 defmodule Google.Pubsub.V1.ExpirationPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ttl, 1, type: Google.Protobuf.Duration, deprecated: false
 end
@@ -922,7 +922,7 @@ end
 defmodule Google.Pubsub.V1.PushConfig.OidcToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account_email, 1,
     type: :string,
@@ -935,13 +935,13 @@ end
 defmodule Google.Pubsub.V1.PushConfig.PubsubWrapper do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.PushConfig.NoWrapper do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
 end
@@ -949,7 +949,7 @@ end
 defmodule Google.Pubsub.V1.PushConfig.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -958,7 +958,7 @@ end
 defmodule Google.Pubsub.V1.PushConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -994,7 +994,7 @@ end
 defmodule Google.Pubsub.V1.BigQueryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
@@ -1012,13 +1012,13 @@ end
 defmodule Google.Pubsub.V1.CloudStorageConfig.TextConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.CloudStorageConfig.AvroConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
   field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
@@ -1027,7 +1027,7 @@ end
 defmodule Google.Pubsub.V1.CloudStorageConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :output_format, 0
 
@@ -1070,7 +1070,7 @@ end
 defmodule Google.Pubsub.V1.ReceivedMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ack_id, 1, type: :string, json_name: "ackId", deprecated: false
   field :message, 2, type: Google.Pubsub.V1.PubsubMessage, deprecated: false
@@ -1080,7 +1080,7 @@ end
 defmodule Google.Pubsub.V1.GetSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
 end
@@ -1088,7 +1088,7 @@ end
 defmodule Google.Pubsub.V1.UpdateSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: Google.Pubsub.V1.Subscription, deprecated: false
 
@@ -1101,7 +1101,7 @@ end
 defmodule Google.Pubsub.V1.ListSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1111,7 +1111,7 @@ end
 defmodule Google.Pubsub.V1.ListSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriptions, 1, repeated: true, type: Google.Pubsub.V1.Subscription, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -1120,7 +1120,7 @@ end
 defmodule Google.Pubsub.V1.DeleteSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
 end
@@ -1128,7 +1128,7 @@ end
 defmodule Google.Pubsub.V1.ModifyPushConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
 
@@ -1141,7 +1141,7 @@ end
 defmodule Google.Pubsub.V1.PullRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :return_immediately, 2, type: :bool, json_name: "returnImmediately", deprecated: true
@@ -1151,7 +1151,7 @@ end
 defmodule Google.Pubsub.V1.PullResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :received_messages, 1,
     repeated: true,
@@ -1163,7 +1163,7 @@ end
 defmodule Google.Pubsub.V1.ModifyAckDeadlineRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :ack_ids, 4, repeated: true, type: :string, json_name: "ackIds", deprecated: false
@@ -1173,7 +1173,7 @@ end
 defmodule Google.Pubsub.V1.AcknowledgeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds", deprecated: false
@@ -1182,7 +1182,7 @@ end
 defmodule Google.Pubsub.V1.StreamingPullRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscription, 1, type: :string, deprecated: false
   field :ack_ids, 2, repeated: true, type: :string, json_name: "ackIds", deprecated: false
@@ -1220,7 +1220,7 @@ end
 defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
 
@@ -1246,7 +1246,7 @@ end
 defmodule Google.Pubsub.V1.StreamingPullResponse.ModifyAckDeadlineConfirmation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ack_ids, 1, repeated: true, type: :string, json_name: "ackIds", deprecated: false
 
@@ -1266,7 +1266,7 @@ end
 defmodule Google.Pubsub.V1.StreamingPullResponse.SubscriptionProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :exactly_once_delivery_enabled, 1,
     type: :bool,
@@ -1282,7 +1282,7 @@ end
 defmodule Google.Pubsub.V1.StreamingPullResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :received_messages, 1,
     repeated: true,
@@ -1309,7 +1309,7 @@ end
 defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1318,7 +1318,7 @@ end
 defmodule Google.Pubsub.V1.CreateSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :subscription, 2, type: :string, deprecated: false
@@ -1333,7 +1333,7 @@ end
 defmodule Google.Pubsub.V1.UpdateSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshot, 1, type: Google.Pubsub.V1.Snapshot, deprecated: false
 
@@ -1346,7 +1346,7 @@ end
 defmodule Google.Pubsub.V1.Snapshot.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1355,7 +1355,7 @@ end
 defmodule Google.Pubsub.V1.Snapshot do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :topic, 2, type: :string, deprecated: false
@@ -1375,7 +1375,7 @@ end
 defmodule Google.Pubsub.V1.GetSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshot, 1, type: :string, deprecated: false
 end
@@ -1383,7 +1383,7 @@ end
 defmodule Google.Pubsub.V1.ListSnapshotsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1393,7 +1393,7 @@ end
 defmodule Google.Pubsub.V1.ListSnapshotsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshots, 1, repeated: true, type: Google.Pubsub.V1.Snapshot, deprecated: false
   field :next_page_token, 2, type: :string, json_name: "nextPageToken", deprecated: false
@@ -1402,7 +1402,7 @@ end
 defmodule Google.Pubsub.V1.DeleteSnapshotRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snapshot, 1, type: :string, deprecated: false
 end
@@ -1410,7 +1410,7 @@ end
 defmodule Google.Pubsub.V1.SeekRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -1422,13 +1422,13 @@ end
 defmodule Google.Pubsub.V1.SeekResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Pubsub.V1.Publisher.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.pubsub.v1.Publisher", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.pubsub.v1.Publisher", protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateTopic, Google.Pubsub.V1.Topic, Google.Pubsub.V1.Topic
 
@@ -1464,7 +1464,7 @@ end
 defmodule Google.Pubsub.V1.Subscriber.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.pubsub.v1.Subscriber", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.pubsub.v1.Subscriber", protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateSubscription, Google.Pubsub.V1.Subscription, Google.Pubsub.V1.Subscription
 

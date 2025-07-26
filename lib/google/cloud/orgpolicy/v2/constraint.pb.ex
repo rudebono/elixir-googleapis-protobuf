@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ConstraintDefault do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONSTRAINT_DEFAULT_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.MethodType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :METHOD_TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.ActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.Parameter.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :LIST, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint.MethodType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :METHOD_TYPE_UNSPECIFIED, 0
   field :CREATE, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint.ActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTION_TYPE_UNSPECIFIED, 0
   field :ALLOW, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.ListConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :supports_in, 1, type: :bool, json_name: "supportsIn"
   field :supports_under, 2, type: :bool, json_name: "supportsUnder"
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.Parameter.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 1, type: :string
 end
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.Parameter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.Parameter.Type,
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.ParametersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition.Parameter
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_types, 1, repeated: true, type: :string, json_name: "resourceTypes"
 
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint.BooleanConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_constraint_definition, 1,
     type: Google.Cloud.Orgpolicy.V2.Constraint.CustomConstraintDefinition,
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.Constraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :constraint_type, 0
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Orgpolicy.V2.CustomConstraint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

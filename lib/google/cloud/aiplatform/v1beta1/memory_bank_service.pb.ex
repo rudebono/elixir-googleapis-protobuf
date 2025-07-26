@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesResponse.GeneratedMemory.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :CREATED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateMemoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :memory, 2, type: Google.Cloud.Aiplatform.V1beta1.Memory, deprecated: false
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateMemoryOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetMemoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateMemoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :memory, 1, type: Google.Cloud.Aiplatform.V1beta1.Memory, deprecated: false
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateMemoryOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMemoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListMemoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :memories, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Memory
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMemoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteMemoryOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.VertexSessionSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: :string, deprecated: false
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectContentsSource.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 1, type: Google.Cloud.Aiplatform.V1beta1.Content, deprecated: false
 end
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectContentsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :events, 1,
     repeated: true,
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.ScopeEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesResponse.GeneratedMemory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :memory, 1, type: Google.Cloud.Aiplatform.V1beta1.Memory
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generated_memories, 1,
     repeated: true,
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -202,7 +202,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesRequest.SimilaritySearchParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_query, 1, type: :string, json_name: "searchQuery", deprecated: false
   field :top_k, 2, type: :int32, json_name: "topK", deprecated: false
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesRequest.SimpleRetrievalParams do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesRequest.ScopeEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :retrieval_params, 0
 
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesResponse.RetrievedMemory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :memory, 1, type: Google.Cloud.Aiplatform.V1beta1.Memory
   field :distance, 2, type: :double
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrieveMemoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retrieved_memories, 1,
     repeated: true,
@@ -279,7 +279,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MemoryBankService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.MemoryBankService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateMemory,
       Google.Cloud.Aiplatform.V1beta1.CreateMemoryRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apigeeconnect.V1.Action do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTION_UNSPECIFIED, 0
   field :OPEN_NEW_STREAM, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.TetherEndpoint do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TETHER_ENDPOINT_UNSPECIFIED, 0
   field :APIGEE_MART, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.Scheme do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SCHEME_UNSPECIFIED, 0
   field :HTTPS, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.EgressRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :payload, 2, type: Google.Cloud.Apigeeconnect.V1.Payload
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.Payload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.StreamInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
 end
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.EgressResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.HttpRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :method, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.Url do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scheme, 1, type: Google.Cloud.Apigeeconnect.V1.Scheme, enum: true
   field :host, 2, type: :string
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.Header do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :values, 2, repeated: true, type: :string
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Apigeeconnect.V1.HttpResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :status, 2, type: :string
@@ -135,7 +135,7 @@ defmodule Google.Cloud.Apigeeconnect.V1.Tether.Service do
 
   use GRPC.Service,
     name: "google.cloud.apigeeconnect.v1.Tether",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Egress,
       stream(Google.Cloud.Apigeeconnect.V1.EgressResponse),

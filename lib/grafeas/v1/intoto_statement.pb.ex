@@ -1,7 +1,7 @@
 defmodule Grafeas.V1.InTotoStatement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :predicate, 0
 
@@ -24,7 +24,7 @@ end
 defmodule Grafeas.V1.Subject.DigestEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Grafeas.V1.Subject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :digest, 2, repeated: true, type: Grafeas.V1.Subject.DigestEntry, map: true
@@ -42,7 +42,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.SlsaProvenanceV1 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :build_definition, 1,
     type: Grafeas.V1.InTotoSlsaProvenanceV1.BuildDefinition,
@@ -56,7 +56,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.BuildDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :build_type, 1, type: :string, json_name: "buildType"
   field :external_parameters, 2, type: Google.Protobuf.Struct, json_name: "externalParameters"
@@ -71,7 +71,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.ResourceDescriptor.DigestEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -80,7 +80,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.ResourceDescriptor.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Protobuf.Value
@@ -89,7 +89,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.ResourceDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :uri, 2, type: :string
@@ -112,7 +112,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.RunDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :builder, 1, type: Grafeas.V1.InTotoSlsaProvenanceV1.ProvenanceBuilder
   field :metadata, 2, type: Grafeas.V1.InTotoSlsaProvenanceV1.BuildMetadata
@@ -122,7 +122,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.ProvenanceBuilder.VersionEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -131,7 +131,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.ProvenanceBuilder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -149,7 +149,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1.BuildMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :invocation_id, 1, type: :string, json_name: "invocationId"
   field :started_on, 2, type: Google.Protobuf.Timestamp, json_name: "startedOn"
@@ -159,7 +159,7 @@ end
 defmodule Grafeas.V1.InTotoSlsaProvenanceV1 do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: :string, json_name: "_type"
   field :subject, 2, repeated: true, type: Grafeas.V1.Subject

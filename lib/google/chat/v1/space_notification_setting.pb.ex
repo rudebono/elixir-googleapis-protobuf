@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.SpaceNotificationSetting.NotificationSetting do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NOTIFICATION_SETTING_UNSPECIFIED, 0
   field :ALL, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Chat.V1.SpaceNotificationSetting.MuteSetting do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MUTE_SETTING_UNSPECIFIED, 0
   field :UNMUTED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Chat.V1.SpaceNotificationSetting do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -43,7 +43,7 @@ end
 defmodule Google.Chat.V1.GetSpaceNotificationSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -51,7 +51,7 @@ end
 defmodule Google.Chat.V1.UpdateSpaceNotificationSettingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :space_notification_setting, 1,
     type: Google.Chat.V1.SpaceNotificationSetting,

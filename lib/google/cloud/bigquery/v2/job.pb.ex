@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ListJobsRequest.Projection do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :minimal, 0
   field :MINIMAL, 0
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListJobsRequest.StateFilter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :done, 0
   field :DONE, 0
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryRequest.JobCreationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :JOB_CREATION_MODE_UNSPECIFIED, 0
   field :JOB_CREATION_REQUIRED, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string, deprecated: false
   field :etag, 2, type: :string, deprecated: false
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.CancelJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobCancelResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :job, 2, type: Google.Cloud.Bigquery.V2.Job
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.InsertJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :job, 3, type: Google.Cloud.Bigquery.V2.Job
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DeleteJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -110,7 +110,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :all_users, 2, type: :bool, json_name: "allUsers"
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ListFormatJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :kind, 2, type: :string
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.JobList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :etag, 1, type: :string
   field :kind, 2, type: :string
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetQueryResultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.GetQueryResultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :etag, 2, type: :string
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.PostQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :query_request, 2, type: Google.Cloud.Bigquery.V2.QueryRequest, json_name: "queryRequest"
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryRequest.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 2, type: :string
   field :query, 3, type: :string, deprecated: false
@@ -319,7 +319,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.QueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kind, 1, type: :string
   field :schema, 2, type: Google.Cloud.Bigquery.V2.TableSchema
@@ -395,7 +395,7 @@ defmodule Google.Cloud.Bigquery.V2.JobService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.v2.JobService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CancelJob,
       Google.Cloud.Bigquery.V2.CancelJobRequest,

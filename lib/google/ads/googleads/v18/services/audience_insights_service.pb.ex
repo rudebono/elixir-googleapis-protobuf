@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Services.GenerateInsightsFinderReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -21,7 +21,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateInsightsFinderReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :saved_report_url, 1, type: :string, json_name: "savedReportUrl"
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateAudienceCompositionInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
   field :audience, 2, type: Google.Ads.Googleads.V18.Services.InsightsAudience, deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateAudienceCompositionInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sections, 1,
     repeated: true,
@@ -62,7 +62,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateSuggestedTargetingInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :audience_input, 0
 
@@ -87,7 +87,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateSuggestedTargetingInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -97,7 +97,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.TargetingSuggestionMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 1,
     repeated: true,
@@ -127,7 +127,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.ListAudienceInsightsAttributesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -153,7 +153,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.ListAudienceInsightsAttributesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attributes, 1,
     repeated: true,
@@ -163,13 +163,13 @@ end
 defmodule Google.Ads.Googleads.V18.Services.ListInsightsEligibleDatesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Ads.Googleads.V18.Services.ListInsightsEligibleDatesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_months, 1, repeated: true, type: :string, json_name: "dataMonths"
 
@@ -181,7 +181,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateAudienceOverlapInsightsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -207,7 +207,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateAudienceOverlapInsightsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :primary_attribute_metadata, 1,
     type: Google.Ads.Googleads.V18.Services.AudienceInsightsAttributeMetadata,
@@ -222,7 +222,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.DimensionOverlapResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension, 1,
     type: Google.Ads.Googleads.V18.Enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension,
@@ -234,7 +234,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceOverlapItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attribute_metadata, 1,
     type: Google.Ads.Googleads.V18.Services.AudienceInsightsAttributeMetadata,
@@ -248,7 +248,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateTargetingSuggestionMetricsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -266,7 +266,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.GenerateTargetingSuggestionMetricsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -276,7 +276,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :attribute, 0
 
@@ -320,7 +320,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsTopic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :topic, 0
 
@@ -331,7 +331,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsEntity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :knowledge_graph_machine_id, 1,
     type: :string,
@@ -342,7 +342,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsCategory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category_id, 1, type: :string, json_name: "categoryId", deprecated: false
 end
@@ -350,7 +350,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsDynamicLineup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dynamic_lineup_id, 1, type: :string, json_name: "dynamicLineupId", deprecated: false
 end
@@ -358,7 +358,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.BasicInsightsAudience do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_location, 1,
     repeated: true,
@@ -389,7 +389,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dimension_metadata, 0
 
@@ -426,7 +426,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.YouTubeChannelAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriber_count, 1, type: :int64, json_name: "subscriberCount"
 end
@@ -434,7 +434,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.DynamicLineupAttributeMetadata.SampleChannel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_channel, 1,
     type: Google.Ads.Googleads.V18.Common.YouTubeChannelInfo,
@@ -450,7 +450,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.DynamicLineupAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inventory_country, 1,
     type: Google.Ads.Googleads.V18.Common.LocationInfo,
@@ -480,7 +480,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.LocationAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_location, 1,
     type: Google.Ads.Googleads.V18.Common.LocationInfo,
@@ -490,7 +490,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.UserInterestAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_interest_description, 1, type: :string, json_name: "userInterestDescription"
 end
@@ -498,7 +498,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.InsightsAudienceDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience, 1, type: Google.Ads.Googleads.V18.Services.InsightsAudience, deprecated: false
 
@@ -513,7 +513,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.InsightsAudienceDescription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_locations, 1,
     repeated: true,
@@ -537,7 +537,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.InsightsAudience do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_locations, 1,
     repeated: true,
@@ -580,7 +580,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.InsightsAudienceAttributeGroup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attributes, 1,
     repeated: true,
@@ -591,7 +591,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceCompositionSection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension, 1,
     type: Google.Ads.Googleads.V18.Enums.AudienceInsightsDimensionEnum.AudienceInsightsDimension,
@@ -611,7 +611,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceCompositionAttributeCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster_display_name, 1, type: :string, json_name: "clusterDisplayName"
 
@@ -627,7 +627,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceCompositionMetrics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :baseline_audience_share, 1, type: :double, json_name: "baselineAudienceShare"
   field :audience_share, 2, type: :double, json_name: "audienceShare"
@@ -638,7 +638,7 @@ end
 defmodule Google.Ads.Googleads.V18.Services.AudienceCompositionAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :attribute_metadata, 1,
     type: Google.Ads.Googleads.V18.Services.AudienceInsightsAttributeMetadata,
@@ -652,7 +652,7 @@ defmodule Google.Ads.Googleads.V18.Services.AudienceInsightsService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v18.services.AudienceInsightsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateInsightsFinderReport,
       Google.Ads.Googleads.V18.Services.GenerateInsightsFinderReportRequest,

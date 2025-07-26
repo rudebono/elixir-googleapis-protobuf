@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Developerconnect.V1.InsightsConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :PENDING, 5
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.RuntimeConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :LINKED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.InsightsConfig.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.InsightsConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.InsightsConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :insights_config_context, 0
 
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.RuntimeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :runtime, 0
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GKEWorkload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
   field :deployment, 2, type: :string, deprecated: false
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.AppHubWorkload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workload, 1, type: :string, deprecated: false
   field :criticality, 2, type: :string, deprecated: false
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ArtifactConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :artifact_storage, 0
 
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GoogleArtifactAnalysis do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 end
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GoogleArtifactRegistry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
 
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.CreateInsightsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :insights_config_id, 2, type: :string, json_name: "insightsConfigId", deprecated: false
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.GetInsightsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListInsightsConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.ListInsightsConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :insights_configs, 1,
     repeated: true,
@@ -241,7 +241,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.DeleteInsightsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -252,7 +252,7 @@ end
 defmodule Google.Cloud.Developerconnect.V1.UpdateInsightsConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :insights_config, 2,
     type: Google.Cloud.Developerconnect.V1.InsightsConfig,
@@ -269,7 +269,7 @@ defmodule Google.Cloud.Developerconnect.V1.InsightsConfigService.Service do
 
   use GRPC.Service,
     name: "google.cloud.developerconnect.v1.InsightsConfigService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInsightsConfigs,
       Google.Cloud.Developerconnect.V1.ListInsightsConfigsRequest,

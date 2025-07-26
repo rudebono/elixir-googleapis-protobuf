@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Batch.V1alpha.CalendarPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CALENDAR_PERIOD_UNSPECIFIED, 0
   field :MONTH, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ResourceAllowanceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESOURCE_ALLOWANCE_STATE_UNSPECIFIED, 0
   field :RESOURCE_ALLOWANCE_ACTIVE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ResourceAllowance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.ResourceAllowance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :resource_allowance, 0
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :spec, 1, type: Google.Cloud.Batch.V1alpha.UsageResourceAllowanceSpec, deprecated: false
 
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceSpec.Limit do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :duration, 0
 
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.LimitStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumption_interval, 1,
     type: Google.Type.Interval,
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.PeriodConsumption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumption_interval, 1,
     type: Google.Type.Interval,
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.ConsumptionReport.LatestPeriodConsumptionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.PeriodConsumption
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus.ConsumptionReport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :latest_period_consumptions, 1,
     repeated: true,
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Batch.V1alpha.UsageResourceAllowanceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Batch.V1alpha.ResourceAllowanceState,

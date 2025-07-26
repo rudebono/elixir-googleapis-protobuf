@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.CustomField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -54,7 +54,7 @@ end
 defmodule Google.Ads.Admanager.V1.CustomFieldOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_field_option_id, 1,
     type: :int64,

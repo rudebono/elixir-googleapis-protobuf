@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Telcoautomation.V1alpha1.BlueprintView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BLUEPRINT_VIEW_UNSPECIFIED, 0
   field :BLUEPRINT_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DeploymentView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DEPLOYMENT_VIEW_UNSPECIFIED, 0
   field :DEPLOYMENT_VIEW_BASIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ResourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESOURCE_TYPE_UNSPECIFIED, 0
   field :NF_DEPLOY_RESOURCE, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Status do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATUS_UNSPECIFIED, 0
   field :STATUS_IN_PROGRESS, 1
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DeploymentLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DEPLOYMENT_LEVEL_UNSPECIFIED, 0
   field :HYDRATION, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.OrchestrationCluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.EdgeSlm.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.EdgeSlm.WorkloadClusterType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :WORKLOAD_CLUSTER_TYPE_UNSPECIFIED, 0
   field :GDCE, 1
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Blueprint.ApprovalState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :APPROVAL_STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -103,7 +103,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.HydratedDeployment.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.OrchestrationCluster.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.OrchestrationCluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.EdgeSlm.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.EdgeSlm do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Blueprint.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Blueprint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -282,7 +282,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.PublicBlueprint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -300,7 +300,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -309,7 +309,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.Deployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -368,7 +368,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.HydratedDeployment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -388,7 +388,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListOrchestrationClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -400,7 +400,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListOrchestrationClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :orchestration_clusters, 1,
     repeated: true,
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetOrchestrationClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -422,7 +422,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.CreateOrchestrationClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -442,7 +442,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteOrchestrationClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -451,7 +451,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListEdgeSlmsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -463,7 +463,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListEdgeSlmsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :edge_slms, 1,
     repeated: true,
@@ -477,7 +477,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetEdgeSlmRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -485,7 +485,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.CreateEdgeSlmRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :edge_slm_id, 2, type: :string, json_name: "edgeSlmId", deprecated: false
@@ -501,7 +501,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteEdgeSlmRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.CreateBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :blueprint_id, 2, type: :string, json_name: "blueprintId", deprecated: false
@@ -520,7 +520,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.UpdateBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blueprint, 1, type: Google.Cloud.Telcoautomation.V1alpha1.Blueprint, deprecated: false
 
@@ -533,7 +533,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -546,7 +546,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DeleteBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -554,7 +554,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string, deprecated: false
@@ -565,7 +565,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blueprints, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Blueprint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -574,7 +574,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ApproveBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -582,7 +582,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ProposeBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -590,7 +590,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.RejectBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -598,7 +598,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -608,7 +608,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListBlueprintRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blueprints, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Blueprint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -617,7 +617,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.SearchBlueprintRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -628,7 +628,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.SearchBlueprintRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blueprints, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Blueprint
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -637,7 +637,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DiscardBlueprintChangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -645,13 +645,13 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DiscardBlueprintChangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListPublicBlueprintsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -661,7 +661,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListPublicBlueprintsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_blueprints, 1,
     repeated: true,
@@ -674,7 +674,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetPublicBlueprintRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -682,7 +682,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.CreateDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :deployment_id, 2, type: :string, json_name: "deploymentId", deprecated: false
@@ -692,7 +692,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.UpdateDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployment, 1, type: Google.Cloud.Telcoautomation.V1alpha1.Deployment, deprecated: false
 
@@ -705,7 +705,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -718,7 +718,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.RemoveDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -726,7 +726,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 4, type: :string, deprecated: false
@@ -737,7 +737,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -746,7 +746,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListDeploymentRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -756,7 +756,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListDeploymentRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -765,7 +765,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.SearchDeploymentRevisionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -776,7 +776,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.SearchDeploymentRevisionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deployments, 1, repeated: true, type: Google.Cloud.Telcoautomation.V1alpha1.Deployment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -785,7 +785,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DiscardDeploymentChangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -793,13 +793,13 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.DiscardDeploymentChangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ApplyDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -807,7 +807,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ComputeDeploymentStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -815,7 +815,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ComputeDeploymentStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 
@@ -835,7 +835,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.RollbackDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :revision_id, 2, type: :string, json_name: "revisionId", deprecated: false
@@ -844,7 +844,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -867,7 +867,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.GetHydratedDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -875,7 +875,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListHydratedDeploymentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -885,7 +885,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ListHydratedDeploymentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hydrated_deployments, 1,
     repeated: true,
@@ -898,7 +898,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.UpdateHydratedDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hydrated_deployment, 1,
     type: Google.Cloud.Telcoautomation.V1alpha1.HydratedDeployment,
@@ -914,7 +914,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ApplyHydratedDeploymentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -922,7 +922,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ManagementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :oneof_config, 0
 
@@ -940,7 +940,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.StandardManagementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
   field :subnet, 2, type: :string, deprecated: false
@@ -968,7 +968,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.FullManagementConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
   field :subnet, 2, type: :string, deprecated: false
@@ -996,7 +996,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.MasterAuthorizedNetworksConfig.CidrBlock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
   field :cidr_block, 2, type: :string, json_name: "cidrBlock", deprecated: false
@@ -1005,7 +1005,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.MasterAuthorizedNetworksConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cidr_blocks, 1,
     repeated: true,
@@ -1017,7 +1017,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.File do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string, deprecated: false
   field :content, 2, type: :string, deprecated: false
@@ -1028,7 +1028,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.ResourceStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :resource_namespace, 2, type: :string, json_name: "resourceNamespace"
@@ -1056,7 +1056,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.NFDeployStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :targeted_nfs, 1, type: :int32, json_name: "targetedNfs", deprecated: false
   field :ready_nfs, 2, type: :int32, json_name: "readyNfs", deprecated: false
@@ -1070,7 +1070,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.NFDeploySiteStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :site, 1, type: :string, deprecated: false
   field :pending_deletion, 2, type: :bool, json_name: "pendingDeletion", deprecated: false
@@ -1087,7 +1087,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.HydrationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :site_version, 1,
     type: Google.Cloud.Telcoautomation.V1alpha1.SiteVersion,
@@ -1100,7 +1100,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.SiteVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nf_vendor, 1, type: :string, json_name: "nfVendor", deprecated: false
   field :nf_type, 2, type: :string, json_name: "nfType", deprecated: false
@@ -1110,7 +1110,7 @@ end
 defmodule Google.Cloud.Telcoautomation.V1alpha1.WorkloadStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :site_version, 1,
     type: Google.Cloud.Telcoautomation.V1alpha1.SiteVersion,
@@ -1125,7 +1125,7 @@ defmodule Google.Cloud.Telcoautomation.V1alpha1.TelcoAutomation.Service do
 
   use GRPC.Service,
     name: "google.cloud.telcoautomation.v1alpha1.TelcoAutomation",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListOrchestrationClusters,
       Google.Cloud.Telcoautomation.V1alpha1.ListOrchestrationClustersRequest,

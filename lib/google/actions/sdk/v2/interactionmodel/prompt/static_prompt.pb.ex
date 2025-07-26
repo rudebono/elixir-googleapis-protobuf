@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate.StaticPromptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_simple, 2,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticSimplePrompt,
@@ -33,7 +33,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.StaticPromptCandidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :selector, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector,
@@ -48,7 +48,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt.Selector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :surface_capabilities, 1,
     type: Google.Actions.Sdk.V2.Interactionmodel.Prompt.SurfaceCapabilities,
@@ -58,7 +58,7 @@ end
 defmodule Google.Actions.Sdk.V2.Interactionmodel.Prompt.StaticPrompt do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :candidates, 1,
     repeated: true,

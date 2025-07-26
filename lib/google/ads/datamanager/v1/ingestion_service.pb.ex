@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.Encoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :HEX, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Ads.Datamanager.V1.IngestAudienceMembersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -42,7 +42,7 @@ end
 defmodule Google.Ads.Datamanager.V1.IngestAudienceMembersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Ads.Datamanager.V1.RemoveAudienceMembersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -75,7 +75,7 @@ end
 defmodule Google.Ads.Datamanager.V1.RemoveAudienceMembersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 end
@@ -83,7 +83,7 @@ end
 defmodule Google.Ads.Datamanager.V1.IngestEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -104,7 +104,7 @@ end
 defmodule Google.Ads.Datamanager.V1.IngestEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_id, 1, type: :string, json_name: "requestId"
 end
@@ -114,7 +114,7 @@ defmodule Google.Ads.Datamanager.V1.IngestionService.Service do
 
   use GRPC.Service,
     name: "google.ads.datamanager.v1.IngestionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :IngestAudienceMembers,
       Google.Ads.Datamanager.V1.IngestAudienceMembersRequest,

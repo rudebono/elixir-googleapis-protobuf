@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpStore.StoreMatchingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STORE_MATCHING_STATE_UNSPECIFIED, 0
   field :STORE_MATCHING_STATE_MATCHED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :target_account, 2, type: :int64, json_name: "targetAccount", deprecated: false
@@ -64,7 +64,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.GetLfpStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -72,7 +72,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.InsertLfpStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -85,7 +85,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.DeleteLfpStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -93,7 +93,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.ListLfpStoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :target_account, 2, type: :int64, json_name: "targetAccount", deprecated: false
@@ -104,7 +104,7 @@ end
 defmodule Google.Shopping.Merchant.Lfp.V1beta.ListLfpStoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lfp_stores, 1,
     repeated: true,
@@ -119,7 +119,7 @@ defmodule Google.Shopping.Merchant.Lfp.V1beta.LfpStoreService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.lfp.v1beta.LfpStoreService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetLfpStore,
       Google.Shopping.Merchant.Lfp.V1beta.GetLfpStoreRequest,

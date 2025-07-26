@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dimension_metadata, 0
 
@@ -50,7 +50,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :attribute, 0
 
@@ -97,7 +97,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsTopic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :topic, 0
 
@@ -108,7 +108,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsEntity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :knowledge_graph_machine_id, 1,
     type: :string,
@@ -119,7 +119,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsCategory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category_id, 1, type: :string, json_name: "categoryId", deprecated: false
 end
@@ -127,7 +127,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.AudienceInsightsLineup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lineup_id, 1, type: :string, json_name: "lineupId", deprecated: false
 end
@@ -135,7 +135,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.YouTubeChannelAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subscriber_count, 1, type: :int64, json_name: "subscriberCount"
 end
@@ -143,7 +143,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.YouTubeVideoAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :thumbnail_url, 1, type: :string, json_name: "thumbnailUrl"
   field :video_url, 2, type: :string, json_name: "videoUrl"
@@ -152,7 +152,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LineupAttributeMetadata.SampleChannel do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :youtube_channel, 1,
     type: Google.Ads.Googleads.V20.Common.YouTubeChannelInfo,
@@ -168,7 +168,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LineupAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inventory_country, 1,
     type: Google.Ads.Googleads.V20.Common.LocationInfo,
@@ -198,7 +198,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.LocationAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country_location, 1,
     type: Google.Ads.Googleads.V20.Common.LocationInfo,
@@ -208,7 +208,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.UserInterestAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_interest_description, 1, type: :string, json_name: "userInterestDescription"
 end
@@ -216,7 +216,7 @@ end
 defmodule Google.Ads.Googleads.V20.Common.KnowledgeGraphAttributeMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entity_capabilities, 1,
     repeated: true,

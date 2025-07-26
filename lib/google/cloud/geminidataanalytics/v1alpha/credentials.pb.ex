@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.Credentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.OAuthCredentials.SecretBased do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_id, 2, type: :string, json_name: "clientId", deprecated: false
   field :client_secret, 3, type: :string, json_name: "clientSecret", deprecated: false
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.OAuthCredentials.TokenBased do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :access_token, 1, type: :string, json_name: "accessToken", deprecated: false
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.OAuthCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 

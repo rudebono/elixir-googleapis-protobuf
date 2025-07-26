@@ -3,7 +3,7 @@ defmodule Google.Cloud.Sql.V1.SqlIamPoliciesService.Service do
 
   use GRPC.Service,
     name: "google.cloud.sql.v1.SqlIamPoliciesService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 end
 
 defmodule Google.Cloud.Sql.V1.SqlIamPoliciesService.Stub do

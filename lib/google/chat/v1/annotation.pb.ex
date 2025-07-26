@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.AnnotationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ANNOTATION_TYPE_UNSPECIFIED, 0
   field :USER_MENTION, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Chat.V1.UserMentionMetadata.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Chat.V1.SlashCommandMetadata.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADD, 1
@@ -33,17 +33,40 @@ end
 defmodule Google.Chat.V1.RichLinkMetadata.RichLinkType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RICH_LINK_TYPE_UNSPECIFIED, 0
   field :DRIVE_FILE, 1
   field :CHAT_SPACE, 2
+  field :MEET_SPACE, 4
+  field :CALENDAR_EVENT, 5
+end
+
+defmodule Google.Chat.V1.MeetSpaceLinkData.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :MEETING, 1
+  field :HUDDLE, 2
+end
+
+defmodule Google.Chat.V1.MeetSpaceLinkData.HuddleStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :HUDDLE_STATUS_UNSPECIFIED, 0
+  field :STARTED, 1
+  field :ENDED, 2
+  field :MISSED, 3
 end
 
 defmodule Google.Chat.V1.Annotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :metadata, 0
 
@@ -75,7 +98,7 @@ end
 defmodule Google.Chat.V1.UserMentionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user, 1, type: Google.Chat.V1.User
   field :type, 2, type: Google.Chat.V1.UserMentionMetadata.Type, enum: true
@@ -84,7 +107,7 @@ end
 defmodule Google.Chat.V1.SlashCommandMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bot, 1, type: Google.Chat.V1.User
   field :type, 2, type: Google.Chat.V1.SlashCommandMetadata.Type, enum: true
@@ -96,7 +119,7 @@ end
 defmodule Google.Chat.V1.RichLinkMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -116,12 +139,22 @@ defmodule Google.Chat.V1.RichLinkMetadata do
     type: Google.Chat.V1.ChatSpaceLinkData,
     json_name: "chatSpaceLinkData",
     oneof: 0
+
+  field :meet_space_link_data, 5,
+    type: Google.Chat.V1.MeetSpaceLinkData,
+    json_name: "meetSpaceLinkData",
+    oneof: 0
+
+  field :calendar_event_link_data, 6,
+    type: Google.Chat.V1.CalendarEventLinkData,
+    json_name: "calendarEventLinkData",
+    oneof: 0
 end
 
 defmodule Google.Chat.V1.CustomEmojiMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_emoji, 1, type: Google.Chat.V1.CustomEmoji, json_name: "customEmoji"
 end
@@ -129,7 +162,7 @@ end
 defmodule Google.Chat.V1.DriveLinkData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :drive_data_ref, 1, type: Google.Chat.V1.DriveDataRef, json_name: "driveDataRef"
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -138,9 +171,33 @@ end
 defmodule Google.Chat.V1.ChatSpaceLinkData do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :space, 1, type: :string, deprecated: false
   field :thread, 2, type: :string, deprecated: false
   field :message, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Chat.V1.MeetSpaceLinkData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :meeting_code, 1, type: :string, json_name: "meetingCode"
+  field :type, 2, type: Google.Chat.V1.MeetSpaceLinkData.Type, enum: true
+
+  field :huddle_status, 3,
+    type: Google.Chat.V1.MeetSpaceLinkData.HuddleStatus,
+    json_name: "huddleStatus",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Chat.V1.CalendarEventLinkData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :calendar_id, 1, type: :string, json_name: "calendarId"
+  field :event_id, 2, type: :string, json_name: "eventId"
 end

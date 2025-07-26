@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Configdelivery.V1.DeletionPropagationPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DELETION_PROPAGATION_POLICY_UNSPECIFIED, 0
   field :FOREGROUND, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackageInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ClusterInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :WAITING, 1
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ResourceBundleDeploymentInfo.SyncState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SYNC_STATE_UNSPECIFIED, 0
   field :RECONCILING, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Release.Lifecycle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LIFECYCLE_UNSPECIFIED, 0
   field :DRAFT, 1
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.RolloutInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :COMPLETED, 1
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ResourceBundle.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ResourceBundle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListResourceBundlesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListResourceBundlesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_bundles, 1,
     repeated: true,
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.GetResourceBundleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.CreateResourceBundleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :resource_bundle_id, 2, type: :string, json_name: "resourceBundleId", deprecated: false
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.UpdateResourceBundleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.DeleteResourceBundleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.ResourceBundleSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.ResourceBundleTag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :tag, 2, type: :string, deprecated: false
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.CloudBuildRepository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :variants, 0
 
@@ -250,7 +250,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target, 0
 
@@ -260,7 +260,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.VariantSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :strategy, 0
 
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -337,7 +337,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackageInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :active_rollout, 1, type: :string, json_name: "activeRollout", deprecated: false
 
@@ -360,7 +360,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.FleetPackageError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_message, 1, type: :string, json_name: "errorMessage", deprecated: false
 end
@@ -368,7 +368,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ClusterInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :membership, 1, type: :string, deprecated: false
 
@@ -397,7 +397,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ResourceBundleDeploymentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :release, 1, type: :string, deprecated: false
   field :version, 2, type: :string, deprecated: false
@@ -415,7 +415,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Fleet.LabelSelector.MatchLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -424,7 +424,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Fleet.LabelSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :match_labels, 1,
     repeated: true,
@@ -437,7 +437,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Fleet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :selector, 2, type: Google.Cloud.Configdelivery.V1.Fleet.LabelSelector, deprecated: false
@@ -446,13 +446,13 @@ end
 defmodule Google.Cloud.Configdelivery.V1.AllAtOnceStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Configdelivery.V1.RollingStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :max_concurrent, 1, type: :int32, json_name: "maxConcurrent", deprecated: false
 end
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.RolloutStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :strategy, 0
 
@@ -475,7 +475,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.RolloutStrategyInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :strategy, 0
 
@@ -493,7 +493,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.AllAtOnceStrategyInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -504,7 +504,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.RollingStrategyInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :clusters, 1,
     repeated: true,
@@ -515,7 +515,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListFleetPackagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -527,7 +527,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListFleetPackagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fleet_packages, 1,
     repeated: true,
@@ -541,7 +541,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.GetFleetPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -549,7 +549,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.CreateFleetPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :fleet_package_id, 2, type: :string, json_name: "fleetPackageId", deprecated: false
@@ -565,7 +565,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.UpdateFleetPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -583,7 +583,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.DeleteFleetPackageRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -594,7 +594,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -617,7 +617,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Release.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -626,7 +626,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Release do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -664,7 +664,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Variant.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -673,7 +673,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Variant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :labels, 1,
     repeated: true,
@@ -698,7 +698,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListVariantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -710,7 +710,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListVariantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :variants, 1, repeated: true, type: Google.Cloud.Configdelivery.V1.Variant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -720,7 +720,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.GetVariantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -728,7 +728,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.CreateVariantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :variant_id, 2, type: :string, json_name: "variantId", deprecated: false
@@ -739,7 +739,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.UpdateVariantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -753,7 +753,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.DeleteVariantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -762,7 +762,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ReleaseInfo.VariantOciImagePathsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -771,7 +771,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ReleaseInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :oci_image_path, 1, type: :string, json_name: "ociImagePath", deprecated: false
 
@@ -786,7 +786,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListReleasesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -798,7 +798,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListReleasesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :releases, 1, repeated: true, type: Google.Cloud.Configdelivery.V1.Release
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -808,7 +808,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.GetReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -816,7 +816,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.CreateReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :release_id, 2, type: :string, json_name: "releaseId", deprecated: false
@@ -827,7 +827,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.UpdateReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -841,7 +841,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.DeleteReleaseRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -851,7 +851,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListRolloutsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -863,7 +863,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ListRolloutsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rollouts, 1, repeated: true, type: Google.Cloud.Configdelivery.V1.Rollout
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -873,7 +873,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.GetRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -881,7 +881,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.RolloutInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Configdelivery.V1.RolloutInfo.State,
@@ -901,7 +901,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.Rollout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :release, 2, type: :string, deprecated: false
@@ -931,7 +931,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.SuspendRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -940,7 +940,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.ResumeRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -949,7 +949,7 @@ end
 defmodule Google.Cloud.Configdelivery.V1.AbortRolloutRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :reason, 2, type: :string, deprecated: false
@@ -960,7 +960,7 @@ defmodule Google.Cloud.Configdelivery.V1.ConfigDelivery.Service do
 
   use GRPC.Service,
     name: "google.cloud.configdelivery.v1.ConfigDelivery",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListResourceBundles,
       Google.Cloud.Configdelivery.V1.ListResourceBundlesRequest,

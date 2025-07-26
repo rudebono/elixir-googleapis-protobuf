@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Services.MutateCustomInterestsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.CustomInterestOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.MutateCustomInterestsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 2,
     repeated: true,
@@ -38,7 +38,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.MutateCustomInterestResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -48,7 +48,7 @@ defmodule Google.Ads.Googleads.V20.Services.CustomInterestService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v20.services.CustomInterestService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :MutateCustomInterests,
       Google.Ads.Googleads.V20.Services.MutateCustomInterestsRequest,

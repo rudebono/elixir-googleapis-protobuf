@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.V2.ForeignTypeInfo.TypeSystem do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_SYSTEM_UNSPECIFIED, 0
   field :HIVE, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableFieldSchema.RoundingMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ROUNDING_MODE_UNSPECIFIED, 0
   field :ROUND_HALF_AWAY_FROM_ZERO, 1
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Cloud.Bigquery.V2.TableFieldSchema
 
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.ForeignTypeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type_system, 1,
     type: Google.Cloud.Bigquery.V2.ForeignTypeInfo.TypeSystem,
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.DataPolicyOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, proto3_optional: true, type: :string
 end
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableFieldSchema.PolicyTagList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :names, 1, repeated: true, type: :string
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableFieldSchema.FieldElementType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: :string, deprecated: false
 end
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Bigquery.V2.TableFieldSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false

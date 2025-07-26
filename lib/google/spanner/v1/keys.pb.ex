@@ -1,7 +1,7 @@
 defmodule Google.Spanner.V1.KeyRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :start_key_type, 0
 
@@ -16,7 +16,7 @@ end
 defmodule Google.Spanner.V1.KeySet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :keys, 1, repeated: true, type: Google.Protobuf.ListValue
   field :ranges, 2, repeated: true, type: Google.Spanner.V1.KeyRange

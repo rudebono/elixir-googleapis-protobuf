@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.LoggingConfig.LoggingLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOGGING_LEVEL_UNSPECIFIED, 0
   field :LOGGING_DISABLED, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AlertConfig.AlertPolicy.EnrollStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENROLL_STATUS_UNSPECIFIED, 0
   field :ENROLLED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.LoggingConfig.LogGenerationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :logging_level, 1,
     type: Google.Cloud.Retail.V2alpha.LoggingConfig.LoggingLevel,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.LoggingConfig.ServiceLogGenerationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
 
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.LoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.Project do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AlertConfig.AlertPolicy.Recipient do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :email_address, 1, type: :string, json_name: "emailAddress"
 end
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AlertConfig.AlertPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :alert_group, 1, type: :string, json_name: "alertGroup"
 
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AlertConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

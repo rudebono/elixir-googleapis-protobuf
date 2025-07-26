@@ -3,7 +3,7 @@ defmodule Google.Cloud.Apigateway.V1.ApiGatewayService.Service do
 
   use GRPC.Service,
     name: "google.cloud.apigateway.v1.ApiGatewayService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListGateways,
       Google.Cloud.Apigateway.V1.ListGatewaysRequest,
