@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securityposture.V1.CustomConfig.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConfig.CustomOutputSpec.Property do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConfig.CustomOutputSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :properties, 1,
     repeated: true,
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConfig.ResourceSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_types, 1,
     repeated: true,
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Securityposture.V1.CustomConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predicate, 1, type: Google.Type.Expr, deprecated: false
 

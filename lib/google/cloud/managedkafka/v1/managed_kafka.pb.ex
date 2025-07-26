@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Managedkafka.V1.ListClustersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListClustersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :clusters, 1, repeated: true, type: Google.Cloud.Managedkafka.V1.Cluster
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GetClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CreateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :cluster_id, 2, type: :string, json_name: "clusterId", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteClusterRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListTopicsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListTopicsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :topics, 1, repeated: true, type: Google.Cloud.Managedkafka.V1.Topic
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GetTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CreateTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :topic_id, 2, type: :string, json_name: "topicId", deprecated: false
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteTopicRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConsumerGroupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListConsumerGroupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumer_groups, 1,
     repeated: true,
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GetConsumerGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateConsumerGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteConsumerGroupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListAclsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -188,7 +188,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.ListAclsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acls, 1, repeated: true, type: Google.Cloud.Managedkafka.V1.Acl
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -197,7 +197,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.GetAclRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.CreateAclRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :acl_id, 2, type: :string, json_name: "aclId", deprecated: false
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.UpdateAclRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acl, 1, type: Google.Cloud.Managedkafka.V1.Acl, deprecated: false
 
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.DeleteAclRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.AddAclEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acl, 1, type: :string, deprecated: false
 
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.AddAclEntryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acl, 1, type: Google.Cloud.Managedkafka.V1.Acl
   field :acl_created, 2, type: :bool, json_name: "aclCreated"
@@ -258,7 +258,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.RemoveAclEntryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acl, 1, type: :string, deprecated: false
 
@@ -271,7 +271,7 @@ end
 defmodule Google.Cloud.Managedkafka.V1.RemoveAclEntryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -284,7 +284,7 @@ defmodule Google.Cloud.Managedkafka.V1.ManagedKafka.Service do
 
   use GRPC.Service,
     name: "google.cloud.managedkafka.v1.ManagedKafka",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListClusters,
       Google.Cloud.Managedkafka.V1.ListClustersRequest,

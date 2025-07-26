@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Resources.ProductLinkInvitation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :invited_account, 0
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.HotelCenterLinkInvitationIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hotel_center_id, 1, type: :int64, json_name: "hotelCenterId", deprecated: false
 end
@@ -53,7 +53,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.MerchantCenterLinkInvitationIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merchant_center_id, 1, type: :int64, json_name: "merchantCenterId", deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Ads.Googleads.V20.Resources.AdvertisingPartnerLinkInvitationIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer, 1, proto3_optional: true, type: :string, deprecated: false
 end

@@ -1,7 +1,7 @@
 defmodule Google.Maps.Weather.V1.CardinalDirection do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CARDINAL_DIRECTION_UNSPECIFIED, 0
   field :NORTH, 1
@@ -25,7 +25,7 @@ end
 defmodule Google.Maps.Weather.V1.SpeedUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SPEED_UNIT_UNSPECIFIED, 0
   field :KILOMETERS_PER_HOUR, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Maps.Weather.V1.Wind do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :direction, 1, type: Google.Maps.Weather.V1.WindDirection
   field :speed, 2, type: Google.Maps.Weather.V1.WindSpeed
@@ -45,7 +45,7 @@ end
 defmodule Google.Maps.Weather.V1.WindDirection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :degrees, 1, proto3_optional: true, type: :int32
   field :cardinal, 2, type: Google.Maps.Weather.V1.CardinalDirection, enum: true
@@ -54,7 +54,7 @@ end
 defmodule Google.Maps.Weather.V1.WindSpeed do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, proto3_optional: true, type: :float
   field :unit, 2, type: Google.Maps.Weather.V1.SpeedUnit, enum: true

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apphub.V1.LookupServiceProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Apphub.V1.LookupServiceProjectAttachmentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_project_attachment, 1,
     type: Google.Cloud.Apphub.V1.ServiceProjectAttachment,
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListServiceProjectAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListServiceProjectAttachmentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_project_attachments, 1,
     repeated: true,
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Apphub.V1.CreateServiceProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetServiceProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Apphub.V1.DeleteServiceProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Apphub.V1.DetachServiceProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -90,13 +90,13 @@ end
 defmodule Google.Cloud.Apphub.V1.DetachServiceProjectAttachmentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Apphub.V1.ListServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListServicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :services, 1, repeated: true, type: Google.Cloud.Apphub.V1.Service
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListDiscoveredServicesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListDiscoveredServicesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discovered_services, 1,
     repeated: true,
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Apphub.V1.CreateServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_id, 2, type: :string, json_name: "serviceId", deprecated: false
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetDiscoveredServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Apphub.V1.LookupDiscoveredServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Apphub.V1.LookupDiscoveredServiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discovered_service, 1,
     type: Google.Cloud.Apphub.V1.DiscoveredService,
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Apphub.V1.UpdateServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -204,7 +204,7 @@ end
 defmodule Google.Cloud.Apphub.V1.DeleteServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListApplicationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -225,7 +225,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListApplicationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :applications, 1, repeated: true, type: Google.Cloud.Apphub.V1.Application
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Apphub.V1.CreateApplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :application_id, 2, type: :string, json_name: "applicationId", deprecated: false
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetApplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Apphub.V1.UpdateApplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -268,7 +268,7 @@ end
 defmodule Google.Cloud.Apphub.V1.DeleteApplicationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListWorkloadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListWorkloadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workloads, 1, repeated: true, type: Google.Cloud.Apphub.V1.Workload
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListDiscoveredWorkloadsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Apphub.V1.ListDiscoveredWorkloadsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discovered_workloads, 1,
     repeated: true,
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Apphub.V1.CreateWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workload_id, 2, type: :string, json_name: "workloadId", deprecated: false
@@ -336,7 +336,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -344,7 +344,7 @@ end
 defmodule Google.Cloud.Apphub.V1.GetDiscoveredWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -352,7 +352,7 @@ end
 defmodule Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :uri, 2, type: :string, deprecated: false
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Apphub.V1.LookupDiscoveredWorkloadResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :discovered_workload, 1,
     type: Google.Cloud.Apphub.V1.DiscoveredWorkload,
@@ -371,7 +371,7 @@ end
 defmodule Google.Cloud.Apphub.V1.UpdateWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Apphub.V1.DeleteWorkloadRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -394,7 +394,7 @@ end
 defmodule Google.Cloud.Apphub.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -417,7 +417,7 @@ end
 defmodule Google.Cloud.Apphub.V1.AppHub.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.apphub.v1.AppHub", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.apphub.v1.AppHub", protoc_gen_elixir_version: "0.15.0"
 
   rpc :LookupServiceProjectAttachment,
       Google.Cloud.Apphub.V1.LookupServiceProjectAttachmentRequest,

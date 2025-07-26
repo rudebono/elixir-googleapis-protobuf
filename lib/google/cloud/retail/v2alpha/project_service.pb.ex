@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2alpha.GetProjectRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.AcceptTermsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.EnrollSolutionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
 
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.EnrollSolutionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enrolled_solution, 1,
     type: Google.Cloud.Retail.V2alpha.SolutionType,
@@ -41,13 +41,13 @@ end
 defmodule Google.Cloud.Retail.V2alpha.EnrollSolutionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ListEnrolledSolutionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 end
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.ListEnrolledSolutionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enrolled_solutions, 1,
     repeated: true,
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetLoggingConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateLoggingConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :logging_config, 1,
     type: Google.Cloud.Retail.V2alpha.LoggingConfig,
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.GetAlertConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Retail.V2alpha.UpdateAlertConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :alert_config, 1,
     type: Google.Cloud.Retail.V2alpha.AlertConfig,
@@ -111,7 +111,7 @@ defmodule Google.Cloud.Retail.V2alpha.ProjectService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2alpha.ProjectService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetProject,
       Google.Cloud.Retail.V2alpha.GetProjectRequest,

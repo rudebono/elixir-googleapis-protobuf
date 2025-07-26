@@ -1,7 +1,7 @@
 defmodule Google.Maps.Addressvalidation.V1.AddressComponent.ConfirmationLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONFIRMATION_LEVEL_UNSPECIFIED, 0
   field :CONFIRMED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.Address do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :formatted_address, 2, type: :string, json_name: "formattedAddress"
   field :postal_address, 3, type: Google.Type.PostalAddress, json_name: "postalAddress"
@@ -39,7 +39,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.AddressComponent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :component_name, 1,
     type: Google.Maps.Addressvalidation.V1.ComponentName,
@@ -61,7 +61,7 @@ end
 defmodule Google.Maps.Addressvalidation.V1.ComponentName do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :language_code, 2, type: :string, json_name: "languageCode"

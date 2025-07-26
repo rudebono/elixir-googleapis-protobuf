@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.UserInput.InputType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INPUT_TYPE_UNSPECIFIED, 0
   field :TOUCH, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Actions.Sdk.V2.DeviceProperties.Surface do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SURFACE_UNSPECIFIED, 0
   field :SPEAKER, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Actions.Sdk.V2.SendInteractionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :input, 2, type: Google.Actions.Sdk.V2.UserInput, deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Actions.Sdk.V2.UserInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query, 1, type: :string
   field :type, 2, type: Google.Actions.Sdk.V2.UserInput.InputType, enum: true
@@ -51,7 +51,7 @@ end
 defmodule Google.Actions.Sdk.V2.DeviceProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :surface, 1, type: Google.Actions.Sdk.V2.DeviceProperties.Surface, enum: true
   field :location, 2, type: Google.Actions.Sdk.V2.Location
@@ -62,7 +62,7 @@ end
 defmodule Google.Actions.Sdk.V2.Location do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :coordinates, 1, type: Google.Type.LatLng
   field :formatted_address, 2, type: :string, json_name: "formattedAddress"
@@ -73,7 +73,7 @@ end
 defmodule Google.Actions.Sdk.V2.SendInteractionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :output, 1, type: Google.Actions.Sdk.V2.Output
   field :diagnostics, 2, type: Google.Actions.Sdk.V2.Diagnostics
@@ -83,7 +83,7 @@ end
 defmodule Google.Actions.Sdk.V2.Output do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :speech, 2, repeated: true, type: :string
@@ -97,7 +97,7 @@ end
 defmodule Google.Actions.Sdk.V2.Diagnostics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :actions_builder_events, 1,
     repeated: true,
@@ -108,7 +108,7 @@ end
 defmodule Google.Actions.Sdk.V2.MatchIntentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -118,7 +118,7 @@ end
 defmodule Google.Actions.Sdk.V2.MatchIntentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :matched_intents, 1,
     repeated: true,
@@ -129,7 +129,7 @@ end
 defmodule Google.Actions.Sdk.V2.SetWebAndAppActivityControlRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
 end
@@ -139,7 +139,7 @@ defmodule Google.Actions.Sdk.V2.ActionsTesting.Service do
 
   use GRPC.Service,
     name: "google.actions.sdk.v2.ActionsTesting",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :SendInteraction,
       Google.Actions.Sdk.V2.SendInteractionRequest,

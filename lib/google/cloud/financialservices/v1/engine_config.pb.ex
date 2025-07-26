@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.HyperparameterSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HYPERPARAMETER_SOURCE_TYPE_UNSPECIFIED, 0
   field :TUNING, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.Tuning do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :primary_dataset, 1, type: :string, json_name: "primaryDataset", deprecated: false
   field :end_time, 10, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.PerformanceTarget do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :party_investigations_per_period_hint, 1,
     type: :int64,
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.HyperparameterSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_engine_config, 1,
     type: :string,
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.EngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ListEngineConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -133,7 +133,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ListEngineConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :engine_configs, 1,
     repeated: true,
@@ -147,7 +147,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.GetEngineConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -155,7 +155,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.CreateEngineConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :engine_config_id, 2, type: :string, json_name: "engineConfigId", deprecated: false
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.UpdateEngineConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.DeleteEngineConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Financialservices.V1.ExportEngineConfigMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :engine_config, 1, type: :string, json_name: "engineConfig", deprecated: false
 
@@ -211,5 +211,5 @@ end
 defmodule Google.Cloud.Financialservices.V1.ExportEngineConfigMetadataResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Migration.V2.TranslationDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_target_mapping, 1,
     repeated: true,
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.SourceTargetMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_spec, 1,
     type: Google.Cloud.Bigquery.Migration.V2.SourceSpec,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.SourceSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.TargetSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :relative_path, 1, type: :string, json_name: "relativePath"
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.Literal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :literal_data, 0
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Bigquery.Migration.V2.SourceEnvironment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase"
   field :schema_search_path, 2, repeated: true, type: :string, json_name: "schemaSearchPath"

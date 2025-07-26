@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse.Environment do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENVIRONMENT_UNSPECIFIED, 0
   field :ENVIRONMENT_BROWSER, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExecutableCode.Language do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LANGUAGE_UNSPECIFIED, 0
   field :PYTHON, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CodeExecutionResult.Outcome do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OUTCOME_UNSPECIFIED, 0
   field :OUTCOME_OK, 1
@@ -30,7 +30,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :MODE_DYNAMIC, 1
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :AUTO, 1
@@ -50,19 +50,19 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :environment, 1,
     type: Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse.Environment,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :function_declarations, 1,
     repeated: true,
@@ -117,13 +117,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UrlContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolUseExample.ExtensionOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :extension, 1, type: :string, deprecated: false
   field :operation_id, 2, type: :string, json_name: "operationId", deprecated: false
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolUseExample do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :Target, 0
 
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionDeclaration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCall do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
@@ -184,7 +184,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ExecutableCode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :language, 1,
     type: Google.Cloud.Aiplatform.V1beta1.ExecutableCode.Language,
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CodeExecutionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :outcome, 1,
     type: Google.Cloud.Aiplatform.V1beta1.CodeExecutionResult.Outcome,
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.Retrieval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagStore.RagResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rag_corpus, 1, type: :string, json_name: "ragCorpus", deprecated: false
 
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexRagStore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rag_corpora, 1, repeated: true, type: :string, json_name: "ragCorpora", deprecated: true
 
@@ -287,7 +287,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch.DataStoreSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_store, 1, type: :string, json_name: "dataStore"
   field :filter, 2, type: :string, deprecated: false
@@ -296,7 +296,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.VertexAISearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :datastore, 1, type: :string, deprecated: false
   field :engine, 2, type: :string, deprecated: false
@@ -312,7 +312,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dynamic_retrieval_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig,
@@ -322,13 +322,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 1, type: Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig.Mode, enum: true
 
@@ -342,7 +342,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ToolConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :function_calling_config, 1,
     type: Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig,
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode,
@@ -375,7 +375,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RetrievalConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lat_lng, 1, proto3_optional: true, type: Google.Type.LatLng, json_name: "latLng"
   field :language_code, 2, proto3_optional: true, type: :string, json_name: "languageCode"
@@ -384,7 +384,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig.HybridSearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :alpha, 1, proto3_optional: true, type: :float, deprecated: false
 end
@@ -392,7 +392,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :vector_db_threshold, 0
 
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig.Ranking.RankService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_name, 1,
     proto3_optional: true,
@@ -426,7 +426,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig.Ranking.LlmRanker do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_name, 1,
     proto3_optional: true,
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig.Ranking do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :ranking_config, 0
 
@@ -458,7 +458,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.RagRetrievalConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :top_k, 1, type: :int32, json_name: "topK", deprecated: false
 

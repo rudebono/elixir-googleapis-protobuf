@@ -3,7 +3,7 @@ defmodule Google.Iam.Credentials.V1.IAMCredentials.Service do
 
   use GRPC.Service,
     name: "google.iam.credentials.v1.IAMCredentials",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateAccessToken,
       Google.Iam.Credentials.V1.GenerateAccessTokenRequest,

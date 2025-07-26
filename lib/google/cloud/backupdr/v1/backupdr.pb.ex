@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.V1.NetworkConfig.PeeringMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PEERING_MODE_UNSPECIFIED, 0
   field :PRIVATE_SERVICE_ACCESS, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ManagementServer.InstanceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INSTANCE_TYPE_UNSPECIFIED, 0
   field :BACKUP_RESTORE, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ManagementServer.InstanceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INSTANCE_STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
 
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ManagementURI do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :web_ui, 1, type: :string, json_name: "webUi", deprecated: false
   field :api, 2, type: :string, deprecated: false
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.WorkforceIdentityBasedManagementURI do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_party_management_uri, 1,
     type: :string,
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.WorkforceIdentityBasedOAuth2ClientID do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_party_oauth2_client_id, 1,
     type: :string,
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ManagementServer.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ManagementServer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 9, type: :string, deprecated: false
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListManagementServersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListManagementServersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :management_servers, 1,
     repeated: true,
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GetManagementServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.CreateManagementServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DeleteManagementServerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -237,17 +237,25 @@ end
 defmodule Google.Cloud.Backupdr.V1.InitializeServiceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :initialization_config, 0
 
   field :name, 1, type: :string, deprecated: false
   field :resource_type, 2, type: :string, json_name: "resourceType", deprecated: false
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+
+  field :cloud_sql_instance_initialization_config, 4,
+    type: Google.Cloud.Backupdr.V1.CloudSqlInstanceInitializationConfig,
+    json_name: "cloudSqlInstanceInitializationConfig",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.InitializeServiceResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_vault_name, 1, type: :string, json_name: "backupVaultName"
   field :backup_plan_name, 2, type: :string, json_name: "backupPlanName"
@@ -256,7 +264,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.OperationMetadata.AdditionalInfoEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -265,7 +273,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -295,7 +303,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.backupdr.v1.BackupDR", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.backupdr.v1.BackupDR", protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListManagementServers,
       Google.Cloud.Backupdr.V1.ListManagementServersRequest,
@@ -365,6 +373,10 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
       Google.Cloud.Backupdr.V1.CreateBackupPlanRequest,
       Google.Longrunning.Operation
 
+  rpc :UpdateBackupPlan,
+      Google.Cloud.Backupdr.V1.UpdateBackupPlanRequest,
+      Google.Longrunning.Operation
+
   rpc :GetBackupPlan,
       Google.Cloud.Backupdr.V1.GetBackupPlanRequest,
       Google.Cloud.Backupdr.V1.BackupPlan
@@ -377,8 +389,20 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
       Google.Cloud.Backupdr.V1.DeleteBackupPlanRequest,
       Google.Longrunning.Operation
 
+  rpc :GetBackupPlanRevision,
+      Google.Cloud.Backupdr.V1.GetBackupPlanRevisionRequest,
+      Google.Cloud.Backupdr.V1.BackupPlanRevision
+
+  rpc :ListBackupPlanRevisions,
+      Google.Cloud.Backupdr.V1.ListBackupPlanRevisionsRequest,
+      Google.Cloud.Backupdr.V1.ListBackupPlanRevisionsResponse
+
   rpc :CreateBackupPlanAssociation,
       Google.Cloud.Backupdr.V1.CreateBackupPlanAssociationRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateBackupPlanAssociation,
+      Google.Cloud.Backupdr.V1.UpdateBackupPlanAssociationRequest,
       Google.Longrunning.Operation
 
   rpc :GetBackupPlanAssociation,
@@ -389,11 +413,23 @@ defmodule Google.Cloud.Backupdr.V1.BackupDR.Service do
       Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsRequest,
       Google.Cloud.Backupdr.V1.ListBackupPlanAssociationsResponse
 
+  rpc :FetchBackupPlanAssociationsForResourceType,
+      Google.Cloud.Backupdr.V1.FetchBackupPlanAssociationsForResourceTypeRequest,
+      Google.Cloud.Backupdr.V1.FetchBackupPlanAssociationsForResourceTypeResponse
+
   rpc :DeleteBackupPlanAssociation,
       Google.Cloud.Backupdr.V1.DeleteBackupPlanAssociationRequest,
       Google.Longrunning.Operation
 
   rpc :TriggerBackup, Google.Cloud.Backupdr.V1.TriggerBackupRequest, Google.Longrunning.Operation
+
+  rpc :GetDataSourceReference,
+      Google.Cloud.Backupdr.V1.GetDataSourceReferenceRequest,
+      Google.Cloud.Backupdr.V1.DataSourceReference
+
+  rpc :FetchDataSourceReferencesForResourceType,
+      Google.Cloud.Backupdr.V1.FetchDataSourceReferencesForResourceTypeRequest,
+      Google.Cloud.Backupdr.V1.FetchDataSourceReferencesForResourceTypeResponse
 
   rpc :InitializeService,
       Google.Cloud.Backupdr.V1.InitializeServiceRequest,

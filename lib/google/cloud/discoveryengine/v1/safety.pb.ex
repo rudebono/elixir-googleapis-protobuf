@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.HarmCategory do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HARM_CATEGORY_UNSPECIFIED, 0
   field :HARM_CATEGORY_HATE_SPEECH, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SafetyRating.HarmProbability do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HARM_PROBABILITY_UNSPECIFIED, 0
   field :NEGLIGIBLE, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SafetyRating.HarmSeverity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HARM_SEVERITY_UNSPECIFIED, 0
   field :HARM_SEVERITY_NEGLIGIBLE, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.SafetyRating do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category, 1,
     type: Google.Cloud.Discoveryengine.V1.HarmCategory,

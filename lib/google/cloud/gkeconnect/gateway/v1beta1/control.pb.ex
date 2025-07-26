@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GenerateCredentialsRequest.OperatingSystem do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OPERATING_SYSTEM_UNSPECIFIED, 0
   field :OPERATING_SYSTEM_WINDOWS, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GenerateCredentialsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force_use_agent, 2, type: :bool, json_name: "forceUseAgent", deprecated: false
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GenerateCredentialsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kubeconfig, 1, type: :bytes
   field :endpoint, 2, type: :string
@@ -42,7 +42,7 @@ defmodule Google.Cloud.Gkeconnect.Gateway.V1beta1.GatewayControl.Service do
 
   use GRPC.Service,
     name: "google.cloud.gkeconnect.gateway.v1beta1.GatewayControl",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GenerateCredentials,
       Google.Cloud.Gkeconnect.Gateway.V1beta1.GenerateCredentialsRequest,

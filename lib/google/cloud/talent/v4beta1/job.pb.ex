@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Talent.V4beta1.Job.ApplicationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :emails, 1, repeated: true, type: :string
   field :instruction, 2, type: :string
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Job.DerivedInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :locations, 1, repeated: true, type: Google.Cloud.Talent.V4beta1.Location
 
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Job.ProcessingOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :disable_street_address_resolution, 1,
     type: :bool,
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Job.CustomAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Talent.V4beta1.CustomAttribute
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Talent.V4beta1.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :company, 2, type: :string, deprecated: false

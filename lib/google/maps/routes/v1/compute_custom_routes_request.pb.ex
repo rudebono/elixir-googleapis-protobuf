@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routes.V1.ComputeCustomRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :origin, 1, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
   field :destination, 2, type: Google.Maps.Routes.V1.Waypoint, deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
 end
@@ -61,7 +61,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective.RateCard do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cost_per_minute, 2,
     type: Google.Maps.Routes.V1.RouteObjective.RateCard.MonetaryCost,
@@ -79,7 +79,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId", deprecated: true
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -88,7 +88,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective.CustomLayer do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_info, 1,
     type: Google.Maps.Routes.V1.RouteObjective.CustomLayer.DatasetInfo,
@@ -99,7 +99,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteObjective do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :objective, 0
 

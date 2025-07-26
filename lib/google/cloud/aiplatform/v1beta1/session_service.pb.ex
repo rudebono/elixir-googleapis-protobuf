@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :session, 2, type: Google.Cloud.Aiplatform.V1beta1.Session, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateSessionOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sessions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Session
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session, 1, type: Google.Cloud.Aiplatform.V1beta1.Session, deprecated: false
 
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_events, 1,
     repeated: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AppendEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :event, 2, type: Google.Cloud.Aiplatform.V1beta1.SessionEvent, deprecated: false
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.AppendEventResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.SessionService.Service do
@@ -110,7 +110,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SessionService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.SessionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateSession,
       Google.Cloud.Aiplatform.V1beta1.CreateSessionRequest,

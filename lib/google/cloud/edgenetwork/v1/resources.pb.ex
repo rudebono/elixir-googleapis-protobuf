@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Edgenetwork.V1.ResourceState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNKNOWN, 0
   field :STATE_PENDING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Subnet.BondingType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BONDING_TYPE_UNSPECIFIED, 0
   field :BONDED, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Interconnect.InterconnectType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INTERCONNECT_TYPE_UNSPECIFIED, 0
   field :DEDICATED, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.LinkLACPStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :ACTIVE, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.RouterStatus.BgpPeerStatus.BgpStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :UP, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Zone.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Zone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Network.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Network do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Subnet.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Subnet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Interconnect.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Interconnect do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -222,7 +222,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectAttachment.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -231,7 +231,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Router.Interface do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ipv4_cidr, 3, type: :string, json_name: "ipv4Cidr"
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Router.BgpPeer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :interface, 2, type: :string
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Router.Bgp do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asn, 1, type: :uint32
   field :keepalive_interval_in_seconds, 2, type: :uint32, json_name: "keepaliveIntervalInSeconds"
@@ -302,7 +302,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Router.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -311,7 +311,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.Router do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -352,7 +352,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.LinkLayerAddress do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mac_address, 1, type: :string, json_name: "macAddress"
   field :ip_address, 2, type: :string, json_name: "ipAddress"
@@ -361,7 +361,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.SubnetStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :mac_address, 2, type: :string, json_name: "macAddress"
@@ -375,7 +375,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.LinkStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :circuit_id, 1, type: :string, json_name: "circuitId"
 
@@ -396,7 +396,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.PacketCounts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inbound_unicast, 1, type: :int64, json_name: "inboundUnicast"
   field :inbound_errors, 2, type: :int64, json_name: "inboundErrors"
@@ -409,7 +409,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.LinkLACPStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.LinkLACPStatus.State,
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics.LinkLLDPStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :peer_system_name, 1, type: :string, json_name: "peerSystemName"
   field :peer_system_description, 2, type: :string, json_name: "peerSystemDescription"
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectDiagnostics do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mac_address, 1, type: :string, json_name: "macAddress"
 
@@ -455,7 +455,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.RouterStatus.BgpPeerStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ip_address, 2, type: :string, json_name: "ipAddress"
@@ -477,7 +477,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.RouterStatus.PrefixCounter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :advertised, 1, type: :int64
   field :denied, 2, type: :int64
@@ -490,7 +490,7 @@ end
 defmodule Google.Cloud.Edgenetwork.V1.RouterStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
 

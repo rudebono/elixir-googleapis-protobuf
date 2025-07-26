@@ -3,7 +3,7 @@ defmodule Google.Cloud.Retail.V2beta.AnalyticsService.Service do
 
   use GRPC.Service,
     name: "google.cloud.retail.v2beta.AnalyticsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ExportAnalyticsMetrics,
       Google.Cloud.Retail.V2beta.ExportAnalyticsMetricsRequest,

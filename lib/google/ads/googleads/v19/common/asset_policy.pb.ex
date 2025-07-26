@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Common.AdAssetPolicySummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy_topic_entries, 1,
     repeated: true,
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AssetLinkPrimaryStatusDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :details, 0
 
@@ -46,7 +46,7 @@ end
 defmodule Google.Ads.Googleads.V19.Common.AssetDisapproved do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :offline_evaluation_error_reasons, 1,
     repeated: true,

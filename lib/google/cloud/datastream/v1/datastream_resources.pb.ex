@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datastream.V1.PrivateConnection.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Datastream.V1.JsonFileFormat.SchemaFileFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SCHEMA_FILE_FORMAT_UNSPECIFIED, 0
   field :NO_SCHEMA_FILE, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Datastream.V1.JsonFileFormat.JsonCompression do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :JSON_COMPRESSION_UNSPECIFIED, 0
   field :NO_COMPRESSION, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.FileFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FILE_FORMAT_UNSPECIFIED, 0
   field :PARQUET, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig.TableFormat do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TABLE_FORMAT_UNSPECIFIED, 0
   field :ICEBERG, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Stream.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NOT_STARTED, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BackfillJob.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NOT_STARTED, 1
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BackfillJob.Trigger do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRIGGER_UNSPECIFIED, 0
   field :AUTOMATIC, 1
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Validation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :NOT_EXECUTED, 1
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ValidationMessage.Level do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LEVEL_UNSPECIFIED, 0
   field :WARNING, 1
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleProfile.ConnectionAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleAsmConfig.ConnectionAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleAsmConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32, deprecated: false
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hostname, 1, type: :string, deprecated: false
   field :port, 2, type: :int32
@@ -251,7 +251,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceProfile.UserCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :username, 1, type: :string, deprecated: false
   field :password, 2, type: :string, deprecated: false
@@ -271,7 +271,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceProfile.Oauth2ClientCredentials do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
   field :client_secret, 2, type: :string, json_name: "clientSecret", deprecated: false
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :credentials, 0
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Datastream.V1.GcsProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :root_path, 2, type: :string, json_name: "rootPath"
@@ -314,19 +314,19 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.StaticServiceIpConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.ForwardSshTunnelConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -340,7 +340,7 @@ end
 defmodule Google.Cloud.Datastream.V1.VpcPeeringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vpc, 1, type: :string, deprecated: false
   field :subnet, 2, type: :string, deprecated: false
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PrivateConnection.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PrivateConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -406,7 +406,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PrivateConnectivity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :private_connection, 1, type: :string, json_name: "privateConnection", deprecated: false
 end
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Route.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -423,7 +423,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Route do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -446,7 +446,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlSslConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_key, 1, type: :string, json_name: "clientKey", deprecated: false
   field :client_key_set, 2, type: :bool, json_name: "clientKeySet", deprecated: false
@@ -464,7 +464,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleSslConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
   field :ca_certificate_set, 2, type: :bool, json_name: "caCertificateSet", deprecated: false
@@ -473,7 +473,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerVerification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
 end
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerAndClientVerification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :client_certificate, 1, type: :string, json_name: "clientCertificate", deprecated: false
   field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :encryption_setting, 0
 
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ConnectionProfile.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -518,7 +518,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :profile, 0
 
@@ -609,7 +609,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -625,7 +625,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string
 
@@ -638,7 +638,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string
 
@@ -651,7 +651,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleRdbms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :oracle_schemas, 1,
     repeated: true,
@@ -662,31 +662,31 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.DropLargeObjects do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.StreamLargeObjects do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.LogMiner do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.OracleAsmLogFileAccess do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser.LogFileDirectories do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :online_log_directory, 1,
     type: :string,
@@ -702,7 +702,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig.BinaryLogParser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :log_file_access, 0
 
@@ -720,7 +720,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleSourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :large_objects_handling, 0
 
@@ -761,7 +761,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -776,7 +776,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string
 
@@ -789,7 +789,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string
 
@@ -802,7 +802,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlRdbms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :postgresql_schemas, 1,
     repeated: true,
@@ -813,7 +813,7 @@ end
 defmodule Google.Cloud.Datastream.V1.PostgresqlSourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_objects, 1,
     type: Google.Cloud.Datastream.V1.PostgresqlRdbms,
@@ -831,7 +831,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -846,7 +846,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string
   field :columns, 2, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerColumn
@@ -855,7 +855,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerSchema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string
   field :tables, 2, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerTable
@@ -864,7 +864,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerRdbms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schemas, 1, repeated: true, type: Google.Cloud.Datastream.V1.SqlServerSchema
 end
@@ -872,7 +872,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerSourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :cdc_method, 0
 
@@ -901,19 +901,19 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerTransactionLogs do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.SqlServerChangeTables do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -929,7 +929,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string
 
@@ -942,7 +942,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlDatabase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :database, 1, type: :string
 
@@ -955,7 +955,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlRdbms do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mysql_databases, 1,
     repeated: true,
@@ -966,19 +966,19 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig.BinaryLogPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig.Gtid do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.MysqlSourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :cdc_method, 0
 
@@ -1004,7 +1004,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceSourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :include_objects, 1,
     type: Google.Cloud.Datastream.V1.SalesforceOrg,
@@ -1023,7 +1023,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceOrg do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :objects, 1, repeated: true, type: Google.Cloud.Datastream.V1.SalesforceObject
 end
@@ -1031,7 +1031,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceObject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :object_name, 1, type: :string, json_name: "objectName"
   field :fields, 2, repeated: true, type: Google.Cloud.Datastream.V1.SalesforceField
@@ -1040,7 +1040,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SalesforceField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :data_type, 2, type: :string, json_name: "dataType"
@@ -1050,7 +1050,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_stream_config, 0
 
@@ -1088,13 +1088,13 @@ end
 defmodule Google.Cloud.Datastream.V1.AvroFileFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.JsonFileFormat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema_file_format, 1,
     type: Google.Cloud.Datastream.V1.JsonFileFormat.SchemaFileFormat,
@@ -1109,7 +1109,7 @@ end
 defmodule Google.Cloud.Datastream.V1.GcsDestinationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :file_format, 0
 
@@ -1134,7 +1134,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SingleTargetDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
 end
@@ -1142,7 +1142,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets.DatasetTemplate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :location, 1, type: :string, deprecated: false
   field :dataset_id_prefix, 2, type: :string, json_name: "datasetIdPrefix"
@@ -1152,7 +1152,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_template, 2,
     type:
@@ -1163,7 +1163,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket, 1, type: :string, deprecated: false
   field :root_path, 2, type: :string, json_name: "rootPath"
@@ -1185,19 +1185,19 @@ end
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.AppendOnly do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.Merge do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :dataset_config, 0
 
@@ -1231,7 +1231,7 @@ end
 defmodule Google.Cloud.Datastream.V1.DestinationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination_stream_config, 0
 
@@ -1254,7 +1254,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Stream.BackfillAllStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :excluded_objects, 0
 
@@ -1287,13 +1287,13 @@ end
 defmodule Google.Cloud.Datastream.V1.Stream.BackfillNoneStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.Stream.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1302,7 +1302,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Stream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :backfill_strategy, 0
 
@@ -1372,7 +1372,7 @@ end
 defmodule Google.Cloud.Datastream.V1.StreamObject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -1398,7 +1398,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.OracleObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string, deprecated: false
   field :table, 2, type: :string, deprecated: false
@@ -1407,7 +1407,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.PostgresqlObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string, deprecated: false
   field :table, 2, type: :string, deprecated: false
@@ -1416,7 +1416,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.MysqlObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :table, 2, type: :string, deprecated: false
@@ -1425,7 +1425,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SqlServerObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema, 1, type: :string, deprecated: false
   field :table, 2, type: :string, deprecated: false
@@ -1434,7 +1434,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SalesforceObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :object_name, 1, type: :string, json_name: "objectName", deprecated: false
 end
@@ -1442,7 +1442,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_identifier, 0
 
@@ -1475,7 +1475,7 @@ end
 defmodule Google.Cloud.Datastream.V1.BackfillJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Datastream.V1.BackfillJob.State,
@@ -1500,7 +1500,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Error.DetailsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1509,7 +1509,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Error do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reason, 1, type: :string
   field :error_uuid, 2, type: :string, json_name: "errorUuid"
@@ -1525,7 +1525,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ValidationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :validations, 1, repeated: true, type: Google.Cloud.Datastream.V1.Validation
 end
@@ -1533,7 +1533,7 @@ end
 defmodule Google.Cloud.Datastream.V1.Validation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 1, type: :string
 
@@ -1549,7 +1549,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ValidationMessage.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1558,7 +1558,7 @@ end
 defmodule Google.Cloud.Datastream.V1.ValidationMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :level, 2, type: Google.Cloud.Datastream.V1.ValidationMessage.Level, enum: true
@@ -1574,19 +1574,19 @@ end
 defmodule Google.Cloud.Datastream.V1.CdcStrategy.MostRecentStartPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.CdcStrategy.NextAvailableStartPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Datastream.V1.CdcStrategy.SpecificStartPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :position, 0
 
@@ -1614,7 +1614,7 @@ end
 defmodule Google.Cloud.Datastream.V1.CdcStrategy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :start_position, 0
 
@@ -1640,7 +1640,7 @@ end
 defmodule Google.Cloud.Datastream.V1.SqlServerLsnPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :lsn, 1, type: :string, deprecated: false
 end
@@ -1648,7 +1648,7 @@ end
 defmodule Google.Cloud.Datastream.V1.OracleScnPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scn, 1, type: :int64, deprecated: false
 end
@@ -1656,7 +1656,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlLogPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :log_file, 1, type: :string, json_name: "logFile", deprecated: false
 
@@ -1670,7 +1670,7 @@ end
 defmodule Google.Cloud.Datastream.V1.MysqlGtidPosition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gtid_set, 1, type: :string, json_name: "gtidSet", deprecated: false
 end

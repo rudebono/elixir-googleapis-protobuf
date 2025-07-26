@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Backupdr.V1.BackupConfigState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_CONFIG_STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_VIEW_UNSPECIFIED, 0
   field :BACKUP_VIEW_BASIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupVaultView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_VAULT_VIEW_UNSPECIFIED, 0
   field :BACKUP_VAULT_VIEW_BASIC, 1
@@ -31,19 +31,20 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupVault.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :ACTIVE, 2
   field :DELETING, 3
   field :ERROR, 4
+  field :UPDATING, 5
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupVault.AccessRestriction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACCESS_RESTRICTION_UNSPECIFIED, 0
   field :WITHIN_PROJECT, 1
@@ -55,7 +56,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DataSource.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -67,7 +68,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupConfigInfo.LastBackupState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LAST_BACKUP_STATE_UNSPECIFIED, 0
   field :FIRST_BACKUP_PENDING, 1
@@ -79,29 +80,31 @@ end
 defmodule Google.Cloud.Backupdr.V1.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
   field :ACTIVE, 2
   field :DELETING, 3
   field :ERROR, 4
+  field :UPLOADING, 5
 end
 
 defmodule Google.Cloud.Backupdr.V1.Backup.BackupType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_TYPE_UNSPECIFIED, 0
   field :SCHEDULED, 1
   field :ON_DEMAND, 2
+  field :ON_DEMAND_OPERATIONAL, 3
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupVault.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -110,7 +113,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupVault.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -119,7 +122,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupVault do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :description, 2, proto3_optional: true, type: :string, deprecated: false
@@ -183,7 +186,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DataSource.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -192,7 +195,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DataSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source_resource, 0
 
@@ -245,12 +248,17 @@ defmodule Google.Cloud.Backupdr.V1.DataSource do
     type: Google.Cloud.Backupdr.V1.DataSourceBackupApplianceApplication,
     json_name: "dataSourceBackupApplianceApplication",
     oneof: 0
+
+  field :backup_blocked_by_vault_access_restriction, 28,
+    type: :bool,
+    json_name: "backupBlockedByVaultAccessRestriction",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupConfigInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :backup_config, 0
 
@@ -284,7 +292,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GcpBackupConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_plan, 1, type: :string, json_name: "backupPlan", deprecated: false
   field :backup_plan_description, 2, type: :string, json_name: "backupPlanDescription"
@@ -295,12 +303,14 @@ defmodule Google.Cloud.Backupdr.V1.GcpBackupConfig do
     deprecated: false
 
   field :backup_plan_rules, 4, repeated: true, type: :string, json_name: "backupPlanRules"
+  field :backup_plan_revision_name, 5, type: :string, json_name: "backupPlanRevisionName"
+  field :backup_plan_revision_id, 6, type: :string, json_name: "backupPlanRevisionId"
 end
 
 defmodule Google.Cloud.Backupdr.V1.BackupApplianceBackupConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_appliance_name, 1, type: :string, json_name: "backupApplianceName"
   field :backup_appliance_id, 2, type: :int64, json_name: "backupApplianceId"
@@ -314,7 +324,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DataSourceGcpResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :gcp_resource_properties, 0
 
@@ -326,12 +336,23 @@ defmodule Google.Cloud.Backupdr.V1.DataSourceGcpResource do
     type: Google.Cloud.Backupdr.V1.ComputeInstanceDataSourceProperties,
     json_name: "computeInstanceDatasourceProperties",
     oneof: 0
+
+  field :cloud_sql_instance_datasource_properties, 5,
+    type: Google.Cloud.Backupdr.V1.CloudSqlInstanceDataSourceProperties,
+    json_name: "cloudSqlInstanceDatasourceProperties",
+    oneof: 0,
+    deprecated: false
+
+  field :disk_datasource_properties, 7,
+    type: Google.Cloud.Backupdr.V1.DiskDataSourceProperties,
+    json_name: "diskDatasourceProperties",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Backupdr.V1.DataSourceBackupApplianceApplication do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :application_name, 1, type: :string, json_name: "applicationName"
   field :backup_appliance, 2, type: :string, json_name: "backupAppliance"
@@ -345,7 +366,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ServiceLockInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :operation, 1, type: :string, deprecated: false
 end
@@ -353,7 +374,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupApplianceLockInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :lock_source, 0
 
@@ -373,7 +394,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.BackupLock do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :ClientLockInfo, 0
 
@@ -397,16 +418,18 @@ end
 defmodule Google.Cloud.Backupdr.V1.Backup.GCPBackupPlanInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_plan, 1, type: :string, json_name: "backupPlan", deprecated: false
   field :backup_plan_rule_id, 2, type: :string, json_name: "backupPlanRuleId"
+  field :backup_plan_revision_name, 3, type: :string, json_name: "backupPlanRevisionName"
+  field :backup_plan_revision_id, 4, type: :string, json_name: "backupPlanRevisionId"
 end
 
 defmodule Google.Cloud.Backupdr.V1.Backup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -415,7 +438,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :backup_properties, 0
 
@@ -481,9 +504,21 @@ defmodule Google.Cloud.Backupdr.V1.Backup do
     oneof: 0,
     deprecated: false
 
+  field :cloud_sql_instance_backup_properties, 26,
+    type: Google.Cloud.Backupdr.V1.CloudSqlInstanceBackupProperties,
+    json_name: "cloudSqlInstanceBackupProperties",
+    oneof: 0,
+    deprecated: false
+
   field :backup_appliance_backup_properties, 21,
     type: Google.Cloud.Backupdr.V1.BackupApplianceBackupProperties,
     json_name: "backupApplianceBackupProperties",
+    oneof: 0,
+    deprecated: false
+
+  field :disk_backup_properties, 28,
+    type: Google.Cloud.Backupdr.V1.DiskBackupProperties,
+    json_name: "diskBackupProperties",
     oneof: 0,
     deprecated: false
 
@@ -500,12 +535,24 @@ defmodule Google.Cloud.Backupdr.V1.Backup do
     deprecated: false
 
   field :resource_size_bytes, 23, type: :int64, json_name: "resourceSizeBytes", deprecated: false
+
+  field :satisfies_pzs, 24,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzs",
+    deprecated: false
+
+  field :satisfies_pzi, 25,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "satisfiesPzi",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.CreateBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :backup_vault_id, 2, type: :string, json_name: "backupVaultId", deprecated: false
@@ -522,7 +569,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupVaultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -535,7 +582,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupVaultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_vaults, 1,
     repeated: true,
@@ -549,7 +596,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.FetchUsableBackupVaultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -561,7 +608,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.FetchUsableBackupVaultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_vaults, 1,
     repeated: true,
@@ -575,7 +622,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GetBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Backupdr.V1.BackupVaultView, enum: true, deprecated: false
@@ -584,7 +631,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.UpdateBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -599,12 +646,17 @@ defmodule Google.Cloud.Backupdr.V1.UpdateBackupVaultRequest do
   field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
   field :validate_only, 4, type: :bool, json_name: "validateOnly", deprecated: false
   field :force, 5, type: :bool, deprecated: false
+
+  field :force_update_access_restriction, 6,
+    type: :bool,
+    json_name: "forceUpdateAccessRestriction",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Backupdr.V1.DeleteBackupVaultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -622,7 +674,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListDataSourcesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -634,7 +686,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListDataSourcesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_sources, 1,
     repeated: true,
@@ -648,7 +700,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GetDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -656,7 +708,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.UpdateDataSourceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -675,7 +727,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -688,7 +740,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Backupdr.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -698,7 +750,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Backupdr.V1.BackupView, enum: true, deprecated: false
@@ -707,7 +759,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.UpdateBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -721,7 +773,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -730,7 +782,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.RestoreBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target_environment, 0
 
@@ -744,16 +796,31 @@ defmodule Google.Cloud.Backupdr.V1.RestoreBackupRequest do
     json_name: "computeInstanceTargetEnvironment",
     oneof: 0
 
+  field :disk_target_environment, 5,
+    type: Google.Cloud.Backupdr.V1.DiskTargetEnvironment,
+    json_name: "diskTargetEnvironment",
+    oneof: 0
+
+  field :region_disk_target_environment, 6,
+    type: Google.Cloud.Backupdr.V1.RegionDiskTargetEnvironment,
+    json_name: "regionDiskTargetEnvironment",
+    oneof: 0
+
   field :compute_instance_restore_properties, 4,
     type: Google.Cloud.Backupdr.V1.ComputeInstanceRestoreProperties,
     json_name: "computeInstanceRestoreProperties",
+    oneof: 1
+
+  field :disk_restore_properties, 7,
+    type: Google.Cloud.Backupdr.V1.DiskRestoreProperties,
+    json_name: "diskRestoreProperties",
     oneof: 1
 end
 
 defmodule Google.Cloud.Backupdr.V1.RestoreBackupResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_resource, 1,
     type: Google.Cloud.Backupdr.V1.TargetResource,
@@ -763,7 +830,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.TargetResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :target_resource_info, 0
 
@@ -776,7 +843,7 @@ end
 defmodule Google.Cloud.Backupdr.V1.GcpResource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gcp_resourcename, 1, type: :string, json_name: "gcpResourcename"
   field :location, 2, type: :string
