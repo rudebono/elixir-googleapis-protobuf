@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.AnswerSkippedReason do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ANSWER_SKIPPED_REASON_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY_IGNORED, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :IN_PROGRESS, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.QueryUnderstandingInfo.QueryClassificationInfo.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ADVERSARIAL_QUERY, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Citation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_index, 1, type: :int64, json_name: "startIndex"
   field :end_index, 2, type: :int64, json_name: "endIndex"
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.CitationSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_id, 1, type: :string, json_name: "referenceId"
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.UnstructuredDocumentInfo.ChunkContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :page_identifier, 2, type: :string, json_name: "pageIdentifier"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.UnstructuredDocumentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: :string, deprecated: false
   field :uri, 2, type: :string
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.ChunkInfo.DocumentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: :string, deprecated: false
   field :uri, 2, type: :string
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.ChunkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk, 1, type: :string, deprecated: false
   field :content, 2, type: :string
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference.StructuredDocumentInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: :string, deprecated: false
   field :struct_data, 2, type: Google.Protobuf.Struct, json_name: "structData"
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Reference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action.SearchAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query, 1, type: :string
 end
@@ -167,7 +167,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action.Observation.SearchResult.SnippetInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snippet, 1, type: :string
   field :snippet_status, 2, type: :string, json_name: "snippetStatus"
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action.Observation.SearchResult.ChunkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk, 1, type: :string
   field :content, 2, type: :string
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action.Observation.SearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: :string
   field :uri, 2, type: :string
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action.Observation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_results, 2,
     repeated: true,
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.Step do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1, type: Google.Cloud.Discoveryengine.V1beta.Answer.Step.State, enum: true
   field :description, 2, type: :string
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.QueryUnderstandingInfo.QueryClassificationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type:
@@ -260,7 +260,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer.QueryUnderstandingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query_classification_info, 1,
     repeated: true,
@@ -272,7 +272,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1beta.Answer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :state, 2, type: Google.Cloud.Discoveryengine.V1beta.Answer.State, enum: true

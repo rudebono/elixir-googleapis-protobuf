@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Kms.V1.CreateKeyHandleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :key_handle_id, 2, type: :string, json_name: "keyHandleId", deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetKeyHandleRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Kms.V1.KeyHandle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :kms_key, 3, type: :string, json_name: "kmsKey", deprecated: false
@@ -37,13 +37,13 @@ end
 defmodule Google.Cloud.Kms.V1.CreateKeyHandleMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Kms.V1.ListKeyHandlesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListKeyHandlesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_handles, 1,
     repeated: true,
@@ -67,7 +67,7 @@ end
 defmodule Google.Cloud.Kms.V1.Autokey.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.kms.v1.Autokey", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.kms.v1.Autokey", protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateKeyHandle, Google.Cloud.Kms.V1.CreateKeyHandleRequest, Google.Longrunning.Operation
 

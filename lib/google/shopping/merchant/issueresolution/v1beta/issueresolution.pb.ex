@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :ERROR, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ContentOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTENT_OPTION_UNSPECIFIED, 0
   field :PRE_RENDERED_HTML, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.UserInputActionRenderingOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :USER_INPUT_ACTION_RENDERING_OPTION_UNSPECIFIED, 0
   field :REDIRECT_TO_MERCHANT_CENTER, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.BuiltInSimpleAction.BuiltInSimpleActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BUILT_IN_SIMPLE_ACTION_TYPE_UNSPECIFIED, 0
   field :VERIFY_PHONE, 1
@@ -48,7 +48,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField.TextInput.TextInputType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TEXT_INPUT_TYPE_UNSPECIFIED, 0
   field :GENERIC_SHORT_TEXT, 1
@@ -58,7 +58,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.TextWithTooltip.TooltipIconStyle do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TOOLTIP_ICON_STYLE_UNSPECIFIED, 0
   field :INFO, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Callout.CalloutStyleHint do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CALLOUT_STYLE_HINT_UNSPECIFIED, 0
   field :ERROR, 1
@@ -79,7 +79,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ExternalAction.ExternalActionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EXTERNAL_ACTION_TYPE_UNSPECIFIED, 0
   field :REVIEW_PRODUCT_ISSUE_IN_MERCHANT_CENTER, 1
@@ -91,7 +91,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderAccountIssuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rendered_issues, 1,
     repeated: true,
@@ -102,7 +102,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderAccountIssuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -116,7 +116,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderIssuesRequestPayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content_option, 1,
     proto3_optional: true,
@@ -136,7 +136,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderProductIssuesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rendered_issues, 1,
     repeated: true,
@@ -147,7 +147,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderProductIssuesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.RenderedIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -182,7 +182,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Impact do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string, deprecated: false
   field :severity, 2, type: Google.Shopping.Merchant.Issueresolution.V1beta.Severity, enum: true
@@ -195,7 +195,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Breakdown.Region do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 1, type: :string
   field :name, 2, type: :string
@@ -204,7 +204,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Breakdown do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :regions, 1,
     repeated: true,
@@ -216,7 +216,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Action.Reason do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string
   field :detail, 2, proto3_optional: true, type: :string
@@ -230,7 +230,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Action do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -260,7 +260,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.BuiltInSimpleAction.AdditionalContent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :paragraphs, 2, repeated: true, type: :string
@@ -269,7 +269,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.BuiltInSimpleAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type:
@@ -287,7 +287,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.BuiltInUserInputAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action_context, 1, type: :string, json_name: "actionContext"
 
@@ -299,7 +299,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ActionFlow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :label, 2, type: :string
@@ -326,7 +326,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField.TextInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Issueresolution.V1beta.InputField.TextInput.TextInputType,
@@ -344,7 +344,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField.ChoiceInput.ChoiceInputOption do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
   field :label, 2, type: Google.Shopping.Merchant.Issueresolution.V1beta.TextWithTooltip
@@ -358,7 +358,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField.ChoiceInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :options, 1,
     repeated: true,
@@ -368,13 +368,13 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField.CheckboxInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value_input, 0
 
@@ -401,7 +401,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.TextWithTooltip do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -419,7 +419,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.Callout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :style_hint, 1,
     type: Google.Shopping.Merchant.Issueresolution.V1beta.Callout.CalloutStyleHint,
@@ -434,7 +434,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ExternalAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1,
     type: Google.Shopping.Merchant.Issueresolution.V1beta.ExternalAction.ExternalActionType,
@@ -446,7 +446,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.TriggerActionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -460,7 +460,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.TriggerActionPayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action_context, 1, type: :string, json_name: "actionContext", deprecated: false
 
@@ -473,7 +473,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.TriggerActionResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string
 end
@@ -481,7 +481,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ActionInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :action_flow_id, 1, type: :string, json_name: "actionFlowId", deprecated: false
 
@@ -495,7 +495,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputValue.TextInputValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
 end
@@ -503,7 +503,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputValue.ChoiceInputValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :choice_input_option_id, 1,
     type: :string,
@@ -514,7 +514,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputValue.CheckboxInputValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :bool, deprecated: false
 end
@@ -522,7 +522,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.InputValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -549,7 +549,7 @@ defmodule Google.Shopping.Merchant.Issueresolution.V1beta.IssueResolutionService
 
   use GRPC.Service,
     name: "google.shopping.merchant.issueresolution.v1beta.IssueResolutionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :RenderAccountIssues,
       Google.Shopping.Merchant.Issueresolution.V1beta.RenderAccountIssuesRequest,

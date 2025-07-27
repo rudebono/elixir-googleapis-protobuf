@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.PostStartupScriptConfig.PostStartupScriptBehavior do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :POST_STARTUP_SCRIPT_BEHAVIOR_UNSPECIFIED, 0
   field :RUN_ONCE, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.PostStartupScriptConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :post_startup_script, 1, type: :string, json_name: "postStartupScript", deprecated: false
 
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ColabImage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :release_name, 1, type: :string, json_name: "releaseName", deprecated: false
   field :description, 2, type: :string, deprecated: false
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.NotebookSoftwareConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :runtime_image, 0
 

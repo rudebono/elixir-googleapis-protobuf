@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Speech.V1p1beta1.CustomClass.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 2
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 2
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.CustomClass.ClassItem do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :string
 end
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.CustomClass.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.CustomClass do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :custom_class_id, 2, type: :string, json_name: "customClassId"
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet.Phrase do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :string
   field :boost, 2, type: :float
@@ -85,7 +85,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.PhraseSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :phrases, 2, repeated: true, type: Google.Cloud.Speech.V1p1beta1.PhraseSet.Phrase
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptation.ABNFGrammar do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :abnf_strings, 1, repeated: true, type: :string, json_name: "abnfStrings"
 end
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.SpeechAdaptation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :phrase_sets, 1,
     repeated: true,
@@ -166,7 +166,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search, 1, type: :string
   field :replace, 2, type: :string
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Speech.V1p1beta1.TranscriptNormalization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entries, 1,
     repeated: true,

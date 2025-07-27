@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.EventSource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EVENT_SOURCE_UNSPECIFIED, 0
   field :WEB, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Ads.Datamanager.V1.Event do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_references, 1,
     repeated: true,
@@ -77,7 +77,7 @@ end
 defmodule Google.Ads.Datamanager.V1.AdIdentifiers do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_attributes, 1, type: :string, json_name: "sessionAttributes", deprecated: false
   field :gclid, 2, type: :string, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Ads.Datamanager.V1.CustomVariable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :variable, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false

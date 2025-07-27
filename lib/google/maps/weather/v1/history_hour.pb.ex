@@ -1,7 +1,7 @@
 defmodule Google.Maps.Weather.V1.HistoryHour do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :interval, 1, type: Google.Type.Interval
   field :display_date_time, 2, type: Google.Type.DateTime, json_name: "displayDateTime"

@@ -1,7 +1,7 @@
 defmodule Google.Actions.Sdk.V2.ValidationResults do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Actions.Sdk.V2.ValidationResult
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Actions.Sdk.V2.ValidationResult.ValidationContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 end
@@ -17,7 +17,7 @@ end
 defmodule Google.Actions.Sdk.V2.ValidationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :validation_message, 1, type: :string, json_name: "validationMessage"
 

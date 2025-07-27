@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Accounts.V1beta.Account do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :account_id, 2, type: :int64, json_name: "accountId", deprecated: false
@@ -15,7 +15,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.GetAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -23,7 +23,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateAndConfigureAccountRequest.AcceptTermsOfService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :region_code, 3, type: :string, json_name: "regionCode", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateAndConfigureAccountRequest.AddAccountService do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :service_type, 0
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.CreateAndConfigureAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account, 1, type: Google.Shopping.Merchant.Accounts.V1beta.Account, deprecated: false
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.DeleteAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -82,7 +82,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.UpdateAccountRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account, 1, type: Google.Shopping.Merchant.Accounts.V1beta.Account, deprecated: false
 
@@ -95,7 +95,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
@@ -105,7 +105,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListAccountsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accounts, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1beta.Account
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -114,7 +114,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListSubAccountsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :provider, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -124,7 +124,7 @@ end
 defmodule Google.Shopping.Merchant.Accounts.V1beta.ListSubAccountsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accounts, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1beta.Account
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -135,7 +135,7 @@ defmodule Google.Shopping.Merchant.Accounts.V1beta.AccountsService.Service do
 
   use GRPC.Service,
     name: "google.shopping.merchant.accounts.v1beta.AccountsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetAccount,
       Google.Shopping.Merchant.Accounts.V1beta.GetAccountRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :DEPLOYED, 1
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.ModelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODEL_TYPE_UNSPECIFIED, 0
   field :MODEL_TYPE_GENERATIVE, 1
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo.CustomModelType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CUSTOM_MODEL_TYPE_UNSPECIFIED, 0
   field :VERSIONED_FOUNDATION, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Documentai.V1.Processor.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.DeprecationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :deprecation_time, 1, type: Google.Protobuf.Timestamp, json_name: "deprecationTime"
 
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.GenAiModelInfo.FoundationGenAiModelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :finetuning_allowed, 1, type: :bool, json_name: "finetuningAllowed"
   field :min_train_labeled_documents, 2, type: :int32, json_name: "minTrainLabeledDocuments"
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.GenAiModelInfo.CustomGenAiModelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_model_type, 1,
     type:
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion.GenAiModelInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :model_info, 0
 
@@ -106,7 +106,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Documentai.V1.ProcessorVersionAlias do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :alias, 1, type: :string
   field :processor_version, 2, type: :string, json_name: "processorVersion", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Documentai.V1.Processor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string

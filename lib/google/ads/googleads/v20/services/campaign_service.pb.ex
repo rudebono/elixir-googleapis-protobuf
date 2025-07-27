@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V20.Services.MutateCampaignsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.CampaignOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.MutateCampaignsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
   field :results, 2, repeated: true, type: Google.Ads.Googleads.V20.Services.MutateCampaignResult
@@ -44,7 +44,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.MutateCampaignResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
   field :campaign, 2, type: Google.Ads.Googleads.V20.Resources.Campaign
@@ -53,7 +53,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.EnablePMaxBrandGuidelinesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -66,7 +66,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.EnableOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :campaign, 1, type: :string, deprecated: false
 
@@ -89,7 +89,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.BrandCampaignAssets do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :business_name_asset, 1, type: :string, json_name: "businessNameAsset", deprecated: false
   field :logo_asset, 2, repeated: true, type: :string, json_name: "logoAsset", deprecated: false
@@ -104,7 +104,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.EnablePMaxBrandGuidelinesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :results, 1, repeated: true, type: Google.Ads.Googleads.V20.Services.EnablementResult
 end
@@ -112,7 +112,7 @@ end
 defmodule Google.Ads.Googleads.V20.Services.EnablementResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :campaign, 1, type: :string, deprecated: false
   field :enablement_error, 2, type: Google.Rpc.Status, json_name: "enablementError"
@@ -123,7 +123,7 @@ defmodule Google.Ads.Googleads.V20.Services.CampaignService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v20.services.CampaignService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :MutateCampaigns,
       Google.Ads.Googleads.V20.Services.MutateCampaignsRequest,

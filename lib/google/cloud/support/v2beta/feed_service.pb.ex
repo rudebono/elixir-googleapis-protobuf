@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Support.V2beta.ShowFeedRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :order_by, 2, type: :string, json_name: "orderBy", deprecated: false
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Support.V2beta.ShowFeedResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :feed_items, 1,
     repeated: true,
@@ -27,7 +27,7 @@ defmodule Google.Cloud.Support.V2beta.FeedService.Service do
 
   use GRPC.Service,
     name: "google.cloud.support.v2beta.FeedService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ShowFeed,
       Google.Cloud.Support.V2beta.ShowFeedRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Kms.V1.ListKeyRingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListCryptoKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListCryptoKeyVersionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListImportJobsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -56,7 +56,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListKeyRingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_rings, 1, repeated: true, type: Google.Cloud.Kms.V1.KeyRing, json_name: "keyRings"
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListCryptoKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crypto_keys, 1,
     repeated: true,
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListCryptoKeyVersionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crypto_key_versions, 1,
     repeated: true,
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Kms.V1.ListImportJobsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :import_jobs, 1,
     repeated: true,
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetKeyRingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetCryptoKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -132,7 +132,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetPublicKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Kms.V1.GetImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Kms.V1.CreateKeyRingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :key_ring_id, 2, type: :string, json_name: "keyRingId", deprecated: false
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Kms.V1.CreateCryptoKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :crypto_key_id, 2, type: :string, json_name: "cryptoKeyId", deprecated: false
@@ -180,7 +180,7 @@ end
 defmodule Google.Cloud.Kms.V1.CreateCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Kms.V1.ImportCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :wrapped_key_material, 0
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Kms.V1.CreateImportJobRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :import_job_id, 2, type: :string, json_name: "importJobId", deprecated: false
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crypto_key, 1,
     type: Google.Cloud.Kms.V1.CryptoKey,
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crypto_key_version, 1,
     type: Google.Cloud.Kms.V1.CryptoKeyVersion,
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Kms.V1.UpdateCryptoKeyPrimaryVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -277,7 +277,7 @@ end
 defmodule Google.Cloud.Kms.V1.DestroyCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -285,7 +285,7 @@ end
 defmodule Google.Cloud.Kms.V1.RestoreCryptoKeyVersionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Kms.V1.EncryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :plaintext, 2, type: :bytes, deprecated: false
@@ -317,7 +317,7 @@ end
 defmodule Google.Cloud.Kms.V1.DecryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ciphertext, 2, type: :bytes, deprecated: false
@@ -341,7 +341,7 @@ end
 defmodule Google.Cloud.Kms.V1.RawEncryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :plaintext, 2, type: :bytes, deprecated: false
@@ -375,7 +375,7 @@ end
 defmodule Google.Cloud.Kms.V1.RawDecryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ciphertext, 2, type: :bytes, deprecated: false
@@ -411,7 +411,7 @@ end
 defmodule Google.Cloud.Kms.V1.AsymmetricSignRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :digest, 3, type: Google.Cloud.Kms.V1.Digest, deprecated: false
@@ -432,7 +432,7 @@ end
 defmodule Google.Cloud.Kms.V1.AsymmetricDecryptRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ciphertext, 3, type: :bytes, deprecated: false
@@ -446,7 +446,7 @@ end
 defmodule Google.Cloud.Kms.V1.MacSignRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data, 2, type: :bytes, deprecated: false
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Kms.V1.MacVerifyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data, 2, type: :bytes, deprecated: false
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Kms.V1.GenerateRandomBytesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :length_bytes, 2, type: :int32, json_name: "lengthBytes"
@@ -495,7 +495,7 @@ end
 defmodule Google.Cloud.Kms.V1.EncryptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ciphertext, 2, type: :bytes
@@ -515,7 +515,7 @@ end
 defmodule Google.Cloud.Kms.V1.DecryptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plaintext, 1, type: :bytes
   field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value, json_name: "plaintextCrc32c"
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Kms.V1.RawEncryptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ciphertext, 1, type: :bytes
   field :initialization_vector, 2, type: :bytes, json_name: "initializationVector"
@@ -562,7 +562,7 @@ end
 defmodule Google.Cloud.Kms.V1.RawDecryptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plaintext, 1, type: :bytes
   field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value, json_name: "plaintextCrc32c"
@@ -586,7 +586,7 @@ end
 defmodule Google.Cloud.Kms.V1.AsymmetricSignResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :signature, 1, type: :bytes
   field :signature_crc32c, 2, type: Google.Protobuf.Int64Value, json_name: "signatureCrc32c"
@@ -603,7 +603,7 @@ end
 defmodule Google.Cloud.Kms.V1.AsymmetricDecryptResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :plaintext, 1, type: :bytes
   field :plaintext_crc32c, 2, type: Google.Protobuf.Int64Value, json_name: "plaintextCrc32c"
@@ -618,7 +618,7 @@ end
 defmodule Google.Cloud.Kms.V1.MacSignResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :mac, 2, type: :bytes
@@ -634,7 +634,7 @@ end
 defmodule Google.Cloud.Kms.V1.MacVerifyResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :success, 2, type: :bool
@@ -651,7 +651,7 @@ end
 defmodule Google.Cloud.Kms.V1.GenerateRandomBytesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data, 1, type: :bytes
   field :data_crc32c, 3, type: Google.Protobuf.Int64Value, json_name: "dataCrc32c"
@@ -660,7 +660,7 @@ end
 defmodule Google.Cloud.Kms.V1.Digest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :digest, 0
 
@@ -672,7 +672,7 @@ end
 defmodule Google.Cloud.Kms.V1.LocationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hsm_available, 1, type: :bool, json_name: "hsmAvailable"
   field :ekm_available, 2, type: :bool, json_name: "ekmAvailable"
@@ -683,7 +683,7 @@ defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
 
   use GRPC.Service,
     name: "google.cloud.kms.v1.KeyManagementService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListKeyRings,
       Google.Cloud.Kms.V1.ListKeyRingsRequest,

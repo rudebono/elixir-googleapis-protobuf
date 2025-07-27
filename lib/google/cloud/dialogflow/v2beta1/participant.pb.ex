@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.Role do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ROLE_UNSPECIFIED, 0
   field :HUMAN_AGENT, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentReplyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTOMATED_AGENT_REPLY_TYPE_UNSPECIFIED, 0
   field :PARTIAL, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ARTICLE_SUGGESTION, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant.DocumentsMetadataFiltersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Participant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Message do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :content, 2, type: :string, deprecated: false
@@ -112,7 +112,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CreateParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :participant, 2, type: Google.Cloud.Dialogflow.V2beta1.Participant, deprecated: false
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GetParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListParticipantsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :participants, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Participant
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.UpdateParticipantRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :participant, 1, type: Google.Cloud.Dialogflow.V2beta1.Participant, deprecated: false
 
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AudioInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Dialogflow.V2beta1.InputAudioConfig
   field :audio, 2, type: :bytes
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig
   field :audio, 2, type: :bytes
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -218,7 +218,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :answer_record, 1, type: :string, json_name: "answerRecord"
 
@@ -236,7 +236,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.IntentInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :intent, 1, type: :string, deprecated: false
   field :language_code, 3, type: :string, json_name: "languageCode", deprecated: false
@@ -245,7 +245,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type, enum: true
 end
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters.DocumentsMetadataFiltersEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -262,7 +262,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AssistQueryParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :documents_metadata_filters, 1,
     repeated: true,
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :input, 0
 
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.DtmfParameters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :accepts_dtmf_input, 1, type: :bool, json_name: "acceptsDtmfInput"
 end
@@ -339,7 +339,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reply_text, 1, type: :string, json_name: "replyText"
 
@@ -371,7 +371,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.InputTextConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :language_code, 1, type: :string, json_name: "languageCode"
 end
@@ -379,7 +379,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :config, 0
 
@@ -439,7 +439,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :recognition_result, 1,
     type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult,
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
   field :entity_type, 2, type: :string, json_name: "entityType"
@@ -491,7 +491,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.MessageAnnotation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parts, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.AnnotatedMessagePart
   field :contain_entities, 2, type: :bool, json_name: "containEntities"
@@ -500,7 +500,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -509,7 +509,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ArticleAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :uri, 2, type: :string
@@ -526,7 +526,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -535,7 +535,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.FaqAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :answer, 1, type: :string
   field :confidence, 2, type: :float
@@ -553,7 +553,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SmartReplyAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reply, 1, type: :string
   field :confidence, 2, type: :float
@@ -563,7 +563,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.IntentSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :intent, 0
 
@@ -575,7 +575,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.DialogflowAssistAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -595,7 +595,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :suggestion_response, 0
 
@@ -640,7 +640,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
@@ -655,7 +655,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestArticlesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :article_answers, 1,
     repeated: true,
@@ -669,7 +669,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
@@ -684,7 +684,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestFaqAnswersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :faq_answers, 1,
     repeated: true,
@@ -698,7 +698,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -713,7 +713,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestSmartRepliesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :smart_reply_answers, 1,
     repeated: true,
@@ -727,7 +727,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GenerateSuggestionsResponse.GeneratorSuggestionAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generator_suggestion, 1,
     type: Google.Cloud.Dialogflow.V2beta1.GeneratorSuggestion,
@@ -740,7 +740,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.GenerateSuggestionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generator_suggestion_answers, 1,
     repeated: true,
@@ -753,7 +753,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestDialogflowAssistsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dialogflow_assist_answers, 1,
     repeated: true,
@@ -767,7 +767,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -776,7 +776,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.Article do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :title, 1, type: :string
   field :uri, 2, type: :string
@@ -793,7 +793,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer.MetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -802,7 +802,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion.FaqAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :answer, 1, type: :string
   field :confidence, 2, type: :float
@@ -820,7 +820,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.Suggestion do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :articles, 2, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Suggestion.Article
@@ -837,7 +837,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsRequest do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -848,7 +848,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ListSuggestionsResponse do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggestions, 1, repeated: true, type: Google.Cloud.Dialogflow.V2beta1.Suggestion
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -857,7 +857,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionRequest do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string
   field :latest_message, 2, type: :string, json_name: "latestMessage"
@@ -867,7 +867,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.CompileSuggestionResponse do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggestion, 1, type: Google.Cloud.Dialogflow.V2beta1.Suggestion
   field :latest_message, 2, type: :string, json_name: "latestMessage"
@@ -877,7 +877,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.Text do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string
 end
@@ -885,7 +885,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.LiveAgentHandoff do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Protobuf.Struct
 end
@@ -893,13 +893,13 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.EndInteraction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio.Segment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :content, 0
 
@@ -911,7 +911,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.MixedAudio do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :segments, 1,
     repeated: true,
@@ -921,7 +921,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage.TelephonyTransferCall do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :endpoint, 0
 
@@ -932,7 +932,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.ResponseMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :message, 0
 
@@ -963,7 +963,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestKnowledgeAssistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :latest_message, 2, type: :string, json_name: "latestMessage", deprecated: false
@@ -978,7 +978,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestKnowledgeAssistResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :knowledge_assist_answer, 1,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer,
@@ -992,7 +992,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.SuggestedQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query_text, 1, type: :string, json_name: "queryText"
 end
@@ -1000,7 +1000,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer.FaqSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :question, 2, type: :string
 end
@@ -1008,7 +1008,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource.Snippet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 2, type: :string
   field :text, 3, type: :string
@@ -1019,7 +1019,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer.GenerativeSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :snippets, 1,
     repeated: true,
@@ -1030,7 +1030,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.KnowledgeAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1050,7 +1050,7 @@ end
 defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggested_query, 1,
     type: Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer.SuggestedQuery,
@@ -1068,7 +1068,7 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
 
   use GRPC.Service,
     name: "google.cloud.dialogflow.v2beta1.Participants",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateParticipant,
       Google.Cloud.Dialogflow.V2beta1.CreateParticipantRequest,

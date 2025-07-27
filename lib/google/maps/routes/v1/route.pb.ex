@@ -1,7 +1,7 @@
 defmodule Google.Maps.Routes.V1.Maneuver do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MANEUVER_UNSPECIFIED, 0
   field :TURN_SLIGHT_LEFT, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Maps.Routes.V1.SpeedReadingInterval.Speed do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SPEED_UNSPECIFIED, 0
   field :NORMAL, 1
@@ -40,7 +40,7 @@ end
 defmodule Google.Maps.Routes.V1.Route do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :legs, 1, repeated: true, type: Google.Maps.Routes.V1.RouteLeg
   field :distance_meters, 2, type: :int32, json_name: "distanceMeters"
@@ -64,7 +64,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :traffic_restriction, 1,
     type: Google.Maps.Routes.V1.TrafficRestriction,
@@ -86,7 +86,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteLegTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :toll_info, 1, type: Google.Maps.Routes.V1.TollInfo, json_name: "tollInfo"
 
@@ -104,7 +104,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteLegStepTravelAdvisory do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :speed_reading_intervals, 1,
     repeated: true,
@@ -115,7 +115,7 @@ end
 defmodule Google.Maps.Routes.V1.TrafficRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :license_plate_last_character_restriction, 1,
     type: Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction,
@@ -125,7 +125,7 @@ end
 defmodule Google.Maps.Routes.V1.LicensePlateLastCharacterRestriction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed_last_characters, 1,
     repeated: true,
@@ -136,7 +136,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteLeg do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :duration, 2, type: Google.Protobuf.Duration
@@ -154,7 +154,7 @@ end
 defmodule Google.Maps.Routes.V1.TollInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :estimated_price, 1, repeated: true, type: Google.Type.Money, json_name: "estimatedPrice"
 end
@@ -162,7 +162,7 @@ end
 defmodule Google.Maps.Routes.V1.RouteLegStep do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :distance_meters, 1, type: :int32, json_name: "distanceMeters"
   field :static_duration, 2, type: Google.Protobuf.Duration, json_name: "staticDuration"
@@ -182,7 +182,7 @@ end
 defmodule Google.Maps.Routes.V1.NavigationInstruction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maneuver, 1, type: Google.Maps.Routes.V1.Maneuver, enum: true
   field :instructions, 2, type: :string
@@ -191,7 +191,7 @@ end
 defmodule Google.Maps.Routes.V1.SpeedReadingInterval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_polyline_point_index, 1, type: :int32, json_name: "startPolylinePointIndex"
   field :end_polyline_point_index, 2, type: :int32, json_name: "endPolylinePointIndex"
@@ -201,7 +201,7 @@ end
 defmodule Google.Maps.Routes.V1.CustomLayerInfo.AreaInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :area_id, 1, type: :string, json_name: "areaId"
   field :distance_in_area_meters, 2, type: :float, json_name: "distanceInAreaMeters"
@@ -211,7 +211,7 @@ end
 defmodule Google.Maps.Routes.V1.CustomLayerInfo do
   @moduledoc false
 
-  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :area_info, 1,
     repeated: true,

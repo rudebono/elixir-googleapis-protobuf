@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Notifications.V1beta.Resource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESOURCE_UNSPECIFIED, 0
   field :PRODUCT, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.Attribute do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ATTRIBUTE_UNSPECIFIED, 0
   field :STATUS, 1
@@ -19,7 +19,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.NotificationSubscription.NotificationEventType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NOTIFICATION_EVENT_TYPE_UNSPECIFIED, 0
   field :PRODUCT_STATUS_CHANGE, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.GetNotificationSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -36,7 +36,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.CreateNotificationSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -49,7 +49,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.UpdateNotificationSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notification_subscription, 1,
     type: Google.Shopping.Merchant.Notifications.V1beta.NotificationSubscription,
@@ -62,7 +62,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.DeleteNotificationSubscriptionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -70,7 +70,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.ListNotificationSubscriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -80,7 +80,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.ListNotificationSubscriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :notification_subscriptions, 1,
     repeated: true,
@@ -93,7 +93,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.NotificationSubscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :interested_in, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.ProductChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :old_value, 1, proto3_optional: true, type: :string, json_name: "oldValue"
   field :new_value, 2, proto3_optional: true, type: :string, json_name: "newValue"
@@ -129,7 +129,7 @@ end
 defmodule Google.Shopping.Merchant.Notifications.V1beta.ProductStatusChangeMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account, 1, proto3_optional: true, type: :string
   field :managing_account, 2, proto3_optional: true, type: :string, json_name: "managingAccount"
@@ -158,7 +158,7 @@ defmodule Google.Shopping.Merchant.Notifications.V1beta.NotificationsApiService.
 
   use GRPC.Service,
     name: "google.shopping.merchant.notifications.v1beta.NotificationsApiService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetNotificationSubscription,
       Google.Shopping.Merchant.Notifications.V1beta.GetNotificationSubscriptionRequest,

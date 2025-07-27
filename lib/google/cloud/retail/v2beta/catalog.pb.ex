@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.AttributeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :TEXTUAL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.IndexableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INDEXABLE_OPTION_UNSPECIFIED, 0
   field :INDEXABLE_ENABLED, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.DynamicFacetableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DYNAMIC_FACETABLE_OPTION_UNSPECIFIED, 0
   field :DYNAMIC_FACETABLE_ENABLED, 1
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.SearchableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :SEARCHABLE_ENABLED, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.ExactSearchableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EXACT_SEARCHABLE_OPTION_UNSPECIFIED, 0
   field :EXACT_SEARCHABLE_ENABLED, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.RetrievableOption do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RETRIEVABLE_OPTION_UNSPECIFIED, 0
   field :RETRIEVABLE_ENABLED, 1
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.ProductLevelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ingestion_product_type, 1, type: :string, json_name: "ingestionProductType"
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.FacetConfig.IgnoredFacetValues do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -83,7 +83,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.FacetConfig.MergedFacetValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :string
   field :merged_value, 2, type: :string, json_name: "mergedValue"
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.FacetConfig.MergedFacet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merged_facet_key, 1, type: :string, json_name: "mergedFacetKey"
 end
@@ -100,7 +100,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.FacetConfig.RerankConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rerank_facet, 1, type: :bool, json_name: "rerankFacet"
   field :facet_values, 2, repeated: true, type: :string, json_name: "facetValues"
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute.FacetConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :facet_intervals, 1,
     repeated: true,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CatalogAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string, deprecated: false
   field :in_use, 9, type: :bool, json_name: "inUse", deprecated: false
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.AttributesConfig.CatalogAttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Retail.V2beta.CatalogAttribute
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.AttributesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -215,7 +215,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.CompletionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :matching_order, 2, type: :string, json_name: "matchingOrder"
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.MerchantCenterLink do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :merchant_center_account_id, 1,
     type: :int64,
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.MerchantCenterFeedFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :primary_feed_id, 1, type: :int64, json_name: "primaryFeedId"
   field :primary_feed_name, 2, type: :string, json_name: "primaryFeedName"
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.MerchantCenterLinkingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :links, 1, repeated: true, type: Google.Cloud.Retail.V2beta.MerchantCenterLink
 end
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Retail.V2beta.Catalog do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false

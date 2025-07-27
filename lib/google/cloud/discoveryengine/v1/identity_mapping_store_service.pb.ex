@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.CreateIdentityMappingStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :cmek_options, 0
 
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.GetIdentityMappingStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteIdentityMappingStoreRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ImportIdentityMappingsRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identity_mapping_entries, 1,
     repeated: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ImportIdentityMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ImportIdentityMappingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.PurgeIdentityMappingsRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identity_mapping_entries, 1,
     repeated: true,
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.PurgeIdentityMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListIdentityMappingsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identity_mapping_store, 1,
     type: :string,
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListIdentityMappingsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identity_mapping_entries, 1,
     repeated: true,
@@ -140,7 +140,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListIdentityMappingStoresRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.ListIdentityMappingStoresResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identity_mapping_stores, 1,
     repeated: true,
@@ -163,7 +163,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.IdentityMappingEntryOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :success_count, 1, type: :int64, json_name: "successCount"
   field :failure_count, 2, type: :int64, json_name: "failureCount"
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DeleteIdentityMappingStoreMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -184,7 +184,7 @@ defmodule Google.Cloud.Discoveryengine.V1.IdentityMappingStoreService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1.IdentityMappingStoreService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateIdentityMappingStore,
       Google.Cloud.Discoveryengine.V1.CreateIdentityMappingStoreRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DataAgentContext.ContextVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONTEXT_VERSION_UNSPECIFIED, 0
   field :STAGING, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ListMessagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ListMessagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :messages, 1, repeated: true, type: Google.Cloud.Geminidataanalytics.V1beta.StorageMessage
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.StorageMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message_id, 1, type: :string, json_name: "messageId"
   field :message, 2, type: Google.Cloud.Geminidataanalytics.V1beta.Message
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ChatRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :context_provider, 0
 
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DataAgentContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_agent, 1, type: :string, json_name: "dataAgent", deprecated: false
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ConversationReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :conversation, 1, type: :string, deprecated: false
 
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Message do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -126,7 +126,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.UserMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.SystemMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.TextMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parts, 1, repeated: true, type: :string, deprecated: false
 end
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.SchemaMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.SchemaQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :question, 1, type: :string, deprecated: false
 end
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.SchemaResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :datasources, 1,
     repeated: true,
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DataMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -212,7 +212,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.LookerQuery.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
@@ -221,7 +221,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.LookerQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model, 1, type: :string, deprecated: false
   field :explore, 2, type: :string, deprecated: false
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DataQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :question, 1, type: :string, deprecated: false
   field :name, 3, type: :string, deprecated: false
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DataResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3, type: :string, deprecated: false
   field :schema, 5, type: Google.Cloud.Geminidataanalytics.V1beta.Schema, deprecated: false
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.BigQueryJob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -280,7 +280,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.AnalysisMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -295,7 +295,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.AnalysisQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :question, 1, type: :string, deprecated: false
 
@@ -309,7 +309,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.AnalysisEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -328,7 +328,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ChartMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :kind, 0
 
@@ -339,7 +339,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ChartQuery do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instructions, 1, type: :string, deprecated: false
   field :data_result_name, 2, type: :string, json_name: "dataResultName", deprecated: false
@@ -348,7 +348,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ChartResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :vega_config, 2, type: Google.Protobuf.Struct, json_name: "vegaConfig", deprecated: false
   field :image, 3, type: Google.Cloud.Geminidataanalytics.V1beta.Blob, deprecated: false
@@ -357,7 +357,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.ErrorMessage do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string, deprecated: false
 end
@@ -365,7 +365,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Blob do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
   field :data, 2, type: :bytes, deprecated: false
@@ -376,7 +376,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.DataChatService.Service do
 
   use GRPC.Service,
     name: "google.cloud.geminidataanalytics.v1beta.DataChatService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :Chat,
       Google.Cloud.Geminidataanalytics.V1beta.ChatRequest,

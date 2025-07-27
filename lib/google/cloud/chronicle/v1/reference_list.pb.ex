@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Chronicle.V1.ReferenceListSyntaxType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REFERENCE_LIST_SYNTAX_TYPE_UNSPECIFIED, 0
   field :REFERENCE_LIST_SYNTAX_TYPE_PLAIN_TEXT_STRING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ReferenceListView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REFERENCE_LIST_VIEW_UNSPECIFIED, 0
   field :REFERENCE_LIST_VIEW_BASIC, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ScopeInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_list_scope, 2,
     type: Google.Cloud.Chronicle.V1.ReferenceListScope,
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ReferenceListScope do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scope_names, 1, repeated: true, type: :string, json_name: "scopeNames", deprecated: false
 end
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetReferenceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 2, type: Google.Cloud.Chronicle.V1.ReferenceListView, enum: true
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListReferenceListsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -61,7 +61,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListReferenceListsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_lists, 1,
     repeated: true,
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CreateReferenceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -89,7 +89,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateReferenceListRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_list, 1,
     type: Google.Cloud.Chronicle.V1.ReferenceList,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ReferenceList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ReferenceListEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :string, deprecated: false
 end
@@ -148,7 +148,7 @@ defmodule Google.Cloud.Chronicle.V1.ReferenceListService.Service do
 
   use GRPC.Service,
     name: "google.cloud.chronicle.v1.ReferenceListService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetReferenceList,
       Google.Cloud.Chronicle.V1.GetReferenceListRequest,

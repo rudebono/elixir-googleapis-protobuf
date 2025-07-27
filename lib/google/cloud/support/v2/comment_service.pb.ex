@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Support.V2.ListCommentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 4, type: :int32, json_name: "pageSize"
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Support.V2.ListCommentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :comments, 1, repeated: true, type: Google.Cloud.Support.V2.Comment
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Support.V2.CreateCommentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :comment, 2, type: Google.Cloud.Support.V2.Comment, deprecated: false
@@ -31,7 +31,7 @@ defmodule Google.Cloud.Support.V2.CommentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.support.v2.CommentService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListComments,
       Google.Cloud.Support.V2.ListCommentsRequest,

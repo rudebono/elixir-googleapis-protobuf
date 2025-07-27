@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule.EnablementState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENABLEMENT_STATE_UNSPECIFIED, 0
   field :ENABLED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Securitycenter.V1.EventThreatDetectionCustomModule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :config, 2, type: Google.Protobuf.Struct

@@ -1,7 +1,7 @@
 defmodule Google.Firestore.V1.Document.FieldsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1.Value
@@ -10,7 +10,7 @@ end
 defmodule Google.Firestore.V1.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :fields, 2, repeated: true, type: Google.Firestore.V1.Document.FieldsEntry, map: true
@@ -21,7 +21,7 @@ end
 defmodule Google.Firestore.V1.Value do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value_type, 0
 
@@ -51,7 +51,7 @@ end
 defmodule Google.Firestore.V1.ArrayValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: Google.Firestore.V1.Value
 end
@@ -59,7 +59,7 @@ end
 defmodule Google.Firestore.V1.MapValue.FieldsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Firestore.V1.Value
@@ -68,7 +68,7 @@ end
 defmodule Google.Firestore.V1.MapValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fields, 1, repeated: true, type: Google.Firestore.V1.MapValue.FieldsEntry, map: true
 end
