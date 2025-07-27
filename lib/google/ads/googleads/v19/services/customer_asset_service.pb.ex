@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.MutateCustomerAssetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.CustomerAssetOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -35,7 +35,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateCustomerAssetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 1, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -47,7 +47,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateCustomerAssetResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 
@@ -61,7 +61,7 @@ defmodule Google.Ads.Googleads.V19.Services.CustomerAssetService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.CustomerAssetService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :MutateCustomerAssets,
       Google.Ads.Googleads.V19.Services.MutateCustomerAssetsRequest,

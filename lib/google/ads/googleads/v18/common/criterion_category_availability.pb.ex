@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V18.Common.CriterionCategoryAvailability do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :channel, 1, type: Google.Ads.Googleads.V18.Common.CriterionCategoryChannelAvailability
 
@@ -13,7 +13,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CriterionCategoryChannelAvailability do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_mode, 1,
     type:
@@ -41,7 +41,7 @@ end
 defmodule Google.Ads.Googleads.V18.Common.CriterionCategoryLocaleAvailability do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :availability_mode, 1,
     type:

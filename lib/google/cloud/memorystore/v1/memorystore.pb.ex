@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Memorystore.V1.PscConnectionStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PSC_CONNECTION_STATUS_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ConnectionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONNECTION_TYPE_UNSPECIFIED, 0
   field :CONNECTION_TYPE_DISCOVERY, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.AuthorizationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTHORIZATION_MODE_UNSPECIFIED, 0
   field :AUTH_DISABLED, 1
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.TransitEncryptionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TRANSIT_ENCRYPTION_MODE_UNSPECIFIED, 0
   field :TRANSIT_ENCRYPTION_DISABLED, 1
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.NodeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NODE_TYPE_UNSPECIFIED, 0
   field :SHARED_CORE_NANO, 1
@@ -66,7 +66,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :STANDALONE, 1
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.AutomatedBackupConfig.AutomatedBackupMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTOMATED_BACKUP_MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Backup.BackupType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BACKUP_TYPE_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig.InstanceRole do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INSTANCE_ROLE_UNSPECIFIED, 0
   field :NONE, 1
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.PersistenceMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PERSISTENCE_MODE_UNSPECIFIED, 0
   field :DISABLED, 1
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.RDBConfig.SnapshotPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SNAPSHOT_PERIOD_UNSPECIFIED, 0
   field :ONE_HOUR, 1
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.AOFConfig.AppendFsync do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :APPEND_FSYNC_UNSPECIFIED, 0
   field :NEVER, 1
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ZoneDistributionConfig.ZoneDistributionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ZONE_DISTRIBUTION_MODE_UNSPECIFIED, 0
   field :MULTI_ZONE, 1
@@ -164,7 +164,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.RescheduleMaintenanceRequest.RescheduleType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESCHEDULE_TYPE_UNSPECIFIED, 0
   field :IMMEDIATE, 1
@@ -174,7 +174,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.StateInfo.UpdateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_shard_count, 1,
     proto3_optional: true,
@@ -205,7 +205,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.StateInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :info, 0
 
@@ -219,7 +219,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.GcsBackupSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uris, 1, repeated: true, type: :string, deprecated: false
 end
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.ManagedBackupSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup, 1, type: :string, deprecated: false
 end
@@ -235,7 +235,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.InstanceEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :connections, 1,
     repeated: true,
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.ConnectionDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :connection, 0
 
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -274,7 +274,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance.EngineConfigsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :import_sources, 0
 
@@ -449,7 +449,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.AutomatedBackupConfig.FixedFrequencySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
 end
@@ -457,7 +457,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.AutomatedBackupConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :schedule, 0
 
@@ -479,7 +479,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.BackupCollection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :instance_uid, 3, type: :string, json_name: "instanceUid", deprecated: false
@@ -496,7 +496,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -544,7 +544,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.BackupFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_name, 1, type: :string, json_name: "fileName", deprecated: false
   field :size_bytes, 2, type: :int64, json_name: "sizeBytes", deprecated: false
@@ -558,7 +558,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig.RemoteInstance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -567,7 +567,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig.Membership do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :primary_instance, 1,
     type: Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig.RemoteInstance,
@@ -584,7 +584,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instance_role, 1,
     type: Google.Cloud.Memorystore.V1.CrossInstanceReplicationConfig.InstanceRole,
@@ -616,7 +616,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.MaintenancePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -638,7 +638,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.WeeklyMaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day, 1, type: Google.Type.DayOfWeek, enum: true, deprecated: false
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime", deprecated: false
@@ -647,7 +647,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.MaintenanceSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
@@ -656,7 +656,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PscAttachmentDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachment, 1, type: :string, json_name: "serviceAttachment", deprecated: false
 
@@ -670,7 +670,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PscAutoConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :ports, 0
 
@@ -698,7 +698,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PscConnection do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :ports, 0
 
@@ -726,7 +726,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.DiscoveryEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :address, 1, type: :string, deprecated: false
   field :port, 2, type: :int32, deprecated: false
@@ -736,7 +736,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.RDBConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rdb_snapshot_period, 1,
     type: Google.Cloud.Memorystore.V1.PersistenceConfig.RDBConfig.SnapshotPeriod,
@@ -753,7 +753,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig.AOFConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :append_fsync, 1,
     type: Google.Cloud.Memorystore.V1.PersistenceConfig.AOFConfig.AppendFsync,
@@ -765,7 +765,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.PersistenceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Memorystore.V1.PersistenceConfig.PersistenceMode,
@@ -786,7 +786,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.NodeConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :size_gb, 1, type: :double, json_name: "sizeGb", deprecated: false
 end
@@ -794,7 +794,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ZoneDistributionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :zone, 2, type: :string, deprecated: false
 
@@ -807,7 +807,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.RescheduleMaintenanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -826,7 +826,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListInstancesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -838,7 +838,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListInstancesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :instances, 1, repeated: true, type: Google.Cloud.Memorystore.V1.Instance
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -848,7 +848,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.GetInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -856,7 +856,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CreateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -867,7 +867,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.UpdateInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -881,7 +881,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.DeleteInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -890,7 +890,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListBackupCollectionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -900,7 +900,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListBackupCollectionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_collections, 1,
     repeated: true,
@@ -914,7 +914,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.GetBackupCollectionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -922,7 +922,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListBackupsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -932,7 +932,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ListBackupsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backups, 1, repeated: true, type: Google.Cloud.Memorystore.V1.Backup
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -942,7 +942,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.GetBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -950,7 +950,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.DeleteBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -959,7 +959,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.ExportBackupRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -970,7 +970,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.BackupInstanceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :ttl, 2, type: Google.Protobuf.Duration, deprecated: false
@@ -985,7 +985,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.GetCertificateAuthorityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -993,7 +993,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CertificateAuthority.ManagedCertificateAuthority.CertChain do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certificates, 1, repeated: true, type: :string
 end
@@ -1001,7 +1001,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CertificateAuthority.ManagedCertificateAuthority do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ca_certs, 1,
     repeated: true,
@@ -1012,7 +1012,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.CertificateAuthority do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :server_ca, 0
 
@@ -1027,7 +1027,7 @@ end
 defmodule Google.Cloud.Memorystore.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -1052,7 +1052,7 @@ defmodule Google.Cloud.Memorystore.V1.Memorystore.Service do
 
   use GRPC.Service,
     name: "google.cloud.memorystore.v1.Memorystore",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInstances,
       Google.Cloud.Memorystore.V1.ListInstancesRequest,

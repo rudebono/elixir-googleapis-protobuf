@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PubSubSubscription.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PubSubSubscription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.RetryPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :minimum_backoff, 1,
     type: Google.Protobuf.Duration,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeadLetterPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dead_letter_topic, 1, type: :string, json_name: "deadLetterTopic", deprecated: false
 
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.ExpirationPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ttl, 1, type: Google.Protobuf.Duration, deprecated: false
 end
@@ -123,7 +123,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PushConfig.OidcToken do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_account_email, 1,
     type: :string,
@@ -136,13 +136,13 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PushConfig.PubsubWrapper do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PushConfig.NoWrapper do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
 end
@@ -150,7 +150,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PushConfig.AttributesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.PushConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :authentication_method, 0
 
@@ -195,7 +195,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.BigQueryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: :string, deprecated: false
   field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
@@ -212,13 +212,13 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.CloudStorageConfig.TextConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.CloudStorageConfig.AvroConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :write_metadata, 1, type: :bool, json_name: "writeMetadata", deprecated: false
   field :use_topic_schema, 2, type: :bool, json_name: "useTopicSchema", deprecated: false
@@ -227,7 +227,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.CloudStorageConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :output_format, 0
 
@@ -269,7 +269,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.MessageTransform do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :transform, 0
 
@@ -286,7 +286,7 @@ end
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.JavaScriptUDF do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :function_name, 1, type: :string, json_name: "functionName", deprecated: false
   field :code, 2, type: :string, deprecated: false

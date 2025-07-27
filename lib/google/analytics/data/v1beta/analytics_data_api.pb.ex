@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Data.V1beta.AudienceExport.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -35,7 +35,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CheckCompatibilityResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_compatibilities, 1,
     repeated: true,
@@ -51,7 +51,7 @@ end
 defmodule Google.Analytics.Data.V1beta.Metadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 3, type: :string
   field :dimensions, 1, repeated: true, type: Google.Analytics.Data.V1beta.DimensionMetadata
@@ -62,7 +62,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -109,7 +109,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -138,7 +138,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunPivotReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -173,7 +173,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunPivotReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pivot_headers, 1,
     repeated: true,
@@ -204,7 +204,7 @@ end
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunReportRequest
@@ -213,7 +213,7 @@ end
 defmodule Google.Analytics.Data.V1beta.BatchRunReportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reports, 1, repeated: true, type: Google.Analytics.Data.V1beta.RunReportResponse
   field :kind, 2, type: :string
@@ -222,7 +222,7 @@ end
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :requests, 2, repeated: true, type: Google.Analytics.Data.V1beta.RunPivotReportRequest
@@ -231,7 +231,7 @@ end
 defmodule Google.Analytics.Data.V1beta.BatchRunPivotReportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pivot_reports, 1,
     repeated: true,
@@ -244,7 +244,7 @@ end
 defmodule Google.Analytics.Data.V1beta.GetMetadataRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -252,7 +252,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property, 1, type: :string
   field :dimensions, 2, repeated: true, type: Google.Analytics.Data.V1beta.Dimension
@@ -290,7 +290,7 @@ end
 defmodule Google.Analytics.Data.V1beta.RunRealtimeReportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_headers, 1,
     repeated: true,
@@ -318,7 +318,7 @@ end
 defmodule Google.Analytics.Data.V1beta.GetAudienceExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -326,7 +326,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ListAudienceExportsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -336,7 +336,7 @@ end
 defmodule Google.Analytics.Data.V1beta.ListAudienceExportsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience_exports, 1,
     repeated: true,
@@ -349,7 +349,7 @@ end
 defmodule Google.Analytics.Data.V1beta.CreateAudienceExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -362,7 +362,7 @@ end
 defmodule Google.Analytics.Data.V1beta.AudienceExport do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :audience, 2, type: :string, deprecated: false
@@ -416,13 +416,13 @@ end
 defmodule Google.Analytics.Data.V1beta.AudienceExportMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Analytics.Data.V1beta.QueryAudienceExportRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :offset, 2, type: :int64, deprecated: false
@@ -432,7 +432,7 @@ end
 defmodule Google.Analytics.Data.V1beta.QueryAudienceExportResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :audience_export, 1,
     proto3_optional: true,
@@ -450,7 +450,7 @@ end
 defmodule Google.Analytics.Data.V1beta.AudienceRow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_values, 1,
     repeated: true,
@@ -461,7 +461,7 @@ end
 defmodule Google.Analytics.Data.V1beta.AudienceDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dimension_name, 1, type: :string, json_name: "dimensionName", deprecated: false
 end
@@ -469,7 +469,7 @@ end
 defmodule Google.Analytics.Data.V1beta.AudienceDimensionValue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :one_value, 0
 
@@ -481,7 +481,7 @@ defmodule Google.Analytics.Data.V1beta.BetaAnalyticsData.Service do
 
   use GRPC.Service,
     name: "google.analytics.data.v1beta.BetaAnalyticsData",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :RunReport,
       Google.Analytics.Data.V1beta.RunReportRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Spanner.V1.ResultSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Spanner.V1.ResultSetMetadata
   field :rows, 2, repeated: true, type: Google.Protobuf.ListValue
@@ -16,7 +16,7 @@ end
 defmodule Google.Spanner.V1.PartialResultSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Spanner.V1.ResultSetMetadata
   field :values, 2, repeated: true, type: Google.Protobuf.Value
@@ -35,7 +35,7 @@ end
 defmodule Google.Spanner.V1.ResultSetMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :row_type, 1, type: Google.Spanner.V1.StructType, json_name: "rowType"
   field :transaction, 2, type: Google.Spanner.V1.Transaction
@@ -48,7 +48,7 @@ end
 defmodule Google.Spanner.V1.ResultSetStats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :row_count, 0
 

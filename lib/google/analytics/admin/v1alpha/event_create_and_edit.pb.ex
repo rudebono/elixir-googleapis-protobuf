@@ -1,7 +1,7 @@
 defmodule Google.Analytics.Admin.V1alpha.MatchingCondition.ComparisonType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :COMPARISON_TYPE_UNSPECIFIED, 0
   field :EQUALS, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.ParameterMutation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parameter, 1, type: :string, deprecated: false
   field :parameter_value, 2, type: :string, json_name: "parameterValue", deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.EventCreateRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :destination_event, 2, type: :string, json_name: "destinationEvent", deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.EventEditRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -77,7 +77,7 @@ end
 defmodule Google.Analytics.Admin.V1alpha.MatchingCondition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field, 1, type: :string, deprecated: false
 

@@ -1,7 +1,7 @@
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest.SolutionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SOLUTION_TYPE_UNSPECIFIED, 0
   field :ON_DEMAND_RIDESHARING_AND_DELIVERIES, 1
@@ -10,7 +10,7 @@ end
 defmodule Maps.Fleetengine.V1.CreateTripRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -21,7 +21,7 @@ end
 defmodule Maps.Fleetengine.V1.GetTripRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Maps.Fleetengine.V1.DeleteTripRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader, deprecated: false
   field :name, 2, type: :string, deprecated: false
@@ -62,7 +62,7 @@ end
 defmodule Maps.Fleetengine.V1.ReportBillableTripRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 2, type: :string, deprecated: false
   field :country_code, 3, type: :string, json_name: "countryCode", deprecated: false
@@ -78,7 +78,7 @@ end
 defmodule Maps.Fleetengine.V1.UpdateTripRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :name, 3, type: :string, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Maps.Fleetengine.V1.SearchTripsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :header, 1, type: Maps.Fleetengine.V1.RequestHeader
   field :parent, 3, type: :string, deprecated: false
@@ -107,7 +107,7 @@ end
 defmodule Maps.Fleetengine.V1.SearchTripsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :trips, 1, repeated: true, type: Maps.Fleetengine.V1.Trip
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -116,7 +116,7 @@ end
 defmodule Maps.Fleetengine.V1.TripService.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "maps.fleetengine.v1.TripService", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "maps.fleetengine.v1.TripService", protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateTrip, Maps.Fleetengine.V1.CreateTripRequest, Maps.Fleetengine.V1.Trip
 

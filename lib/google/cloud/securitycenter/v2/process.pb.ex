@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Securitycenter.V2.Process do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :binary, 2, type: Google.Cloud.Securitycenter.V2.File
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Securitycenter.V2.EnvironmentVariable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :val, 2, type: :string

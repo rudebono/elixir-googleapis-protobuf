@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Run.V2.GetTaskRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Run.V2.ListTasksRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Run.V2.ListTasksResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tasks, 1, repeated: true, type: Google.Cloud.Run.V2.Task
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Run.V2.Task.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Run.V2.Task.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Run.V2.Task do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -151,7 +151,7 @@ end
 defmodule Google.Cloud.Run.V2.TaskAttemptResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status, deprecated: false
   field :exit_code, 2, type: :int32, json_name: "exitCode", deprecated: false
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Run.V2.Tasks.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.cloud.run.v2.Tasks", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.cloud.run.v2.Tasks", protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetTask, Google.Cloud.Run.V2.GetTaskRequest, Google.Cloud.Run.V2.Task
 

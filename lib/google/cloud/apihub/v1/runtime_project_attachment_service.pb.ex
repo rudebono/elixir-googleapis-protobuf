@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apihub.V1.CreateRuntimeProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Apihub.V1.GetRuntimeProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -27,7 +27,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListRuntimeProjectAttachmentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Apihub.V1.ListRuntimeProjectAttachmentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :runtime_project_attachments, 1,
     repeated: true,
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Apihub.V1.DeleteRuntimeProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Apihub.V1.LookupRuntimeProjectAttachmentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Apihub.V1.LookupRuntimeProjectAttachmentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :runtime_project_attachment, 1,
     type: Google.Cloud.Apihub.V1.RuntimeProjectAttachment,
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Apihub.V1.RuntimeProjectAttachment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :runtime_project, 2, type: :string, json_name: "runtimeProject", deprecated: false
@@ -94,7 +94,7 @@ defmodule Google.Cloud.Apihub.V1.RuntimeProjectAttachmentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.apihub.v1.RuntimeProjectAttachmentService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateRuntimeProjectAttachment,
       Google.Cloud.Apihub.V1.CreateRuntimeProjectAttachmentRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Datacatalog.V1.IntegratedSystem do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INTEGRATED_SYSTEM_UNSPECIFIED, 0
   field :BIGQUERY, 1
@@ -18,7 +18,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.ManagingSystem do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MANAGING_SYSTEM_UNSPECIFIED, 0
   field :MANAGING_SYSTEM_DATAPLEX, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Datacatalog.V1.PersonalDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :starred, 1, type: :bool
   field :star_time, 2, type: Google.Protobuf.Timestamp, json_name: "starTime"

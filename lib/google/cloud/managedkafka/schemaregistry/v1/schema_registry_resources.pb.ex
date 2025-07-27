@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.Schema.SchemaType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SCHEMA_TYPE_UNSPECIFIED, 0
   field :AVRO, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaConfig.CompatibilityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NONE, 0
   field :BACKWARD, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaMode.ModeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NONE, 0
   field :READONLY, 1
@@ -37,7 +37,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaRegistry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :contexts, 2, repeated: true, type: :string, deprecated: false
@@ -46,7 +46,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.Context do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :subjects, 2, repeated: true, type: :string, deprecated: false
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.Schema.SchemaReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :subject, 2, type: :string, deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :schema_type, 1,
     type: Google.Cloud.Managedkafka.Schemaregistry.V1.Schema.SchemaType,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaSubject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :versions, 3, repeated: true, type: :string, deprecated: false
@@ -93,7 +93,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaVersion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subject, 1, type: :string, deprecated: false
   field :version_id, 2, type: :int32, json_name: "version", deprecated: false
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :compatibility, 1,
     proto3_optional: true,
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 1,
     type: Google.Cloud.Managedkafka.Schemaregistry.V1.SchemaMode.ModeType,

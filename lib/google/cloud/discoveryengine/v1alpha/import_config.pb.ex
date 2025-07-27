@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.Encoding do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ENCODING_UNSPECIFIED, 0
   field :TEXT, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsRequest.ReconciliationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RECONCILIATION_MODE_UNSPECIFIED, 0
   field :INCREMENTAL, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.GcsSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_uris, 1, repeated: true, type: :string, json_name: "inputUris", deprecated: false
   field :data_schema, 2, type: :string, json_name: "dataSchema"
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigQuerySource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :partition, 0
 
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.SpannerSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.BigtableColumnFamily do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_name, 1, type: :string, json_name: "fieldName"
 
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.BigtableColumn do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :qualifier, 1, type: :bytes, deprecated: false
   field :field_name, 2, type: :string, json_name: "fieldName"
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.FamiliesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Discoveryengine.V1alpha.BigtableOptions.BigtableColumnFamily
@@ -114,7 +114,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key_field_name, 1, type: :string, json_name: "keyFieldName"
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.BigtableSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FhirStoreSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fhir_store, 1, type: :string, json_name: "fhirStore", deprecated: false
   field :gcs_staging_dir, 2, type: :string, json_name: "gcsStagingDir"
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CloudSqlSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :instance_id, 2, type: :string, json_name: "instanceId", deprecated: false
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.AlloyDbSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :location_id, 2, type: :string, json_name: "locationId", deprecated: false
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.FirestoreSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :database_id, 2, type: :string, json_name: "databaseId", deprecated: false
@@ -189,7 +189,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportErrorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :destination, 0
 
@@ -199,7 +199,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportUserEventsRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_events, 1,
     repeated: true,
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportUserEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -240,7 +240,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportUserEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -255,7 +255,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportUserEventsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -266,7 +266,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -278,7 +278,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :documents, 1,
     repeated: true,
@@ -289,7 +289,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -357,7 +357,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -369,7 +369,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entries, 1,
     repeated: true,
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -401,7 +401,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
   field :imported_entries_count, 2, type: :int64, json_name: "importedEntriesCount"
@@ -411,7 +411,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSuggestionDenyListEntriesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -420,7 +420,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :suggestions, 1,
     repeated: true,
@@ -431,7 +431,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -460,7 +460,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -472,7 +472,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportCompletionSuggestionsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"
@@ -483,7 +483,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSampleQueriesRequest.InlineSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sample_queries, 1,
     repeated: true,
@@ -495,7 +495,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSampleQueriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -524,7 +524,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSampleQueriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_samples, 1, repeated: true, type: Google.Rpc.Status, json_name: "errorSamples"
 
@@ -536,7 +536,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.ImportSampleQueriesMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1, type: Google.Protobuf.Timestamp, json_name: "createTime"
   field :update_time, 2, type: Google.Protobuf.Timestamp, json_name: "updateTime"

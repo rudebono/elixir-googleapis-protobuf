@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.ReportCauseCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPORT_CAUSE_CODE_UNSPECIFIED, 0
   field :ROUTE_INVALID_NEXT_HOP_VM_IP_FORWARDING_DISABLED, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.Priority do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :CRITICAL, 1
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPORT_TYPE_UNSPECIFIED, 0
   field :INFO, 1
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REPORT_STATUS_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report.ReportGroup do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CATEGORY_UNSPECIFIED, 0
   field :VPC_NETWORK, 1
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo.SubnetIpUtilization do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subnet_uri, 1, type: :string, json_name: "subnetUri"
   field :secondary_range_name, 2, type: :string, json_name: "secondaryRangeName"
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.IpUtilizationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :subnet_ip_utilization, 1,
     repeated: true,
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Networkanalyzer.Logging.V1.Report do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :content, 0
 
