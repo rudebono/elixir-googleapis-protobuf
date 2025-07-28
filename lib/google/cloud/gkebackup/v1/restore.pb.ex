@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Gkebackup.V1.Restore.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -15,7 +15,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED, 0
   field :RESTORE_VOLUME_DATA_FROM_BACKUP, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceConflictPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED, 0
   field :USE_EXISTING_VERSION, 1
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.NamespacedResourceRestoreMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED, 0
   field :DELETE_AND_RESTORE, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction.Op do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OP_UNSPECIFIED, 0
   field :REMOVE, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.Restore.Filter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :inclusion_filters, 1,
     repeated: true,
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.Restore.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -90,7 +90,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.Restore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :uid, 2, type: :string, deprecated: false
@@ -156,7 +156,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_group, 1, type: :string, json_name: "resourceGroup", deprecated: false
   field :resource_kind, 2, type: :string, json_name: "resourceKind", deprecated: false
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ClusterResourceRestoreScope do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :selected_group_kinds, 1,
     repeated: true,
@@ -186,7 +186,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.SubstitutionRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target_namespaces, 1,
     repeated: true,
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :op, 1,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRuleAction.Op,
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.ResourceFilter do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :namespaces, 1, repeated: true, type: :string, deprecated: false
 
@@ -244,7 +244,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.TransformationRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_actions, 1,
     repeated: true,
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.VolumeDataRestorePolicyBinding do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :scope, 0
 
@@ -282,7 +282,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder.GroupKindDependency do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :satisfying, 1, type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind, deprecated: false
   field :requiring, 2, type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind, deprecated: false
@@ -291,7 +291,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig.RestoreOrder do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group_kind_dependencies, 1,
     repeated: true,
@@ -303,7 +303,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.RestoreConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :namespaced_resource_restore_scope, 0
 
@@ -376,7 +376,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ResourceSelector.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.ResourceSelector do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :group_kind, 1,
     type: Google.Cloud.Gkebackup.V1.RestoreConfig.GroupKind,
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Gkebackup.V1.VolumeDataRestorePolicyOverride do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :scope, 0
 

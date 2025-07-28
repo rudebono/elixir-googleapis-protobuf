@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :citation_threshold, 1,
     proto3_optional: true,
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest.UserLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :grounding_config, 1, type: :string, json_name: "groundingConfig", deprecated: false
   field :answer_candidate, 2, type: :string, json_name: "answerCandidate"
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingResponse.Claim do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_pos, 1, proto3_optional: true, type: :int32, json_name: "startPos"
   field :end_pos, 2, proto3_optional: true, type: :int32, json_name: "endPos"
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CheckGroundingResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :support_score, 1, proto3_optional: true, type: :float, json_name: "supportScore"
 
@@ -76,7 +76,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.GroundedGenerationService.Service
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.GroundedGenerationService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CheckGrounding,
       Google.Cloud.Discoveryengine.V1alpha.CheckGroundingRequest,

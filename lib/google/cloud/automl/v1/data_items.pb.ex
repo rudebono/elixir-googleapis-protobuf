@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DOCUMENT_DIMENSION_UNIT_UNSPECIFIED, 0
   field :INCH, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Automl.V1.Document.Layout.TextSegmentType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TEXT_SEGMENT_TYPE_UNSPECIFIED, 0
   field :TOKEN, 1
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Automl.V1.Image do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data, 0
 
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Automl.V1.TextSnippet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content, 1, type: :string
   field :mime_type, 2, type: :string, json_name: "mimeType"
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Automl.V1.DocumentDimensions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :unit, 1,
     type: Google.Cloud.Automl.V1.DocumentDimensions.DocumentDimensionUnit,
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Automl.V1.Document.Layout do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text_segment, 1, type: Google.Cloud.Automl.V1.TextSegment, json_name: "textSegment"
   field :page_number, 2, type: :int32, json_name: "pageNumber"
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Automl.V1.Document do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_config, 1,
     type: Google.Cloud.Automl.V1.DocumentInputConfig,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Automl.V1.ExamplePayload do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :payload, 0
 

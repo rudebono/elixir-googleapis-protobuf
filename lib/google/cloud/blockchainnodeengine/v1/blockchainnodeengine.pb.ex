@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.BlockchainType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :BLOCKCHAIN_TYPE_UNSPECIFIED, 0
   field :ETHEREUM, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.Network do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NETWORK_UNSPECIFIED, 0
   field :MAINNET, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.NodeType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NODE_TYPE_UNSPECIFIED, 0
   field :LIGHT, 1
@@ -49,7 +49,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.ExecutionClient do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EXECUTION_CLIENT_UNSPECIFIED, 0
   field :GETH, 1
@@ -59,7 +59,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.ConsensusClient do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONSENSUS_CLIENT_UNSPECIFIED, 0
   field :LIGHTHOUSE, 1
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.GethDetails.GarbageCollectionMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :GARBAGE_COLLECTION_MODE_UNSPECIFIED, 0
   field :FULL, 1
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.ConnectionInfo.EndpointInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :json_rpc_api_endpoint, 1,
     type: :string,
@@ -94,7 +94,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.ConnectionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoint_info, 2,
     type: Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.ConnectionInfo.EndpointInfo,
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.GethDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :garbage_collection_mode, 1,
     proto3_optional: true,
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.EthereumEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :beacon_api_endpoint, 1, type: :string, json_name: "beaconApiEndpoint", deprecated: false
 
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails.ValidatorConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mev_relay_urls, 1, repeated: true, type: :string, json_name: "mevRelayUrls"
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.EthereumDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :execution_client_details, 0
 
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -229,7 +229,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :blockchain_type_details, 0
 
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.ListBlockchainNodesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.ListBlockchainNodesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :blockchain_nodes, 1,
     repeated: true,
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.GetBlockchainNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.CreateBlockchainNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :blockchain_node_id, 2, type: :string, json_name: "blockchainNodeId", deprecated: false
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.UpdateBlockchainNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -349,7 +349,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.DeleteBlockchainNodeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -358,7 +358,7 @@ end
 defmodule Google.Cloud.Blockchainnodeengine.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -383,7 +383,7 @@ defmodule Google.Cloud.Blockchainnodeengine.V1.BlockchainNodeEngine.Service do
 
   use GRPC.Service,
     name: "google.cloud.blockchainnodeengine.v1.BlockchainNodeEngine",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListBlockchainNodes,
       Google.Cloud.Blockchainnodeengine.V1.ListBlockchainNodesRequest,

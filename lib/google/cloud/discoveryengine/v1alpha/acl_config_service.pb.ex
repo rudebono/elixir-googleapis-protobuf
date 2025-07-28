@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.GetAclConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.UpdateAclConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :acl_config, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.AclConfig,
@@ -22,7 +22,7 @@ defmodule Google.Cloud.Discoveryengine.V1alpha.AclConfigService.Service do
 
   use GRPC.Service,
     name: "google.cloud.discoveryengine.v1alpha.AclConfigService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :UpdateAclConfig,
       Google.Cloud.Discoveryengine.V1alpha.UpdateAclConfigRequest,

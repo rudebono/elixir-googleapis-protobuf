@@ -1,7 +1,7 @@
 defmodule Google.Privacy.Dlp.V2.Likelihood do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LIKELIHOOD_UNSPECIFIED, 0
   field :VERY_UNLIKELY, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Privacy.Dlp.V2.FileType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :FILE_TYPE_UNSPECIFIED, 0
   field :BINARY_FILE, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SENSITIVITY_SCORE_UNSPECIFIED, 0
   field :SENSITIVITY_LOW, 10
@@ -44,7 +44,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.ExclusionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :EXCLUSION_TYPE_UNSPECIFIED, 0
   field :EXCLUSION_TYPE_EXCLUDE, 1
@@ -53,7 +53,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStorageOptions.SampleMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SAMPLE_METHOD_UNSPECIFIED, 0
   field :TOP, 1
@@ -63,7 +63,7 @@ end
 defmodule Google.Privacy.Dlp.V2.BigQueryOptions.SampleMethod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SAMPLE_METHOD_UNSPECIFIED, 0
   field :TOP, 1
@@ -73,7 +73,7 @@ end
 defmodule Google.Privacy.Dlp.V2.InfoType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :version, 2, type: :string
@@ -86,7 +86,7 @@ end
 defmodule Google.Privacy.Dlp.V2.SensitivityScore do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :score, 1, type: Google.Privacy.Dlp.V2.SensitivityScore.SensitivityScoreLevel, enum: true
 end
@@ -94,7 +94,7 @@ end
 defmodule Google.Privacy.Dlp.V2.StoredType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -103,7 +103,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.Dictionary.WordList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :words, 1, repeated: true, type: :string
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.Dictionary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -129,7 +129,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.Regex do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pattern, 1, type: :string
   field :group_indexes, 2, repeated: true, type: :int32, json_name: "groupIndexes"
@@ -138,13 +138,13 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.SurrogateType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.Proximity do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :window_before, 1, type: :int32, json_name: "windowBefore"
   field :window_after, 2, type: :int32, json_name: "windowAfter"
@@ -153,7 +153,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.LikelihoodAdjustment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :adjustment, 0
 
@@ -169,7 +169,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule.HotwordRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :hotword_regex, 1,
     type: Google.Privacy.Dlp.V2.CustomInfoType.Regex,
@@ -185,7 +185,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType.DetectionRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -198,7 +198,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CustomInfoType do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -232,7 +232,7 @@ end
 defmodule Google.Privacy.Dlp.V2.FieldId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -240,7 +240,7 @@ end
 defmodule Google.Privacy.Dlp.V2.PartitionId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 2, type: :string, json_name: "projectId"
   field :namespace_id, 4, type: :string, json_name: "namespaceId"
@@ -249,7 +249,7 @@ end
 defmodule Google.Privacy.Dlp.V2.KindExpression do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 end
@@ -257,7 +257,7 @@ end
 defmodule Google.Privacy.Dlp.V2.DatastoreOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partition_id, 1, type: Google.Privacy.Dlp.V2.PartitionId, json_name: "partitionId"
   field :kind, 2, type: Google.Privacy.Dlp.V2.KindExpression
@@ -266,7 +266,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStorageRegexFileSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :bucket_name, 1, type: :string, json_name: "bucketName"
   field :include_regex, 2, repeated: true, type: :string, json_name: "includeRegex"
@@ -276,7 +276,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStorageOptions.FileSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url, 1, type: :string
 
@@ -288,7 +288,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStorageOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_set, 1,
     type: Google.Privacy.Dlp.V2.CloudStorageOptions.FileSet,
@@ -314,7 +314,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStorageFileSet do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url, 1, type: :string
 end
@@ -322,7 +322,7 @@ end
 defmodule Google.Privacy.Dlp.V2.CloudStoragePath do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string
 end
@@ -330,7 +330,7 @@ end
 defmodule Google.Privacy.Dlp.V2.BigQueryOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_reference, 1,
     type: Google.Privacy.Dlp.V2.BigQueryTable,
@@ -363,7 +363,7 @@ end
 defmodule Google.Privacy.Dlp.V2.StorageConfig.TimespanConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -377,7 +377,7 @@ end
 defmodule Google.Privacy.Dlp.V2.StorageConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -409,7 +409,7 @@ end
 defmodule Google.Privacy.Dlp.V2.HybridOptions.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -418,7 +418,7 @@ end
 defmodule Google.Privacy.Dlp.V2.HybridOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 1, type: :string
 
@@ -438,7 +438,7 @@ end
 defmodule Google.Privacy.Dlp.V2.BigQueryKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_reference, 1,
     type: Google.Privacy.Dlp.V2.BigQueryTable,
@@ -450,7 +450,7 @@ end
 defmodule Google.Privacy.Dlp.V2.DatastoreKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entity_key, 1, type: Google.Privacy.Dlp.V2.Key, json_name: "entityKey"
 end
@@ -458,7 +458,7 @@ end
 defmodule Google.Privacy.Dlp.V2.Key.PathElement do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :id_type, 0
 
@@ -470,7 +470,7 @@ end
 defmodule Google.Privacy.Dlp.V2.Key do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partition_id, 1, type: Google.Privacy.Dlp.V2.PartitionId, json_name: "partitionId"
   field :path, 2, repeated: true, type: Google.Privacy.Dlp.V2.Key.PathElement
@@ -479,7 +479,7 @@ end
 defmodule Google.Privacy.Dlp.V2.RecordKey do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type, 0
 
@@ -499,7 +499,7 @@ end
 defmodule Google.Privacy.Dlp.V2.BigQueryTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :dataset_id, 2, type: :string, json_name: "datasetId"
@@ -509,7 +509,7 @@ end
 defmodule Google.Privacy.Dlp.V2.TableReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_id, 1, type: :string, json_name: "datasetId"
   field :table_id, 2, type: :string, json_name: "tableId"
@@ -519,7 +519,7 @@ end
 defmodule Google.Privacy.Dlp.V2.BigQueryField do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable
   field :field, 2, type: Google.Privacy.Dlp.V2.FieldId
@@ -528,7 +528,7 @@ end
 defmodule Google.Privacy.Dlp.V2.EntityId do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field, 1, type: Google.Privacy.Dlp.V2.FieldId
 end
@@ -536,7 +536,7 @@ end
 defmodule Google.Privacy.Dlp.V2.TableOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identifying_fields, 1,
     repeated: true,

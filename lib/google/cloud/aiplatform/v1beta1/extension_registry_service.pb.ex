@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :extension, 2, type: Google.Cloud.Aiplatform.V1beta1.Extension, deprecated: false
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ImportExtensionOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1beta1.GenericOperationMetadata,
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.GetExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.UpdateExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :extension, 1, type: Google.Cloud.Aiplatform.V1beta1.Extension, deprecated: false
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExtensionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :filter, 2, type: :string, deprecated: false
@@ -53,7 +53,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.ListExtensionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :extensions, 1, repeated: true, type: Google.Cloud.Aiplatform.V1beta1.Extension
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DeleteExtensionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -72,7 +72,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ExtensionRegistryService.Service do
 
   use GRPC.Service,
     name: "google.cloud.aiplatform.v1beta1.ExtensionRegistryService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ImportExtension,
       Google.Cloud.Aiplatform.V1beta1.ImportExtensionRequest,

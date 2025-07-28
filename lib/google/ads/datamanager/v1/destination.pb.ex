@@ -1,7 +1,7 @@
 defmodule Google.Ads.Datamanager.V1.Product do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PRODUCT_UNSPECIFIED, 0
   field :GOOGLE_ADS, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Ads.Datamanager.V1.Destination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference, 1, type: :string, deprecated: false
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Ads.Datamanager.V1.ProductAccount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product, 1, type: Google.Ads.Datamanager.V1.Product, enum: true, deprecated: false
   field :account_id, 2, type: :string, json_name: "accountId", deprecated: false

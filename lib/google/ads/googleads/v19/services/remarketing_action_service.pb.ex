@@ -1,7 +1,7 @@
 defmodule Google.Ads.Googleads.V19.Services.MutateRemarketingActionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer_id, 1, type: :string, json_name: "customerId", deprecated: false
 
@@ -17,7 +17,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.RemarketingActionOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateRemarketingActionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partial_failure_error, 3, type: Google.Rpc.Status, json_name: "partialFailureError"
 
@@ -41,7 +41,7 @@ end
 defmodule Google.Ads.Googleads.V19.Services.MutateRemarketingActionResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource_name, 1, type: :string, json_name: "resourceName", deprecated: false
 end
@@ -51,7 +51,7 @@ defmodule Google.Ads.Googleads.V19.Services.RemarketingActionService.Service do
 
   use GRPC.Service,
     name: "google.ads.googleads.v19.services.RemarketingActionService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :MutateRemarketingActions,
       Google.Ads.Googleads.V19.Services.MutateRemarketingActionsRequest,

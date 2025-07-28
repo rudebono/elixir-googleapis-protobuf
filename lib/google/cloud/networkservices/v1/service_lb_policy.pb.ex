@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.LoadBalancingAlgorithm do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOAD_BALANCING_ALGORITHM_UNSPECIFIED, 0
   field :SPRAY_TO_WORLD, 3
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationGranularity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ISOLATION_GRANULARITY_UNSPECIFIED, 0
   field :REGION, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ISOLATION_MODE_UNSPECIFIED, 0
   field :NEAREST, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.AutoCapacityDrain do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable, 1, type: :bool, deprecated: false
 end
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.FailoverConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :failover_health_threshold, 1,
     type: :int32,
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :isolation_granularity, 1,
     type: Google.Cloud.Networkservices.V1.ServiceLbPolicy.IsolationGranularity,
@@ -69,7 +69,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -78,7 +78,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ServiceLbPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListServiceLbPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -135,7 +135,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListServiceLbPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_lb_policies, 1,
     repeated: true,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetServiceLbPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateServiceLbPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :service_lb_policy_id, 2, type: :string, json_name: "serviceLbPolicyId", deprecated: false
@@ -171,7 +171,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateServiceLbPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -187,7 +187,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteServiceLbPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

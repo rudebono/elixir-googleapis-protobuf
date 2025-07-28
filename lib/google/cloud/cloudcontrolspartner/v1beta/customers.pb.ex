@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CustomerOnboardingStep.Step do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STEP_UNSPECIFIED, 0
   field :KAJ_ENROLLMENT, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.Customer do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListCustomersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -40,7 +40,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.ListCustomersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customers, 1, repeated: true, type: Google.Cloud.Cloudcontrolspartner.V1beta.Customer
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CreateCustomerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :customer, 2, type: Google.Cloud.Cloudcontrolspartner.V1beta.Customer, deprecated: false
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.GetCustomerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CustomerOnboardingState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :onboarding_steps, 1,
     repeated: true,
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.CustomerOnboardingStep do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :step, 1,
     type: Google.Cloud.Cloudcontrolspartner.V1beta.CustomerOnboardingStep.Step,
@@ -98,7 +98,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.UpdateCustomerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :customer, 1, type: Google.Cloud.Cloudcontrolspartner.V1beta.Customer, deprecated: false
 
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Cloudcontrolspartner.V1beta.DeleteCustomerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end

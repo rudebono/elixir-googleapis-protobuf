@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig.LayoutBasedChunkingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk_size, 1, type: :int32, json_name: "chunkSize"
   field :include_ancestor_headings, 2, type: :bool, json_name: "includeAncestorHeadings"
@@ -10,7 +10,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ChunkingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :chunk_mode, 0
 
@@ -24,13 +24,13 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.DigitalParsingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.OcrParsingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enhanced_document_elements, 1,
     repeated: true,
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig.LayoutParsingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_table_annotation, 1,
     type: :bool,
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :type_dedicated_config, 0
 
@@ -109,7 +109,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfigOverridesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig.ParsingConfig
@@ -118,7 +118,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1.DocumentProcessingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
 

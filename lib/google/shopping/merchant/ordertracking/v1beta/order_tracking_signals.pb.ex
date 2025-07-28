@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignal.ShippingInfo.ShippingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SHIPPING_STATE_UNSPECIFIED, 0
   field :SHIPPED, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.CreateOrderTrackingSignalRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -29,7 +29,7 @@ end
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignal.ShippingInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :shipment_id, 1, type: :string, json_name: "shipmentId", deprecated: false
   field :tracking_id, 2, type: :string, json_name: "trackingId", deprecated: false
@@ -66,7 +66,7 @@ end
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignal.LineItemDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :line_item_id, 1, type: :string, json_name: "lineItemId", deprecated: false
   field :product_id, 2, type: :string, json_name: "productId", deprecated: false
@@ -86,7 +86,7 @@ end
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignal.ShipmentLineItemMapping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :shipment_id, 1, type: :string, json_name: "shipmentId", deprecated: false
   field :line_item_id, 2, type: :string, json_name: "lineItemId", deprecated: false
@@ -96,7 +96,7 @@ end
 defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :order_tracking_signal_id, 11,
     type: :int64,
@@ -153,7 +153,7 @@ defmodule Google.Shopping.Merchant.Ordertracking.V1beta.OrderTrackingSignalsServ
 
   use GRPC.Service,
     name: "google.shopping.merchant.ordertracking.v1beta.OrderTrackingSignalsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateOrderTrackingSignal,
       Google.Shopping.Merchant.Ordertracking.V1beta.CreateOrderTrackingSignalRequest,

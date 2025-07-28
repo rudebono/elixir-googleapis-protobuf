@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Dataform.V1beta1.Repository.GitRemoteSettings.TokenStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TOKEN_STATUS_UNSPECIFIED, 0
   field :NOT_FOUND, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ComputeRepositoryAccessTokenStatusResponse.TokenStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TOKEN_STATUS_UNSPECIFIED, 0
   field :NOT_FOUND, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse.UncommittedFileChange.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ADDED, 1
@@ -35,7 +35,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Relation.RelationType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RELATION_TYPE_UNSPECIFIED, 0
   field :TABLE, 1
@@ -47,7 +47,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocation.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PENDING, 0
   field :RUNNING, 1
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DataEncryptionState do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_version_name, 1, type: :string, json_name: "kmsKeyVersionName", deprecated: false
 end
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Repository.GitRemoteSettings.SshAuthenticationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_private_key_secret_version, 1,
     type: :string,
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Repository.GitRemoteSettings do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :url, 1, type: :string, deprecated: false
   field :default_branch, 2, type: :string, json_name: "defaultBranch", deprecated: false
@@ -120,7 +120,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Repository.WorkspaceCompilationOverrides do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase", deprecated: false
   field :schema_suffix, 2, type: :string, json_name: "schemaSuffix", deprecated: false
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Repository.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -139,7 +139,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Repository do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListRepositoriesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -206,7 +206,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListRepositoriesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :repositories, 1, repeated: true, type: Google.Cloud.Dataform.V1beta1.Repository
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -216,7 +216,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :repository, 2, type: Google.Cloud.Dataform.V1beta1.Repository, deprecated: false
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.UpdateRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -247,7 +247,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DeleteRepositoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperation.WriteFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 1, type: :bytes
 end
@@ -264,13 +264,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperation.DeleteFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :operation, 0
 
@@ -288,7 +288,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest.FileOperationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
 
@@ -299,7 +299,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -324,7 +324,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitRepositoryChangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commit_sha, 1, type: :string, json_name: "commitSha"
 end
@@ -332,7 +332,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ReadRepositoryFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :commit_sha, 2, type: :string, json_name: "commitSha", deprecated: false
@@ -342,7 +342,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ReadRepositoryFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 1, type: :bytes
 end
@@ -350,7 +350,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryRepositoryDirectoryContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :commit_sha, 2, type: :string, json_name: "commitSha", deprecated: false
@@ -362,7 +362,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryRepositoryDirectoryContentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :directory_entries, 1,
     repeated: true,
@@ -375,7 +375,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchRepositoryHistoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -385,7 +385,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchRepositoryHistoryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commits, 1, repeated: true, type: Google.Cloud.Dataform.V1beta1.CommitLogEntry
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -394,7 +394,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commit_time, 1, type: Google.Protobuf.Timestamp, json_name: "commitTime"
   field :commit_sha, 2, type: :string, json_name: "commitSha"
@@ -405,7 +405,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :author, 1, type: Google.Cloud.Dataform.V1beta1.CommitAuthor, deprecated: false
   field :commit_message, 2, type: :string, json_name: "commitMessage", deprecated: false
@@ -414,7 +414,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ComputeRepositoryAccessTokenStatusRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -422,7 +422,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ComputeRepositoryAccessTokenStatusResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :token_status, 1,
     type: Google.Cloud.Dataform.V1beta1.ComputeRepositoryAccessTokenStatusResponse.TokenStatus,
@@ -433,7 +433,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchRemoteBranchesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -441,7 +441,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchRemoteBranchesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :branches, 1, repeated: true, type: :string
 end
@@ -449,7 +449,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Workspace do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -473,7 +473,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkspacesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -485,7 +485,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkspacesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspaces, 1, repeated: true, type: Google.Cloud.Dataform.V1beta1.Workspace
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -495,7 +495,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetWorkspaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -503,7 +503,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateWorkspaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :workspace, 2, type: Google.Cloud.Dataform.V1beta1.Workspace, deprecated: false
@@ -513,7 +513,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DeleteWorkspaceRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -521,7 +521,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitAuthor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :email_address, 2, type: :string, json_name: "emailAddress", deprecated: false
@@ -530,7 +530,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.PullGitCommitsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :remote_branch, 2, type: :string, json_name: "remoteBranch", deprecated: false
@@ -540,13 +540,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.PullGitCommitsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.PushGitCommitsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :remote_branch, 2, type: :string, json_name: "remoteBranch", deprecated: false
@@ -555,13 +555,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.PushGitCommitsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -569,7 +569,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse.UncommittedFileChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string
 
@@ -582,7 +582,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileGitStatusesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uncommitted_file_changes, 1,
     repeated: true,
@@ -593,7 +593,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchGitAheadBehindRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :remote_branch, 2, type: :string, json_name: "remoteBranch", deprecated: false
@@ -602,7 +602,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchGitAheadBehindResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :commits_ahead, 1, type: :int32, json_name: "commitsAhead"
   field :commits_behind, 2, type: :int32, json_name: "commitsBehind"
@@ -611,7 +611,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :author, 4, type: Google.Cloud.Dataform.V1beta1.CommitAuthor, deprecated: false
@@ -622,13 +622,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CommitWorkspaceChangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :paths, 2, repeated: true, type: :string, deprecated: false
@@ -638,13 +638,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ResetWorkspaceChangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileDiffRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -653,7 +653,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FetchFileDiffResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :formatted_diff, 1, type: :string, json_name: "formattedDiff"
 end
@@ -661,7 +661,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryDirectoryContentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -672,7 +672,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryDirectoryContentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :directory_entries, 1,
     repeated: true,
@@ -685,7 +685,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DirectoryEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :entry, 0
 
@@ -696,7 +696,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.SearchFilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -707,7 +707,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.SearchFilesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :search_results, 1,
     repeated: true,
@@ -720,7 +720,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.SearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :entry, 0
 
@@ -731,7 +731,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.FileSearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string
 end
@@ -739,7 +739,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DirectorySearchResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string
 end
@@ -747,7 +747,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.MakeDirectoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -756,13 +756,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.MakeDirectoryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.RemoveDirectoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -771,13 +771,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RemoveDirectoryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.MoveDirectoryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -787,13 +787,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.MoveDirectoryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ReadFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -803,7 +803,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ReadFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_contents, 1, type: :bytes, json_name: "fileContents"
 end
@@ -811,7 +811,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RemoveFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -820,13 +820,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RemoveFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.MoveFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -836,13 +836,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.MoveFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.WriteFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
   field :path, 2, type: :string, deprecated: false
@@ -852,13 +852,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WriteFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.InstallNpmPackagesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workspace, 1, type: :string, deprecated: false
 end
@@ -866,13 +866,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.InstallNpmPackagesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig.ScheduledReleaseRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -893,7 +893,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ReleaseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :git_commitish, 2, type: :string, json_name: "gitCommitish", deprecated: false
@@ -929,7 +929,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListReleaseConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -939,7 +939,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListReleaseConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :release_configs, 1,
     repeated: true,
@@ -953,7 +953,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetReleaseConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -961,7 +961,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateReleaseConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -976,7 +976,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.UpdateReleaseConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -992,7 +992,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DeleteReleaseConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1000,7 +1000,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResult.CompilationError do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :message, 1, type: :string, deprecated: false
   field :stack, 2, type: :string, deprecated: false
@@ -1015,7 +1015,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -1065,7 +1065,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CodeCompilationConfig.VarsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1074,7 +1074,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CodeCompilationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :default_database, 1, type: :string, json_name: "defaultDatabase", deprecated: false
   field :default_schema, 2, type: :string, json_name: "defaultSchema", deprecated: false
@@ -1105,7 +1105,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.NotebookRuntimeOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :execution_sink, 0
 
@@ -1124,7 +1124,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListCompilationResultsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1136,7 +1136,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListCompilationResultsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :compilation_results, 1,
     repeated: true,
@@ -1150,7 +1150,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetCompilationResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1158,7 +1158,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateCompilationResultRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1171,7 +1171,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Target do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :database, 1, type: :string, deprecated: false
   field :schema, 2, type: :string, deprecated: false
@@ -1181,7 +1181,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RelationDescriptor.ColumnDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, repeated: true, type: :string
   field :description, 2, type: :string
@@ -1191,7 +1191,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RelationDescriptor.BigqueryLabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1200,7 +1200,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.RelationDescriptor do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :description, 1, type: :string
 
@@ -1218,7 +1218,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Relation.IncrementalTableConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :incremental_select_query, 1, type: :string, json_name: "incrementalSelectQuery"
   field :refresh_disabled, 2, type: :bool, json_name: "refreshDisabled"
@@ -1239,7 +1239,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Relation.AdditionalOptionsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1248,7 +1248,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Relation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dependency_targets, 1,
     repeated: true,
@@ -1290,7 +1290,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Operations do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dependency_targets, 1,
     repeated: true,
@@ -1311,7 +1311,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Assertion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dependency_targets, 1,
     repeated: true,
@@ -1331,7 +1331,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Declaration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :relation_descriptor, 1,
     type: Google.Cloud.Dataform.V1beta1.RelationDescriptor,
@@ -1341,7 +1341,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.Notebook do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dependency_targets, 1,
     repeated: true,
@@ -1356,7 +1356,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.DataPreparation.SqlDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query, 1, type: :string
 
@@ -1370,7 +1370,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.DataPreparation.ErrorTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Dataform.V1beta1.Target
   field :retention_days, 2, type: :int32, json_name: "retentionDays"
@@ -1379,7 +1379,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.DataPreparation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :definition, 0
 
@@ -1402,7 +1402,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.LoadConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -1426,13 +1426,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.SimpleLoadMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction.IncrementalLoadMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
 end
@@ -1440,7 +1440,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CompilationResultAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :compiled_object, 0
 
@@ -1487,7 +1487,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryCompilationResultActionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1498,7 +1498,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryCompilationResultActionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :compilation_result_actions, 1,
     repeated: true,
@@ -1511,7 +1511,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig.ScheduledExecutionRecord do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :result, 0
 
@@ -1532,7 +1532,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :release_config, 2, type: :string, json_name: "releaseConfig", deprecated: false
@@ -1573,7 +1573,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.InvocationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :included_targets, 1,
     repeated: true,
@@ -1608,7 +1608,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkflowConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1618,7 +1618,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkflowConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workflow_configs, 1,
     repeated: true,
@@ -1632,7 +1632,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetWorkflowConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1640,7 +1640,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateWorkflowConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1655,7 +1655,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.UpdateWorkflowConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -1671,7 +1671,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DeleteWorkflowConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1679,7 +1679,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :compilation_source, 0
 
@@ -1732,7 +1732,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkflowInvocationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1744,7 +1744,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.ListWorkflowInvocationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workflow_invocations, 1,
     repeated: true,
@@ -1758,7 +1758,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetWorkflowInvocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1766,7 +1766,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CreateWorkflowInvocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -1779,7 +1779,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.DeleteWorkflowInvocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1787,7 +1787,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1795,13 +1795,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.CancelWorkflowInvocationResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.BigQueryAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sql_script, 1, type: :string, json_name: "sqlScript", deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -1810,7 +1810,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.NotebookAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :contents, 1, type: :string, deprecated: false
   field :job_id, 2, type: :string, json_name: "jobId", deprecated: false
@@ -1819,7 +1819,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction.ActionSqlDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :query, 1, type: :string
 
@@ -1837,7 +1837,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction.ActionErrorTable do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :target, 1, type: Google.Cloud.Dataform.V1beta1.Target
   field :retention_days, 2, type: :int32, json_name: "retentionDays"
@@ -1846,7 +1846,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction.ActionLoadConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :mode, 0
 
@@ -1874,13 +1874,13 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction.ActionSimpleLoadMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction.ActionIncrementalLoadMode do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :column, 1, type: :string
 end
@@ -1888,7 +1888,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction.DataPreparationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :definition, 0
 
@@ -1907,7 +1907,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.WorkflowInvocationAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :action, 0
 
@@ -1958,7 +1958,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryWorkflowInvocationActionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -1968,7 +1968,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.QueryWorkflowInvocationActionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workflow_invocation_actions, 1,
     repeated: true,
@@ -1981,7 +1981,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.Config do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :default_kms_key_name, 2, type: :string, json_name: "defaultKmsKeyName", deprecated: false
@@ -1990,7 +1990,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.GetConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -1998,7 +1998,7 @@ end
 defmodule Google.Cloud.Dataform.V1beta1.UpdateConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :config, 1, type: Google.Cloud.Dataform.V1beta1.Config, deprecated: false
 
@@ -2013,7 +2013,7 @@ defmodule Google.Cloud.Dataform.V1beta1.Dataform.Service do
 
   use GRPC.Service,
     name: "google.cloud.dataform.v1beta1.Dataform",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListRepositories,
       Google.Cloud.Dataform.V1beta1.ListRepositoriesRequest,

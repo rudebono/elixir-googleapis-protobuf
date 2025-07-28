@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Documentai.V1beta3.DatasetSplitType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATASET_SPLIT_TYPE_UNSPECIFIED, 0
   field :DATASET_SPLIT_TRAIN, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentLabelingState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DOCUMENT_LABELING_STATE_UNSPECIFIED, 0
   field :DOCUMENT_LABELED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.UpdateDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: Google.Cloud.Documentai.V1beta3.Dataset, deprecated: false
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.UpdateDatasetOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsRequest.BatchDocumentsImportConfig.AutoSplitConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :training_split_ratio, 1, type: :float, json_name: "trainingSplitRatio"
 end
@@ -50,7 +50,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsRequest.BatchDocumentsImportConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :split_type_config, 0
 
@@ -74,7 +74,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -88,13 +88,13 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsMetadata.IndividualImportStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsMetadata.ImportConfigValidationResult do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :input_gcs_source, 1, type: :string, json_name: "inputGcsSource"
   field :status, 2, type: Google.Rpc.Status
@@ -116,7 +116,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ImportDocumentsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.GetDocumentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -157,7 +157,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.GetDocumentResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Documentai.V1beta3.Document
 end
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ListDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.ListDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document_metadata, 1,
     repeated: true,
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset, 1, type: :string, deprecated: false
 
@@ -205,13 +205,13 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsMetadata.IndividualBatchDeleteStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document_id, 1, type: Google.Cloud.Documentai.V1beta3.DocumentId, json_name: "documentId"
   field :status, 2, type: Google.Rpc.Status
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.BatchDeleteDocumentsMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :common_metadata, 1,
     type: Google.Cloud.Documentai.V1beta3.CommonOperationMetadata,
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.GetDatasetSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :visible_fields_only, 2, type: :bool, json_name: "visibleFieldsOnly"
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.UpdateDatasetSchemaRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :dataset_schema, 1,
     type: Google.Cloud.Documentai.V1beta3.DatasetSchema,
@@ -261,7 +261,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentPageRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start, 1, type: :int32
   field :end, 2, type: :int32
@@ -270,7 +270,7 @@ end
 defmodule Google.Cloud.Documentai.V1beta3.DocumentMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document_id, 1, type: Google.Cloud.Documentai.V1beta3.DocumentId, json_name: "documentId"
   field :page_count, 2, type: :int32, json_name: "pageCount"
@@ -293,7 +293,7 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.documentai.v1beta3.DocumentService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :UpdateDataset,
       Google.Cloud.Documentai.V1beta3.UpdateDatasetRequest,

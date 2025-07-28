@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Discoveryengine.V1alpha.IndustryVertical do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INDUSTRY_VERTICAL_UNSPECIFIED, 0
   field :GENERIC, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.SolutionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SOLUTION_TYPE_UNSPECIFIED, 0
   field :SOLUTION_TYPE_RECOMMENDATION, 1
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchUseCase do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEARCH_USE_CASE_UNSPECIFIED, 0
   field :SEARCH_USE_CASE_SEARCH, 1
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchTier do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEARCH_TIER_UNSPECIFIED, 0
   field :SEARCH_TIER_STANDARD, 1
@@ -44,16 +44,27 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.SearchAddOn do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEARCH_ADD_ON_UNSPECIFIED, 0
   field :SEARCH_ADD_ON_LLM, 1
 end
 
+defmodule Google.Cloud.Discoveryengine.V1alpha.FileOriginType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :FILE_ORIGIN_TYPE_UNSPECIFIED, 0
+  field :USER_PROVIDED, 1
+  field :AI_GENERATED, 2
+  field :INTERNALLY_GENERATED, 3
+end
+
 defmodule Google.Cloud.Discoveryengine.V1alpha.IdpConfig.IdpType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :IDP_TYPE_UNSPECIFIED, 0
   field :GSUITE, 1
@@ -63,7 +74,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Interval do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :min, 0
 
@@ -78,7 +89,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CustomAttribute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, repeated: true, type: :string
   field :numbers, 2, repeated: true, type: :double
@@ -87,7 +98,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.UserInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_id, 1, type: :string, json_name: "userId"
   field :user_agent, 2, type: :string, json_name: "userAgent"
@@ -96,7 +107,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.EmbeddingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field_path, 1, type: :string, json_name: "fieldPath"
 end
@@ -104,7 +115,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.DoubleList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :values, 1, repeated: true, type: :double
 end
@@ -112,7 +123,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.GuidedSearchSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_refinement_attributes, 1, type: :bool, json_name: "enableRefinementAttributes"
   field :enable_related_questions, 2, type: :bool, json_name: "enableRelatedQuestions"
@@ -122,7 +133,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.CustomFineTuningSpec do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_search_adaptor, 1, type: :bool, json_name: "enableSearchAdaptor"
 end
@@ -130,7 +141,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.IdpConfig.ExternalIdpConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :workforce_pool_name, 1, type: :string, json_name: "workforcePoolName"
 end
@@ -138,7 +149,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.IdpConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :idp_type, 1,
     type: Google.Cloud.Discoveryengine.V1alpha.IdpConfig.IdpType,
@@ -153,7 +164,7 @@ end
 defmodule Google.Cloud.Discoveryengine.V1alpha.Principal do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :principal, 0
 

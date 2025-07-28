@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Products.V1beta.SubscriptionPeriod do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SUBSCRIPTION_PERIOD_UNSPECIFIED, 0
   field :MONTH, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStatus.ItemLevelIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOT_IMPACTED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :EV_TAX_CREDIT, 1
@@ -32,7 +32,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.Attributes do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :identifier_exists, 4, proto3_optional: true, type: :bool, json_name: "identifierExists"
   field :is_bundle, 5, proto3_optional: true, type: :bool, json_name: "isBundle"
@@ -291,7 +291,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.Tax do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rate, 1, type: :double
   field :country, 2, type: :string
@@ -304,7 +304,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ShippingWeight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double
   field :unit, 2, type: :string
@@ -313,7 +313,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ShippingDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double
   field :unit, 2, type: :string
@@ -322,7 +322,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.UnitPricingBaseMeasure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :int64
   field :unit, 2, type: :string
@@ -331,7 +331,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.UnitPricingMeasure do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double
   field :unit, 2, type: :string
@@ -340,7 +340,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.SubscriptionCost do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :period, 1, type: Google.Shopping.Merchant.Products.V1beta.SubscriptionPeriod, enum: true
   field :period_length, 2, type: :int64, json_name: "periodLength"
@@ -350,7 +350,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.Installment do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :months, 1, type: :int64
   field :amount, 2, type: Google.Shopping.Type.Price
@@ -361,7 +361,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.LoyaltyPoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :points_value, 2, type: :int64, json_name: "pointsValue"
@@ -371,7 +371,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.LoyaltyProgram do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :program_label, 1, proto3_optional: true, type: :string, json_name: "programLabel"
   field :tier_label, 2, proto3_optional: true, type: :string, json_name: "tierLabel"
@@ -395,7 +395,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.Shipping do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :price, 1, type: Google.Shopping.Type.Price
   field :country, 2, type: :string
@@ -413,7 +413,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.FreeShippingThreshold do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :country, 1, proto3_optional: true, type: :string
 
@@ -426,7 +426,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductDetail do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :section_name, 1, type: :string, json_name: "sectionName"
   field :attribute_name, 2, type: :string, json_name: "attributeName"
@@ -436,7 +436,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.Certification do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :certification_authority, 1,
     proto3_optional: true,
@@ -462,7 +462,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStructuredTitle do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :digital_source_type, 1,
     proto3_optional: true,
@@ -475,7 +475,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStructuredDescription do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :digital_source_type, 1,
     proto3_optional: true,
@@ -488,7 +488,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductDimension do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
   field :unit, 2, type: :string, deprecated: false
@@ -497,7 +497,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductWeight do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :value, 1, type: :double, deprecated: false
   field :unit, 2, type: :string, deprecated: false
@@ -506,7 +506,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStatus.DestinationStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reporting_context, 1,
     type: Google.Shopping.Type.ReportingContext.ReportingContextEnum,
@@ -525,7 +525,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStatus.ItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 1, type: :string
 
@@ -550,7 +550,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destination_statuses, 3,
     repeated: true,
@@ -573,7 +573,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.CloudExportAdditionalProperties do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :property_name, 1, proto3_optional: true, type: :string, json_name: "propertyName"
   field :text_value, 2, repeated: true, type: :string, json_name: "textValue"
@@ -588,7 +588,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductSustainabilityIncentive do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :value, 0
 
@@ -604,7 +604,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.AutomatedDiscounts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :prior_price, 1, type: Google.Shopping.Type.Price, json_name: "priorPrice"
 

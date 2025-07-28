@@ -1,7 +1,7 @@
 defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :NONINTERACTIVE, 0
   field :INTERACTIVE, 1
@@ -10,7 +10,7 @@ end
 defmodule Google.Devtools.Build.V1.PublishLifecycleEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_level, 1,
     type: Google.Devtools.Build.V1.PublishLifecycleEventRequest.ServiceLevel,
@@ -39,7 +39,7 @@ end
 defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream_id, 1, type: Google.Devtools.Build.V1.StreamId, json_name: "streamId"
   field :sequence_number, 2, type: :int64, json_name: "sequenceNumber"
@@ -48,7 +48,7 @@ end
 defmodule Google.Devtools.Build.V1.OrderedBuildEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :stream_id, 1, type: Google.Devtools.Build.V1.StreamId, json_name: "streamId"
   field :sequence_number, 2, type: :int64, json_name: "sequenceNumber"
@@ -58,7 +58,7 @@ end
 defmodule Google.Devtools.Build.V1.PublishBuildToolEventStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ordered_build_event, 4,
     type: Google.Devtools.Build.V1.OrderedBuildEvent,
@@ -82,7 +82,7 @@ defmodule Google.Devtools.Build.V1.PublishBuildEvent.Service do
 
   use GRPC.Service,
     name: "google.devtools.build.v1.PublishBuildEvent",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :PublishLifecycleEvent,
       Google.Devtools.Build.V1.PublishLifecycleEventRequest,

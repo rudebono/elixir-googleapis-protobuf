@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACCOUNT_MANAGER_TRANSACTION_TYPE_UNSPECIFIED, 0
   field :CREDIT, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionInfo.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerParticipant.Persona do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PERSONA_UNSPECIFIED, 0
   field :ENTITY, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionReconciliationInfo.ReconciliationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RECONCILIATION_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransaction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :account_id, 2, type: :string, json_name: "accountId"
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionInfo.AccountManagerTransactionMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :transaction_time, 1, type: Google.Protobuf.Timestamp, json_name: "transactionTime"
 
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionInfo.AccountManagerTransactionErrorDetails do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1, type: :string, json_name: "errorCode", deprecated: false
   field :error_message, 2, type: :string, json_name: "errorMessage", deprecated: false
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :id, 1, type: :string
 
@@ -131,7 +131,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerSettlementParticipant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :participant, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerParticipant
@@ -144,7 +144,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerParticipant do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :payment_address, 1, type: :string, json_name: "paymentAddress"
 
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerMerchantInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :category_code, 1, type: :string, json_name: "categoryCode"
   field :id, 2, type: :string
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransactionReconciliationInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type:
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.ExportAccountManagerTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.ListAccountManagerTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
@@ -211,7 +211,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.ListAccountManagerTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_manager_transactions, 1,
     repeated: true,
@@ -224,7 +224,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.ReconcileAccountManagerTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :transaction, 1,
     type: Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountManagerTransaction,
@@ -234,7 +234,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.BatchReconcileAccountManagerTransactionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -248,7 +248,7 @@ end
 defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.BatchReconcileAccountManagerTransactionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :account_manager_transactions, 1,
     repeated: true,
@@ -261,7 +261,7 @@ defmodule Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.AccountMana
 
   use GRPC.Service,
     name: "google.cloud.paymentgateway.issuerswitch.accountmanager.v1.AccountManagerTransactions",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ExportAccountManagerTransactions,
       Google.Cloud.Paymentgateway.Issuerswitch.Accountmanager.V1.ExportAccountManagerTransactionsRequest,

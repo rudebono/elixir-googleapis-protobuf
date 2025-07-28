@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1beta1.PSCAutomationState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PSC_AUTOMATION_STATE_UNSPECIFIED, 0
   field :PSC_AUTOMATION_STATE_SUCCESSFUL, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PSCAutomationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :network, 2, type: :string, deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PrivateServiceConnectConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enable_private_service_connect, 1,
     type: :bool,
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PscAutomatedEndpoints do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId"
   field :network, 2, type: :string
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.PscInterfaceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment, 1, type: :string, json_name: "networkAttachment", deprecated: false
 
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1beta1.DnsPeeringConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :domain, 1, type: :string, deprecated: false
   field :target_project, 2, type: :string, json_name: "targetProject", deprecated: false
