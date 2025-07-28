@@ -60,8 +60,9 @@ defmodule Google.Shopping.Merchant.Reviews.V1beta.MerchantReview do
   field :name, 1, type: :string, deprecated: false
   field :merchant_review_id, 2, type: :string, json_name: "merchantReviewId", deprecated: false
 
-  field :attributes, 3,
+  field :merchant_review_attributes, 3,
     type: Google.Shopping.Merchant.Reviews.V1beta.MerchantReviewAttributes,
+    json_name: "merchantReviewAttributes",
     deprecated: false
 
   field :custom_attributes, 4,
