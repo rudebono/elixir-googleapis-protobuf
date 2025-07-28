@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Kms.Inventory.V1.ListCryptoKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Kms.Inventory.V1.ListCryptoKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :crypto_keys, 1,
     repeated: true,
@@ -26,7 +26,7 @@ defmodule Google.Cloud.Kms.Inventory.V1.KeyDashboardService.Service do
 
   use GRPC.Service,
     name: "google.cloud.kms.inventory.v1.KeyDashboardService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListCryptoKeys,
       Google.Cloud.Kms.Inventory.V1.ListCryptoKeysRequest,

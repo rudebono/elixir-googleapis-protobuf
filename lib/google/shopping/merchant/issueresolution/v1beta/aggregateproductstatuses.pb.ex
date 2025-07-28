@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus.ItemLevelIssue.Severity do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SEVERITY_UNSPECIFIED, 0
   field :NOT_IMPACTED, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus.ItemLevelIssue.Resolution do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESOLUTION_UNSPECIFIED, 0
   field :MERCHANT_ACTION, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ListAggregateProductStatusesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -33,7 +33,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.ListAggregateProductStatusesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :aggregate_product_statuses, 1,
     repeated: true,
@@ -46,7 +46,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus.Stats do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :active_count, 1, type: :int64, json_name: "activeCount"
   field :pending_count, 2, type: :int64, json_name: "pendingCount"
@@ -57,7 +57,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus.ItemLevelIssue do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :code, 1, type: :string
 
@@ -81,7 +81,7 @@ end
 defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -106,7 +106,7 @@ defmodule Google.Shopping.Merchant.Issueresolution.V1beta.AggregateProductStatus
 
   use GRPC.Service,
     name: "google.shopping.merchant.issueresolution.v1beta.AggregateProductStatusesService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListAggregateProductStatuses,
       Google.Shopping.Merchant.Issueresolution.V1beta.ListAggregateProductStatusesRequest,

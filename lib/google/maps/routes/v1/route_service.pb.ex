@@ -3,7 +3,7 @@ defmodule Google.Maps.Routes.V1.RoutesPreferred.Service do
 
   use GRPC.Service,
     name: "google.maps.routes.v1.RoutesPreferred",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ComputeRoutes,
       Google.Maps.Routes.V1.ComputeRoutesRequest,

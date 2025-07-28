@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Apigateway.V1.Api.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -28,7 +28,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.Gateway.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :CREATING, 1
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CONFIG_VIEW_UNSPECIFIED, 0
   field :BASIC, 1
@@ -51,7 +51,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.Api.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.Api do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.File do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :path, 1, type: :string
   field :contents, 2, type: :bytes
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.OpenApiDocument do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :document, 1, type: Google.Cloud.Apigateway.V1.ApiConfig.File
 end
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.GrpcServiceDefinition do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :file_descriptor_set, 1,
     type: Google.Cloud.Apigateway.V1.ApiConfig.File,
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ApiConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -182,7 +182,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.Gateway.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.Gateway do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -220,7 +220,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -232,7 +232,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListGatewaysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :gateways, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Gateway
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -246,7 +246,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.GetGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -254,7 +254,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.CreateGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :gateway_id, 2, type: :string, json_name: "gatewayId", deprecated: false
@@ -264,7 +264,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.UpdateGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :gateway, 2, type: Google.Cloud.Apigateway.V1.Gateway, deprecated: false
@@ -273,7 +273,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.DeleteGatewayRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -281,7 +281,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListApisRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListApisResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :apis, 1, repeated: true, type: Google.Cloud.Apigateway.V1.Api
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.GetApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.CreateApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_id, 2, type: :string, json_name: "apiId", deprecated: false
@@ -325,7 +325,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.UpdateApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :api, 2, type: Google.Cloud.Apigateway.V1.Api, deprecated: false
@@ -334,7 +334,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.DeleteApiRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -342,7 +342,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.ListApiConfigsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :api_configs, 1,
     repeated: true,
@@ -372,7 +372,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.GetApiConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :view, 3, type: Google.Cloud.Apigateway.V1.GetApiConfigRequest.ConfigView, enum: true
@@ -381,7 +381,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.CreateApiConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :api_config_id, 2, type: :string, json_name: "apiConfigId", deprecated: false
@@ -395,7 +395,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.UpdateApiConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1, type: Google.Protobuf.FieldMask, json_name: "updateMask"
 
@@ -408,7 +408,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.DeleteApiConfigRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -416,7 +416,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata.Diagnostic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :location, 1, type: :string
   field :message, 2, type: :string
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Apigateway.V1.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,

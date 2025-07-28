@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Devicestreaming.V1.DeviceSession.SessionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SESSION_STATE_UNSPECIFIED, 0
   field :REQUESTED, 1
@@ -16,7 +16,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.CreateDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.ListDeviceSessionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 4, type: :string, deprecated: false
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.ListDeviceSessionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device_sessions, 1,
     repeated: true,
@@ -55,7 +55,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.GetDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.CancelDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.UpdateDeviceSessionRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :device_session, 1,
     type: Google.Cloud.Devicestreaming.V1.DeviceSession,
@@ -87,7 +87,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.DeviceSession.SessionStateEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_state, 1,
     type: Google.Cloud.Devicestreaming.V1.DeviceSession.SessionState,
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.DeviceSession do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :expiration, 0
 
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Devicestreaming.V1.AndroidDevice do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :android_model_id, 1, type: :string, json_name: "androidModelId", deprecated: false
   field :android_version_id, 2, type: :string, json_name: "androidVersionId", deprecated: false
@@ -165,7 +165,7 @@ defmodule Google.Cloud.Devicestreaming.V1.DirectAccessService.Service do
 
   use GRPC.Service,
     name: "google.cloud.devicestreaming.v1.DirectAccessService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateDeviceSession,
       Google.Cloud.Devicestreaming.V1.CreateDeviceSessionRequest,

@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Alloydb.V1alpha.InstanceView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INSTANCE_VIEW_UNSPECIFIED, 0
   field :INSTANCE_VIEW_BASIC, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.ClusterView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CLUSTER_VIEW_UNSPECIFIED, 0
   field :CLUSTER_VIEW_BASIC, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.DatabaseVersion do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATABASE_VERSION_UNSPECIFIED, 0
   field :POSTGRES_13, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SubscriptionType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SUBSCRIPTION_TYPE_UNSPECIFIED, 0
   field :STANDARD, 1
@@ -43,7 +43,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MigrationSource.MigrationSourceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MIGRATION_SOURCE_TYPE_UNSPECIFIED, 0
   field :DMS, 1
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.EncryptionInfo.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :GOOGLE_DEFAULT_ENCRYPTION, 1
@@ -62,7 +62,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SslConfig.SslMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SSL_MODE_UNSPECIFIED, 0
   field :SSL_MODE_ALLOW, 1
@@ -75,7 +75,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SslConfig.CaSource do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CA_SOURCE_UNSPECIFIED, 0
   field :CA_SOURCE_MANAGED, 1
@@ -84,7 +84,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -101,7 +101,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.ClusterType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CLUSTER_TYPE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.InstanceType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :INSTANCE_TYPE_UNSPECIFIED, 0
   field :PRIMARY, 1
@@ -138,7 +138,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.AvailabilityType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AVAILABILITY_TYPE_UNSPECIFIED, 0
   field :ZONAL, 1
@@ -148,7 +148,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ActivationPolicy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ACTIVATION_POLICY_UNSPECIFIED, 0
   field :ALWAYS, 1
@@ -158,7 +158,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
   field :DEFAULT, 1
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig.PoolMode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :POOL_MODE_UNSPECIFIED, 0
   field :POOL_MODE_SESSION, 1
@@ -178,7 +178,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :READY, 1
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :ON_DEMAND, 1
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.ValueType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VALUE_TYPE_UNSPECIFIED, 0
   field :STRING, 1
@@ -213,7 +213,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.Scope do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :SCOPE_UNSPECIFIED, 0
   field :DATABASE, 1
@@ -223,7 +223,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.User.UserType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :USER_TYPE_UNSPECIFIED, 0
   field :ALLOYDB_BUILT_IN, 1
@@ -233,7 +233,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.UserPassword do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user, 1, type: :string
   field :password, 2, type: :string
@@ -242,7 +242,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MigrationSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :host_port, 1, type: :string, json_name: "hostPort", deprecated: false
   field :reference_id, 2, type: :string, json_name: "referenceId", deprecated: false
@@ -257,7 +257,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.EncryptionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
 end
@@ -265,7 +265,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.EncryptionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_type, 1,
     type: Google.Cloud.Alloydb.V1alpha.EncryptionInfo.Type,
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SslConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ssl_mode, 1,
     type: Google.Cloud.Alloydb.V1alpha.SslConfig.SslMode,
@@ -301,7 +301,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy.WeeklySchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_times, 1, repeated: true, type: Google.Type.TimeOfDay, json_name: "startTimes"
 
@@ -315,7 +315,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy.TimeBasedRetention do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retention_period, 1, type: Google.Protobuf.Duration, json_name: "retentionPeriod"
 end
@@ -323,7 +323,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy.QuantityBasedRetention do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :count, 1, type: :int32
 end
@@ -331,7 +331,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -340,7 +340,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.AutomatedBackupPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :schedule, 0
 
@@ -380,7 +380,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.ContinuousBackupConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, proto3_optional: true, type: :bool
   field :recovery_window_days, 4, type: :int32, json_name: "recoveryWindowDays"
@@ -393,7 +393,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.ContinuousBackupInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :encryption_info, 1,
     type: Google.Cloud.Alloydb.V1alpha.EncryptionInfo,
@@ -416,7 +416,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.BackupSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :backup_uid, 2, type: :string, json_name: "backupUid", deprecated: false
   field :backup_name, 1, type: :string, json_name: "backupName", deprecated: false
@@ -425,7 +425,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.ContinuousBackupSource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster, 1, type: :string, deprecated: false
 
@@ -438,7 +438,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MaintenanceUpdatePolicy.MaintenanceWindow do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :day, 1, type: Google.Type.DayOfWeek, enum: true
   field :start_time, 2, type: Google.Type.TimeOfDay, json_name: "startTime"
@@ -447,7 +447,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MaintenanceUpdatePolicy.DenyMaintenancePeriod do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_date, 1, type: Google.Type.Date, json_name: "startDate"
   field :end_date, 2, type: Google.Type.Date, json_name: "endDate"
@@ -457,7 +457,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MaintenanceUpdatePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :maintenance_windows, 1,
     repeated: true,
@@ -473,7 +473,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.MaintenanceSchedule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
 end
@@ -481,7 +481,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.NetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network, 1, type: :string, deprecated: false
   field :allocated_ip_range, 2, type: :string, json_name: "allocatedIpRange", deprecated: false
@@ -490,7 +490,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.SecondaryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :primary_cluster_name, 1, type: :string, json_name: "primaryClusterName"
 end
@@ -498,7 +498,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.PrimaryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :secondary_cluster_names, 1,
     repeated: true,
@@ -510,7 +510,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.PscConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :psc_enabled, 1, type: :bool, json_name: "pscEnabled", deprecated: false
 
@@ -523,7 +523,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.TrialMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
   field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
@@ -534,7 +534,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -543,7 +543,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -552,7 +552,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.TagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -561,7 +561,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -728,7 +728,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.MachineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cpu_count, 1, type: :int32, json_name: "cpuCount"
   field :machine_type, 4, type: :string, json_name: "machineType"
@@ -737,7 +737,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.Node do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :zone_id, 1, type: :string, json_name: "zoneId", deprecated: false
   field :id, 2, type: :string, deprecated: false
@@ -748,7 +748,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.QueryInsightsInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :record_application_tags, 2,
     proto3_optional: true,
@@ -771,7 +771,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ObservabilityInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, proto3_optional: true, type: :bool
   field :preserve_comments, 2, proto3_optional: true, type: :bool, json_name: "preserveComments"
@@ -817,7 +817,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ReadPoolConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :node_count, 1, type: :int32, json_name: "nodeCount"
 end
@@ -825,7 +825,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :mode, 1, type: Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode, enum: true
 end
@@ -833,7 +833,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ClientConnectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :require_connectors, 1, type: :bool, json_name: "requireConnectors", deprecated: false
 
@@ -846,7 +846,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.PscInterfaceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :network_attachment_resource, 1, type: :string, json_name: "networkAttachmentResource"
 end
@@ -854,7 +854,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.PscAutoConnectionConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :consumer_project, 1, type: :string, json_name: "consumerProject"
   field :consumer_network, 2, type: :string, json_name: "consumerNetwork"
@@ -870,7 +870,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.PscInstanceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_attachment_link, 1,
     type: :string,
@@ -901,7 +901,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.InstanceNetworkConfig.AuthorizedNetwork do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cidr_range, 1, type: :string, json_name: "cidrRange", deprecated: false
 end
@@ -909,7 +909,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.InstanceNetworkConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :authorized_external_networks, 1,
     repeated: true,
@@ -935,7 +935,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 12, type: :bool, deprecated: false
 end
@@ -943,7 +943,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -952,7 +952,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.DatabaseFlagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -961,7 +961,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -970,7 +970,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Instance do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1109,7 +1109,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.ConnectionInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :ip_address, 2, type: :string, json_name: "ipAddress", deprecated: false
@@ -1128,7 +1128,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.QuantityBasedExpiry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :retention_count, 1, type: :int32, json_name: "retentionCount", deprecated: false
 
@@ -1141,7 +1141,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1150,7 +1150,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.AnnotationsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1159,7 +1159,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.TagsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -1168,7 +1168,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Backup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -1254,7 +1254,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.StringRestrictions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allowed_values, 1, repeated: true, type: :string, json_name: "allowedValues"
 end
@@ -1262,7 +1262,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag.IntegerRestrictions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :min_value, 1, type: Google.Protobuf.Int64Value, json_name: "minValue"
   field :max_value, 2, type: Google.Protobuf.Int64Value, json_name: "maxValue"
@@ -1271,7 +1271,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.SupportedDatabaseFlag do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :restrictions, 0
 
@@ -1320,7 +1320,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.User do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :password, 2, type: :string, deprecated: false
@@ -1343,7 +1343,7 @@ end
 defmodule Google.Cloud.Alloydb.V1alpha.Database do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :charset, 2, type: :string, deprecated: false

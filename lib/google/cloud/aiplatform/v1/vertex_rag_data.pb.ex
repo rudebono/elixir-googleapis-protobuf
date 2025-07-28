@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Aiplatform.V1.FileStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :ACTIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CorpusStatus.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNKNOWN, 0
   field :INITIALIZED, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagEmbeddingModelConfig.VertexPredictionEndpoint do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :endpoint, 1, type: :string, deprecated: false
   field :model, 2, type: :string, deprecated: false
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagEmbeddingModelConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :model_config, 0
 
@@ -45,13 +45,13 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig.RagManagedDb.KNN do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig.RagManagedDb.ANN do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tree_depth, 1, type: :int32, json_name: "treeDepth"
   field :leaf_count, 2, type: :int32, json_name: "leafCount"
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig.RagManagedDb do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :retrieval_strategy, 0
 
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig.Pinecone do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_name, 1, type: :string, json_name: "indexName"
 end
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig.VertexVectorSearch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index_endpoint, 1, type: :string, json_name: "indexEndpoint"
   field :index, 2, type: :string
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagVectorDbConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :vector_db, 0
 
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.FileStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Aiplatform.V1.FileStatus.State,
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.VertexAiSearchConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :serving_config, 1, type: :string, json_name: "servingConfig"
 end
@@ -136,7 +136,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.CorpusStatus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :state, 1,
     type: Google.Cloud.Aiplatform.V1.CorpusStatus.State,
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagCorpus do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :backend_config, 0
 
@@ -193,7 +193,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :rag_file_source, 0
 
@@ -253,7 +253,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagChunk.PageSpan do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :first_page, 1, type: :int32, json_name: "firstPage"
   field :last_page, 2, type: :int32, json_name: "lastPage"
@@ -262,7 +262,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
 
@@ -275,7 +275,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileChunkingConfig.FixedLengthChunking do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk_size, 1, type: :int32, json_name: "chunkSize"
   field :chunk_overlap, 2, type: :int32, json_name: "chunkOverlap"
@@ -284,7 +284,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileChunkingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :chunking_config, 0
 
@@ -297,7 +297,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileTransformationConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rag_file_chunking_config, 1,
     type: Google.Cloud.Aiplatform.V1.RagFileChunkingConfig,
@@ -307,7 +307,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LayoutParser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :processor_name, 1, type: :string, json_name: "processorName"
   field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
@@ -316,7 +316,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig.LlmParser do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :model_name, 1, type: :string, json_name: "modelName"
   field :max_parsing_requests_per_min, 2, type: :int32, json_name: "maxParsingRequestsPerMin"
@@ -326,7 +326,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagFileParsingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :parser, 0
 
@@ -344,7 +344,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.UploadRagFileConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :rag_file_transformation_config, 3,
     type: Google.Cloud.Aiplatform.V1.RagFileTransformationConfig,
@@ -354,7 +354,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.ImportRagFilesConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :import_source, 0
 
@@ -429,25 +429,25 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Scaled do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Basic do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig.Unprovisioned do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1.RagManagedDbConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :tier, 0
 
@@ -462,7 +462,7 @@ end
 defmodule Google.Cloud.Aiplatform.V1.RagEngineConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 

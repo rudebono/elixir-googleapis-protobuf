@@ -1,7 +1,7 @@
 defmodule Google.Bigtable.V2.ReadRowsRequest.RequestStatsView do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :REQUEST_STATS_VIEW_UNSPECIFIED, 0
   field :REQUEST_STATS_NONE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.DataChange.Type do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :TYPE_UNSPECIFIED, 0
   field :USER, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Bigtable.V2.ReadRowsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -52,7 +52,7 @@ end
 defmodule Google.Bigtable.V2.ReadRowsResponse.CellChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :row_status, 0
 
@@ -70,7 +70,7 @@ end
 defmodule Google.Bigtable.V2.ReadRowsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunks, 1, repeated: true, type: Google.Bigtable.V2.ReadRowsResponse.CellChunk
   field :last_scanned_row_key, 2, type: :bytes, json_name: "lastScannedRowKey"
@@ -80,7 +80,7 @@ end
 defmodule Google.Bigtable.V2.SampleRowKeysRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -100,7 +100,7 @@ end
 defmodule Google.Bigtable.V2.SampleRowKeysResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :offset_bytes, 2, type: :int64, json_name: "offsetBytes"
@@ -109,7 +109,7 @@ end
 defmodule Google.Bigtable.V2.MutateRowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -127,13 +127,13 @@ end
 defmodule Google.Bigtable.V2.MutateRowResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.MutateRowsRequest.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :row_key, 1, type: :bytes, json_name: "rowKey"
   field :mutations, 2, repeated: true, type: Google.Bigtable.V2.Mutation, deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Google.Bigtable.V2.MutateRowsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -163,7 +163,7 @@ end
 defmodule Google.Bigtable.V2.MutateRowsResponse.Entry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :index, 1, type: :int64
   field :status, 2, type: Google.Rpc.Status
@@ -172,7 +172,7 @@ end
 defmodule Google.Bigtable.V2.MutateRowsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entries, 1, repeated: true, type: Google.Bigtable.V2.MutateRowsResponse.Entry
 
@@ -185,7 +185,7 @@ end
 defmodule Google.Bigtable.V2.RateLimitInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :period, 1, type: Google.Protobuf.Duration
   field :factor, 2, type: :double
@@ -194,7 +194,7 @@ end
 defmodule Google.Bigtable.V2.CheckAndMutateRowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -221,7 +221,7 @@ end
 defmodule Google.Bigtable.V2.CheckAndMutateRowResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :predicate_matched, 1, type: :bool, json_name: "predicateMatched"
 end
@@ -229,7 +229,7 @@ end
 defmodule Google.Bigtable.V2.PingAndWarmRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
@@ -238,13 +238,13 @@ end
 defmodule Google.Bigtable.V2.PingAndWarmResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Bigtable.V2.ReadModifyWriteRowRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
 
@@ -261,7 +261,7 @@ end
 defmodule Google.Bigtable.V2.ReadModifyWriteRowResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :row, 1, type: Google.Bigtable.V2.Row
 end
@@ -269,7 +269,7 @@ end
 defmodule Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_name, 1, type: :string, json_name: "tableName", deprecated: false
   field :app_profile_id, 2, type: :string, json_name: "appProfileId"
@@ -278,7 +278,7 @@ end
 defmodule Google.Bigtable.V2.GenerateInitialChangeStreamPartitionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :partition, 1, type: Google.Bigtable.V2.StreamPartition
 end
@@ -286,7 +286,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :start_from, 0
 
@@ -307,7 +307,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk.ChunkInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunked_value_size, 1, type: :int32, json_name: "chunkedValueSize"
   field :chunked_value_offset, 2, type: :int32, json_name: "chunkedValueOffset"
@@ -317,7 +317,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :chunk_info, 1,
     type: Google.Bigtable.V2.ReadChangeStreamResponse.MutationChunk.ChunkInfo,
@@ -329,7 +329,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.DataChange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :type, 1, type: Google.Bigtable.V2.ReadChangeStreamResponse.DataChange.Type, enum: true
   field :source_cluster_id, 2, type: :string, json_name: "sourceClusterId"
@@ -352,7 +352,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.Heartbeat do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :continuation_token, 1,
     type: Google.Bigtable.V2.StreamContinuationToken,
@@ -366,7 +366,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse.CloseStream do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :status, 1, type: Google.Rpc.Status
 
@@ -384,7 +384,7 @@ end
 defmodule Google.Bigtable.V2.ReadChangeStreamResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :stream_record, 0
 
@@ -404,7 +404,7 @@ end
 defmodule Google.Bigtable.V2.ExecuteQueryRequest.ParamsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.V2.Value
@@ -413,7 +413,7 @@ end
 defmodule Google.Bigtable.V2.ExecuteQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data_format, 0
 
@@ -440,7 +440,7 @@ end
 defmodule Google.Bigtable.V2.ExecuteQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :response, 0
 
@@ -451,7 +451,7 @@ end
 defmodule Google.Bigtable.V2.PrepareQueryRequest.ParamTypesEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: Google.Bigtable.V2.Type
@@ -460,7 +460,7 @@ end
 defmodule Google.Bigtable.V2.PrepareQueryRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :data_format, 0
 
@@ -480,7 +480,7 @@ end
 defmodule Google.Bigtable.V2.PrepareQueryResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :metadata, 1, type: Google.Bigtable.V2.ResultSetMetadata
   field :prepared_query, 2, type: :bytes, json_name: "preparedQuery"
@@ -490,7 +490,7 @@ end
 defmodule Google.Bigtable.V2.Bigtable.Service do
   @moduledoc false
 
-  use GRPC.Service, name: "google.bigtable.v2.Bigtable", protoc_gen_elixir_version: "0.14.1"
+  use GRPC.Service, name: "google.bigtable.v2.Bigtable", protoc_gen_elixir_version: "0.15.0"
 
   rpc :ReadRows, Google.Bigtable.V2.ReadRowsRequest, stream(Google.Bigtable.V2.ReadRowsResponse)
 

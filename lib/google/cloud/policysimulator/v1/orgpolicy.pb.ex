@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Policysimulator.V1.PreviewState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PREVIEW_STATE_UNSPECIFIED, 0
   field :PREVIEW_PENDING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyViolationsPreview.ResourceCounts do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scanned, 1, type: :int32, deprecated: false
   field :noncompliant, 2, type: :int32, deprecated: false
@@ -25,7 +25,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyViolationsPreview do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyViolation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :resource, 2, type: Google.Cloud.Policysimulator.V1.ResourceContext
@@ -72,7 +72,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.ResourceContext do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :resource, 1, type: :string
   field :asset_type, 2, type: :string, json_name: "assetType"
@@ -82,7 +82,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyOverlay.PolicyOverlay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policy_parent, 1, type: :string, json_name: "policyParent", deprecated: false
   field :policy, 2, type: Google.Cloud.Orgpolicy.V2.Policy, deprecated: false
@@ -91,7 +91,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyOverlay.CustomConstraintOverlay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :custom_constraint_parent, 1,
     type: :string,
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.OrgPolicyOverlay do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :policies, 1,
     repeated: true,
@@ -124,7 +124,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.CreateOrgPolicyViolationsPreviewOperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :request_time, 1, type: Google.Protobuf.Timestamp, json_name: "requestTime"
   field :start_time, 2, type: Google.Protobuf.Timestamp, json_name: "startTime"
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.ListOrgPolicyViolationsPreviewsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -152,7 +152,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.ListOrgPolicyViolationsPreviewsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :org_policy_violations_previews, 1,
     repeated: true,
@@ -165,7 +165,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.GetOrgPolicyViolationsPreviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -173,7 +173,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.CreateOrgPolicyViolationsPreviewRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -191,7 +191,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.ListOrgPolicyViolationsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -201,7 +201,7 @@ end
 defmodule Google.Cloud.Policysimulator.V1.ListOrgPolicyViolationsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :org_policy_violations, 1,
     repeated: true,
@@ -216,7 +216,8 @@ defmodule Google.Cloud.Policysimulator.V1.OrgPolicyViolationsPreviewService.Serv
 
   use GRPC.Service,
     name: "google.cloud.policysimulator.v1.OrgPolicyViolationsPreviewService",
-    protoc_gen_elixir_version: "0.14.1"
+
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListOrgPolicyViolationsPreviews,
       Google.Cloud.Policysimulator.V1.ListOrgPolicyViolationsPreviewsRequest,

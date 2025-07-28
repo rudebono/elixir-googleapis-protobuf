@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project, 5, type: :string, deprecated: true
   field :parent, 6, type: :string, deprecated: false
@@ -17,7 +17,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse.Candidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :linked_resource, 1, type: :string, json_name: "linkedResource"
   field :content, 2, type: :string
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :candidates, 1,
     repeated: true,
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_candidates, 1,
     repeated: true,
@@ -68,7 +68,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsFromRecentTablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsFromRecentTablesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_candidates, 1,
     repeated: true,
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedDescriptionsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -102,7 +102,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedDescriptionsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_candidates, 1,
     repeated: true,
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -127,7 +127,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse.ExampleSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :nl_query, 1, type: :string, json_name: "nlQuery"
   field :sql, 2, type: :string
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableSuggestedExamplesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :example_suggestions, 2,
     repeated: true,
@@ -153,7 +153,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryRecentRelevantTablesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :query, 2, type: :string, deprecated: false
@@ -162,7 +162,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryRecentRelevantTablesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_ids, 1, repeated: true, type: :string, json_name: "tableIds"
 end
@@ -170,7 +170,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.DirectLookup do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :big_query_table_reference, 1,
     type: Google.Cloud.Geminidataanalytics.V1alpha.BigQueryTableReference,
@@ -181,7 +181,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.TableCandidate.FieldSuggestion do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :field, 1, type: :string
   field :suggested_description, 2, type: :string, json_name: "suggestedDescription"
@@ -194,7 +194,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.TableCandidate do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :linked_resource, 1, type: :string, json_name: "linkedResource"
   field :icl_string, 2, type: :string, json_name: "iclString"
@@ -210,7 +210,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ContextRetrievalService.Servi
 
   use GRPC.Service,
     name: "google.cloud.geminidataanalytics.v1alpha.ContextRetrievalService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :RetrieveBigQueryTableContext,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextRequest,

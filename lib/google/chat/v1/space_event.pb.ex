@@ -1,7 +1,7 @@
 defmodule Google.Chat.V1.SpaceEvent do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :payload, 0
 
@@ -103,7 +103,7 @@ end
 defmodule Google.Chat.V1.GetSpaceEventRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -111,7 +111,7 @@ end
 defmodule Google.Chat.V1.ListSpaceEventsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 5, type: :int32, json_name: "pageSize", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Chat.V1.ListSpaceEventsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :space_events, 1,
     repeated: true,

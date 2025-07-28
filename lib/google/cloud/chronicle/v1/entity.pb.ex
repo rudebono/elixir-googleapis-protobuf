@@ -1,13 +1,13 @@
 defmodule Google.Cloud.Chronicle.V1.Watchlist.EntityPopulationMechanism.Manual do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Chronicle.V1.Watchlist.EntityPopulationMechanism do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :mechanism, 0
 
@@ -20,7 +20,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Watchlist.EntityCount do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user, 1, type: :int32, deprecated: false
   field :asset, 2, type: :int32, deprecated: false
@@ -29,7 +29,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.Watchlist do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
@@ -65,7 +65,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.WatchlistUserPreferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :pinned, 1, type: :bool, deprecated: false
 end
@@ -73,7 +73,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.GetWatchlistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -81,7 +81,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListWatchlistsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.ListWatchlistsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :watchlists, 1,
     repeated: true,
@@ -105,7 +105,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.CreateWatchlistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :watchlist_id, 2, type: :string, json_name: "watchlistId", deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.UpdateWatchlistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :watchlist, 1, type: Google.Cloud.Chronicle.V1.Watchlist, deprecated: false
 
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Chronicle.V1.DeleteWatchlistRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :force, 2, type: :bool, deprecated: false
@@ -139,7 +139,7 @@ defmodule Google.Cloud.Chronicle.V1.EntityService.Service do
 
   use GRPC.Service,
     name: "google.cloud.chronicle.v1.EntityService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetWatchlist,
       Google.Cloud.Chronicle.V1.GetWatchlistRequest,

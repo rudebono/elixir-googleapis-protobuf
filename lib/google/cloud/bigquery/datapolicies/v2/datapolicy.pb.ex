@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataPolicy.DataPolicyType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :DATA_POLICY_TYPE_UNSPECIFIED, 0
   field :DATA_MASKING_POLICY, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataPolicy.Version do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :VERSION_UNSPECIFIED, 0
   field :V1, 1
@@ -22,7 +22,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataMaskingPolicy.PredefinedExpression do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PREDEFINED_EXPRESSION_UNSPECIFIED, 0
   field :SHA256, 1
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.CreateDataPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_policy_id, 2, type: :string, json_name: "dataPolicyId", deprecated: false
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.UpdateDataPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_policy, 1,
     type: Google.Cloud.Bigquery.Datapolicies.V2.DataPolicy,
@@ -70,7 +70,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.AddGranteesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_policy, 1, type: :string, json_name: "dataPolicy", deprecated: false
   field :grantees, 2, repeated: true, type: :string, deprecated: false
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.RemoveGranteesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_policy, 1, type: :string, json_name: "dataPolicy", deprecated: false
   field :grantees, 2, repeated: true, type: :string, deprecated: false
@@ -88,7 +88,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DeleteDataPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -96,7 +96,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.GetDataPolicyRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -104,7 +104,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.ListDataPoliciesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -115,7 +115,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.ListDataPoliciesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_policies, 1,
     repeated: true,
@@ -128,7 +128,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :policy, 0
 
@@ -160,7 +160,7 @@ end
 defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataMaskingPolicy do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :masking_expression, 0
 
@@ -179,7 +179,8 @@ defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataPolicyService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.datapolicies.v2.DataPolicyService",
-    protoc_gen_elixir_version: "0.14.1"
+  
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateDataPolicy,
       Google.Cloud.Bigquery.Datapolicies.V2.CreateDataPolicyRequest,

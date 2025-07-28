@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DatasourceReferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :references, 0
 
@@ -19,7 +19,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.BigQueryTableReferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :table_references, 1,
     repeated: true,
@@ -31,7 +31,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.BigQueryTableReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 3, type: :string, json_name: "datasetId", deprecated: false
@@ -41,7 +41,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.StudioDatasourceReferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :studio_references, 2,
     repeated: true,
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.StudioDatasourceReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :datasource_id, 1, type: :string, json_name: "datasourceId", deprecated: false
 end
@@ -60,7 +60,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.LookerExploreReferences do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :explore_references, 1,
     repeated: true,
@@ -76,7 +76,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.LookerExploreReference do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :instance, 0
 
@@ -99,7 +99,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.PrivateLookerInstanceInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :looker_instance_id, 1, type: :string, json_name: "lookerInstanceId"
   field :service_directory_name, 2, type: :string, json_name: "serviceDirectoryName"
@@ -108,7 +108,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Datasource do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :reference, 0
 
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Schema do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :fields, 1,
     repeated: true,
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Field do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :type, 2, type: :string, deprecated: false

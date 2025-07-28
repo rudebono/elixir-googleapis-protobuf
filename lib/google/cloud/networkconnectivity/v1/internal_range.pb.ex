@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.Usage do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :USAGE_UNSPECIFIED, 0
   field :FOR_VPC, 1
@@ -12,7 +12,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.Peering do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :PEERING_UNSPECIFIED, 0
   field :FOR_SELF, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.Overlap do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :OVERLAP_UNSPECIFIED, 0
   field :OVERLAP_ROUTE_RANGE, 1
@@ -33,7 +33,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.AllocationStrategy do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ALLOCATION_STRATEGY_UNSPECIFIED, 0
   field :RANDOM, 1
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.Migration do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source, 1, type: :string, deprecated: false
   field :target, 2, type: :string, deprecated: false
@@ -54,7 +54,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.AllocationOptions do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :allocation_strategy, 1,
     type: Google.Cloud.Networkconnectivity.V1.InternalRange.AllocationStrategy,
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -80,7 +80,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.InternalRange do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :create_time, 2, type: Google.Protobuf.Timestamp, json_name: "createTime"
@@ -142,7 +142,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListInternalRangesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.ListInternalRangesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :internal_ranges, 1,
     repeated: true,
@@ -168,7 +168,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.GetInternalRangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -176,7 +176,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.CreateInternalRangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :internal_range_id, 2, type: :string, json_name: "internalRangeId", deprecated: false
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.UpdateInternalRangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -210,7 +210,7 @@ end
 defmodule Google.Cloud.Networkconnectivity.V1.DeleteInternalRangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -221,7 +221,8 @@ defmodule Google.Cloud.Networkconnectivity.V1.InternalRangeService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1.InternalRangeService",
-    protoc_gen_elixir_version: "0.14.1"
+
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInternalRanges,
       Google.Cloud.Networkconnectivity.V1.ListInternalRangesRequest,

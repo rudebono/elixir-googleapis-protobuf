@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest.CreatorFilter do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :CREATOR_FILTER_UNSPECIFIED, 0
   field :NONE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -24,7 +24,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_agents, 1,
     repeated: true,
@@ -38,7 +38,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :data_agents, 1,
     repeated: true,
@@ -71,7 +71,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.GetDataAgentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -79,7 +79,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.CreateDataAgentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :data_agent_id, 2, type: :string, json_name: "dataAgentId", deprecated: false
@@ -95,7 +95,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.UpdateDataAgentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.DeleteDataAgentRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
@@ -122,7 +122,7 @@ end
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.OperationMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :create_time, 1,
     type: Google.Protobuf.Timestamp,
@@ -147,7 +147,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataAgentService.Service do
 
   use GRPC.Service,
     name: "google.cloud.geminidataanalytics.v1alpha.DataAgentService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListDataAgents,
       Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest,

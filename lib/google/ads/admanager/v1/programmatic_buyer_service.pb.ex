@@ -1,7 +1,7 @@
 defmodule Google.Ads.Admanager.V1.GetProgrammaticBuyerRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListProgrammaticBuyersRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -22,7 +22,7 @@ end
 defmodule Google.Ads.Admanager.V1.ListProgrammaticBuyersResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :programmatic_buyers, 1,
     repeated: true,
@@ -38,7 +38,7 @@ defmodule Google.Ads.Admanager.V1.ProgrammaticBuyerService.Service do
 
   use GRPC.Service,
     name: "google.ads.admanager.v1.ProgrammaticBuyerService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :GetProgrammaticBuyer,
       Google.Ads.Admanager.V1.GetProgrammaticBuyerRequest,

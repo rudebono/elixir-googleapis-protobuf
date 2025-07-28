@@ -1,7 +1,7 @@
 defmodule Google.Shopping.Merchant.Products.V1beta.ProductInput do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :product, 2, type: :string, deprecated: false
@@ -30,7 +30,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.InsertProductInputRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -45,7 +45,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.UpdateProductInputRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :product_input, 1,
     type: Google.Shopping.Merchant.Products.V1beta.ProductInput,
@@ -63,7 +63,7 @@ end
 defmodule Google.Shopping.Merchant.Products.V1beta.DeleteProductInputRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :data_source, 2, type: :string, json_name: "dataSource", deprecated: false
@@ -74,7 +74,7 @@ defmodule Google.Shopping.Merchant.Products.V1beta.ProductInputsService.Service 
 
   use GRPC.Service,
     name: "google.shopping.merchant.products.v1beta.ProductInputsService",
-    protoc_gen_elixir_version: "0.14.1"
+    protoc_gen_elixir_version: "0.15.0"
 
   rpc :InsertProductInput,
       Google.Shopping.Merchant.Products.V1beta.InsertProductInputRequest,

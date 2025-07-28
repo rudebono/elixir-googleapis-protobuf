@@ -1,7 +1,7 @@
 defmodule Google.Protobuf.Api do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :methods, 2, repeated: true, type: Google.Protobuf.Method
@@ -16,7 +16,7 @@ end
 defmodule Google.Protobuf.Method do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :request_type_url, 2, type: :string, json_name: "requestTypeUrl"
@@ -31,7 +31,7 @@ end
 defmodule Google.Protobuf.Mixin do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string
   field :root, 2, type: :string

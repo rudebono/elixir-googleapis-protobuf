@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Storagebatchoperations.V1.Job.State do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :STATE_UNSPECIFIED, 0
   field :RUNNING, 1
@@ -13,7 +13,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.PutObjectHold.HoldStatus do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :HOLD_STATUS_UNSPECIFIED, 0
   field :SET, 1
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.LoggingConfig.LoggableAction do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOGGABLE_ACTION_UNSPECIFIED, 0
   field :TRANSFORM, 6
@@ -32,7 +32,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.LoggingConfig.LoggableActionState do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :LOGGABLE_ACTION_STATE_UNSPECIFIED, 0
   field :SUCCEEDED, 1
@@ -42,7 +42,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.Job do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -113,7 +113,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.BucketList.Bucket do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :object_configuration, 0
 
@@ -130,7 +130,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.BucketList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :buckets, 1,
     repeated: true,
@@ -141,7 +141,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.Manifest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :manifest_location, 2, type: :string, json_name: "manifestLocation", deprecated: false
 end
@@ -149,7 +149,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.PrefixList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :included_object_prefixes, 2,
     repeated: true,
@@ -161,7 +161,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.PutObjectHold do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :temporary_hold, 1,
     type: Google.Cloud.Storagebatchoperations.V1.PutObjectHold.HoldStatus,
@@ -179,7 +179,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.DeleteObject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :permanent_object_deletion_enabled, 1,
     type: :bool,
@@ -190,7 +190,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.RewriteObject do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :kms_key, 1, proto3_optional: true, type: :string, json_name: "kmsKey", deprecated: false
 end
@@ -198,7 +198,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.PutMetadata.CustomMetadataEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -207,7 +207,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.PutMetadata do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content_disposition, 1,
     proto3_optional: true,
@@ -256,7 +256,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.ErrorSummary do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :error_code, 1,
     type: Google.Rpc.Code,
@@ -276,7 +276,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.ErrorLogEntry do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :object_uri, 1, type: :string, json_name: "objectUri", deprecated: false
 
@@ -290,7 +290,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.Counters do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :total_object_count, 1, type: :int64, json_name: "totalObjectCount", deprecated: false
 
@@ -305,7 +305,7 @@ end
 defmodule Google.Cloud.Storagebatchoperations.V1.LoggingConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :log_actions, 1,
     repeated: true,

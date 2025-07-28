@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Translation.V3.AdaptiveMtDataset do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Translation.V3.CreateAdaptiveMtDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteAdaptiveMtDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -44,7 +44,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetAdaptiveMtDatasetRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -52,7 +52,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtDatasetsRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -63,7 +63,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtDatasetsResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adaptive_mt_datasets, 1,
     repeated: true,
@@ -77,7 +77,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePair do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :source_sentence, 1, type: :string, json_name: "sourceSentence"
   field :target_sentence, 2, type: :string, json_name: "targetSentence"
@@ -86,7 +86,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentencePairList do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_sentence_pairs, 1,
     repeated: true,
@@ -97,7 +97,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.ReferenceSentenceConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :reference_sentence_pair_lists, 1,
     repeated: true,
@@ -111,7 +111,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest.GlossaryConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :glossary, 1, type: :string, deprecated: false
   field :ignore_case, 2, type: :bool, json_name: "ignoreCase", deprecated: false
@@ -125,7 +125,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :dataset, 2, type: :string, deprecated: false
@@ -146,7 +146,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslation do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :translated_text, 1, type: :string, json_name: "translatedText", deprecated: false
 end
@@ -154,7 +154,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtTranslateResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :translations, 1,
     repeated: true,
@@ -172,7 +172,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtFile do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :display_name, 2, type: :string, json_name: "displayName"
@@ -192,7 +192,7 @@ end
 defmodule Google.Cloud.Translation.V3.GetAdaptiveMtFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -200,7 +200,7 @@ end
 defmodule Google.Cloud.Translation.V3.DeleteAdaptiveMtFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -208,7 +208,7 @@ end
 defmodule Google.Cloud.Translation.V3.ImportAdaptiveMtFileRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   oneof :source, 0
 
@@ -228,7 +228,7 @@ end
 defmodule Google.Cloud.Translation.V3.ImportAdaptiveMtFileResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adaptive_mt_file, 1,
     type: Google.Cloud.Translation.V3.AdaptiveMtFile,
@@ -239,7 +239,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtFilesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
@@ -249,7 +249,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtFilesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adaptive_mt_files, 1,
     repeated: true,
@@ -263,7 +263,7 @@ end
 defmodule Google.Cloud.Translation.V3.AdaptiveMtSentence do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :source_sentence, 2, type: :string, json_name: "sourceSentence", deprecated: false
@@ -283,7 +283,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtSentencesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -293,7 +293,7 @@ end
 defmodule Google.Cloud.Translation.V3.ListAdaptiveMtSentencesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :adaptive_mt_sentences, 1,
     repeated: true,

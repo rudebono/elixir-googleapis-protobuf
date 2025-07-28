@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Identitytoolkit.V2.AutoRetrievalInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :app_signature_hash, 1, type: :string, json_name: "appSignatureHash"
 end
@@ -9,7 +9,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneRequestInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :phone_number, 1, type: :string, json_name: "phoneNumber"
   field :ios_receipt, 2, type: :string, json_name: "iosReceipt"
@@ -26,7 +26,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.StartMfaPhoneResponseInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_info, 1, type: :string, json_name: "sessionInfo"
 end
@@ -34,7 +34,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneRequestInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :session_info, 1, type: :string, json_name: "sessionInfo"
   field :code, 2, type: :string
@@ -45,7 +45,7 @@ end
 defmodule Google.Cloud.Identitytoolkit.V2.FinalizeMfaPhoneResponseInfo do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :android_verification_proof, 1, type: :string, json_name: "androidVerificationProof"
 

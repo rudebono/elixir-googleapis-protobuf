@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Alloydb.Connectors.V1.MetadataExchangeRequest.AuthType do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :AUTH_TYPE_UNSPECIFIED, 0
   field :DB_NATIVE, 1
@@ -11,7 +11,7 @@ end
 defmodule Google.Cloud.Alloydb.Connectors.V1.MetadataExchangeResponse.ResponseCode do
   @moduledoc false
 
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :RESPONSE_CODE_UNSPECIFIED, 0
   field :OK, 1
@@ -21,7 +21,7 @@ end
 defmodule Google.Cloud.Alloydb.Connectors.V1.MetadataExchangeRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :user_agent, 1, type: :string, json_name: "userAgent", deprecated: false
 
@@ -36,7 +36,7 @@ end
 defmodule Google.Cloud.Alloydb.Connectors.V1.MetadataExchangeResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :response_code, 1,
     type: Google.Cloud.Alloydb.Connectors.V1.MetadataExchangeResponse.ResponseCode,

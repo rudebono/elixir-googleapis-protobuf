@@ -1,7 +1,7 @@
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteRule do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :matches, 1,
     repeated: true,
@@ -14,7 +14,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteMatch do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :sni_host, 1, repeated: true, type: :string, json_name: "sniHost", deprecated: false
   field :alpn, 2, repeated: true, type: :string, deprecated: false
@@ -23,7 +23,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteAction do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :destinations, 1,
     repeated: true,
@@ -39,7 +39,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.RouteDestination do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :service_name, 1, type: :string, json_name: "serviceName", deprecated: false
   field :weight, 2, type: :int32, deprecated: false
@@ -48,7 +48,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.TlsRoute.LabelsEntry do
   @moduledoc false
 
-  use Protobuf, map: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :key, 1, type: :string
   field :value, 2, type: :string
@@ -57,7 +57,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.TlsRoute do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
   field :self_link, 8, type: :string, json_name: "selfLink", deprecated: false
@@ -92,7 +92,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize"
@@ -107,7 +107,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.ListTlsRoutesResponse do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :tls_routes, 1,
     repeated: true,
@@ -121,7 +121,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.GetTlsRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
@@ -129,7 +129,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.CreateTlsRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parent, 1, type: :string, deprecated: false
   field :tls_route_id, 2, type: :string, json_name: "tlsRouteId", deprecated: false
@@ -143,7 +143,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.UpdateTlsRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :update_mask, 1,
     type: Google.Protobuf.FieldMask,
@@ -159,7 +159,7 @@ end
 defmodule Google.Cloud.Networkservices.V1.DeleteTlsRouteRequest do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
 end
