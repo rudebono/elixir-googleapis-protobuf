@@ -60,6 +60,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.Overlay.FadeType do
   field :FADE_OUT, 2
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.FrameRateConversionStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :FRAME_RATE_CONVERSION_STRATEGY_UNSPECIFIED, 0
+  field :DOWNSAMPLE, 1
+  field :DROP_DUPLICATE, 2
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.Job.LabelsEntry do
   @moduledoc false
 
@@ -113,6 +123,8 @@ defmodule Google.Cloud.Video.Transcoder.V1.Job do
     type: Google.Cloud.Video.Transcoder.V1.Job.OptimizationStrategy,
     enum: true,
     deprecated: false
+
+  field :fill_content_gaps, 25, type: :bool, json_name: "fillContentGaps", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.JobTemplate.LabelsEntry do
@@ -246,10 +258,20 @@ defmodule Google.Cloud.Video.Transcoder.V1.ElementaryStream do
     oneof: 0
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.MuxStream.Fmp4Config do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  field :codec_tag, 1, type: :string, json_name: "codecTag", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+
+  oneof :container_config, 0
 
   field :key, 1, type: :string
   field :file_name, 2, type: :string, json_name: "fileName"
@@ -261,6 +283,11 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
     json_name: "segmentSettings"
 
   field :encryption_id, 7, type: :string, json_name: "encryptionId"
+
+  field :fmp4, 8,
+    type: Google.Cloud.Video.Transcoder.V1.MuxStream.Fmp4Config,
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Manifest.DashConfig do
@@ -515,6 +542,18 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   field :deinterlace, 7, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace
 end
 
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264ColorFormatSDR do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264ColorFormatHLG do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   @moduledoc false
 
@@ -522,9 +561,18 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
 
   oneof :gop_mode, 0
 
+  oneof :color_format, 1
+
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
   field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+
+  field :frame_rate_conversion_strategy, 23,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.FrameRateConversionStrategy,
+    json_name: "frameRateConversionStrategy",
+    enum: true,
+    deprecated: false
+
   field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
@@ -542,6 +590,34 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264CodecSettings do
   field :profile, 18, type: :string
   field :tune, 19, type: :string
   field :preset, 20, type: :string
+
+  field :sdr, 21,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.H264ColorFormatSDR,
+    oneof: 1,
+    deprecated: false
+
+  field :hlg, 22,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.H264ColorFormatHLG,
+    oneof: 1,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatSDR do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatHLG do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatHDR10 do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
@@ -551,9 +627,18 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
 
   oneof :gop_mode, 0
 
+  oneof :color_format, 1
+
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
   field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+
+  field :frame_rate_conversion_strategy, 23,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.FrameRateConversionStrategy,
+    json_name: "frameRateConversionStrategy",
+    enum: true,
+    deprecated: false
+
   field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
@@ -570,6 +655,33 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H265CodecSettings do
   field :profile, 17, type: :string
   field :tune, 18, type: :string
   field :preset, 19, type: :string
+
+  field :sdr, 20,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatSDR,
+    oneof: 1,
+    deprecated: false
+
+  field :hlg, 21,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatHLG,
+    oneof: 1,
+    deprecated: false
+
+  field :hdr10, 22,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.H265ColorFormatHDR10,
+    oneof: 1,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9ColorFormatSDR do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9ColorFormatHLG do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
@@ -579,9 +691,18 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
 
   oneof :gop_mode, 0
 
+  oneof :color_format, 1
+
   field :width_pixels, 1, type: :int32, json_name: "widthPixels"
   field :height_pixels, 2, type: :int32, json_name: "heightPixels"
   field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+
+  field :frame_rate_conversion_strategy, 13,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.FrameRateConversionStrategy,
+    json_name: "frameRateConversionStrategy",
+    enum: true,
+    deprecated: false
+
   field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
   field :pixel_format, 5, type: :string, json_name: "pixelFormat"
   field :rate_control_mode, 6, type: :string, json_name: "rateControlMode"
@@ -589,6 +710,16 @@ defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9CodecSettings do
   field :gop_frame_count, 8, type: :int32, json_name: "gopFrameCount", oneof: 0
   field :gop_duration, 9, type: Google.Protobuf.Duration, json_name: "gopDuration", oneof: 0
   field :profile, 10, type: :string
+
+  field :sdr, 11,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9ColorFormatSDR,
+    oneof: 1,
+    deprecated: false
+
+  field :hlg, 12,
+    type: Google.Cloud.Video.Transcoder.V1.VideoStream.Vp9ColorFormatHLG,
+    oneof: 1,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream do
