@@ -179,6 +179,7 @@ defmodule Google.Cloud.Bigquery.Datapolicies.V2.DataPolicyService.Service do
 
   use GRPC.Service,
     name: "google.cloud.bigquery.datapolicies.v2.DataPolicyService",
+  
     protoc_gen_elixir_version: "0.15.0"
 
   rpc :CreateDataPolicy,
