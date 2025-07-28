@@ -82,6 +82,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.BatchDedicatedResources do
     deprecated: false
 
   field :max_replica_count, 3, type: :int32, json_name: "maxReplicaCount", deprecated: false
+
+  field :flex_start, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.FlexStart,
+    json_name: "flexStart",
+    deprecated: false
+
+  field :spot, 5, type: :bool, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ResourcesConsumed do

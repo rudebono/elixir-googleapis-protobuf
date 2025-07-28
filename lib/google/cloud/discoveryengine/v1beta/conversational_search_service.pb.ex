@@ -510,6 +510,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.GetSessionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :include_answer_details, 2,
+    type: :bool,
+    json_name: "includeAnswerDetails",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.ListSessionsRequest do

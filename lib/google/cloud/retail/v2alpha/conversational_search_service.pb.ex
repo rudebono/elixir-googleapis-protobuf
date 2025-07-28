@@ -4,7 +4,19 @@ defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.Conversational
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :MODE_UNSPECIFIED, 0
+  field :DISABLED, 1
+  field :ENABLED, 2
   field :CONVERSATIONAL_FILTER_ONLY, 3
+end
+
+defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchResponse.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :STREAMING, 1
+  field :SUCCEEDED, 2
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.SearchParams do
@@ -72,6 +84,15 @@ defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.Conversational
     deprecated: false
 end
 
+defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.UserLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest do
   @moduledoc false
 
@@ -104,6 +125,19 @@ defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchRequest do
   field :conversational_filtering_spec, 8,
     type: Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.ConversationalFilteringSpec,
     json_name: "conversationalFilteringSpec",
+    deprecated: false
+
+  field :user_labels, 12,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.ConversationalSearchRequest.UserLabelsEntry,
+    json_name: "userLabels",
+    map: true,
+    deprecated: false
+
+  field :safety_settings, 14,
+    repeated: true,
+    type: Google.Cloud.Retail.V2alpha.SafetySetting,
+    json_name: "safetySettings",
     deprecated: false
 end
 
@@ -169,6 +203,13 @@ defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :user_query_types, 10, repeated: true, type: :string, json_name: "userQueryTypes"
+  field :conversational_text_response, 2, type: :string, json_name: "conversationalTextResponse"
+
+  field :followup_question, 3,
+    type: Google.Cloud.Retail.V2alpha.ConversationalSearchResponse.FollowupQuestion,
+    json_name: "followupQuestion"
+
   field :conversation_id, 4, type: :string, json_name: "conversationId"
 
   field :refined_search, 6,
@@ -179,6 +220,11 @@ defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchResponse do
   field :conversational_filtering_result, 7,
     type: Google.Cloud.Retail.V2alpha.ConversationalSearchResponse.ConversationalFilteringResult,
     json_name: "conversationalFilteringResult"
+
+  field :state, 9,
+    type: Google.Cloud.Retail.V2alpha.ConversationalSearchResponse.State,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Retail.V2alpha.ConversationalSearchService.Service do
