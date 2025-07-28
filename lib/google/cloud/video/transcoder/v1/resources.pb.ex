@@ -273,8 +273,6 @@ defmodule Google.Cloud.Video.Transcoder.V1.MuxStream do
 
   oneof :container_config, 0
 
-  oneof :container_config, 0
-
   field :key, 1, type: :string
   field :file_name, 2, type: :string, json_name: "fileName"
   field :container, 3, type: :string

@@ -221,7 +221,6 @@ defmodule Google.Cloud.Networkconnectivity.V1.InternalRangeService.Service do
 
   use GRPC.Service,
     name: "google.cloud.networkconnectivity.v1.InternalRangeService",
-
     protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListInternalRanges,

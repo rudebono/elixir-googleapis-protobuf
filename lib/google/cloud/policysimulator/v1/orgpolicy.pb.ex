@@ -216,7 +216,6 @@ defmodule Google.Cloud.Policysimulator.V1.OrgPolicyViolationsPreviewService.Serv
 
   use GRPC.Service,
     name: "google.cloud.policysimulator.v1.OrgPolicyViolationsPreviewService",
-
     protoc_gen_elixir_version: "0.15.0"
 
   rpc :ListOrgPolicyViolationsPreviews,

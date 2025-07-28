@@ -65,6 +65,25 @@ defmodule Google.Cloud.Modelarmor.V1beta.InvocationResult do
   field :FAILURE, 3
 end
 
+defmodule Google.Cloud.Modelarmor.V1beta.Template.TemplateMetadata.EnforcementType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ENFORCEMENT_TYPE_UNSPECIFIED, 0
+  field :INSPECT_ONLY, 1
+  field :INSPECT_AND_BLOCK, 2
+end
+
+defmodule Google.Cloud.Modelarmor.V1beta.FloorSetting.IntegratedService do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :INTEGRATED_SERVICE_UNSPECIFIED, 0
+  field :AI_PLATFORM, 1
+end
+
 defmodule Google.Cloud.Modelarmor.V1beta.PiAndJailbreakFilterSettings.PiAndJailbreakFilterEnforcement do
   @moduledoc false
 
@@ -196,6 +215,12 @@ defmodule Google.Cloud.Modelarmor.V1beta.Template.TemplateMetadata do
     json_name: "logSanitizeOperations",
     deprecated: false
 
+  field :enforcement_type, 8,
+    type: Google.Cloud.Modelarmor.V1beta.Template.TemplateMetadata.EnforcementType,
+    json_name: "enforcementType",
+    enum: true,
+    deprecated: false
+
   field :multi_language_detection, 9,
     type: Google.Cloud.Modelarmor.V1beta.Template.TemplateMetadata.MultiLanguageDetection,
     json_name: "multiLanguageDetection",
@@ -245,6 +270,12 @@ defmodule Google.Cloud.Modelarmor.V1beta.Template do
     deprecated: false
 end
 
+defmodule Google.Cloud.Modelarmor.V1beta.FloorSetting.FloorSettingMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Modelarmor.V1beta.FloorSetting do
   @moduledoc false
 
@@ -272,6 +303,42 @@ defmodule Google.Cloud.Modelarmor.V1beta.FloorSetting do
     type: :bool,
     json_name: "enableFloorSettingEnforcement",
     deprecated: false
+
+  field :integrated_services, 6,
+    repeated: true,
+    type: Google.Cloud.Modelarmor.V1beta.FloorSetting.IntegratedService,
+    json_name: "integratedServices",
+    enum: true,
+    deprecated: false
+
+  field :ai_platform_floor_setting, 7,
+    proto3_optional: true,
+    type: Google.Cloud.Modelarmor.V1beta.AiPlatformFloorSetting,
+    json_name: "aiPlatformFloorSetting",
+    deprecated: false
+
+  field :floor_setting_metadata, 8,
+    type: Google.Cloud.Modelarmor.V1beta.FloorSetting.FloorSettingMetadata,
+    json_name: "floorSettingMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Modelarmor.V1beta.AiPlatformFloorSetting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :enforcement_type, 0
+
+  field :inspect_only, 1, type: :bool, json_name: "inspectOnly", oneof: 0, deprecated: false
+
+  field :inspect_and_block, 2,
+    type: :bool,
+    json_name: "inspectAndBlock",
+    oneof: 0,
+    deprecated: false
+
+  field :enable_cloud_logging, 3, type: :bool, json_name: "enableCloudLogging", deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1beta.ListTemplatesRequest do
