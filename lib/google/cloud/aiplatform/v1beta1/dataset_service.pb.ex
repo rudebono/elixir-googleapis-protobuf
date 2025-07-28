@@ -438,8 +438,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
 
   oneof :assessment_config, 0
 
-  oneof :read_config, 1
-
   field :tuning_validation_assessment_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.TuningValidationAssessmentConfig,
     json_name: "tuningValidationAssessmentConfig",
@@ -464,18 +462,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssessDataRequest do
       Google.Cloud.Aiplatform.V1beta1.AssessDataRequest.BatchPredictionResourceUsageAssessmentConfig,
     json_name: "batchPredictionResourceUsageAssessmentConfig",
     oneof: 0,
-    deprecated: false
-
-  field :gemini_template_config, 4,
-    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
-    json_name: "geminiTemplateConfig",
-    oneof: 1,
-    deprecated: false
-
-  field :request_column_name, 5,
-    type: :string,
-    json_name: "requestColumnName",
-    oneof: 1,
     deprecated: false
 
   field :name, 1, type: :string, deprecated: false
@@ -665,20 +651,6 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AssembleDataRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.14.1", syntax: :proto3
-
-  oneof :read_config, 0
-
-  field :gemini_template_config, 2,
-    type: Google.Cloud.Aiplatform.V1beta1.GeminiTemplateConfig,
-    json_name: "geminiTemplateConfig",
-    oneof: 0,
-    deprecated: false
-
-  field :request_column_name, 5,
-    type: :string,
-    json_name: "requestColumnName",
-    oneof: 0,
-    deprecated: false
 
   field :name, 1, type: :string, deprecated: false
 
