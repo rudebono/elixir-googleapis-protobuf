@@ -8,6 +8,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback
   field :OTHER, 2
   field :BLOCKLIST, 3
   field :PROHIBITED_CONTENT, 4
+  field :MODEL_ARMOR, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
@@ -322,6 +323,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentRequest do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.SafetySetting,
     json_name: "safetySettings",
+    deprecated: false
+
+  field :model_armor_config, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelArmorConfig,
+    json_name: "modelArmorConfig",
     deprecated: false
 
   field :generation_config, 4,

@@ -109,6 +109,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployedIndex do
     json_name: "enableAccessLogging",
     deprecated: false
 
+  field :enable_datapoint_upsert_logging, 20,
+    type: :bool,
+    json_name: "enableDatapointUpsertLogging",
+    deprecated: false
+
   field :deployed_index_auth_config, 9,
     type: Google.Cloud.Aiplatform.V1beta1.DeployedIndexAuthConfig,
     json_name: "deployedIndexAuthConfig",

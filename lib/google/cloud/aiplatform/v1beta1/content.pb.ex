@@ -130,6 +130,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Candidate.FinishReason do
   field :PROHIBITED_CONTENT, 7
   field :SPII, 8
   field :MALFORMED_FUNCTION_CALL, 9
+  field :MODEL_ARMOR, 10
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.UrlMetadata.UrlRetrievalStatus do
@@ -753,6 +754,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.RetrievalMetadata do
   field :google_search_dynamic_retrieval_score, 2,
     type: :float,
     json_name: "googleSearchDynamicRetrievalScore",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ModelArmorConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :prompt_template_name, 1,
+    type: :string,
+    json_name: "promptTemplateName",
+    deprecated: false
+
+  field :response_template_name, 2,
+    type: :string,
+    json_name: "responseTemplateName",
     deprecated: false
 end
 
