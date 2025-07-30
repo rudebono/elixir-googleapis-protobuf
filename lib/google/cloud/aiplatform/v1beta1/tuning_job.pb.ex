@@ -22,6 +22,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec.TuningMode do
   field :TUNING_MODE_PEFT_ADAPTER, 2
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.VeoHyperParameters.TuningTask do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TUNING_TASK_UNSPECIFIED, 0
+  field :TUNING_TASK_I2V, 1
+  field :TUNING_TASK_T2V, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob.LabelsEntry do
   @moduledoc false
 
@@ -55,6 +65,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
   field :partner_model_tuning_spec, 21,
     type: Google.Cloud.Aiplatform.V1beta1.PartnerModelTuningSpec,
     json_name: "partnerModelTuningSpec",
+    oneof: 1
+
+  field :veo_tuning_spec, 33,
+    type: Google.Cloud.Aiplatform.V1beta1.VeoTuningSpec,
+    json_name: "veoTuningSpec",
     oneof: 1
 
   field :name, 1, type: :string, deprecated: false
@@ -483,6 +498,46 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TunedModelRef do
   field :tuned_model, 1, type: :string, json_name: "tunedModel", oneof: 0, deprecated: false
   field :tuning_job, 2, type: :string, json_name: "tuningJob", oneof: 0, deprecated: false
   field :pipeline_job, 3, type: :string, json_name: "pipelineJob", oneof: 0, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VeoHyperParameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :epoch_count, 1, type: :int64, json_name: "epochCount", deprecated: false
+
+  field :learning_rate_multiplier, 2,
+    type: :double,
+    json_name: "learningRateMultiplier",
+    deprecated: false
+
+  field :tuning_task, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.VeoHyperParameters.TuningTask,
+    json_name: "tuningTask",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.VeoTuningSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :training_dataset_uri, 1,
+    type: :string,
+    json_name: "trainingDatasetUri",
+    deprecated: false
+
+  field :validation_dataset_uri, 2,
+    type: :string,
+    json_name: "validationDatasetUri",
+    deprecated: false
+
+  field :hyper_parameters, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.VeoHyperParameters,
+    json_name: "hyperParameters",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModelCheckpoint do

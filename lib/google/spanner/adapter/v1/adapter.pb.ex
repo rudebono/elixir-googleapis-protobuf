@@ -45,6 +45,8 @@ defmodule Google.Spanner.Adapter.V1.AdaptMessageResponse do
     json_name: "stateUpdates",
     map: true,
     deprecated: false
+
+  field :last, 3, type: :bool, deprecated: false
 end
 
 defmodule Google.Spanner.Adapter.V1.Session do
