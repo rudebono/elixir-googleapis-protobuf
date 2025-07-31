@@ -270,10 +270,26 @@ defmodule Google.Cloud.Modelarmor.V1.Template do
     deprecated: false
 end
 
+defmodule Google.Cloud.Modelarmor.V1.FloorSetting.FloorSettingMetadata.MultiLanguageDetection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enable_multi_language_detection, 1,
+    type: :bool,
+    json_name: "enableMultiLanguageDetection",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Modelarmor.V1.FloorSetting.FloorSettingMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :multi_language_detection, 1,
+    type: Google.Cloud.Modelarmor.V1.FloorSetting.FloorSettingMetadata.MultiLanguageDetection,
+    json_name: "multiLanguageDetection",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Modelarmor.V1.FloorSetting do
