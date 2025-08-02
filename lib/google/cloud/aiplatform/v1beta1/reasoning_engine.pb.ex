@@ -91,6 +91,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngine do
     type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec,
     json_name: "contextSpec",
     deprecated: false
+
+  field :encryption_spec, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.EncryptionSpec,
+    json_name: "encryptionSpec"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.GenerationConfig do

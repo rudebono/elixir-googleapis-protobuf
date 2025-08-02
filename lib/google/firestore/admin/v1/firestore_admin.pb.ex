@@ -400,6 +400,40 @@ defmodule Google.Firestore.Admin.V1.RestoreDatabaseRequest do
     deprecated: false
 end
 
+defmodule Google.Firestore.Admin.V1.CloneDatabaseRequest.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Firestore.Admin.V1.CloneDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :database_id, 2, type: :string, json_name: "databaseId", deprecated: false
+
+  field :pitr_snapshot, 6,
+    type: Google.Firestore.Admin.V1.PitrSnapshot,
+    json_name: "pitrSnapshot",
+    deprecated: false
+
+  field :encryption_config, 4,
+    type: Google.Firestore.Admin.V1.Database.EncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
+
+  field :tags, 5,
+    repeated: true,
+    type: Google.Firestore.Admin.V1.CloneDatabaseRequest.TagsEntry,
+    map: true,
+    deprecated: false
+end
+
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
   @moduledoc false
 
@@ -514,6 +548,8 @@ defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Service do
   rpc :DeleteBackupSchedule,
       Google.Firestore.Admin.V1.DeleteBackupScheduleRequest,
       Google.Protobuf.Empty
+
+  rpc :CloneDatabase, Google.Firestore.Admin.V1.CloneDatabaseRequest, Google.Longrunning.Operation
 end
 
 defmodule Google.Firestore.Admin.V1.FirestoreAdmin.Stub do

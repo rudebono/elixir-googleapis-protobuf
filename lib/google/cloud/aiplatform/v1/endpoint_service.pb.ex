@@ -16,6 +16,12 @@ defmodule Google.Cloud.Aiplatform.V1.CreateEndpointOperationMetadata do
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
+
+  field :deployment_stage, 2,
+    type: Google.Cloud.Aiplatform.V1.DeploymentStage,
+    json_name: "deploymentStage",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GetEndpointRequest do
@@ -133,6 +139,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeployModelOperationMetadata do
   field :generic_metadata, 1,
     type: Google.Cloud.Aiplatform.V1.GenericOperationMetadata,
     json_name: "genericMetadata"
+
+  field :deployment_stage, 2,
+    type: Google.Cloud.Aiplatform.V1.DeploymentStage,
+    json_name: "deploymentStage",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.UndeployModelRequest.TrafficSplitEntry do

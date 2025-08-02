@@ -176,6 +176,46 @@ defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupVaultDetailsLog do
     json_name: "sourceResourceLocation"
 end
 
+defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupPlanJobLog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :job_id, 1, type: :string, json_name: "jobId"
+  field :job_category, 2, type: :string, json_name: "jobCategory"
+  field :job_status, 3, type: :string, json_name: "jobStatus"
+  field :resource_type, 4, type: :string, json_name: "resourceType"
+  field :backup_plan_name, 5, type: :string, json_name: "backupPlanName"
+
+  field :previous_backup_plan_revision_id, 6,
+    type: :string,
+    json_name: "previousBackupPlanRevisionId"
+
+  field :previous_backup_plan_revision_name, 7,
+    type: :string,
+    json_name: "previousBackupPlanRevisionName"
+
+  field :new_backup_plan_revision_id, 8, type: :string, json_name: "newBackupPlanRevisionId"
+  field :new_backup_plan_revision_name, 9, type: :string, json_name: "newBackupPlanRevisionName"
+  field :start_time, 10, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 11, type: Google.Protobuf.Timestamp, json_name: "endTime"
+  field :workloads_affected_count, 12, type: :int32, json_name: "workloadsAffectedCount"
+
+  field :previous_backup_rules, 13,
+    repeated: true,
+    type: Google.Cloud.Backupdr.Logging.V1.BackupRuleDetail,
+    json_name: "previousBackupRules"
+
+  field :revised_backup_rules, 14,
+    repeated: true,
+    type: Google.Cloud.Backupdr.Logging.V1.BackupRuleDetail,
+    json_name: "revisedBackupRules"
+
+  field :error_code, 15, type: :int32, json_name: "errorCode"
+  field :error_type, 16, type: :string, json_name: "errorType"
+  field :error_message, 17, type: :string, json_name: "errorMessage"
+end
+
 defmodule Google.Cloud.Backupdr.Logging.V1.BDRBackupPlanAssociationJobLog do
   @moduledoc false
 

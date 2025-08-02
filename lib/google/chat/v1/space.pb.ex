@@ -215,6 +215,7 @@ defmodule Google.Chat.V1.Space do
     json_name: "accessSettings",
     deprecated: false
 
+  field :customer, 24, proto3_optional: true, type: :string, deprecated: false
   field :space_uri, 25, type: :string, json_name: "spaceUri", deprecated: false
 
   field :predefined_permission_settings, 26,
