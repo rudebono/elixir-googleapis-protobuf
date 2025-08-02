@@ -37,6 +37,8 @@ defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.State do
   field :REVOKING, 9
   field :REVOKED, 10
   field :ENDED, 11
+  field :WITHDRAWING, 12
+  field :WITHDRAWN, 13
 end
 
 defmodule Google.Cloud.Privilegedaccessmanager.V1.SearchGrantsRequest.CallerRelationshipType do
@@ -434,6 +436,12 @@ defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Revoked d
   field :actor, 2, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Withdrawn do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
 defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Scheduled do
   @moduledoc false
 
@@ -524,6 +532,10 @@ defmodule Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event do
   field :externally_modified, 12,
     type: Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.ExternallyModified,
     json_name: "externallyModified",
+    oneof: 0
+
+  field :withdrawn, 13,
+    type: Google.Cloud.Privilegedaccessmanager.V1.Grant.Timeline.Event.Withdrawn,
     oneof: 0
 
   field :event_time, 1, type: Google.Protobuf.Timestamp, json_name: "eventTime", deprecated: false

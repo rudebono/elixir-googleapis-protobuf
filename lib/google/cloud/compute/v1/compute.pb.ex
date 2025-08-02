@@ -140,6 +140,17 @@ defmodule Google.Cloud.Compute.V1.AllocationReservationSharingPolicy.ServiceShar
   field :SERVICE_SHARE_TYPE_UNSPECIFIED, 279_057_148
 end
 
+defmodule Google.Cloud.Compute.V1.AllocationResourceStatusHealthInfo.HealthStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_HEALTH_STATUS, 0
+  field :DEGRADED, 396_890_926
+  field :HEALTHY, 439_801_213
+  field :HEALTH_STATUS_UNSPECIFIED, 482_246_925
+end
+
 defmodule Google.Cloud.Compute.V1.AllocationSpecificSKUAllocationAllocatedInstancePropertiesReservedDisk.Interface do
   @moduledoc false
 
@@ -3362,6 +3373,17 @@ defmodule Google.Cloud.Compute.V1.Reservation.DeploymentType do
   field :DEPLOYMENT_TYPE_UNSPECIFIED, 234_847_180
 end
 
+defmodule Google.Cloud.Compute.V1.Reservation.SchedulingType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_SCHEDULING_TYPE, 0
+  field :GROUPED, 474_540_862
+  field :GROUP_MAINTENANCE_TYPE_UNSPECIFIED, 447_183_678
+  field :INDEPENDENT, 127_011_674
+end
+
 defmodule Google.Cloud.Compute.V1.Reservation.Status do
   @moduledoc false
 
@@ -3399,6 +3421,17 @@ defmodule Google.Cloud.Compute.V1.ReservationBlock.Status do
   field :READY, 77_848_963
 end
 
+defmodule Google.Cloud.Compute.V1.ReservationBlockHealthInfo.HealthStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_HEALTH_STATUS, 0
+  field :DEGRADED, 396_890_926
+  field :HEALTHY, 439_801_213
+  field :HEALTH_STATUS_UNSPECIFIED, 482_246_925
+end
+
 defmodule Google.Cloud.Compute.V1.ReservationSubBlock.Status do
   @moduledoc false
 
@@ -3409,6 +3442,17 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlock.Status do
   field :DELETING, 528_602_024
   field :INVALID, 530_283_991
   field :READY, 77_848_963
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlockHealthInfo.HealthStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_HEALTH_STATUS, 0
+  field :DEGRADED, 396_890_926
+  field :HEALTHY, 439_801_213
+  field :HEALTH_STATUS_UNSPECIFIED, 482_246_925
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationsBlocksPerformMaintenanceRequest.MaintenanceScope do
@@ -4542,6 +4586,25 @@ defmodule Google.Cloud.Compute.V1.TargetVpnGateway.Status do
   field :DELETING, 528_602_024
   field :FAILED, 455_706_685
   field :READY, 77_848_963
+end
+
+defmodule Google.Cloud.Compute.V1.UpcomingMaintenance.MaintenanceReasons do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_MAINTENANCE_REASONS, 0
+  field :FAILURE_DISK, 8_573_778
+  field :FAILURE_GPU, 467_876_919
+  field :FAILURE_GPU_TEMPERATURE, 24_926_540
+  field :FAILURE_GPU_XID, 51_956_587
+  field :FAILURE_INFRA, 270_541_467
+  field :FAILURE_INTERFACE, 390_068_356
+  field :FAILURE_MEMORY, 440_132_982
+  field :FAILURE_NETWORK, 42_811_449
+  field :FAILURE_NVLINK, 484_426_295
+  field :INFRASTRUCTURE_RELOCATION, 359_845_636
+  field :MAINTENANCE_REASON_UNKNOWN, 50_570_235
 end
 
 defmodule Google.Cloud.Compute.V1.UpcomingMaintenance.MaintenanceStatus do
@@ -6898,6 +6961,11 @@ defmodule Google.Cloud.Compute.V1.AllocationResourceStatus do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :health_info, 235_287_729,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.AllocationResourceStatusHealthInfo,
+    json_name: "healthInfo"
+
   field :reservation_block_count, 161_835_754,
     proto3_optional: true,
     type: :int32,
@@ -6912,6 +6980,27 @@ defmodule Google.Cloud.Compute.V1.AllocationResourceStatus do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation,
     json_name: "specificSkuAllocation"
+end
+
+defmodule Google.Cloud.Compute.V1.AllocationResourceStatusHealthInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :degraded_block_count, 514_082_636,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "degradedBlockCount"
+
+  field :health_status, 380_545_845,
+    proto3_optional: true,
+    type: :string,
+    json_name: "healthStatus"
+
+  field :healthy_block_count, 223_625_019,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "healthyBlockCount"
 end
 
 defmodule Google.Cloud.Compute.V1.AllocationResourceStatusSpecificSKUAllocation.UtilizationsEntry do
@@ -27106,6 +27195,12 @@ defmodule Google.Cloud.Compute.V1.Reservation do
     json_name: "resourceStatus"
 
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
+
+  field :scheduling_type, 199_835_397,
+    proto3_optional: true,
+    type: :string,
+    json_name: "schedulingType"
+
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :share_settings, 266_668_163,
@@ -27186,6 +27281,11 @@ defmodule Google.Cloud.Compute.V1.ReservationBlock do
     type: :string,
     json_name: "creationTimestamp"
 
+  field :health_info, 235_287_729,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ReservationBlockHealthInfo,
+    json_name: "healthInfo"
+
   field :id, 3355, proto3_optional: true, type: :uint64
   field :in_use_count, 493_458_877, proto3_optional: true, type: :int32, json_name: "inUseCount"
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -27220,6 +27320,27 @@ defmodule Google.Cloud.Compute.V1.ReservationBlock do
 
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationBlockHealthInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :degraded_sub_block_count, 458_044_493,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "degradedSubBlockCount"
+
+  field :health_status, 380_545_845,
+    proto3_optional: true,
+    type: :string,
+    json_name: "healthStatus"
+
+  field :healthy_sub_block_count, 5_348_540,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "healthySubBlockCount"
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationBlockPhysicalTopology do
@@ -27317,6 +27438,11 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlock do
     type: :string,
     json_name: "creationTimestamp"
 
+  field :health_info, 235_287_729,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ReservationSubBlockHealthInfo,
+    json_name: "healthInfo"
+
   field :id, 3355, proto3_optional: true, type: :uint64
   field :in_use_count, 493_458_877, proto3_optional: true, type: :int32, json_name: "inUseCount"
   field :kind, 3_292_052, proto3_optional: true, type: :string
@@ -27341,6 +27467,37 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlock do
 
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlockHealthInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :degraded_host_count, 535_025_001,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "degradedHostCount"
+
+  field :degraded_infra_count, 138_638_927,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "degradedInfraCount"
+
+  field :health_status, 380_545_845,
+    proto3_optional: true,
+    type: :string,
+    json_name: "healthStatus"
+
+  field :healthy_host_count, 40_739_738,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "healthyHostCount"
+
+  field :healthy_infra_count, 385_052_222,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "healthyInfraCount"
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationSubBlockPhysicalTopology do
@@ -34642,6 +34799,16 @@ defmodule Google.Cloud.Compute.V1.UpcomingMaintenance do
     proto3_optional: true,
     type: :string,
     json_name: "latestWindowStartTime"
+
+  field :maintenance_on_shutdown, 231_055_754,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "maintenanceOnShutdown"
+
+  field :maintenance_reasons, 140_283_267,
+    repeated: true,
+    type: :string,
+    json_name: "maintenanceReasons"
 
   field :maintenance_status, 81_645_214,
     proto3_optional: true,
