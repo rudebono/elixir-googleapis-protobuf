@@ -200,6 +200,27 @@ defmodule Google.Firestore.Admin.V1.RestoreDatabaseMetadata do
     json_name: "progressPercentage"
 end
 
+defmodule Google.Firestore.Admin.V1.CloneDatabaseMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :start_time, 1, type: Google.Protobuf.Timestamp, json_name: "startTime"
+  field :end_time, 2, type: Google.Protobuf.Timestamp, json_name: "endTime"
+
+  field :operation_state, 3,
+    type: Google.Firestore.Admin.V1.OperationState,
+    json_name: "operationState",
+    enum: true
+
+  field :database, 4, type: :string, deprecated: false
+  field :pitr_snapshot, 7, type: Google.Firestore.Admin.V1.PitrSnapshot, json_name: "pitrSnapshot"
+
+  field :progress_percentage, 6,
+    type: Google.Firestore.Admin.V1.Progress,
+    json_name: "progressPercentage"
+end
+
 defmodule Google.Firestore.Admin.V1.Progress do
   @moduledoc false
 
