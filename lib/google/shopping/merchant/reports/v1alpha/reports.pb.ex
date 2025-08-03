@@ -184,15 +184,15 @@ defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportRow do
     type: Google.Shopping.Merchant.Reports.V1alpha.CompetitiveVisibilityBenchmarkView,
     json_name: "competitiveVisibilityBenchmarkView"
 
-  field :youtube_creator_performance_view, 11,
+  field :youtube_creator_performance_view, 13,
     type: Google.Shopping.Merchant.Reports.V1alpha.YoutubeCreatorPerformanceView,
     json_name: "youtubeCreatorPerformanceView"
 
-  field :youtube_content_performance_view, 12,
+  field :youtube_content_performance_view, 14,
     type: Google.Shopping.Merchant.Reports.V1alpha.YoutubeContentPerformanceView,
     json_name: "youtubeContentPerformanceView"
 
-  field :youtube_product_performance_view, 13,
+  field :youtube_product_performance_view, 15,
     type: Google.Shopping.Merchant.Reports.V1alpha.YoutubeProductPerformanceView,
     json_name: "youtubeProductPerformanceView"
 end
@@ -746,6 +746,8 @@ defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeContentPerformanceView
     proto3_optional: true,
     type: Google.Shopping.Type.Price,
     json_name: "netSales"
+
+  field :tagged_product_ids, 12, repeated: true, type: :string, json_name: "taggedProductIds"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeProductPerformanceView do
@@ -781,6 +783,16 @@ defmodule Google.Shopping.Merchant.Reports.V1alpha.YoutubeProductPerformanceView
     proto3_optional: true,
     type: Google.Shopping.Type.Price,
     json_name: "netSales"
+
+  field :tagged_creator_count, 12,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "taggedCreatorCount"
+
+  field :tagged_video_count, 13,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "taggedVideoCount"
 end
 
 defmodule Google.Shopping.Merchant.Reports.V1alpha.ReportService.Service do
