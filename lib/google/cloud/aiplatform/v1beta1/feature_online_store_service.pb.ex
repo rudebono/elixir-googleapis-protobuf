@@ -311,6 +311,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyA
 
   oneof :data_oneof, 0
 
+  field :value, 3, type: Google.Cloud.Aiplatform.V1beta1.FeatureValue, oneof: 0
+
   field :value_and_timestamp, 2,
     type:
       Google.Cloud.Aiplatform.V1beta1.FeatureViewDirectWriteRequest.DataKeyAndFeatureValues.Feature.FeatureValueAndTimestamp,

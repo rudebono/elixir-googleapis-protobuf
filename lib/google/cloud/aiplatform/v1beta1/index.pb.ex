@@ -162,6 +162,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.IndexDatapoint do
     type: Google.Cloud.Aiplatform.V1beta1.IndexDatapoint.CrowdingTag,
     json_name: "crowdingTag",
     deprecated: false
+
+  field :embedding_metadata, 8,
+    type: Google.Protobuf.Struct,
+    json_name: "embeddingMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.IndexStats do

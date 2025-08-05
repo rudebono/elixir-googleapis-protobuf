@@ -127,6 +127,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.NfsMount do
   field :mount_point, 3, type: :string, json_name: "mountPoint", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec.MonitoredResourceLabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
   @moduledoc false
 
@@ -134,6 +143,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec do
 
   field :metric_name, 1, type: :string, json_name: "metricName", deprecated: false
   field :target, 2, type: :int32
+
+  field :monitored_resource_labels, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec.MonitoredResourceLabelsEntry,
+    json_name: "monitoredResourceLabels",
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ShieldedVmConfig do

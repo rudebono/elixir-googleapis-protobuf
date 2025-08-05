@@ -51,6 +51,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :exclude_domains, 3,
+    repeated: true,
+    type: :string,
+    json_name: "excludeDomains",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.CodeExecution do
@@ -323,6 +329,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :exclude_domains, 1,
+    repeated: true,
+    type: :string,
+    json_name: "excludeDomains",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig do

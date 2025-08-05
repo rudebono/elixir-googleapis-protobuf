@@ -15,6 +15,12 @@ defmodule Google.Cloud.Bigquery.V2.QueryParameterType do
 
   field :type, 1, type: :string, deprecated: false
 
+  field :timestamp_precision, 5,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "timestampPrecision",
+    deprecated: false
+
   field :array_type, 2,
     type: Google.Cloud.Bigquery.V2.QueryParameterType,
     json_name: "arrayType",
