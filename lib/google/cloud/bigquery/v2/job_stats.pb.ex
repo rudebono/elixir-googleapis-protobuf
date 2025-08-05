@@ -264,6 +264,7 @@ defmodule Google.Cloud.Bigquery.V2.ExternalServiceCost do
   field :bytes_billed, 3, type: Google.Protobuf.Int64Value, json_name: "bytesBilled"
   field :slot_ms, 4, type: Google.Protobuf.Int64Value, json_name: "slotMs"
   field :reserved_slot_count, 5, type: :int64, json_name: "reservedSlotCount"
+  field :billing_method, 6, type: :string, json_name: "billingMethod"
 end
 
 defmodule Google.Cloud.Bigquery.V2.ExportDataStatistics do
@@ -494,6 +495,12 @@ defmodule Google.Cloud.Bigquery.V2.JobStatistics2 do
   field :total_slot_ms, 8,
     type: Google.Protobuf.Int64Value,
     json_name: "totalSlotMs",
+    deprecated: false
+
+  field :total_services_sku_slot_ms, 52,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalServicesSkuSlotMs",
     deprecated: false
 
   field :cache_hit, 9, type: Google.Protobuf.BoolValue, json_name: "cacheHit", deprecated: false

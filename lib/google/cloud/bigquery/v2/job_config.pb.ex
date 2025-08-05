@@ -507,6 +507,12 @@ defmodule Google.Cloud.Bigquery.V2.JobConfiguration do
     json_name: "jobTimeoutMs",
     deprecated: false
 
+  field :max_slots, 12,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxSlots",
+    deprecated: false
+
   field :labels, 7,
     repeated: true,
     type: Google.Cloud.Bigquery.V2.JobConfiguration.LabelsEntry,

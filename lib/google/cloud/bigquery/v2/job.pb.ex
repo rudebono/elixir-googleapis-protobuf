@@ -251,6 +251,12 @@ defmodule Google.Cloud.Bigquery.V2.QueryRequest do
     json_name: "jobTimeoutMs",
     deprecated: false
 
+  field :max_slots, 28,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxSlots",
+    deprecated: false
+
   field :destination_encryption_configuration, 27,
     type: Google.Cloud.Bigquery.V2.EncryptionConfiguration,
     json_name: "destinationEncryptionConfiguration",
