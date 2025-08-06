@@ -69,6 +69,15 @@ defmodule Google.Bigtable.Admin.V2.Instance.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Bigtable.Admin.V2.Instance.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Bigtable.Admin.V2.Instance do
   @moduledoc false
 
@@ -95,6 +104,12 @@ defmodule Google.Bigtable.Admin.V2.Instance do
     proto3_optional: true,
     type: :bool,
     json_name: "satisfiesPzi",
+    deprecated: false
+
+  field :tags, 12,
+    repeated: true,
+    type: Google.Bigtable.Admin.V2.Instance.TagsEntry,
+    map: true,
     deprecated: false
 end
 
