@@ -5,6 +5,10 @@ defmodule Google.Ads.Datamanager.V1.EventSource do
 
   field :EVENT_SOURCE_UNSPECIFIED, 0
   field :WEB, 1
+  field :APP, 2
+  field :IN_STORE, 3
+  field :PHONE, 4
+  field :OTHER, 5
 end
 
 defmodule Google.Ads.Datamanager.V1.Event do
@@ -72,6 +76,11 @@ defmodule Google.Ads.Datamanager.V1.Event do
     type: Google.Ads.Datamanager.V1.ExperimentalField,
     json_name: "experimentalFields",
     deprecated: false
+
+  field :user_properties, 15,
+    type: Google.Ads.Datamanager.V1.UserProperties,
+    json_name: "userProperties",
+    deprecated: false
 end
 
 defmodule Google.Ads.Datamanager.V1.AdIdentifiers do
@@ -97,4 +106,10 @@ defmodule Google.Ads.Datamanager.V1.CustomVariable do
 
   field :variable, 1, type: :string, deprecated: false
   field :value, 2, type: :string, deprecated: false
+
+  field :destination_references, 3,
+    repeated: true,
+    type: :string,
+    json_name: "destinationReferences",
+    deprecated: false
 end
