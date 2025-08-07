@@ -156,6 +156,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeleteRagFileRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+  field :force_delete, 2, type: :bool, json_name: "forceDelete", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.CreateRagCorpusOperationMetadata do
