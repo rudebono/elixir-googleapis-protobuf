@@ -128,6 +128,18 @@ defmodule Google.Cloud.Run.V2.ServiceScaling do
     deprecated: false
 end
 
+defmodule Google.Cloud.Run.V2.WorkerPoolScaling do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :manual_instance_count, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "manualInstanceCount",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Run.V2.NodeSelector do
   @moduledoc false
 

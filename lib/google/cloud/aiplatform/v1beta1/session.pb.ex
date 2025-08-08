@@ -3,6 +3,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Session do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  oneof :expiration, 0
+
+  field :expire_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "expireTime",
+    oneof: 0,
+    deprecated: false
+
+  field :ttl, 14, type: Google.Protobuf.Duration, oneof: 0, deprecated: false
   field :name, 1, type: :string, deprecated: false
 
   field :create_time, 3,
@@ -66,6 +75,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EventMetadata do
     deprecated: false
 
   field :branch, 6, type: :string, deprecated: false
+  field :custom_metadata, 7, type: Google.Protobuf.Struct, json_name: "customMetadata"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EventActions.ArtifactDeltaEntry do

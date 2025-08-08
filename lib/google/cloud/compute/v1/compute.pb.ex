@@ -1571,6 +1571,20 @@ defmodule Google.Cloud.Compute.V1.Interconnect.State do
   field :UNPROVISIONED, 517_333_979
 end
 
+defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentage.TrafficClass do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_TRAFFIC_CLASS, 0
+  field :TC1, 82850
+  field :TC2, 82851
+  field :TC3, 82852
+  field :TC4, 82853
+  field :TC5, 82854
+  field :TC6, 82855
+end
+
 defmodule Google.Cloud.Compute.V1.InterconnectAttachment.Bandwidth do
   @moduledoc false
 
@@ -2361,6 +2375,62 @@ defmodule Google.Cloud.Compute.V1.NetworkPeering.State do
   field :UNDEFINED_STATE, 0
   field :ACTIVE, 314_733_318
   field :INACTIVE, 270_421_099
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeering.UpdateStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_UPDATE_STRATEGY, 0
+  field :CONSENSUS, 203_373_655
+  field :INDEPENDENT, 127_011_674
+  field :UNSPECIFIED, 526_786_327
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatus.UpdateStrategy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_UPDATE_STRATEGY, 0
+  field :CONSENSUS, 203_373_655
+  field :INDEPENDENT, 127_011_674
+  field :UNSPECIFIED, 526_786_327
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusConsensusState.DeleteStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_DELETE_STATUS, 0
+  field :DELETE_ACKNOWLEDGED, 325_293_916
+  field :DELETE_STATUS_UNSPECIFIED, 395_396_446
+  field :LOCAL_DELETE_REQUESTED, 227_335_214
+  field :PEER_DELETE_REQUESTED, 197_847_799
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusConsensusState.UpdateStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_UPDATE_STATUS, 0
+  field :IN_SYNC, 2_273_653
+  field :PENDING_LOCAL_ACKNOWLEDMENT, 229_926_592
+  field :PENDING_PEER_ACKNOWLEDGEMENT, 420_185_797
+  field :UPDATE_STATUS_UNSPECIFIED, 120_836_480
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusTrafficConfiguration.StackType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_STACK_TYPE, 0
+  field :IPV4_IPV6, 22_197_249
+  field :IPV4_ONLY, 22_373_798
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkPerformanceConfig.TotalEgressBandwidthTier do
@@ -3395,6 +3465,17 @@ defmodule Google.Cloud.Compute.V1.Reservation.Status do
   field :INVALID, 530_283_991
   field :READY, 77_848_963
   field :UPDATING, 494_614_342
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationAdvancedDeploymentControl.ReservationOperationalMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_RESERVATION_OPERATIONAL_MODE, 0
+  field :ALL_CAPACITY, 500_029_880
+  field :HIGHLY_AVAILABLE_CAPACITY, 110_861_600
+  field :RESERVATION_OPERATIONAL_MODE_UNSPECIFIED, 194_296_603
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationAffinity.ConsumeReservationType do
@@ -4605,6 +4686,8 @@ defmodule Google.Cloud.Compute.V1.UpcomingMaintenance.MaintenanceReasons do
   field :FAILURE_NVLINK, 484_426_295
   field :INFRASTRUCTURE_RELOCATION, 359_845_636
   field :MAINTENANCE_REASON_UNKNOWN, 50_570_235
+  field :PLANNED_NETWORK_UPDATE, 135_494_677
+  field :PLANNED_UPDATE, 161_733_572
 end
 
 defmodule Google.Cloud.Compute.V1.UpcomingMaintenance.MaintenanceStatus do
@@ -4624,6 +4707,7 @@ defmodule Google.Cloud.Compute.V1.UpcomingMaintenance.Type do
   use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :UNDEFINED_TYPE, 0
+  field :MULTIPLE, 362_714_640
   field :SCHEDULED, 478_400_653
   field :UNKNOWN_TYPE, 490_705_455
   field :UNSCHEDULED, 450_077_204
@@ -7784,6 +7868,11 @@ defmodule Google.Cloud.Compute.V1.BackendBucket do
     json_name: "loadBalancingScheme"
 
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :params, 78_313_862,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BackendBucketParams
+
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :used_by, 389_320_729,
@@ -7892,6 +7981,27 @@ defmodule Google.Cloud.Compute.V1.BackendBucketList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.BackendBucketParams.ResourceManagerTagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BackendBucketParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendBucketParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.BackendBucketUsedBy do
@@ -8067,6 +8177,10 @@ defmodule Google.Cloud.Compute.V1.BackendService do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.OutlierDetection,
     json_name: "outlierDetection"
+
+  field :params, 78_313_862,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.BackendServiceParams
 
   field :port, 3_446_913, proto3_optional: true, type: :int32
   field :port_name, 41_534_345, proto3_optional: true, type: :string, json_name: "portName"
@@ -8454,6 +8568,27 @@ defmodule Google.Cloud.Compute.V1.BackendServiceLogConfig do
     json_name: "optionalMode"
 
   field :sample_rate, 153_193_045, proto3_optional: true, type: :float, json_name: "sampleRate"
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceParams.ResourceManagerTagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.BackendServiceParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.BackendServiceParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.BackendServiceReference do
@@ -18171,7 +18306,13 @@ defmodule Google.Cloud.Compute.V1.Interconnect do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :aai_enabled, 388_780_363, proto3_optional: true, type: :bool, json_name: "aaiEnabled"
   field :admin_enabled, 445_675_089, proto3_optional: true, type: :bool, json_name: "adminEnabled"
+
+  field :application_aware_interconnect, 429_095_966,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnect,
+    json_name: "applicationAwareInterconnect"
 
   field :available_features, 496_344_307,
     repeated: true,
@@ -18287,6 +18428,63 @@ defmodule Google.Cloud.Compute.V1.Interconnect do
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :state, 109_757_585, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnect do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :bandwidth_percentage_policy, 187_018_857,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentagePolicy,
+    json_name: "bandwidthPercentagePolicy"
+
+  field :profile_description, 262_813_286,
+    proto3_optional: true,
+    type: :string,
+    json_name: "profileDescription"
+
+  field :shape_average_percentages, 259_857_497,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentage,
+    json_name: "shapeAveragePercentages"
+
+  field :strict_priority_policy, 145_083_063,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectStrictPriorityPolicy,
+    json_name: "strictPriorityPolicy"
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentage do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :percentage, 151_909_018, proto3_optional: true, type: :uint32
+
+  field :traffic_class, 198_180_022,
+    proto3_optional: true,
+    type: :string,
+    json_name: "trafficClass"
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentagePolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :bandwidth_percentages, 233_373_323,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentage,
+    json_name: "bandwidthPercentages"
+end
+
+defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectStrictPriorityPolicy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1.InterconnectAttachment.LabelsEntry do
@@ -21924,6 +22122,11 @@ defmodule Google.Cloud.Compute.V1.ListUsableSubnetworksRequest do
     proto3_optional: true,
     type: :bool,
     json_name: "returnPartialSuccess"
+
+  field :service_project, 530_592_655,
+    proto3_optional: true,
+    type: :string,
+    json_name: "serviceProject"
 end
 
 defmodule Google.Cloud.Compute.V1.ListVpnGatewaysRequest do
@@ -23250,6 +23453,11 @@ defmodule Google.Cloud.Compute.V1.NetworkPeering do
     type: :bool,
     json_name: "autoCreateRoutes"
 
+  field :connection_status, 525_629_555,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkPeeringConnectionStatus,
+    json_name: "connectionStatus"
+
   field :exchange_subnet_routes, 26_322_256,
     proto3_optional: true,
     type: :bool,
@@ -23285,6 +23493,76 @@ defmodule Google.Cloud.Compute.V1.NetworkPeering do
     proto3_optional: true,
     type: :string,
     json_name: "stateDetails"
+
+  field :update_strategy, 6_123_049,
+    proto3_optional: true,
+    type: :string,
+    json_name: "updateStrategy"
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :consensus_state, 379_772_617,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusConsensusState,
+    json_name: "consensusState"
+
+  field :traffic_configuration, 133_016_116,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusTrafficConfiguration,
+    json_name: "trafficConfiguration"
+
+  field :update_strategy, 6_123_049,
+    proto3_optional: true,
+    type: :string,
+    json_name: "updateStrategy"
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusConsensusState do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :delete_status, 483_434_758,
+    proto3_optional: true,
+    type: :string,
+    json_name: "deleteStatus"
+
+  field :update_status, 265_998_376,
+    proto3_optional: true,
+    type: :string,
+    json_name: "updateStatus"
+end
+
+defmodule Google.Cloud.Compute.V1.NetworkPeeringConnectionStatusTrafficConfiguration do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :export_custom_routes_to_peer, 286_428_404,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "exportCustomRoutesToPeer"
+
+  field :export_subnet_routes_with_public_ip_to_peer, 8_358_601,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "exportSubnetRoutesWithPublicIpToPeer"
+
+  field :import_custom_routes_from_peer, 398_584_470,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "importCustomRoutesFromPeer"
+
+  field :import_subnet_routes_with_public_ip_from_peer, 234_712_361,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "importSubnetRoutesWithPublicIpFromPeer"
+
+  field :stack_type, 425_908_881, proto3_optional: true, type: :string, json_name: "stackType"
 end
 
 defmodule Google.Cloud.Compute.V1.NetworkPerformanceConfig do
@@ -23573,6 +23851,14 @@ defmodule Google.Cloud.Compute.V1.NetworksGetEffectiveFirewallsResponseEffective
 end
 
 defmodule Google.Cloud.Compute.V1.NetworksRemovePeeringRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.NetworksRequestRemovePeeringRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -27120,6 +27406,22 @@ defmodule Google.Cloud.Compute.V1.RequestMirrorPolicy do
     json_name: "backendService"
 end
 
+defmodule Google.Cloud.Compute.V1.RequestRemovePeeringNetworkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :network, 232_872_494, type: :string, deprecated: false
+
+  field :networks_request_remove_peering_request_resource, 150_860_366,
+    type: Google.Cloud.Compute.V1.NetworksRequestRemovePeeringRequest,
+    json_name: "networksRequestRemovePeeringRequestResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.Reservation.ResourcePoliciesEntry do
   @moduledoc false
 
@@ -27133,6 +27435,11 @@ defmodule Google.Cloud.Compute.V1.Reservation do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :advanced_deployment_control, 410_618_144,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ReservationAdvancedDeploymentControl,
+    json_name: "advancedDeploymentControl"
 
   field :aggregate_reservation, 291_567_948,
     proto3_optional: true,
@@ -27220,6 +27527,17 @@ defmodule Google.Cloud.Compute.V1.Reservation do
 
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :zone, 3_744_684, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationAdvancedDeploymentControl do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :reservation_operational_mode, 499_978_755,
+    proto3_optional: true,
+    type: :string,
+    json_name: "reservationOperationalMode"
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationAffinity do
@@ -29886,6 +30204,15 @@ defmodule Google.Cloud.Compute.V1.ServiceAccount do
   field :scopes, 165_973_151, repeated: true, type: :string
 end
 
+defmodule Google.Cloud.Compute.V1.ServiceAttachment.MetadataEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.ServiceAttachment do
   @moduledoc false
 
@@ -29927,6 +30254,12 @@ defmodule Google.Cloud.Compute.V1.ServiceAttachment do
   field :fingerprint, 234_678_500, proto3_optional: true, type: :string
   field :id, 3355, proto3_optional: true, type: :uint64
   field :kind, 3_292_052, proto3_optional: true, type: :string
+
+  field :metadata, 86_866_735,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.ServiceAttachment.MetadataEntry,
+    map: true
+
   field :name, 3_373_707, proto3_optional: true, type: :string
   field :nat_subnets, 374_785_944, repeated: true, type: :string, json_name: "natSubnets"
 
@@ -38280,6 +38613,10 @@ defmodule Google.Cloud.Compute.V1.Networks.Service do
 
   rpc :RemovePeering,
       Google.Cloud.Compute.V1.RemovePeeringNetworkRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :RequestRemovePeering,
+      Google.Cloud.Compute.V1.RequestRemovePeeringNetworkRequest,
       Google.Cloud.Compute.V1.Operation
 
   rpc :SwitchToCustomMode,

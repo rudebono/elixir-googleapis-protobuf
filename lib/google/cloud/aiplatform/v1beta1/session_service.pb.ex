@@ -75,6 +75,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListEventsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ListEventsResponse do

@@ -126,6 +126,27 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectContents
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectMemoriesSource.DirectMemory do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :fact, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectMemoriesSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :direct_memories, 1,
+    repeated: true,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectMemoriesSource.DirectMemory,
+    json_name: "directMemories",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.ScopeEntry do
   @moduledoc false
 
@@ -150,6 +171,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest do
   field :direct_contents_source, 3,
     type: Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectContentsSource,
     json_name: "directContentsSource",
+    oneof: 0
+
+  field :direct_memories_source, 9,
+    type: Google.Cloud.Aiplatform.V1beta1.GenerateMemoriesRequest.DirectMemoriesSource,
+    json_name: "directMemoriesSource",
     oneof: 0
 
   field :parent, 1, type: :string, deprecated: false

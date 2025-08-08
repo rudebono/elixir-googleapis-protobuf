@@ -39,6 +39,16 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileRequest do
     type: Google.Cloud.Datastream.V1.SqlServerRdbms,
     json_name: "sqlServerRdbms",
     oneof: 2
+
+  field :salesforce_org, 104,
+    type: Google.Cloud.Datastream.V1.SalesforceOrg,
+    json_name: "salesforceOrg",
+    oneof: 2
+
+  field :mongodb_cluster, 105,
+    type: Google.Cloud.Datastream.V1.MongodbCluster,
+    json_name: "mongodbCluster",
+    oneof: 2
 end
 
 defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
@@ -66,6 +76,16 @@ defmodule Google.Cloud.Datastream.V1.DiscoverConnectionProfileResponse do
   field :sql_server_rdbms, 103,
     type: Google.Cloud.Datastream.V1.SqlServerRdbms,
     json_name: "sqlServerRdbms",
+    oneof: 0
+
+  field :salesforce_org, 104,
+    type: Google.Cloud.Datastream.V1.SalesforceOrg,
+    json_name: "salesforceOrg",
+    oneof: 0
+
+  field :mongodb_cluster, 105,
+    type: Google.Cloud.Datastream.V1.MongodbCluster,
+    json_name: "mongodbCluster",
     oneof: 0
 end
 
@@ -379,6 +399,7 @@ defmodule Google.Cloud.Datastream.V1.CreatePrivateConnectionRequest do
 
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
   field :force, 6, type: :bool, deprecated: false
+  field :validate_only, 8, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.ListPrivateConnectionsRequest do
