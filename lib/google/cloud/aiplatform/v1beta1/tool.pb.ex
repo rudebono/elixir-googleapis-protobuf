@@ -99,6 +99,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool do
     json_name: "googleSearchRetrieval",
     deprecated: false
 
+  field :google_maps, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.GoogleMaps,
+    json_name: "googleMaps",
+    deprecated: false
+
   field :enterprise_web_search, 6,
     type: Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch,
     json_name: "enterpriseWebSearch",
@@ -323,6 +328,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GoogleSearchRetrieval do
   field :dynamic_retrieval_config, 2,
     type: Google.Cloud.Aiplatform.V1beta1.DynamicRetrievalConfig,
     json_name: "dynamicRetrievalConfig"
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.GoogleMaps do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch do

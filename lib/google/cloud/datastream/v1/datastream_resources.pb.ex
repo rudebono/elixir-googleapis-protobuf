@@ -302,6 +302,67 @@ defmodule Google.Cloud.Datastream.V1.SalesforceProfile do
     oneof: 0
 end
 
+defmodule Google.Cloud.Datastream.V1.MongodbProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :mongodb_connection_format, 0
+
+  field :host_addresses, 1,
+    repeated: true,
+    type: Google.Cloud.Datastream.V1.HostAddress,
+    json_name: "hostAddresses",
+    deprecated: false
+
+  field :replica_set, 2, type: :string, json_name: "replicaSet", deprecated: false
+  field :username, 3, type: :string, deprecated: false
+  field :password, 4, type: :string, deprecated: false
+
+  field :secret_manager_stored_password, 5,
+    type: :string,
+    json_name: "secretManagerStoredPassword",
+    deprecated: false
+
+  field :ssl_config, 6,
+    type: Google.Cloud.Datastream.V1.MongodbSslConfig,
+    json_name: "sslConfig",
+    deprecated: false
+
+  field :srv_connection_format, 101,
+    type: Google.Cloud.Datastream.V1.SrvConnectionFormat,
+    json_name: "srvConnectionFormat",
+    oneof: 0
+
+  field :standard_connection_format, 102,
+    type: Google.Cloud.Datastream.V1.StandardConnectionFormat,
+    json_name: "standardConnectionFormat",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Datastream.V1.HostAddress do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :hostname, 1, type: :string, deprecated: false
+  field :port, 2, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.SrvConnectionFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Datastream.V1.StandardConnectionFormat do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :direct_connection, 1, type: :bool, json_name: "directConnection", deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.GcsProfile do
   @moduledoc false
 
@@ -344,6 +405,14 @@ defmodule Google.Cloud.Datastream.V1.VpcPeeringConfig do
 
   field :vpc, 1, type: :string, deprecated: false
   field :subnet, 2, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.PscInterfaceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :network_attachment, 1, type: :string, json_name: "networkAttachment", deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.PrivateConnection.LabelsEntry do
@@ -401,6 +470,10 @@ defmodule Google.Cloud.Datastream.V1.PrivateConnection do
   field :vpc_peering_config, 100,
     type: Google.Cloud.Datastream.V1.VpcPeeringConfig,
     json_name: "vpcPeeringConfig"
+
+  field :psc_interface_config, 101,
+    type: Google.Cloud.Datastream.V1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig"
 end
 
 defmodule Google.Cloud.Datastream.V1.PrivateConnectivity do
@@ -443,6 +516,29 @@ defmodule Google.Cloud.Datastream.V1.Route do
   field :destination_port, 7, type: :int32, json_name: "destinationPort"
 end
 
+defmodule Google.Cloud.Datastream.V1.MongodbSslConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :client_key, 1, type: :string, json_name: "clientKey", deprecated: false
+  field :client_key_set, 2, type: :bool, json_name: "clientKeySet", deprecated: false
+  field :client_certificate, 3, type: :string, json_name: "clientCertificate", deprecated: false
+
+  field :client_certificate_set, 4,
+    type: :bool,
+    json_name: "clientCertificateSet",
+    deprecated: false
+
+  field :ca_certificate, 5, type: :string, json_name: "caCertificate", deprecated: false
+  field :ca_certificate_set, 6, type: :bool, json_name: "caCertificateSet", deprecated: false
+
+  field :secret_manager_stored_client_key, 7,
+    type: :string,
+    json_name: "secretManagerStoredClientKey",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.MysqlSslConfig do
   @moduledoc false
 
@@ -468,6 +564,11 @@ defmodule Google.Cloud.Datastream.V1.OracleSslConfig do
 
   field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
   field :ca_certificate_set, 2, type: :bool, json_name: "caCertificateSet", deprecated: false
+
+  field :server_certificate_distinguished_name, 3,
+    type: :string,
+    json_name: "serverCertificateDistinguishedName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerVerification do
@@ -476,6 +577,11 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerVerification do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :ca_certificate, 1, type: :string, json_name: "caCertificate", deprecated: false
+
+  field :server_certificate_hostname, 2,
+    type: :string,
+    json_name: "serverCertificateHostname",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerAndClientVerification do
@@ -486,6 +592,11 @@ defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig.ServerAndClientVerifica
   field :client_certificate, 1, type: :string, json_name: "clientCertificate", deprecated: false
   field :client_key, 2, type: :string, json_name: "clientKey", deprecated: false
   field :ca_certificate, 3, type: :string, json_name: "caCertificate", deprecated: false
+
+  field :server_certificate_hostname, 5,
+    type: :string,
+    json_name: "serverCertificateHostname",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.PostgresqlSslConfig do
@@ -588,6 +699,11 @@ defmodule Google.Cloud.Datastream.V1.ConnectionProfile do
   field :salesforce_profile, 107,
     type: Google.Cloud.Datastream.V1.SalesforceProfile,
     json_name: "salesforceProfile",
+    oneof: 0
+
+  field :mongodb_profile, 108,
+    type: Google.Cloud.Datastream.V1.MongodbProfile,
+    json_name: "mongodbProfile",
     oneof: 0
 
   field :static_service_ip_connectivity, 200,
@@ -1047,6 +1163,59 @@ defmodule Google.Cloud.Datastream.V1.SalesforceField do
   field :nillable, 3, type: :bool
 end
 
+defmodule Google.Cloud.Datastream.V1.MongodbSourceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :include_objects, 1,
+    type: Google.Cloud.Datastream.V1.MongodbCluster,
+    json_name: "includeObjects"
+
+  field :exclude_objects, 2,
+    type: Google.Cloud.Datastream.V1.MongodbCluster,
+    json_name: "excludeObjects"
+
+  field :max_concurrent_backfill_tasks, 3,
+    type: :int32,
+    json_name: "maxConcurrentBackfillTasks",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Datastream.V1.MongodbCluster do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :databases, 1, repeated: true, type: Google.Cloud.Datastream.V1.MongodbDatabase
+end
+
+defmodule Google.Cloud.Datastream.V1.MongodbDatabase do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :database, 1, type: :string
+  field :collections, 2, repeated: true, type: Google.Cloud.Datastream.V1.MongodbCollection
+end
+
+defmodule Google.Cloud.Datastream.V1.MongodbCollection do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :collection, 1, type: :string
+  field :fields, 2, repeated: true, type: Google.Cloud.Datastream.V1.MongodbField
+end
+
+defmodule Google.Cloud.Datastream.V1.MongodbField do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :field, 1, type: :string
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceConfig do
   @moduledoc false
 
@@ -1082,6 +1251,11 @@ defmodule Google.Cloud.Datastream.V1.SourceConfig do
   field :salesforce_source_config, 104,
     type: Google.Cloud.Datastream.V1.SalesforceSourceConfig,
     json_name: "salesforceSourceConfig",
+    oneof: 0
+
+  field :mongodb_source_config, 105,
+    type: Google.Cloud.Datastream.V1.MongodbSourceConfig,
+    json_name: "mongodbSourceConfig",
     oneof: 0
 end
 
@@ -1158,6 +1332,12 @@ defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDa
     type:
       Google.Cloud.Datastream.V1.BigQueryDestinationConfig.SourceHierarchyDatasets.DatasetTemplate,
     json_name: "datasetTemplate"
+
+  field :project_id, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "projectId",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Datastream.V1.BigQueryDestinationConfig.BlmtConfig do
@@ -1281,6 +1461,11 @@ defmodule Google.Cloud.Datastream.V1.Stream.BackfillAllStrategy do
   field :salesforce_excluded_objects, 5,
     type: Google.Cloud.Datastream.V1.SalesforceOrg,
     json_name: "salesforceExcludedObjects",
+    oneof: 0
+
+  field :mongodb_excluded_objects, 6,
+    type: Google.Cloud.Datastream.V1.MongodbCluster,
+    json_name: "mongodbExcludedObjects",
     oneof: 0
 end
 
@@ -1439,6 +1624,15 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.SalesforceObjectIden
   field :object_name, 1, type: :string, json_name: "objectName", deprecated: false
 end
 
+defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier.MongodbObjectIdentifier do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :database, 1, type: :string, deprecated: false
+  field :collection, 2, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   @moduledoc false
 
@@ -1469,6 +1663,11 @@ defmodule Google.Cloud.Datastream.V1.SourceObjectIdentifier do
   field :salesforce_identifier, 5,
     type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.SalesforceObjectIdentifier,
     json_name: "salesforceIdentifier",
+    oneof: 0
+
+  field :mongodb_identifier, 6,
+    type: Google.Cloud.Datastream.V1.SourceObjectIdentifier.MongodbObjectIdentifier,
+    json_name: "mongodbIdentifier",
     oneof: 0
 end
 

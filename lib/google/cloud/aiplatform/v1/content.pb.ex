@@ -553,6 +553,17 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext do
   field :text, 3, proto3_optional: true, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Maps do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :uri, 1, proto3_optional: true, type: :string
+  field :title, 2, proto3_optional: true, type: :string
+  field :text, 3, proto3_optional: true, type: :string
+  field :place_id, 4, proto3_optional: true, type: :string, json_name: "placeId"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
   @moduledoc false
 
@@ -566,6 +577,8 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
     type: Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext,
     json_name: "retrievedContext",
     oneof: 0
+
+  field :maps, 3, type: Google.Cloud.Aiplatform.V1.GroundingChunk.Maps, oneof: 0
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GroundingSupport do
@@ -615,6 +628,12 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
     proto3_optional: true,
     type: Google.Cloud.Aiplatform.V1.RetrievalMetadata,
     json_name: "retrievalMetadata",
+    deprecated: false
+
+  field :google_maps_widget_context_token, 8,
+    proto3_optional: true,
+    type: :string,
+    json_name: "googleMapsWidgetContextToken",
     deprecated: false
 end
 

@@ -21,6 +21,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.PackageSpec do
   field :python_version, 4, type: :string, json_name: "pythonVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.DeploymentSpec.ResourceLimitsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.DeploymentSpec do
   @moduledoc false
 
@@ -32,6 +41,36 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.DeploymentSpec do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.SecretEnvVar,
     json_name: "secretEnv",
+    deprecated: false
+
+  field :psc_interface_config, 4,
+    type: Google.Cloud.Aiplatform.V1beta1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
+  field :min_instances, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "minInstances",
+    deprecated: false
+
+  field :max_instances, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxInstances",
+    deprecated: false
+
+  field :resource_limits, 7,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineSpec.DeploymentSpec.ResourceLimitsEntry,
+    json_name: "resourceLimits",
+    map: true,
+    deprecated: false
+
+  field :container_concurrency, 8,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "containerConcurrency",
     deprecated: false
 end
 
@@ -97,6 +136,45 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngine do
     json_name: "encryptionSpec"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.TtlConfig.GranularTtlConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :create_ttl, 1, type: Google.Protobuf.Duration, json_name: "createTtl", deprecated: false
+
+  field :generate_created_ttl, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "generateCreatedTtl",
+    deprecated: false
+
+  field :generate_updated_ttl, 3,
+    type: Google.Protobuf.Duration,
+    json_name: "generateUpdatedTtl",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.TtlConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :ttl, 0
+
+  field :default_ttl, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "defaultTtl",
+    oneof: 0,
+    deprecated: false
+
+  field :granular_ttl_config, 2,
+    type:
+      Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.TtlConfig.GranularTtlConfig,
+    json_name: "granularTtlConfig",
+    oneof: 0,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.GenerationConfig do
   @moduledoc false
 
@@ -128,6 +206,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankC
     type:
       Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.SimilaritySearchConfig,
     json_name: "similaritySearchConfig",
+    deprecated: false
+
+  field :ttl_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.ReasoningEngineContextSpec.MemoryBankConfig.TtlConfig,
+    json_name: "ttlConfig",
     deprecated: false
 end
 
