@@ -26,6 +26,14 @@ defmodule Google.Cloud.Support.V2beta.CreateCommentRequest do
   field :comment, 2, type: Google.Cloud.Support.V2beta.Comment, deprecated: false
 end
 
+defmodule Google.Cloud.Support.V2beta.GetCommentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Support.V2beta.CommentService.Service do
   @moduledoc false
 
@@ -39,6 +47,10 @@ defmodule Google.Cloud.Support.V2beta.CommentService.Service do
 
   rpc :CreateComment,
       Google.Cloud.Support.V2beta.CreateCommentRequest,
+      Google.Cloud.Support.V2beta.Comment
+
+  rpc :GetComment,
+      Google.Cloud.Support.V2beta.GetCommentRequest,
       Google.Cloud.Support.V2beta.Comment
 end
 

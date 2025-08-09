@@ -8,6 +8,14 @@ defmodule Google.Cloud.Support.V2beta.ListAttachmentsRequest do
   field :page_token, 3, type: :string, json_name: "pageToken"
 end
 
+defmodule Google.Cloud.Support.V2beta.GetAttachmentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Support.V2beta.ListAttachmentsResponse do
   @moduledoc false
 
@@ -27,6 +35,10 @@ defmodule Google.Cloud.Support.V2beta.CaseAttachmentService.Service do
   rpc :ListAttachments,
       Google.Cloud.Support.V2beta.ListAttachmentsRequest,
       Google.Cloud.Support.V2beta.ListAttachmentsResponse
+
+  rpc :GetAttachment,
+      Google.Cloud.Support.V2beta.GetAttachmentRequest,
+      Google.Cloud.Support.V2beta.Attachment
 end
 
 defmodule Google.Cloud.Support.V2beta.CaseAttachmentService.Stub do
