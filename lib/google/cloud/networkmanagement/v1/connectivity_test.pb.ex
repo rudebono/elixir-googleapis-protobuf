@@ -133,6 +133,7 @@ defmodule Google.Cloud.Networkmanagement.V1.Endpoint.CloudRunRevisionEndpoint do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :uri, 1, type: :string
+  field :service_uri, 2, type: :string, json_name: "serviceUri", deprecated: false
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.Endpoint do
