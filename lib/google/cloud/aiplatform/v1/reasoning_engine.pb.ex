@@ -21,6 +21,15 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.PackageSpec do
   field :python_version, 4, type: :string, json_name: "pythonVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec.ResourceLimitsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec do
   @moduledoc false
 
@@ -32,6 +41,36 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec do
     repeated: true,
     type: Google.Cloud.Aiplatform.V1.SecretEnvVar,
     json_name: "secretEnv",
+    deprecated: false
+
+  field :psc_interface_config, 4,
+    type: Google.Cloud.Aiplatform.V1.PscInterfaceConfig,
+    json_name: "pscInterfaceConfig",
+    deprecated: false
+
+  field :min_instances, 5,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "minInstances",
+    deprecated: false
+
+  field :max_instances, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxInstances",
+    deprecated: false
+
+  field :resource_limits, 7,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec.ResourceLimitsEntry,
+    json_name: "resourceLimits",
+    map: true,
+    deprecated: false
+
+  field :container_concurrency, 8,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "containerConcurrency",
     deprecated: false
 end
 
@@ -86,4 +125,8 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine do
     deprecated: false
 
   field :etag, 6, type: :string, deprecated: false
+
+  field :encryption_spec, 11,
+    type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
+    json_name: "encryptionSpec"
 end
