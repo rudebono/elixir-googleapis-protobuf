@@ -13,6 +13,27 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.Context do
   field :options, 3,
     type: Google.Cloud.Geminidataanalytics.V1alpha.ConversationOptions,
     deprecated: false
+
+  field :example_queries, 5,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.ExampleQuery,
+    json_name: "exampleQueries",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.ExampleQuery do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :query, 0
+
+  field :sql_query, 101, type: :string, json_name: "sqlQuery", oneof: 0, deprecated: false
+
+  field :natural_language_question, 1,
+    type: :string,
+    json_name: "naturalLanguageQuestion",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ConversationOptions do

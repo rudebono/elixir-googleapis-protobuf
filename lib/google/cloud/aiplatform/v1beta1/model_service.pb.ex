@@ -1,3 +1,13 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.Recommendation.QuotaState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :QUOTA_STATE_UNSPECIFIED, 0
+  field :QUOTA_STATE_USER_HAS_QUOTA, 1
+  field :QUOTA_STATE_NO_USER_QUOTA, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.UploadModelRequest do
   @moduledoc false
 
@@ -405,6 +415,74 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationSlicesResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.RecommendSpecRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 2, type: :string, deprecated: false
+  field :gcs_uri, 1, type: :string, json_name: "gcsUri", deprecated: false
+
+  field :check_machine_availability, 3,
+    type: :bool,
+    json_name: "checkMachineAvailability",
+    deprecated: false
+
+  field :check_user_quota, 4, type: :bool, json_name: "checkUserQuota", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.MachineAndModelContainerSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :machine_spec, 1,
+    type: Google.Cloud.Aiplatform.V1beta1.MachineSpec,
+    json_name: "machineSpec",
+    deprecated: false
+
+  field :container_spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec,
+    json_name: "containerSpec",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.Recommendation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :region, 1, type: :string
+
+  field :spec, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.MachineAndModelContainerSpec,
+    deprecated: false
+
+  field :user_quota_state, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.Recommendation.QuotaState,
+    json_name: "userQuotaState",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :base_model, 1, type: :string, json_name: "baseModel", deprecated: false
+
+  field :recommendations, 3,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.Recommendation,
+    deprecated: false
+
+  field :specs, 2,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse.MachineAndModelContainerSpec,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
   @moduledoc false
 
@@ -485,6 +563,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Service do
   rpc :ListModelEvaluationSlices,
       Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationSlicesRequest,
       Google.Cloud.Aiplatform.V1beta1.ListModelEvaluationSlicesResponse
+
+  rpc :RecommendSpec,
+      Google.Cloud.Aiplatform.V1beta1.RecommendSpecRequest,
+      Google.Cloud.Aiplatform.V1beta1.RecommendSpecResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.ModelService.Stub do

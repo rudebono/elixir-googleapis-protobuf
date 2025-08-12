@@ -664,6 +664,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GroundingChunk.RetrievedContext do
   field :uri, 1, proto3_optional: true, type: :string
   field :title, 2, proto3_optional: true, type: :string
   field :text, 3, proto3_optional: true, type: :string
+
+  field :document_name, 6,
+    proto3_optional: true,
+    type: :string,
+    json_name: "documentName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.GroundingChunk.Maps do
