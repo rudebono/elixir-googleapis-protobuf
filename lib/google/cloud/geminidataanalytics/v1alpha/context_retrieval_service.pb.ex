@@ -1,44 +1,3 @@
-defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :project, 5, type: :string, deprecated: true
-  field :parent, 6, type: :string, deprecated: false
-  field :query, 2, type: :string, deprecated: false
-
-  field :direct_lookup, 3,
-    repeated: true,
-    type: Google.Cloud.Geminidataanalytics.V1alpha.DirectLookup,
-    json_name: "directLookup",
-    deprecated: false
-end
-
-defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse.Candidate do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :linked_resource, 1, type: :string, json_name: "linkedResource"
-  field :content, 2, type: :string
-end
-
-defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :candidates, 1,
-    repeated: true,
-    type: Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse.Candidate,
-    deprecated: true
-
-  field :table_candidates, 2,
-    repeated: true,
-    type: Google.Cloud.Geminidataanalytics.V1alpha.TableCandidate,
-    json_name: "tableCandidates"
-end
-
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsRequest do
   @moduledoc false
 
@@ -211,10 +170,6 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ContextRetrievalService.Servi
   use GRPC.Service,
     name: "google.cloud.geminidataanalytics.v1alpha.ContextRetrievalService",
     protoc_gen_elixir_version: "0.15.0"
-
-  rpc :RetrieveBigQueryTableContext,
-      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextRequest,
-      Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextResponse
 
   rpc :RetrieveBigQueryTableContexts,
       Google.Cloud.Geminidataanalytics.V1alpha.RetrieveBigQueryTableContextsRequest,
