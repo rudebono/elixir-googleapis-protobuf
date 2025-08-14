@@ -124,6 +124,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.TuningJob do
 
   field :service_account, 22, type: :string, json_name: "serviceAccount"
   field :output_uri, 25, type: :string, json_name: "outputUri", deprecated: false
+
+  field :evaluate_dataset_runs, 32,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRun,
+    json_name: "evaluateDatasetRuns",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModel do
@@ -388,6 +394,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec do
     json_name: "exportLastCheckpointOnly",
     deprecated: false
 
+  field :evaluation_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.EvaluationConfig,
+    json_name: "evaluationConfig",
+    deprecated: false
+
   field :tuning_mode, 7,
     type: Google.Cloud.Aiplatform.V1beta1.SupervisedTuningSpec.TuningMode,
     json_name: "tuningMode",
@@ -538,6 +549,37 @@ defmodule Google.Cloud.Aiplatform.V1beta1.VeoTuningSpec do
     type: Google.Cloud.Aiplatform.V1beta1.VeoHyperParameters,
     json_name: "hyperParameters",
     deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :metrics, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Metric,
+    deprecated: false
+
+  field :output_config, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.OutputConfig,
+    json_name: "outputConfig",
+    deprecated: false
+
+  field :autorater_config, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.AutoraterConfig,
+    json_name: "autoraterConfig",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRun do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :operation_name, 1, type: :string, json_name: "operationName", deprecated: false
+  field :checkpoint_id, 2, type: :string, json_name: "checkpointId", deprecated: false
+  field :error, 4, type: Google.Rpc.Status, deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.TunedModelCheckpoint do
