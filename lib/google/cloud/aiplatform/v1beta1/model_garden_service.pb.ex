@@ -97,6 +97,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.ModelConfig do
     type: Google.Cloud.Aiplatform.V1beta1.ModelContainerSpec,
     json_name: "containerSpec",
     deprecated: false
+
+  field :model_user_id, 6, type: :string, json_name: "modelUserId", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.EndpointConfig do
@@ -112,7 +114,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.EndpointConfig do
   field :dedicated_endpoint_enabled, 2,
     type: :bool,
     json_name: "dedicatedEndpointEnabled",
+    deprecated: true
+
+  field :dedicated_endpoint_disabled, 4,
+    type: :bool,
+    json_name: "dedicatedEndpointDisabled",
     deprecated: false
+
+  field :endpoint_user_id, 3, type: :string, json_name: "endpointUserId", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.DeployConfig.SystemLabelsEntry do

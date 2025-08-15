@@ -12,6 +12,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MachineSpec do
     deprecated: false
 
   field :accelerator_count, 3, type: :int32, json_name: "acceleratorCount"
+  field :gpu_partition_size, 7, type: :string, json_name: "gpuPartitionSize", deprecated: false
   field :tpu_topology, 4, type: :string, json_name: "tpuTopology", deprecated: false
 
   field :multihost_gpu_node_count, 6,
