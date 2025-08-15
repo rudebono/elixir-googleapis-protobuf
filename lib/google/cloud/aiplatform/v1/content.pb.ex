@@ -166,13 +166,8 @@ defmodule Google.Cloud.Aiplatform.V1.Part do
     oneof: 0,
     deprecated: false
 
-  field :thought, 10, type: :bool, oneof: 0, deprecated: false
-
-  field :thought_signature, 11,
-    type: :bytes,
-    json_name: "thoughtSignature",
-    oneof: 0,
-    deprecated: false
+  field :thought, 10, type: :bool, deprecated: false
+  field :thought_signature, 11, type: :bytes, json_name: "thoughtSignature", deprecated: false
 
   field :video_metadata, 4,
     type: Google.Cloud.Aiplatform.V1.VideoMetadata,
