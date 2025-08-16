@@ -21,6 +21,16 @@ defmodule Google.Cloud.Documentai.V1.Document.Page.Token.DetectedBreak.Type do
   field :HYPHEN, 3
 end
 
+defmodule Google.Cloud.Documentai.V1.Document.Entity.Method do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :METHOD_UNSPECIFIED, 0
+  field :EXTRACT, 1
+  field :DERIVE, 2
+end
+
 defmodule Google.Cloud.Documentai.V1.Document.PageAnchor.PageRef.LayoutType do
   @moduledoc false
 
@@ -449,6 +459,7 @@ defmodule Google.Cloud.Documentai.V1.Document.Entity.NormalizedValue do
   field :boolean_value, 6, type: :bool, json_name: "booleanValue", oneof: 0
   field :integer_value, 7, type: :int32, json_name: "integerValue", oneof: 0
   field :float_value, 8, type: :float, json_name: "floatValue", oneof: 0
+  field :signature_value, 10, type: :bool, json_name: "signatureValue", oneof: 0
   field :text, 1, type: :string, deprecated: false
 end
 
@@ -486,6 +497,11 @@ defmodule Google.Cloud.Documentai.V1.Document.Entity do
 
   field :provenance, 11, type: Google.Cloud.Documentai.V1.Document.Provenance, deprecated: false
   field :redacted, 12, type: :bool, deprecated: false
+
+  field :method, 15,
+    type: Google.Cloud.Documentai.V1.Document.Entity.Method,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1.Document.EntityRelation do

@@ -20,6 +20,7 @@ defmodule Google.Maps.Solar.V1.ImageryQuality do
   field :HIGH, 1
   field :MEDIUM, 2
   field :LOW, 3
+  field :BASE, 4
 end
 
 defmodule Google.Maps.Solar.V1.SolarPanelOrientation do
@@ -30,6 +31,15 @@ defmodule Google.Maps.Solar.V1.SolarPanelOrientation do
   field :SOLAR_PANEL_ORIENTATION_UNSPECIFIED, 0
   field :LANDSCAPE, 1
   field :PORTRAIT, 2
+end
+
+defmodule Google.Maps.Solar.V1.Experiment do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :EXPERIMENT_UNSPECIFIED, 0
+  field :EXPANDED_COVERAGE, 1
 end
 
 defmodule Google.Maps.Solar.V1.FindClosestBuildingInsightsRequest do
@@ -48,6 +58,12 @@ defmodule Google.Maps.Solar.V1.FindClosestBuildingInsightsRequest do
   field :exact_quality_required, 4,
     type: :bool,
     json_name: "exactQualityRequired",
+    deprecated: false
+
+  field :experiments, 5,
+    repeated: true,
+    type: Google.Maps.Solar.V1.Experiment,
+    enum: true,
     deprecated: false
 end
 
@@ -323,6 +339,12 @@ defmodule Google.Maps.Solar.V1.GetDataLayersRequest do
   field :exact_quality_required, 7,
     type: :bool,
     json_name: "exactQualityRequired",
+    deprecated: false
+
+  field :experiments, 8,
+    repeated: true,
+    type: Google.Maps.Solar.V1.Experiment,
+    enum: true,
     deprecated: false
 end
 

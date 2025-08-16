@@ -1500,8 +1500,14 @@ defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.WorkerConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :machine_type, 1, type: :string, json_name: "machineType"
+  field :machine_type, 1, type: :string, json_name: "machineType", deprecated: false
   field :disk_size_gb, 2, type: :int64, json_name: "diskSizeGb"
+
+  field :enable_nested_virtualization, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableNestedVirtualization",
+    deprecated: false
 end
 
 defmodule Google.Devtools.Cloudbuild.V1.PrivatePoolV1Config.NetworkConfig do
