@@ -9,6 +9,17 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Edition do
   field :ENTERPRISE_PLUS, 3
 end
 
+defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.ScalingMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SCALING_MODE_UNSPECIFIED, 0
+  field :AUTOSCALE_ONLY, 1
+  field :IDLE_SLOTS_ONLY, 2
+  field :ALL_SLOTS, 3
+end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.CapacityCommitment.CommitmentPlan do
   @moduledoc false
 
@@ -116,6 +127,18 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation do
   field :original_primary_location, 20,
     type: :string,
     json_name: "originalPrimaryLocation",
+    deprecated: false
+
+  field :max_slots, 21,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "maxSlots",
+    deprecated: false
+
+  field :scaling_mode, 22,
+    type: Google.Cloud.Bigquery.Reservation.V1.Reservation.ScalingMode,
+    json_name: "scalingMode",
+    enum: true,
     deprecated: false
 
   field :replication_status, 24,
