@@ -98,6 +98,7 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryResourceType do
   field :CALCULATED_METRIC, 31
   field :REPORTING_DATA_ANNOTATION, 32
   field :SUBPROPERTY_SYNC_CONFIG, 33
+  field :REPORTING_IDENTITY_SETTINGS, 34
 end
 
 defmodule Google.Analytics.Admin.V1alpha.GoogleSignalsState do
@@ -352,6 +353,17 @@ defmodule Google.Analytics.Admin.V1alpha.SubpropertySyncConfig.SynchronizationMo
   field :SYNCHRONIZATION_MODE_UNSPECIFIED, 0
   field :NONE, 1
   field :ALL, 2
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ReportingIdentitySettings.ReportingIdentity do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :IDENTITY_BLENDING_STRATEGY_UNSPECIFIED, 0
+  field :BLENDED, 1
+  field :OBSERVED, 2
+  field :DEVICE_BASED, 3
 end
 
 defmodule Google.Analytics.Admin.V1alpha.Account do
@@ -846,6 +858,11 @@ defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange.ChangeHistoryResour
     type: Google.Analytics.Admin.V1alpha.SubpropertySyncConfig,
     json_name: "subpropertySyncConfig",
     oneof: 0
+
+  field :reporting_identity_settings, 34,
+    type: Google.Analytics.Admin.V1alpha.ReportingIdentitySettings,
+    json_name: "reportingIdentitySettings",
+    oneof: 0
 end
 
 defmodule Google.Analytics.Admin.V1alpha.ChangeHistoryChange do
@@ -1267,15 +1284,6 @@ defmodule Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings do
   field :uri_query_parameter, 11, type: :string, json_name: "uriQueryParameter"
 end
 
-defmodule Google.Analytics.Admin.V1alpha.ConnectedSiteTag do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :display_name, 1, type: :string, json_name: "displayName", deprecated: false
-  field :tag_id, 2, type: :string, json_name: "tagId", deprecated: false
-end
-
 defmodule Google.Analytics.Admin.V1alpha.DataRedactionSettings do
   @moduledoc false
 
@@ -1357,4 +1365,17 @@ defmodule Google.Analytics.Admin.V1alpha.SubpropertySyncConfig do
     json_name: "customDimensionAndMetricSyncMode",
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Analytics.Admin.V1alpha.ReportingIdentitySettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :reporting_identity, 2,
+    type: Google.Analytics.Admin.V1alpha.ReportingIdentitySettings.ReportingIdentity,
+    json_name: "reportingIdentity",
+    enum: true
 end
