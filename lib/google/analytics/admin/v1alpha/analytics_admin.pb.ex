@@ -1547,37 +1547,6 @@ defmodule Google.Analytics.Admin.V1alpha.ListChannelGroupsResponse do
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
-defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string, deprecated: false
-  field :opt_out, 2, type: :bool, json_name: "optOut"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-end
-
-defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :opt_out, 1, type: :bool, json_name: "optOut"
-end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateBigQueryLinkRequest do
   @moduledoc false
 
@@ -1694,53 +1663,6 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateDataRedactionSettingsRequest do
     deprecated: false
 end
 
-defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string
-
-  field :connected_site_tag, 2,
-    type: Google.Analytics.Admin.V1alpha.ConnectedSiteTag,
-    json_name: "connectedSiteTag",
-    deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-end
-
-defmodule Google.Analytics.Admin.V1alpha.DeleteConnectedSiteTagRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string
-  field :tag_id, 2, type: :string, json_name: "tagId"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string
-end
-
-defmodule Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :connected_site_tags, 1,
-    repeated: true,
-    type: Google.Analytics.Admin.V1alpha.ConnectedSiteTag,
-    json_name: "connectedSiteTags"
-end
-
 defmodule Google.Analytics.Admin.V1alpha.CreateAdSenseLinkRequest do
   @moduledoc false
 
@@ -1791,22 +1713,6 @@ defmodule Google.Analytics.Admin.V1alpha.ListAdSenseLinksResponse do
     json_name: "adsenseLinks"
 
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
-end
-
-defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string, deprecated: false
-end
-
-defmodule Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :property, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Analytics.Admin.V1alpha.CreateEventCreateRuleRequest do
@@ -2282,6 +2188,14 @@ defmodule Google.Analytics.Admin.V1alpha.UpdateSubpropertySyncConfigRequest do
     deprecated: false
 end
 
+defmodule Google.Analytics.Admin.V1alpha.GetReportingIdentitySettingsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   @moduledoc false
 
@@ -2701,14 +2615,6 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
       Google.Analytics.Admin.V1alpha.DeleteChannelGroupRequest,
       Google.Protobuf.Empty
 
-  rpc :SetAutomatedGa4ConfigurationOptOut,
-      Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutRequest,
-      Google.Analytics.Admin.V1alpha.SetAutomatedGa4ConfigurationOptOutResponse
-
-  rpc :FetchAutomatedGa4ConfigurationOptOut,
-      Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutRequest,
-      Google.Analytics.Admin.V1alpha.FetchAutomatedGa4ConfigurationOptOutResponse
-
   rpc :CreateBigQueryLink,
       Google.Analytics.Admin.V1alpha.CreateBigQueryLinkRequest,
       Google.Analytics.Admin.V1alpha.BigQueryLink
@@ -2736,22 +2642,6 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :UpdateEnhancedMeasurementSettings,
       Google.Analytics.Admin.V1alpha.UpdateEnhancedMeasurementSettingsRequest,
       Google.Analytics.Admin.V1alpha.EnhancedMeasurementSettings
-
-  rpc :CreateConnectedSiteTag,
-      Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagRequest,
-      Google.Analytics.Admin.V1alpha.CreateConnectedSiteTagResponse
-
-  rpc :DeleteConnectedSiteTag,
-      Google.Analytics.Admin.V1alpha.DeleteConnectedSiteTagRequest,
-      Google.Protobuf.Empty
-
-  rpc :ListConnectedSiteTags,
-      Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsRequest,
-      Google.Analytics.Admin.V1alpha.ListConnectedSiteTagsResponse
-
-  rpc :FetchConnectedGa4Property,
-      Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyRequest,
-      Google.Analytics.Admin.V1alpha.FetchConnectedGa4PropertyResponse
 
   rpc :GetAdSenseLink,
       Google.Analytics.Admin.V1alpha.GetAdSenseLinkRequest,
@@ -2920,6 +2810,10 @@ defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Service do
   rpc :GetSubpropertySyncConfig,
       Google.Analytics.Admin.V1alpha.GetSubpropertySyncConfigRequest,
       Google.Analytics.Admin.V1alpha.SubpropertySyncConfig
+
+  rpc :GetReportingIdentitySettings,
+      Google.Analytics.Admin.V1alpha.GetReportingIdentitySettingsRequest,
+      Google.Analytics.Admin.V1alpha.ReportingIdentitySettings
 end
 
 defmodule Google.Analytics.Admin.V1alpha.AnalyticsAdminService.Stub do
