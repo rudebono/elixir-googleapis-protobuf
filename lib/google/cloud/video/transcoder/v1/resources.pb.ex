@@ -204,6 +204,8 @@ defmodule Google.Cloud.Video.Transcoder.V1.Input do
   field :preprocessing_config, 3,
     type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig,
     json_name: "preprocessingConfig"
+
+  field :attributes, 4, type: Google.Cloud.Video.Transcoder.V1.InputAttributes, deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.Output do
@@ -540,6 +542,34 @@ defmodule Google.Cloud.Video.Transcoder.V1.PreprocessingConfig do
   field :crop, 5, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Crop
   field :pad, 6, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Pad
   field :deinterlace, 7, type: Google.Cloud.Video.Transcoder.V1.PreprocessingConfig.Deinterlace
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.TrackDefinition do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :input_track, 1, proto3_optional: true, type: :int32, json_name: "inputTrack"
+  field :languages, 2, repeated: true, type: :string, deprecated: false
+  field :detect_languages, 3, type: :bool, json_name: "detectLanguages", deprecated: false
+
+  field :detected_languages, 4,
+    repeated: true,
+    type: :string,
+    json_name: "detectedLanguages",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Transcoder.V1.InputAttributes do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :track_definitions, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Transcoder.V1.TrackDefinition,
+    json_name: "trackDefinitions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Transcoder.V1.VideoStream.H264ColorFormatSDR do
