@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Geminidataanalytics.V1beta.DataFilterType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DATA_FILTER_TYPE_UNSPECIFIED, 0
+  field :ALWAYS_FILTER, 1
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1beta.DatasourceReferences do
   @moduledoc false
 
@@ -36,6 +45,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.BigQueryTableReference do
   field :project_id, 1, type: :string, json_name: "projectId", deprecated: false
   field :dataset_id, 3, type: :string, json_name: "datasetId", deprecated: false
   field :table_id, 4, type: :string, json_name: "tableId", deprecated: false
+  field :schema, 6, type: Google.Cloud.Geminidataanalytics.V1beta.Schema, deprecated: false
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1beta.StudioDatasourceReferences do
@@ -80,11 +90,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.LookerExploreReference do
 
   oneof :instance, 0
 
-  field :looker_instance_uri, 9,
-    type: :string,
-    json_name: "lookerInstanceUri",
-    oneof: 0,
-    deprecated: false
+  field :looker_instance_uri, 9, type: :string, json_name: "lookerInstanceUri", oneof: 0
 
   field :private_looker_instance_info, 10,
     type: Google.Cloud.Geminidataanalytics.V1beta.PrivateLookerInstanceInfo,
@@ -137,7 +143,15 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.Schema do
     type: Google.Cloud.Geminidataanalytics.V1beta.Field,
     deprecated: false
 
+  field :description, 2, type: :string, deprecated: false
+  field :synonyms, 3, repeated: true, type: :string, deprecated: false
+  field :tags, 4, repeated: true, type: :string, deprecated: false
   field :display_name, 5, type: :string, json_name: "displayName", deprecated: false
+
+  field :filters, 6,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1beta.DataFilter,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1beta.Field do
@@ -149,6 +163,8 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.Field do
   field :type, 2, type: :string, deprecated: false
   field :description, 3, type: :string, deprecated: false
   field :mode, 4, type: :string, deprecated: false
+  field :synonyms, 6, repeated: true, type: :string, deprecated: false
+  field :tags, 7, repeated: true, type: :string, deprecated: false
   field :display_name, 8, type: :string, json_name: "displayName", deprecated: false
 
   field :subfields, 9,
@@ -157,4 +173,19 @@ defmodule Google.Cloud.Geminidataanalytics.V1beta.Field do
     deprecated: false
 
   field :category, 10, type: :string, deprecated: false
+  field :value_format, 11, type: :string, json_name: "valueFormat", deprecated: false
+end
+
+defmodule Google.Cloud.Geminidataanalytics.V1beta.DataFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :field, 1, type: :string, deprecated: false
+  field :value, 2, type: :string, deprecated: false
+
+  field :type, 3,
+    type: Google.Cloud.Geminidataanalytics.V1beta.DataFilterType,
+    enum: true,
+    deprecated: false
 end
