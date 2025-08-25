@@ -2715,6 +2715,20 @@ defmodule Google.Cloud.Compute.V1beta.MetadataFilter.FilterMatchCriteria do
   field :NOT_SET, 163_646_646
 end
 
+defmodule Google.Cloud.Compute.V1beta.MultiMigStatusAcceleratorTopology.AcceleratorTopologyState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_ACCELERATOR_TOPOLOGY_STATE, 0
+  field :ACTIVATING, 378_825_968
+  field :ACTIVE, 314_733_318
+  field :ACTIVE_DEGRADED, 471_128_135
+  field :DEACTIVATING, 57_182_257
+  field :FAILED, 455_706_685
+  field :INCOMPLETE, 11_941_214
+end
+
 defmodule Google.Cloud.Compute.V1beta.NatIpInfoNatIpInfoMapping.Mode do
   @moduledoc false
 
@@ -5367,6 +5381,7 @@ defmodule Google.Cloud.Compute.V1beta.UpcomingMaintenance.MaintenanceReasons do
   field :FAILURE_MEMORY, 440_132_982
   field :FAILURE_NETWORK, 42_811_449
   field :FAILURE_NVLINK, 484_426_295
+  field :FAILURE_REDUNDANT_HARDWARE_FAULT, 31_000_530
   field :INFRASTRUCTURE_RELOCATION, 359_845_636
   field :MAINTENANCE_REASON_UNKNOWN, 50_570_235
   field :PLANNED_NETWORK_UPDATE, 135_494_677
@@ -25657,6 +25672,10 @@ defmodule Google.Cloud.Compute.V1beta.MultiMig do
     json_name: "resourcePolicies"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :status, 181_260_274,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.MultiMigStatus
 end
 
 defmodule Google.Cloud.Compute.V1beta.MultiMigResourcePolicies do
@@ -25668,6 +25687,48 @@ defmodule Google.Cloud.Compute.V1beta.MultiMigResourcePolicies do
     proto3_optional: true,
     type: :string,
     json_name: "workloadPolicy"
+end
+
+defmodule Google.Cloud.Compute.V1beta.MultiMigStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :applied_accelerator_topologies, 481_392_547,
+    repeated: true,
+    type: Google.Cloud.Compute.V1beta.MultiMigStatusAcceleratorTopology,
+    json_name: "appliedAcceleratorTopologies"
+end
+
+defmodule Google.Cloud.Compute.V1beta.MultiMigStatusAcceleratorTopology do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :accelerator_topology, 389_323_203,
+    proto3_optional: true,
+    type: :string,
+    json_name: "acceleratorTopology"
+
+  field :accelerator_topology_state, 228_860_693,
+    proto3_optional: true,
+    type: :string,
+    json_name: "acceleratorTopologyState"
+
+  field :accelerator_topology_state_last_check, 386_725_257,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Compute.V1beta.MultiMigStatusAcceleratorTopologyAcceleratorTopologyStateLastCheck,
+    json_name: "acceleratorTopologyStateLastCheck"
+end
+
+defmodule Google.Cloud.Compute.V1beta.MultiMigStatusAcceleratorTopologyAcceleratorTopologyStateLastCheck do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :error, 96_784_904, proto3_optional: true, type: Google.Cloud.Compute.V1beta.Error
+  field :timestamp, 55_126_294, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1beta.MultiMigsList do
