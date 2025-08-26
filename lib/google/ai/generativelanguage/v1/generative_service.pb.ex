@@ -44,6 +44,17 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
   field :SPII, 9
   field :MALFORMED_FUNCTION_CALL, 10
   field :IMAGE_SAFETY, 11
+  field :UNEXPECTED_TOOL_CALL, 12
+end
+
+defmodule Google.Ai.Generativelanguage.V1.UrlMetadata.UrlRetrievalStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :URL_RETRIEVAL_STATUS_UNSPECIFIED, 0
+  field :URL_RETRIEVAL_STATUS_SUCCESS, 1
+  field :URL_RETRIEVAL_STATUS_ERROR, 2
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentRequest do
@@ -205,6 +216,7 @@ defmodule Google.Ai.Generativelanguage.V1.GenerateContentResponse do
     deprecated: false
 
   field :model_version, 4, type: :string, json_name: "modelVersion", deprecated: false
+  field :response_id, 5, type: :string, json_name: "responseId", deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1.Candidate do
@@ -244,6 +256,35 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate do
     type: Google.Ai.Generativelanguage.V1.LogprobsResult,
     json_name: "logprobsResult",
     deprecated: false
+
+  field :url_context_metadata, 13,
+    type: Google.Ai.Generativelanguage.V1.UrlContextMetadata,
+    json_name: "urlContextMetadata",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1.UrlContextMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :url_metadata, 1,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1.UrlMetadata,
+    json_name: "urlMetadata"
+end
+
+defmodule Google.Ai.Generativelanguage.V1.UrlMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :retrieved_url, 1, type: :string, json_name: "retrievedUrl"
+
+  field :url_retrieval_status, 2,
+    type: Google.Ai.Generativelanguage.V1.UrlMetadata.UrlRetrievalStatus,
+    json_name: "urlRetrievalStatus",
+    enum: true
 end
 
 defmodule Google.Ai.Generativelanguage.V1.LogprobsResult.Candidate do

@@ -22,6 +22,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AudioEncoding do
   field :MULAW, 5
   field :ALAW, 6
   field :PCM, 7
+  field :M4A, 8
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest.TimepointType do
@@ -41,6 +42,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.CustomPronunciationParams.PhoneticEn
   field :PHONETIC_ENCODING_UNSPECIFIED, 0
   field :PHONETIC_ENCODING_IPA, 1
   field :PHONETIC_ENCODING_X_SAMPA, 2
+  field :PHONETIC_ENCODING_JAPANESE_YOMIGANA, 3
+  field :PHONETIC_ENCODING_PINYIN, 4
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.CustomVoiceParams.ReportedUsage do
@@ -175,6 +178,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.SynthesisInput do
   oneof :input_source, 0
 
   field :text, 1, type: :string, oneof: 0
+  field :markup, 5, type: :string, oneof: 0
   field :ssml, 2, type: :string, oneof: 0
 
   field :multi_speaker_markup, 4,
@@ -209,6 +213,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.VoiceSelectionParams do
     type: Google.Cloud.Texttospeech.V1beta1.VoiceCloneParams,
     json_name: "voiceClone",
     deprecated: false
+
+  field :model_name, 6, type: :string, json_name: "modelName", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.AudioConfig do
@@ -290,6 +296,7 @@ defmodule Google.Cloud.Texttospeech.V1beta1.StreamingAudioConfig do
     deprecated: false
 
   field :sample_rate_hertz, 2, type: :int32, json_name: "sampleRateHertz", deprecated: false
+  field :speaking_rate, 3, type: :double, json_name: "speakingRate", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeConfig do
@@ -303,6 +310,11 @@ defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeConfig do
     type: Google.Cloud.Texttospeech.V1beta1.StreamingAudioConfig,
     json_name: "streamingAudioConfig",
     deprecated: false
+
+  field :custom_pronunciations, 5,
+    type: Google.Cloud.Texttospeech.V1beta1.CustomPronunciations,
+    json_name: "customPronunciations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesisInput do
@@ -313,6 +325,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesisInput do
   oneof :input_source, 0
 
   field :text, 1, type: :string, oneof: 0
+  field :markup, 5, type: :string, oneof: 0
+  field :prompt, 6, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.StreamingSynthesizeRequest do
