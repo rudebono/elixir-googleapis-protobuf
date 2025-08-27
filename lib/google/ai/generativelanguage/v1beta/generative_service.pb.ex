@@ -66,6 +66,17 @@ defmodule Google.Ai.Generativelanguage.V1beta.Candidate.FinishReason do
   field :SPII, 9
   field :MALFORMED_FUNCTION_CALL, 10
   field :IMAGE_SAFETY, 11
+  field :UNEXPECTED_TOOL_CALL, 12
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.UrlMetadata.UrlRetrievalStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :URL_RETRIEVAL_STATUS_UNSPECIFIED, 0
+  field :URL_RETRIEVAL_STATUS_SUCCESS, 1
+  field :URL_RETRIEVAL_STATUS_ERROR, 2
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerRequest.AnswerStyle do
@@ -197,6 +208,31 @@ defmodule Google.Ai.Generativelanguage.V1beta.VoiceConfig do
     oneof: 0
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.SpeakerVoiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :speaker, 1, type: :string, deprecated: false
+
+  field :voice_config, 2,
+    type: Google.Ai.Generativelanguage.V1beta.VoiceConfig,
+    json_name: "voiceConfig",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.MultiSpeakerVoiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :speaker_voice_configs, 2,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1beta.SpeakerVoiceConfig,
+    json_name: "speakerVoiceConfigs",
+    deprecated: false
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.SpeechConfig do
   @moduledoc false
 
@@ -205,6 +241,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.SpeechConfig do
   field :voice_config, 1,
     type: Google.Ai.Generativelanguage.V1beta.VoiceConfig,
     json_name: "voiceConfig"
+
+  field :multi_speaker_voice_config, 3,
+    type: Google.Ai.Generativelanguage.V1beta.MultiSpeakerVoiceConfig,
+    json_name: "multiSpeakerVoiceConfig",
+    deprecated: false
 
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
 end
@@ -250,6 +291,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
   field :response_schema, 14,
     type: Google.Ai.Generativelanguage.V1beta.Schema,
     json_name: "responseSchema",
+    deprecated: false
+
+  field :response_json_schema, 24,
+    type: Google.Protobuf.Value,
+    json_name: "responseJsonSchema",
     deprecated: false
 
   field :presence_penalty, 15,
@@ -412,6 +458,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerateContentResponse do
     deprecated: false
 
   field :model_version, 4, type: :string, json_name: "modelVersion", deprecated: false
+  field :response_id, 5, type: :string, json_name: "responseId", deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Candidate do
@@ -457,6 +504,35 @@ defmodule Google.Ai.Generativelanguage.V1beta.Candidate do
     type: Google.Ai.Generativelanguage.V1beta.LogprobsResult,
     json_name: "logprobsResult",
     deprecated: false
+
+  field :url_context_metadata, 13,
+    type: Google.Ai.Generativelanguage.V1beta.UrlContextMetadata,
+    json_name: "urlContextMetadata",
+    deprecated: false
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.UrlContextMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :url_metadata, 1,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1beta.UrlMetadata,
+    json_name: "urlMetadata"
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.UrlMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :retrieved_url, 1, type: :string, json_name: "retrievedUrl"
+
+  field :url_retrieval_status, 2,
+    type: Google.Ai.Generativelanguage.V1beta.UrlMetadata.UrlRetrievalStatus,
+    json_name: "urlRetrievalStatus",
+    enum: true
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.LogprobsResult.Candidate do
@@ -955,6 +1031,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.BidiGenerateContentSetup do
     json_name: "contextWindowCompression",
     deprecated: false
 
+  field :input_audio_transcription, 10,
+    type: Google.Ai.Generativelanguage.V1beta.AudioTranscriptionConfig,
+    json_name: "inputAudioTranscription",
+    deprecated: false
+
   field :output_audio_transcription, 11,
     type: Google.Ai.Generativelanguage.V1beta.AudioTranscriptionConfig,
     json_name: "outputAudioTranscription",
@@ -1088,9 +1169,19 @@ defmodule Google.Ai.Generativelanguage.V1beta.BidiGenerateContentServerContent d
     json_name: "groundingMetadata",
     deprecated: false
 
+  field :input_transcription, 6,
+    type: Google.Ai.Generativelanguage.V1beta.BidiGenerateContentTranscription,
+    json_name: "inputTranscription",
+    deprecated: false
+
   field :output_transcription, 7,
     type: Google.Ai.Generativelanguage.V1beta.BidiGenerateContentTranscription,
     json_name: "outputTranscription",
+    deprecated: false
+
+  field :url_context_metadata, 9,
+    type: Google.Ai.Generativelanguage.V1beta.UrlContextMetadata,
+    json_name: "urlContextMetadata",
     deprecated: false
 end
 

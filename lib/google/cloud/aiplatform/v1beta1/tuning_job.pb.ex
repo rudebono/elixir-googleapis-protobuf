@@ -579,6 +579,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetRun do
 
   field :operation_name, 1, type: :string, json_name: "operationName", deprecated: false
   field :checkpoint_id, 2, type: :string, json_name: "checkpointId", deprecated: false
+
+  field :evaluate_dataset_response, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.EvaluateDatasetResponse,
+    json_name: "evaluateDatasetResponse",
+    deprecated: false
+
   field :error, 4, type: Google.Rpc.Status, deprecated: false
 end
 
