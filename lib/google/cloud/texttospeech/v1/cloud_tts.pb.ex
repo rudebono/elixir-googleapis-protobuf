@@ -21,6 +21,7 @@ defmodule Google.Cloud.Texttospeech.V1.AudioEncoding do
   field :MULAW, 5
   field :ALAW, 6
   field :PCM, 7
+  field :M4A, 8
 end
 
 defmodule Google.Cloud.Texttospeech.V1.CustomPronunciationParams.PhoneticEncoding do
@@ -196,6 +197,8 @@ defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
     type: Google.Cloud.Texttospeech.V1.VoiceCloneParams,
     json_name: "voiceClone",
     deprecated: false
+
+  field :model_name, 6, type: :string, json_name: "modelName", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
@@ -293,6 +296,7 @@ defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesisInput do
 
   field :text, 1, type: :string, oneof: 0
   field :markup, 5, type: :string, oneof: 0
+  field :prompt, 6, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesizeRequest do

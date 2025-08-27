@@ -89,6 +89,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.RelevantChunk do
 
   field :chunk_relevance_score, 1, type: :float, json_name: "chunkRelevanceScore"
   field :chunk, 2, type: Google.Ai.Generativelanguage.V1beta.Chunk
+  field :document, 3, type: Google.Ai.Generativelanguage.V1beta.Document
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.CreateDocumentRequest do

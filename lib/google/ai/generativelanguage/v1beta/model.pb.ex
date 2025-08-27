@@ -20,4 +20,5 @@ defmodule Google.Ai.Generativelanguage.V1beta.Model do
   field :max_temperature, 13, proto3_optional: true, type: :float, json_name: "maxTemperature"
   field :top_p, 10, proto3_optional: true, type: :float, json_name: "topP"
   field :top_k, 11, proto3_optional: true, type: :int32, json_name: "topK"
+  field :thinking, 15, type: :bool
 end

@@ -27,7 +27,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.File do
   oneof :metadata, 0
 
   field :video_metadata, 12,
-    type: Google.Ai.Generativelanguage.V1beta.VideoMetadata,
+    type: Google.Ai.Generativelanguage.V1beta.VideoFileMetadata,
     json_name: "videoMetadata",
     oneof: 0,
     deprecated: false
@@ -65,7 +65,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.File do
   field :error, 11, type: Google.Rpc.Status, deprecated: false
 end
 
-defmodule Google.Ai.Generativelanguage.V1beta.VideoMetadata do
+defmodule Google.Ai.Generativelanguage.V1beta.VideoFileMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
