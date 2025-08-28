@@ -196,12 +196,31 @@ defmodule Google.Maps.Weather.V1.LookupPublicAlertsRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :location, 1, type: Google.Type.LatLng, deprecated: false
+
+  field :language_code, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "languageCode",
+    deprecated: false
+
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
 end
 
 defmodule Google.Maps.Weather.V1.LookupPublicAlertsResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :weather_alerts, 1,
+    repeated: true,
+    type: Google.Maps.Weather.V1.PublicAlerts,
+    json_name: "weatherAlerts"
+
+  field :region_code, 2, type: :string, json_name: "regionCode"
+  field :next_page_token, 3, type: :string, json_name: "nextPageToken"
 end
 
 defmodule Google.Maps.Weather.V1.Weather.Service do
