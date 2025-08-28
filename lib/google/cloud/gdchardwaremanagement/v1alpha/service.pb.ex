@@ -28,6 +28,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.Stat
   field :FACTORY_TURNUP_CHECKS_PASSED, 1
   field :READY_FOR_SITE_TURNUP, 1
   field :FACTORY_TURNUP_CHECKS_FAILED, 2
+  field :VERIFY_CLUSTER_INTENT_PRESENCE, 4
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest.ProvisioningStateSignal do
@@ -117,6 +118,15 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest do
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest.Type,
     enum: true,
     deprecated: false
+end
+
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.CancelOrderRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.ListSitesRequest do
@@ -554,6 +564,15 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.RequestOrderDateChangeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :requested_date, 2, type: Google.Type.Date, json_name: "requestedDate", deprecated: false
+end
+
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Service do
   @moduledoc false
 
@@ -583,6 +602,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
 
   rpc :SubmitOrder,
       Google.Cloud.Gdchardwaremanagement.V1alpha.SubmitOrderRequest,
+      Google.Longrunning.Operation
+
+  rpc :CancelOrder,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.CancelOrderRequest,
       Google.Longrunning.Operation
 
   rpc :ListSites,
@@ -699,6 +722,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.GDCHardwareManagement.Servi
 
   rpc :SignalZoneState,
       Google.Cloud.Gdchardwaremanagement.V1alpha.SignalZoneStateRequest,
+      Google.Longrunning.Operation
+
+  rpc :RequestOrderDateChange,
+      Google.Cloud.Gdchardwaremanagement.V1alpha.RequestOrderDateChangeRequest,
       Google.Longrunning.Operation
 end
 

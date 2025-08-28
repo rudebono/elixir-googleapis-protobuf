@@ -148,6 +148,10 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.PowerR
   field :NEMA_5_15, 1
   field :C_13, 2
   field :STANDARD_EU, 3
+  field :TYPE_G_BS1363, 4
+  field :CEE_7_3, 5
+  field :CEE_7_5, 6
+  field :TYPE_F, 7
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwarePhysicalInfo.NetworkUplinkType do
@@ -255,6 +259,11 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order do
   field :fulfillment_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "fulfillmentTime",
+    deprecated: true
+
+  field :customer_requested_installation_date, 21,
+    type: Google.Type.Date,
+    json_name: "customerRequestedInstallationDate",
     deprecated: false
 
   field :region_code, 10, type: :string, json_name: "regionCode", deprecated: false
@@ -292,6 +301,30 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Order do
   field :estimated_installation_date, 20,
     type: Google.Type.Date,
     json_name: "estimatedInstallationDate",
+    deprecated: false
+
+  field :estimated_delivery_date, 22,
+    type: Google.Type.Date,
+    json_name: "estimatedDeliveryDate",
+    deprecated: false
+
+  field :migration, 23, type: :bool, deprecated: false
+
+  field :accepted_time, 24,
+    type: Google.Protobuf.Timestamp,
+    json_name: "acceptedTime",
+    deprecated: false
+
+  field :requested_date_change, 25,
+    type: Google.Type.Date,
+    json_name: "requestedDateChange",
+    deprecated: false
+
+  field :vendor_notes, 26, type: :string, json_name: "vendorNotes", deprecated: false
+
+  field :vendor_contact, 27,
+    type: Google.Cloud.Gdchardwaremanagement.V1alpha.OrganizationContact,
+    json_name: "vendorContact",
     deprecated: false
 end
 
@@ -396,7 +429,7 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.HardwareGroup do
   field :requested_installation_date, 10,
     type: Google.Type.Date,
     json_name: "requestedInstallationDate",
-    deprecated: false
+    deprecated: true
 end
 
 defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MacAddress do
@@ -528,6 +561,11 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware do
     repeated: true,
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.Hardware.MachineInfo,
     json_name: "machineInfos",
+    deprecated: false
+
+  field :estimated_delivery_date, 21,
+    type: Google.Type.Date,
+    json_name: "estimatedDeliveryDate",
     deprecated: false
 end
 
@@ -718,6 +756,21 @@ defmodule Google.Cloud.Gdchardwaremanagement.V1alpha.Zone do
     type: Google.Cloud.Gdchardwaremanagement.V1alpha.Zone.ProvisioningState,
     json_name: "provisioningState",
     enum: true,
+    deprecated: false
+
+  field :skip_cluster_provisioning, 16,
+    type: :bool,
+    json_name: "skipClusterProvisioning",
+    deprecated: false
+
+  field :cluster_intent_required, 17,
+    type: :bool,
+    json_name: "clusterIntentRequired",
+    deprecated: false
+
+  field :cluster_intent_verified, 18,
+    type: :bool,
+    json_name: "clusterIntentVerified",
     deprecated: false
 end
 
