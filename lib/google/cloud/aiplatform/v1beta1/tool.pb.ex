@@ -45,6 +45,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FunctionCallingConfig.Mode do
   field :AUTO, 1
   field :ANY, 2
   field :NONE, 3
+  field :VALIDATED, 5
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch do
