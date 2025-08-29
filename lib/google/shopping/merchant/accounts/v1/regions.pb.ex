@@ -16,6 +16,27 @@ defmodule Google.Shopping.Merchant.Accounts.V1.CreateRegionRequest do
   field :region, 3, type: Google.Shopping.Merchant.Accounts.V1.Region, deprecated: false
 end
 
+defmodule Google.Shopping.Merchant.Accounts.V1.BatchCreateRegionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Shopping.Merchant.Accounts.V1.CreateRegionRequest,
+    deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1.BatchCreateRegionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :regions, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1.Region
+end
+
 defmodule Google.Shopping.Merchant.Accounts.V1.UpdateRegionRequest do
   @moduledoc false
 
@@ -29,12 +50,46 @@ defmodule Google.Shopping.Merchant.Accounts.V1.UpdateRegionRequest do
     deprecated: false
 end
 
+defmodule Google.Shopping.Merchant.Accounts.V1.BatchUpdateRegionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Shopping.Merchant.Accounts.V1.UpdateRegionRequest,
+    deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1.BatchUpdateRegionsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :regions, 1, repeated: true, type: Google.Shopping.Merchant.Accounts.V1.Region
+end
+
 defmodule Google.Shopping.Merchant.Accounts.V1.DeleteRegionRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Shopping.Merchant.Accounts.V1.BatchDeleteRegionsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Shopping.Merchant.Accounts.V1.DeleteRegionRequest,
+    deprecated: false
 end
 
 defmodule Google.Shopping.Merchant.Accounts.V1.ListRegionsRequest do
@@ -140,12 +195,24 @@ defmodule Google.Shopping.Merchant.Accounts.V1.RegionsService.Service do
       Google.Shopping.Merchant.Accounts.V1.CreateRegionRequest,
       Google.Shopping.Merchant.Accounts.V1.Region
 
+  rpc :BatchCreateRegions,
+      Google.Shopping.Merchant.Accounts.V1.BatchCreateRegionsRequest,
+      Google.Shopping.Merchant.Accounts.V1.BatchCreateRegionsResponse
+
   rpc :UpdateRegion,
       Google.Shopping.Merchant.Accounts.V1.UpdateRegionRequest,
       Google.Shopping.Merchant.Accounts.V1.Region
 
+  rpc :BatchUpdateRegions,
+      Google.Shopping.Merchant.Accounts.V1.BatchUpdateRegionsRequest,
+      Google.Shopping.Merchant.Accounts.V1.BatchUpdateRegionsResponse
+
   rpc :DeleteRegion,
       Google.Shopping.Merchant.Accounts.V1.DeleteRegionRequest,
+      Google.Protobuf.Empty
+
+  rpc :BatchDeleteRegions,
+      Google.Shopping.Merchant.Accounts.V1.BatchDeleteRegionsRequest,
       Google.Protobuf.Empty
 
   rpc :ListRegions,
