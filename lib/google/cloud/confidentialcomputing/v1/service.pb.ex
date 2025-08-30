@@ -21,6 +21,26 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenType do
   field :TOKEN_TYPE_AWS_PRINCIPALTAGS, 4
 end
 
+defmodule Google.Cloud.Confidentialcomputing.V1.SignatureType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SIGNATURE_TYPE_UNSPECIFIED, 0
+  field :SIGNATURE_TYPE_OIDC, 1
+  field :SIGNATURE_TYPE_PKI, 2
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.TokenProfile do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TOKEN_PROFILE_UNSPECIFIED, 0
+  field :TOKEN_PROFILE_DEFAULT_EAT, 1
+  field :TOKEN_PROFILE_AWS, 2
+end
+
 defmodule Google.Cloud.Confidentialcomputing.V1.Challenge do
   @moduledoc false
 
@@ -140,38 +160,6 @@ defmodule Google.Cloud.Confidentialcomputing.V1.GcpCredentials do
     json_name: "serviceAccountIdTokens"
 end
 
-defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :key_ids, 1, repeated: true, type: :string, json_name: "keyIds", deprecated: false
-end
-
-defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :container_image_signatures, 1,
-    type:
-      Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures,
-    json_name: "containerImageSignatures",
-    deprecated: false
-end
-
-defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :allowed_principal_tags, 1,
-    type:
-      Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions.AllowedPrincipalTags,
-    json_name: "allowedPrincipalTags",
-    deprecated: false
-end
-
 defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
   @moduledoc false
 
@@ -180,7 +168,7 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
   oneof :token_type_options, 0
 
   field :aws_principal_tags_options, 4,
-    type: Google.Cloud.Confidentialcomputing.V1.TokenOptions.AwsPrincipalTagsOptions,
+    type: Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions,
     json_name: "awsPrincipalTagsOptions",
     oneof: 0,
     deprecated: false
@@ -192,6 +180,37 @@ defmodule Google.Cloud.Confidentialcomputing.V1.TokenOptions do
     type: Google.Cloud.Confidentialcomputing.V1.TokenType,
     json_name: "tokenType",
     enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key_ids, 1, repeated: true, type: :string, json_name: "keyIds", deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions.AllowedPrincipalTags do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :container_image_signatures, 1,
+    type:
+      Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions.AllowedPrincipalTags.ContainerImageSignatures,
+    json_name: "containerImageSignatures",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :allowed_principal_tags, 1,
+    type: Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions.AllowedPrincipalTags,
+    json_name: "allowedPrincipalTags",
     deprecated: false
 end
 
@@ -276,6 +295,130 @@ defmodule Google.Cloud.Confidentialcomputing.V1.ContainerImageSignature do
     deprecated: false
 end
 
+defmodule Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceRequest.ConfidentialSpaceOptions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :token_profile_options, 0
+
+  field :aws_principal_tags_options, 5,
+    type: Google.Cloud.Confidentialcomputing.V1.AwsPrincipalTagsOptions,
+    json_name: "awsPrincipalTagsOptions",
+    oneof: 0,
+    deprecated: false
+
+  field :audience, 1, type: :string, deprecated: false
+
+  field :token_profile, 2,
+    type: Google.Cloud.Confidentialcomputing.V1.TokenProfile,
+    json_name: "tokenProfile",
+    enum: true,
+    deprecated: false
+
+  field :nonce, 3, repeated: true, type: :string, deprecated: false
+
+  field :signature_type, 4,
+    type: Google.Cloud.Confidentialcomputing.V1.SignatureType,
+    json_name: "signatureType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :tee_attestation, 0
+
+  field :td_ccel, 3,
+    type: Google.Cloud.Confidentialcomputing.V1.TdxCcelAttestation,
+    json_name: "tdCcel",
+    oneof: 0,
+    deprecated: false
+
+  field :tpm_attestation, 4,
+    type: Google.Cloud.Confidentialcomputing.V1.TpmAttestation,
+    json_name: "tpmAttestation",
+    oneof: 0,
+    deprecated: false
+
+  field :challenge, 1, type: :string, deprecated: false
+
+  field :gcp_credentials, 2,
+    type: Google.Cloud.Confidentialcomputing.V1.GcpCredentials,
+    json_name: "gcpCredentials",
+    deprecated: false
+
+  field :signed_entities, 5,
+    repeated: true,
+    type: Google.Cloud.Confidentialcomputing.V1.SignedEntity,
+    json_name: "signedEntities",
+    deprecated: false
+
+  field :gce_shielded_identity, 6,
+    type: Google.Cloud.Confidentialcomputing.V1.GceShieldedIdentity,
+    json_name: "gceShieldedIdentity",
+    deprecated: false
+
+  field :options, 7,
+    type:
+      Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceRequest.ConfidentialSpaceOptions,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.GceShieldedIdentity do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ak_cert, 1, type: :bytes, json_name: "akCert", deprecated: false
+
+  field :ak_cert_chain, 2,
+    repeated: true,
+    type: :bytes,
+    json_name: "akCertChain",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :attestation_token, 1, type: :string, json_name: "attestationToken", deprecated: false
+
+  field :partial_errors, 2,
+    repeated: true,
+    type: Google.Rpc.Status,
+    json_name: "partialErrors",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialGkeRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :tee_attestation, 0
+
+  field :tpm_attestation, 2,
+    type: Google.Cloud.Confidentialcomputing.V1.TpmAttestation,
+    json_name: "tpmAttestation",
+    oneof: 0
+
+  field :challenge, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialGkeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :attestation_token, 1, type: :string, json_name: "attestationToken", deprecated: false
+end
+
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service do
   @moduledoc false
 
@@ -290,6 +433,14 @@ defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Service do
   rpc :VerifyAttestation,
       Google.Cloud.Confidentialcomputing.V1.VerifyAttestationRequest,
       Google.Cloud.Confidentialcomputing.V1.VerifyAttestationResponse
+
+  rpc :VerifyConfidentialSpace,
+      Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceRequest,
+      Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialSpaceResponse
+
+  rpc :VerifyConfidentialGke,
+      Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialGkeRequest,
+      Google.Cloud.Confidentialcomputing.V1.VerifyConfidentialGkeResponse
 end
 
 defmodule Google.Cloud.Confidentialcomputing.V1.ConfidentialComputing.Stub do
