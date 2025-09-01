@@ -433,6 +433,7 @@ defmodule Google.Cloud.Compute.V1.BackendService.LocalityLbPolicy do
   field :RANDOM, 262_527_171
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
+  field :WEIGHTED_GCP_RENDEZVOUS, 82_501_640
   field :WEIGHTED_MAGLEV, 254_930_962
   field :WEIGHTED_ROUND_ROBIN, 5_584_977
 end
@@ -528,6 +529,7 @@ defmodule Google.Cloud.Compute.V1.BackendServiceLocalityLoadBalancingPolicyConfi
   field :RANDOM, 262_527_171
   field :RING_HASH, 432_795_069
   field :ROUND_ROBIN, 153_895_801
+  field :WEIGHTED_GCP_RENDEZVOUS, 82_501_640
   field :WEIGHTED_MAGLEV, 254_930_962
   field :WEIGHTED_ROUND_ROBIN, 5_584_977
 end
@@ -28369,6 +28371,11 @@ defmodule Google.Cloud.Compute.V1.ResourceStatus do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :effective_instance_metadata, 55_052_033,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.ResourceStatusEffectiveInstanceMetadata,
+    json_name: "effectiveInstanceMetadata"
+
   field :physical_host, 464_370_704,
     proto3_optional: true,
     type: :string,
@@ -28387,6 +28394,52 @@ defmodule Google.Cloud.Compute.V1.ResourceStatus do
     proto3_optional: true,
     type: Google.Cloud.Compute.V1.UpcomingMaintenance,
     json_name: "upcomingMaintenance"
+end
+
+defmodule Google.Cloud.Compute.V1.ResourceStatusEffectiveInstanceMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :block_project_ssh_keys_metadata_value, 338_623_101,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "blockProjectSshKeysMetadataValue"
+
+  field :enable_guest_attributes_metadata_value, 420_155_878,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableGuestAttributesMetadataValue"
+
+  field :enable_os_inventory_metadata_value, 371_752_675,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableOsInventoryMetadataValue"
+
+  field :enable_osconfig_metadata_value, 502_966_494,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableOsconfigMetadataValue"
+
+  field :enable_oslogin_metadata_value, 216_603_159,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableOsloginMetadataValue"
+
+  field :serial_port_enable_metadata_value, 430_536_330,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "serialPortEnableMetadataValue"
+
+  field :serial_port_logging_enable_metadata_value, 311_813_290,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "serialPortLoggingEnableMetadataValue"
+
+  field :vm_dns_setting_metadata_value, 411_127_950,
+    proto3_optional: true,
+    type: :string,
+    json_name: "vmDnsSettingMetadataValue"
 end
 
 defmodule Google.Cloud.Compute.V1.ResourceStatusPhysicalHostTopology do
