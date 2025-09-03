@@ -18,6 +18,27 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharedResourceType do
   field :PUBSUB_TOPIC, 2
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :DRAFTED, 1
+  field :PENDING, 2
+  field :DELETED, 3
+  field :APPROVED, 4
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Routine.RoutineType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ROUTINE_TYPE_UNSPECIFIED, 0
+  field :TABLE_VALUED_FUNCTION, 1
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.State do
   @moduledoc false
 
@@ -52,6 +73,26 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.Category do
   field :CATEGORY_SCIENCE_AND_RESEARCH, 17
   field :CATEGORY_TRANSPORTATION_AND_LOGISTICS, 18
   field :CATEGORY_TRAVEL_AND_TOURISM, 19
+  field :CATEGORY_GOOGLE_EARTH_ENGINE, 20
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica.ReplicaState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :REPLICA_STATE_UNSPECIFIED, 0
+  field :READY_TO_USE, 1
+  field :UNAVAILABLE, 2
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica.PrimaryState do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PRIMARY_STATE_UNSPECIFIED, 0
+  field :PRIMARY_REPLICA, 1
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.CommercialInfo.GoogleCloudMarketplaceInfo.CommercialState do
@@ -105,6 +146,135 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DataExchange do
     type: :bool,
     json_name: "logLinkedDatasetQueryUserEmail",
     deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :description, 3, type: :string, deprecated: false
+  field :proposer, 4, type: :string, deprecated: false
+  field :primary_contact, 10, type: :string, json_name: "primaryContact", deprecated: false
+  field :documentation, 5, type: :string, deprecated: false
+
+  field :state, 6,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate.State,
+    enum: true,
+    deprecated: false
+
+  field :routine, 7, type: Google.Cloud.Bigquery.Analyticshub.V1.Routine, deprecated: false
+
+  field :create_time, 8,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Routine do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :routine_type, 1,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Routine.RoutineType,
+    json_name: "routineType",
+    enum: true,
+    deprecated: false
+
+  field :definition_body, 2, type: :string, json_name: "definitionBody", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.CreateQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :query_template_id, 2, type: :string, json_name: "queryTemplateId", deprecated: false
+
+  field :query_template, 3,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate,
+    json_name: "queryTemplate",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.GetQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListQueryTemplatesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ListQueryTemplatesResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :query_templates, 1,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate,
+    json_name: "queryTemplates"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.UpdateQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :query_template, 2,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate,
+    json_name: "queryTemplate",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.DeleteQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.SubmitQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.ApproveQueryTemplateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.SharingEnvironmentConfig.DefaultExchangeConfig do
@@ -209,6 +379,12 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationDataset do
     deprecated: false
 
   field :location, 5, type: :string, deprecated: false
+
+  field :replica_locations, 6,
+    repeated: true,
+    type: :string,
+    json_name: "replicaLocations",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.DestinationPubSubSubscription do
@@ -251,6 +427,29 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Re
     deprecated: false
 end
 
+defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :location, 1, type: :string, deprecated: false
+
+  field :replica_state, 2,
+    type:
+      Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica.ReplicaState,
+    json_name: "replicaState",
+    enum: true,
+    deprecated: false
+
+  field :primary_state, 3,
+    proto3_optional: true,
+    type:
+      Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica.PrimaryState,
+    json_name: "primaryState",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
   @moduledoc false
 
@@ -268,6 +467,18 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource do
     type:
       Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.RestrictedExportPolicy,
     json_name: "restrictedExportPolicy",
+    deprecated: false
+
+  field :replica_locations, 5,
+    repeated: true,
+    type: :string,
+    json_name: "replicaLocations",
+    deprecated: false
+
+  field :effective_replicas, 6,
+    repeated: true,
+    type: Google.Cloud.Bigquery.Analyticshub.V1.Listing.BigQueryDatasetSource.Replica,
+    json_name: "effectiveReplicas",
     deprecated: false
 end
 
@@ -943,6 +1154,34 @@ defmodule Google.Cloud.Bigquery.Analyticshub.V1.AnalyticsHubService.Service do
   rpc :TestIamPermissions,
       Google.Iam.V1.TestIamPermissionsRequest,
       Google.Iam.V1.TestIamPermissionsResponse
+
+  rpc :CreateQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.CreateQueryTemplateRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate
+
+  rpc :GetQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.GetQueryTemplateRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate
+
+  rpc :ListQueryTemplates,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListQueryTemplatesRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.ListQueryTemplatesResponse
+
+  rpc :UpdateQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.UpdateQueryTemplateRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate
+
+  rpc :DeleteQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.DeleteQueryTemplateRequest,
+      Google.Protobuf.Empty
+
+  rpc :SubmitQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.SubmitQueryTemplateRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate
+
+  rpc :ApproveQueryTemplate,
+      Google.Cloud.Bigquery.Analyticshub.V1.ApproveQueryTemplateRequest,
+      Google.Cloud.Bigquery.Analyticshub.V1.QueryTemplate
 end
 
 defmodule Google.Cloud.Bigquery.Analyticshub.V1.AnalyticsHubService.Stub do

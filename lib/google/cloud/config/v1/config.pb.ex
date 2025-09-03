@@ -221,6 +221,15 @@ defmodule Google.Cloud.Config.V1.ResourceChange.Intent do
   field :UNCHANGED, 5
 end
 
+defmodule Google.Cloud.Config.V1.ProviderConfig.ProviderSource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PROVIDER_SOURCE_UNSPECIFIED, 0
+  field :SERVICE_MAINTAINED, 1
+end
+
 defmodule Google.Cloud.Config.V1.Deployment.LabelsEntry do
   @moduledoc false
 
@@ -342,6 +351,11 @@ defmodule Google.Cloud.Config.V1.Deployment do
     repeated: true,
     type: Google.Cloud.Config.V1.Deployment.AnnotationsEntry,
     map: true,
+    deprecated: false
+
+  field :provider_config, 25,
+    type: Google.Cloud.Config.V1.ProviderConfig,
+    json_name: "providerConfig",
     deprecated: false
 end
 
@@ -626,6 +640,11 @@ defmodule Google.Cloud.Config.V1.Revision do
     type: Google.Cloud.Config.V1.QuotaValidation,
     json_name: "quotaValidation",
     enum: true,
+    deprecated: false
+
+  field :provider_config, 21,
+    type: Google.Cloud.Config.V1.ProviderConfig,
+    json_name: "providerConfig",
     deprecated: false
 end
 
@@ -927,6 +946,11 @@ defmodule Google.Cloud.Config.V1.Preview do
     repeated: true,
     type: Google.Cloud.Config.V1.Preview.AnnotationsEntry,
     map: true,
+    deprecated: false
+
+  field :provider_config, 21,
+    type: Google.Cloud.Config.V1.ProviderConfig,
+    json_name: "providerConfig",
     deprecated: false
 end
 
@@ -1273,6 +1297,19 @@ defmodule Google.Cloud.Config.V1.GetResourceDriftRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Config.V1.ProviderConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :source_type, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Config.V1.ProviderConfig.ProviderSource,
+    json_name: "sourceType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Config.V1.Config.Service do
