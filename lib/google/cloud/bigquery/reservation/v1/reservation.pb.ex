@@ -9,6 +9,16 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Edition do
   field :ENTERPRISE_PLUS, 3
 end
 
+defmodule Google.Cloud.Bigquery.Reservation.V1.FailoverMode do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :FAILOVER_MODE_UNSPECIFIED, 0
+  field :SOFT, 1
+  field :HARD, 2
+end
+
 defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.ScalingMode do
   @moduledoc false
 
@@ -95,6 +105,11 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.Reservation.ReplicationStatus do
   field :last_replication_time, 3,
     type: Google.Protobuf.Timestamp,
     json_name: "lastReplicationTime",
+    deprecated: false
+
+  field :soft_failover_start_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "softFailoverStartTime",
     deprecated: false
 end
 
@@ -246,6 +261,12 @@ defmodule Google.Cloud.Bigquery.Reservation.V1.FailoverReservationRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+
+  field :failover_mode, 2,
+    type: Google.Cloud.Bigquery.Reservation.V1.FailoverMode,
+    json_name: "failoverMode",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Bigquery.Reservation.V1.CreateCapacityCommitmentRequest do
