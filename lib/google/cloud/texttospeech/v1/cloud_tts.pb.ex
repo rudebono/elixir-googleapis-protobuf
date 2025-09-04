@@ -170,6 +170,8 @@ defmodule Google.Cloud.Texttospeech.V1.SynthesisInput do
     json_name: "multiSpeakerMarkup",
     oneof: 0
 
+  field :prompt, 6, proto3_optional: true, type: :string
+
   field :custom_pronunciations, 3,
     type: Google.Cloud.Texttospeech.V1.CustomPronunciations,
     json_name: "customPronunciations",
