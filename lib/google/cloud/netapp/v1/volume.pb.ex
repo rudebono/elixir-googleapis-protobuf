@@ -83,6 +83,18 @@ defmodule Google.Cloud.Netapp.V1.TieringPolicy.TierAction do
   field :PAUSED, 2
 end
 
+defmodule Google.Cloud.Netapp.V1.HybridReplicationParameters.VolumeHybridReplicationType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :VOLUME_HYBRID_REPLICATION_TYPE_UNSPECIFIED, 0
+  field :MIGRATION, 1
+  field :CONTINUOUS_REPLICATION, 2
+  field :ONPREM_REPLICATION, 3
+  field :REVERSE_ONPREM_REPLICATION, 4
+end
+
 defmodule Google.Cloud.Netapp.V1.ListVolumesRequest do
   @moduledoc false
 
@@ -286,6 +298,13 @@ defmodule Google.Cloud.Netapp.V1.Volume do
     type: Google.Cloud.Netapp.V1.HybridReplicationParameters,
     json_name: "hybridReplicationParameters",
     deprecated: false
+
+  field :throughput_mibps, 41, type: :double, json_name: "throughputMibps", deprecated: false
+
+  field :hot_tier_size_used_gib, 44,
+    type: :int64,
+    json_name: "hotTierSizeUsedGib",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ExportPolicy do
@@ -482,6 +501,12 @@ defmodule Google.Cloud.Netapp.V1.TieringPolicy do
     type: :int32,
     json_name: "coolingThresholdDays",
     deprecated: false
+
+  field :hot_tier_bypass_mode_enabled, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "hotTierBypassModeEnabled",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.HybridReplicationParameters.LabelsEntry do
@@ -516,5 +541,22 @@ defmodule Google.Cloud.Netapp.V1.HybridReplicationParameters do
     repeated: true,
     type: Google.Cloud.Netapp.V1.HybridReplicationParameters.LabelsEntry,
     map: true,
+    deprecated: false
+
+  field :replication_schedule, 9,
+    type: Google.Cloud.Netapp.V1.HybridReplicationSchedule,
+    json_name: "replicationSchedule",
+    enum: true,
+    deprecated: false
+
+  field :hybrid_replication_type, 10,
+    type: Google.Cloud.Netapp.V1.HybridReplicationParameters.VolumeHybridReplicationType,
+    json_name: "hybridReplicationType",
+    enum: true,
+    deprecated: false
+
+  field :large_volume_constituent_count, 11,
+    type: :int32,
+    json_name: "largeVolumeConstituentCount",
     deprecated: false
 end
