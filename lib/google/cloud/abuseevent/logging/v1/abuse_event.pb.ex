@@ -9,6 +9,7 @@ defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent.DetectionType do
   field :PHISHING, 3
   field :MALWARE, 4
   field :NO_ABUSE, 5
+  field :INTRUSION_ATTEMPT, 6
 end
 
 defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent.ActionType do
@@ -64,6 +65,11 @@ defmodule Google.Cloud.Abuseevent.Logging.V1.AbuseEvent do
     json_name: "decisionEscalationEvent",
     oneof: 0
 
+  field :intrusion_attempt_event, 10,
+    type: Google.Cloud.Abuseevent.Logging.V1.IntrusionAttemptEvent,
+    json_name: "intrusionAttemptEvent",
+    oneof: 0
+
   field :remediation_link, 7, type: :string, json_name: "remediationLink"
 end
 
@@ -103,6 +109,24 @@ defmodule Google.Cloud.Abuseevent.Logging.V1.LeakedCredentialEvent do
     oneof: 0
 
   field :detected_uri, 3, type: :string, json_name: "detectedUri"
+end
+
+defmodule Google.Cloud.Abuseevent.Logging.V1.IntrusionAttemptEvent do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :vm_resource, 1, repeated: true, type: :string, json_name: "vmResource"
+
+  field :detected_intrusion_start_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "detectedIntrusionStartTime"
+
+  field :detected_intrusion_end_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "detectedIntrusionEndTime"
+
+  field :vm_ip, 4, repeated: true, type: :string, json_name: "vmIp", deprecated: false
 end
 
 defmodule Google.Cloud.Abuseevent.Logging.V1.ServiceAccountCredential do

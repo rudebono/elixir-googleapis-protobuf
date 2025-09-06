@@ -39,6 +39,27 @@ defmodule Google.Cloud.Netapp.V1.DirectoryServiceType do
   field :ACTIVE_DIRECTORY, 1
 end
 
+defmodule Google.Cloud.Netapp.V1.HybridReplicationSchedule do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :HYBRID_REPLICATION_SCHEDULE_UNSPECIFIED, 0
+  field :EVERY_10_MINUTES, 1
+  field :HOURLY, 2
+  field :DAILY, 3
+end
+
+defmodule Google.Cloud.Netapp.V1.QosType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :QOS_TYPE_UNSPECIFIED, 0
+  field :AUTO, 1
+  field :MANUAL, 2
+end
+
 defmodule Google.Cloud.Netapp.V1.LocationMetadata do
   @moduledoc false
 
@@ -57,4 +78,14 @@ defmodule Google.Cloud.Netapp.V1.LocationMetadata do
     json_name: "supportedFlexPerformance",
     enum: true,
     deprecated: false
+
+  field :has_vcp, 3, type: :bool, json_name: "hasVcp", deprecated: false
+end
+
+defmodule Google.Cloud.Netapp.V1.UserCommands do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :commands, 1, repeated: true, type: :string, deprecated: false
 end

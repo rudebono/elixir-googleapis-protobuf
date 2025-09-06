@@ -169,6 +169,34 @@ defmodule Google.Cloud.Netapp.V1.StoragePool do
     deprecated: false
 
   field :total_iops, 27, type: :int64, json_name: "totalIops", deprecated: false
+  field :hot_tier_size_gib, 28, type: :int64, json_name: "hotTierSizeGib", deprecated: false
+
+  field :enable_hot_tier_auto_resize, 29,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableHotTierAutoResize",
+    deprecated: false
+
+  field :qos_type, 30,
+    type: Google.Cloud.Netapp.V1.QosType,
+    json_name: "qosType",
+    enum: true,
+    deprecated: false
+
+  field :available_throughput_mibps, 31,
+    type: :double,
+    json_name: "availableThroughputMibps",
+    deprecated: false
+
+  field :cold_tier_size_used_gib, 33,
+    type: :int64,
+    json_name: "coldTierSizeUsedGib",
+    deprecated: false
+
+  field :hot_tier_size_used_gib, 34,
+    type: :int64,
+    json_name: "hotTierSizeUsedGib",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Netapp.V1.ValidateDirectoryServiceRequest do
