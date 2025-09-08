@@ -121,6 +121,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DeployRequest.EndpointConfig do
     json_name: "dedicatedEndpointDisabled",
     deprecated: false
 
+  field :private_service_connect_config, 5,
+    type: Google.Cloud.Aiplatform.V1beta1.PrivateServiceConnectConfig,
+    json_name: "privateServiceConnectConfig",
+    deprecated: false
+
   field :endpoint_user_id, 3, type: :string, json_name: "endpointUserId", deprecated: false
 end
 
