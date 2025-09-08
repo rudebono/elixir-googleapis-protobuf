@@ -11,6 +11,8 @@ defmodule Google.Cloud.Netapp.V1.Replication.State do
   field :ERROR, 6
   field :PENDING_CLUSTER_PEERING, 8
   field :PENDING_SVM_PEERING, 9
+  field :PENDING_REMOTE_RESYNC, 10
+  field :EXTERNALLY_MANAGED_REPLICATION, 11
 end
 
 defmodule Google.Cloud.Netapp.V1.Replication.ReplicationRole do
@@ -46,6 +48,8 @@ defmodule Google.Cloud.Netapp.V1.Replication.MirrorState do
   field :TRANSFERRING, 4
   field :BASELINE_TRANSFERRING, 5
   field :ABORTED, 6
+  field :EXTERNALLY_MANAGED, 7
+  field :PENDING_PEERING, 8
 end
 
 defmodule Google.Cloud.Netapp.V1.Replication.HybridReplicationType do
@@ -56,6 +60,8 @@ defmodule Google.Cloud.Netapp.V1.Replication.HybridReplicationType do
   field :HYBRID_REPLICATION_TYPE_UNSPECIFIED, 0
   field :MIGRATION, 1
   field :CONTINUOUS_REPLICATION, 2
+  field :ONPREM_REPLICATION, 3
+  field :REVERSE_ONPREM_REPLICATION, 4
 end
 
 defmodule Google.Cloud.Netapp.V1.TransferStats do
@@ -175,6 +181,11 @@ defmodule Google.Cloud.Netapp.V1.Replication do
     type: Google.Cloud.Netapp.V1.Replication.HybridReplicationType,
     json_name: "hybridReplicationType",
     enum: true,
+    deprecated: false
+
+  field :hybrid_replication_user_commands, 20,
+    type: Google.Cloud.Netapp.V1.UserCommands,
+    json_name: "hybridReplicationUserCommands",
     deprecated: false
 end
 
