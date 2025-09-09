@@ -763,6 +763,14 @@ defmodule Google.Storage.Control.V2.StorageControl.Service do
   rpc :UpdateOrganizationIntelligenceConfig,
       Google.Storage.Control.V2.UpdateOrganizationIntelligenceConfigRequest,
       Google.Storage.Control.V2.IntelligenceConfig
+
+  rpc :GetIamPolicy, Google.Iam.V1.GetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :SetIamPolicy, Google.Iam.V1.SetIamPolicyRequest, Google.Iam.V1.Policy
+
+  rpc :TestIamPermissions,
+      Google.Iam.V1.TestIamPermissionsRequest,
+      Google.Iam.V1.TestIamPermissionsResponse
 end
 
 defmodule Google.Storage.Control.V2.StorageControl.Stub do
