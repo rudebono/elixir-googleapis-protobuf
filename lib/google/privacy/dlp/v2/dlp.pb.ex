@@ -274,6 +274,16 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema do
   field :ALL_COLUMNS, 5
 end
 
+defmodule Google.Privacy.Dlp.V2.LocationSupport.RegionalizationScope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :REGIONALIZATION_SCOPE_UNSPECIFIED, 0
+  field :REGIONAL, 1
+  field :ANY_LOCATION, 2
+end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   @moduledoc false
 
@@ -284,6 +294,7 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeCategory.LocationCategory do
   field :ARGENTINA, 2
   field :ARMENIA, 51
   field :AUSTRALIA, 3
+  field :AUSTRIA, 53
   field :AZERBAIJAN, 48
   field :BELARUS, 50
   field :BELGIUM, 4
@@ -690,6 +701,30 @@ defmodule Google.Privacy.Dlp.V2.FileClusterType.Cluster do
   field :CLUSTER_MULTIMEDIA, 8
   field :CLUSTER_EXECUTABLE, 9
   field :CLUSTER_AI_MODEL, 10
+end
+
+defmodule Google.Privacy.Dlp.V2.Domain.Category do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :CATEGORY_UNSPECIFIED, 0
+  field :AI, 1
+  field :CODE, 2
+end
+
+defmodule Google.Privacy.Dlp.V2.Domain.Signal do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SIGNAL_UNSPECIFIED, 0
+  field :MODEL, 1
+  field :TEXT_EMBEDDING, 2
+  field :VERTEX_PLUGIN, 3
+  field :VECTOR_PLUGIN, 4
+  field :SOURCE_CODE, 5
+  field :SERVICE, 6
 end
 
 defmodule Google.Privacy.Dlp.V2.ExcludeInfoTypes do
@@ -1352,6 +1387,19 @@ defmodule Google.Privacy.Dlp.V2.DeidentifyDataSourceDetails do
     json_name: "deidentifyStats"
 end
 
+defmodule Google.Privacy.Dlp.V2.LocationSupport do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :regionalization_scope, 1,
+    type: Google.Privacy.Dlp.V2.LocationSupport.RegionalizationScope,
+    json_name: "regionalizationScope",
+    enum: true
+
+  field :locations, 2, repeated: true, type: :string
+end
+
 defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
   @moduledoc false
 
@@ -1367,6 +1415,11 @@ defmodule Google.Privacy.Dlp.V2.InfoTypeDescription do
     enum: true
 
   field :description, 4, type: :string
+
+  field :location_support, 6,
+    type: Google.Privacy.Dlp.V2.LocationSupport,
+    json_name: "locationSupport"
+
   field :example, 8, type: :string
   field :versions, 9, repeated: true, type: Google.Privacy.Dlp.V2.VersionDescription
   field :categories, 10, repeated: true, type: Google.Privacy.Dlp.V2.InfoTypeCategory
@@ -4847,6 +4900,8 @@ defmodule Google.Privacy.Dlp.V2.TableDataProfile do
     repeated: true,
     type: Google.Privacy.Dlp.V2.RelatedResource,
     json_name: "relatedResources"
+
+  field :domains, 47, repeated: true, type: Google.Privacy.Dlp.V2.Domain
 end
 
 defmodule Google.Privacy.Dlp.V2.ProfileStatus do
@@ -5038,6 +5093,8 @@ defmodule Google.Privacy.Dlp.V2.FileStoreDataProfile do
     repeated: true,
     type: Google.Privacy.Dlp.V2.RelatedResource,
     json_name: "relatedResources"
+
+  field :domains, 27, repeated: true, type: Google.Privacy.Dlp.V2.Domain
 end
 
 defmodule Google.Privacy.Dlp.V2.Tag do
@@ -5426,6 +5483,20 @@ defmodule Google.Privacy.Dlp.V2.ProcessingLocation.ImageFallbackLocation do
     json_name: "globalProcessing"
 end
 
+defmodule Google.Privacy.Dlp.V2.ProcessingLocation.DocumentFallbackLocation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :multi_region_processing, 100,
+    type: Google.Privacy.Dlp.V2.ProcessingLocation.MultiRegionProcessing,
+    json_name: "multiRegionProcessing"
+
+  field :global_processing, 200,
+    type: Google.Privacy.Dlp.V2.ProcessingLocation.GlobalProcessing,
+    json_name: "globalProcessing"
+end
+
 defmodule Google.Privacy.Dlp.V2.ProcessingLocation do
   @moduledoc false
 
@@ -5434,6 +5505,10 @@ defmodule Google.Privacy.Dlp.V2.ProcessingLocation do
   field :image_fallback_location, 1,
     type: Google.Privacy.Dlp.V2.ProcessingLocation.ImageFallbackLocation,
     json_name: "imageFallbackLocation"
+
+  field :document_fallback_location, 2,
+    type: Google.Privacy.Dlp.V2.ProcessingLocation.DocumentFallbackLocation,
+    json_name: "documentFallbackLocation"
 end
 
 defmodule Google.Privacy.Dlp.V2.SaveToGcsFindingsOutput do
@@ -5442,6 +5517,15 @@ defmodule Google.Privacy.Dlp.V2.SaveToGcsFindingsOutput do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :findings, 1, repeated: true, type: Google.Privacy.Dlp.V2.Finding
+end
+
+defmodule Google.Privacy.Dlp.V2.Domain do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :category, 1, type: Google.Privacy.Dlp.V2.Domain.Category, enum: true
+  field :signals, 2, repeated: true, type: Google.Privacy.Dlp.V2.Domain.Signal, enum: true
 end
 
 defmodule Google.Privacy.Dlp.V2.DlpService.Service do
