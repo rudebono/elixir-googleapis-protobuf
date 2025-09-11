@@ -43,9 +43,9 @@ defmodule Google.Cloud.Dataplex.V1.ScannedData.IncrementalField do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :field, 1, type: :string
-  field :start, 2, type: :string
-  field :end, 3, type: :string
+  field :field, 1, type: :string, deprecated: false
+  field :start, 2, type: :string, deprecated: false
+  field :end, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.ScannedData do

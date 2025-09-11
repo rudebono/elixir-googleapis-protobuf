@@ -6,6 +6,8 @@ defmodule Google.Cloud.Securitycenter.V2.AiModel.DeploymentPlatform do
   field :DEPLOYMENT_PLATFORM_UNSPECIFIED, 0
   field :VERTEX_AI, 1
   field :GKE, 2
+  field :GCE, 3
+  field :FINE_TUNED_MODEL, 4
 end
 
 defmodule Google.Cloud.Securitycenter.V2.AiModel do

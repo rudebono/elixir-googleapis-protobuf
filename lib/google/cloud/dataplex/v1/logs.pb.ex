@@ -565,6 +565,10 @@ defmodule Google.Cloud.Dataplex.V1.DataScanEvent do
   field :post_scan_actions_result, 11,
     type: Google.Cloud.Dataplex.V1.DataScanEvent.PostScanActionsResult,
     json_name: "postScanActionsResult"
+
+  field :catalog_publishing_status, 13,
+    type: Google.Cloud.Dataplex.V1.DataScanCatalogPublishingStatus,
+    json_name: "catalogPublishingStatus"
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityScanRuleResult do

@@ -66,6 +66,16 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.Status.State do
   field :SUCCEEDED_WITH_ERRORS, 7
 end
 
+defmodule Google.Cloud.Dataplex.V1.EntryLink.EntryReference.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :SOURCE, 2
+  field :TARGET, 3
+end
+
 defmodule Google.Cloud.Dataplex.V1.AspectType.Authorization do
   @moduledoc false
 
@@ -850,6 +860,7 @@ defmodule Google.Cloud.Dataplex.V1.ImportItem do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :entry, 1, type: Google.Cloud.Dataplex.V1.Entry
+  field :entry_link, 4, type: Google.Cloud.Dataplex.V1.EntryLink, json_name: "entryLink"
   field :update_mask, 2, type: Google.Protobuf.FieldMask, json_name: "updateMask"
   field :aspect_keys, 3, repeated: true, type: :string, json_name: "aspectKeys"
 end
@@ -931,6 +942,14 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobResult do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+
+  field :deleted_entry_links, 7, type: :int64, json_name: "deletedEntryLinks", deprecated: false
+  field :created_entry_links, 8, type: :int64, json_name: "createdEntryLinks", deprecated: false
+
+  field :unchanged_entry_links, 9,
+    type: :int64,
+    json_name: "unchangedEntryLinks",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.ExportJobResult do
@@ -959,6 +978,20 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob.ImportJobSpec.ImportJobScope do
     repeated: true,
     type: :string,
     json_name: "aspectTypes",
+    deprecated: false
+
+  field :glossaries, 4, repeated: true, type: :string, deprecated: false
+
+  field :entry_link_types, 5,
+    repeated: true,
+    type: :string,
+    json_name: "entryLinkTypes",
+    deprecated: false
+
+  field :referenced_entry_scopes, 6,
+    repeated: true,
+    type: :string,
+    json_name: "referencedEntryScopes",
     deprecated: false
 end
 
@@ -1115,6 +1148,75 @@ defmodule Google.Cloud.Dataplex.V1.MetadataJob do
   field :status, 7, type: Google.Cloud.Dataplex.V1.MetadataJob.Status, deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.EntryLink.EntryReference do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :path, 2, type: :string, deprecated: false
+
+  field :type, 3,
+    type: Google.Cloud.Dataplex.V1.EntryLink.EntryReference.Type,
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.EntryLink do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :entry_link_type, 2, type: :string, json_name: "entryLinkType", deprecated: false
+
+  field :create_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :entry_references, 10,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.EntryLink.EntryReference,
+    json_name: "entryReferences",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.CreateEntryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :entry_link_id, 2, type: :string, json_name: "entryLinkId", deprecated: false
+
+  field :entry_link, 3,
+    type: Google.Cloud.Dataplex.V1.EntryLink,
+    json_name: "entryLink",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.DeleteEntryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dataplex.V1.GetEntryLinkRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.CatalogService.Service do
   @moduledoc false
 
@@ -1213,6 +1315,18 @@ defmodule Google.Cloud.Dataplex.V1.CatalogService.Service do
       Google.Cloud.Dataplex.V1.ListMetadataJobsResponse
 
   rpc :CancelMetadataJob, Google.Cloud.Dataplex.V1.CancelMetadataJobRequest, Google.Protobuf.Empty
+
+  rpc :CreateEntryLink,
+      Google.Cloud.Dataplex.V1.CreateEntryLinkRequest,
+      Google.Cloud.Dataplex.V1.EntryLink
+
+  rpc :DeleteEntryLink,
+      Google.Cloud.Dataplex.V1.DeleteEntryLinkRequest,
+      Google.Cloud.Dataplex.V1.EntryLink
+
+  rpc :GetEntryLink,
+      Google.Cloud.Dataplex.V1.GetEntryLinkRequest,
+      Google.Cloud.Dataplex.V1.EntryLink
 end
 
 defmodule Google.Cloud.Dataplex.V1.CatalogService.Stub do

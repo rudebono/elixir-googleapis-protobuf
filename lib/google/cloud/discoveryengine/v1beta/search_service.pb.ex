@@ -10,6 +10,16 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.RelevanceThreshold d
   field :HIGH, 4
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.RankingExpressionBackend do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :RANKING_EXPRESSION_BACKEND_UNSPECIFIED, 0
+  field :RANK_BY_EMBEDDING, 3
+  field :RANK_BY_FORMULA, 4
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest.BoostSpec.ConditionBoostSpec.BoostControlSpec.AttributeType do
   @moduledoc false
 
@@ -526,6 +536,13 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchRequest do
     json_name: "embeddingSpec"
 
   field :ranking_expression, 26, type: :string, json_name: "rankingExpression"
+
+  field :ranking_expression_backend, 53,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchRequest.RankingExpressionBackend,
+    json_name: "rankingExpressionBackend",
+    enum: true,
+    deprecated: false
+
   field :safe_search, 20, type: :bool, json_name: "safeSearch"
 
   field :user_labels, 22,
@@ -567,6 +584,72 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelS
   field :value, 2, type: Google.Cloud.Discoveryengine.V1beta.DoubleList
 end
 
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.RankSignals.CustomSignal do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :value, 2, type: :float, deprecated: false
+end
+
+defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.RankSignals do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :keyword_similarity_score, 1,
+    proto3_optional: true,
+    type: :float,
+    json_name: "keywordSimilarityScore",
+    deprecated: false
+
+  field :relevance_score, 2,
+    proto3_optional: true,
+    type: :float,
+    json_name: "relevanceScore",
+    deprecated: false
+
+  field :semantic_similarity_score, 3,
+    proto3_optional: true,
+    type: :float,
+    json_name: "semanticSimilarityScore",
+    deprecated: false
+
+  field :pctr_rank, 4,
+    proto3_optional: true,
+    type: :float,
+    json_name: "pctrRank",
+    deprecated: false
+
+  field :topicality_rank, 6,
+    proto3_optional: true,
+    type: :float,
+    json_name: "topicalityRank",
+    deprecated: false
+
+  field :document_age, 7,
+    proto3_optional: true,
+    type: :float,
+    json_name: "documentAge",
+    deprecated: false
+
+  field :boosting_factor, 8,
+    proto3_optional: true,
+    type: :float,
+    json_name: "boostingFactor",
+    deprecated: false
+
+  field :default_rank, 32, type: :float, json_name: "defaultRank", deprecated: false
+
+  field :custom_signals, 33,
+    repeated: true,
+    type:
+      Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.RankSignals.CustomSignal,
+    json_name: "customSignals",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
   @moduledoc false
 
@@ -581,6 +664,11 @@ defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult do
     type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.ModelScoresEntry,
     json_name: "modelScores",
     map: true
+
+  field :rank_signals, 7,
+    type: Google.Cloud.Discoveryengine.V1beta.SearchResponse.SearchResult.RankSignals,
+    json_name: "rankSignals",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Discoveryengine.V1beta.SearchResponse.Facet.FacetValue do

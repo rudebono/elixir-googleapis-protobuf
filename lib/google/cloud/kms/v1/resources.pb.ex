@@ -40,6 +40,7 @@ defmodule Google.Cloud.Kms.V1.CryptoKey.CryptoKeyPurpose do
   field :ASYMMETRIC_DECRYPT, 6
   field :RAW_ENCRYPT_DECRYPT, 7
   field :MAC, 9
+  field :KEY_ENCAPSULATION, 10
 end
 
 defmodule Google.Cloud.Kms.V1.KeyOperationAttestation.AttestationFormat do
@@ -93,6 +94,9 @@ defmodule Google.Cloud.Kms.V1.CryptoKeyVersion.CryptoKeyVersionAlgorithm do
   field :HMAC_SHA512, 35
   field :HMAC_SHA224, 36
   field :EXTERNAL_SYMMETRIC_ENCRYPTION, 18
+  field :ML_KEM_768, 47
+  field :ML_KEM_1024, 48
+  field :KEM_XWING, 63
   field :PQ_SIGN_ML_DSA_65, 56
   field :PQ_SIGN_SLH_DSA_SHA2_128S, 57
 end
@@ -131,7 +135,9 @@ defmodule Google.Cloud.Kms.V1.PublicKey.PublicKeyFormat do
 
   field :PUBLIC_KEY_FORMAT_UNSPECIFIED, 0
   field :PEM, 1
+  field :DER, 2
   field :NIST_PQC, 3
+  field :XWING_RAW_BYTES, 4
 end
 
 defmodule Google.Cloud.Kms.V1.ImportJob.ImportMethod do

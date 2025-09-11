@@ -478,6 +478,20 @@ defmodule Google.Cloud.Kms.V1.MacVerifyRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Kms.V1.DecapsulateRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :ciphertext, 2, type: :bytes, deprecated: false
+
+  field :ciphertext_crc32c, 3,
+    type: Google.Protobuf.Int64Value,
+    json_name: "ciphertextCrc32c",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Kms.V1.GenerateRandomBytesRequest do
   @moduledoc false
 
@@ -648,6 +662,27 @@ defmodule Google.Cloud.Kms.V1.MacVerifyResponse do
     enum: true
 end
 
+defmodule Google.Cloud.Kms.V1.DecapsulateResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :shared_secret, 2, type: :bytes, json_name: "sharedSecret"
+
+  field :shared_secret_crc32c, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "sharedSecretCrc32c"
+
+  field :verified_ciphertext_crc32c, 4, type: :bool, json_name: "verifiedCiphertextCrc32c"
+
+  field :protection_level, 5,
+    type: Google.Cloud.Kms.V1.ProtectionLevel,
+    json_name: "protectionLevel",
+    enum: true
+end
+
 defmodule Google.Cloud.Kms.V1.GenerateRandomBytesResponse do
   @moduledoc false
 
@@ -764,6 +799,10 @@ defmodule Google.Cloud.Kms.V1.KeyManagementService.Service do
   rpc :MacSign, Google.Cloud.Kms.V1.MacSignRequest, Google.Cloud.Kms.V1.MacSignResponse
 
   rpc :MacVerify, Google.Cloud.Kms.V1.MacVerifyRequest, Google.Cloud.Kms.V1.MacVerifyResponse
+
+  rpc :Decapsulate,
+      Google.Cloud.Kms.V1.DecapsulateRequest,
+      Google.Cloud.Kms.V1.DecapsulateResponse
 
   rpc :GenerateRandomBytes,
       Google.Cloud.Kms.V1.GenerateRandomBytesRequest,
