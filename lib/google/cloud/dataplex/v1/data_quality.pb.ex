@@ -114,6 +114,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualitySpec do
     type: Google.Cloud.Dataplex.V1.DataQualitySpec.PostScanActions,
     json_name: "postScanActions",
     deprecated: false
+
+  field :catalog_publishing_enabled, 8,
+    type: :bool,
+    json_name: "catalogPublishingEnabled",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult.BigQueryExportResult do
@@ -174,6 +179,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   field :post_scan_actions_result, 8,
     type: Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult,
     json_name: "postScanActionsResult",
+    deprecated: false
+
+  field :catalog_publishing_status, 11,
+    type: Google.Cloud.Dataplex.V1.DataScanCatalogPublishingStatus,
+    json_name: "catalogPublishingStatus",
     deprecated: false
 end
 
@@ -357,4 +367,10 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityColumnResult do
 
   field :column, 1, type: :string, deprecated: false
   field :score, 2, proto3_optional: true, type: :float, deprecated: false
+  field :passed, 3, type: :bool, deprecated: false
+
+  field :dimensions, 4,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataQualityDimensionResult,
+    deprecated: false
 end

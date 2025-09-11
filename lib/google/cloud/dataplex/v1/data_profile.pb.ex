@@ -65,9 +65,9 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.S
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :min_length, 1, type: :int64, json_name: "minLength"
-  field :max_length, 2, type: :int64, json_name: "maxLength"
-  field :average_length, 3, type: :double, json_name: "averageLength"
+  field :min_length, 1, type: :int64, json_name: "minLength", deprecated: false
+  field :max_length, 2, type: :int64, json_name: "maxLength", deprecated: false
+  field :average_length, 3, type: :double, json_name: "averageLength", deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.IntegerFieldInfo do
@@ -75,11 +75,11 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.I
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :average, 1, type: :double
-  field :standard_deviation, 3, type: :double, json_name: "standardDeviation"
-  field :min, 4, type: :int64
-  field :quartiles, 6, repeated: true, type: :int64
-  field :max, 5, type: :int64
+  field :average, 1, type: :double, deprecated: false
+  field :standard_deviation, 3, type: :double, json_name: "standardDeviation", deprecated: false
+  field :min, 4, type: :int64, deprecated: false
+  field :quartiles, 6, repeated: true, type: :int64, deprecated: false
+  field :max, 5, type: :int64, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.DoubleFieldInfo do
@@ -87,11 +87,11 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.D
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :average, 1, type: :double
-  field :standard_deviation, 3, type: :double, json_name: "standardDeviation"
-  field :min, 4, type: :double
-  field :quartiles, 6, repeated: true, type: :double
-  field :max, 5, type: :double
+  field :average, 1, type: :double, deprecated: false
+  field :standard_deviation, 3, type: :double, json_name: "standardDeviation", deprecated: false
+  field :min, 4, type: :double, deprecated: false
+  field :quartiles, 6, repeated: true, type: :double, deprecated: false
+  field :max, 5, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.TopNValue do
@@ -99,9 +99,9 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.T
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :value, 1, type: :string
-  field :count, 2, type: :int64
-  field :ratio, 3, type: :double
+  field :value, 1, type: :string, deprecated: false
+  field :count, 2, type: :int64, deprecated: false
+  field :ratio, 3, type: :double, deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo do
@@ -111,13 +111,14 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo d
 
   oneof :field_info, 0
 
-  field :null_ratio, 2, type: :double, json_name: "nullRatio"
-  field :distinct_ratio, 3, type: :double, json_name: "distinctRatio"
+  field :null_ratio, 2, type: :double, json_name: "nullRatio", deprecated: false
+  field :distinct_ratio, 3, type: :double, json_name: "distinctRatio", deprecated: false
 
   field :top_n_values, 4,
     repeated: true,
     type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.TopNValue,
-    json_name: "topNValues"
+    json_name: "topNValues",
+    deprecated: false
 
   field :string_profile, 101,
     type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo.StringFieldInfo,
@@ -140,10 +141,13 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :name, 1, type: :string
-  field :type, 2, type: :string
-  field :mode, 3, type: :string
-  field :profile, 4, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo
+  field :name, 1, type: :string, deprecated: false
+  field :type, 2, type: :string, deprecated: false
+  field :mode, 3, type: :string, deprecated: false
+
+  field :profile, 4,
+    type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field.ProfileInfo,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile do
@@ -151,7 +155,10 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult.Profile do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :fields, 2, repeated: true, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field
+  field :fields, 2,
+    repeated: true,
+    type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile.Field,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.DataProfileResult.PostScanActionsResult.BigQueryExportResult do
@@ -184,9 +191,13 @@ defmodule Google.Cloud.Dataplex.V1.DataProfileResult do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :row_count, 3, type: :int64, json_name: "rowCount"
-  field :profile, 4, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile
-  field :scanned_data, 5, type: Google.Cloud.Dataplex.V1.ScannedData, json_name: "scannedData"
+  field :row_count, 3, type: :int64, json_name: "rowCount", deprecated: false
+  field :profile, 4, type: Google.Cloud.Dataplex.V1.DataProfileResult.Profile, deprecated: false
+
+  field :scanned_data, 5,
+    type: Google.Cloud.Dataplex.V1.ScannedData,
+    json_name: "scannedData",
+    deprecated: false
 
   field :post_scan_actions_result, 6,
     type: Google.Cloud.Dataplex.V1.DataProfileResult.PostScanActionsResult,
