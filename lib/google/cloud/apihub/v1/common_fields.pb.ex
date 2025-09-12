@@ -30,6 +30,29 @@ defmodule Google.Cloud.Apihub.V1.Severity do
   field :SEVERITY_HINT, 4
 end
 
+defmodule Google.Cloud.Apihub.V1.AuthType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :AUTH_TYPE_UNSPECIFIED, 0
+  field :NO_AUTH, 1
+  field :GOOGLE_SERVICE_ACCOUNT, 2
+  field :USER_PASSWORD, 3
+  field :API_KEY, 4
+  field :OAUTH2_CLIENT_CREDENTIALS, 5
+end
+
+defmodule Google.Cloud.Apihub.V1.PluginCategory do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PLUGIN_CATEGORY_UNSPECIFIED, 0
+  field :API_GATEWAY, 1
+  field :API_PRODUCER, 2
+end
+
 defmodule Google.Cloud.Apihub.V1.Spec.ParsingMode do
   @moduledoc false
 
@@ -85,6 +108,7 @@ defmodule Google.Cloud.Apihub.V1.Attribute.DataType do
   field :ENUM, 1
   field :JSON, 2
   field :STRING, 3
+  field :URI, 4
 end
 
 defmodule Google.Cloud.Apihub.V1.OpenApiSpecDetails.Format do
@@ -157,6 +181,98 @@ defmodule Google.Cloud.Apihub.V1.ApiHubInstance.State do
   field :FAILED, 6
 end
 
+defmodule Google.Cloud.Apihub.V1.ApiHubInstance.Config.EncryptionType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ENCRYPTION_TYPE_UNSPECIFIED, 0
+  field :GMEK, 1
+  field :CMEK, 2
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariableTemplate.ValueType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :VALUE_TYPE_UNSPECIFIED, 0
+  field :STRING, 1
+  field :INT, 2
+  field :BOOL, 3
+  field :SECRET, 4
+  field :ENUM, 5
+  field :MULTI_SELECT, 6
+  field :MULTI_STRING, 7
+  field :MULTI_INT, 8
+end
+
+defmodule Google.Cloud.Apihub.V1.AuthConfig.ApiKeyConfig.HttpElementLocation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :HTTP_ELEMENT_LOCATION_UNSPECIFIED, 0
+  field :QUERY, 1
+  field :HEADER, 2
+  field :PATH, 3
+  field :BODY, 4
+  field :COOKIE, 5
+end
+
+defmodule Google.Cloud.Apihub.V1.SourceMetadata.SourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SOURCE_TYPE_UNSPECIFIED, 0
+  field :PLUGIN, 1
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiObservation.Style do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STYLE_UNSPECIFIED, 0
+  field :REST, 1
+  field :GRPC, 2
+  field :GRAPHQL, 3
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiObservation.SourceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SOURCE_TYPE_UNSPECIFIED, 0
+  field :GCP_XLB, 1
+  field :GCP_ILB, 2
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiOperation.Classification do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :CLASSIFICATION_UNSPECIFIED, 0
+  field :KNOWN, 1
+  field :UNKNOWN, 2
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.DataType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DATA_TYPE_UNSPECIFIED, 0
+  field :BOOL, 1
+  field :INTEGER, 2
+  field :FLOAT, 3
+  field :STRING, 4
+  field :UUID, 5
+end
+
 defmodule Google.Cloud.Apihub.V1.Api.AttributesEntry do
   @moduledoc false
 
@@ -217,6 +333,29 @@ defmodule Google.Cloud.Apihub.V1.Api do
     deprecated: false
 
   field :selected_version, 15, type: :string, json_name: "selectedVersion", deprecated: false
+
+  field :api_requirements, 16,
+    type: Google.Cloud.Apihub.V1.AttributeValues,
+    json_name: "apiRequirements",
+    deprecated: false
+
+  field :fingerprint, 17, type: :string, deprecated: false
+
+  field :source_metadata, 18,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
+    deprecated: false
+
+  field :api_functional_requirements, 19,
+    type: Google.Cloud.Apihub.V1.AttributeValues,
+    json_name: "apiFunctionalRequirements",
+    deprecated: false
+
+  field :api_technical_requirements, 20,
+    type: Google.Cloud.Apihub.V1.AttributeValues,
+    json_name: "apiTechnicalRequirements",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Apihub.V1.Version.AttributesEntry do
@@ -271,6 +410,12 @@ defmodule Google.Cloud.Apihub.V1.Version do
   field :selected_deployment, 16,
     type: :string,
     json_name: "selectedDeployment",
+    deprecated: false
+
+  field :source_metadata, 17,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
     deprecated: false
 end
 
@@ -328,6 +473,12 @@ defmodule Google.Cloud.Apihub.V1.Spec do
     json_name: "parsingMode",
     enum: true,
     deprecated: false
+
+  field :source_metadata, 13,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Apihub.V1.Deployment.AttributesEntry do
@@ -381,6 +532,25 @@ defmodule Google.Cloud.Apihub.V1.Deployment do
     type: Google.Cloud.Apihub.V1.Deployment.AttributesEntry,
     map: true,
     deprecated: false
+
+  field :source_metadata, 14,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
+    deprecated: false
+
+  field :management_url, 15,
+    type: Google.Cloud.Apihub.V1.AttributeValues,
+    json_name: "managementUrl",
+    deprecated: false
+
+  field :source_uri, 16,
+    type: Google.Cloud.Apihub.V1.AttributeValues,
+    json_name: "sourceUri",
+    deprecated: false
+
+  field :source_project, 17, type: :string, json_name: "sourceProject", deprecated: false
+  field :source_environment, 18, type: :string, json_name: "sourceEnvironment", deprecated: false
 end
 
 defmodule Google.Cloud.Apihub.V1.ApiOperation.AttributesEntry do
@@ -415,6 +585,12 @@ defmodule Google.Cloud.Apihub.V1.ApiOperation do
     repeated: true,
     type: Google.Cloud.Apihub.V1.ApiOperation.AttributesEntry,
     map: true,
+    deprecated: false
+
+  field :source_metadata, 7,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
     deprecated: false
 end
 
@@ -655,6 +831,11 @@ defmodule Google.Cloud.Apihub.V1.AttributeValues do
     json_name: "jsonValues",
     oneof: 0
 
+  field :uri_values, 5,
+    type: Google.Cloud.Apihub.V1.AttributeValues.StringAttributeValues,
+    json_name: "uriValues",
+    oneof: 0
+
   field :attribute, 1, type: :string, deprecated: false
 end
 
@@ -826,6 +1007,14 @@ defmodule Google.Cloud.Apihub.V1.ApiHubInstance.Config do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cmek_key_name, 1, type: :string, json_name: "cmekKeyName", deprecated: false
+  field :disable_search, 2, type: :bool, json_name: "disableSearch", deprecated: false
+  field :vertex_location, 3, type: :string, json_name: "vertexLocation", deprecated: false
+
+  field :encryption_type, 4,
+    type: Google.Cloud.Apihub.V1.ApiHubInstance.Config.EncryptionType,
+    json_name: "encryptionType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Apihub.V1.ApiHubInstance.LabelsEntry do
@@ -906,5 +1095,513 @@ defmodule Google.Cloud.Apihub.V1.ExternalApi do
   field :update_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigValueOption do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
+  field :description, 3, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.Secret do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :secret_version, 1, type: :string, json_name: "secretVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariableTemplate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :value_type, 2,
+    type: Google.Cloud.Apihub.V1.ConfigVariableTemplate.ValueType,
+    json_name: "valueType",
+    enum: true,
+    deprecated: false
+
+  field :description, 3, type: :string, deprecated: false
+  field :validation_regex, 4, type: :string, json_name: "validationRegex", deprecated: false
+  field :required, 5, type: :bool, deprecated: false
+
+  field :enum_options, 6,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.ConfigValueOption,
+    json_name: "enumOptions",
+    deprecated: false
+
+  field :multi_select_options, 7,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.ConfigValueOption,
+    json_name: "multiSelectOptions",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariable.MultiSelectValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :values, 1,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.ConfigValueOption,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariable.MultiStringValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariable.MultiIntValues do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :int32, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.ConfigVariable do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :value, 0
+
+  field :string_value, 2, type: :string, json_name: "stringValue", oneof: 0, deprecated: false
+  field :int_value, 3, type: :int64, json_name: "intValue", oneof: 0, deprecated: false
+  field :bool_value, 4, type: :bool, json_name: "boolValue", oneof: 0, deprecated: false
+
+  field :secret_value, 5,
+    type: Google.Cloud.Apihub.V1.Secret,
+    json_name: "secretValue",
+    oneof: 0,
+    deprecated: false
+
+  field :enum_value, 6,
+    type: Google.Cloud.Apihub.V1.ConfigValueOption,
+    json_name: "enumValue",
+    oneof: 0,
+    deprecated: false
+
+  field :multi_select_values, 7,
+    type: Google.Cloud.Apihub.V1.ConfigVariable.MultiSelectValues,
+    json_name: "multiSelectValues",
+    oneof: 0,
+    deprecated: false
+
+  field :multi_string_values, 8,
+    type: Google.Cloud.Apihub.V1.ConfigVariable.MultiStringValues,
+    json_name: "multiStringValues",
+    oneof: 0,
+    deprecated: false
+
+  field :multi_int_values, 9,
+    type: Google.Cloud.Apihub.V1.ConfigVariable.MultiIntValues,
+    json_name: "multiIntValues",
+    oneof: 0,
+    deprecated: false
+
+  field :key, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.GoogleServiceAccountConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :service_account, 1, type: :string, json_name: "serviceAccount", deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.AuthConfig.UserPasswordConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :username, 1, type: :string, deprecated: false
+  field :password, 2, type: Google.Cloud.Apihub.V1.Secret, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.AuthConfig.Oauth2ClientCredentialsConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
+
+  field :client_secret, 2,
+    type: Google.Cloud.Apihub.V1.Secret,
+    json_name: "clientSecret",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.AuthConfig.ApiKeyConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :api_key, 2, type: Google.Cloud.Apihub.V1.Secret, json_name: "apiKey", deprecated: false
+
+  field :http_element_location, 3,
+    type: Google.Cloud.Apihub.V1.AuthConfig.ApiKeyConfig.HttpElementLocation,
+    json_name: "httpElementLocation",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.AuthConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :config, 0
+
+  field :google_service_account_config, 2,
+    type: Google.Cloud.Apihub.V1.GoogleServiceAccountConfig,
+    json_name: "googleServiceAccountConfig",
+    oneof: 0
+
+  field :user_password_config, 3,
+    type: Google.Cloud.Apihub.V1.AuthConfig.UserPasswordConfig,
+    json_name: "userPasswordConfig",
+    oneof: 0
+
+  field :api_key_config, 4,
+    type: Google.Cloud.Apihub.V1.AuthConfig.ApiKeyConfig,
+    json_name: "apiKeyConfig",
+    oneof: 0
+
+  field :oauth2_client_credentials_config, 5,
+    type: Google.Cloud.Apihub.V1.AuthConfig.Oauth2ClientCredentialsConfig,
+    json_name: "oauth2ClientCredentialsConfig",
+    oneof: 0
+
+  field :auth_type, 1,
+    type: Google.Cloud.Apihub.V1.AuthType,
+    json_name: "authType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.SourceMetadata.PluginInstanceActionSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :plugin_instance, 1, type: :string, json_name: "pluginInstance", deprecated: false
+  field :action_id, 2, type: :string, json_name: "actionId", deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.SourceMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :source, 0
+
+  field :plugin_instance_action_source, 1,
+    type: Google.Cloud.Apihub.V1.SourceMetadata.PluginInstanceActionSource,
+    json_name: "pluginInstanceActionSource",
+    oneof: 0,
+    deprecated: false
+
+  field :source_type, 2,
+    type: Google.Cloud.Apihub.V1.SourceMetadata.SourceType,
+    json_name: "sourceType",
+    enum: true,
+    deprecated: false
+
+  field :original_resource_id, 3,
+    type: :string,
+    json_name: "originalResourceId",
+    deprecated: false
+
+  field :original_resource_create_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "originalResourceCreateTime",
+    deprecated: false
+
+  field :original_resource_update_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "originalResourceUpdateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiObservation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :style, 2,
+    type: Google.Cloud.Apihub.V1.DiscoveredApiObservation.Style,
+    enum: true,
+    deprecated: false
+
+  field :server_ips, 3, repeated: true, type: :string, json_name: "serverIps", deprecated: false
+  field :hostname, 4, type: :string, deprecated: false
+
+  field :last_event_detected_time, 5,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastEventDetectedTime",
+    deprecated: false
+
+  field :source_locations, 6,
+    repeated: true,
+    type: :string,
+    json_name: "sourceLocations",
+    deprecated: false
+
+  field :api_operation_count, 7, type: :int64, json_name: "apiOperationCount", deprecated: false
+  field :origin, 8, type: :string, deprecated: false
+
+  field :source_types, 9,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.DiscoveredApiObservation.SourceType,
+    json_name: "sourceTypes",
+    enum: true,
+    deprecated: false
+
+  field :known_operations_count, 10,
+    type: :int64,
+    json_name: "knownOperationsCount",
+    deprecated: false
+
+  field :unknown_operations_count, 11,
+    type: :int64,
+    json_name: "unknownOperationsCount",
+    deprecated: false
+
+  field :create_time, 12,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 13,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+
+  field :source_metadata, 14,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiOperation.MatchResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.DiscoveredApiOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :operation, 0
+
+  field :http_operation, 2,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails,
+    json_name: "httpOperation",
+    oneof: 0,
+    deprecated: false
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :first_seen_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "firstSeenTime",
+    deprecated: false
+
+  field :last_seen_time, 4,
+    type: Google.Protobuf.Timestamp,
+    json_name: "lastSeenTime",
+    deprecated: false
+
+  field :count, 5, type: :int64, deprecated: false
+
+  field :classification, 6,
+    type: Google.Cloud.Apihub.V1.DiscoveredApiOperation.Classification,
+    enum: true,
+    deprecated: false
+
+  field :match_results, 7,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.DiscoveredApiOperation.MatchResult,
+    json_name: "matchResults",
+    deprecated: false
+
+  field :source_metadata, 8,
+    type: Google.Cloud.Apihub.V1.SourceMetadata,
+    json_name: "sourceMetadata",
+    deprecated: false
+
+  field :create_time, 9,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
+
+  field :update_time, 10,
+    type: Google.Protobuf.Timestamp,
+    json_name: "updateTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.PathParam do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :position, 1, type: :int32, deprecated: false
+
+  field :data_type, 2,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.DataType,
+    json_name: "dataType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.QueryParam do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :count, 2, type: :int64, deprecated: false
+
+  field :data_type, 3,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.DataType,
+    json_name: "dataType",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.Header do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string
+  field :count, 2, type: :int64
+
+  field :data_type, 3,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.DataType,
+    json_name: "dataType",
+    enum: true
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.HttpRequest.HeadersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Apihub.V1.HttpOperationDetails.Header
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.HttpRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :headers, 1,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.HttpRequest.HeadersEntry,
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse.HeadersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Apihub.V1.HttpOperationDetails.Header
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse.ResponseCodesEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :int32
+  field :value, 2, type: :int64
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :headers, 1,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse.HeadersEntry,
+    map: true,
+    deprecated: false
+
+  field :response_codes, 2,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse.ResponseCodesEntry,
+    json_name: "responseCodes",
+    map: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails.QueryParamsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Apihub.V1.HttpOperationDetails.QueryParam
+end
+
+defmodule Google.Cloud.Apihub.V1.HttpOperationDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :http_operation, 1,
+    type: Google.Cloud.Apihub.V1.HttpOperation,
+    json_name: "httpOperation",
+    deprecated: false
+
+  field :path_params, 2,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.PathParam,
+    json_name: "pathParams",
+    deprecated: false
+
+  field :query_params, 3,
+    repeated: true,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.QueryParamsEntry,
+    json_name: "queryParams",
+    map: true,
+    deprecated: false
+
+  field :request, 4,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.HttpRequest,
+    deprecated: false
+
+  field :response, 5,
+    type: Google.Cloud.Apihub.V1.HttpOperationDetails.HttpResponse,
     deprecated: false
 end

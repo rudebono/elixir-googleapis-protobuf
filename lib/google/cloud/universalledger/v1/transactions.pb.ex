@@ -273,3 +273,65 @@ defmodule Google.Cloud.Universalledger.V1.CreateSnapshot do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
+
+defmodule Google.Cloud.Universalledger.V1.CreateContract.ArgumentsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Universalledger.V1.Value
+end
+
+defmodule Google.Cloud.Universalledger.V1.CreateContract do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :contract_bytes, 1, type: :bytes, json_name: "contractBytes"
+
+  field :arguments, 2,
+    repeated: true,
+    type: Google.Cloud.Universalledger.V1.CreateContract.ArgumentsEntry,
+    map: true
+
+  field :contract_comment, 3, type: :string, json_name: "contractComment"
+end
+
+defmodule Google.Cloud.Universalledger.V1.GrantContractPermissions do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :contract, 1, type: Google.Cloud.Universalledger.V1.Entity
+
+  field :permissions, 2,
+    repeated: true,
+    type: Google.Cloud.Universalledger.V1.ContractPermission,
+    enum: true
+end
+
+defmodule Google.Cloud.Universalledger.V1.InvokeContractMethod.ArgumentsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: Google.Cloud.Universalledger.V1.Value
+end
+
+defmodule Google.Cloud.Universalledger.V1.InvokeContractMethod do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :contract, 1, type: Google.Cloud.Universalledger.V1.Entity
+  field :method_name, 2, type: :string, json_name: "methodName"
+
+  field :arguments, 3,
+    repeated: true,
+    type: Google.Cloud.Universalledger.V1.InvokeContractMethod.ArgumentsEntry,
+    map: true
+
+  field :payment, 4, type: Google.Cloud.Universalledger.V1.CurrencyValue
+end

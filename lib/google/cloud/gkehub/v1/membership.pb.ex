@@ -129,6 +129,7 @@ defmodule Google.Cloud.Gkehub.V1.ResourceOptions do
   field :connect_version, 1, type: :string, json_name: "connectVersion", deprecated: false
   field :v1beta1_crd, 2, type: :bool, json_name: "v1beta1Crd", deprecated: false
   field :k8s_version, 3, type: :string, json_name: "k8sVersion", deprecated: false
+  field :k8s_git_version, 4, type: :string, json_name: "k8sGitVersion", deprecated: false
 end
 
 defmodule Google.Cloud.Gkehub.V1.ResourceManifest do

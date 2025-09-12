@@ -12,6 +12,14 @@ defmodule Google.Cloud.Apihub.V1.CreateApiHubInstanceRequest do
     deprecated: false
 end
 
+defmodule Google.Cloud.Apihub.V1.DeleteApiHubInstanceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Apihub.V1.GetApiHubInstanceRequest do
   @moduledoc false
 
@@ -47,6 +55,10 @@ defmodule Google.Cloud.Apihub.V1.Provisioning.Service do
 
   rpc :CreateApiHubInstance,
       Google.Cloud.Apihub.V1.CreateApiHubInstanceRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteApiHubInstance,
+      Google.Cloud.Apihub.V1.DeleteApiHubInstanceRequest,
       Google.Longrunning.Operation
 
   rpc :GetApiHubInstance,
