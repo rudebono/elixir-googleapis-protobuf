@@ -945,6 +945,16 @@ defmodule Google.Cloud.Compute.V1beta.FirewallLogConfig.Metadata do
   field :INCLUDE_ALL_METADATA, 164_619_908
 end
 
+defmodule Google.Cloud.Compute.V1beta.FirewallPolicy.PolicySource do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_POLICY_SOURCE, 0
+  field :SYSTEM, 313_484_847
+  field :USER_DEFINED, 491_485_557
+end
+
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicy.PolicyType do
   @moduledoc false
 
@@ -963,6 +973,16 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule.Direction do
   field :UNDEFINED_DIRECTION, 0
   field :EGRESS, 432_880_501
   field :INGRESS, 516_931_221
+end
+
+defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule.TargetType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_TARGET_TYPE, 0
+  field :INSTANCES, 131_337_822
+  field :INTERNAL_MANAGED_LB, 309_241_080
 end
 
 defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRuleMatcher.DestNetworkScope do
@@ -1104,6 +1124,17 @@ defmodule Google.Cloud.Compute.V1beta.FutureReservation.PlanningStatus do
   field :DRAFT, 65_307_009
   field :PLANNING_STATUS_UNSPECIFIED, 252_728_940
   field :SUBMITTED, 450_918_619
+end
+
+defmodule Google.Cloud.Compute.V1beta.FutureReservation.ProtectionTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_PROTECTION_TIER, 0
+  field :CAPACITY_OPTIMIZED, 17_430_466
+  field :PROTECTION_TIER_UNSPECIFIED, 262_261_984
+  field :STANDARD, 484_642_493
 end
 
 defmodule Google.Cloud.Compute.V1beta.FutureReservation.ReservationMode do
@@ -1626,6 +1657,7 @@ defmodule Google.Cloud.Compute.V1beta.Instance.Status do
 
   field :UNDEFINED_STATUS, 0
   field :DEPROVISIONING, 428_935_662
+  field :PENDING, 35_394_935
   field :PENDING_STOP, 362_509_770
   field :PROVISIONING, 290_896_621
   field :REPAIRING, 413_483_285
@@ -1864,6 +1896,7 @@ defmodule Google.Cloud.Compute.V1beta.InstanceWithNamedPorts.Status do
 
   field :UNDEFINED_STATUS, 0
   field :DEPROVISIONING, 428_935_662
+  field :PENDING, 35_394_935
   field :PENDING_STOP, 362_509_770
   field :PROVISIONING, 290_896_621
   field :REPAIRING, 413_483_285
@@ -2659,6 +2692,7 @@ defmodule Google.Cloud.Compute.V1beta.ManagedInstance.InstanceStatus do
 
   field :UNDEFINED_INSTANCE_STATUS, 0
   field :DEPROVISIONING, 428_935_662
+  field :PENDING, 35_394_935
   field :PENDING_STOP, 362_509_770
   field :PROVISIONING, 290_896_621
   field :REPAIRING, 413_483_285
@@ -3264,6 +3298,46 @@ defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures.Unicast do
   field :UNDEFINED_UNICAST, 0
   field :UNICAST_SDN, 379_954_157
   field :UNICAST_ULL, 379_956_325
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkProfileProfileType.NetworkType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_NETWORK_TYPE, 0
+  field :RDMA, 2_510_662
+  field :ULL, 84117
+  field :VPC, 85193
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkProfileProfileType.RdmaSubtype do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_RDMA_SUBTYPE, 0
+  field :FALCON, 455_787_729
+  field :ROCE, 2_520_927
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkProfileProfileType.UllSubtype do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_ULL_SUBTYPE, 0
+  field :OPERATOR, 282_073_252
+  field :PARTICIPANT, 236_028_691
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkProfileProfileType.VpcSubtype do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_VPC_SUBTYPE, 0
+  field :REGIONAL, 92_288_543
 end
 
 defmodule Google.Cloud.Compute.V1beta.NetworkRoutingConfig.BgpBestPathSelectionMode do
@@ -5376,6 +5450,8 @@ defmodule Google.Cloud.Compute.V1beta.UpcomingMaintenance.MaintenanceReasons do
   field :UNDEFINED_MAINTENANCE_REASONS, 0
   field :FAILURE_DISK, 8_573_778
   field :FAILURE_GPU, 467_876_919
+  field :FAILURE_GPU_MULTIPLE_FAULTY_HOSTS_CUSTOMER_REPORTED, 223_284_959
+  field :FAILURE_GPU_NVLINK_SWITCH_CUSTOMER_REPORTED, 88_487_838
   field :FAILURE_GPU_TEMPERATURE, 24_926_540
   field :FAILURE_GPU_XID, 51_956_587
   field :FAILURE_INFRA, 270_541_467
@@ -5631,6 +5707,16 @@ defmodule Google.Cloud.Compute.V1beta.WireGroupProperties.Type do
   field :BOX_AND_CROSS, 311_344_644
   field :REDUNDANT, 3_891_405
   field :WIRE, 2_664_581
+end
+
+defmodule Google.Cloud.Compute.V1beta.WireProperties.BandwidthAllocation do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_BANDWIDTH_ALLOCATION, 0
+  field :ALLOCATE_PER_WIRE, 358_730_057
+  field :SHARED_WITH_WIRE_GROUP, 286_454_628
 end
 
 defmodule Google.Cloud.Compute.V1beta.WireProperties.FaultResponse do
@@ -7843,6 +7929,18 @@ defmodule Google.Cloud.Compute.V1beta.AllocationAggregateReservation do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :host_count, 297_782_200, proto3_optional: true, type: :int32, json_name: "hostCount"
+
+  field :in_use_host_count, 364_069_834,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "inUseHostCount"
+
+  field :in_use_instance_count, 319_874_039,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "inUseInstanceCount"
+
   field :in_use_resources, 409_009_107,
     repeated: true,
     type: Google.Cloud.Compute.V1beta.AllocationAggregateReservationReservedResourceInfo,
@@ -9813,6 +9911,7 @@ defmodule Google.Cloud.Compute.V1beta.BgpRouteAsPath do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :asns, 3_003_767, repeated: true, type: :int32
+  field :asns32, 202_267_158, repeated: true, type: :uint32
   field :type, 3_575_610, proto3_optional: true, type: :string
 end
 
@@ -13257,6 +13356,12 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicy do
     json_name: "packetMirroringRules"
 
   field :parent, 78_317_738, proto3_optional: true, type: :string
+
+  field :policy_source, 232_383_432,
+    proto3_optional: true,
+    type: :string,
+    json_name: "policySource"
+
   field :policy_type, 18_158_119, proto3_optional: true, type: :string, json_name: "policyType"
   field :region, 138_946_292, proto3_optional: true, type: :string
 
@@ -13349,6 +13454,11 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule do
     type: :string,
     json_name: "securityProfileGroup"
 
+  field :target_forwarding_rules, 495_923_747,
+    repeated: true,
+    type: :string,
+    json_name: "targetForwardingRules"
+
   field :target_resources, 528_230_647,
     repeated: true,
     type: :string,
@@ -13364,6 +13474,7 @@ defmodule Google.Cloud.Compute.V1beta.FirewallPolicyRule do
     type: :string,
     json_name: "targetServiceAccounts"
 
+  field :target_type, 62_925_096, proto3_optional: true, type: :string, json_name: "targetType"
   field :tls_inspect, 43_425_488, proto3_optional: true, type: :bool, json_name: "tlsInspect"
 end
 
@@ -13782,6 +13893,11 @@ defmodule Google.Cloud.Compute.V1beta.FutureReservation do
     proto3_optional: true,
     type: :string,
     json_name: "planningStatus"
+
+  field :protection_tier, 503_959_432,
+    proto3_optional: true,
+    type: :string,
+    json_name: "protectionTier"
 
   field :reservation_mode, 277_294_646,
     proto3_optional: true,
@@ -16139,6 +16255,8 @@ defmodule Google.Cloud.Compute.V1beta.GetServiceAttachmentRequest do
     type: :string,
     json_name: "serviceAttachment",
     deprecated: false
+
+  field :show_nat_ips, 485_502_156, proto3_optional: true, type: :bool, json_name: "showNatIps"
 end
 
 defmodule Google.Cloud.Compute.V1beta.GetShieldedInstanceIdentityInstanceRequest do
@@ -20181,6 +20299,11 @@ defmodule Google.Cloud.Compute.V1beta.InstanceParams do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  field :request_valid_for_duration, 116_247_389,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.Duration,
+    json_name: "requestValidForDuration"
+
   field :resource_manager_tags, 377_671_164,
     repeated: true,
     type: Google.Cloud.Compute.V1beta.InstanceParams.ResourceManagerTagsEntry,
@@ -22317,6 +22440,11 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectRemoteLocation do
     proto3_optional: true,
     type: :int32,
     json_name: "maxLagSize10Gbps"
+
+  field :max_lag_size400_gbps, 104_941_138,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxLagSize400Gbps"
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -26712,6 +26840,12 @@ defmodule Google.Cloud.Compute.V1beta.NetworkProfile do
     type: Google.Cloud.Compute.V1beta.NetworkProfileLocation
 
   field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :profile_type, 150_167_568,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1beta.NetworkProfileProfileType,
+    json_name: "profileType"
+
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
 
   field :self_link_with_id, 44_520_962,
@@ -26855,6 +26989,17 @@ defmodule Google.Cloud.Compute.V1beta.NetworkProfileNetworkFeatures do
     json_name: "subnetworkStackTypes"
 
   field :unicast, 249_841_711, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1beta.NetworkProfileProfileType do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :network_type, 517_413_547, proto3_optional: true, type: :string, json_name: "networkType"
+  field :rdma_subtype, 82_019_713, proto3_optional: true, type: :string, json_name: "rdmaSubtype"
+  field :ull_subtype, 94_311_408, proto3_optional: true, type: :string, json_name: "ullSubtype"
+  field :vpc_subtype, 356_623_396, proto3_optional: true, type: :string, json_name: "vpcSubtype"
 end
 
 defmodule Google.Cloud.Compute.V1beta.NetworkProfilesListResponse do
@@ -31210,6 +31355,12 @@ defmodule Google.Cloud.Compute.V1beta.ReservationBlock do
 
   field :id, 3355, proto3_optional: true, type: :uint64
   field :in_use_count, 493_458_877, proto3_optional: true, type: :int32, json_name: "inUseCount"
+
+  field :in_use_host_count, 364_069_834,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "inUseHostCount"
+
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -31368,6 +31519,12 @@ defmodule Google.Cloud.Compute.V1beta.ReservationSubBlock do
 
   field :id, 3355, proto3_optional: true, type: :uint64
   field :in_use_count, 493_458_877, proto3_optional: true, type: :int32, json_name: "inUseCount"
+
+  field :in_use_host_count, 364_069_834,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "inUseHostCount"
+
   field :kind, 3_292_052, proto3_optional: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -34308,6 +34465,7 @@ defmodule Google.Cloud.Compute.V1beta.ServiceAttachmentConnectedEndpoint do
     json_name: "consumerNetwork"
 
   field :endpoint, 130_489_749, proto3_optional: true, type: :string
+  field :nat_ips, 117_635_086, repeated: true, type: :string, json_name: "natIps"
 
   field :propagated_connection_count, 324_594_130,
     proto3_optional: true,
@@ -41796,6 +41954,11 @@ defmodule Google.Cloud.Compute.V1beta.WireProperties do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :bandwidth_allocation, 90_651_950,
+    proto3_optional: true,
+    type: :string,
+    json_name: "bandwidthAllocation"
 
   field :bandwidth_unmetered, 272_650_017,
     proto3_optional: true,

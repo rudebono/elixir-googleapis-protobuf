@@ -185,7 +185,45 @@ defmodule Google.Cloud.Apihub.V1.GetSpecContentsRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Apihub.V1.CreateApiOperationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :api_operation_id, 2, type: :string, json_name: "apiOperationId", deprecated: false
+
+  field :api_operation, 3,
+    type: Google.Cloud.Apihub.V1.ApiOperation,
+    json_name: "apiOperation",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Apihub.V1.GetApiOperationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.UpdateApiOperationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :api_operation, 1,
+    type: Google.Cloud.Apihub.V1.ApiOperation,
+    json_name: "apiOperation",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Apihub.V1.DeleteApiOperationRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -562,6 +600,10 @@ defmodule Google.Cloud.Apihub.V1.ApiHub.Service do
 
   rpc :DeleteSpec, Google.Cloud.Apihub.V1.DeleteSpecRequest, Google.Protobuf.Empty
 
+  rpc :CreateApiOperation,
+      Google.Cloud.Apihub.V1.CreateApiOperationRequest,
+      Google.Cloud.Apihub.V1.ApiOperation
+
   rpc :GetApiOperation,
       Google.Cloud.Apihub.V1.GetApiOperationRequest,
       Google.Cloud.Apihub.V1.ApiOperation
@@ -569,6 +611,12 @@ defmodule Google.Cloud.Apihub.V1.ApiHub.Service do
   rpc :ListApiOperations,
       Google.Cloud.Apihub.V1.ListApiOperationsRequest,
       Google.Cloud.Apihub.V1.ListApiOperationsResponse
+
+  rpc :UpdateApiOperation,
+      Google.Cloud.Apihub.V1.UpdateApiOperationRequest,
+      Google.Cloud.Apihub.V1.ApiOperation
+
+  rpc :DeleteApiOperation, Google.Cloud.Apihub.V1.DeleteApiOperationRequest, Google.Protobuf.Empty
 
   rpc :GetDefinition,
       Google.Cloud.Apihub.V1.GetDefinitionRequest,
