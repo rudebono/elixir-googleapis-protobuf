@@ -63,6 +63,8 @@ defmodule Google.Cloud.Batch.V1alpha.AllocationPolicy.ProvisioningModel do
   field :STANDARD, 1
   field :SPOT, 2
   field :PREEMPTIBLE, 3
+  field :RESERVATION_BOUND, 4
+  field :FLEX_START, 5
 end
 
 defmodule Google.Cloud.Batch.V1alpha.TaskGroup.SchedulingPolicy do

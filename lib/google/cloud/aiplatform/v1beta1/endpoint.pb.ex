@@ -97,6 +97,8 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Endpoint do
     type: Google.Cloud.Aiplatform.V1beta1.GenAiAdvancedFeaturesConfig,
     json_name: "genAiAdvancedFeaturesConfig",
     deprecated: false
+
+  field :private_model_server_enabled, 30, type: :bool, json_name: "privateModelServerEnabled"
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.DeployedModel.Status do
