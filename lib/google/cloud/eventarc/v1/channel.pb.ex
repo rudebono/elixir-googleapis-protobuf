@@ -9,6 +9,15 @@ defmodule Google.Cloud.Eventarc.V1.Channel.State do
   field :INACTIVE, 3
 end
 
+defmodule Google.Cloud.Eventarc.V1.Channel.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Eventarc.V1.Channel do
   @moduledoc false
 
@@ -35,4 +44,10 @@ defmodule Google.Cloud.Eventarc.V1.Channel do
   field :activation_token, 10, type: :string, json_name: "activationToken", deprecated: false
   field :crypto_key_name, 11, type: :string, json_name: "cryptoKeyName", deprecated: false
   field :satisfies_pzs, 12, type: :bool, json_name: "satisfiesPzs", deprecated: false
+
+  field :labels, 13,
+    repeated: true,
+    type: Google.Cloud.Eventarc.V1.Channel.LabelsEntry,
+    map: true,
+    deprecated: false
 end
