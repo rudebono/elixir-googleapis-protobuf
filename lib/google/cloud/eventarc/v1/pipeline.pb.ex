@@ -255,5 +255,6 @@ defmodule Google.Cloud.Eventarc.V1.Pipeline do
     json_name: "retryPolicy",
     deprecated: false
 
-  field :etag, 99, type: :string
+  field :etag, 99, type: :string, deprecated: false
+  field :satisfies_pzs, 14, type: :bool, json_name: "satisfiesPzs", deprecated: false
 end
