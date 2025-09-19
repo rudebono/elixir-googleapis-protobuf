@@ -1,14 +1,3 @@
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.RegulatoryControlResponsibilityType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :REGULATORY_CONTROL_RESPONSIBILITY_TYPE_UNSPECIFIED, 0
-  field :GOOGLE, 1
-  field :CUSTOMER, 2
-  field :SHARED, 3
-end
-
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.EnforcementMode do
   @moduledoc false
 
@@ -112,16 +101,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework.FrameworkType do
   field :CUSTOM, 2
 end
 
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroup.CloudControlGroupType do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :CLOUD_CONTROL_GROUP_TYPE_UNSPECIFIED, 0
-  field :BUILT_IN, 1
-  field :CUSTOM, 2
-end
-
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.ParameterSpec.ValueType do
   @moduledoc false
 
@@ -133,45 +112,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.ParameterSpec.ValueType do
   field :STRINGLIST, 5
   field :NUMBER, 6
   field :ONEOF, 7
-end
-
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.Control.Family do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :FAMILY_UNSPECIFIED, 0
-  field :AC, 1
-  field :AT, 2
-  field :AU, 3
-  field :CA, 4
-  field :CM, 5
-  field :CP, 6
-  field :IA, 7
-  field :IR, 8
-  field :MA, 9
-  field :MP, 10
-  field :PE, 11
-  field :PL, 12
-  field :PS, 13
-  field :RA, 14
-  field :SA, 15
-  field :SC, 16
-  field :SI, 17
-  field :SR, 18
-end
-
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework.CloudControlGroupDetails do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  oneof :kind, 0
-
-  field :cloud_control_group, 1,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroup,
-    json_name: "cloudControlGroup",
-    oneof: 0
 end
 
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework do
@@ -187,12 +127,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework do
   field :type, 6,
     type: Google.Cloud.Cloudsecuritycompliance.V1.Framework.FrameworkType,
     enum: true,
-    deprecated: false
-
-  field :cloud_control_group_details, 7,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.Framework.CloudControlGroupDetails,
-    json_name: "cloudControlGroupDetails",
     deprecated: false
 
   field :cloud_control_details, 8,
@@ -220,31 +154,13 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework do
     json_name: "supportedTargetResourceTypes",
     enum: true,
     deprecated: false
-end
 
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroup do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :description, 2, type: :string, deprecated: false
-
-  field :type, 3,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroup.CloudControlGroupType,
+  field :supported_enforcement_modes, 13,
+    repeated: true,
+    type: Google.Cloud.Cloudsecuritycompliance.V1.EnforcementMode,
+    json_name: "supportedEnforcementModes",
     enum: true,
     deprecated: false
-
-  field :control_id, 4, type: :string, json_name: "controlId", deprecated: false
-
-  field :cloud_control_details, 5,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlDetails,
-    json_name: "cloudControlDetails",
-    deprecated: false
-
-  field :major_revision_id, 6, type: :int64, json_name: "majorRevisionId", deprecated: false
-  field :control, 8, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControlDetails do
@@ -569,75 +485,4 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.OperationMetadata do
     deprecated: false
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
-end
-
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.Control do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :name, 1, type: :string, deprecated: false
-  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
-  field :description, 4, type: :string, deprecated: false
-
-  field :family, 5,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.Control.Family,
-    enum: true,
-    deprecated: false
-
-  field :control_family, 6,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.ControlFamily,
-    json_name: "controlFamily",
-    deprecated: false
-
-  field :responsibility_type, 7,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.RegulatoryControlResponsibilityType,
-    json_name: "responsibilityType",
-    enum: true,
-    deprecated: false
-
-  field :google_responsibility_description, 8,
-    type: :string,
-    json_name: "googleResponsibilityDescription",
-    deprecated: false
-
-  field :google_responsibility_implementation, 9,
-    type: :string,
-    json_name: "googleResponsibilityImplementation",
-    deprecated: false
-
-  field :customer_responsibility_description, 10,
-    type: :string,
-    json_name: "customerResponsibilityDescription",
-    deprecated: false
-
-  field :customer_responsibility_implementation, 11,
-    type: :string,
-    json_name: "customerResponsibilityImplementation",
-    deprecated: false
-
-  field :shared_responsibility_description, 12,
-    type: :string,
-    json_name: "sharedResponsibilityDescription",
-    deprecated: false
-
-  field :additional_content_uri, 13,
-    type: :string,
-    json_name: "additionalContentUri",
-    deprecated: false
-
-  field :related_frameworks, 14,
-    repeated: true,
-    type: :string,
-    json_name: "relatedFrameworks",
-    deprecated: false
-end
-
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.ControlFamily do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :family_id, 1, type: :string, json_name: "familyId"
-  field :display_name, 2, type: :string, json_name: "displayName"
 end

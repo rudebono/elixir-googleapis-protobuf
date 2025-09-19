@@ -48,12 +48,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.FrameworkDeployment do
     enum: true,
     deprecated: false
 
-  field :cc_deployments, 8,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlDeployment,
-    json_name: "ccDeployments",
-    deprecated: true
-
   field :create_time, 9,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
@@ -65,12 +59,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.FrameworkDeployment do
     deprecated: false
 
   field :etag, 11, type: :string, deprecated: false
-
-  field :cc_group_deployments, 12,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroupDeployment,
-    json_name: "ccGroupDeployments",
-    deprecated: false
 
   field :target_resource_display_name, 13,
     type: :string,
@@ -218,29 +206,6 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControlMetadata do
     type: Google.Cloud.Cloudsecuritycompliance.V1.EnforcementMode,
     json_name: "enforcementMode",
     enum: true,
-    deprecated: false
-end
-
-defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroupDeployment do
-  @moduledoc false
-
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :cloud_control_group, 1,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlGroup,
-    json_name: "cloudControlGroup",
-    deprecated: false
-
-  field :cc_deployments, 2,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlDeployment,
-    json_name: "ccDeployments",
-    deprecated: true
-
-  field :cc_deployment_references, 3,
-    repeated: true,
-    type: Google.Cloud.Cloudsecuritycompliance.V1.CloudControlDeploymentReference,
-    json_name: "ccDeploymentReferences",
     deprecated: false
 end
 
