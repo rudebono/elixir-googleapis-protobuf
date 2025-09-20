@@ -17,6 +17,9 @@ defmodule Google.Cloud.Video.Livestream.V1.Input.Tier do
   field :SD, 1
   field :HD, 2
   field :UHD, 3
+  field :SD_H265, 4
+  field :HD_H265, 5
+  field :UHD_H265, 6
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Channel.StreamingState do
@@ -55,6 +58,27 @@ defmodule Google.Cloud.Video.Livestream.V1.LogConfig.LogSeverity do
   field :INFO, 200
   field :WARNING, 400
   field :ERROR, 500
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig.DisplayTiming do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DISPLAY_TIMING_UNSPECIFIED, 0
+  field :ASYNC, 1
+  field :SYNC, 2
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig.QualityPreset do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :QUALITY_PRESET_UNSPECIFIED, 0
+  field :LOW_LATENCY, 1
+  field :BALANCED_QUALITY, 2
+  field :IMPROVED_QUALITY, 3
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Event.State do
@@ -239,6 +263,17 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
 
   field :manifests, 12, repeated: true, type: Google.Cloud.Video.Livestream.V1.Manifest
 
+  field :distribution_streams, 28,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.DistributionStream,
+    json_name: "distributionStreams",
+    deprecated: false
+
+  field :distributions, 29,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Distribution,
+    deprecated: false
+
   field :sprite_sheets, 13,
     repeated: true,
     type: Google.Cloud.Video.Livestream.V1.SpriteSheet,
@@ -261,7 +296,10 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
     type: Google.Cloud.Video.Livestream.V1.TimecodeConfig,
     json_name: "timecodeConfig"
 
-  field :encryptions, 24, repeated: true, type: Google.Cloud.Video.Livestream.V1.Encryption
+  field :encryptions, 24,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.Encryption,
+    deprecated: false
 
   field :input_config, 25,
     type: Google.Cloud.Video.Livestream.V1.InputConfig,
@@ -276,6 +314,11 @@ defmodule Google.Cloud.Video.Livestream.V1.Channel do
     repeated: true,
     type: Google.Cloud.Video.Livestream.V1.StaticOverlay,
     json_name: "staticOverlays",
+    deprecated: false
+
+  field :auto_transcription_config, 30,
+    type: Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig,
+    json_name: "autoTranscriptionConfig",
     deprecated: false
 end
 
@@ -431,6 +474,24 @@ defmodule Google.Cloud.Video.Livestream.V1.InputAttachment do
     json_name: "automaticFailover"
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :display_timing, 1,
+    type: Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig.DisplayTiming,
+    json_name: "displayTiming",
+    enum: true,
+    deprecated: false
+
+  field :quality_preset, 2,
+    type: Google.Cloud.Video.Livestream.V1.AutoTranscriptionConfig.QualityPreset,
+    json_name: "qualityPreset",
+    enum: true,
+    deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.Event.InputSwitchTask do
   @moduledoc false
 
@@ -474,6 +535,17 @@ defmodule Google.Cloud.Video.Livestream.V1.Event.UnmuteTask do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Event.UpdateEncryptionsTask do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :encryptions, 1,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.EncryptionUpdate,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Event.LabelsEntry do
@@ -527,6 +599,12 @@ defmodule Google.Cloud.Video.Livestream.V1.Event do
   field :slate, 14, type: Google.Cloud.Video.Livestream.V1.Event.SlateTask, oneof: 0
   field :mute, 15, type: Google.Cloud.Video.Livestream.V1.Event.MuteTask, oneof: 0
   field :unmute, 16, type: Google.Cloud.Video.Livestream.V1.Event.UnmuteTask, oneof: 0
+
+  field :update_encryptions, 17,
+    type: Google.Cloud.Video.Livestream.V1.Event.UpdateEncryptionsTask,
+    json_name: "updateEncryptions",
+    oneof: 0
+
   field :execute_now, 9, type: :bool, json_name: "executeNow"
   field :execution_time, 10, type: Google.Protobuf.Timestamp, json_name: "executionTime"
 
@@ -805,10 +883,21 @@ defmodule Google.Cloud.Video.Livestream.V1.Encryption.DrmSystems do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :widevine, 1, type: Google.Cloud.Video.Livestream.V1.Encryption.Widevine
-  field :fairplay, 2, type: Google.Cloud.Video.Livestream.V1.Encryption.Fairplay
-  field :playready, 3, type: Google.Cloud.Video.Livestream.V1.Encryption.Playready
-  field :clearkey, 4, type: Google.Cloud.Video.Livestream.V1.Encryption.Clearkey
+  field :widevine, 1,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.Widevine,
+    deprecated: false
+
+  field :fairplay, 2,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.Fairplay,
+    deprecated: false
+
+  field :playready, 3,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.Playready,
+    deprecated: false
+
+  field :clearkey, 4,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.Clearkey,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Encryption.Aes128Encryption do
@@ -863,6 +952,21 @@ defmodule Google.Cloud.Video.Livestream.V1.Encryption do
     type: Google.Cloud.Video.Livestream.V1.Encryption.MpegCommonEncryption,
     json_name: "mpegCenc",
     oneof: 1
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.EncryptionUpdate do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :secret_source, 0
+
+  field :id, 1, type: :string, deprecated: false
+
+  field :secret_manager_key_source, 2,
+    type: Google.Cloud.Video.Livestream.V1.Encryption.SecretManagerSource,
+    json_name: "secretManagerKeySource",
+    oneof: 0
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.Pool.NetworkConfig do
