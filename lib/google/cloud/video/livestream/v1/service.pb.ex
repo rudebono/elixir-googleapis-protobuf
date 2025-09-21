@@ -127,6 +127,38 @@ defmodule Google.Cloud.Video.Livestream.V1.StopChannelRequest do
   field :request_id, 2, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.StartDistributionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :distribution_keys, 2,
+    repeated: true,
+    type: :string,
+    json_name: "distributionKeys",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.StopDistributionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :distribution_keys, 2,
+    repeated: true,
+    type: :string,
+    json_name: "distributionKeys",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.CreateInputRequest do
   @moduledoc false
 
@@ -410,6 +442,23 @@ defmodule Google.Cloud.Video.Livestream.V1.UpdatePoolRequest do
   field :request_id, 3, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.PreviewInputRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.PreviewInputResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+  field :bearer_token, 2, type: :string, json_name: "bearerToken"
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   @moduledoc false
 
@@ -445,6 +494,14 @@ defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
       Google.Cloud.Video.Livestream.V1.StopChannelRequest,
       Google.Longrunning.Operation
 
+  rpc :StartDistribution,
+      Google.Cloud.Video.Livestream.V1.StartDistributionRequest,
+      Google.Longrunning.Operation
+
+  rpc :StopDistribution,
+      Google.Cloud.Video.Livestream.V1.StopDistributionRequest,
+      Google.Longrunning.Operation
+
   rpc :CreateInput,
       Google.Cloud.Video.Livestream.V1.CreateInputRequest,
       Google.Longrunning.Operation
@@ -464,6 +521,10 @@ defmodule Google.Cloud.Video.Livestream.V1.LivestreamService.Service do
   rpc :UpdateInput,
       Google.Cloud.Video.Livestream.V1.UpdateInputRequest,
       Google.Longrunning.Operation
+
+  rpc :PreviewInput,
+      Google.Cloud.Video.Livestream.V1.PreviewInputRequest,
+      Google.Cloud.Video.Livestream.V1.PreviewInputResponse
 
   rpc :CreateEvent,
       Google.Cloud.Video.Livestream.V1.CreateEventRequest,
