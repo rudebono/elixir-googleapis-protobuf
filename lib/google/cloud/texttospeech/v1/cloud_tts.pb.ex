@@ -154,6 +154,27 @@ defmodule Google.Cloud.Texttospeech.V1.MultiSpeakerMarkup do
     deprecated: false
 end
 
+defmodule Google.Cloud.Texttospeech.V1.MultispeakerPrebuiltVoice do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :speaker_alias, 1, type: :string, json_name: "speakerAlias", deprecated: false
+  field :speaker_id, 2, type: :string, json_name: "speakerId", deprecated: false
+end
+
+defmodule Google.Cloud.Texttospeech.V1.MultiSpeakerVoiceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :speaker_voice_configs, 2,
+    repeated: true,
+    type: Google.Cloud.Texttospeech.V1.MultispeakerPrebuiltVoice,
+    json_name: "speakerVoiceConfigs",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Texttospeech.V1.SynthesisInput do
   @moduledoc false
 
@@ -201,6 +222,11 @@ defmodule Google.Cloud.Texttospeech.V1.VoiceSelectionParams do
     deprecated: false
 
   field :model_name, 6, type: :string, json_name: "modelName", deprecated: false
+
+  field :multi_speaker_voice_config, 7,
+    type: Google.Cloud.Texttospeech.V1.MultiSpeakerVoiceConfig,
+    json_name: "multiSpeakerVoiceConfig",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1.AudioConfig do
@@ -298,6 +324,12 @@ defmodule Google.Cloud.Texttospeech.V1.StreamingSynthesisInput do
 
   field :text, 1, type: :string, oneof: 0
   field :markup, 5, type: :string, oneof: 0
+
+  field :multi_speaker_markup, 7,
+    type: Google.Cloud.Texttospeech.V1.MultiSpeakerMarkup,
+    json_name: "multiSpeakerMarkup",
+    oneof: 0
+
   field :prompt, 6, proto3_optional: true, type: :string
 end
 
