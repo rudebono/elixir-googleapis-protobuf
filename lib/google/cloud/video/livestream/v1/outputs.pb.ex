@@ -8,6 +8,19 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest.ManifestType do
   field :DASH, 2
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.Distribution.State do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STATE_UNSPECIFIED, 0
+  field :ERROR, 5
+  field :NOT_READY, 6
+  field :READY, 7
+  field :AWAITING_INPUT, 8
+  field :DISTRIBUTING, 9
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.TimecodeConfig.TimecodeSource do
   @moduledoc false
 
@@ -80,6 +93,74 @@ defmodule Google.Cloud.Video.Livestream.V1.Manifest do
 
   field :use_timecode_as_timeline, 6, type: :bool, json_name: "useTimecodeAsTimeline"
   field :key, 7, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.DistributionStream do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string, deprecated: false
+  field :container, 2, type: :string, deprecated: false
+
+  field :elementary_streams, 3,
+    repeated: true,
+    type: :string,
+    json_name: "elementaryStreams",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.Distribution do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :endpoint, 0
+
+  field :key, 1, type: :string, deprecated: false
+  field :distribution_stream, 2, type: :string, json_name: "distributionStream", deprecated: false
+
+  field :state, 3,
+    type: Google.Cloud.Video.Livestream.V1.Distribution.State,
+    enum: true,
+    deprecated: false
+
+  field :error, 4, type: Google.Rpc.Status, deprecated: false
+
+  field :srt_push, 5,
+    type: Google.Cloud.Video.Livestream.V1.SrtPushOutputEndpoint,
+    json_name: "srtPush",
+    oneof: 0
+
+  field :rtmp_push, 6,
+    type: Google.Cloud.Video.Livestream.V1.RtmpPushOutputEndpoint,
+    json_name: "rtmpPush",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.SrtPushOutputEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :passphrase_source, 0
+
+  field :uri, 1, type: :string, deprecated: false
+
+  field :passphrase_secret_version, 2,
+    type: :string,
+    json_name: "passphraseSecretVersion",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Video.Livestream.V1.RtmpPushOutputEndpoint do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :uri, 1, type: :string, deprecated: false
+  field :stream_key, 2, type: :string, json_name: "streamKey", deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.SpriteSheet do
@@ -161,6 +242,32 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings do
   field :tune, 16, type: :string
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.VideoStream.H265CodecSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :gop_mode, 0
+
+  field :width_pixels, 1, type: :int32, json_name: "widthPixels", deprecated: false
+  field :height_pixels, 2, type: :int32, json_name: "heightPixels", deprecated: false
+  field :frame_rate, 3, type: :double, json_name: "frameRate", deprecated: false
+  field :bitrate_bps, 4, type: :int32, json_name: "bitrateBps", deprecated: false
+  field :gop_frame_count, 7, type: :int32, json_name: "gopFrameCount", oneof: 0, deprecated: false
+
+  field :gop_duration, 8,
+    type: Google.Protobuf.Duration,
+    json_name: "gopDuration",
+    oneof: 0,
+    deprecated: false
+
+  field :vbv_size_bits, 9, type: :int32, json_name: "vbvSizeBits", deprecated: false
+  field :vbv_fullness_bits, 10, type: :int32, json_name: "vbvFullnessBits", deprecated: false
+  field :b_pyramid, 11, type: :bool, json_name: "bPyramid", deprecated: false
+  field :b_frame_count, 12, type: :int32, json_name: "bFrameCount", deprecated: false
+  field :aq_strength, 13, type: :double, json_name: "aqStrength", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.VideoStream do
   @moduledoc false
 
@@ -169,6 +276,7 @@ defmodule Google.Cloud.Video.Livestream.V1.VideoStream do
   oneof :codec_settings, 0
 
   field :h264, 20, type: Google.Cloud.Video.Livestream.V1.VideoStream.H264CodecSettings, oneof: 0
+  field :h265, 21, type: Google.Cloud.Video.Livestream.V1.VideoStream.H265CodecSettings, oneof: 0
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.AudioStream.AudioMapping do
@@ -201,12 +309,31 @@ defmodule Google.Cloud.Video.Livestream.V1.AudioStream do
   field :sample_rate_hertz, 6, type: :int32, json_name: "sampleRateHertz"
 end
 
+defmodule Google.Cloud.Video.Livestream.V1.TextStream.TextMapping do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :input_key, 4, type: :string, json_name: "inputKey", deprecated: false
+  field :input_track, 2, type: :int32, json_name: "inputTrack", deprecated: false
+  field :input_cea_channel, 5, type: :string, json_name: "inputCeaChannel", deprecated: false
+  field :from_language_code, 6, type: :string, json_name: "fromLanguageCode", deprecated: false
+end
+
 defmodule Google.Cloud.Video.Livestream.V1.TextStream do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :codec, 1, type: :string, deprecated: false
+  field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
+  field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
+  field :output_cea_channel, 5, type: :string, json_name: "outputCeaChannel", deprecated: false
+
+  field :mapping, 3,
+    repeated: true,
+    type: Google.Cloud.Video.Livestream.V1.TextStream.TextMapping,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Video.Livestream.V1.SegmentSettings do
