@@ -14,6 +14,7 @@ defmodule Google.Cloud.Dataproc.V1.Component do
   field :HUDI, 18
   field :ICEBERG, 19
   field :JUPYTER, 1
+  field :JUPYTER_KERNEL_GATEWAY, 22
   field :PIG, 21
   field :PRESTO, 6
   field :TRINO, 17
