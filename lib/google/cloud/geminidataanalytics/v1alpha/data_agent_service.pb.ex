@@ -6,6 +6,7 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListAccessibleDataAgentsReque
   field :CREATOR_FILTER_UNSPECIFIED, 0
   field :NONE, 1
   field :CREATOR_ONLY, 2
+  field :NOT_CREATOR_ONLY, 3
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListDataAgentsRequest do

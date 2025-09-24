@@ -8,6 +8,16 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataAgentContext.ContextVersi
   field :PUBLISHED, 2
 end
 
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.TextMessage.TextType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TEXT_TYPE_UNSPECIFIED, 0
+  field :FINAL_RESPONSE, 1
+  field :THOUGHT, 2
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.ListMessagesRequest do
   @moduledoc false
 
@@ -149,6 +159,13 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.SystemMessage do
   field :analysis, 4, type: Google.Cloud.Geminidataanalytics.V1alpha.AnalysisMessage, oneof: 0
   field :chart, 5, type: Google.Cloud.Geminidataanalytics.V1alpha.ChartMessage, oneof: 0
   field :error, 6, type: Google.Cloud.Geminidataanalytics.V1alpha.ErrorMessage, oneof: 0
+
+  field :example_queries, 13,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.ExampleQueries,
+    json_name: "exampleQueries",
+    oneof: 0,
+    deprecated: false
+
   field :group_id, 12, proto3_optional: true, type: :int32, json_name: "groupId"
 end
 
@@ -158,6 +175,12 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.TextMessage do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :parts, 1, repeated: true, type: :string, deprecated: false
+
+  field :text_type, 2,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.TextMessage.TextType,
+    json_name: "textType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.SchemaMessage do
@@ -243,6 +266,13 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataQuery do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :query_type, 0
+
+  field :looker, 4,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.LookerQuery,
+    oneof: 0,
+    deprecated: false
 
   field :question, 1, type: :string, deprecated: false
   field :name, 3, type: :string, deprecated: false
@@ -365,6 +395,18 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.ErrorMessage do
   field :text, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.ExampleQueries do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :example_queries, 1,
+    repeated: true,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.ExampleQuery,
+    json_name: "exampleQueries",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.Blob do
   @moduledoc false
 
@@ -387,6 +429,10 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataChatService.Service do
 
   rpc :CreateConversation,
       Google.Cloud.Geminidataanalytics.V1alpha.CreateConversationRequest,
+      Google.Cloud.Geminidataanalytics.V1alpha.Conversation
+
+  rpc :UpdateConversation,
+      Google.Cloud.Geminidataanalytics.V1alpha.UpdateConversationRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.Conversation
 
   rpc :GetConversation,
