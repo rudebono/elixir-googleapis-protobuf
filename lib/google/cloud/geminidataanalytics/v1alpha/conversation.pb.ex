@@ -47,6 +47,23 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.CreateConversationRequest do
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Geminidataanalytics.V1alpha.UpdateConversationRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :conversation, 1,
+    type: Google.Cloud.Geminidataanalytics.V1alpha.Conversation,
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Geminidataanalytics.V1alpha.GetConversationRequest do
   @moduledoc false
 
