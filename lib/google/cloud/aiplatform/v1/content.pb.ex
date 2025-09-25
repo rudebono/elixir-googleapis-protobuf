@@ -554,6 +554,27 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.RetrievedContext do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Maps.PlaceAnswerSources.ReviewSnippet do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :review_id, 1, type: :string, json_name: "reviewId"
+  field :google_maps_uri, 2, type: :string, json_name: "googleMapsUri"
+  field :title, 3, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Maps.PlaceAnswerSources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :review_snippets, 1,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.GroundingChunk.Maps.PlaceAnswerSources.ReviewSnippet,
+    json_name: "reviewSnippets"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Maps do
   @moduledoc false
 
@@ -563,6 +584,10 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingChunk.Maps do
   field :title, 2, proto3_optional: true, type: :string
   field :text, 3, proto3_optional: true, type: :string
   field :place_id, 4, proto3_optional: true, type: :string, json_name: "placeId"
+
+  field :place_answer_sources, 5,
+    type: Google.Cloud.Aiplatform.V1.GroundingChunk.Maps.PlaceAnswerSources,
+    json_name: "placeAnswerSources"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GroundingChunk do
@@ -595,6 +620,15 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingSupport do
     json_name: "groundingChunkIndices"
 
   field :confidence_scores, 3, repeated: true, type: :float, json_name: "confidenceScores"
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata.SourceFlaggingUri do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :source_id, 1, type: :string, json_name: "sourceId"
+  field :flag_content_uri, 2, type: :string, json_name: "flagContentUri"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
@@ -636,6 +670,11 @@ defmodule Google.Cloud.Aiplatform.V1.GroundingMetadata do
     type: :string,
     json_name: "googleMapsWidgetContextToken",
     deprecated: false
+
+  field :source_flagging_uris, 9,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.GroundingMetadata.SourceFlaggingUri,
+    json_name: "sourceFlaggingUris"
 end
 
 defmodule Google.Cloud.Aiplatform.V1.SearchEntryPoint do

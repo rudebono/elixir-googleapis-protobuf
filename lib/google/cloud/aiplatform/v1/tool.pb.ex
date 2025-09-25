@@ -299,6 +299,8 @@ defmodule Google.Cloud.Aiplatform.V1.GoogleMaps do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enable_widget, 1, type: :bool, json_name: "enableWidget", deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.EnterpriseWebSearch do
