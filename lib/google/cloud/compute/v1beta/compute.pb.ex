@@ -22275,6 +22275,12 @@ defmodule Google.Cloud.Compute.V1beta.InterconnectLocation do
     json_name: "regionInfos"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :single_region_production_critical_peer_locations, 439_537_103,
+    repeated: true,
+    type: :string,
+    json_name: "singleRegionProductionCriticalPeerLocations"
+
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :supports_pzs, 83_983_214, proto3_optional: true, type: :bool, json_name: "supportsPzs"
 end
@@ -28597,6 +28603,8 @@ defmodule Google.Cloud.Compute.V1beta.PatchOrganizationSecurityPolicyRequest do
     type: Google.Cloud.Compute.V1beta.SecurityPolicy,
     json_name: "securityPolicyResource",
     deprecated: false
+
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
 end
 
 defmodule Google.Cloud.Compute.V1beta.PatchPacketMirroringRequest do
@@ -29089,6 +29097,8 @@ defmodule Google.Cloud.Compute.V1beta.PatchRuleOrganizationSecurityPolicyRequest
     type: Google.Cloud.Compute.V1beta.SecurityPolicyRule,
     json_name: "securityPolicyRuleResource",
     deprecated: false
+
+  field :update_mask, 500_079_778, proto3_optional: true, type: :string, json_name: "updateMask"
 end
 
 defmodule Google.Cloud.Compute.V1beta.PatchRuleRegionNetworkFirewallPolicyRequest do

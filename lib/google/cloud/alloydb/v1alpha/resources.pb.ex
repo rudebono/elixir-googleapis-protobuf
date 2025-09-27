@@ -28,6 +28,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.DatabaseVersion do
   field :POSTGRES_14, 2
   field :POSTGRES_15, 3
   field :POSTGRES_16, 4
+  field :POSTGRES_17, 5
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.SubscriptionType do
@@ -165,16 +166,6 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance.UpdatePolicy.Mode do
   field :FORCE_APPLY, 2
 end
 
-defmodule Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig.PoolMode do
-  @moduledoc false
-
-  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
-
-  field :POOL_MODE_UNSPECIFIED, 0
-  field :POOL_MODE_SESSION, 1
-  field :POOL_MODE_TRANSACTION, 2
-end
-
 defmodule Google.Cloud.Alloydb.V1alpha.Backup.State do
   @moduledoc false
 
@@ -259,7 +250,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.EncryptionConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.EncryptionInfo do
@@ -492,7 +483,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.Cluster.SecondaryConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :primary_cluster_name, 1, type: :string, json_name: "primaryClusterName"
+  field :primary_cluster_name, 1,
+    type: :string,
+    json_name: "primaryClusterName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Cluster.PrimaryConfig do
@@ -932,12 +926,29 @@ defmodule Google.Cloud.Alloydb.V1alpha.Instance.InstanceNetworkConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig.FlagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 12, type: :bool, deprecated: false
+
+  field :flags, 13,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1alpha.Instance.ConnectionPoolConfig.FlagsEntry,
+    map: true,
+    deprecated: false
+
+  field :pooler_count, 14, type: :int32, json_name: "poolerCount", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.Instance.LabelsEntry do
@@ -1348,4 +1359,13 @@ defmodule Google.Cloud.Alloydb.V1alpha.Database do
   field :name, 1, type: :string, deprecated: false
   field :charset, 2, type: :string, deprecated: false
   field :collation, 3, type: :string, deprecated: false
+  field :character_type, 4, type: :string, json_name: "characterType", deprecated: false
+  field :is_template, 5, type: :bool, json_name: "isTemplate", deprecated: true
+  field :database_template, 6, type: :string, json_name: "databaseTemplate", deprecated: false
+
+  field :is_template_database, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "isTemplateDatabase",
+    deprecated: false
 end

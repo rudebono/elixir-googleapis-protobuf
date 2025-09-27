@@ -625,6 +625,7 @@ defmodule Google.Cloud.Alloydb.V1alpha.ExecuteSqlRequest do
   field :database, 2, type: :string, deprecated: false
   field :user, 3, type: :string, deprecated: false
   field :sql_statement, 4, type: :string, json_name: "sqlStatement", deprecated: false
+  field :validate_only, 6, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.ExecuteSqlResponse do
@@ -853,6 +854,17 @@ defmodule Google.Cloud.Alloydb.V1alpha.PromoteClusterStatus do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1alpha.UpgradeClusterStatus.StageStatus.StageSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :estimated_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "estimatedStartTime"
+  field :actual_start_time, 2, type: Google.Protobuf.Timestamp, json_name: "actualStartTime"
+  field :estimated_end_time, 3, type: Google.Protobuf.Timestamp, json_name: "estimatedEndTime"
+  field :actual_end_time, 4, type: Google.Protobuf.Timestamp, json_name: "actualEndTime"
+end
+
 defmodule Google.Cloud.Alloydb.V1alpha.UpgradeClusterStatus.StageStatus do
   @moduledoc false
 
@@ -867,6 +879,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.UpgradeClusterStatus.StageStatus do
 
   field :stage, 1, type: Google.Cloud.Alloydb.V1alpha.UpgradeClusterResponse.Stage, enum: true
   field :state, 2, type: Google.Cloud.Alloydb.V1alpha.UpgradeClusterResponse.Status, enum: true
+
+  field :schedule, 3,
+    type: Google.Cloud.Alloydb.V1alpha.UpgradeClusterStatus.StageStatus.StageSchedule,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus.Stats do
@@ -1000,6 +1016,16 @@ defmodule Google.Cloud.Alloydb.V1alpha.ListDatabasesResponse do
 
   field :databases, 1, repeated: true, type: Google.Cloud.Alloydb.V1alpha.Database
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Alloydb.V1alpha.CreateDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :database_id, 2, type: :string, json_name: "databaseId", deprecated: false
+  field :database, 3, type: Google.Cloud.Alloydb.V1alpha.Database, deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Service do
@@ -1150,6 +1176,10 @@ defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Service do
   rpc :ListDatabases,
       Google.Cloud.Alloydb.V1alpha.ListDatabasesRequest,
       Google.Cloud.Alloydb.V1alpha.ListDatabasesResponse
+
+  rpc :CreateDatabase,
+      Google.Cloud.Alloydb.V1alpha.CreateDatabaseRequest,
+      Google.Cloud.Alloydb.V1alpha.Database
 end
 
 defmodule Google.Cloud.Alloydb.V1alpha.AlloyDBAdmin.Stub do

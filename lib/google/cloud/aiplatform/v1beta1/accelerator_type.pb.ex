@@ -17,6 +17,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.AcceleratorType do
   field :NVIDIA_H200_141GB, 15
   field :NVIDIA_B200, 16
   field :NVIDIA_GB200, 17
+  field :NVIDIA_RTX_PRO_6000, 18
   field :TPU_V2, 6
   field :TPU_V3, 7
   field :TPU_V4_POD, 10

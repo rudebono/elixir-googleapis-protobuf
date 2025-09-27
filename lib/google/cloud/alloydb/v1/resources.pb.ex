@@ -28,6 +28,7 @@ defmodule Google.Cloud.Alloydb.V1.DatabaseVersion do
   field :POSTGRES_14, 2
   field :POSTGRES_15, 3
   field :POSTGRES_16, 4
+  field :POSTGRES_17, 5
 end
 
 defmodule Google.Cloud.Alloydb.V1.SubscriptionType do
@@ -239,7 +240,7 @@ defmodule Google.Cloud.Alloydb.V1.EncryptionConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName"
+  field :kms_key_name, 1, type: :string, json_name: "kmsKeyName", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.EncryptionInfo do
@@ -472,7 +473,10 @@ defmodule Google.Cloud.Alloydb.V1.Cluster.SecondaryConfig do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :primary_cluster_name, 1, type: :string, json_name: "primaryClusterName"
+  field :primary_cluster_name, 1,
+    type: :string,
+    json_name: "primaryClusterName",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.Cluster.PrimaryConfig do
@@ -879,6 +883,31 @@ defmodule Google.Cloud.Alloydb.V1.Instance.InstanceNetworkConfig do
     deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.Instance.ConnectionPoolConfig.FlagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Alloydb.V1.Instance.ConnectionPoolConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enabled, 12, type: :bool, deprecated: false
+
+  field :flags, 13,
+    repeated: true,
+    type: Google.Cloud.Alloydb.V1.Instance.ConnectionPoolConfig.FlagsEntry,
+    map: true,
+    deprecated: false
+
+  field :pooler_count, 14, type: :int32, json_name: "poolerCount", deprecated: false
+end
+
 defmodule Google.Cloud.Alloydb.V1.Instance.LabelsEntry do
   @moduledoc false
 
@@ -1012,6 +1041,11 @@ defmodule Google.Cloud.Alloydb.V1.Instance do
     type: Google.Cloud.Alloydb.V1.Instance.ActivationPolicy,
     json_name: "activationPolicy",
     enum: true,
+    deprecated: false
+
+  field :connection_pool_config, 37,
+    type: Google.Cloud.Alloydb.V1.Instance.ConnectionPoolConfig,
+    json_name: "connectionPoolConfig",
     deprecated: false
 end
 
@@ -1244,4 +1278,12 @@ defmodule Google.Cloud.Alloydb.V1.Database do
   field :name, 1, type: :string, deprecated: false
   field :charset, 2, type: :string, deprecated: false
   field :collation, 3, type: :string, deprecated: false
+  field :character_type, 4, type: :string, json_name: "characterType", deprecated: false
+  field :database_template, 6, type: :string, json_name: "databaseTemplate", deprecated: false
+
+  field :is_template_database, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "isTemplateDatabase",
+    deprecated: false
 end

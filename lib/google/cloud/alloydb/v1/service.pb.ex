@@ -609,6 +609,7 @@ defmodule Google.Cloud.Alloydb.V1.ExecuteSqlRequest do
   field :database, 2, type: :string, deprecated: false
   field :user, 3, type: :string, deprecated: false
   field :sql_statement, 4, type: :string, json_name: "sqlStatement", deprecated: false
+  field :validate_only, 6, type: :bool, json_name: "validateOnly", deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.ExecuteSqlResponse do
@@ -817,6 +818,17 @@ defmodule Google.Cloud.Alloydb.V1.OperationMetadata do
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
 end
 
+defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus.StageSchedule do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :estimated_start_time, 1, type: Google.Protobuf.Timestamp, json_name: "estimatedStartTime"
+  field :actual_start_time, 2, type: Google.Protobuf.Timestamp, json_name: "actualStartTime"
+  field :estimated_end_time, 3, type: Google.Protobuf.Timestamp, json_name: "estimatedEndTime"
+  field :actual_end_time, 4, type: Google.Protobuf.Timestamp, json_name: "actualEndTime"
+end
+
 defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus do
   @moduledoc false
 
@@ -831,6 +843,10 @@ defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus do
 
   field :stage, 1, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Stage, enum: true
   field :state, 2, type: Google.Cloud.Alloydb.V1.UpgradeClusterResponse.Status, enum: true
+
+  field :schedule, 3,
+    type: Google.Cloud.Alloydb.V1.UpgradeClusterStatus.StageStatus.StageSchedule,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Alloydb.V1.UpgradeClusterStatus.ReadPoolInstancesUpgradeStageStatus.Stats do
