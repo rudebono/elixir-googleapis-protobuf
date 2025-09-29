@@ -1013,6 +1013,16 @@ defmodule Google.Cloud.Compute.V1.GetReservationBlockRequest.View do
   field :FULL, 2_169_487
 end
 
+defmodule Google.Cloud.Compute.V1.GetSubnetworkRequest.Views do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_VIEWS, 0
+  field :DEFAULT, 115_302_945
+  field :WITH_UTILIZATION, 504_090_633
+end
+
 defmodule Google.Cloud.Compute.V1.GroupMaintenanceInfo.SchedulingType do
   @moduledoc false
 
@@ -2120,6 +2130,16 @@ defmodule Google.Cloud.Compute.V1.ListPeeringRoutesNetworksRequest.Direction do
   field :UNDEFINED_DIRECTION, 0
   field :INCOMING, 338_552_870
   field :OUTGOING, 307_438_444
+end
+
+defmodule Google.Cloud.Compute.V1.ListSubnetworksRequest.Views do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_VIEWS, 0
+  field :DEFAULT, 115_302_945
+  field :WITH_UTILIZATION, 504_090_633
 end
 
 defmodule Google.Cloud.Compute.V1.LocationPolicy.TargetShape do
@@ -14173,6 +14193,7 @@ defmodule Google.Cloud.Compute.V1.GetSubnetworkRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
   field :subnetwork, 307_827_694, type: :string, deprecated: false
+  field :views, 112_204_398, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.GetTargetGrpcProxyRequest do
@@ -19593,6 +19614,12 @@ defmodule Google.Cloud.Compute.V1.InterconnectLocation do
     json_name: "regionInfos"
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :single_region_production_critical_peer_locations, 439_537_103,
+    repeated: true,
+    type: :string,
+    json_name: "singleRegionProductionCriticalPeerLocations"
+
   field :status, 181_260_274, proto3_optional: true, type: :string
   field :supports_pzs, 83_983_214, proto3_optional: true, type: :bool, json_name: "supportsPzs"
 end
@@ -19746,6 +19773,11 @@ defmodule Google.Cloud.Compute.V1.InterconnectRemoteLocation do
     proto3_optional: true,
     type: :int32,
     json_name: "maxLagSize10Gbps"
+
+  field :max_lag_size400_gbps, 104_941_138,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "maxLagSize400Gbps"
 
   field :name, 3_373_707, proto3_optional: true, type: :string
 
@@ -22003,6 +22035,8 @@ defmodule Google.Cloud.Compute.V1.ListSubnetworksRequest do
     proto3_optional: true,
     type: :bool,
     json_name: "returnPartialSuccess"
+
+  field :views, 112_204_398, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.ListTargetGrpcProxiesRequest do
@@ -27518,6 +27552,11 @@ defmodule Google.Cloud.Compute.V1.RequestMirrorPolicy do
     proto3_optional: true,
     type: :string,
     json_name: "backendService"
+
+  field :mirror_percent, 277_432_261,
+    proto3_optional: true,
+    type: :double,
+    json_name: "mirrorPercent"
 end
 
 defmodule Google.Cloud.Compute.V1.RequestRemovePeeringNetworkRequest do
@@ -33691,6 +33730,11 @@ defmodule Google.Cloud.Compute.V1.Subnetwork do
     repeated: true,
     type: :string,
     json_name: "systemReservedInternalIpv6Ranges"
+
+  field :utilization_details, 125_404_453,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SubnetworkUtilizationDetails,
+    json_name: "utilizationDetails"
 end
 
 defmodule Google.Cloud.Compute.V1.SubnetworkAggregatedList.ItemsEntry do
@@ -33799,6 +33843,63 @@ defmodule Google.Cloud.Compute.V1.SubnetworkSecondaryRange do
     proto3_optional: true,
     type: :string,
     json_name: "reservedInternalRange"
+end
+
+defmodule Google.Cloud.Compute.V1.SubnetworkUtilizationDetails do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :external_ipv6_instance_utilization, 419_750_236,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV6Utilization,
+    json_name: "externalIpv6InstanceUtilization"
+
+  field :external_ipv6_lb_utilization, 136_563_645,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV6Utilization,
+    json_name: "externalIpv6LbUtilization"
+
+  field :internal_ipv6_utilization, 69_707_020,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV6Utilization,
+    json_name: "internalIpv6Utilization"
+
+  field :ipv4_utilizations, 206_180_011,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV4Utilization,
+    json_name: "ipv4Utilizations"
+end
+
+defmodule Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV4Utilization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :range_name, 332_216_397, proto3_optional: true, type: :string, json_name: "rangeName"
+
+  field :total_allocated_ip, 279_055_546,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "totalAllocatedIp"
+
+  field :total_free_ip, 105_624_031, proto3_optional: true, type: :int64, json_name: "totalFreeIp"
+end
+
+defmodule Google.Cloud.Compute.V1.SubnetworkUtilizationDetailsIPV6Utilization do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :total_allocated_ip, 279_055_546,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Uint128,
+    json_name: "totalAllocatedIp"
+
+  field :total_free_ip, 105_624_031,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Uint128,
+    json_name: "totalFreeIp"
 end
 
 defmodule Google.Cloud.Compute.V1.SubnetworksExpandIpCidrRangeRequest do
