@@ -1215,6 +1215,8 @@ defmodule Google.Pubsub.V1.StreamingPullRequest do
     type: :int64,
     json_name: "maxOutstandingBytes",
     deprecated: false
+
+  field :protocol_version, 10, type: :int64, json_name: "protocolVersion", deprecated: false
 end
 
 defmodule Google.Pubsub.V1.StreamingPullResponse.AcknowledgeConfirmation do
