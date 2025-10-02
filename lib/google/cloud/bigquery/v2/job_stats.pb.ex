@@ -121,6 +121,15 @@ defmodule Google.Cloud.Bigquery.V2.VectorSearchStatistics.IndexUsageMode do
   field :FULLY_USED, 4
 end
 
+defmodule Google.Cloud.Bigquery.V2.IncrementalResultStats.DisabledReason do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DISABLED_REASON_UNSPECIFIED, 0
+  field :OTHER, 1
+end
+
 defmodule Google.Cloud.Bigquery.V2.MlStatistics.TrainingType do
   @moduledoc false
 
@@ -332,6 +341,27 @@ defmodule Google.Cloud.Bigquery.V2.IndexUnusedReason do
   field :index_name, 4, proto3_optional: true, type: :string, json_name: "indexName"
 end
 
+defmodule Google.Cloud.Bigquery.V2.IndexPruningStats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :base_table, 1,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.V2.TableReference,
+    json_name: "baseTable"
+
+  field :pre_index_pruning_parallel_input_count, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "preIndexPruningParallelInputCount"
+
+  field :post_index_pruning_parallel_input_count, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "postIndexPruningParallelInputCount"
+end
+
 defmodule Google.Cloud.Bigquery.V2.StoredColumnsUsage.StoredColumnsUnusedReason do
   @moduledoc false
 
@@ -381,6 +411,11 @@ defmodule Google.Cloud.Bigquery.V2.SearchStatistics do
     repeated: true,
     type: Google.Cloud.Bigquery.V2.IndexUnusedReason,
     json_name: "indexUnusedReasons"
+
+  field :index_pruning_stats, 3,
+    repeated: true,
+    type: Google.Cloud.Bigquery.V2.IndexPruningStats,
+    json_name: "indexPruningStats"
 end
 
 defmodule Google.Cloud.Bigquery.V2.VectorSearchStatistics do
@@ -444,6 +479,25 @@ defmodule Google.Cloud.Bigquery.V2.LoadQueryStatistics do
     type: Google.Protobuf.Int64Value,
     json_name: "badRecords",
     deprecated: false
+end
+
+defmodule Google.Cloud.Bigquery.V2.IncrementalResultStats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :disabled_reason, 1,
+    type: Google.Cloud.Bigquery.V2.IncrementalResultStats.DisabledReason,
+    json_name: "disabledReason",
+    enum: true
+
+  field :result_set_last_replace_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "resultSetLastReplaceTime"
+
+  field :result_set_last_modify_time, 3,
+    type: Google.Protobuf.Timestamp,
+    json_name: "resultSetLastModifyTime"
 end
 
 defmodule Google.Cloud.Bigquery.V2.JobStatistics2 do
@@ -651,6 +705,11 @@ defmodule Google.Cloud.Bigquery.V2.JobStatistics2 do
   field :metadata_cache_statistics, 43,
     type: Google.Cloud.Bigquery.V2.MetadataCacheStatistics,
     json_name: "metadataCacheStatistics",
+    deprecated: false
+
+  field :incremental_result_stats, 53,
+    type: Google.Cloud.Bigquery.V2.IncrementalResultStats,
+    json_name: "incrementalResultStats",
     deprecated: false
 end
 
@@ -884,6 +943,12 @@ defmodule Google.Cloud.Bigquery.V2.JobStatistics do
   field :edition, 24,
     type: Google.Cloud.Bigquery.V2.ReservationEdition,
     enum: true,
+    deprecated: false
+
+  field :reservation_group_path, 26,
+    repeated: true,
+    type: :string,
+    json_name: "reservationGroupPath",
     deprecated: false
 end
 
@@ -1120,6 +1185,27 @@ defmodule Google.Cloud.Bigquery.V2.MaterializedView do
     enum: true
 end
 
+defmodule Google.Cloud.Bigquery.V2.PruningStats do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :post_cmeta_pruning_partition_count, 1,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "postCmetaPruningPartitionCount"
+
+  field :pre_cmeta_pruning_parallel_input_count, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "preCmetaPruningParallelInputCount"
+
+  field :post_cmeta_pruning_parallel_input_count, 3,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "postCmetaPruningParallelInputCount"
+end
+
 defmodule Google.Cloud.Bigquery.V2.TableMetadataCacheUsage do
   @moduledoc false
 
@@ -1139,6 +1225,11 @@ defmodule Google.Cloud.Bigquery.V2.TableMetadataCacheUsage do
   field :explanation, 3, proto3_optional: true, type: :string
   field :staleness, 5, type: Google.Protobuf.Duration
   field :table_type, 6, type: :string, json_name: "tableType"
+
+  field :pruning_stats, 7,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.V2.PruningStats,
+    json_name: "pruningStats"
 end
 
 defmodule Google.Cloud.Bigquery.V2.MetadataCacheStatistics do

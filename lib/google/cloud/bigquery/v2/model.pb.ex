@@ -223,6 +223,7 @@ defmodule Google.Cloud.Bigquery.V2.Model.SeasonalPeriod.SeasonalPeriodType do
   field :MONTHLY, 4
   field :QUARTERLY, 5
   field :YEARLY, 6
+  field :HOURLY, 7
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.KmeansEnums.KmeansInitializationMethod do
@@ -321,6 +322,17 @@ defmodule Google.Cloud.Bigquery.V2.Model.ModelRegistryOptionEnums.ModelRegistry 
 
   field :MODEL_REGISTRY_UNSPECIFIED, 0
   field :VERTEX_AI, 1
+end
+
+defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions.ReservationAffinityType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :RESERVATION_AFFINITY_TYPE_UNSPECIFIED, 0
+  field :NO_RESERVATION, 1
+  field :ANY_RESERVATION, 2
+  field :SPECIFIC_RESERVATION, 3
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.HparamTuningTrial.TrialStatus do
@@ -792,6 +804,8 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  oneof :external_model_id, 0
+
   field :max_iterations, 1, type: :int64, json_name: "maxIterations"
 
   field :loss_type, 2,
@@ -1033,6 +1047,34 @@ defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions do
     proto3_optional: true,
     type: :double,
     json_name: "minAprioriSupport"
+
+  field :hugging_face_model_id, 113, type: :string, json_name: "huggingFaceModelId", oneof: 0
+  field :model_garden_model_name, 114, type: :string, json_name: "modelGardenModelName", oneof: 0
+
+  field :endpoint_idle_ttl, 115,
+    proto3_optional: true,
+    type: Google.Protobuf.Duration,
+    json_name: "endpointIdleTtl"
+
+  field :machine_type, 117, proto3_optional: true, type: :string, json_name: "machineType"
+  field :min_replica_count, 118, proto3_optional: true, type: :int64, json_name: "minReplicaCount"
+  field :max_replica_count, 119, proto3_optional: true, type: :int64, json_name: "maxReplicaCount"
+
+  field :reservation_affinity_type, 120,
+    proto3_optional: true,
+    type: Google.Cloud.Bigquery.V2.Model.TrainingRun.TrainingOptions.ReservationAffinityType,
+    json_name: "reservationAffinityType",
+    enum: true
+
+  field :reservation_affinity_key, 121,
+    proto3_optional: true,
+    type: :string,
+    json_name: "reservationAffinityKey"
+
+  field :reservation_affinity_values, 122,
+    repeated: true,
+    type: :string,
+    json_name: "reservationAffinityValues"
 end
 
 defmodule Google.Cloud.Bigquery.V2.Model.TrainingRun.IterationResult.ClusterInfo do
