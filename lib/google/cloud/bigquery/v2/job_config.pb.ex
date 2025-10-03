@@ -398,6 +398,11 @@ defmodule Google.Cloud.Bigquery.V2.JobConfigurationLoad do
     json_name: "sourceColumnMatch",
     enum: true,
     deprecated: false
+
+  field :timestamp_target_precision, 59,
+    repeated: true,
+    type: :int32,
+    json_name: "timestampTargetPrecision"
 end
 
 defmodule Google.Cloud.Bigquery.V2.JobConfigurationTableCopy do
