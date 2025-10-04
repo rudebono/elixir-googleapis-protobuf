@@ -1,3 +1,17 @@
+defmodule Google.Cloud.Aiplatform.V1beta1.Tool.PhishBlockThreshold do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PHISH_BLOCK_THRESHOLD_UNSPECIFIED, 0
+  field :BLOCK_LOW_AND_ABOVE, 30
+  field :BLOCK_MEDIUM_AND_ABOVE, 40
+  field :BLOCK_HIGH_AND_ABOVE, 50
+  field :BLOCK_HIGHER_AND_ABOVE, 55
+  field :BLOCK_VERY_HIGH_AND_ABOVE, 60
+  field :BLOCK_ONLY_EXTREMELY_HIGH, 100
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.Tool.ComputerUse.Environment do
   @moduledoc false
 
@@ -57,6 +71,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.Tool.GoogleSearch do
     repeated: true,
     type: :string,
     json_name: "excludeDomains",
+    deprecated: false
+
+  field :blocking_confidence, 4,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Tool.PhishBlockThreshold,
+    json_name: "blockingConfidence",
+    enum: true,
     deprecated: false
 end
 
@@ -348,6 +369,13 @@ defmodule Google.Cloud.Aiplatform.V1beta1.EnterpriseWebSearch do
     repeated: true,
     type: :string,
     json_name: "excludeDomains",
+    deprecated: false
+
+  field :blocking_confidence, 4,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.Tool.PhishBlockThreshold,
+    json_name: "blockingConfidence",
+    enum: true,
     deprecated: false
 end
 
