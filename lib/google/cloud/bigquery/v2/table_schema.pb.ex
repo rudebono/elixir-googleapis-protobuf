@@ -97,6 +97,11 @@ defmodule Google.Cloud.Bigquery.V2.TableFieldSchema do
   field :precision, 11, type: :int64, deprecated: false
   field :scale, 12, type: :int64, deprecated: false
 
+  field :timestamp_precision, 27,
+    type: Google.Protobuf.Int64Value,
+    json_name: "timestampPrecision",
+    deprecated: false
+
   field :rounding_mode, 15,
     type: Google.Cloud.Bigquery.V2.TableFieldSchema.RoundingMode,
     json_name: "roundingMode",

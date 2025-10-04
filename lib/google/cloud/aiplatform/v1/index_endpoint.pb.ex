@@ -1,3 +1,12 @@
+defmodule Google.Cloud.Aiplatform.V1.DeployedIndex.DeploymentTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DEPLOYMENT_TIER_UNSPECIFIED, 0
+  field :STORAGE, 2
+end
+
 defmodule Google.Cloud.Aiplatform.V1.IndexEndpoint.LabelsEntry do
   @moduledoc false
 
@@ -126,6 +135,12 @@ defmodule Google.Cloud.Aiplatform.V1.DeployedIndex do
     deprecated: false
 
   field :deployment_group, 11, type: :string, json_name: "deploymentGroup", deprecated: false
+
+  field :deployment_tier, 18,
+    type: Google.Cloud.Aiplatform.V1.DeployedIndex.DeploymentTier,
+    json_name: "deploymentTier",
+    enum: true,
+    deprecated: false
 
   field :psc_automation_configs, 19,
     repeated: true,
