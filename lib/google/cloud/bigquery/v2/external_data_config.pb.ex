@@ -307,4 +307,9 @@ defmodule Google.Cloud.Bigquery.V2.ExternalDataConfiguration do
     type: :string,
     json_name: "timestampFormat",
     deprecated: false
+
+  field :timestamp_target_precision, 32,
+    repeated: true,
+    type: :int32,
+    json_name: "timestampTargetPrecision"
 end

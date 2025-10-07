@@ -29,6 +29,7 @@ defmodule Google.Longrunning.ListOperationsRequest do
   field :filter, 1, type: :string
   field :page_size, 2, type: :int32, json_name: "pageSize"
   field :page_token, 3, type: :string, json_name: "pageToken"
+  field :return_partial_success, 5, type: :bool, json_name: "returnPartialSuccess"
 end
 
 defmodule Google.Longrunning.ListOperationsResponse do
@@ -38,6 +39,7 @@ defmodule Google.Longrunning.ListOperationsResponse do
 
   field :operations, 1, repeated: true, type: Google.Longrunning.Operation
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string, deprecated: false
 end
 
 defmodule Google.Longrunning.CancelOperationRequest do
