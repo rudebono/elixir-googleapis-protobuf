@@ -11,6 +11,15 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback
   field :MODEL_ARMOR, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   @moduledoc false
 
@@ -19,6 +28,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest do
   field :endpoint, 1, type: :string, deprecated: false
   field :instances, 2, repeated: true, type: Google.Protobuf.Value, deprecated: false
   field :parameters, 3, type: Google.Protobuf.Value
+
+  field :labels, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1beta1.PredictRequest.LabelsEntry,
+    map: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictResponse do

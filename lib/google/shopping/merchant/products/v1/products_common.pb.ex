@@ -191,6 +191,122 @@ defmodule Google.Shopping.Merchant.Products.V1.DigitalSourceType do
   field :DEFAULT, 2
 end
 
+defmodule Google.Shopping.Merchant.Products.V1.CarrierTransitTimeOption do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :CARRIER_TRANSIT_TIME_OPTION_UNSPECIFIED, 0
+  field :DHL_PAKET, 1
+  field :DHL_PACKCHEN, 2
+  field :DHL_EXPRESSEASY, 3
+  field :DPD_EXPRESS, 4
+  field :DPD_CLASSIC_PARCEL, 5
+  field :HERMES_HAUSTUR, 6
+  field :HERMES_PAKETSHOP, 7
+  field :GLS_BUSINESS, 8
+  field :GLS_EXPRESS, 9
+  field :GLS_PRIVATE, 10
+  field :COLISSIMO_DOMICILE, 11
+  field :DHL_EXPRESS_12AM, 12
+  field :DHL_EXPRESS_9AM, 13
+  field :GEODIS_EXPRESS, 14
+  field :GEODIS_PACK_30, 15
+  field :GEODIS_SAME_DAY, 16
+  field :GEODIS_TOP_24, 17
+  field :TNT_ESSENTIEL_24H, 18
+  field :TNT_ESSENTIEL_FLEXIBILITE, 19
+  field :FEDEX_GROUND, 20
+  field :FEDEX_HOME_DELIVERY, 21
+  field :FEDEX_EXPRESS_SAVER, 22
+  field :FEDEX_FIRST_OVERNIGHT, 23
+  field :FEDEX_PRIORITY_OVERNIGHT, 24
+  field :FEDEX_STANDARD_OVERNIGHT, 25
+  field :FEDEX_2DAY, 26
+  field :UPS_2ND_DAY_AIR, 27
+  field :UPS_2ND_DAY_AM, 28
+  field :UPS_3_DAY_SELECT, 29
+  field :UPS_GROUND, 30
+  field :UPS_NEXT_DAY_AIR, 31
+  field :UPS_NEXT_DAY_AIR_EARLY_AM, 32
+  field :UPS_NEXT_DAY_AIR_SAVER, 33
+  field :USPS_PRIORITY_MAIL_EXPRESS, 34
+  field :USPS_MEDIA_MAIL, 35
+  field :USPS_GROUND_ADVANTAGE_RETAIL, 36
+  field :USPS_PRIORITY_MAIL, 37
+  field :USPS_GROUND_ADVANTAGE_COMMERCIAL, 38
+  field :USPS_FIRST_CLASS_MAIL, 39
+end
+
+defmodule Google.Shopping.Merchant.Products.V1.ProductAttributes.CarrierPriceOption do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :CARRIER_PRICE_OPTION_UNSPECIFIED, 0
+  field :AUSTRALIA_POST_REGULAR, 1
+  field :AUSTRALIA_POST_EXPRESS, 2
+  field :AUSTRALIA_POST_REGULAR_S, 3
+  field :AUSTRALIA_POST_REGULAR_M, 4
+  field :AUSTRALIA_POST_REGULAR_L, 5
+  field :AUSTRALIA_POST_REGULAR_XL, 6
+  field :AUSTRALIA_POST_EXPRESS_S, 7
+  field :AUSTRALIA_POST_EXPRESS_M, 8
+  field :AUSTRALIA_POST_EXPRESS_L, 9
+  field :AUSTRALIA_POST_EXPRESS_XL, 10
+  field :TNT_ROAD_EXPRESS, 11
+  field :TNT_OVERNIGHT_EXPRESS, 12
+  field :TOLL_ROAD_DELIVERY, 13
+  field :TOLL_OVERNIGHT_PRIORITY, 14
+  field :DHL_PAKET, 15
+  field :DHL_PACKCHEN, 16
+  field :DPD_EXPRESS_12, 17
+  field :DPD_EXPRESS, 18
+  field :DPD_CLASSIC_PARCEL, 19
+  field :HERMES_PACKCHEN, 20
+  field :HERMES_PAKETKLASSE_S, 21
+  field :HERMES_PAKETKLASSE_M, 22
+  field :HERMES_PAKETKLASSE_L, 23
+  field :UPS_EXPRESS, 24
+  field :UPS_EXPRESS_SAVER, 25
+  field :UPS_EXPRESS_STANDARD, 26
+  field :DHL_EXPRESS, 27
+  field :DHL_EXPRESS_12, 28
+  field :DPD_NEXT_DAY, 29
+  field :DPD_STANDARD_NEXT_DAY, 30
+  field :DPD_STANDARD_TWO_DAY, 31
+  field :RMG_1ST_CLASS_SMALL, 32
+  field :RMG_1ST_CLASS_MEDIUM, 33
+  field :RMG_2ND_CLASS_SMALL, 34
+  field :RMG_2ND_CLASS_MEDIUM, 35
+  field :TNT_EXPRESS, 36
+  field :TNT_EXPRESS_10, 37
+  field :TNT_EXPRESS_12, 38
+  field :YODEL_B2C_48HR, 39
+  field :YODEL_B2C_72HR, 40
+  field :YODEL_B2C_PACKET, 41
+  field :FEDEX_GROUND, 42
+  field :FEDEX_HOME_DELIVERY, 43
+  field :FEDEX_EXPRESS_SAVER, 44
+  field :FEDEX_FIRST_OVERNIGHT, 45
+  field :FEDEX_PRIORITY_OVERNIGHT, 46
+  field :FEDEX_STANDARD_OVERNIGHT, 47
+  field :FEDEX_2DAY, 48
+  field :UPS_STANDARD, 49
+  field :UPS_2ND_DAY_AIR, 50
+  field :UPS_2ND_DAY_AM, 51
+  field :UPS_3_DAY_SELECT, 52
+  field :UPS_GROUND, 53
+  field :UPS_NEXT_DAY_AIR, 54
+  field :UPS_NEXT_DAY_AIR_EARLY_AM, 55
+  field :UPS_NEXT_DAY_AIR_SAVER, 56
+  field :USPS_PRIORITY_MAIL_EXPRESS, 57
+  field :USPS_MEDIA_MAIL, 58
+  field :USPS_GROUND_ADVANTAGE_RETAIL, 59
+  field :USPS_PRIORITY_MAIL, 60
+  field :USPS_GROUND_ADVANTAGE_COMMERCIAL, 61
+end
+
 defmodule Google.Shopping.Merchant.Products.V1.ProductStatus.ItemLevelIssue.Severity do
   @moduledoc false
 
@@ -210,6 +326,61 @@ defmodule Google.Shopping.Merchant.Products.V1.ProductSustainabilityIncentive.Ty
   field :TYPE_UNSPECIFIED, 0
   field :EV_TAX_CREDIT, 1
   field :EV_PRICE_DISCOUNT, 2
+end
+
+defmodule Google.Shopping.Merchant.Products.V1.ProductAttributes.CarrierShipping do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :country, 1, proto3_optional: true, type: :string
+  field :region, 2, proto3_optional: true, type: :string
+  field :postal_code, 3, proto3_optional: true, type: :string, json_name: "postalCode"
+
+  field :origin_postal_code, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "originPostalCode"
+
+  field :flat_price, 5,
+    proto3_optional: true,
+    type: Google.Shopping.Type.Price,
+    json_name: "flatPrice"
+
+  field :carrier_price, 6,
+    proto3_optional: true,
+    type: Google.Shopping.Merchant.Products.V1.ProductAttributes.CarrierPriceOption,
+    json_name: "carrierPrice",
+    enum: true
+
+  field :carrier_price_flat_adjustment, 7,
+    proto3_optional: true,
+    type: Google.Shopping.Type.Price,
+    json_name: "carrierPriceFlatAdjustment"
+
+  field :carrier_price_percentage_adjustment, 8,
+    proto3_optional: true,
+    type: :double,
+    json_name: "carrierPricePercentageAdjustment"
+
+  field :min_handling_time, 9, proto3_optional: true, type: :int64, json_name: "minHandlingTime"
+  field :max_handling_time, 10, proto3_optional: true, type: :int64, json_name: "maxHandlingTime"
+
+  field :fixed_min_transit_time, 11,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "fixedMinTransitTime"
+
+  field :fixed_max_transit_time, 12,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "fixedMaxTransitTime"
+
+  field :carrier_transit_time, 13,
+    proto3_optional: true,
+    type: Google.Shopping.Merchant.Products.V1.CarrierTransitTimeOption,
+    json_name: "carrierTransitTime",
+    enum: true
 end
 
 defmodule Google.Shopping.Merchant.Products.V1.ProductAttributes do
@@ -320,6 +491,11 @@ defmodule Google.Shopping.Merchant.Products.V1.ProductAttributes do
     json_name: "productWeight"
 
   field :shipping, 39, repeated: true, type: Google.Shopping.Merchant.Products.V1.Shipping
+
+  field :carrier_shipping, 142,
+    repeated: true,
+    type: Google.Shopping.Merchant.Products.V1.ProductAttributes.CarrierShipping,
+    json_name: "carrierShipping"
 
   field :free_shipping_threshold, 135,
     repeated: true,
