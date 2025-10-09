@@ -61,6 +61,18 @@ defmodule Google.Cloud.Documentai.V1.Document.Provenance.OperationType do
   field :EVAL_SKIPPED, 6
 end
 
+defmodule Google.Cloud.Documentai.V1.Document.EntityValidationOutput.ValidationResult.ValidationResultType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :VALIDATION_RESULT_TYPE_UNSPECIFIED, 0
+  field :VALIDATION_RESULT_TYPE_VALID, 1
+  field :VALIDATION_RESULT_TYPE_INVALID, 2
+  field :VALIDATION_RESULT_TYPE_SKIPPED, 3
+  field :VALIDATION_RESULT_TYPE_NOT_APPLICABLE, 4
+end
+
 defmodule Google.Cloud.Documentai.V1.Document.ShardInfo do
   @moduledoc false
 
@@ -830,6 +842,49 @@ defmodule Google.Cloud.Documentai.V1.Document.ChunkedDocument do
     type: Google.Cloud.Documentai.V1.Document.ChunkedDocument.Chunk
 end
 
+defmodule Google.Cloud.Documentai.V1.Document.EntityValidationOutput.ValidationResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :rule_name, 1, type: :string, json_name: "ruleName"
+  field :rule_description, 2, type: :string, json_name: "ruleDescription"
+
+  field :validation_result_type, 3,
+    type:
+      Google.Cloud.Documentai.V1.Document.EntityValidationOutput.ValidationResult.ValidationResultType,
+    json_name: "validationResultType",
+    enum: true
+
+  field :validation_details, 4, type: :string, json_name: "validationDetails"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.EntityValidationOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :validation_results, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.EntityValidationOutput.ValidationResult,
+    json_name: "validationResults"
+
+  field :pass_all_rules, 2, type: :bool, json_name: "passAllRules"
+end
+
+defmodule Google.Cloud.Documentai.V1.Document.EntitiesRevision do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :revision_id, 1, type: :string, json_name: "revisionId"
+  field :entities, 2, repeated: true, type: Google.Cloud.Documentai.V1.Document.Entity
+
+  field :entity_validation_output, 3,
+    type: Google.Cloud.Documentai.V1.Document.EntityValidationOutput,
+    json_name: "entityValidationOutput"
+end
+
 defmodule Google.Cloud.Documentai.V1.Document do
   @moduledoc false
 
@@ -876,4 +931,15 @@ defmodule Google.Cloud.Documentai.V1.Document do
   field :chunked_document, 18,
     type: Google.Cloud.Documentai.V1.Document.ChunkedDocument,
     json_name: "chunkedDocument"
+
+  field :entity_validation_output, 21,
+    type: Google.Cloud.Documentai.V1.Document.EntityValidationOutput,
+    json_name: "entityValidationOutput"
+
+  field :entities_revisions, 22,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1.Document.EntitiesRevision,
+    json_name: "entitiesRevisions"
+
+  field :entities_revision_id, 23, type: :string, json_name: "entitiesRevisionId"
 end
