@@ -159,7 +159,7 @@ defmodule Google.Cloud.Capacityplanner.V1beta.QueryUsageHistoriesRequest do
   field :confidential_mode, 15, type: :bool, json_name: "confidentialMode", deprecated: false
   field :gpu_type, 8, type: :string, json_name: "gpuType", deprecated: false
   field :tpu_type, 12, type: :string, json_name: "tpuType", deprecated: false
-  field :cloud_resource_type, 3, type: :string, json_name: "cloudResourceType"
+  field :cloud_resource_type, 3, type: :string, json_name: "cloudResourceType", deprecated: false
 
   field :usage_aggregation_method, 4,
     type: Google.Cloud.Capacityplanner.V1beta.UsageHistory.AggregationMethod,
@@ -198,7 +198,7 @@ defmodule Google.Cloud.Capacityplanner.V1beta.QueryForecastsRequest do
   field :confidential_mode, 13, type: :bool, json_name: "confidentialMode", deprecated: false
   field :gpu_type, 10, type: :string, json_name: "gpuType", deprecated: false
   field :tpu_type, 11, type: :string, json_name: "tpuType", deprecated: false
-  field :cloud_resource_type, 3, type: :string, json_name: "cloudResourceType"
+  field :cloud_resource_type, 3, type: :string, json_name: "cloudResourceType", deprecated: false
 
   field :forecast_type, 4,
     type: Google.Cloud.Capacityplanner.V1beta.Forecast.ForecastType,

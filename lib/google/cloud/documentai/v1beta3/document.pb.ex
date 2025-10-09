@@ -21,6 +21,16 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Page.Token.DetectedBreak.Type
   field :HYPHEN, 3
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.Method do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :METHOD_UNSPECIFIED, 0
+  field :EXTRACT, 1
+  field :DERIVE, 2
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document.PageAnchor.PageRef.LayoutType do
   @moduledoc false
 
@@ -49,6 +59,18 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Provenance.OperationType do
   field :EVAL_REQUESTED, 4
   field :EVAL_APPROVED, 5
   field :EVAL_SKIPPED, 6
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput.ValidationResult.ValidationResultType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :VALIDATION_RESULT_TYPE_UNSPECIFIED, 0
+  field :VALIDATION_RESULT_TYPE_VALID, 1
+  field :VALIDATION_RESULT_TYPE_INVALID, 2
+  field :VALIDATION_RESULT_TYPE_SKIPPED, 3
+  field :VALIDATION_RESULT_TYPE_NOT_APPLICABLE, 4
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.RevisionRef.RevisionCase do
@@ -482,6 +504,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Entity.NormalizedValue do
   field :boolean_value, 6, type: :bool, json_name: "booleanValue", oneof: 0
   field :integer_value, 7, type: :int32, json_name: "integerValue", oneof: 0
   field :float_value, 8, type: :float, json_name: "floatValue", oneof: 0
+  field :signature_value, 10, type: :bool, json_name: "signatureValue", oneof: 0
   field :text, 1, type: :string, deprecated: false
 end
 
@@ -522,6 +545,11 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.Entity do
     deprecated: false
 
   field :redacted, 12, type: :bool, deprecated: false
+
+  field :method, 15,
+    type: Google.Cloud.Documentai.V1beta3.Document.Entity.Method,
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.EntityRelation do
@@ -690,6 +718,8 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayout
   field :blocks, 3,
     repeated: true,
     type: Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock
+
+  field :annotations, 4, type: Google.Cloud.Documentai.V1beta3.Document.Annotations
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableBlock do
@@ -710,6 +740,7 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayout
     json_name: "bodyRows"
 
   field :caption, 3, type: :string
+  field :annotations, 4, type: Google.Cloud.Documentai.V1beta3.Document.Annotations
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.Document.DocumentLayout.DocumentLayoutBlock.LayoutTableRow do
@@ -949,6 +980,49 @@ defmodule Google.Cloud.Documentai.V1beta3.Document.BlobAsset do
   field :mime_type, 3, type: :string, json_name: "mimeType"
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput.ValidationResult do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :rule_name, 1, type: :string, json_name: "ruleName"
+  field :rule_description, 2, type: :string, json_name: "ruleDescription"
+
+  field :validation_result_type, 3,
+    type:
+      Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput.ValidationResult.ValidationResultType,
+    json_name: "validationResultType",
+    enum: true
+
+  field :validation_details, 4, type: :string, json_name: "validationDetails"
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :validation_results, 1,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput.ValidationResult,
+    json_name: "validationResults"
+
+  field :pass_all_rules, 2, type: :bool, json_name: "passAllRules"
+end
+
+defmodule Google.Cloud.Documentai.V1beta3.Document.EntitiesRevision do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :revision_id, 1, type: :string, json_name: "revisionId"
+  field :entities, 2, repeated: true, type: Google.Cloud.Documentai.V1beta3.Document.Entity
+
+  field :entity_validation_output, 3,
+    type: Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput,
+    json_name: "entityValidationOutput"
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.Document do
   @moduledoc false
 
@@ -1001,6 +1075,17 @@ defmodule Google.Cloud.Documentai.V1beta3.Document do
     type: Google.Cloud.Documentai.V1beta3.Document.BlobAsset,
     json_name: "blobAssets",
     deprecated: false
+
+  field :entity_validation_output, 21,
+    type: Google.Cloud.Documentai.V1beta3.Document.EntityValidationOutput,
+    json_name: "entityValidationOutput"
+
+  field :entities_revisions, 22,
+    repeated: true,
+    type: Google.Cloud.Documentai.V1beta3.Document.EntitiesRevision,
+    json_name: "entitiesRevisions"
+
+  field :entities_revision_id, 23, type: :string, json_name: "entitiesRevisionId"
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.RevisionRef do

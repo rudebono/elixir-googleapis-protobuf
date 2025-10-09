@@ -645,7 +645,8 @@ defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDoc
     type:
       Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.CustomDocumentExtractionOptions.TrainingMethod,
     json_name: "trainingMethod",
-    enum: true
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Documentai.V1beta3.TrainProcessorVersionRequest.FoundationModelTuningOptions do

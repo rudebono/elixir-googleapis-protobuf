@@ -31,6 +31,16 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.Occ
   field :REQUIRED_MULTIPLE, 4
 end
 
+defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.Method do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :METHOD_UNSPECIFIED, 0
+  field :EXTRACT, 1
+  field :DERIVE, 2
+end
+
 defmodule Google.Cloud.Documentai.V1beta3.SummaryOptions do
   @moduledoc false
 
@@ -91,6 +101,10 @@ defmodule Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property do
   field :occurrence_type, 3,
     type: Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.OccurrenceType,
     json_name: "occurrenceType",
+    enum: true
+
+  field :method, 8,
+    type: Google.Cloud.Documentai.V1beta3.DocumentSchema.EntityType.Property.Method,
     enum: true
 
   field :property_metadata, 5,
