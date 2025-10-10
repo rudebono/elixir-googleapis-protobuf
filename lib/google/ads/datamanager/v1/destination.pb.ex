@@ -10,6 +10,18 @@ defmodule Google.Ads.Datamanager.V1.Product do
   field :DATA_PARTNER, 4
 end
 
+defmodule Google.Ads.Datamanager.V1.ProductAccount.AccountType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ACCOUNT_TYPE_UNSPECIFIED, 0
+  field :GOOGLE_ADS, 1
+  field :DISPLAY_VIDEO_PARTNER, 2
+  field :DISPLAY_VIDEO_ADVERTISER, 3
+  field :DATA_PARTNER, 4
+end
+
 defmodule Google.Ads.Datamanager.V1.Destination do
   @moduledoc false
 
@@ -43,6 +55,12 @@ defmodule Google.Ads.Datamanager.V1.ProductAccount do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :product, 1, type: Google.Ads.Datamanager.V1.Product, enum: true, deprecated: false
+  field :product, 1, type: Google.Ads.Datamanager.V1.Product, enum: true, deprecated: true
   field :account_id, 2, type: :string, json_name: "accountId", deprecated: false
+
+  field :account_type, 3,
+    type: Google.Ads.Datamanager.V1.ProductAccount.AccountType,
+    json_name: "accountType",
+    enum: true,
+    deprecated: false
 end

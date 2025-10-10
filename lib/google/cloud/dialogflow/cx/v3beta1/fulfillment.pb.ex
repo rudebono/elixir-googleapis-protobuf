@@ -45,6 +45,31 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases do
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.ConditionalCases.Case
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.GeneratorSettings.InputParametersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.GeneratorSettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :generator, 1, type: :string, deprecated: false
+
+  field :input_parameters, 2,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.GeneratorSettings.InputParametersEntry,
+    json_name: "inputParameters",
+    map: true
+
+  field :output_parameter, 3, type: :string, json_name: "outputParameter", deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
   @moduledoc false
 
@@ -70,4 +95,8 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment do
     json_name: "advancedSettings"
 
   field :enable_generative_fallback, 12, type: :bool, json_name: "enableGenerativeFallback"
+
+  field :generators, 13,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Fulfillment.GeneratorSettings
 end

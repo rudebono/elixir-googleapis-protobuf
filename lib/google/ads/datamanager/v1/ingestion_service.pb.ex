@@ -109,6 +109,25 @@ defmodule Google.Ads.Datamanager.V1.IngestEventsResponse do
   field :request_id, 1, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Ads.Datamanager.V1.RetrieveRequestStatusRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_id, 1, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Ads.Datamanager.V1.RetrieveRequestStatusResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_status_per_destination, 1,
+    repeated: true,
+    type: Google.Ads.Datamanager.V1.RequestStatusPerDestination,
+    json_name: "requestStatusPerDestination"
+end
+
 defmodule Google.Ads.Datamanager.V1.IngestionService.Service do
   @moduledoc false
 
@@ -127,6 +146,10 @@ defmodule Google.Ads.Datamanager.V1.IngestionService.Service do
   rpc :IngestEvents,
       Google.Ads.Datamanager.V1.IngestEventsRequest,
       Google.Ads.Datamanager.V1.IngestEventsResponse
+
+  rpc :RetrieveRequestStatus,
+      Google.Ads.Datamanager.V1.RetrieveRequestStatusRequest,
+      Google.Ads.Datamanager.V1.RetrieveRequestStatusResponse
 end
 
 defmodule Google.Ads.Datamanager.V1.IngestionService.Stub do

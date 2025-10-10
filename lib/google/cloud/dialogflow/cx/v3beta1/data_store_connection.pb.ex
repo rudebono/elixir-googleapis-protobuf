@@ -99,6 +99,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.SearchSn
   field :document_title, 1, type: :string, json_name: "documentTitle"
   field :document_uri, 2, type: :string, json_name: "documentUri"
   field :text, 3, type: :string
+  field :metadata, 5, type: Google.Protobuf.Struct
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DataStoreConnectionSignals.AnswerGenerationModelCallSignals do
