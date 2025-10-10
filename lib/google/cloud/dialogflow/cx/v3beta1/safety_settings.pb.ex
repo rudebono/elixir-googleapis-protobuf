@@ -17,6 +17,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings.Phrase do
   field :language_code, 2, type: :string, json_name: "languageCode", deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings.PromptSecuritySettings do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enable_prompt_security, 1,
+    type: :bool,
+    json_name: "enablePromptSecurity",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings do
   @moduledoc false
 
@@ -32,4 +43,9 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings.Phrase,
     json_name: "bannedPhrases"
+
+  field :prompt_security_settings, 8,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.SafetySettings.PromptSecuritySettings,
+    json_name: "promptSecuritySettings",
+    deprecated: false
 end
