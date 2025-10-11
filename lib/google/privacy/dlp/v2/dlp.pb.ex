@@ -1135,6 +1135,8 @@ defmodule Google.Privacy.Dlp.V2.RedactImageRequest do
 
   field :include_findings, 6, type: :bool, json_name: "includeFindings"
   field :byte_item, 7, type: Google.Privacy.Dlp.V2.ByteContentItem, json_name: "byteItem"
+  field :inspect_template, 9, type: :string, json_name: "inspectTemplate"
+  field :deidentify_template, 10, type: :string, json_name: "deidentifyTemplate"
 end
 
 defmodule Google.Privacy.Dlp.V2.Color do
@@ -1239,6 +1241,11 @@ defmodule Google.Privacy.Dlp.V2.OutputStorageConfig do
   oneof :type, 0
 
   field :table, 1, type: Google.Privacy.Dlp.V2.BigQueryTable, oneof: 0
+
+  field :storage_path, 5,
+    type: Google.Privacy.Dlp.V2.CloudStoragePath,
+    json_name: "storagePath",
+    oneof: 0
 
   field :output_schema, 3,
     type: Google.Privacy.Dlp.V2.OutputStorageConfig.OutputSchema,
@@ -2863,6 +2870,12 @@ defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
+defmodule Google.Privacy.Dlp.V2.Action.PublishFindingsToDataplexCatalog do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
 defmodule Google.Privacy.Dlp.V2.Action.Deidentify do
   @moduledoc false
 
@@ -2928,6 +2941,11 @@ defmodule Google.Privacy.Dlp.V2.Action do
   field :publish_findings_to_cloud_data_catalog, 5,
     type: Google.Privacy.Dlp.V2.Action.PublishFindingsToCloudDataCatalog,
     json_name: "publishFindingsToCloudDataCatalog",
+    oneof: 0
+
+  field :publish_findings_to_dataplex_catalog, 10,
+    type: Google.Privacy.Dlp.V2.Action.PublishFindingsToDataplexCatalog,
+    json_name: "publishFindingsToDataplexCatalog",
     oneof: 0
 
   field :deidentify, 7, type: Google.Privacy.Dlp.V2.Action.Deidentify, oneof: 0
@@ -3879,6 +3897,11 @@ defmodule Google.Privacy.Dlp.V2.FileStoreCollection do
     type: Google.Privacy.Dlp.V2.FileStoreRegexes,
     json_name: "includeRegexes",
     oneof: 0,
+    deprecated: false
+
+  field :include_tags, 2,
+    type: Google.Privacy.Dlp.V2.TagFilters,
+    json_name: "includeTags",
     deprecated: false
 end
 
@@ -5105,6 +5128,29 @@ defmodule Google.Privacy.Dlp.V2.Tag do
   field :namespaced_tag_value, 1, type: :string, json_name: "namespacedTagValue"
   field :key, 2, type: :string
   field :value, 3, type: :string
+end
+
+defmodule Google.Privacy.Dlp.V2.TagFilters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :tag_filters, 1,
+    repeated: true,
+    type: Google.Privacy.Dlp.V2.TagFilter,
+    json_name: "tagFilters",
+    deprecated: false
+end
+
+defmodule Google.Privacy.Dlp.V2.TagFilter do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :format, 0
+
+  field :namespaced_tag_value, 1, type: :string, json_name: "namespacedTagValue", oneof: 0
+  field :namespaced_tag_key, 2, type: :string, json_name: "namespacedTagKey", oneof: 0
 end
 
 defmodule Google.Privacy.Dlp.V2.RelatedResource do

@@ -9,6 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1beta1.HarmCategory do
   field :HARM_CATEGORY_HARASSMENT, 3
   field :HARM_CATEGORY_SEXUALLY_EXPLICIT, 4
   field :HARM_CATEGORY_CIVIC_INTEGRITY, 5
+  field :HARM_CATEGORY_JAILBREAK, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.Modality do

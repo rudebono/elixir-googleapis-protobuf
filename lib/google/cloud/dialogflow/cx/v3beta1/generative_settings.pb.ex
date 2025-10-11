@@ -1,3 +1,25 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters.InputTokenLimit do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :INPUT_TOKEN_LIMIT_UNSPECIFIED, 0
+  field :INPUT_TOKEN_LIMIT_SHORT, 1
+  field :INPUT_TOKEN_LIMIT_MEDIUM, 2
+  field :INPUT_TOKEN_LIMIT_LONG, 3
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters.OutputTokenLimit do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :OUTPUT_TOKEN_LIMIT_UNSPECIFIED, 0
+  field :OUTPUT_TOKEN_LIMIT_SHORT, 1
+  field :OUTPUT_TOKEN_LIMIT_MEDIUM, 2
+  field :OUTPUT_TOKEN_LIMIT_LONG, 3
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeSettings.FallbackSettings.PromptTemplate do
   @moduledoc false
 
@@ -60,6 +82,26 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GenerativeSettings do
     json_name: "llmModelSettings"
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :temperature, 1, proto3_optional: true, type: :float
+
+  field :input_token_limit, 2,
+    proto3_optional: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters.InputTokenLimit,
+    json_name: "inputTokenLimit",
+    enum: true
+
+  field :output_token_limit, 3,
+    proto3_optional: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters.OutputTokenLimit,
+    json_name: "outputTokenLimit",
+    enum: true
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings do
   @moduledoc false
 
@@ -67,4 +109,5 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings do
 
   field :model, 1, type: :string
   field :prompt_text, 2, type: :string, json_name: "promptText"
+  field :parameters, 4, type: Google.Cloud.Dialogflow.Cx.V3beta1.LlmModelSettings.Parameters
 end

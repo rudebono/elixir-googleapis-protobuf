@@ -22,6 +22,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable.AutoScalin
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable.BigtableMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :tenant_project_id, 1, type: :string, json_name: "tenantProjectId"
+  field :instance_id, 2, type: :string, json_name: "instanceId"
+  field :table_id, 3, type: :string, json_name: "tableId"
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable do
   @moduledoc false
 
@@ -30,6 +40,16 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable do
   field :auto_scaling, 1,
     type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable.AutoScaling,
     json_name: "autoScaling",
+    deprecated: false
+
+  field :enable_direct_bigtable_access, 2,
+    type: :bool,
+    json_name: "enableDirectBigtableAccess",
+    deprecated: false
+
+  field :bigtable_metadata, 3,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureOnlineStore.Bigtable.BigtableMetadata,
+    json_name: "bigtableMetadata",
     deprecated: false
 end
 

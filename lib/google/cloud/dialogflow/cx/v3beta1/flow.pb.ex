@@ -101,6 +101,18 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Flow do
     json_name: "knowledgeConnectorSettings",
     deprecated: false
 
+  field :input_parameter_definitions, 26,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ParameterDefinition,
+    json_name: "inputParameterDefinitions",
+    deprecated: false
+
+  field :output_parameter_definitions, 27,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ParameterDefinition,
+    json_name: "outputParameterDefinitions",
+    deprecated: false
+
   field :multi_language_settings, 28,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Flow.MultiLanguageSettings,
     json_name: "multiLanguageSettings",

@@ -9,6 +9,7 @@ defmodule Google.Cloud.Aiplatform.V1.GenerateContentResponse.PromptFeedback.Bloc
   field :BLOCKLIST, 3
   field :PROHIBITED_CONTENT, 4
   field :MODEL_ARMOR, 5
+  field :JAILBREAK, 6
 end
 
 defmodule Google.Cloud.Aiplatform.V1.PredictRequest.LabelsEntry do

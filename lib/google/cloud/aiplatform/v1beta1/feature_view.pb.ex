@@ -228,6 +228,14 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView.BigtableMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :read_app_profile, 1, type: :string, json_name: "readAppProfile", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
   @moduledoc false
 
@@ -305,4 +313,9 @@ defmodule Google.Cloud.Aiplatform.V1beta1.FeatureView do
 
   field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
+
+  field :bigtable_metadata, 21,
+    type: Google.Cloud.Aiplatform.V1beta1.FeatureView.BigtableMetadata,
+    json_name: "bigtableMetadata",
+    deprecated: false
 end
