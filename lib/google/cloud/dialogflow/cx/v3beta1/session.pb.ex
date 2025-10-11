@@ -314,6 +314,7 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.QueryParameters do
 
   field :payload, 4, type: Google.Protobuf.Struct
   field :parameters, 5, type: Google.Protobuf.Struct
+  field :parameter_scope, 12, type: :string, json_name: "parameterScope"
   field :current_page, 6, type: :string, json_name: "currentPage", deprecated: false
   field :disable_webhook, 7, type: :bool, json_name: "disableWebhook"
   field :analyze_query_text_sentiment, 8, type: :bool, json_name: "analyzeQueryTextSentiment"

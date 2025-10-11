@@ -1585,6 +1585,16 @@ defmodule Google.Cloud.Compute.V1.Interconnect.State do
   field :UNPROVISIONED, 517_333_979
 end
 
+defmodule Google.Cloud.Compute.V1.Interconnect.Subzone do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_SUBZONE, 0
+  field :SUBZONE_A, 291_575_438
+  field :SUBZONE_B, 291_575_439
+end
+
 defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnectBandwidthPercentage.TrafficClass do
   @moduledoc false
 
@@ -3058,6 +3068,40 @@ defmodule Google.Cloud.Compute.V1.PreservedStatePreservedNetworkIp.AutoDelete do
   field :ON_PERMANENT_INSTANCE_DELETION, 95_727_719
 end
 
+defmodule Google.Cloud.Compute.V1.PreviewFeature.ActivationStatus do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_ACTIVATION_STATUS, 0
+  field :ACTIVATION_STATE_UNSPECIFIED, 632_160
+  field :DISABLED, 516_696_700
+  field :ENABLED, 182_130_465
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureRolloutOperationRolloutInput.PredefinedRolloutPlan do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_PREDEFINED_ROLLOUT_PLAN, 0
+  field :ROLLOUT_PLAN_FAST_ROLLOUT, 167_808_726
+  field :ROLLOUT_PLAN_TWO_DAY_ROLLOUT, 349_866_771
+  field :ROLLOUT_PLAN_UNSPECIFIED, 144_511_983
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureStatusReleaseStatus.Stage do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_STAGE, 0
+  field :DEPRECATED, 463_360_435
+  field :GA, 2266
+  field :PREVIEW, 399_798_184
+  field :STAGE_UNSPECIFIED, 63_695_670
+end
+
 defmodule Google.Cloud.Compute.V1.Project.CloudArmorTier do
   @moduledoc false
 
@@ -3599,6 +3643,39 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlockHealthInfo.HealthStatus do
   field :DEGRADED, 396_890_926
   field :HEALTHY, 439_801_213
   field :HEALTH_STATUS_UNSPECIFIED, 482_246_925
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequest.DisruptionSchedule do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_DISRUPTION_SCHEDULE, 0
+  field :DISRUPTION_SCHEDULE_UNSPECIFIED, 332_543_835
+  field :IMMEDIATE, 152_881_041
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequest.FailureComponent do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_FAILURE_COMPONENT, 0
+  field :FAILURE_COMPONENT_UNSPECIFIED, 332_003_744
+  field :MULTIPLE_FAULTY_HOSTS, 423_545_298
+  field :NVLINK_SWITCH, 239_107_153
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequestFaultReason.Behavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNDEFINED_BEHAVIOR, 0
+  field :FAULT_BEHAVIOR_UNSPECIFIED, 447_660_743
+  field :GPU_ERROR, 198_817_909
+  field :PERFORMANCE, 135_701_520
+  field :SWITCH_FAILURE, 254_909_279
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationsBlocksPerformMaintenanceRequest.MaintenanceScope do
@@ -5307,6 +5384,29 @@ defmodule Google.Cloud.Compute.V1.AddAssociationNetworkFirewallPolicyRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.AddAssociationOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :replace_existing_association, 209_541_240,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "replaceExistingAssociation"
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+
+  field :security_policy_association_resource, 11_761_274,
+    type: Google.Cloud.Compute.V1.SecurityPolicyAssociation,
+    json_name: "securityPolicyAssociationResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.AddAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
@@ -5541,6 +5641,24 @@ defmodule Google.Cloud.Compute.V1.AddRuleNetworkFirewallPolicyRequest do
   field :min_priority, 267_190_513, proto3_optional: true, type: :int32, json_name: "minPriority"
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.AddRuleOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+
+  field :security_policy_rule_resource, 402_693_443,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRule,
+    json_name: "securityPolicyRuleResource",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.AddRuleRegionNetworkFirewallPolicyRequest do
@@ -9461,6 +9579,24 @@ defmodule Google.Cloud.Compute.V1.ConsistentHashLoadBalancerSettingsHttpCookie d
   field :ttl, 115_180, proto3_optional: true, type: Google.Cloud.Compute.V1.Duration
 end
 
+defmodule Google.Cloud.Compute.V1.CopyRulesOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+
+  field :source_security_policy, 234_793_709,
+    proto3_optional: true,
+    type: :string,
+    json_name: "sourceSecurityPolicy"
+end
+
 defmodule Google.Cloud.Compute.V1.CorsPolicy do
   @moduledoc false
 
@@ -9654,6 +9790,16 @@ defmodule Google.Cloud.Compute.V1.Data do
 
   field :key, 106_079, proto3_optional: true, type: :string
   field :value, 111_972_721, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.Date do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :day, 99228, proto3_optional: true, type: :int32
+  field :month, 104_080_000, proto3_optional: true, type: :int32
+  field :year, 3_704_893, proto3_optional: true, type: :int32
 end
 
 defmodule Google.Cloud.Compute.V1.DeleteAccessConfigInstanceRequest do
@@ -10205,6 +10351,19 @@ defmodule Google.Cloud.Compute.V1.DeleteNodesNodeGroupRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
   field :zone, 3_744_684, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.DeleteOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.DeletePacketMirroringRequest do
@@ -12463,6 +12622,19 @@ defmodule Google.Cloud.Compute.V1.GetAssociationNetworkFirewallPolicyRequest do
   field :project, 227_560_217, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetAssociationOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
@@ -12572,6 +12744,25 @@ defmodule Google.Cloud.Compute.V1.GetEffectiveFirewallsRegionNetworkFirewallPoli
   field :network, 232_872_494, type: :string, deprecated: false
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetEffectiveSecurityPoliciesBackendServiceRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :backend_service, 306_946_058,
+    type: :string,
+    json_name: "backendService",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetEffectiveSecurityPoliciesBackendServiceResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Cloud.Compute.V1.GetExternalVpnGatewayRequest do
@@ -13537,6 +13728,17 @@ defmodule Google.Cloud.Compute.V1.GetOperationalStatusInterconnectGroupRequest d
   field :project, 227_560_217, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.GetOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.GetPacketMirroringRequest do
   @moduledoc false
 
@@ -13562,6 +13764,19 @@ defmodule Google.Cloud.Compute.V1.GetPacketMirroringRuleNetworkFirewallPolicyReq
     deprecated: false
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :project, 227_560_217, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetPreviewFeatureRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :preview_feature, 454_999_423,
+    type: :string,
+    json_name: "previewFeature",
+    deprecated: false
+
   field :project, 227_560_217, type: :string, deprecated: false
 end
 
@@ -14004,6 +14219,19 @@ defmodule Google.Cloud.Compute.V1.GetRuleNetworkFirewallPolicyRequest do
 
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.GetRuleOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.GetRuleRegionNetworkFirewallPolicyRequest do
@@ -15258,6 +15486,7 @@ defmodule Google.Cloud.Compute.V1.Image do
   field :license_codes, 45_482_664, repeated: true, type: :int64, json_name: "licenseCodes"
   field :licenses, 337_642_578, repeated: true, type: :string
   field :name, 3_373_707, proto3_optional: true, type: :string
+  field :params, 78_313_862, proto3_optional: true, type: Google.Cloud.Compute.V1.ImageParams
 
   field :raw_disk, 503_113_556,
     proto3_optional: true,
@@ -15345,6 +15574,27 @@ defmodule Google.Cloud.Compute.V1.ImageList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.ImageParams.ResourceManagerTagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.ImageParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.ImageParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.InitialStateConfig do
@@ -15879,6 +16129,25 @@ defmodule Google.Cloud.Compute.V1.InsertNodeTemplateRequest do
   field :project, 227_560_217, type: :string, deprecated: false
   field :region, 138_946_292, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.InsertOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent_id, 459_714_768,
+    proto3_optional: true,
+    type: :string,
+    json_name: "parentId",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy_resource, 216_159_612,
+    type: Google.Cloud.Compute.V1.SecurityPolicy,
+    json_name: "securityPolicyResource",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.InsertPacketMirroringRequest do
@@ -18539,6 +18808,7 @@ defmodule Google.Cloud.Compute.V1.Interconnect do
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :state, 109_757_585, proto3_optional: true, type: :string
+  field :subzone, 280_084_972, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.InterconnectApplicationAwareInterconnect do
@@ -20120,6 +20390,17 @@ defmodule Google.Cloud.Compute.V1.ListAssociationsFirewallPolicyRequest do
     json_name: "targetResource"
 end
 
+defmodule Google.Cloud.Compute.V1.ListAssociationsOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :target_resource, 467_318_524,
+    proto3_optional: true,
+    type: :string,
+    json_name: "targetResource"
+end
+
 defmodule Google.Cloud.Compute.V1.ListAutoscalersRequest do
   @moduledoc false
 
@@ -21172,6 +21453,23 @@ defmodule Google.Cloud.Compute.V1.ListNodesNodeGroupsRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.ListOrganizationSecurityPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :parent_id, 459_714_768, proto3_optional: true, type: :string, json_name: "parentId"
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.ListPacketMirroringsRequest do
   @moduledoc false
 
@@ -21260,7 +21558,41 @@ defmodule Google.Cloud.Compute.V1.ListPerInstanceConfigsRegionInstanceGroupManag
     json_name: "returnPartialSuccess"
 end
 
+defmodule Google.Cloud.Compute.V1.ListPreconfiguredExpressionSetsOrganizationSecurityPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :parent_id, 459_714_768, proto3_optional: true, type: :string, json_name: "parentId"
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
 defmodule Google.Cloud.Compute.V1.ListPreconfiguredExpressionSetsSecurityPoliciesRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :filter, 336_120_696, proto3_optional: true, type: :string
+  field :max_results, 54_715_419, proto3_optional: true, type: :uint32, json_name: "maxResults"
+  field :order_by, 160_562_920, proto3_optional: true, type: :string, json_name: "orderBy"
+  field :page_token, 19_994_697, proto3_optional: true, type: :string, json_name: "pageToken"
+  field :project, 227_560_217, type: :string, deprecated: false
+
+  field :return_partial_success, 517_198_390,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "returnPartialSuccess"
+end
+
+defmodule Google.Cloud.Compute.V1.ListPreviewFeaturesRequest do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -22829,6 +23161,25 @@ defmodule Google.Cloud.Compute.V1.MoveInstanceProjectRequest do
 
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.MoveOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent_id, 459_714_768,
+    proto3_optional: true,
+    type: :string,
+    json_name: "parentId",
+    deprecated: false
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.NamedPort do
@@ -24718,6 +25069,18 @@ defmodule Google.Cloud.Compute.V1.OperationsScopedList do
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
 end
 
+defmodule Google.Cloud.Compute.V1.OrganizationSecurityPoliciesListAssociationsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :associations, 508_736_530,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyAssociation
+
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+end
+
 defmodule Google.Cloud.Compute.V1.OutlierDetection do
   @moduledoc false
 
@@ -25360,6 +25723,24 @@ defmodule Google.Cloud.Compute.V1.PatchNodeGroupRequest do
   field :zone, 3_744_684, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Compute.V1.PatchOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+
+  field :security_policy_resource, 216_159_612,
+    type: Google.Cloud.Compute.V1.SecurityPolicy,
+    json_name: "securityPolicyResource",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.PatchPacketMirroringRequest do
   @moduledoc false
 
@@ -25762,6 +26143,25 @@ defmodule Google.Cloud.Compute.V1.PatchRuleNetworkFirewallPolicyRequest do
   field :priority, 445_151_652, proto3_optional: true, type: :int32
   field :project, 227_560_217, type: :string, deprecated: false
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
+defmodule Google.Cloud.Compute.V1.PatchRuleOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+
+  field :security_policy_rule_resource, 402_693_443,
+    type: Google.Cloud.Compute.V1.SecurityPolicyRule,
+    json_name: "securityPolicyRuleResource",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.PatchRuleRegionNetworkFirewallPolicyRequest do
@@ -26286,6 +26686,108 @@ defmodule Google.Cloud.Compute.V1.PreservedStatePreservedNetworkIpIpAddress do
 
   field :address, 462_920_692, proto3_optional: true, type: :string
   field :literal, 182_460_591, proto3_optional: true, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeature do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :activation_status, 71_960_379,
+    proto3_optional: true,
+    type: :string,
+    json_name: "activationStatus"
+
+  field :creation_timestamp, 30_525_366,
+    proto3_optional: true,
+    type: :string,
+    json_name: "creationTimestamp"
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :uint64
+  field :kind, 3_292_052, proto3_optional: true, type: :string
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :rollout_operation, 486_746_201,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.PreviewFeatureRolloutOperation,
+    json_name: "rolloutOperation"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+
+  field :status, 181_260_274,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.PreviewFeatureStatus
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :etag, 3_123_477, proto3_optional: true, type: :string
+  field :id, 3355, proto3_optional: true, type: :string
+  field :items, 100_526_016, repeated: true, type: Google.Cloud.Compute.V1.PreviewFeature
+
+  field :next_page_token, 79_797_525,
+    proto3_optional: true,
+    type: :string,
+    json_name: "nextPageToken"
+
+  field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :unreachables, 243_372_063, repeated: true, type: :string
+  field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureRolloutOperation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :rollout_input, 265_745_340,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.PreviewFeatureRolloutOperationRolloutInput,
+    json_name: "rolloutInput"
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureRolloutOperationRolloutInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :predefined_rollout_plan, 364_023_440,
+    proto3_optional: true,
+    type: :string,
+    json_name: "predefinedRolloutPlan"
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :description, 422_937_596, proto3_optional: true, type: :string
+  field :help_link, 223_410_744, proto3_optional: true, type: :string, json_name: "helpLink"
+
+  field :release_status, 508_026_666,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.PreviewFeatureStatusReleaseStatus,
+    json_name: "releaseStatus"
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatureStatusReleaseStatus do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :stage, 109_757_182, proto3_optional: true, type: :string
+
+  field :update_date, 499_811_684,
+    proto3_optional: true,
+    type: Google.Cloud.Compute.V1.Date,
+    json_name: "updateDate"
 end
 
 defmodule Google.Cloud.Compute.V1.PreviewRouterRequest do
@@ -27305,6 +27807,20 @@ defmodule Google.Cloud.Compute.V1.RemoveAssociationNetworkFirewallPolicyRequest 
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.RemoveAssociationOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.RemoveAssociationRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
@@ -27481,6 +27997,20 @@ defmodule Google.Cloud.Compute.V1.RemoveRuleNetworkFirewallPolicyRequest do
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.RemoveRuleOrganizationSecurityPolicyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :priority, 445_151_652, proto3_optional: true, type: :int32
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :security_policy, 171_082_513,
+    type: :string,
+    json_name: "securityPolicy",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Compute.V1.RemoveRuleRegionNetworkFirewallPolicyRequest do
   @moduledoc false
 
@@ -27524,6 +28054,28 @@ defmodule Google.Cloud.Compute.V1.RemoveRuleSecurityPolicyRequest do
     type: :string,
     json_name: "securityPolicy",
     deprecated: false
+end
+
+defmodule Google.Cloud.Compute.V1.ReportFaultyReservationSubBlockRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent_name, 478_151_936, type: :string, json_name: "parentName", deprecated: false
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+
+  field :reservation_sub_block, 22_750_491,
+    type: :string,
+    json_name: "reservationSubBlock",
+    deprecated: false
+
+  field :reservation_sub_blocks_report_faulty_request_resource, 450_847_938,
+    type: Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequest,
+    json_name: "reservationSubBlocksReportFaultyRequestResource",
+    deprecated: false
+
+  field :zone, 3_744_684, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Compute.V1.ReportHostAsFaultyInstanceRequest do
@@ -28007,6 +28559,36 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlocksListResponse do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :disruption_schedule, 95_871_619,
+    proto3_optional: true,
+    type: :string,
+    json_name: "disruptionSchedule"
+
+  field :failure_component, 25_912_456,
+    proto3_optional: true,
+    type: :string,
+    json_name: "failureComponent"
+
+  field :fault_reasons, 168_056_210,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequestFaultReason,
+    json_name: "faultReasons"
+end
+
+defmodule Google.Cloud.Compute.V1.ReservationSubBlocksReportFaultyRequestFaultReason do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :behavior, 437_170_770, proto3_optional: true, type: :string
+  field :description, 422_937_596, proto3_optional: true, type: :string
 end
 
 defmodule Google.Cloud.Compute.V1.ReservationsBlocksPerformMaintenanceRequest do
@@ -29859,6 +30441,10 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicy do
     type: Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfig,
     json_name: "advancedOptionsConfig"
 
+  field :associations, 508_736_530,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SecurityPolicyAssociation
+
   field :creation_timestamp, 30_525_366,
     proto3_optional: true,
     type: :string,
@@ -29894,6 +30480,7 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicy do
   field :region, 138_946_292, proto3_optional: true, type: :string
   field :rules, 108_873_975, repeated: true, type: Google.Cloud.Compute.V1.SecurityPolicyRule
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
+  field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
   field :type, 3_575_610, proto3_optional: true, type: :string
 
   field :user_defined_fields, 28_312_739,
@@ -30020,6 +30607,38 @@ defmodule Google.Cloud.Compute.V1.SecurityPolicyAdvancedOptionsConfigJsonCustomC
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :content_types, 17_428_787, repeated: true, type: :string, json_name: "contentTypes"
+end
+
+defmodule Google.Cloud.Compute.V1.SecurityPolicyAssociation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :attachment_id, 103_768_503,
+    proto3_optional: true,
+    type: :string,
+    json_name: "attachmentId"
+
+  field :display_name, 4_473_832, proto3_optional: true, type: :string, json_name: "displayName"
+
+  field :excluded_folders, 310_611_024,
+    repeated: true,
+    type: :string,
+    json_name: "excludedFolders"
+
+  field :excluded_projects, 283_070_287,
+    repeated: true,
+    type: :string,
+    json_name: "excludedProjects"
+
+  field :name, 3_373_707, proto3_optional: true, type: :string
+
+  field :security_policy_id, 203_671_817,
+    proto3_optional: true,
+    type: :string,
+    json_name: "securityPolicyId"
+
+  field :short_name, 492_051_566, proto3_optional: true, type: :string, json_name: "shortName"
 end
 
 defmodule Google.Cloud.Compute.V1.SecurityPolicyDdosProtectionConfig do
@@ -32456,6 +33075,7 @@ defmodule Google.Cloud.Compute.V1.Snapshot do
     json_name: "locationHint"
 
   field :name, 3_373_707, proto3_optional: true, type: :string
+  field :params, 78_313_862, proto3_optional: true, type: Google.Cloud.Compute.V1.SnapshotParams
   field :satisfies_pzi, 480_964_257, proto3_optional: true, type: :bool, json_name: "satisfiesPzi"
   field :satisfies_pzs, 480_964_267, proto3_optional: true, type: :bool, json_name: "satisfiesPzs"
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
@@ -32546,6 +33166,27 @@ defmodule Google.Cloud.Compute.V1.SnapshotList do
 
   field :self_link, 456_214_797, proto3_optional: true, type: :string, json_name: "selfLink"
   field :warning, 50_704_284, proto3_optional: true, type: Google.Cloud.Compute.V1.Warning
+end
+
+defmodule Google.Cloud.Compute.V1.SnapshotParams.ResourceManagerTagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Compute.V1.SnapshotParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :resource_manager_tags, 377_671_164,
+    repeated: true,
+    type: Google.Cloud.Compute.V1.SnapshotParams.ResourceManagerTagsEntry,
+    json_name: "resourceManagerTags",
+    map: true
 end
 
 defmodule Google.Cloud.Compute.V1.SnapshotSettings do
@@ -35810,6 +36451,25 @@ defmodule Google.Cloud.Compute.V1.UpdatePerInstanceConfigsRegionInstanceGroupMan
   field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
 end
 
+defmodule Google.Cloud.Compute.V1.UpdatePreviewFeatureRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :preview_feature, 454_999_423,
+    type: :string,
+    json_name: "previewFeature",
+    deprecated: false
+
+  field :preview_feature_resource, 10_876_622,
+    type: Google.Cloud.Compute.V1.PreviewFeature,
+    json_name: "previewFeatureResource",
+    deprecated: false
+
+  field :project, 227_560_217, type: :string, deprecated: false
+  field :request_id, 37_109_963, proto3_optional: true, type: :string, json_name: "requestId"
+end
+
 defmodule Google.Cloud.Compute.V1.UpdateRegionAutoscalerRequest do
   @moduledoc false
 
@@ -37271,6 +37931,10 @@ defmodule Google.Cloud.Compute.V1.BackendServices.Service do
   rpc :Get,
       Google.Cloud.Compute.V1.GetBackendServiceRequest,
       Google.Cloud.Compute.V1.BackendService
+
+  rpc :GetEffectiveSecurityPolicies,
+      Google.Cloud.Compute.V1.GetEffectiveSecurityPoliciesBackendServiceRequest,
+      Google.Cloud.Compute.V1.GetEffectiveSecurityPoliciesBackendServiceResponse
 
   rpc :GetHealth,
       Google.Cloud.Compute.V1.GetHealthBackendServiceRequest,
@@ -39207,6 +39871,84 @@ defmodule Google.Cloud.Compute.V1.NodeTypes.Stub do
   use GRPC.Stub, service: Google.Cloud.Compute.V1.NodeTypes.Service
 end
 
+defmodule Google.Cloud.Compute.V1.OrganizationSecurityPolicies.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.OrganizationSecurityPolicies",
+    protoc_gen_elixir_version: "0.15.0"
+
+  rpc :AddAssociation,
+      Google.Cloud.Compute.V1.AddAssociationOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :AddRule,
+      Google.Cloud.Compute.V1.AddRuleOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :CopyRules,
+      Google.Cloud.Compute.V1.CopyRulesOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Delete,
+      Google.Cloud.Compute.V1.DeleteOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.SecurityPolicy
+
+  rpc :GetAssociation,
+      Google.Cloud.Compute.V1.GetAssociationOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.SecurityPolicyAssociation
+
+  rpc :GetRule,
+      Google.Cloud.Compute.V1.GetRuleOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.SecurityPolicyRule
+
+  rpc :Insert,
+      Google.Cloud.Compute.V1.InsertOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListOrganizationSecurityPoliciesRequest,
+      Google.Cloud.Compute.V1.SecurityPolicyList
+
+  rpc :ListAssociations,
+      Google.Cloud.Compute.V1.ListAssociationsOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.OrganizationSecurityPoliciesListAssociationsResponse
+
+  rpc :ListPreconfiguredExpressionSets,
+      Google.Cloud.Compute.V1.ListPreconfiguredExpressionSetsOrganizationSecurityPoliciesRequest,
+      Google.Cloud.Compute.V1.SecurityPoliciesListPreconfiguredExpressionSetsResponse
+
+  rpc :Move,
+      Google.Cloud.Compute.V1.MoveOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :Patch,
+      Google.Cloud.Compute.V1.PatchOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :PatchRule,
+      Google.Cloud.Compute.V1.PatchRuleOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :RemoveAssociation,
+      Google.Cloud.Compute.V1.RemoveAssociationOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :RemoveRule,
+      Google.Cloud.Compute.V1.RemoveRuleOrganizationSecurityPolicyRequest,
+      Google.Cloud.Compute.V1.Operation
+end
+
+defmodule Google.Cloud.Compute.V1.OrganizationSecurityPolicies.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.OrganizationSecurityPolicies.Service
+end
+
 defmodule Google.Cloud.Compute.V1.PacketMirrorings.Service do
   @moduledoc false
 
@@ -39247,6 +39989,32 @@ defmodule Google.Cloud.Compute.V1.PacketMirrorings.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Compute.V1.PacketMirrorings.Service
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatures.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.compute.v1.PreviewFeatures",
+    protoc_gen_elixir_version: "0.15.0"
+
+  rpc :Get,
+      Google.Cloud.Compute.V1.GetPreviewFeatureRequest,
+      Google.Cloud.Compute.V1.PreviewFeature
+
+  rpc :List,
+      Google.Cloud.Compute.V1.ListPreviewFeaturesRequest,
+      Google.Cloud.Compute.V1.PreviewFeatureList
+
+  rpc :Update,
+      Google.Cloud.Compute.V1.UpdatePreviewFeatureRequest,
+      Google.Cloud.Compute.V1.Operation
+end
+
+defmodule Google.Cloud.Compute.V1.PreviewFeatures.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Compute.V1.PreviewFeatures.Service
 end
 
 defmodule Google.Cloud.Compute.V1.Projects.Service do
@@ -40444,6 +41212,10 @@ defmodule Google.Cloud.Compute.V1.ReservationSubBlocks.Service do
 
   rpc :PerformMaintenance,
       Google.Cloud.Compute.V1.PerformMaintenanceReservationSubBlockRequest,
+      Google.Cloud.Compute.V1.Operation
+
+  rpc :ReportFaulty,
+      Google.Cloud.Compute.V1.ReportFaultyReservationSubBlockRequest,
       Google.Cloud.Compute.V1.Operation
 end
 

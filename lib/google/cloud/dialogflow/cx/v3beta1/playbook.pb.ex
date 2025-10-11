@@ -1,3 +1,23 @@
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.PlaybookType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PLAYBOOK_TYPE_UNSPECIFIED, 0
+  field :TASK, 1
+  field :ROUTINE, 3
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportPlaybookRequest.DataFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DATA_FORMAT_UNSPECIFIED, 0
+  field :BLOB, 1
+  field :JSON, 2
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookRequest do
   @moduledoc false
 
@@ -137,6 +157,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbook do
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Handler,
     deprecated: false
+
+  field :playbook_type, 19,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook.PlaybookType,
+    json_name: "playbookType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.CreatePlaybookVersionRequest do
@@ -180,6 +206,22 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.GetPlaybookVersionRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestorePlaybookVersionRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.RestorePlaybookVersionResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :playbook, 2, type: Google.Cloud.Dialogflow.Cx.V3beta1.Playbook
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybookVersionsRequest do
   @moduledoc false
 
@@ -209,6 +251,100 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.DeletePlaybookVersionRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportPlaybookRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :playbook_uri, 2, type: :string, json_name: "playbookUri", deprecated: false
+
+  field :data_format, 3,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ExportPlaybookRequest.DataFormat,
+    json_name: "dataFormat",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportPlaybookRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :playbook, 0
+
+  field :parent, 1, type: :string, deprecated: false
+  field :playbook_uri, 2, type: :string, json_name: "playbookUri", oneof: 0
+  field :playbook_content, 3, type: :bytes, json_name: "playbookContent", oneof: 0
+
+  field :import_strategy, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookImportStrategy,
+    json_name: "importStrategy",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookImportStrategy do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :main_playbook_import_strategy, 4,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ImportStrategy,
+    json_name: "mainPlaybookImportStrategy",
+    enum: true,
+    deprecated: false
+
+  field :nested_resource_import_strategy, 5,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ImportStrategy,
+    json_name: "nestedResourceImportStrategy",
+    enum: true,
+    deprecated: false
+
+  field :tool_import_strategy, 6,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ImportStrategy,
+    json_name: "toolImportStrategy",
+    enum: true,
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportPlaybookResponse.ConflictingResources do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :main_playbook_display_name, 1, type: :string, json_name: "mainPlaybookDisplayName"
+
+  field :nested_playbook_display_names, 2,
+    repeated: true,
+    type: :string,
+    json_name: "nestedPlaybookDisplayNames"
+
+  field :tool_display_names, 3, repeated: true, type: :string, json_name: "toolDisplayNames"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ImportPlaybookResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :playbook, 1, type: :string, deprecated: false
+
+  field :conflicting_resources, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.ImportPlaybookResponse.ConflictingResources,
+    json_name: "conflictingResources"
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportPlaybookResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :playbook, 0
+
+  field :playbook_uri, 1, type: :string, json_name: "playbookUri", oneof: 0
+  field :playbook_content, 2, type: :bytes, json_name: "playbookContent", oneof: 0
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Handler.EventHandler do
@@ -272,6 +408,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbooks.Service do
       Google.Cloud.Dialogflow.Cx.V3beta1.GetPlaybookRequest,
       Google.Cloud.Dialogflow.Cx.V3beta1.Playbook
 
+  rpc :ExportPlaybook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ExportPlaybookRequest,
+      Google.Longrunning.Operation
+
+  rpc :ImportPlaybook,
+      Google.Cloud.Dialogflow.Cx.V3beta1.ImportPlaybookRequest,
+      Google.Longrunning.Operation
+
   rpc :UpdatePlaybook,
       Google.Cloud.Dialogflow.Cx.V3beta1.UpdatePlaybookRequest,
       Google.Cloud.Dialogflow.Cx.V3beta1.Playbook
@@ -283,6 +427,10 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Playbooks.Service do
   rpc :GetPlaybookVersion,
       Google.Cloud.Dialogflow.Cx.V3beta1.GetPlaybookVersionRequest,
       Google.Cloud.Dialogflow.Cx.V3beta1.PlaybookVersion
+
+  rpc :RestorePlaybookVersion,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RestorePlaybookVersionRequest,
+      Google.Cloud.Dialogflow.Cx.V3beta1.RestorePlaybookVersionResponse
 
   rpc :ListPlaybookVersions,
       Google.Cloud.Dialogflow.Cx.V3beta1.ListPlaybookVersionsRequest,

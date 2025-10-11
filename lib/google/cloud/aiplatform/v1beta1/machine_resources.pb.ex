@@ -26,6 +26,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.MachineSpec do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources.ScaleToZeroSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :min_scaleup_period, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "minScaleupPeriod",
+    deprecated: false
+
+  field :idle_scaledown_period, 2,
+    type: Google.Protobuf.Duration,
+    json_name: "idleScaledownPeriod",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
   @moduledoc false
 
@@ -44,6 +60,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
     json_name: "requiredReplicaCount",
     deprecated: false
 
+  field :initial_replica_count, 6,
+    type: :int32,
+    json_name: "initialReplicaCount",
+    deprecated: false
+
   field :autoscaling_metric_specs, 4,
     repeated: true,
     type: Google.Cloud.Aiplatform.V1beta1.AutoscalingMetricSpec,
@@ -55,6 +76,11 @@ defmodule Google.Cloud.Aiplatform.V1beta1.DedicatedResources do
   field :flex_start, 10,
     type: Google.Cloud.Aiplatform.V1beta1.FlexStart,
     json_name: "flexStart",
+    deprecated: false
+
+  field :scale_to_zero_spec, 11,
+    type: Google.Cloud.Aiplatform.V1beta1.DedicatedResources.ScaleToZeroSpec,
+    json_name: "scaleToZeroSpec",
     deprecated: false
 end
 
