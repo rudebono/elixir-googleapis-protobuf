@@ -5,7 +5,6 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.ExportToolsRequest.DataFormat do
 
   field :DATA_FORMAT_UNSPECIFIED, 0
   field :BLOB, 1
-  field :JSON, 2
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.ToolType do
@@ -291,6 +290,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.ApiKeyConfig do
   field :key_name, 1, type: :string, json_name: "keyName", deprecated: false
   field :api_key, 2, type: :string, json_name: "apiKey", deprecated: false
 
+  field :secret_version_for_api_key, 4,
+    type: :string,
+    json_name: "secretVersionForApiKey",
+    deprecated: false
+
   field :request_location, 3,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.RequestLocation,
     json_name: "requestLocation",
@@ -311,6 +315,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.OAuthConfig do
 
   field :client_id, 2, type: :string, json_name: "clientId", deprecated: false
   field :client_secret, 3, type: :string, json_name: "clientSecret", deprecated: false
+
+  field :secret_version_for_client_secret, 6,
+    type: :string,
+    json_name: "secretVersionForClientSecret",
+    deprecated: false
+
   field :token_endpoint, 4, type: :string, json_name: "tokenEndpoint", deprecated: false
   field :scopes, 5, repeated: true, type: :string, deprecated: false
 end
@@ -334,6 +344,11 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication.BearerTokenConf
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :token, 1, type: :string, deprecated: false
+
+  field :secret_version_for_token, 2,
+    type: :string,
+    json_name: "secretVersionForToken",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Tool.Authentication do
