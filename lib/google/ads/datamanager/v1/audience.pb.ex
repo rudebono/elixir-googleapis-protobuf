@@ -5,6 +5,12 @@ defmodule Google.Ads.Datamanager.V1.AudienceMember do
 
   oneof :data, 0
 
+  field :destination_references, 1,
+    repeated: true,
+    type: :string,
+    json_name: "destinationReferences",
+    deprecated: false
+
   field :user_data, 2, type: Google.Ads.Datamanager.V1.UserData, json_name: "userData", oneof: 0
   field :pair_data, 4, type: Google.Ads.Datamanager.V1.PairData, json_name: "pairData", oneof: 0
 

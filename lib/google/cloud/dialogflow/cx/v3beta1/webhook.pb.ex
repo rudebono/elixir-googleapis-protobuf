@@ -55,6 +55,14 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.PageInfo.FormInfo.ParameterInfo.Par
   field :FILLED, 3
 end
 
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.SecretVersionHeaderValue do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :secret_version, 1, type: :string, json_name: "secretVersion", deprecated: false
+end
+
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.OAuthConfig do
   @moduledoc false
 
@@ -62,6 +70,12 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.OAuthConf
 
   field :client_id, 1, type: :string, json_name: "clientId", deprecated: false
   field :client_secret, 2, type: :string, json_name: "clientSecret", deprecated: false
+
+  field :secret_version_for_client_secret, 5,
+    type: :string,
+    json_name: "secretVersionForClientSecret",
+    deprecated: false
+
   field :token_endpoint, 3, type: :string, json_name: "tokenEndpoint", deprecated: false
   field :scopes, 4, repeated: true, type: :string, deprecated: false
 end
@@ -73,6 +87,17 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHe
 
   field :key, 1, type: :string
   field :value, 2, type: :string
+end
+
+defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.SecretVersionsForRequestHeadersEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+
+  field :value, 2,
+    type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.SecretVersionHeaderValue
 end
 
 defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.ParameterMappingEntry do
@@ -93,11 +118,24 @@ defmodule Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService do
   field :username, 2, type: :string, deprecated: true
   field :password, 3, type: :string, deprecated: true
 
+  field :secret_version_for_username_password, 19,
+    type: :string,
+    json_name: "secretVersionForUsernamePassword",
+    deprecated: false
+
   field :request_headers, 4,
     repeated: true,
     type: Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.RequestHeadersEntry,
     json_name: "requestHeaders",
     map: true
+
+  field :secret_versions_for_request_headers, 20,
+    repeated: true,
+    type:
+      Google.Cloud.Dialogflow.Cx.V3beta1.Webhook.GenericWebService.SecretVersionsForRequestHeadersEntry,
+    json_name: "secretVersionsForRequestHeaders",
+    map: true,
+    deprecated: false
 
   field :allowed_ca_certs, 5,
     repeated: true,

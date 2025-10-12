@@ -302,6 +302,23 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureViewDirectWriteResponse do
     json_name: "writeResponses"
 end
 
+defmodule Google.Cloud.Aiplatform.V1.GenerateFetchAccessTokenRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :feature_view, 1, type: :string, json_name: "featureView", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.GenerateFetchAccessTokenResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :access_token, 1, type: :string, json_name: "accessToken"
+  field :expire_time, 2, type: Google.Protobuf.Timestamp, json_name: "expireTime"
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStoreService.Service do
   @moduledoc false
 
@@ -320,6 +337,10 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStoreService.Service do
   rpc :FeatureViewDirectWrite,
       stream(Google.Cloud.Aiplatform.V1.FeatureViewDirectWriteRequest),
       stream(Google.Cloud.Aiplatform.V1.FeatureViewDirectWriteResponse)
+
+  rpc :GenerateFetchAccessToken,
+      Google.Cloud.Aiplatform.V1.GenerateFetchAccessTokenRequest,
+      Google.Cloud.Aiplatform.V1.GenerateFetchAccessTokenResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStoreService.Stub do
