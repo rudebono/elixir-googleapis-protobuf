@@ -272,6 +272,18 @@ defmodule Google.Cloud.Aiplatform.V1beta1.SpeechConfig do
     json_name: "voiceConfig"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.ImageConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :aspect_ratio, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "aspectRatio",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig.RoutingConfig.AutoRoutingMode do
   @moduledoc false
 
@@ -443,6 +455,12 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerationConfig do
   field :model_config, 27,
     type: Google.Cloud.Aiplatform.V1beta1.GenerationConfig.ModelConfig,
     json_name: "modelConfig",
+    deprecated: false
+
+  field :image_config, 30,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.ImageConfig,
+    json_name: "imageConfig",
     deprecated: false
 end
 
