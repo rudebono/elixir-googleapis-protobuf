@@ -227,7 +227,8 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataMessage do
   field :generated_looker_query, 4,
     type: Google.Cloud.Geminidataanalytics.V1alpha.LookerQuery,
     json_name: "generatedLookerQuery",
-    oneof: 0
+    oneof: 0,
+    deprecated: true
 
   field :big_query_job, 5,
     type: Google.Cloud.Geminidataanalytics.V1alpha.BigQueryJob,
@@ -431,9 +432,9 @@ defmodule Google.Cloud.Geminidataanalytics.V1alpha.DataChatService.Service do
       Google.Cloud.Geminidataanalytics.V1alpha.CreateConversationRequest,
       Google.Cloud.Geminidataanalytics.V1alpha.Conversation
 
-  rpc :UpdateConversation,
-      Google.Cloud.Geminidataanalytics.V1alpha.UpdateConversationRequest,
-      Google.Cloud.Geminidataanalytics.V1alpha.Conversation
+  rpc :DeleteConversation,
+      Google.Cloud.Geminidataanalytics.V1alpha.DeleteConversationRequest,
+      Google.Protobuf.Empty
 
   rpc :GetConversation,
       Google.Cloud.Geminidataanalytics.V1alpha.GetConversationRequest,
