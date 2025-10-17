@@ -9,6 +9,16 @@ defmodule Google.Cloud.Universalledger.V1.FeePayer do
   field :FEE_PAYER_OTHER, 3
 end
 
+defmodule Google.Cloud.Universalledger.V1.KeyFormat do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :KEY_FORMAT_UNSPECIFIED, 0
+  field :KEY_FORMAT_TINK_WIRE_FORMAT, 1
+  field :KEY_FORMAT_PEM_EC_P256_SHA256, 2
+end
+
 defmodule Google.Cloud.Universalledger.V1.SettlementMode do
   @moduledoc false
 
@@ -55,6 +65,12 @@ defmodule Google.Cloud.Universalledger.V1.CreateAccount do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey", deprecated: false
+
+  field :key_format, 6,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
 
   field :roles, 2,
     repeated: true,
@@ -205,6 +221,13 @@ defmodule Google.Cloud.Universalledger.V1.CreateTokenManager do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 5,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
+
   field :account_comment, 4, type: :string, json_name: "accountComment", deprecated: false
 end
 
@@ -214,6 +237,12 @@ defmodule Google.Cloud.Universalledger.V1.CreateAccountManager do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 5,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
 
   field :default_token_manager, 2,
     type: Google.Cloud.Universalledger.V1.Entity,
@@ -228,6 +257,13 @@ defmodule Google.Cloud.Universalledger.V1.CreateClearinghouse do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 6,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
+
   field :account_comment, 4, type: :string, json_name: "accountComment", deprecated: false
 
   field :settlement_mode, 5,
@@ -242,6 +278,13 @@ defmodule Google.Cloud.Universalledger.V1.TransferPlatformOperator do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 3,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
+
   field :account_comment, 2, type: :string, json_name: "accountComment", deprecated: false
 end
 
@@ -251,6 +294,13 @@ defmodule Google.Cloud.Universalledger.V1.CreateCurrencyOperator do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 4,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
+
   field :account_comment, 2, type: :string, json_name: "accountComment", deprecated: false
   field :currency, 3, type: :string
 end
@@ -261,6 +311,13 @@ defmodule Google.Cloud.Universalledger.V1.TransferCurrencyOperator do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :public_key, 1, type: :bytes, json_name: "publicKey"
+
+  field :key_format, 5,
+    type: Google.Cloud.Universalledger.V1.KeyFormat,
+    json_name: "keyFormat",
+    enum: true,
+    deprecated: false
+
   field :account_comment, 2, type: :string, json_name: "accountComment", deprecated: false
 
   field :currency_operator, 4,
