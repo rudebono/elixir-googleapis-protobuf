@@ -29,6 +29,11 @@ defmodule Google.Cloud.Discoveryengine.V1.Session.Turn do
     json_name: "detailedAnswer",
     deprecated: false
 
+  field :detailed_assist_answer, 8,
+    type: Google.Cloud.Discoveryengine.V1.AssistAnswer,
+    json_name: "detailedAssistAnswer",
+    deprecated: false
+
   field :query_config, 16,
     repeated: true,
     type: Google.Cloud.Discoveryengine.V1.Session.Turn.QueryConfigEntry,
@@ -47,6 +52,7 @@ defmodule Google.Cloud.Discoveryengine.V1.Session do
   field :state, 2, type: Google.Cloud.Discoveryengine.V1.Session.State, enum: true
   field :user_pseudo_id, 3, type: :string, json_name: "userPseudoId"
   field :turns, 4, repeated: true, type: Google.Cloud.Discoveryengine.V1.Session.Turn
+  field :labels, 9, repeated: true, type: :string, deprecated: false
   field :start_time, 5, type: Google.Protobuf.Timestamp, json_name: "startTime", deprecated: false
   field :end_time, 6, type: Google.Protobuf.Timestamp, json_name: "endTime", deprecated: false
   field :is_pinned, 8, type: :bool, json_name: "isPinned", deprecated: false

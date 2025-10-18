@@ -32,6 +32,11 @@ defmodule Google.Cloud.Aiplatform.V1.TuningJob do
 
   field :base_model, 4, type: :string, json_name: "baseModel", oneof: 0
 
+  field :pre_tuned_model, 31,
+    type: Google.Cloud.Aiplatform.V1.PreTunedModel,
+    json_name: "preTunedModel",
+    oneof: 0
+
   field :supervised_tuning_spec, 5,
     type: Google.Cloud.Aiplatform.V1.SupervisedTuningSpec,
     json_name: "supervisedTuningSpec",
@@ -276,4 +281,14 @@ defmodule Google.Cloud.Aiplatform.V1.TunedModelCheckpoint do
   field :epoch, 2, type: :int64
   field :step, 3, type: :int64
   field :endpoint, 4, type: :string
+end
+
+defmodule Google.Cloud.Aiplatform.V1.PreTunedModel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :tuned_model_name, 1, type: :string, json_name: "tunedModelName", deprecated: false
+  field :checkpoint_id, 2, type: :string, json_name: "checkpointId", deprecated: false
+  field :base_model, 3, type: :string, json_name: "baseModel", deprecated: false
 end

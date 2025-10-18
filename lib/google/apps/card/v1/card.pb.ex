@@ -38,6 +38,27 @@ defmodule Google.Apps.Card.V1.Widget.HorizontalAlignment do
   field :END, 3
 end
 
+defmodule Google.Apps.Card.V1.Widget.VerticalAlignment do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :VERTICAL_ALIGNMENT_UNSPECIFIED, 0
+  field :TOP, 1
+  field :MIDDLE, 2
+  field :BOTTOM, 3
+end
+
+defmodule Google.Apps.Card.V1.TextParagraph.TextSyntax do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TEXT_SYNTAX_UNSPECIFIED, 0
+  field :HTML, 1
+  field :MARKDOWN, 2
+end
+
 defmodule Google.Apps.Card.V1.DecoratedText.SwitchControl.ControlType do
   @moduledoc false
 
@@ -86,6 +107,18 @@ defmodule Google.Apps.Card.V1.DateTimePicker.DateTimePickerType do
   field :DATE_AND_TIME, 0
   field :DATE_ONLY, 1
   field :TIME_ONLY, 2
+end
+
+defmodule Google.Apps.Card.V1.Button.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :OUTLINED, 1
+  field :FILLED, 2
+  field :FILLED_TONAL, 3
+  field :BORDERLESS, 4
 end
 
 defmodule Google.Apps.Card.V1.ImageCropStyle.ImageCropType do
@@ -177,6 +210,29 @@ defmodule Google.Apps.Card.V1.Action.Interaction do
   field :OPEN_DIALOG, 1
 end
 
+defmodule Google.Apps.Card.V1.Validation.InputType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :INPUT_TYPE_UNSPECIFIED, 0
+  field :TEXT, 1
+  field :INTEGER, 2
+  field :FLOAT, 3
+  field :EMAIL, 4
+  field :EMOJI_PICKER, 5
+end
+
+defmodule Google.Apps.Card.V1.ChipList.Layout do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :LAYOUT_UNSPECIFIED, 0
+  field :WRAPPED, 1
+  field :HORIZONTAL_SCROLLABLE, 2
+end
+
 defmodule Google.Apps.Card.V1.Card.CardHeader do
   @moduledoc false
 
@@ -203,6 +259,10 @@ defmodule Google.Apps.Card.V1.Card.Section do
   field :widgets, 2, repeated: true, type: Google.Apps.Card.V1.Widget
   field :collapsible, 5, type: :bool
   field :uncollapsible_widgets_count, 6, type: :int32, json_name: "uncollapsibleWidgetsCount"
+
+  field :collapse_control, 8,
+    type: Google.Apps.Card.V1.CollapseControl,
+    json_name: "collapseControl"
 end
 
 defmodule Google.Apps.Card.V1.Card.CardAction do
@@ -212,6 +272,22 @@ defmodule Google.Apps.Card.V1.Card.CardAction do
 
   field :action_label, 1, type: :string, json_name: "actionLabel"
   field :on_click, 2, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
+end
+
+defmodule Google.Apps.Card.V1.Card.NestedWidget do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :data, 0
+
+  field :text_paragraph, 1,
+    type: Google.Apps.Card.V1.TextParagraph,
+    json_name: "textParagraph",
+    oneof: 0
+
+  field :button_list, 3, type: Google.Apps.Card.V1.ButtonList, json_name: "buttonList", oneof: 0
+  field :image, 10, type: Google.Apps.Card.V1.Image, oneof: 0
 end
 
 defmodule Google.Apps.Card.V1.Card.CardFixedFooter do
@@ -289,6 +365,8 @@ defmodule Google.Apps.Card.V1.Widget do
   field :divider, 9, type: Google.Apps.Card.V1.Divider, oneof: 0
   field :grid, 10, type: Google.Apps.Card.V1.Grid, oneof: 0
   field :columns, 11, type: Google.Apps.Card.V1.Columns, oneof: 0
+  field :carousel, 13, type: Google.Apps.Card.V1.Carousel, oneof: 0
+  field :chip_list, 14, type: Google.Apps.Card.V1.ChipList, json_name: "chipList", oneof: 0
 
   field :horizontal_alignment, 8,
     type: Google.Apps.Card.V1.Widget.HorizontalAlignment,
@@ -302,6 +380,12 @@ defmodule Google.Apps.Card.V1.TextParagraph do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :text, 1, type: :string
+  field :max_lines, 2, type: :int32, json_name: "maxLines"
+
+  field :text_syntax, 4,
+    type: Google.Apps.Card.V1.TextParagraph.TextSyntax,
+    json_name: "textSyntax",
+    enum: true
 end
 
 defmodule Google.Apps.Card.V1.Image do
@@ -345,10 +429,23 @@ defmodule Google.Apps.Card.V1.DecoratedText do
 
   field :icon, 1, type: Google.Apps.Card.V1.Icon, deprecated: true
   field :start_icon, 12, type: Google.Apps.Card.V1.Icon, json_name: "startIcon"
+
+  field :start_icon_vertical_alignment, 13,
+    type: Google.Apps.Card.V1.Widget.VerticalAlignment,
+    json_name: "startIconVerticalAlignment",
+    enum: true
+
   field :top_label, 3, type: :string, json_name: "topLabel"
+  field :top_label_text, 17, type: Google.Apps.Card.V1.TextParagraph, json_name: "topLabelText"
   field :text, 4, type: :string
+  field :content_text, 18, type: Google.Apps.Card.V1.TextParagraph, json_name: "contentText"
   field :wrap_text, 5, type: :bool, json_name: "wrapText"
   field :bottom_label, 6, type: :string, json_name: "bottomLabel"
+
+  field :bottom_label_text, 19,
+    type: Google.Apps.Card.V1.TextParagraph,
+    json_name: "bottomLabelText"
+
   field :on_click, 7, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
   field :button, 8, type: Google.Apps.Card.V1.Button, oneof: 0
 
@@ -380,6 +477,7 @@ defmodule Google.Apps.Card.V1.TextInput do
     type: Google.Apps.Card.V1.Action,
     json_name: "autoCompleteAction"
 
+  field :validation, 11, type: Google.Apps.Card.V1.Validation
   field :placeholder_text, 12, type: :string, json_name: "placeholderText"
 end
 
@@ -414,10 +512,12 @@ defmodule Google.Apps.Card.V1.SelectionInput.SelectionItem do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
+  oneof :start_icon, 0
+
   field :text, 1, type: :string
   field :value, 2, type: :string
   field :selected, 3, type: :bool
-  field :start_icon_uri, 4, type: :string, json_name: "startIconUri"
+  field :start_icon_uri, 4, type: :string, json_name: "startIconUri", oneof: 0
   field :bottom_text, 5, type: :string, json_name: "bottomText"
 end
 
@@ -449,6 +549,7 @@ defmodule Google.Apps.Card.V1.SelectionInput do
   field :on_change_action, 5, type: Google.Apps.Card.V1.Action, json_name: "onChangeAction"
 
   field :multi_select_max_selected_items, 6,
+    proto3_optional: true,
     type: :int32,
     json_name: "multiSelectMaxSelectedItems"
 
@@ -473,9 +574,28 @@ defmodule Google.Apps.Card.V1.DateTimePicker do
   field :name, 1, type: :string
   field :label, 2, type: :string
   field :type, 3, type: Google.Apps.Card.V1.DateTimePicker.DateTimePickerType, enum: true
-  field :value_ms_epoch, 4, type: :int64, json_name: "valueMsEpoch"
+  field :value_ms_epoch, 4, proto3_optional: true, type: :int64, json_name: "valueMsEpoch"
   field :timezone_offset_date, 5, type: :int32, json_name: "timezoneOffsetDate"
   field :on_change_action, 6, type: Google.Apps.Card.V1.Action, json_name: "onChangeAction"
+end
+
+defmodule Google.Apps.Card.V1.OverflowMenu.OverflowMenuItem do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :start_icon, 1, type: Google.Apps.Card.V1.Icon, json_name: "startIcon"
+  field :text, 2, type: :string
+  field :on_click, 3, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
+  field :disabled, 4, type: :bool
+end
+
+defmodule Google.Apps.Card.V1.OverflowMenu do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :items, 1, repeated: true, type: Google.Apps.Card.V1.OverflowMenu.OverflowMenuItem
 end
 
 defmodule Google.Apps.Card.V1.Button do
@@ -489,6 +609,7 @@ defmodule Google.Apps.Card.V1.Button do
   field :on_click, 4, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
   field :disabled, 5, type: :bool
   field :alt_text, 6, type: :string, json_name: "altText"
+  field :type, 7, type: Google.Apps.Card.V1.Button.Type, enum: true
 end
 
 defmodule Google.Apps.Card.V1.Icon do
@@ -610,6 +731,8 @@ defmodule Google.Apps.Card.V1.Columns.Column.Widgets do
     type: Google.Apps.Card.V1.DateTimePicker,
     json_name: "dateTimePicker",
     oneof: 0
+
+  field :chip_list, 8, type: Google.Apps.Card.V1.ChipList, json_name: "chipList", oneof: 0
 end
 
 defmodule Google.Apps.Card.V1.Columns.Column do
@@ -646,6 +769,44 @@ defmodule Google.Apps.Card.V1.Columns do
     json_name: "columnItems"
 end
 
+defmodule Google.Apps.Card.V1.Carousel.CarouselCard do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :widgets, 1, repeated: true, type: Google.Apps.Card.V1.Card.NestedWidget
+
+  field :footer_widgets, 2,
+    repeated: true,
+    type: Google.Apps.Card.V1.Card.NestedWidget,
+    json_name: "footerWidgets"
+end
+
+defmodule Google.Apps.Card.V1.Carousel do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :carousel_cards, 4,
+    repeated: true,
+    type: Google.Apps.Card.V1.Carousel.CarouselCard,
+    json_name: "carouselCards"
+end
+
+defmodule Google.Apps.Card.V1.CollapseControl do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :horizontal_alignment, 1,
+    type: Google.Apps.Card.V1.Widget.HorizontalAlignment,
+    json_name: "horizontalAlignment",
+    enum: true
+
+  field :expand_button, 2, type: Google.Apps.Card.V1.Button, json_name: "expandButton"
+  field :collapse_button, 3, type: Google.Apps.Card.V1.Button, json_name: "collapseButton"
+end
+
 defmodule Google.Apps.Card.V1.OnClick do
   @moduledoc false
 
@@ -662,6 +823,11 @@ defmodule Google.Apps.Card.V1.OnClick do
     oneof: 0
 
   field :card, 4, type: Google.Apps.Card.V1.Card, oneof: 0
+
+  field :overflow_menu, 8,
+    type: Google.Apps.Card.V1.OverflowMenu,
+    json_name: "overflowMenu",
+    oneof: 0
 end
 
 defmodule Google.Apps.Card.V1.OpenLink do
@@ -698,4 +864,41 @@ defmodule Google.Apps.Card.V1.Action do
 
   field :persist_values, 4, type: :bool, json_name: "persistValues"
   field :interaction, 5, type: Google.Apps.Card.V1.Action.Interaction, enum: true
+  field :required_widgets, 6, repeated: true, type: :string, json_name: "requiredWidgets"
+  field :all_widgets_are_required, 7, type: :bool, json_name: "allWidgetsAreRequired"
+end
+
+defmodule Google.Apps.Card.V1.Validation do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :character_limit, 1, type: :int32, json_name: "characterLimit"
+
+  field :input_type, 2,
+    type: Google.Apps.Card.V1.Validation.InputType,
+    json_name: "inputType",
+    enum: true
+end
+
+defmodule Google.Apps.Card.V1.ChipList do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :layout, 1, type: Google.Apps.Card.V1.ChipList.Layout, enum: true
+  field :chips, 2, repeated: true, type: Google.Apps.Card.V1.Chip
+end
+
+defmodule Google.Apps.Card.V1.Chip do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :icon, 1, type: Google.Apps.Card.V1.Icon
+  field :label, 2, type: :string
+  field :on_click, 3, type: Google.Apps.Card.V1.OnClick, json_name: "onClick"
+  field :enabled, 4, type: :bool, deprecated: true
+  field :disabled, 6, type: :bool
+  field :alt_text, 5, type: :string, json_name: "altText"
 end

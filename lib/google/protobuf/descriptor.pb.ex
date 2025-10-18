@@ -623,6 +623,8 @@ defmodule Google.Protobuf.FieldOptions.FeatureSupport do
     type: Google.Protobuf.Edition,
     json_name: "editionRemoved",
     enum: true
+
+  field :removal_error, 5, optional: true, type: :string, json_name: "removalError"
 end
 
 defmodule Google.Protobuf.FieldOptions do

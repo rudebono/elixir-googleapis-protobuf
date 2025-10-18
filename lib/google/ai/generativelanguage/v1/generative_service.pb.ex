@@ -44,7 +44,11 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate.FinishReason do
   field :SPII, 9
   field :MALFORMED_FUNCTION_CALL, 10
   field :IMAGE_SAFETY, 11
+  field :IMAGE_PROHIBITED_CONTENT, 14
+  field :IMAGE_OTHER, 15
+  field :NO_IMAGE, 16
   field :UNEXPECTED_TOOL_CALL, 12
+  field :TOO_MANY_TOOL_CALLS, 13
 end
 
 defmodule Google.Ai.Generativelanguage.V1.UrlMetadata.UrlRetrievalStatus do
@@ -55,6 +59,8 @@ defmodule Google.Ai.Generativelanguage.V1.UrlMetadata.UrlRetrievalStatus do
   field :URL_RETRIEVAL_STATUS_UNSPECIFIED, 0
   field :URL_RETRIEVAL_STATUS_SUCCESS, 1
   field :URL_RETRIEVAL_STATUS_ERROR, 2
+  field :URL_RETRIEVAL_STATUS_PAYWALL, 3
+  field :URL_RETRIEVAL_STATUS_UNSAFE, 4
 end
 
 defmodule Google.Ai.Generativelanguage.V1.GenerateContentRequest do
@@ -109,6 +115,11 @@ defmodule Google.Ai.Generativelanguage.V1.GenerationConfig do
   field :top_p, 6, proto3_optional: true, type: :float, json_name: "topP", deprecated: false
   field :top_k, 7, proto3_optional: true, type: :int32, json_name: "topK", deprecated: false
   field :seed, 8, proto3_optional: true, type: :int32, deprecated: false
+
+  field :response_json_schema_ordered, 28,
+    type: Google.Protobuf.Value,
+    json_name: "responseJsonSchemaOrdered",
+    deprecated: false
 
   field :presence_penalty, 15,
     proto3_optional: true,
@@ -233,6 +244,12 @@ defmodule Google.Ai.Generativelanguage.V1.Candidate do
     enum: true,
     deprecated: false
 
+  field :finish_message, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "finishMessage",
+    deprecated: false
+
   field :safety_ratings, 5,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1.SafetyRating,
@@ -311,6 +328,11 @@ defmodule Google.Ai.Generativelanguage.V1.LogprobsResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :log_probability_sum, 3,
+    proto3_optional: true,
+    type: :float,
+    json_name: "logProbabilitySum"
 
   field :top_candidates, 1,
     repeated: true,

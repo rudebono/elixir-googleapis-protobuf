@@ -507,6 +507,12 @@ defmodule Google.Pubsub.V1.IngestionFailureEvent.AwsKinesisFailureReason do
     json_name: "messageTransformationFailureReason",
     oneof: 0,
     deprecated: false
+
+  field :api_violation_reason, 6,
+    type: Google.Pubsub.V1.IngestionFailureEvent.ApiViolationReason,
+    json_name: "apiViolationReason",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Pubsub.V1.IngestionFailureEvent do
@@ -585,6 +591,15 @@ defmodule Google.Pubsub.V1.Topic.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Pubsub.V1.Topic.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Pubsub.V1.Topic do
   @moduledoc false
 
@@ -628,6 +643,12 @@ defmodule Google.Pubsub.V1.Topic do
     repeated: true,
     type: Google.Pubsub.V1.MessageTransform,
     json_name: "messageTransforms",
+    deprecated: false
+
+  field :tags, 14,
+    repeated: true,
+    type: Google.Pubsub.V1.Topic.TagsEntry,
+    map: true,
     deprecated: false
 end
 
@@ -793,6 +814,15 @@ defmodule Google.Pubsub.V1.Subscription.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Pubsub.V1.Subscription.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Pubsub.V1.Subscription do
   @moduledoc false
 
@@ -879,6 +909,12 @@ defmodule Google.Pubsub.V1.Subscription do
     repeated: true,
     type: Google.Pubsub.V1.MessageTransform,
     json_name: "messageTransforms",
+    deprecated: false
+
+  field :tags, 26,
+    repeated: true,
+    type: Google.Pubsub.V1.Subscription.TagsEntry,
+    map: true,
     deprecated: false
 end
 
@@ -1317,6 +1353,15 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry do
   field :value, 2, type: :string
 end
 
+defmodule Google.Pubsub.V1.CreateSnapshotRequest.TagsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
+end
+
 defmodule Google.Pubsub.V1.CreateSnapshotRequest do
   @moduledoc false
 
@@ -1328,6 +1373,12 @@ defmodule Google.Pubsub.V1.CreateSnapshotRequest do
   field :labels, 3,
     repeated: true,
     type: Google.Pubsub.V1.CreateSnapshotRequest.LabelsEntry,
+    map: true,
+    deprecated: false
+
+  field :tags, 4,
+    repeated: true,
+    type: Google.Pubsub.V1.CreateSnapshotRequest.TagsEntry,
     map: true,
     deprecated: false
 end

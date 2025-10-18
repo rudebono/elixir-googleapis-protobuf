@@ -97,6 +97,8 @@ defmodule Google.Cloud.Texttospeech.V1beta1.AdvancedVoiceOptions do
     proto3_optional: true,
     type: :bool,
     json_name: "lowLatencyJourneySynthesis"
+
+  field :relax_safety_filters, 8, type: :bool, json_name: "relaxSafetyFilters", deprecated: false
 end
 
 defmodule Google.Cloud.Texttospeech.V1beta1.SynthesizeSpeechRequest do
