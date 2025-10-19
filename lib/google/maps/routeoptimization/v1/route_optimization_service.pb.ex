@@ -16,6 +16,7 @@ defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest.SolvingMode do
   field :DEFAULT_SOLVE, 0
   field :VALIDATE_ONLY, 1
   field :DETECT_SOME_INFEASIBLE_SHIPMENTS, 2
+  field :TRANSFORM_AND_RETURN_REQUEST, 3
 end
 
 defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest.SearchMode do
@@ -26,6 +27,18 @@ defmodule Google.Maps.Routeoptimization.V1.OptimizeToursRequest.SearchMode do
   field :SEARCH_MODE_UNSPECIFIED, 0
   field :RETURN_FAST, 1
   field :CONSUME_ALL_AVAILABLE_TIME, 2
+end
+
+defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.Objective.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DEFAULT, 0
+  field :MIN_DISTANCE, 10
+  field :MIN_WORKING_TIME, 11
+  field :MIN_TRAVEL_TIME, 12
+  field :MIN_NUM_VEHICLES, 13
 end
 
 defmodule Google.Maps.Routeoptimization.V1.ShipmentTypeIncompatibility.IncompatibilityMode do
@@ -82,6 +95,11 @@ defmodule Google.Maps.Routeoptimization.V1.SkippedShipment.Reason.Code do
   field :CANNOT_BE_PERFORMED_WITHIN_VEHICLE_TRAVEL_DURATION_LIMIT, 5
   field :CANNOT_BE_PERFORMED_WITHIN_VEHICLE_TIME_WINDOWS, 6
   field :VEHICLE_NOT_ALLOWED, 7
+  field :VEHICLE_IGNORED, 8
+  field :SHIPMENT_IGNORED, 9
+  field :SKIPPED_IN_INJECTED_SOLUTION_CONSTRAINT, 10
+  field :VEHICLE_ROUTE_IS_FULLY_SEQUENCE_CONSTRAINED, 11
+  field :ZERO_PENALTY_COST, 13
 end
 
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation.Level do
@@ -93,6 +111,38 @@ defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.Constraint
   field :RELAX_VISIT_TIMES_AFTER_THRESHOLD, 1
   field :RELAX_VISIT_TIMES_AND_SEQUENCE_AFTER_THRESHOLD, 2
   field :RELAX_ALL_AFTER_THRESHOLD, 3
+end
+
+defmodule Google.Maps.Routeoptimization.V1.Uri do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :uri, 1, type: :string
+end
+
+defmodule Google.Maps.Routeoptimization.V1.OptimizeToursUriRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :input, 2, type: Google.Maps.Routeoptimization.V1.Uri, deprecated: false
+  field :output, 3, type: Google.Maps.Routeoptimization.V1.Uri, deprecated: false
+end
+
+defmodule Google.Maps.Routeoptimization.V1.OptimizeToursUriResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :output, 1, type: Google.Maps.Routeoptimization.V1.Uri, deprecated: false
+end
+
+defmodule Google.Maps.Routeoptimization.V1.OptimizeToursUriMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 end
 
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursRequest.AsyncModelConfig do
@@ -134,6 +184,12 @@ defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursResponse do
 end
 
 defmodule Google.Maps.Routeoptimization.V1.BatchOptimizeToursMetadata do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Maps.Routeoptimization.V1.OptimizeToursLongRunningMetadata do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -257,7 +313,24 @@ defmodule Google.Maps.Routeoptimization.V1.OptimizeToursResponse do
     type: Google.Maps.Routeoptimization.V1.OptimizeToursValidationError,
     json_name: "validationErrors"
 
+  field :processed_request, 21,
+    type: Google.Maps.Routeoptimization.V1.OptimizeToursRequest,
+    json_name: "processedRequest"
+
   field :metrics, 6, type: Google.Maps.Routeoptimization.V1.OptimizeToursResponse.Metrics
+end
+
+defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.Objective do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :type, 1,
+    proto3_optional: true,
+    type: Google.Maps.Routeoptimization.V1.ShipmentModel.Objective.Type,
+    enum: true
+
+  field :weight, 2, proto3_optional: true, type: :double
 end
 
 defmodule Google.Maps.Routeoptimization.V1.ShipmentModel.DurationDistanceMatrix.Row do
@@ -300,6 +373,10 @@ defmodule Google.Maps.Routeoptimization.V1.ShipmentModel do
 
   field :shipments, 1, repeated: true, type: Google.Maps.Routeoptimization.V1.Shipment
   field :vehicles, 2, repeated: true, type: Google.Maps.Routeoptimization.V1.Vehicle
+
+  field :objectives, 17,
+    repeated: true,
+    type: Google.Maps.Routeoptimization.V1.ShipmentModel.Objective
 
   field :max_active_vehicles, 4,
     proto3_optional: true,
@@ -390,6 +467,7 @@ defmodule Google.Maps.Routeoptimization.V1.Shipment.VisitRequest do
 
   field :visit_types, 10, repeated: true, type: :string, json_name: "visitTypes"
   field :label, 11, type: :string
+  field :avoid_u_turns, 13, proto3_optional: true, type: :bool, json_name: "avoidUTurns"
 end
 
 defmodule Google.Maps.Routeoptimization.V1.Shipment.Load do
@@ -513,6 +591,24 @@ defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.Interval do
   field :max, 2, proto3_optional: true, type: :int64
 end
 
+defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.LoadCost do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :load_threshold, 1, proto3_optional: true, type: :int64, json_name: "loadThreshold"
+
+  field :cost_per_unit_below_threshold, 2,
+    proto3_optional: true,
+    type: :double,
+    json_name: "costPerUnitBelowThreshold"
+
+  field :cost_per_unit_above_threshold, 3,
+    proto3_optional: true,
+    type: :double,
+    json_name: "costPerUnitAboveThreshold"
+end
+
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit do
   @moduledoc false
 
@@ -529,6 +625,16 @@ defmodule Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit do
   field :end_load_interval, 5,
     type: Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.Interval,
     json_name: "endLoadInterval"
+
+  field :cost_per_kilometer, 6,
+    proto3_optional: true,
+    type: Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.LoadCost,
+    json_name: "costPerKilometer"
+
+  field :cost_per_traveled_hour, 7,
+    proto3_optional: true,
+    type: Google.Maps.Routeoptimization.V1.Vehicle.LoadLimit.LoadCost,
+    json_name: "costPerTraveledHour"
 end
 
 defmodule Google.Maps.Routeoptimization.V1.Vehicle.DurationLimit do
@@ -727,6 +833,7 @@ defmodule Google.Maps.Routeoptimization.V1.Waypoint do
   field :location, 1, type: Google.Maps.Routeoptimization.V1.Location, oneof: 0
   field :place_id, 2, type: :string, json_name: "placeId", oneof: 0
   field :side_of_road, 3, type: :bool, json_name: "sideOfRoad", deprecated: false
+  field :vehicle_stopover, 4, type: :bool, json_name: "vehicleStopover"
 end
 
 defmodule Google.Maps.Routeoptimization.V1.Location do
@@ -819,6 +926,11 @@ defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Visit do
   field :detour, 6, type: Google.Protobuf.Duration
   field :shipment_label, 7, type: :string, json_name: "shipmentLabel"
   field :visit_label, 8, type: :string, json_name: "visitLabel"
+
+  field :injected_solution_location_token, 13,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "injectedSolutionLocationToken"
 end
 
 defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute.Transition.VehicleLoadsEntry do
@@ -915,6 +1027,10 @@ defmodule Google.Maps.Routeoptimization.V1.ShipmentRoute do
   field :breaks, 11, repeated: true, type: Google.Maps.Routeoptimization.V1.ShipmentRoute.Break
   field :metrics, 12, type: Google.Maps.Routeoptimization.V1.AggregatedMetrics
 
+  field :vehicle_fullness, 20,
+    type: Google.Maps.Routeoptimization.V1.VehicleFullness,
+    json_name: "vehicleFullness"
+
   field :route_costs, 17,
     repeated: true,
     type: Google.Maps.Routeoptimization.V1.ShipmentRoute.RouteCostsEntry,
@@ -936,6 +1052,11 @@ defmodule Google.Maps.Routeoptimization.V1.SkippedShipment.Reason do
     type: :int32,
     json_name: "exampleVehicleIndex"
 
+  field :example_vehicle_indices, 5,
+    repeated: true,
+    type: :int32,
+    json_name: "exampleVehicleIndices"
+
   field :example_exceeded_capacity_type, 3,
     type: :string,
     json_name: "exampleExceededCapacityType"
@@ -948,6 +1069,13 @@ defmodule Google.Maps.Routeoptimization.V1.SkippedShipment do
 
   field :index, 1, type: :int32
   field :label, 2, type: :string
+  field :penalty_cost, 6, proto3_optional: true, type: :double, json_name: "penaltyCost"
+
+  field :estimated_incompatible_vehicle_ratio, 5,
+    proto3_optional: true,
+    type: :double,
+    json_name: "estimatedIncompatibleVehicleRatio"
+
   field :reasons, 3, repeated: true, type: Google.Maps.Routeoptimization.V1.SkippedShipment.Reason
 end
 
@@ -966,6 +1094,17 @@ defmodule Google.Maps.Routeoptimization.V1.AggregatedMetrics do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :performed_shipment_count, 1, type: :int32, json_name: "performedShipmentCount"
+
+  field :performed_mandatory_shipment_count, 12,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "performedMandatoryShipmentCount"
+
+  field :performed_shipment_penalty_cost_sum, 13,
+    proto3_optional: true,
+    type: :double,
+    json_name: "performedShipmentPenaltyCostSum"
+
   field :travel_duration, 2, type: Google.Protobuf.Duration, json_name: "travelDuration"
   field :wait_duration, 3, type: Google.Protobuf.Duration, json_name: "waitDuration"
   field :delay_duration, 4, type: Google.Protobuf.Duration, json_name: "delayDuration"
@@ -979,6 +1118,19 @@ defmodule Google.Maps.Routeoptimization.V1.AggregatedMetrics do
     type: Google.Maps.Routeoptimization.V1.AggregatedMetrics.MaxLoadsEntry,
     json_name: "maxLoads",
     map: true
+end
+
+defmodule Google.Maps.Routeoptimization.V1.VehicleFullness do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :max_fullness, 1, proto3_optional: true, type: :double, json_name: "maxFullness"
+  field :distance, 2, proto3_optional: true, type: :double
+  field :travel_duration, 3, proto3_optional: true, type: :double, json_name: "travelDuration"
+  field :active_duration, 4, proto3_optional: true, type: :double, json_name: "activeDuration"
+  field :max_load, 5, proto3_optional: true, type: :double, json_name: "maxLoad"
+  field :active_span, 6, proto3_optional: true, type: :double, json_name: "activeSpan"
 end
 
 defmodule Google.Maps.Routeoptimization.V1.InjectedSolutionConstraint.ConstraintRelaxation.Relaxation do
@@ -1125,6 +1277,14 @@ defmodule Google.Maps.Routeoptimization.V1.RouteOptimization.Service do
 
   rpc :BatchOptimizeTours,
       Google.Maps.Routeoptimization.V1.BatchOptimizeToursRequest,
+      Google.Longrunning.Operation
+
+  rpc :OptimizeToursLongRunning,
+      Google.Maps.Routeoptimization.V1.OptimizeToursRequest,
+      Google.Longrunning.Operation
+
+  rpc :OptimizeToursUri,
+      Google.Maps.Routeoptimization.V1.OptimizeToursUriRequest,
       Google.Longrunning.Operation
 end
 
