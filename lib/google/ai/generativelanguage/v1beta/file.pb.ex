@@ -17,6 +17,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.File.Source do
   field :SOURCE_UNSPECIFIED, 0
   field :UPLOADED, 1
   field :GENERATED, 2
+  field :REGISTERED, 3
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.File do
