@@ -95,6 +95,12 @@ defmodule Google.Cloud.Aiplatform.V1.Tool.ComputerUse do
     type: Google.Cloud.Aiplatform.V1.Tool.ComputerUse.Environment,
     enum: true,
     deprecated: false
+
+  field :excluded_predefined_functions, 2,
+    repeated: true,
+    type: :string,
+    json_name: "excludedPredefinedFunctions",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.Tool do
@@ -183,6 +189,44 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionCall do
   field :args, 2, type: Google.Protobuf.Struct, deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.FunctionResponsePart do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :data, 0
+
+  field :inline_data, 1,
+    type: Google.Cloud.Aiplatform.V1.FunctionResponseBlob,
+    json_name: "inlineData",
+    oneof: 0
+
+  field :file_data, 2,
+    type: Google.Cloud.Aiplatform.V1.FunctionResponseFileData,
+    json_name: "fileData",
+    oneof: 0
+end
+
+defmodule Google.Cloud.Aiplatform.V1.FunctionResponseBlob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
+  field :data, 2, type: :bytes, deprecated: false
+  field :display_name, 4, type: :string, json_name: "displayName", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.FunctionResponseFileData do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :mime_type, 1, type: :string, json_name: "mimeType", deprecated: false
+  field :file_uri, 2, type: :string, json_name: "fileUri", deprecated: false
+  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.FunctionResponse do
   @moduledoc false
 
@@ -190,6 +234,11 @@ defmodule Google.Cloud.Aiplatform.V1.FunctionResponse do
 
   field :name, 1, type: :string, deprecated: false
   field :response, 2, type: Google.Protobuf.Struct, deprecated: false
+
+  field :parts, 4,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.FunctionResponsePart,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ExecutableCode do

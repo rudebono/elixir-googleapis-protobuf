@@ -74,10 +74,56 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.DeploymentSpec do
     deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec.InlineSource do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :source_archive, 1, type: :bytes, json_name: "sourceArchive", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec.PythonSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :version, 1, type: :string, deprecated: false
+  field :entrypoint_module, 2, type: :string, json_name: "entrypointModule", deprecated: false
+  field :entrypoint_object, 3, type: :string, json_name: "entrypointObject", deprecated: false
+  field :requirements_file, 4, type: :string, json_name: "requirementsFile", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :source, 0
+
+  oneof :language_spec, 1
+
+  field :inline_source, 1,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec.InlineSource,
+    json_name: "inlineSource",
+    oneof: 0
+
+  field :python_spec, 2,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec.PythonSpec,
+    json_name: "pythonSpec",
+    oneof: 1
+end
+
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :deployment_source, 0
+
+  field :source_code_spec, 11,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngineSpec.SourceCodeSpec,
+    json_name: "sourceCodeSpec",
+    oneof: 0
 
   field :service_account, 1,
     proto3_optional: true,
@@ -102,6 +148,15 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngineSpec do
     deprecated: false
 
   field :agent_framework, 5, type: :string, json_name: "agentFramework", deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine.LabelsEntry do
+  @moduledoc false
+
+  use Protobuf, map: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :key, 1, type: :string
+  field :value, 2, type: :string
 end
 
 defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine do
@@ -129,4 +184,9 @@ defmodule Google.Cloud.Aiplatform.V1.ReasoningEngine do
   field :encryption_spec, 11,
     type: Google.Cloud.Aiplatform.V1.EncryptionSpec,
     json_name: "encryptionSpec"
+
+  field :labels, 17,
+    repeated: true,
+    type: Google.Cloud.Aiplatform.V1.ReasoningEngine.LabelsEntry,
+    map: true
 end
