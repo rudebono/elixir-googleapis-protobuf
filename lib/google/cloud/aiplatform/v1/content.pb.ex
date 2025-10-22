@@ -208,6 +208,18 @@ defmodule Google.Cloud.Aiplatform.V1.VideoMetadata do
   field :end_offset, 2, type: Google.Protobuf.Duration, json_name: "endOffset", deprecated: false
 end
 
+defmodule Google.Cloud.Aiplatform.V1.ImageConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :aspect_ratio, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "aspectRatio",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Aiplatform.V1.GenerationConfig.RoutingConfig.AutoRoutingMode do
   @moduledoc false
 
@@ -336,6 +348,12 @@ defmodule Google.Cloud.Aiplatform.V1.GenerationConfig do
   field :thinking_config, 25,
     type: Google.Cloud.Aiplatform.V1.GenerationConfig.ThinkingConfig,
     json_name: "thinkingConfig",
+    deprecated: false
+
+  field :image_config, 30,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1.ImageConfig,
+    json_name: "imageConfig",
     deprecated: false
 end
 

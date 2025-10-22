@@ -6,6 +6,8 @@ defmodule Google.Cloud.Oracledatabase.V1.ListCloudExadataInfrastructuresRequest 
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.ListCloudExadataInfrastructuresResponse do
@@ -190,6 +192,7 @@ defmodule Google.Cloud.Oracledatabase.V1.ListGiVersionsRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.ListGiVersionsResponse do
@@ -213,6 +216,7 @@ defmodule Google.Cloud.Oracledatabase.V1.ListDbSystemShapesRequest do
   field :parent, 1, type: :string, deprecated: false
   field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.ListDbSystemShapesResponse do
@@ -305,6 +309,24 @@ defmodule Google.Cloud.Oracledatabase.V1.CreateAutonomousDatabaseRequest do
   field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
 end
 
+defmodule Google.Cloud.Oracledatabase.V1.UpdateAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :autonomous_database, 2,
+    type: Google.Cloud.Oracledatabase.V1.AutonomousDatabase,
+    json_name: "autonomousDatabase",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
 defmodule Google.Cloud.Oracledatabase.V1.DeleteAutonomousDatabaseRequest do
   @moduledoc false
 
@@ -349,6 +371,32 @@ defmodule Google.Cloud.Oracledatabase.V1.RestartAutonomousDatabaseRequest do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.SwitchoverAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :peer_autonomous_database, 2,
+    type: :string,
+    json_name: "peerAutonomousDatabase",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.FailoverAutonomousDatabaseRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+
+  field :peer_autonomous_database, 2,
+    type: :string,
+    json_name: "peerAutonomousDatabase",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.GenerateAutonomousDatabaseWalletRequest do
@@ -441,6 +489,92 @@ defmodule Google.Cloud.Oracledatabase.V1.ListAutonomousDatabaseBackupsResponse d
   field :next_page_token, 2, type: :string, json_name: "nextPageToken"
 end
 
+defmodule Google.Cloud.Oracledatabase.V1.CreateExadbVmClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :exadb_vm_cluster_id, 2, type: :string, json_name: "exadbVmClusterId", deprecated: false
+
+  field :exadb_vm_cluster, 3,
+    type: Google.Cloud.Oracledatabase.V1.ExadbVmCluster,
+    json_name: "exadbVmCluster",
+    deprecated: false
+
+  field :request_id, 4, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.DeleteExadbVmClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 2, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.GetExadbVmClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.ListExadbVmClustersRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+  field :order_by, 5, type: :string, json_name: "orderBy", deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.ListExadbVmClustersResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :exadb_vm_clusters, 1,
+    repeated: true,
+    type: Google.Cloud.Oracledatabase.V1.ExadbVmCluster,
+    json_name: "exadbVmClusters"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.UpdateExadbVmClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :update_mask, 1,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+
+  field :exadb_vm_cluster, 2,
+    type: Google.Cloud.Oracledatabase.V1.ExadbVmCluster,
+    json_name: "exadbVmCluster",
+    deprecated: false
+
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.RemoveVirtualMachineExadbVmClusterRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :name, 1, type: :string, deprecated: false
+  field :request_id, 3, type: :string, json_name: "requestId", deprecated: false
+  field :hostnames, 4, repeated: true, type: :string, deprecated: false
+end
+
 defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
   @moduledoc false
 
@@ -496,6 +630,10 @@ defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
       Google.Cloud.Oracledatabase.V1.ListGiVersionsRequest,
       Google.Cloud.Oracledatabase.V1.ListGiVersionsResponse
 
+  rpc :ListMinorVersions,
+      Google.Cloud.Oracledatabase.V1.ListMinorVersionsRequest,
+      Google.Cloud.Oracledatabase.V1.ListMinorVersionsResponse
+
   rpc :ListDbSystemShapes,
       Google.Cloud.Oracledatabase.V1.ListDbSystemShapesRequest,
       Google.Cloud.Oracledatabase.V1.ListDbSystemShapesResponse
@@ -510,6 +648,10 @@ defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
 
   rpc :CreateAutonomousDatabase,
       Google.Cloud.Oracledatabase.V1.CreateAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.UpdateAutonomousDatabaseRequest,
       Google.Longrunning.Operation
 
   rpc :DeleteAutonomousDatabase,
@@ -547,6 +689,130 @@ defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Service do
   rpc :RestartAutonomousDatabase,
       Google.Cloud.Oracledatabase.V1.RestartAutonomousDatabaseRequest,
       Google.Longrunning.Operation
+
+  rpc :SwitchoverAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.SwitchoverAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :FailoverAutonomousDatabase,
+      Google.Cloud.Oracledatabase.V1.FailoverAutonomousDatabaseRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListOdbNetworks,
+      Google.Cloud.Oracledatabase.V1.ListOdbNetworksRequest,
+      Google.Cloud.Oracledatabase.V1.ListOdbNetworksResponse
+
+  rpc :GetOdbNetwork,
+      Google.Cloud.Oracledatabase.V1.GetOdbNetworkRequest,
+      Google.Cloud.Oracledatabase.V1.OdbNetwork
+
+  rpc :CreateOdbNetwork,
+      Google.Cloud.Oracledatabase.V1.CreateOdbNetworkRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteOdbNetwork,
+      Google.Cloud.Oracledatabase.V1.DeleteOdbNetworkRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListOdbSubnets,
+      Google.Cloud.Oracledatabase.V1.ListOdbSubnetsRequest,
+      Google.Cloud.Oracledatabase.V1.ListOdbSubnetsResponse
+
+  rpc :GetOdbSubnet,
+      Google.Cloud.Oracledatabase.V1.GetOdbSubnetRequest,
+      Google.Cloud.Oracledatabase.V1.OdbSubnet
+
+  rpc :CreateOdbSubnet,
+      Google.Cloud.Oracledatabase.V1.CreateOdbSubnetRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteOdbSubnet,
+      Google.Cloud.Oracledatabase.V1.DeleteOdbSubnetRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListExadbVmClusters,
+      Google.Cloud.Oracledatabase.V1.ListExadbVmClustersRequest,
+      Google.Cloud.Oracledatabase.V1.ListExadbVmClustersResponse
+
+  rpc :GetExadbVmCluster,
+      Google.Cloud.Oracledatabase.V1.GetExadbVmClusterRequest,
+      Google.Cloud.Oracledatabase.V1.ExadbVmCluster
+
+  rpc :CreateExadbVmCluster,
+      Google.Cloud.Oracledatabase.V1.CreateExadbVmClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteExadbVmCluster,
+      Google.Cloud.Oracledatabase.V1.DeleteExadbVmClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateExadbVmCluster,
+      Google.Cloud.Oracledatabase.V1.UpdateExadbVmClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :RemoveVirtualMachineExadbVmCluster,
+      Google.Cloud.Oracledatabase.V1.RemoveVirtualMachineExadbVmClusterRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListExascaleDbStorageVaults,
+      Google.Cloud.Oracledatabase.V1.ListExascaleDbStorageVaultsRequest,
+      Google.Cloud.Oracledatabase.V1.ListExascaleDbStorageVaultsResponse
+
+  rpc :GetExascaleDbStorageVault,
+      Google.Cloud.Oracledatabase.V1.GetExascaleDbStorageVaultRequest,
+      Google.Cloud.Oracledatabase.V1.ExascaleDbStorageVault
+
+  rpc :CreateExascaleDbStorageVault,
+      Google.Cloud.Oracledatabase.V1.CreateExascaleDbStorageVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteExascaleDbStorageVault,
+      Google.Cloud.Oracledatabase.V1.DeleteExascaleDbStorageVaultRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListDbSystemInitialStorageSizes,
+      Google.Cloud.Oracledatabase.V1.ListDbSystemInitialStorageSizesRequest,
+      Google.Cloud.Oracledatabase.V1.ListDbSystemInitialStorageSizesResponse
+
+  rpc :ListDatabases,
+      Google.Cloud.Oracledatabase.V1.ListDatabasesRequest,
+      Google.Cloud.Oracledatabase.V1.ListDatabasesResponse
+
+  rpc :GetDatabase,
+      Google.Cloud.Oracledatabase.V1.GetDatabaseRequest,
+      Google.Cloud.Oracledatabase.V1.Database
+
+  rpc :ListPluggableDatabases,
+      Google.Cloud.Oracledatabase.V1.ListPluggableDatabasesRequest,
+      Google.Cloud.Oracledatabase.V1.ListPluggableDatabasesResponse
+
+  rpc :GetPluggableDatabase,
+      Google.Cloud.Oracledatabase.V1.GetPluggableDatabaseRequest,
+      Google.Cloud.Oracledatabase.V1.PluggableDatabase
+
+  rpc :ListDbSystems,
+      Google.Cloud.Oracledatabase.V1.ListDbSystemsRequest,
+      Google.Cloud.Oracledatabase.V1.ListDbSystemsResponse
+
+  rpc :GetDbSystem,
+      Google.Cloud.Oracledatabase.V1.GetDbSystemRequest,
+      Google.Cloud.Oracledatabase.V1.DbSystem
+
+  rpc :CreateDbSystem,
+      Google.Cloud.Oracledatabase.V1.CreateDbSystemRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteDbSystem,
+      Google.Cloud.Oracledatabase.V1.DeleteDbSystemRequest,
+      Google.Longrunning.Operation
+
+  rpc :ListDbVersions,
+      Google.Cloud.Oracledatabase.V1.ListDbVersionsRequest,
+      Google.Cloud.Oracledatabase.V1.ListDbVersionsResponse
+
+  rpc :ListDatabaseCharacterSets,
+      Google.Cloud.Oracledatabase.V1.ListDatabaseCharacterSetsRequest,
+      Google.Cloud.Oracledatabase.V1.ListDatabaseCharacterSetsResponse
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.OracleDatabase.Stub do

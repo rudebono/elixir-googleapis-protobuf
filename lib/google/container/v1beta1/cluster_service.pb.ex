@@ -93,6 +93,16 @@ defmodule Google.Container.V1beta1.LinuxNodeConfig.TransparentHugepageDefrag do
   field :TRANSPARENT_HUGEPAGE_DEFRAG_NEVER, 5
 end
 
+defmodule Google.Container.V1beta1.LinuxNodeConfig.NodeKernelModuleLoading.Policy do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :POLICY_UNSPECIFIED, 0
+  field :ENFORCE_SIGNED_MODULES, 1
+  field :DO_NOT_ENFORCE_SIGNED_MODULES, 2
+end
+
 defmodule Google.Container.V1beta1.WindowsNodeConfig.OSVersion do
   @moduledoc false
 
@@ -441,6 +451,15 @@ defmodule Google.Container.V1beta1.MaintenanceExclusionOptions.Scope do
   field :NO_MINOR_OR_NODE_UPGRADES, 2
 end
 
+defmodule Google.Container.V1beta1.MaintenanceExclusionOptions.EndTimeBehavior do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :END_TIME_BEHAVIOR_UNSPECIFIED, 0
+  field :UNTIL_END_OF_SUPPORT, 1
+end
+
 defmodule Google.Container.V1beta1.ClusterAutoscaling.AutoscalingProfile do
   @moduledoc false
 
@@ -764,6 +783,15 @@ defmodule Google.Container.V1beta1.PodAutoscaling.HPAProfile do
   field :PERFORMANCE, 2
 end
 
+defmodule Google.Container.V1beta1.Fleet.MembershipType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :MEMBERSHIP_TYPE_UNSPECIFIED, 0
+  field :LIGHTWEIGHT, 1
+end
+
 defmodule Google.Container.V1beta1.EnterpriseConfig.ClusterTier do
   @moduledoc false
 
@@ -862,6 +890,17 @@ defmodule Google.Container.V1beta1.GkeAutoUpgradeConfig.PatchMode do
   field :ACCELERATED, 1
 end
 
+defmodule Google.Container.V1beta1.NetworkTierConfig.NetworkTier do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :NETWORK_TIER_UNSPECIFIED, 0
+  field :NETWORK_TIER_DEFAULT, 1
+  field :NETWORK_TIER_PREMIUM, 2
+  field :NETWORK_TIER_STANDARD, 3
+end
+
 defmodule Google.Container.V1beta1.LinuxNodeConfig.HugepagesConfig do
   @moduledoc false
 
@@ -878,6 +917,85 @@ defmodule Google.Container.V1beta1.LinuxNodeConfig.HugepagesConfig do
     type: :int32,
     json_name: "hugepageSize1g",
     deprecated: false
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.EncryptionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :disabled, 1, proto3_optional: true, type: :bool, deprecated: false
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.BootDiskProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :swap_size, 0
+
+  field :swap_size_gib, 1, type: :int64, json_name: "swapSizeGib", oneof: 0
+  field :swap_size_percent, 2, type: :int32, json_name: "swapSizePercent", oneof: 0
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.EphemeralLocalSsdProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :swap_size, 0
+
+  field :swap_size_gib, 1, type: :int64, json_name: "swapSizeGib", oneof: 0
+  field :swap_size_percent, 2, type: :int32, json_name: "swapSizePercent", oneof: 0
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.DedicatedLocalSsdProfile do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :disk_count, 1, type: :int64, json_name: "diskCount"
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.SwapConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :performance_profile, 0
+
+  field :enabled, 1, proto3_optional: true, type: :bool, deprecated: false
+
+  field :encryption_config, 2,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.EncryptionConfig,
+    json_name: "encryptionConfig",
+    deprecated: false
+
+  field :boot_disk_profile, 3,
+    type: Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.BootDiskProfile,
+    json_name: "bootDiskProfile",
+    oneof: 0
+
+  field :ephemeral_local_ssd_profile, 4,
+    type: Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.EphemeralLocalSsdProfile,
+    json_name: "ephemeralLocalSsdProfile",
+    oneof: 0
+
+  field :dedicated_local_ssd_profile, 5,
+    type: Google.Container.V1beta1.LinuxNodeConfig.SwapConfig.DedicatedLocalSsdProfile,
+    json_name: "dedicatedLocalSsdProfile",
+    oneof: 0
+end
+
+defmodule Google.Container.V1beta1.LinuxNodeConfig.NodeKernelModuleLoading do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :policy, 1,
+    type: Google.Container.V1beta1.LinuxNodeConfig.NodeKernelModuleLoading.Policy,
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.LinuxNodeConfig.SysctlsEntry do
@@ -919,6 +1037,17 @@ defmodule Google.Container.V1beta1.LinuxNodeConfig do
     type: Google.Container.V1beta1.LinuxNodeConfig.TransparentHugepageDefrag,
     json_name: "transparentHugepageDefrag",
     enum: true,
+    deprecated: false
+
+  field :swap_config, 12,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.LinuxNodeConfig.SwapConfig,
+    json_name: "swapConfig",
+    deprecated: false
+
+  field :node_kernel_module_loading, 13,
+    type: Google.Container.V1beta1.LinuxNodeConfig.NodeKernelModuleLoading,
+    json_name: "nodeKernelModuleLoading",
     deprecated: false
 end
 
@@ -1340,6 +1469,16 @@ defmodule Google.Container.V1beta1.NodeNetworkConfig do
     deprecated: false
 
   field :subnetwork, 19, type: :string, deprecated: false
+
+  field :network_tier_config, 20,
+    type: Google.Container.V1beta1.NetworkTierConfig,
+    json_name: "networkTierConfig",
+    deprecated: false
+
+  field :accelerator_network_profile, 21,
+    type: :string,
+    json_name: "acceleratorNetworkProfile",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.AdditionalNodeNetworkConfig do
@@ -1499,6 +1638,14 @@ defmodule Google.Container.V1beta1.ContainerdConfig.PrivateRegistryAccessConfig 
     json_name: "certificateAuthorityDomainConfig"
 end
 
+defmodule Google.Container.V1beta1.ContainerdConfig.WritableCgroups do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enabled, 1, type: :bool, deprecated: false
+end
+
 defmodule Google.Container.V1beta1.ContainerdConfig do
   @moduledoc false
 
@@ -1507,6 +1654,11 @@ defmodule Google.Container.V1beta1.ContainerdConfig do
   field :private_registry_access_config, 1,
     type: Google.Container.V1beta1.ContainerdConfig.PrivateRegistryAccessConfig,
     json_name: "privateRegistryAccessConfig"
+
+  field :writable_cgroups, 2,
+    type: Google.Container.V1beta1.ContainerdConfig.WritableCgroups,
+    json_name: "writableCgroups",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.HostMaintenancePolicy.OpportunisticMaintenanceStrategy do
@@ -1842,7 +1994,11 @@ defmodule Google.Container.V1beta1.LustreCsiDriverConfig do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :enabled, 1, type: :bool
-  field :enable_legacy_lustre_port, 3, type: :bool, json_name: "enableLegacyLustrePort"
+
+  field :enable_legacy_lustre_port, 3,
+    type: :bool,
+    json_name: "enableLegacyLustrePort",
+    deprecated: true
 end
 
 defmodule Google.Container.V1beta1.RayOperatorConfig do
@@ -2046,6 +2202,10 @@ defmodule Google.Container.V1beta1.IPAllocationPolicy do
     type: Google.Container.V1beta1.AutoIpamConfig,
     json_name: "autoIpamConfig",
     deprecated: false
+
+  field :network_tier_config, 31,
+    type: Google.Container.V1beta1.NetworkTierConfig,
+    json_name: "networkTierConfig"
 end
 
 defmodule Google.Container.V1beta1.BinaryAuthorization.PolicyBinding do
@@ -2346,7 +2506,8 @@ defmodule Google.Container.V1beta1.Cluster do
 
   field :enterprise_config, 149,
     type: Google.Container.V1beta1.EnterpriseConfig,
-    json_name: "enterpriseConfig"
+    json_name: "enterpriseConfig",
+    deprecated: true
 
   field :secret_manager_config, 150,
     type: Google.Container.V1beta1.SecretManagerConfig,
@@ -2385,6 +2546,10 @@ defmodule Google.Container.V1beta1.Cluster do
   field :anonymous_authentication_config, 164,
     type: Google.Container.V1beta1.AnonymousAuthenticationConfig,
     json_name: "anonymousAuthenticationConfig"
+
+  field :secret_sync_config, 166,
+    type: Google.Container.V1beta1.SecretSyncConfig,
+    json_name: "secretSyncConfig"
 end
 
 defmodule Google.Container.V1beta1.RBACBindingConfig do
@@ -2876,7 +3041,8 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
 
   field :desired_enterprise_config, 147,
     type: Google.Container.V1beta1.DesiredEnterpriseConfig,
-    json_name: "desiredEnterpriseConfig"
+    json_name: "desiredEnterpriseConfig",
+    deprecated: true
 
   field :desired_auto_ipam_config, 148,
     type: Google.Container.V1beta1.AutoIpamConfig,
@@ -2902,6 +3068,14 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :gke_auto_upgrade_config, 154,
     type: Google.Container.V1beta1.GkeAutoUpgradeConfig,
     json_name: "gkeAutoUpgradeConfig"
+
+  field :desired_network_tier_config, 155,
+    type: Google.Container.V1beta1.NetworkTierConfig,
+    json_name: "desiredNetworkTierConfig"
+
+  field :desired_secret_sync_config, 158,
+    type: Google.Container.V1beta1.SecretSyncConfig,
+    json_name: "desiredSecretSyncConfig"
 end
 
 defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
@@ -2942,6 +3116,8 @@ defmodule Google.Container.V1beta1.AutoIpamConfig do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
 end
 
 defmodule Google.Container.V1beta1.RangeInfo do
@@ -2956,7 +3132,7 @@ end
 defmodule Google.Container.V1beta1.DesiredEnterpriseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :desired_tier, 1,
     type: Google.Container.V1beta1.EnterpriseConfig.ClusterTier,
@@ -3482,6 +3658,11 @@ defmodule Google.Container.V1beta1.BlueGreenSettings.AutoscaledRolloutPolicy do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :wait_for_drain_duration, 1,
+    type: Google.Protobuf.Duration,
+    json_name: "waitForDrainDuration",
+    deprecated: false
 end
 
 defmodule Google.Container.V1beta1.BlueGreenSettings do
@@ -3730,6 +3911,11 @@ defmodule Google.Container.V1beta1.MaintenanceExclusionOptions do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :scope, 1, type: Google.Container.V1beta1.MaintenanceExclusionOptions.Scope, enum: true
+
+  field :end_time_behavior, 2,
+    type: Google.Container.V1beta1.MaintenanceExclusionOptions.EndTimeBehavior,
+    json_name: "endTimeBehavior",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.RecurringTimeWindow do
@@ -4614,6 +4800,18 @@ defmodule Google.Container.V1beta1.Autopilot do
     type: Google.Container.V1beta1.AutopilotConversionStatus,
     json_name: "conversionStatus",
     deprecated: false
+
+  field :privileged_admission_config, 4,
+    type: Google.Container.V1beta1.PrivilegedAdmissionConfig,
+    json_name: "privilegedAdmissionConfig"
+end
+
+defmodule Google.Container.V1beta1.PrivilegedAdmissionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :allowlist_paths, 1, repeated: true, type: :string, json_name: "allowlistPaths"
 end
 
 defmodule Google.Container.V1beta1.WorkloadPolicyConfig do
@@ -4686,6 +4884,8 @@ defmodule Google.Container.V1beta1.UpgradeEvent do
   field :operation_start_time, 3, type: Google.Protobuf.Timestamp, json_name: "operationStartTime"
   field :current_version, 4, type: :string, json_name: "currentVersion"
   field :target_version, 5, type: :string, json_name: "targetVersion"
+  field :current_emulated_version, 7, type: :string, json_name: "currentEmulatedVersion"
+  field :target_emulated_version, 8, type: :string, json_name: "targetEmulatedVersion"
   field :resource, 6, type: :string
 end
 
@@ -4704,6 +4904,8 @@ defmodule Google.Container.V1beta1.UpgradeInfoEvent do
   field :end_time, 4, type: Google.Protobuf.Timestamp, json_name: "endTime"
   field :current_version, 5, type: :string, json_name: "currentVersion"
   field :target_version, 6, type: :string, json_name: "targetVersion"
+  field :current_emulated_version, 15, type: :string, json_name: "currentEmulatedVersion"
+  field :target_emulated_version, 16, type: :string, json_name: "targetEmulatedVersion"
   field :resource, 7, type: :string
 
   field :state, 8,
@@ -4904,6 +5106,11 @@ defmodule Google.Container.V1beta1.Fleet do
   field :project, 1, type: :string
   field :membership, 2, type: :string, deprecated: false
   field :pre_registered, 3, type: :bool, json_name: "preRegistered", deprecated: false
+
+  field :membership_type, 4,
+    type: Google.Container.V1beta1.Fleet.MembershipType,
+    json_name: "membershipType",
+    enum: true
 end
 
 defmodule Google.Container.V1beta1.ControlPlaneEndpointsConfig.DNSEndpointConfig do
@@ -4917,6 +5124,16 @@ defmodule Google.Container.V1beta1.ControlPlaneEndpointsConfig.DNSEndpointConfig
     proto3_optional: true,
     type: :bool,
     json_name: "allowExternalTraffic"
+
+  field :enable_k8s_tokens_via_dns, 5,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableK8sTokensViaDns"
+
+  field :enable_k8s_certs_via_dns, 6,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "enableK8sCertsViaDns"
 end
 
 defmodule Google.Container.V1beta1.ControlPlaneEndpointsConfig.IPEndpointsConfig do
@@ -4979,7 +5196,7 @@ end
 defmodule Google.Container.V1beta1.EnterpriseConfig do
   @moduledoc false
 
-  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+  use Protobuf, deprecated: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :cluster_tier, 1,
     type: Google.Container.V1beta1.EnterpriseConfig.ClusterTier,
@@ -5183,6 +5400,43 @@ defmodule Google.Container.V1beta1.GkeAutoUpgradeConfig do
     type: Google.Container.V1beta1.GkeAutoUpgradeConfig.PatchMode,
     json_name: "patchMode",
     enum: true
+end
+
+defmodule Google.Container.V1beta1.NetworkTierConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :network_tier, 1,
+    type: Google.Container.V1beta1.NetworkTierConfig.NetworkTier,
+    json_name: "networkTier",
+    enum: true
+end
+
+defmodule Google.Container.V1beta1.SecretSyncConfig.SyncRotationConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
+
+  field :rotation_interval, 2,
+    proto3_optional: true,
+    type: Google.Protobuf.Duration,
+    json_name: "rotationInterval"
+end
+
+defmodule Google.Container.V1beta1.SecretSyncConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :enabled, 1, proto3_optional: true, type: :bool
+
+  field :rotation_config, 2,
+    proto3_optional: true,
+    type: Google.Container.V1beta1.SecretSyncConfig.SyncRotationConfig,
+    json_name: "rotationConfig"
 end
 
 defmodule Google.Container.V1beta1.ClusterManager.Service do
