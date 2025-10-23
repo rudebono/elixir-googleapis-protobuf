@@ -22,6 +22,7 @@ defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsRequest do
 
   field :page_size, 1, type: :int32, json_name: "pageSize", deprecated: false
   field :page_token, 2, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 3, type: :string, deprecated: false
 end
 
 defmodule Google.Chromeos.Moblab.V1beta1.ListBuildTargetsResponse do

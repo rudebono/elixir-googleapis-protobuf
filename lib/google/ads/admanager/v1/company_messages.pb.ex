@@ -4,22 +4,40 @@ defmodule Google.Ads.Admanager.V1.Company do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :name, 1, type: :string, deprecated: false
-  field :company_id, 2, type: :int64, json_name: "companyId", deprecated: false
-  field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
+
+  field :company_id, 2,
+    proto3_optional: true,
+    type: :int64,
+    json_name: "companyId",
+    deprecated: false
+
+  field :display_name, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "displayName",
+    deprecated: false
 
   field :type, 4,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.CompanyTypeEnum.CompanyType,
     enum: true,
     deprecated: false
 
-  field :address, 5, type: :string, deprecated: false
-  field :email, 6, type: :string, deprecated: false
-  field :fax, 7, type: :string, deprecated: false
-  field :phone, 8, type: :string, deprecated: false
-  field :external_id, 9, type: :string, json_name: "externalId", deprecated: false
-  field :comment, 10, type: :string, deprecated: false
+  field :address, 5, proto3_optional: true, type: :string, deprecated: false
+  field :email, 6, proto3_optional: true, type: :string, deprecated: false
+  field :fax, 7, proto3_optional: true, type: :string, deprecated: false
+  field :phone, 8, proto3_optional: true, type: :string, deprecated: false
+
+  field :external_id, 9,
+    proto3_optional: true,
+    type: :string,
+    json_name: "externalId",
+    deprecated: false
+
+  field :comment, 10, proto3_optional: true, type: :string, deprecated: false
 
   field :credit_status, 11,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.CompanyCreditStatusEnum.CompanyCreditStatus,
     json_name: "creditStatus",
     enum: true,
@@ -44,11 +62,13 @@ defmodule Google.Ads.Admanager.V1.Company do
     deprecated: false
 
   field :third_party_company_id, 16,
+    proto3_optional: true,
     type: :int64,
     json_name: "thirdPartyCompanyId",
     deprecated: false
 
   field :update_time, 15,
+    proto3_optional: true,
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
