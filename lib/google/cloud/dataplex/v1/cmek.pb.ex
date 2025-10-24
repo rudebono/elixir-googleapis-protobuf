@@ -63,6 +63,11 @@ defmodule Google.Cloud.Dataplex.V1.EncryptionConfig do
     type: Google.Cloud.Dataplex.V1.EncryptionConfig.FailureDetails,
     json_name: "failureDetails",
     deprecated: false
+
+  field :enable_metastore_encryption, 8,
+    type: :bool,
+    json_name: "enableMetastoreEncryption",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dataplex.V1.CreateEncryptionConfigRequest do

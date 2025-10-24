@@ -55,7 +55,6 @@ defmodule Google.Cloud.Oracledatabase.V1.CloudVmCluster do
     deprecated: false
 
   field :display_name, 3, type: :string, json_name: "displayName", deprecated: false
-  field :gcp_oracle_zone, 12, type: :string, json_name: "gcpOracleZone", deprecated: false
 
   field :properties, 6,
     type: Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties,
@@ -75,6 +74,15 @@ defmodule Google.Cloud.Oracledatabase.V1.CloudVmCluster do
   field :cidr, 9, type: :string, deprecated: false
   field :backup_subnet_cidr, 10, type: :string, json_name: "backupSubnetCidr", deprecated: false
   field :network, 11, type: :string, deprecated: false
+  field :gcp_oracle_zone, 12, type: :string, json_name: "gcpOracleZone", deprecated: false
+  field :odb_network, 13, type: :string, json_name: "odbNetwork", deprecated: false
+  field :odb_subnet, 14, type: :string, json_name: "odbSubnet", deprecated: false
+  field :backup_odb_subnet, 15, type: :string, json_name: "backupOdbSubnet", deprecated: false
+
+  field :identity_connector, 16,
+    type: Google.Cloud.Oracledatabase.V1.IdentityConnector,
+    json_name: "identityConnector",
+    deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties do
@@ -168,6 +176,12 @@ defmodule Google.Cloud.Oracledatabase.V1.CloudVmClusterProperties do
   field :compartment_id, 32, type: :string, json_name: "compartmentId", deprecated: false
   field :dns_listener_ip, 35, type: :string, json_name: "dnsListenerIp", deprecated: false
   field :cluster_name, 36, type: :string, json_name: "clusterName", deprecated: false
+
+  field :compute_model, 37,
+    type: Google.Cloud.Oracledatabase.V1.ComputeModel,
+    json_name: "computeModel",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.DataCollectionOptions do

@@ -82,6 +82,12 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AgentAssistantRecord do
     json_name: "dialogflowAssistAnswer",
     oneof: 0,
     deprecated: false
+
+  field :generator_suggestion, 8,
+    type: Google.Cloud.Dialogflow.V2beta1.GeneratorSuggestion,
+    json_name: "generatorSuggestion",
+    oneof: 0,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.AnswerFeedback do

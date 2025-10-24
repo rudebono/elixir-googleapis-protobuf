@@ -146,6 +146,29 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult.PostScanActionsResult do
     deprecated: false
 end
 
+defmodule Google.Cloud.Dataplex.V1.DataQualityResult.AnomalyDetectionGeneratedAssets do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :result_table, 1, type: :string, json_name: "resultTable", deprecated: false
+
+  field :data_intermediate_table, 2,
+    type: :string,
+    json_name: "dataIntermediateTable",
+    deprecated: false
+
+  field :freshness_intermediate_table, 3,
+    type: :string,
+    json_name: "freshnessIntermediateTable",
+    deprecated: false
+
+  field :volume_intermediate_table, 4,
+    type: :string,
+    json_name: "volumeIntermediateTable",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   @moduledoc false
 
@@ -184,6 +207,11 @@ defmodule Google.Cloud.Dataplex.V1.DataQualityResult do
   field :catalog_publishing_status, 11,
     type: Google.Cloud.Dataplex.V1.DataScanCatalogPublishingStatus,
     json_name: "catalogPublishingStatus",
+    deprecated: false
+
+  field :anomaly_detection_generated_assets, 12,
+    type: Google.Cloud.Dataplex.V1.DataQualityResult.AnomalyDetectionGeneratedAssets,
+    json_name: "anomalyDetectionGeneratedAssets",
     deprecated: false
 end
 

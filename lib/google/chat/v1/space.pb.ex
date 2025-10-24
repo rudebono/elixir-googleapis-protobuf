@@ -146,6 +146,13 @@ defmodule Google.Chat.V1.Space.PermissionSetting do
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
   field :managers_allowed, 1, type: :bool, json_name: "managersAllowed", deprecated: false
+
+  field :assistant_managers_allowed, 3,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "assistantManagersAllowed",
+    deprecated: false
+
   field :members_allowed, 2, type: :bool, json_name: "membersAllowed", deprecated: false
 end
 

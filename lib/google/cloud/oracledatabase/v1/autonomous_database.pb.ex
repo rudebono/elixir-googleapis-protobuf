@@ -183,6 +183,16 @@ defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties.Role do
   field :SNAPSHOT_STANDBY, 5
 end
 
+defmodule Google.Cloud.Oracledatabase.V1.EncryptionKey.Provider do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PROVIDER_UNSPECIFIED, 0
+  field :GOOGLE_MANAGED, 1
+  field :ORACLE_MANAGED, 2
+end
+
 defmodule Google.Cloud.Oracledatabase.V1.DatabaseConnectionStringProfile.ConsumerGroup do
   @moduledoc false
 
@@ -279,10 +289,42 @@ defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabase do
 
   field :network, 9, type: :string, deprecated: false
   field :cidr, 10, type: :string, deprecated: false
+  field :odb_network, 16, type: :string, json_name: "odbNetwork", deprecated: false
+  field :odb_subnet, 17, type: :string, json_name: "odbSubnet", deprecated: false
+
+  field :source_config, 11,
+    type: Google.Cloud.Oracledatabase.V1.SourceConfig,
+    json_name: "sourceConfig",
+    deprecated: false
+
+  field :peer_autonomous_databases, 12,
+    repeated: true,
+    type: :string,
+    json_name: "peerAutonomousDatabases",
+    deprecated: false
 
   field :create_time, 13,
     type: Google.Protobuf.Timestamp,
     json_name: "createTime",
+    deprecated: false
+
+  field :disaster_recovery_supported_locations, 15,
+    repeated: true,
+    type: :string,
+    json_name: "disasterRecoverySupportedLocations",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.SourceConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :autonomous_database, 1, type: :string, json_name: "autonomousDatabase", deprecated: false
+
+  field :automatic_backups_replication_enabled, 2,
+    type: :bool,
+    json_name: "automaticBackupsReplicationEnabled",
     deprecated: false
 end
 
@@ -524,6 +566,16 @@ defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties do
     json_name: "nextLongTermBackupTime",
     deprecated: false
 
+  field :data_guard_role_changed_time, 61,
+    type: Google.Protobuf.Timestamp,
+    json_name: "dataGuardRoleChangedTime",
+    deprecated: false
+
+  field :disaster_recovery_role_changed_time, 62,
+    type: Google.Protobuf.Timestamp,
+    json_name: "disasterRecoveryRoleChangedTime",
+    deprecated: false
+
   field :maintenance_begin_time, 65,
     type: Google.Protobuf.Timestamp,
     json_name: "maintenanceBeginTime",
@@ -533,6 +585,54 @@ defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseProperties do
     type: Google.Protobuf.Timestamp,
     json_name: "maintenanceEndTime",
     deprecated: false
+
+  field :allowlisted_ips, 67,
+    repeated: true,
+    type: :string,
+    json_name: "allowlistedIps",
+    deprecated: false
+
+  field :encryption_key, 68,
+    type: Google.Cloud.Oracledatabase.V1.EncryptionKey,
+    json_name: "encryptionKey",
+    deprecated: false
+
+  field :encryption_key_history_entries, 69,
+    repeated: true,
+    type: Google.Cloud.Oracledatabase.V1.EncryptionKeyHistoryEntry,
+    json_name: "encryptionKeyHistoryEntries",
+    deprecated: false
+
+  field :service_agent_email, 70, type: :string, json_name: "serviceAgentEmail", deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.EncryptionKeyHistoryEntry do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :encryption_key, 1,
+    type: Google.Cloud.Oracledatabase.V1.EncryptionKey,
+    json_name: "encryptionKey",
+    deprecated: false
+
+  field :activation_time, 2,
+    type: Google.Protobuf.Timestamp,
+    json_name: "activationTime",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Oracledatabase.V1.EncryptionKey do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :provider, 1,
+    type: Google.Cloud.Oracledatabase.V1.EncryptionKey.Provider,
+    enum: true,
+    deprecated: false
+
+  field :kms_key, 2, type: :string, json_name: "kmsKey", deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.AutonomousDatabaseApex do

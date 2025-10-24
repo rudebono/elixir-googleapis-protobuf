@@ -42,6 +42,16 @@ defmodule Google.Ads.Admanager.V1.Targeting do
     type: Google.Ads.Admanager.V1.DataSegmentTargeting,
     json_name: "dataSegmentTargeting",
     deprecated: false
+
+  field :content_targeting, 15,
+    type: Google.Ads.Admanager.V1.ContentTargeting,
+    json_name: "contentTargeting",
+    deprecated: false
+
+  field :mobile_application_targeting, 18,
+    type: Google.Ads.Admanager.V1.MobileApplicationTargeting,
+    json_name: "mobileApplicationTargeting",
+    deprecated: false
 end
 
 defmodule Google.Ads.Admanager.V1.GeoTargeting do
@@ -72,9 +82,34 @@ defmodule Google.Ads.Admanager.V1.TechnologyTargeting do
     json_name: "bandwidthTargeting",
     deprecated: false
 
+  field :browser_targeting, 4,
+    type: Google.Ads.Admanager.V1.BrowserTargeting,
+    json_name: "browserTargeting",
+    deprecated: false
+
+  field :browser_language_targeting, 5,
+    type: Google.Ads.Admanager.V1.BrowserLanguageTargeting,
+    json_name: "browserLanguageTargeting",
+    deprecated: false
+
+  field :device_capability_targeting, 6,
+    type: Google.Ads.Admanager.V1.DeviceCapabilityTargeting,
+    json_name: "deviceCapabilityTargeting",
+    deprecated: false
+
   field :device_category_targeting, 1,
     type: Google.Ads.Admanager.V1.DeviceCategoryTargeting,
     json_name: "deviceCategoryTargeting",
+    deprecated: false
+
+  field :device_manufacturer_targeting, 7,
+    type: Google.Ads.Admanager.V1.DeviceManufacturerTargeting,
+    json_name: "deviceManufacturerTargeting",
+    deprecated: false
+
+  field :mobile_carrier_targeting, 8,
+    type: Google.Ads.Admanager.V1.MobileCarrierTargeting,
+    json_name: "mobileCarrierTargeting",
     deprecated: false
 
   field :operating_system_targeting, 2,
@@ -101,6 +136,42 @@ defmodule Google.Ads.Admanager.V1.BandwidthTargeting do
     deprecated: false
 end
 
+defmodule Google.Ads.Admanager.V1.BrowserTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_browsers, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetedBrowsers",
+    deprecated: false
+
+  field :excluded_browsers, 4,
+    repeated: true,
+    type: :string,
+    json_name: "excludedBrowsers",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BrowserLanguageTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_browser_languages, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetedBrowserLanguages",
+    deprecated: false
+
+  field :excluded_browser_languages, 4,
+    repeated: true,
+    type: :string,
+    json_name: "excludedBrowserLanguages",
+    deprecated: false
+end
+
 defmodule Google.Ads.Admanager.V1.DeviceCategoryTargeting do
   @moduledoc false
 
@@ -116,6 +187,84 @@ defmodule Google.Ads.Admanager.V1.DeviceCategoryTargeting do
     repeated: true,
     type: :string,
     json_name: "excludedCategories",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.DeviceCapabilityTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_capabilities, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetedCapabilities",
+    deprecated: false
+
+  field :excluded_capabilities, 4,
+    repeated: true,
+    type: :string,
+    json_name: "excludedCapabilities",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.DeviceManufacturerTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_device_manufacturers, 7,
+    repeated: true,
+    type: :string,
+    json_name: "targetedDeviceManufacturers",
+    deprecated: false
+
+  field :excluded_device_manufacturers, 8,
+    repeated: true,
+    type: :string,
+    json_name: "excludedDeviceManufacturers",
+    deprecated: false
+
+  field :targeted_mobile_devices, 9,
+    repeated: true,
+    type: :string,
+    json_name: "targetedMobileDevices",
+    deprecated: false
+
+  field :excluded_mobile_devices, 10,
+    repeated: true,
+    type: :string,
+    json_name: "excludedMobileDevices",
+    deprecated: false
+
+  field :targeted_mobile_device_submodels, 11,
+    repeated: true,
+    type: :string,
+    json_name: "targetedMobileDeviceSubmodels",
+    deprecated: false
+
+  field :excluded_mobile_device_submodels, 12,
+    repeated: true,
+    type: :string,
+    json_name: "excludedMobileDeviceSubmodels",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.MobileCarrierTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_mobile_carriers, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetedMobileCarriers",
+    deprecated: false
+
+  field :excluded_mobile_carriers, 4,
+    repeated: true,
+    type: :string,
+    json_name: "excludedMobileCarriers",
     deprecated: false
 end
 
@@ -221,6 +370,18 @@ defmodule Google.Ads.Admanager.V1.CustomTargetingClause do
     type: Google.Ads.Admanager.V1.CustomTargetingLiteral,
     json_name: "customTargetingLiterals",
     deprecated: false
+
+  field :audience_segment_targetings, 2,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.AudienceSegmentTargeting,
+    json_name: "audienceSegmentTargetings",
+    deprecated: false
+
+  field :cms_metadata_targetings, 3,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.CmsMetadataTargeting,
+    json_name: "cmsMetadataTargetings",
+    deprecated: false
 end
 
 defmodule Google.Ads.Admanager.V1.CustomTargetingLiteral do
@@ -240,6 +401,34 @@ defmodule Google.Ads.Admanager.V1.CustomTargetingLiteral do
     repeated: true,
     type: :string,
     json_name: "customTargetingValues",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.AudienceSegmentTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :negative, 1, proto3_optional: true, type: :bool
+
+  field :audience_segments, 3,
+    repeated: true,
+    type: :string,
+    json_name: "audienceSegments",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.CmsMetadataTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :negative, 1, proto3_optional: true, type: :bool
+
+  field :cms_metadata_values, 3,
+    repeated: true,
+    type: :string,
+    json_name: "cmsMetadataValues",
     deprecated: false
 end
 
@@ -319,5 +508,67 @@ defmodule Google.Ads.Admanager.V1.DataSegmentTargeting do
   field :has_data_segment_targeting, 2,
     type: :bool,
     json_name: "hasDataSegmentTargeting",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.ContentTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_content, 5,
+    repeated: true,
+    type: :string,
+    json_name: "targetedContent",
+    deprecated: false
+
+  field :excluded_content, 6,
+    repeated: true,
+    type: :string,
+    json_name: "excludedContent",
+    deprecated: false
+
+  field :targeted_content_bundles, 7,
+    repeated: true,
+    type: :string,
+    json_name: "targetedContentBundles",
+    deprecated: false
+
+  field :excluded_content_bundles, 8,
+    repeated: true,
+    type: :string,
+    json_name: "excludedContentBundles",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.MobileApplicationTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :targeting, 0
+
+  field :first_party_targeting, 1,
+    type: Google.Ads.Admanager.V1.FirstPartyMobileApplicationTargeting,
+    json_name: "firstPartyTargeting",
+    oneof: 0,
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.FirstPartyMobileApplicationTargeting do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :targeted_applications, 3,
+    repeated: true,
+    type: :string,
+    json_name: "targetedApplications",
+    deprecated: false
+
+  field :excluded_applications, 4,
+    repeated: true,
+    type: :string,
+    json_name: "excludedApplications",
     deprecated: false
 end

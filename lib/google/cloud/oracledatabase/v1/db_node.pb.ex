@@ -47,4 +47,9 @@ defmodule Google.Cloud.Oracledatabase.V1.DbNodeProperties do
     deprecated: false
 
   field :total_cpu_core_count, 10, type: :int32, json_name: "totalCpuCoreCount"
+
+  field :create_time, 11,
+    type: Google.Protobuf.Timestamp,
+    json_name: "createTime",
+    deprecated: false
 end
