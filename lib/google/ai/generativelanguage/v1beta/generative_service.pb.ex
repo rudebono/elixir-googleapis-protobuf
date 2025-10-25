@@ -66,7 +66,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.Candidate.FinishReason do
   field :SPII, 9
   field :MALFORMED_FUNCTION_CALL, 10
   field :IMAGE_SAFETY, 11
+  field :IMAGE_PROHIBITED_CONTENT, 14
+  field :IMAGE_OTHER, 15
+  field :NO_IMAGE, 16
+  field :IMAGE_RECITATION, 17
   field :UNEXPECTED_TOOL_CALL, 12
+  field :TOO_MANY_TOOL_CALLS, 13
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.UrlMetadata.UrlRetrievalStatus do
@@ -77,6 +82,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.UrlMetadata.UrlRetrievalStatus do
   field :URL_RETRIEVAL_STATUS_UNSPECIFIED, 0
   field :URL_RETRIEVAL_STATUS_SUCCESS, 1
   field :URL_RETRIEVAL_STATUS_ERROR, 2
+  field :URL_RETRIEVAL_STATUS_PAYWALL, 3
+  field :URL_RETRIEVAL_STATUS_UNSAFE, 4
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.GenerateAnswerRequest.AnswerStyle do
@@ -259,6 +266,18 @@ defmodule Google.Ai.Generativelanguage.V1beta.ThinkingConfig do
   field :thinking_budget, 2, proto3_optional: true, type: :int32, json_name: "thinkingBudget"
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.ImageConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :aspect_ratio, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "aspectRatio",
+    deprecated: false
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
   @moduledoc false
 
@@ -294,6 +313,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
     deprecated: false
 
   field :response_json_schema, 24,
+    type: Google.Protobuf.Value,
+    json_name: "_responseJsonSchema",
+    deprecated: false
+
+  field :response_json_schema_ordered, 28,
     type: Google.Protobuf.Value,
     json_name: "responseJsonSchema",
     deprecated: false
@@ -341,6 +365,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.GenerationConfig do
     proto3_optional: true,
     type: Google.Ai.Generativelanguage.V1beta.ThinkingConfig,
     json_name: "thinkingConfig",
+    deprecated: false
+
+  field :image_config, 27,
+    proto3_optional: true,
+    type: Google.Ai.Generativelanguage.V1beta.ImageConfig,
+    json_name: "imageConfig",
     deprecated: false
 
   field :media_resolution, 23,
@@ -475,6 +505,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.Candidate do
     enum: true,
     deprecated: false
 
+  field :finish_message, 4,
+    proto3_optional: true,
+    type: :string,
+    json_name: "finishMessage",
+    deprecated: false
+
   field :safety_ratings, 5,
     repeated: true,
     type: Google.Ai.Generativelanguage.V1beta.SafetyRating,
@@ -559,6 +595,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.LogprobsResult do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :log_probability_sum, 3,
+    proto3_optional: true,
+    type: :float,
+    json_name: "logProbabilitySum"
 
   field :top_candidates, 1,
     repeated: true,
@@ -1183,6 +1224,8 @@ defmodule Google.Ai.Generativelanguage.V1beta.BidiGenerateContentServerContent d
     type: Google.Ai.Generativelanguage.V1beta.UrlContextMetadata,
     json_name: "urlContextMetadata",
     deprecated: false
+
+  field :waiting_for_input, 10, type: :bool, json_name: "waitingForInput", deprecated: false
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.BidiGenerateContentToolCall do

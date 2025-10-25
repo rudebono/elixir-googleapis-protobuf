@@ -11,6 +11,22 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateContentResponse.PromptFeedback
   field :MODEL_ARMOR, 5
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.EmbedContentRequest.EmbeddingTaskType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :UNSPECIFIED, 0
+  field :RETRIEVAL_QUERY, 2
+  field :RETRIEVAL_DOCUMENT, 3
+  field :SEMANTIC_SIMILARITY, 4
+  field :CLASSIFICATION, 5
+  field :CLUSTERING, 6
+  field :QUESTION_ANSWERING, 7
+  field :FACT_VERIFICATION, 8
+  field :CODE_RETRIEVAL_QUERY, 9
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictRequest.LabelsEntry do
   @moduledoc false
 
@@ -488,6 +504,57 @@ defmodule Google.Cloud.Aiplatform.V1beta1.GenerateVideoResponse do
     json_name: "raiMediaFilteredReasons"
 end
 
+defmodule Google.Cloud.Aiplatform.V1beta1.EmbedContentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :model, 1, proto3_optional: true, type: :string, deprecated: false
+  field :content, 2, proto3_optional: true, type: Google.Cloud.Aiplatform.V1beta1.Content
+  field :title, 4, proto3_optional: true, type: :string, deprecated: false
+
+  field :task_type, 5,
+    proto3_optional: true,
+    type: Google.Cloud.Aiplatform.V1beta1.EmbedContentRequest.EmbeddingTaskType,
+    json_name: "taskType",
+    enum: true,
+    deprecated: false
+
+  field :output_dimensionality, 6,
+    proto3_optional: true,
+    type: :int32,
+    json_name: "outputDimensionality",
+    deprecated: false
+
+  field :auto_truncate, 7,
+    proto3_optional: true,
+    type: :bool,
+    json_name: "autoTruncate",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EmbedContentResponse.Embedding do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :values, 1, repeated: true, type: :float
+end
+
+defmodule Google.Cloud.Aiplatform.V1beta1.EmbedContentResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :embedding, 1, type: Google.Cloud.Aiplatform.V1beta1.EmbedContentResponse.Embedding
+
+  field :usage_metadata, 2,
+    type: Google.Cloud.Aiplatform.V1beta1.UsageMetadata,
+    json_name: "usageMetadata"
+
+  field :truncated, 4, type: :bool
+end
+
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   @moduledoc false
 
@@ -552,6 +619,10 @@ defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Service do
   rpc :ChatCompletions,
       Google.Cloud.Aiplatform.V1beta1.ChatCompletionsRequest,
       stream(Google.Api.HttpBody)
+
+  rpc :EmbedContent,
+      Google.Cloud.Aiplatform.V1beta1.EmbedContentRequest,
+      Google.Cloud.Aiplatform.V1beta1.EmbedContentResponse
 end
 
 defmodule Google.Cloud.Aiplatform.V1beta1.PredictionService.Stub do

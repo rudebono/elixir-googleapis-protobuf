@@ -19,6 +19,17 @@ defmodule Google.Cloud.Dialogflow.V2beta1.AutomatedAgentReply.AutomatedAgentRepl
   field :FINAL, 2
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionInput.Action do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ACTION_UNSPECIFIED, 0
+  field :CANCEL, 1
+  field :REVISE, 2
+  field :CONFIRM, 3
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionFeature.Type do
   @moduledoc false
 
@@ -228,9 +239,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SuggestionInput do
 
   field :parameters, 4, type: Google.Protobuf.Struct
 
+  field :action, 5,
+    type: Google.Cloud.Dialogflow.V2beta1.SuggestionInput.Action,
+    enum: true,
+    deprecated: false
+
   field :intent_input, 6,
     type: Google.Cloud.Dialogflow.V2beta1.IntentInput,
     json_name: "intentInput"
+
+  field :send_time, 7, type: Google.Protobuf.Timestamp, json_name: "sendTime", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.IntentInput do
@@ -1063,6 +1081,156 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeAssistAnswer do
   field :answer_record, 3, type: :string, json_name: "answerRecord"
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Config.VoiceSessionConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :input_audio_encoding, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.AudioEncoding,
+    json_name: "inputAudioEncoding",
+    enum: true,
+    deprecated: false
+
+  field :input_audio_sample_rate_hertz, 2,
+    type: :int32,
+    json_name: "inputAudioSampleRateHertz",
+    deprecated: false
+
+  field :output_audio_encoding, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding,
+    json_name: "outputAudioEncoding",
+    enum: true,
+    deprecated: false
+
+  field :output_audio_sample_rate_hertz, 4,
+    type: :int32,
+    json_name: "outputAudioSampleRateHertz",
+    deprecated: false
+
+  field :enable_cx_proactive_processing, 5,
+    type: :bool,
+    json_name: "enableCxProactiveProcessing",
+    deprecated: false
+
+  field :enable_streaming_synthesize, 23,
+    type: :bool,
+    json_name: "enableStreamingSynthesize",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Config do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :config, 0
+
+  field :participant, 1, type: :string, deprecated: false
+
+  field :voice_session_config, 2,
+    type:
+      Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Config.VoiceSessionConfig,
+    json_name: "voiceSessionConfig",
+    oneof: 0
+
+  field :initial_virtual_agent_parameters, 3,
+    type: Google.Protobuf.Struct,
+    json_name: "initialVirtualAgentParameters"
+
+  field :initial_virtual_agent_query_params, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.QueryParameters,
+    json_name: "initialVirtualAgentQueryParams"
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.TurnInput do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :main_content, 0
+
+  field :text, 1, type: :string, oneof: 0
+  field :intent, 2, type: :string, oneof: 0, deprecated: false
+  field :event, 3, type: :string, oneof: 0
+
+  field :virtual_agent_parameters, 4,
+    type: Google.Protobuf.Struct,
+    json_name: "virtualAgentParameters",
+    deprecated: false
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Input do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :input, 0
+
+  field :audio, 1, type: :bytes, oneof: 0
+  field :dtmf, 2, type: Google.Cloud.Dialogflow.V2beta1.TelephonyDtmfEvents, oneof: 0
+
+  field :turn, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.TurnInput,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :request, 0
+
+  field :config, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Config,
+    oneof: 0
+
+  field :input, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest.Input,
+    oneof: 0
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse.BargeInSignal do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse.TurnComplete do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :response, 0
+
+  field :recognition_result, 1,
+    type: Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult,
+    json_name: "recognitionResult",
+    oneof: 0
+
+  field :barge_in_signal, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse.BargeInSignal,
+    json_name: "bargeInSignal",
+    oneof: 0
+
+  field :analyze_content_response, 3,
+    type: Google.Cloud.Dialogflow.V2beta1.AnalyzeContentResponse,
+    json_name: "analyzeContentResponse",
+    oneof: 0
+
+  field :turn_complete, 4,
+    type: Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse.TurnComplete,
+    json_name: "turnComplete",
+    oneof: 0
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
   @moduledoc false
 
@@ -1093,6 +1261,10 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Participants.Service do
   rpc :StreamingAnalyzeContent,
       stream(Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentRequest),
       stream(Google.Cloud.Dialogflow.V2beta1.StreamingAnalyzeContentResponse)
+
+  rpc :BidiStreamingAnalyzeContent,
+      stream(Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentRequest),
+      stream(Google.Cloud.Dialogflow.V2beta1.BidiStreamingAnalyzeContentResponse)
 
   rpc :SuggestArticles,
       Google.Cloud.Dialogflow.V2beta1.SuggestArticlesRequest,

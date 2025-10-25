@@ -17,6 +17,7 @@ defmodule Google.Chat.V1.Membership.MembershipRole do
   field :MEMBERSHIP_ROLE_UNSPECIFIED, 0
   field :ROLE_MEMBER, 1
   field :ROLE_MANAGER, 2
+  field :ROLE_ASSISTANT_MANAGER, 4
 end
 
 defmodule Google.Chat.V1.Membership do

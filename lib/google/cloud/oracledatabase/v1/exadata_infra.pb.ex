@@ -168,6 +168,19 @@ defmodule Google.Cloud.Oracledatabase.V1.CloudExadataInfrastructureProperties do
     type: :string,
     json_name: "monthlyDbServerVersion",
     deprecated: false
+
+  field :compute_model, 31,
+    type: Google.Cloud.Oracledatabase.V1.ComputeModel,
+    json_name: "computeModel",
+    enum: true,
+    deprecated: false
+
+  field :database_server_type, 29,
+    type: :string,
+    json_name: "databaseServerType",
+    deprecated: false
+
+  field :storage_server_type, 30, type: :string, json_name: "storageServerType", deprecated: false
 end
 
 defmodule Google.Cloud.Oracledatabase.V1.MaintenanceWindow do
