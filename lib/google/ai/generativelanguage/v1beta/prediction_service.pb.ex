@@ -34,7 +34,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.PredictLongRunningResponse do
   oneof :response, 0
 
   field :generate_video_response, 1,
-    type: Google.Ai.Generativelanguage.V1beta.GenerateVideoResponse,
+    type: Google.Ai.Generativelanguage.V1beta.PredictLongRunningGeneratedVideoResponse,
     json_name: "generateVideoResponse",
     oneof: 0
 end
@@ -66,7 +66,7 @@ defmodule Google.Ai.Generativelanguage.V1beta.Video do
   field :uri, 2, type: :string, oneof: 0
 end
 
-defmodule Google.Ai.Generativelanguage.V1beta.GenerateVideoResponse do
+defmodule Google.Ai.Generativelanguage.V1beta.PredictLongRunningGeneratedVideoResponse do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3

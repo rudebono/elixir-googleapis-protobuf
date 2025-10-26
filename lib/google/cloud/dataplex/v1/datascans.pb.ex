@@ -7,6 +7,7 @@ defmodule Google.Cloud.Dataplex.V1.DataScanType do
   field :DATA_QUALITY, 1
   field :DATA_PROFILE, 2
   field :DATA_DISCOVERY, 3
+  field :DATA_DOCUMENTATION, 4
 end
 
 defmodule Google.Cloud.Dataplex.V1.GetDataScanRequest.DataScanView do
@@ -296,6 +297,11 @@ defmodule Google.Cloud.Dataplex.V1.DataScan do
     json_name: "dataDiscoverySpec",
     oneof: 0
 
+  field :data_documentation_spec, 103,
+    type: Google.Cloud.Dataplex.V1.DataDocumentationSpec,
+    json_name: "dataDocumentationSpec",
+    oneof: 0
+
   field :data_quality_result, 200,
     type: Google.Cloud.Dataplex.V1.DataQualityResult,
     json_name: "dataQualityResult",
@@ -311,6 +317,12 @@ defmodule Google.Cloud.Dataplex.V1.DataScan do
   field :data_discovery_result, 202,
     type: Google.Cloud.Dataplex.V1.DataDiscoveryResult,
     json_name: "dataDiscoveryResult",
+    oneof: 1,
+    deprecated: false
+
+  field :data_documentation_result, 203,
+    type: Google.Cloud.Dataplex.V1.DataDocumentationResult,
+    json_name: "dataDocumentationResult",
     oneof: 1,
     deprecated: false
 end
@@ -356,6 +368,12 @@ defmodule Google.Cloud.Dataplex.V1.DataScanJob do
     oneof: 0,
     deprecated: false
 
+  field :data_documentation_spec, 103,
+    type: Google.Cloud.Dataplex.V1.DataDocumentationSpec,
+    json_name: "dataDocumentationSpec",
+    oneof: 0,
+    deprecated: false
+
   field :data_quality_result, 200,
     type: Google.Cloud.Dataplex.V1.DataQualityResult,
     json_name: "dataQualityResult",
@@ -371,6 +389,12 @@ defmodule Google.Cloud.Dataplex.V1.DataScanJob do
   field :data_discovery_result, 202,
     type: Google.Cloud.Dataplex.V1.DataDiscoveryResult,
     json_name: "dataDiscoveryResult",
+    oneof: 1,
+    deprecated: false
+
+  field :data_documentation_result, 203,
+    type: Google.Cloud.Dataplex.V1.DataDocumentationResult,
+    json_name: "dataDocumentationResult",
     oneof: 1,
     deprecated: false
 end

@@ -144,9 +144,10 @@ defmodule Google.Ads.Admanager.V1.AdUnitSize do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :size, 1, type: Google.Ads.Admanager.V1.Size, deprecated: false
+  field :size, 1, proto3_optional: true, type: Google.Ads.Admanager.V1.Size, deprecated: false
 
   field :environment_type, 2,
+    proto3_optional: true,
     type: Google.Ads.Admanager.V1.EnvironmentTypeEnum.EnvironmentType,
     json_name: "environmentType",
     enum: true,
@@ -160,9 +161,23 @@ defmodule Google.Ads.Admanager.V1.AdUnitParent do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :parent_ad_unit, 1, type: :string, json_name: "parentAdUnit", deprecated: false
-  field :display_name, 2, type: :string, json_name: "displayName", deprecated: false
-  field :ad_unit_code, 3, type: :string, json_name: "adUnitCode", deprecated: false
+  field :parent_ad_unit, 1,
+    proto3_optional: true,
+    type: :string,
+    json_name: "parentAdUnit",
+    deprecated: false
+
+  field :display_name, 2,
+    proto3_optional: true,
+    type: :string,
+    json_name: "displayName",
+    deprecated: false
+
+  field :ad_unit_code, 3,
+    proto3_optional: true,
+    type: :string,
+    json_name: "adUnitCode",
+    deprecated: false
 end
 
 defmodule Google.Ads.Admanager.V1.LabelFrequencyCap do
@@ -170,6 +185,10 @@ defmodule Google.Ads.Admanager.V1.LabelFrequencyCap do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :label, 1, type: :string, deprecated: false
-  field :frequency_cap, 2, type: Google.Ads.Admanager.V1.FrequencyCap, json_name: "frequencyCap"
+  field :label, 1, proto3_optional: true, type: :string, deprecated: false
+
+  field :frequency_cap, 2,
+    proto3_optional: true,
+    type: Google.Ads.Admanager.V1.FrequencyCap,
+    json_name: "frequencyCap"
 end
