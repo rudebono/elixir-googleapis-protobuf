@@ -240,6 +240,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.KnowledgeOperationMetadata do
     type: Google.Cloud.Dialogflow.V2beta1.ExportOperationMetadata,
     json_name: "exportOperationMetadata",
     oneof: 0
+
+  field :done_time, 5, type: Google.Protobuf.Timestamp, json_name: "doneTime"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.ReloadDocumentRequest do

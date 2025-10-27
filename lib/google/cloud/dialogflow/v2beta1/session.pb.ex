@@ -16,8 +16,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.StreamingRecognitionResult.MessageType
 
   field :MESSAGE_TYPE_UNSPECIFIED, 0
   field :TRANSCRIPT, 1
-  field :DTMF_DIGITS, 3
   field :END_OF_SINGLE_UTTERANCE, 2
+  field :DTMF_DIGITS, 3
   field :PARTIAL_DTMF_DIGITS, 4
 end
 

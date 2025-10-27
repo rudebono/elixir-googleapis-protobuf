@@ -74,6 +74,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioEncoding do
   field :OUTPUT_AUDIO_ENCODING_ALAW, 6
 end
 
+defmodule Google.Cloud.Dialogflow.V2beta1.CustomPronunciationParams.PhoneticEncoding do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :PHONETIC_ENCODING_UNSPECIFIED, 0
+  field :PHONETIC_ENCODING_IPA, 1
+  field :PHONETIC_ENCODING_X_SAMPA, 2
+end
+
 defmodule Google.Cloud.Dialogflow.V2beta1.SpeechContext do
   @moduledoc false
 
@@ -193,6 +203,25 @@ defmodule Google.Cloud.Dialogflow.V2beta1.SynthesizeSpeechConfig do
     deprecated: false
 
   field :voice, 4, type: Google.Cloud.Dialogflow.V2beta1.VoiceSelectionParams, deprecated: false
+
+  field :pronunciations, 6,
+    repeated: true,
+    type: Google.Cloud.Dialogflow.V2beta1.CustomPronunciationParams
+end
+
+defmodule Google.Cloud.Dialogflow.V2beta1.CustomPronunciationParams do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :phrase, 1, type: :string
+
+  field :phonetic_encoding, 2,
+    type: Google.Cloud.Dialogflow.V2beta1.CustomPronunciationParams.PhoneticEncoding,
+    json_name: "phoneticEncoding",
+    enum: true
+
+  field :pronunciation, 3, type: :string
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.OutputAudioConfig do

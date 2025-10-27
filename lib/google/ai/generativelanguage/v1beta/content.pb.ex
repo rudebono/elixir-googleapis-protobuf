@@ -46,6 +46,15 @@ defmodule Google.Ai.Generativelanguage.V1beta.CodeExecutionResult.Outcome do
   field :OUTCOME_DEADLINE_EXCEEDED, 3
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.Tool.ComputerUse.Environment do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ENVIRONMENT_UNSPECIFIED, 0
+  field :ENVIRONMENT_BROWSER, 1
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.DynamicRetrievalConfig.Mode do
   @moduledoc false
 
@@ -146,9 +155,32 @@ defmodule Google.Ai.Generativelanguage.V1beta.Part do
 
   field :thought, 11, type: :bool, deprecated: false
   field :thought_signature, 13, type: :bytes, json_name: "thoughtSignature", deprecated: false
+  field :part_metadata, 8, type: Google.Protobuf.Struct, json_name: "partMetadata"
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.FunctionResponsePart do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :data, 0
+
+  field :inline_data, 1,
+    type: Google.Ai.Generativelanguage.V1beta.FunctionResponseBlob,
+    json_name: "inlineData",
+    oneof: 0
 end
 
 defmodule Google.Ai.Generativelanguage.V1beta.Blob do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :mime_type, 1, type: :string, json_name: "mimeType"
+  field :data, 2, type: :bytes
+end
+
+defmodule Google.Ai.Generativelanguage.V1beta.FunctionResponseBlob do
   @moduledoc false
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
@@ -217,6 +249,23 @@ defmodule Google.Ai.Generativelanguage.V1beta.Tool.GoogleSearch do
     deprecated: false
 end
 
+defmodule Google.Ai.Generativelanguage.V1beta.Tool.ComputerUse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :environment, 3,
+    type: Google.Ai.Generativelanguage.V1beta.Tool.ComputerUse.Environment,
+    enum: true,
+    deprecated: false
+
+  field :excluded_predefined_functions, 5,
+    repeated: true,
+    type: :string,
+    json_name: "excludedPredefinedFunctions",
+    deprecated: false
+end
+
 defmodule Google.Ai.Generativelanguage.V1beta.Tool do
   @moduledoc false
 
@@ -241,6 +290,11 @@ defmodule Google.Ai.Generativelanguage.V1beta.Tool do
   field :google_search, 4,
     type: Google.Ai.Generativelanguage.V1beta.Tool.GoogleSearch,
     json_name: "googleSearch",
+    deprecated: false
+
+  field :computer_use, 6,
+    type: Google.Ai.Generativelanguage.V1beta.Tool.ComputerUse,
+    json_name: "computerUse",
     deprecated: false
 
   field :url_context, 8,
@@ -365,6 +419,12 @@ defmodule Google.Ai.Generativelanguage.V1beta.FunctionResponse do
   field :id, 3, type: :string, deprecated: false
   field :name, 1, type: :string, deprecated: false
   field :response, 2, type: Google.Protobuf.Struct, deprecated: false
+
+  field :parts, 8,
+    repeated: true,
+    type: Google.Ai.Generativelanguage.V1beta.FunctionResponsePart,
+    deprecated: false
+
   field :will_continue, 4, type: :bool, json_name: "willContinue", deprecated: false
 
   field :scheduling, 5,

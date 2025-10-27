@@ -135,6 +135,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference.ContextC
     type: Google.Protobuf.Timestamp,
     json_name: "ingestionTime",
     deprecated: false
+
+  field :answer_record, 4, type: :string, json_name: "answerRecord"
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.Conversation.ContextReference do
@@ -530,6 +532,8 @@ defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionRequest do
     json_name: "triggerEvents",
     enum: true,
     deprecated: false
+
+  field :security_settings, 8, type: :string, json_name: "securitySettings", deprecated: false
 end
 
 defmodule Google.Cloud.Dialogflow.V2beta1.GenerateStatelessSuggestionResponse do
