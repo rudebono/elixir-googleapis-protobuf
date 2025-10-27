@@ -263,6 +263,38 @@ defmodule Google.Maps.Places.V1.Place.NeighborhoodSummary do
   field :disclosure_text, 4, type: Google.Type.LocalizedText, json_name: "disclosureText"
 end
 
+defmodule Google.Maps.Places.V1.Place.ConsumerAlert.Details.Link do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :title, 1, type: :string
+  field :uri, 2, type: :string
+end
+
+defmodule Google.Maps.Places.V1.Place.ConsumerAlert.Details do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :title, 1, type: :string
+  field :description, 2, type: :string
+
+  field :about_link, 3,
+    type: Google.Maps.Places.V1.Place.ConsumerAlert.Details.Link,
+    json_name: "aboutLink"
+end
+
+defmodule Google.Maps.Places.V1.Place.ConsumerAlert do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :overview, 1, type: :string
+  field :details, 2, type: Google.Maps.Places.V1.Place.ConsumerAlert.Details
+  field :language_code, 3, type: :string, json_name: "languageCode"
+end
+
 defmodule Google.Maps.Places.V1.Place do
   @moduledoc false
 
@@ -428,6 +460,10 @@ defmodule Google.Maps.Places.V1.Place do
     type: Google.Maps.Places.V1.Place.NeighborhoodSummary,
     json_name: "neighborhoodSummary"
 
-  field :moved_place, 93, type: :string, json_name: "movedPlace"
+  field :consumer_alert, 92,
+    type: Google.Maps.Places.V1.Place.ConsumerAlert,
+    json_name: "consumerAlert"
+
+  field :moved_place, 93, type: :string, json_name: "movedPlace", deprecated: false
   field :moved_place_id, 94, type: :string, json_name: "movedPlaceId"
 end

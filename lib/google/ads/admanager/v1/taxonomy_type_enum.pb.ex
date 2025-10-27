@@ -5,6 +5,7 @@ defmodule Google.Ads.Admanager.V1.TaxonomyTypeEnum.TaxonomyType do
 
   field :TAXONOMY_TYPE_UNSPECIFIED, 0
   field :TAXONOMY_IAB_AUDIENCE_1_1, 3
+  field :TAXONOMY_IAB_CONTENT_1_0, 8
   field :TAXONOMY_IAB_CONTENT_2_1, 4
   field :TAXONOMY_IAB_CONTENT_2_2, 6
   field :TAXONOMY_IAB_CONTENT_3_0, 5

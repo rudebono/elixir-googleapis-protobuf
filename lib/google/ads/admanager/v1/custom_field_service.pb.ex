@@ -33,6 +33,113 @@ defmodule Google.Ads.Admanager.V1.ListCustomFieldsResponse do
   field :total_size, 3, type: :int32, json_name: "totalSize"
 end
 
+defmodule Google.Ads.Admanager.V1.CreateCustomFieldRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :custom_field, 2,
+    type: Google.Ads.Admanager.V1.CustomField,
+    json_name: "customField",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchCreateCustomFieldsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.CreateCustomFieldRequest,
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchCreateCustomFieldsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :custom_fields, 1,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.CustomField,
+    json_name: "customFields"
+end
+
+defmodule Google.Ads.Admanager.V1.UpdateCustomFieldRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :custom_field, 1,
+    type: Google.Ads.Admanager.V1.CustomField,
+    json_name: "customField",
+    deprecated: false
+
+  field :update_mask, 2,
+    type: Google.Protobuf.FieldMask,
+    json_name: "updateMask",
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchUpdateCustomFieldsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+
+  field :requests, 2,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.UpdateCustomFieldRequest,
+    deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchUpdateCustomFieldsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :custom_fields, 1,
+    repeated: true,
+    type: Google.Ads.Admanager.V1.CustomField,
+    json_name: "customFields"
+end
+
+defmodule Google.Ads.Admanager.V1.BatchActivateCustomFieldsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 3, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchActivateCustomFieldsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
+defmodule Google.Ads.Admanager.V1.BatchDeactivateCustomFieldsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :names, 3, repeated: true, type: :string, deprecated: false
+end
+
+defmodule Google.Ads.Admanager.V1.BatchDeactivateCustomFieldsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+end
+
 defmodule Google.Ads.Admanager.V1.CustomFieldService.Service do
   @moduledoc false
 
@@ -47,6 +154,30 @@ defmodule Google.Ads.Admanager.V1.CustomFieldService.Service do
   rpc :ListCustomFields,
       Google.Ads.Admanager.V1.ListCustomFieldsRequest,
       Google.Ads.Admanager.V1.ListCustomFieldsResponse
+
+  rpc :CreateCustomField,
+      Google.Ads.Admanager.V1.CreateCustomFieldRequest,
+      Google.Ads.Admanager.V1.CustomField
+
+  rpc :BatchCreateCustomFields,
+      Google.Ads.Admanager.V1.BatchCreateCustomFieldsRequest,
+      Google.Ads.Admanager.V1.BatchCreateCustomFieldsResponse
+
+  rpc :UpdateCustomField,
+      Google.Ads.Admanager.V1.UpdateCustomFieldRequest,
+      Google.Ads.Admanager.V1.CustomField
+
+  rpc :BatchUpdateCustomFields,
+      Google.Ads.Admanager.V1.BatchUpdateCustomFieldsRequest,
+      Google.Ads.Admanager.V1.BatchUpdateCustomFieldsResponse
+
+  rpc :BatchActivateCustomFields,
+      Google.Ads.Admanager.V1.BatchActivateCustomFieldsRequest,
+      Google.Ads.Admanager.V1.BatchActivateCustomFieldsResponse
+
+  rpc :BatchDeactivateCustomFields,
+      Google.Ads.Admanager.V1.BatchDeactivateCustomFieldsRequest,
+      Google.Ads.Admanager.V1.BatchDeactivateCustomFieldsResponse
 end
 
 defmodule Google.Ads.Admanager.V1.CustomFieldService.Stub do

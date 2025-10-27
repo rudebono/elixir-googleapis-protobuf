@@ -135,6 +135,16 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionFe
     json_name: "enableQuerySuggestionOnly",
     deprecated: false
 
+  field :enable_response_debug_info, 18,
+    type: :bool,
+    json_name: "enableResponseDebugInfo",
+    deprecated: false
+
+  field :rai_settings, 19,
+    type: Google.Cloud.Dialogflow.V2beta1.RaiSettings,
+    json_name: "raiSettings",
+    deprecated: false
+
   field :suggestion_trigger_settings, 10,
     type: Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionTriggerSettings,
     json_name: "suggestionTriggerSettings"
@@ -168,6 +178,21 @@ defmodule Google.Cloud.Dialogflow.V2beta1.HumanAgentAssistantConfig.SuggestionCo
   field :disable_high_latency_features_sync_delivery, 5,
     type: :bool,
     json_name: "disableHighLatencyFeaturesSyncDelivery",
+    deprecated: false
+
+  field :skip_empty_event_based_suggestion, 6,
+    type: :bool,
+    json_name: "skipEmptyEventBasedSuggestion",
+    deprecated: false
+
+  field :use_unredacted_conversation_data, 8,
+    type: :bool,
+    json_name: "useUnredactedConversationData",
+    deprecated: false
+
+  field :enable_async_tool_call, 9,
+    type: :bool,
+    json_name: "enableAsyncToolCall",
     deprecated: false
 end
 

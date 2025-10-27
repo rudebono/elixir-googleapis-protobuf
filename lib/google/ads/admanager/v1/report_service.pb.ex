@@ -91,17 +91,17 @@ defmodule Google.Ads.Admanager.V1.FetchReportResultRowsResponse do
 
   use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
 
-  field :rows, 1, repeated: true, type: Google.Ads.Admanager.V1.Report.DataTable.Row
+  field :rows, 1, repeated: true, type: Google.Ads.Admanager.V1.ReportDataTable.Row
   field :run_time, 2, type: Google.Protobuf.Timestamp, json_name: "runTime"
 
   field :date_ranges, 3,
     repeated: true,
-    type: Google.Ads.Admanager.V1.Report.DateRange.FixedDateRange,
+    type: Google.Ads.Admanager.V1.ReportDefinition.DateRange.FixedDateRange,
     json_name: "dateRanges"
 
   field :comparison_date_ranges, 4,
     repeated: true,
-    type: Google.Ads.Admanager.V1.Report.DateRange.FixedDateRange,
+    type: Google.Ads.Admanager.V1.ReportDefinition.DateRange.FixedDateRange,
     json_name: "comparisonDateRanges"
 
   field :total_row_count, 5, type: :int32, json_name: "totalRowCount"
