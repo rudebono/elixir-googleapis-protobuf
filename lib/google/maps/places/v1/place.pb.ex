@@ -236,6 +236,7 @@ defmodule Google.Maps.Places.V1.Place.ReviewSummary do
   field :text, 1, type: Google.Type.LocalizedText
   field :flag_content_uri, 2, type: :string, json_name: "flagContentUri"
   field :disclosure_text, 3, type: Google.Type.LocalizedText, json_name: "disclosureText"
+  field :reviews_uri, 4, type: :string, json_name: "reviewsUri"
 end
 
 defmodule Google.Maps.Places.V1.Place.EvChargeAmenitySummary do
@@ -426,4 +427,7 @@ defmodule Google.Maps.Places.V1.Place do
   field :neighborhood_summary, 91,
     type: Google.Maps.Places.V1.Place.NeighborhoodSummary,
     json_name: "neighborhoodSummary"
+
+  field :moved_place, 93, type: :string, json_name: "movedPlace"
+  field :moved_place_id, 94, type: :string, json_name: "movedPlaceId"
 end
