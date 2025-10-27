@@ -3072,6 +3072,10 @@ defmodule Google.Container.V1beta1.ClusterUpdate do
   field :desired_network_tier_config, 155,
     type: Google.Container.V1beta1.NetworkTierConfig,
     json_name: "desiredNetworkTierConfig"
+
+  field :desired_secret_sync_config, 158,
+    type: Google.Container.V1beta1.SecretSyncConfig,
+    json_name: "desiredSecretSyncConfig"
 end
 
 defmodule Google.Container.V1beta1.AdditionalPodRangesConfig do
