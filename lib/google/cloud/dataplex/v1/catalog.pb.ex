@@ -20,6 +20,15 @@ defmodule Google.Cloud.Dataplex.V1.TransferStatus do
   field :TRANSFER_STATUS_TRANSFERRED, 2
 end
 
+defmodule Google.Cloud.Dataplex.V1.AspectType.DataClassification do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :DATA_CLASSIFICATION_UNSPECIFIED, 0
+  field :METADATA_AND_DATA, 1
+end
+
 defmodule Google.Cloud.Dataplex.V1.MetadataJob.Type do
   @moduledoc false
 
@@ -203,6 +212,12 @@ defmodule Google.Cloud.Dataplex.V1.AspectType do
     deprecated: false
 
   field :etag, 8, type: :string
+
+  field :data_classification, 9,
+    type: Google.Cloud.Dataplex.V1.AspectType.DataClassification,
+    json_name: "dataClassification",
+    enum: true,
+    deprecated: false
 
   field :authorization, 52,
     type: Google.Cloud.Dataplex.V1.AspectType.Authorization,
