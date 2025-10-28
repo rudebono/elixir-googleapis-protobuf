@@ -91,6 +91,13 @@ defmodule Google.Ads.Searchads360.V0.Errors.ErrorCode do
     enum: true,
     oneof: 0
 
+  field :conversion_custom_variable_error, 143,
+    type:
+      Google.Ads.Searchads360.V0.Errors.ConversionCustomVariableErrorEnum.ConversionCustomVariableError,
+    json_name: "conversionCustomVariableError",
+    enum: true,
+    oneof: 0
+
   field :header_error, 66,
     type: Google.Ads.Searchads360.V0.Errors.HeaderErrorEnum.HeaderError,
     json_name: "headerError",

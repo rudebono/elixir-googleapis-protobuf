@@ -42,12 +42,12 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable do
     json_name: "autoScaling",
     deprecated: false
 
-  field :enable_direct_bigtable_access, 2,
+  field :enable_direct_bigtable_access, 3,
     type: :bool,
     json_name: "enableDirectBigtableAccess",
     deprecated: false
 
-  field :bigtable_metadata, 3,
+  field :bigtable_metadata, 4,
     type: Google.Cloud.Aiplatform.V1.FeatureOnlineStore.Bigtable.BigtableMetadata,
     json_name: "bigtableMetadata",
     deprecated: false
