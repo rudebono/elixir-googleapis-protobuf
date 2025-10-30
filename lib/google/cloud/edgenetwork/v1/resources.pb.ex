@@ -11,6 +11,16 @@ defmodule Google.Cloud.Edgenetwork.V1.ResourceState do
   field :STATE_DELETING, 5
 end
 
+defmodule Google.Cloud.Edgenetwork.V1.RemotePeeringNetworkType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :REMOTE_PEERING_NETWORK_TYPE_UNSPECIFIED, 0
+  field :REMOTE_PEERING_NETWORK_TYPE_CUSTOMER_INTERNAL, 1
+  field :REMOTE_PEERING_NETWORK_TYPE_CUSTOMER_INTERNET, 2
+end
+
 defmodule Google.Cloud.Edgenetwork.V1.Subnet.BondingType do
   @moduledoc false
 
@@ -217,6 +227,12 @@ defmodule Google.Cloud.Edgenetwork.V1.Interconnect do
     type: :string,
     json_name: "physicalPorts",
     deprecated: false
+
+  field :remote_peering_network_type, 10,
+    type: Google.Cloud.Edgenetwork.V1.RemotePeeringNetworkType,
+    json_name: "remotePeeringNetworkType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgenetwork.V1.InterconnectAttachment.LabelsEntry do
@@ -256,6 +272,12 @@ defmodule Google.Cloud.Edgenetwork.V1.InterconnectAttachment do
   field :vlan_id, 8, type: :int32, json_name: "vlanId", deprecated: false
   field :mtu, 9, type: :int32
   field :state, 10, type: Google.Cloud.Edgenetwork.V1.ResourceState, enum: true, deprecated: false
+
+  field :peering_type, 12,
+    type: Google.Cloud.Edgenetwork.V1.RemotePeeringNetworkType,
+    json_name: "peeringType",
+    enum: true,
+    deprecated: false
 end
 
 defmodule Google.Cloud.Edgenetwork.V1.Router.Interface do
