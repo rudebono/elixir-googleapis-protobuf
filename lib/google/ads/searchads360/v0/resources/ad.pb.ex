@@ -8,6 +8,20 @@ defmodule Google.Ads.Searchads360.V0.Resources.Ad do
   field :resource_name, 37, type: :string, json_name: "resourceName", deprecated: false
   field :id, 40, proto3_optional: true, type: :int64, deprecated: false
   field :final_urls, 41, repeated: true, type: :string, json_name: "finalUrls"
+
+  field :final_app_urls, 35,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.FinalAppUrl,
+    json_name: "finalAppUrls"
+
+  field :final_mobile_urls, 42, repeated: true, type: :string, json_name: "finalMobileUrls"
+
+  field :tracking_url_template, 43,
+    proto3_optional: true,
+    type: :string,
+    json_name: "trackingUrlTemplate"
+
+  field :final_url_suffix, 44, proto3_optional: true, type: :string, json_name: "finalUrlSuffix"
   field :display_url, 45, proto3_optional: true, type: :string, json_name: "displayUrl"
 
   field :type, 5,

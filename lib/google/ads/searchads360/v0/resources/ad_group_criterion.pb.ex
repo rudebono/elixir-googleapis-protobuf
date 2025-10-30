@@ -83,6 +83,7 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     deprecated: false
 
   field :final_urls, 70, repeated: true, type: :string, json_name: "finalUrls"
+  field :final_mobile_urls, 71, repeated: true, type: :string, json_name: "finalMobileUrls"
 
   field :engine_status, 80,
     proto3_optional: true,
@@ -98,6 +99,11 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroupCriterion do
     proto3_optional: true,
     type: :string,
     json_name: "trackingUrlTemplate"
+
+  field :url_custom_parameters, 14,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.CustomParameter,
+    json_name: "urlCustomParameters"
 
   field :engine_id, 76, type: :string, json_name: "engineId", deprecated: false
   field :last_modified_time, 78, type: :string, json_name: "lastModifiedTime", deprecated: false
