@@ -253,6 +253,13 @@ defmodule Google.Ads.Searchads360.V0.Resources.Campaign do
     type: :bool,
     json_name: "urlExpansionOptOut"
 
+  field :feed_types, 103,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Enums.AssetSetTypeEnum.AssetSetType,
+    json_name: "feedTypes",
+    enum: true,
+    deprecated: false
+
   field :bidding_strategy, 67,
     type: :string,
     json_name: "biddingStrategy",

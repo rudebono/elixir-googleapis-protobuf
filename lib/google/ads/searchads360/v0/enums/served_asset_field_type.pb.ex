@@ -35,6 +35,7 @@ defmodule Google.Ads.Searchads360.V0.Enums.ServedAssetFieldTypeEnum.ServedAssetF
   field :AD_IMAGE, 29
   field :LEAD_FORM, 30
   field :BUSINESS_LOGO, 31
+  field :DESCRIPTION_PREFIX, 32
 end
 
 defmodule Google.Ads.Searchads360.V0.Enums.ServedAssetFieldTypeEnum do

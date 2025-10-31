@@ -239,7 +239,7 @@ defmodule Google.Cloud.Aiplatform.V1.FeatureView do
   field :satisfies_pzs, 19, type: :bool, json_name: "satisfiesPzs", deprecated: false
   field :satisfies_pzi, 20, type: :bool, json_name: "satisfiesPzi", deprecated: false
 
-  field :bigtable_metadata, 21,
+  field :bigtable_metadata, 22,
     type: Google.Cloud.Aiplatform.V1.FeatureView.BigtableMetadata,
     json_name: "bigtableMetadata",
     deprecated: false
