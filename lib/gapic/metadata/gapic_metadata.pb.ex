@@ -25,6 +25,8 @@ defmodule Google.Gapic.Metadata.GapicMetadata.ServiceForTransport do
     repeated: true,
     type: Google.Gapic.Metadata.GapicMetadata.ServiceForTransport.ClientsEntry,
     map: true
+
+  field :api_version, 2, type: :string, json_name: "apiVersion"
 end
 
 defmodule Google.Gapic.Metadata.GapicMetadata.ServiceAsClient.RpcsEntry do

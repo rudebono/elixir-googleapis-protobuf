@@ -45,8 +45,10 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :ARRIVE_AT_INSTANCE, 9
   field :ARRIVE_AT_INTERNAL_LOAD_BALANCER, 10
   field :ARRIVE_AT_EXTERNAL_LOAD_BALANCER, 11
+  field :ARRIVE_AT_HYBRID_SUBNET, 38
   field :ARRIVE_AT_VPN_GATEWAY, 12
   field :ARRIVE_AT_VPN_TUNNEL, 13
+  field :ARRIVE_AT_INTERCONNECT_ATTACHMENT, 37
   field :ARRIVE_AT_VPC_CONNECTOR, 24
   field :DIRECT_VPC_EGRESS_CONNECTION, 35
   field :SERVERLESS_EXTERNAL_CONNECTION, 36
@@ -57,6 +59,16 @@ defmodule Google.Cloud.Networkmanagement.V1.Step.State do
   field :FORWARD, 18
   field :ABORT, 19
   field :VIEWER_PERMISSION_MISSING, 20
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo.Status do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :STATUS_UNSPECIFIED, 0
+  field :RUNNING, 1
+  field :NOT_RUNNING, 2
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
@@ -74,6 +86,16 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType do
   field :UNSUPPORTED_FIREWALL_POLICY_RULE, 100
   field :TRACKING_STATE, 101
   field :ANALYSIS_SKIPPED, 102
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo.TargetType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TARGET_TYPE_UNSPECIFIED, 0
+  field :INSTANCES, 1
+  field :INTERNAL_MANAGED_LB, 2
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteType do
@@ -110,6 +132,7 @@ defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.NextHopType do
   field :NEXT_HOP_ILB, 10
   field :NEXT_HOP_ROUTER_APPLIANCE, 11
   field :NEXT_HOP_NCC_HUB, 12
+  field :SECURE_WEB_PROXY_GATEWAY, 13
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.RouteInfo.RouteScope do
@@ -182,6 +205,18 @@ defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo.RoutingType do
   field :DYNAMIC, 3
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.InterconnectAttachmentInfo.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :DEDICATED, 1
+  field :PARTNER, 2
+  field :PARTNER_PROVIDER, 3
+  field :L2_DEDICATED, 4
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   @moduledoc false
 
@@ -207,6 +242,19 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.Target do
   field :REDIS_CLUSTER, 17
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo.GoogleServiceType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :GOOGLE_SERVICE_TYPE_UNSPECIFIED, 0
+  field :IAP, 1
+  field :GFE_PROXY_OR_HEALTH_CHECK_PROBER, 2
+  field :CLOUD_DNS, 3
+  field :PRIVATE_GOOGLE_ACCESS, 4
+  field :SERVERLESS_VPC_ACCESS, 5
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
   @moduledoc false
 
@@ -222,6 +270,7 @@ defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo.Target do
   field :ANOTHER_PROJECT, 7
   field :NCC_HUB, 8
   field :ROUTER_APPLIANCE, 9
+  field :SECURE_WEB_PROXY_GATEWAY, 10
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
@@ -258,6 +307,7 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :FIREWALL_CONFIG_NOT_FOUND, 26
   field :ROUTE_CONFIG_NOT_FOUND, 27
   field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_PSC_ENDPOINT, 19
+  field :GOOGLE_MANAGED_SERVICE_AMBIGUOUS_ENDPOINT, 39
   field :SOURCE_PSC_CLOUD_SQL_UNSUPPORTED, 20
   field :SOURCE_REDIS_CLUSTER_UNSUPPORTED, 34
   field :SOURCE_REDIS_INSTANCE_UNSUPPORTED, 35
@@ -266,6 +316,7 @@ defmodule Google.Cloud.Networkmanagement.V1.AbortInfo.Cause do
   field :UNKNOWN_ISSUE_IN_GOOGLE_MANAGED_PROJECT, 30
   field :UNSUPPORTED_GOOGLE_MANAGED_PROJECT_CONFIG, 31
   field :NO_SERVERLESS_IP_RANGES, 37
+  field :IP_VERSION_PROTOCOL_MISMATCH, 40
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
@@ -288,6 +339,7 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :ROUTE_NEXT_HOP_VPN_TUNNEL_NOT_ESTABLISHED, 52
   field :ROUTE_NEXT_HOP_FORWARDING_RULE_TYPE_INVALID, 53
   field :NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS, 44
+  field :NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS, 98
   field :VPN_TUNNEL_LOCAL_SELECTOR_MISMATCH, 45
   field :VPN_TUNNEL_REMOTE_SELECTOR_MISMATCH, 46
   field :PRIVATE_TRAFFIC_TO_INTERNET, 7
@@ -361,6 +413,16 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo.Cause do
   field :PSC_PORT_MAPPING_PORT_MISMATCH, 86
   field :PSC_PORT_MAPPING_WITHOUT_PSC_CONNECTION_UNSUPPORTED, 87
   field :UNSUPPORTED_ROUTE_MATCHED_FOR_NAT64_DESTINATION, 88
+  field :TRAFFIC_FROM_HYBRID_ENDPOINT_TO_INTERNET_DISALLOWED, 89
+  field :NO_MATCHING_NAT64_GATEWAY, 90
+  field :LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH, 96
+  field :NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION, 97
+  field :CLOUD_NAT_PROTOCOL_UNSUPPORTED, 99
+  field :L2_INTERCONNECT_UNSUPPORTED_PROTOCOL, 100
+  field :L2_INTERCONNECT_UNSUPPORTED_PORT, 101
+  field :L2_INTERCONNECT_DESTINATION_IP_MISMATCH, 102
+  field :NCC_ROUTE_WITHIN_HYBRID_SUBNET_UNSUPPORTED, 104
+  field :HYBRID_SUBNET_REGION_MISMATCH, 105
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
@@ -373,6 +435,7 @@ defmodule Google.Cloud.Networkmanagement.V1.NatInfo.Type do
   field :EXTERNAL_TO_INTERNAL, 2
   field :CLOUD_NAT, 3
   field :PRIVATE_SERVICE_CONNECT, 4
+  field :GKE_POD_IP_MASQUERADING, 5
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackendInfo.HealthCheckFirewallsConfigState do
@@ -426,6 +489,11 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
     json_name: "forwardingRule",
     oneof: 0
 
+  field :hybrid_subnet, 36,
+    type: Google.Cloud.Networkmanagement.V1.HybridSubnetInfo,
+    json_name: "hybridSubnet",
+    oneof: 0
+
   field :vpn_gateway, 10,
     type: Google.Cloud.Networkmanagement.V1.VpnGatewayInfo,
     json_name: "vpnGateway",
@@ -434,6 +502,11 @@ defmodule Google.Cloud.Networkmanagement.V1.Step do
   field :vpn_tunnel, 11,
     type: Google.Cloud.Networkmanagement.V1.VpnTunnelInfo,
     json_name: "vpnTunnel",
+    oneof: 0
+
+  field :interconnect_attachment, 35,
+    type: Google.Cloud.Networkmanagement.V1.InterconnectAttachmentInfo,
+    json_name: "interconnectAttachment",
     oneof: 0
 
   field :vpc_connector, 21,
@@ -536,6 +609,8 @@ defmodule Google.Cloud.Networkmanagement.V1.InstanceInfo do
   field :network_tags, 7, repeated: true, type: :string, json_name: "networkTags"
   field :service_account, 8, type: :string, json_name: "serviceAccount", deprecated: true
   field :psc_network_attachment_uri, 9, type: :string, json_name: "pscNetworkAttachmentUri"
+  field :running, 10, type: :bool, deprecated: true
+  field :status, 11, type: Google.Cloud.Networkmanagement.V1.InstanceInfo.Status, enum: true
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.NetworkInfo do
@@ -574,6 +649,13 @@ defmodule Google.Cloud.Networkmanagement.V1.FirewallInfo do
   field :firewall_rule_type, 10,
     type: Google.Cloud.Networkmanagement.V1.FirewallInfo.FirewallRuleType,
     json_name: "firewallRuleType",
+    enum: true
+
+  field :policy_priority, 12, type: :int32, json_name: "policyPriority"
+
+  field :target_type, 13,
+    type: Google.Cloud.Networkmanagement.V1.FirewallInfo.TargetType,
+    json_name: "targetType",
     enum: true
 end
 
@@ -711,6 +793,16 @@ defmodule Google.Cloud.Networkmanagement.V1.LoadBalancerBackend do
     json_name: "healthCheckBlockingFirewallRules"
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.HybridSubnetInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :region, 3, type: :string
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.VpnGatewayInfo do
   @moduledoc false
 
@@ -744,6 +836,27 @@ defmodule Google.Cloud.Networkmanagement.V1.VpnTunnelInfo do
     enum: true
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.InterconnectAttachmentInfo do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :display_name, 1, type: :string, json_name: "displayName"
+  field :uri, 2, type: :string
+  field :interconnect_uri, 3, type: :string, json_name: "interconnectUri"
+  field :region, 4, type: :string
+  field :cloud_router_uri, 5, type: :string, json_name: "cloudRouterUri"
+
+  field :type, 6,
+    type: Google.Cloud.Networkmanagement.V1.InterconnectAttachmentInfo.Type,
+    enum: true
+
+  field :l2_attachment_matched_ip_address, 7,
+    type: :string,
+    json_name: "l2AttachmentMatchedIpAddress",
+    deprecated: false
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.EndpointInfo do
   @moduledoc false
 
@@ -769,6 +882,11 @@ defmodule Google.Cloud.Networkmanagement.V1.DeliverInfo do
   field :ip_address, 3, type: :string, json_name: "ipAddress", deprecated: false
   field :storage_bucket, 4, type: :string, json_name: "storageBucket"
   field :psc_google_api_target, 5, type: :string, json_name: "pscGoogleApiTarget"
+
+  field :google_service_type, 6,
+    type: Google.Cloud.Networkmanagement.V1.DeliverInfo.GoogleServiceType,
+    json_name: "googleServiceType",
+    enum: true
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.ForwardInfo do
@@ -806,6 +924,8 @@ defmodule Google.Cloud.Networkmanagement.V1.DropInfo do
   field :source_ip, 3, type: :string, json_name: "sourceIp"
   field :destination_ip, 4, type: :string, json_name: "destinationIp"
   field :region, 5, type: :string
+  field :source_geolocation_code, 6, type: :string, json_name: "sourceGeolocationCode"
+  field :destination_geolocation_code, 7, type: :string, json_name: "destinationGeolocationCode"
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.GKEMasterInfo do

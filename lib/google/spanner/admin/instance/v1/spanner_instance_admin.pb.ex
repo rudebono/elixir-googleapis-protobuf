@@ -608,6 +608,11 @@ defmodule Google.Spanner.Admin.Instance.V1.InstancePartition do
   field :node_count, 5, type: :int32, json_name: "nodeCount", oneof: 0
   field :processing_units, 6, type: :int32, json_name: "processingUnits", oneof: 0
 
+  field :autoscaling_config, 13,
+    type: Google.Spanner.Admin.Instance.V1.AutoscalingConfig,
+    json_name: "autoscalingConfig",
+    deprecated: false
+
   field :state, 7,
     type: Google.Spanner.Admin.Instance.V1.InstancePartition.State,
     enum: true,
