@@ -65,6 +65,8 @@ defmodule Google.Cloud.Sql.V1.SqlDatabaseVersion do
   field :POSTGRES_14, 110
   field :POSTGRES_15, 172
   field :POSTGRES_16, 272
+  field :POSTGRES_17, 408
+  field :POSTGRES_18, 557
   field :MYSQL_8_0, 20
   field :MYSQL_8_0_18, 41
   field :MYSQL_8_0_26, 85

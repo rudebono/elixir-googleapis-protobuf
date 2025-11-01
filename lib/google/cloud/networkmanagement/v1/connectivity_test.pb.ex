@@ -233,6 +233,29 @@ defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails.EdgeLocation do
   field :metropolitan_area, 1, type: :string, json_name: "metropolitanArea"
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails.SingleEdgeResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :result, 1,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.ProbingResult,
+    enum: true
+
+  field :sent_probe_count, 2, type: :int32, json_name: "sentProbeCount"
+  field :successful_probe_count, 3, type: :int32, json_name: "successfulProbeCount"
+
+  field :probing_latency, 4,
+    type: Google.Cloud.Networkmanagement.V1.LatencyDistribution,
+    json_name: "probingLatency"
+
+  field :destination_egress_location, 5,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.EdgeLocation,
+    json_name: "destinationEgressLocation"
+
+  field :destination_router, 6, type: :string, json_name: "destinationRouter"
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails do
   @moduledoc false
 
@@ -264,4 +287,11 @@ defmodule Google.Cloud.Networkmanagement.V1.ProbingDetails do
   field :destination_egress_location, 9,
     type: Google.Cloud.Networkmanagement.V1.ProbingDetails.EdgeLocation,
     json_name: "destinationEgressLocation"
+
+  field :edge_responses, 10,
+    repeated: true,
+    type: Google.Cloud.Networkmanagement.V1.ProbingDetails.SingleEdgeResponse,
+    json_name: "edgeResponses"
+
+  field :probed_all_devices, 11, type: :bool, json_name: "probedAllDevices"
 end

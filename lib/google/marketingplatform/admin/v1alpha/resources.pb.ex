@@ -8,6 +8,27 @@ defmodule Google.Marketingplatform.Admin.V1alpha.LinkVerificationState do
   field :LINK_VERIFICATION_STATE_NOT_VERIFIED, 2
 end
 
+defmodule Google.Marketingplatform.Admin.V1alpha.AnalyticsServiceLevel do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ANALYTICS_SERVICE_LEVEL_UNSPECIFIED, 0
+  field :ANALYTICS_SERVICE_LEVEL_STANDARD, 1
+  field :ANALYTICS_SERVICE_LEVEL_360, 2
+end
+
+defmodule Google.Marketingplatform.Admin.V1alpha.AnalyticsPropertyType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :ANALYTICS_PROPERTY_TYPE_UNSPECIFIED, 0
+  field :ANALYTICS_PROPERTY_TYPE_ORDINARY, 1
+  field :ANALYTICS_PROPERTY_TYPE_SUBPROPERTY, 2
+  field :ANALYTICS_PROPERTY_TYPE_ROLLUP, 3
+end
+
 defmodule Google.Marketingplatform.Admin.V1alpha.Organization do
   @moduledoc false
 

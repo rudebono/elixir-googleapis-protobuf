@@ -74,6 +74,57 @@ defmodule Google.Cloud.Networkmanagement.V1.DeleteVpcFlowLogsConfigRequest do
   field :name, 1, type: :string, deprecated: false
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.QueryOrgVpcFlowLogsConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :page_size, 2, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 3, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 4, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.QueryOrgVpcFlowLogsConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :vpc_flow_logs_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig,
+    json_name: "vpcFlowLogsConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ShowEffectiveFlowLogsConfigsRequest do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :parent, 1, type: :string, deprecated: false
+  field :resource, 2, type: :string, deprecated: false
+  field :page_size, 3, type: :int32, json_name: "pageSize", deprecated: false
+  field :page_token, 4, type: :string, json_name: "pageToken", deprecated: false
+  field :filter, 5, type: :string, deprecated: false
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.ShowEffectiveFlowLogsConfigsResponse do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :effective_flow_logs_configs, 1,
+    repeated: true,
+    type: Google.Cloud.Networkmanagement.V1.EffectiveVpcFlowLogsConfig,
+    json_name: "effectiveFlowLogsConfigs"
+
+  field :next_page_token, 2, type: :string, json_name: "nextPageToken"
+  field :unreachable, 3, repeated: true, type: :string
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsService.Service do
   @moduledoc false
 
@@ -100,10 +151,52 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsService.Service do
   rpc :DeleteVpcFlowLogsConfig,
       Google.Cloud.Networkmanagement.V1.DeleteVpcFlowLogsConfigRequest,
       Google.Longrunning.Operation
+
+  rpc :QueryOrgVpcFlowLogsConfigs,
+      Google.Cloud.Networkmanagement.V1.QueryOrgVpcFlowLogsConfigsRequest,
+      Google.Cloud.Networkmanagement.V1.QueryOrgVpcFlowLogsConfigsResponse
+
+  rpc :ShowEffectiveFlowLogsConfigs,
+      Google.Cloud.Networkmanagement.V1.ShowEffectiveFlowLogsConfigsRequest,
+      Google.Cloud.Networkmanagement.V1.ShowEffectiveFlowLogsConfigsResponse
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsService.Stub do
   @moduledoc false
 
   use GRPC.Stub, service: Google.Cloud.Networkmanagement.V1.VpcFlowLogsService.Service
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.OrganizationVpcFlowLogsService.Service do
+  @moduledoc false
+
+  use GRPC.Service,
+    name: "google.cloud.networkmanagement.v1.OrganizationVpcFlowLogsService",
+    protoc_gen_elixir_version: "0.15.0"
+
+  rpc :ListVpcFlowLogsConfigs,
+      Google.Cloud.Networkmanagement.V1.ListVpcFlowLogsConfigsRequest,
+      Google.Cloud.Networkmanagement.V1.ListVpcFlowLogsConfigsResponse
+
+  rpc :GetVpcFlowLogsConfig,
+      Google.Cloud.Networkmanagement.V1.GetVpcFlowLogsConfigRequest,
+      Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig
+
+  rpc :CreateVpcFlowLogsConfig,
+      Google.Cloud.Networkmanagement.V1.CreateVpcFlowLogsConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :UpdateVpcFlowLogsConfig,
+      Google.Cloud.Networkmanagement.V1.UpdateVpcFlowLogsConfigRequest,
+      Google.Longrunning.Operation
+
+  rpc :DeleteVpcFlowLogsConfig,
+      Google.Cloud.Networkmanagement.V1.DeleteVpcFlowLogsConfigRequest,
+      Google.Longrunning.Operation
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.OrganizationVpcFlowLogsService.Stub do
+  @moduledoc false
+
+  use GRPC.Stub, service: Google.Cloud.Networkmanagement.V1.OrganizationVpcFlowLogsService.Service
 end

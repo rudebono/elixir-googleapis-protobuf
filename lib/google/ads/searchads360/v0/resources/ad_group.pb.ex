@@ -21,6 +21,11 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroup do
     json_name: "adRotationMode",
     enum: true
 
+  field :tracking_url_template, 37,
+    proto3_optional: true,
+    type: :string,
+    json_name: "trackingUrlTemplate"
+
   field :cpc_bid_micros, 39, proto3_optional: true, type: :int64, json_name: "cpcBidMicros"
   field :creation_time, 60, type: :string, json_name: "creationTime", deprecated: false
 
@@ -30,6 +35,8 @@ defmodule Google.Ads.Searchads360.V0.Resources.AdGroup do
     json_name: "engineStatus",
     enum: true,
     deprecated: false
+
+  field :final_url_suffix, 46, proto3_optional: true, type: :string, json_name: "finalUrlSuffix"
 
   field :targeting_setting, 25,
     type: Google.Ads.Searchads360.V0.Common.TargetingSetting,
