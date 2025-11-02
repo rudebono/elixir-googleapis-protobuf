@@ -33,6 +33,16 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.Metadata do
   field :CUSTOM_METADATA, 3
 end
 
+defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.CrossProjectMetadata do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :CROSS_PROJECT_METADATA_UNSPECIFIED, 0
+  field :CROSS_PROJECT_METADATA_ENABLED, 1
+  field :CROSS_PROJECT_METADATA_DISABLED, 2
+end
+
 defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.TargetResourceState do
   @moduledoc false
 
@@ -41,6 +51,20 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.TargetResourceStat
   field :TARGET_RESOURCE_STATE_UNSPECIFIED, 0
   field :TARGET_RESOURCE_EXISTS, 1
   field :TARGET_RESOURCE_DOES_NOT_EXIST, 2
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.EffectiveVpcFlowLogsConfig.Scope do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :SCOPE_UNSPECIFIED, 0
+  field :SUBNET, 1
+  field :COMPUTE_API_SUBNET, 2
+  field :NETWORK, 3
+  field :VPN_TUNNEL, 4
+  field :INTERCONNECT_ATTACHMENT, 5
+  field :ORGANIZATION, 6
 end
 
 defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.LabelsEntry do
@@ -99,12 +123,22 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig do
     json_name: "filterExpr",
     deprecated: false
 
+  field :cross_project_metadata, 13,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.CrossProjectMetadata,
+    json_name: "crossProjectMetadata",
+    enum: true,
+    deprecated: false
+
   field :target_resource_state, 12,
     proto3_optional: true,
     type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.TargetResourceState,
     json_name: "targetResourceState",
     enum: true,
     deprecated: false
+
+  field :network, 100, type: :string, oneof: 0
+  field :subnet, 101, type: :string, oneof: 0
 
   field :interconnect_attachment, 102,
     type: :string,
@@ -128,4 +162,56 @@ defmodule Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig do
     type: Google.Protobuf.Timestamp,
     json_name: "updateTime",
     deprecated: false
+end
+
+defmodule Google.Cloud.Networkmanagement.V1.EffectiveVpcFlowLogsConfig do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  oneof :target_resource, 0
+
+  field :name, 1, type: :string
+
+  field :state, 3,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.State,
+    enum: true
+
+  field :aggregation_interval, 4,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.AggregationInterval,
+    json_name: "aggregationInterval",
+    enum: true
+
+  field :flow_sampling, 5, proto3_optional: true, type: :float, json_name: "flowSampling"
+
+  field :metadata, 6,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.Metadata,
+    enum: true
+
+  field :metadata_fields, 7, repeated: true, type: :string, json_name: "metadataFields"
+  field :filter_expr, 8, proto3_optional: true, type: :string, json_name: "filterExpr"
+
+  field :cross_project_metadata, 13,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.VpcFlowLogsConfig.CrossProjectMetadata,
+    json_name: "crossProjectMetadata",
+    enum: true
+
+  field :network, 100, type: :string, oneof: 0
+  field :subnet, 101, type: :string, oneof: 0
+
+  field :interconnect_attachment, 102,
+    type: :string,
+    json_name: "interconnectAttachment",
+    oneof: 0
+
+  field :vpn_tunnel, 103, type: :string, json_name: "vpnTunnel", oneof: 0
+
+  field :scope, 12,
+    proto3_optional: true,
+    type: Google.Cloud.Networkmanagement.V1.EffectiveVpcFlowLogsConfig.Scope,
+    enum: true
 end

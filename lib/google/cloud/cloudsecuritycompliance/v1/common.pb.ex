@@ -1,3 +1,14 @@
+defmodule Google.Cloud.Cloudsecuritycompliance.V1.RegulatoryControlResponsibilityType do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :REGULATORY_CONTROL_RESPONSIBILITY_TYPE_UNSPECIFIED, 0
+  field :GOOGLE, 1
+  field :CUSTOMER, 2
+  field :SHARED, 3
+end
+
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.EnforcementMode do
   @moduledoc false
 
@@ -99,6 +110,16 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.Framework.FrameworkType do
   field :FRAMEWORK_TYPE_UNSPECIFIED, 0
   field :BUILT_IN, 1
   field :CUSTOM, 2
+end
+
+defmodule Google.Cloud.Cloudsecuritycompliance.V1.CloudControl.Type do
+  @moduledoc false
+
+  use Protobuf, enum: true, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :TYPE_UNSPECIFIED, 0
+  field :CUSTOM, 1
+  field :BUILT_IN, 2
 end
 
 defmodule Google.Cloud.Cloudsecuritycompliance.V1.ParameterSpec.ValueType do
@@ -485,4 +506,13 @@ defmodule Google.Cloud.Cloudsecuritycompliance.V1.OperationMetadata do
     deprecated: false
 
   field :api_version, 7, type: :string, json_name: "apiVersion", deprecated: false
+end
+
+defmodule Google.Cloud.Cloudsecuritycompliance.V1.ControlFamily do
+  @moduledoc false
+
+  use Protobuf, protoc_gen_elixir_version: "0.15.0", syntax: :proto3
+
+  field :family_id, 1, type: :string, json_name: "familyId"
+  field :display_name, 2, type: :string, json_name: "displayName"
 end
