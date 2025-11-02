@@ -58,11 +58,6 @@ defmodule Google.Shopping.Merchant.Datasources.V1.PrimaryProductDataSource do
     json_name: "defaultRule",
     deprecated: false
 
-  field :contains_custom_rules, 9,
-    type: :bool,
-    json_name: "containsCustomRules",
-    deprecated: false
-
   field :destinations, 10,
     repeated: true,
     type: Google.Shopping.Merchant.Datasources.V1.PrimaryProductDataSource.Destination,

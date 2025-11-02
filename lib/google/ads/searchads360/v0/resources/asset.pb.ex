@@ -15,11 +15,19 @@ defmodule Google.Ads.Searchads360.V0.Resources.Asset do
     deprecated: false
 
   field :final_urls, 14, repeated: true, type: :string, json_name: "finalUrls"
+  field :final_mobile_urls, 16, repeated: true, type: :string, json_name: "finalMobileUrls"
 
   field :tracking_url_template, 17,
     proto3_optional: true,
     type: :string,
     json_name: "trackingUrlTemplate"
+
+  field :url_custom_parameters, 18,
+    repeated: true,
+    type: Google.Ads.Searchads360.V0.Common.CustomParameter,
+    json_name: "urlCustomParameters"
+
+  field :final_url_suffix, 19, proto3_optional: true, type: :string, json_name: "finalUrlSuffix"
 
   field :status, 42,
     type: Google.Ads.Searchads360.V0.Enums.AssetStatusEnum.AssetStatus,
